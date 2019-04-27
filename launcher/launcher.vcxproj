@@ -109,8 +109,8 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>..\3rdparty\bin\;..\3rdparty\bin\$(Platform)\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\3rdparty\p4api\bin\$(Platform)\;..\3rdparty\bin\;..\3rdparty\bin\$(Platform)\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib;libclient.lib;librpc.lib;libsupp.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -120,8 +120,8 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>..\3rdparty\bin\;..\3rdparty\bin\$(Platform)\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\3rdparty\p4api\bin\$(Platform)\;..\3rdparty\bin\;..\3rdparty\bin\$(Platform)\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib;libclient.lib;librpc.lib;libsupp.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -131,8 +131,8 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>..\3rdparty\bin\;..\3rdparty\bin\$(Platform)\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\3rdparty\p4api\bin\$(Platform)\;..\3rdparty\bin\;..\3rdparty\bin\$(Platform)\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib;libclient.lib;librpc.lib;libsupp.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -142,7 +142,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>..\3rdparty\bin\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\3rdparty\p4api\bin\$(Platform)\;..\3rdparty\bin\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -153,7 +153,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|x64'">
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>..\3rdparty\bin\;..\3rdparty\bin\$(Platform)\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\3rdparty\p4api\bin\$(Platform)\;..\3rdparty\bin\;..\3rdparty\bin\$(Platform)\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -164,7 +164,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|x64'">
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>..\3rdparty\bin\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\3rdparty\p4api\bin\$(Platform)\;..\3rdparty\bin\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>

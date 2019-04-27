@@ -13,7 +13,10 @@ ipch/
 *.sdf
 *.suo
 *.cachefile
-.SPFileList
+*.SPFileList
+*.map
+*.ilk
+*.bsc
 
 # Visual C++ debug database
 *.pdb
@@ -32,6 +35,7 @@ ipch/
 !/bin/textclientdebug/
 
 # Build artefacts
+/MapServer/AutoGen/
 /3rdparty/bin/
 
 Win32/

@@ -149,9 +149,6 @@ static const char *p4v_exe_path = "C:\\Program Files\\Perforce\\p4v.exe";
 #pragma comment(lib, "Shlwapi.lib")
 
 #include "../../../3rdparty/p4api/include/p4/clientapi.h"
-#pragma comment(lib, "libclient.lib")
-#pragma comment(lib, "librpc.lib")
-#pragma comment(lib, "libsupp.lib")
 
 static ClientApi * client = NULL;
 static Error s_e;

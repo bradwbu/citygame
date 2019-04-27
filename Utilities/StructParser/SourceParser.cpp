@@ -14,10 +14,6 @@
 #include "libxml/xpath.h"
 #include <libxml/xpathInternals.h>
 
-#pragma comment(lib, "../../3rdparty/bin/iconv_a.lib")
-#pragma comment(lib, "../../3rdparty/bin/libxml2.lib")
-#pragma comment(lib, "../../3rdparty/bin/Win32/Release/zlibstat.lib")
-
 #define MAX_PROJECTS_ONE_SOLUTION 256
 
 #define MAX_WILDCARD_MAGIC_WORDS 16

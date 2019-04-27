@@ -87,8 +87,8 @@ PARSABLE
 6
 "Add_Auto_Cmds_dbserver" "autogen_magiccommands" 1 "" "" 
 "_dbserver_AutoRun_SPECIALINTERNAL" "_SPECIAL_INTERNAL" 0 "" "" 
-"autoStruct_fixup_MissionHeaderDescription" "D:\CoH\repotest\Source\dbserver\..\Common\MissionSearch.h" 1 "" "" 
-"autoStruct_fixup_MissionSearchGuestBio" "D:\CoH\repotest\Source\dbserver\..\Common\MissionSearch.h" 1 "" "" 
-"autoStruct_fixup_MissionSearchHeader" "D:\CoH\repotest\Source\dbserver\..\Common\MissionSearch.h" 1 "" "" 
-"autoStruct_fixup_MissionSearchParams" "D:\CoH\repotest\Source\dbserver\..\Common\MissionSearch.h" 1 "" "" 
+"autoStruct_fixup_MissionHeaderDescription" "D:\Ouroboros\Source\dbserver\..\Common\MissionSearch.h" 1 "" "" 
+"autoStruct_fixup_MissionSearchGuestBio" "D:\Ouroboros\Source\dbserver\..\Common\MissionSearch.h" 1 "" "" 
+"autoStruct_fixup_MissionSearchHeader" "D:\Ouroboros\Source\dbserver\..\Common\MissionSearch.h" 1 "" "" 
+"autoStruct_fixup_MissionSearchParams" "D:\Ouroboros\Source\dbserver\..\Common\MissionSearch.h" 1 "" "" 
 #endif
