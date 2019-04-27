@@ -1,11 +1,11 @@
--Small Compiling tutorial-
+# Quick Start Guide
+* Open **Source\3rdparty\cryptopp\cryptlib.sln** in Visual Studio 2010 and build all configurations
+* Open **Source\3rdparty\zlibsrc\zlibvc.sln** in Visual Studio 2010 and build all configurations
+* Open **Source\3rdparty\zeromq2-1\builds\msvc\ msvc.sln** in Visual Studio 2010 and build all configurations
+* Open **Source\Utilities\StructParser\StructParser.sln** in Visual Studio 2010 and build configuration Release
+* Open **Source\MasterSolution\MasterSolution.sln** and build dbserver, launcher and mapserver in any Win32 configuration you desire
 
-Open and compile 3rdparty\cryptopp\cryptlib2010.sln in all Win32 build configurations
+## Known issues actively being worked on
 
-Open and compile 3rdparty\zlibsrc\zlibvc2010.sln in all Win32 build configurations
-
-Open and compile 3rdparty\zeromq2-1\builds\msvc\msvc2010.sln in all Win32 build configurations
-
-Open and compile Utilities\StructParser2010\StructParser.sln in the Release Win32 build configuration
-
-Open MasterSolution2010.sln from the MasterSolution folder. To build the client, select Release Win32 as the build configuration then press F7. To build the Servers, select Opt Debug Win32 as the build configuration then press F7.
+1. 64 Bit versions are not supported due to missing 3rd-party library
+2. The game client doesn't start due to runtime library conflicts
