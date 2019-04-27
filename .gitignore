@@ -26,6 +26,9 @@ ipch/
 *.vsp
 *.vspx
 
+# Ignore generated source files
+AutoGen/
+
 # Assets installed by external means
 /bin/*/
 
@@ -35,7 +38,6 @@ ipch/
 !/bin/textclientdebug/
 
 # Build artefacts
-/MapServer/AutoGen/
 /3rdparty/bin/
 
 Win32/
