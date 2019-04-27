@@ -11,7 +11,9 @@ ipch/
 *.ncb
 *.opensdf
 *.sdf
+*.suo
 *.cachefile
+.SPFileList
 
 # Visual C++ debug database
 *.pdb
@@ -28,3 +30,10 @@ ipch/
 !/bin/beaconizer/
 !/bin/qt_plugins/
 !/bin/textclientdebug/
+
+# Build artefacts
+/3rdparty/bin/
+
+Win32/
+x64/
+

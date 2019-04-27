@@ -2,7 +2,7 @@
 
 //#ifed-out include to fool incredibuild dependencies
 #if 0
-#include "c:\game\code\CoH\MapServer\..\Common\MissionSearch.h"
+#include "D:\CoH\repotest\Source\MapServer\..\Common\MissionSearch.h"
 #endif
 
 

@@ -11,11 +11,6 @@ extern void autoStruct_fixup_MissionHeaderDescription(void);
 extern void autoStruct_fixup_MissionSearchGuestBio(void);
 extern void autoStruct_fixup_MissionSearchHeader(void);
 extern void autoStruct_fixup_MissionSearchParams(void);
-void doAutoRuns_UtilitiesLib_0(void);
-void doAutoRuns_UtilitiesLib_1(void);
-void doAutoRuns_UtilitiesLib_2(void);
-void doAutoRuns_UtilitiesLib_3(void);
-void doAutoRuns_UtilitiesLib_4(void);
 
 
 void doAutoRuns_dbserver_0(void)
@@ -23,7 +18,6 @@ void doAutoRuns_dbserver_0(void)
 	static int once = 0;
 	if (once) return;
 	once = 1;
-	doAutoRuns_UtilitiesLib_0();
 	_dbserver_AutoRun_SPECIALINTERNAL();
 }
 
@@ -34,7 +28,6 @@ void doAutoRuns_dbserver_1(void)
 	static int once = 0;
 	if (once) return;
 	once = 1;
-	doAutoRuns_UtilitiesLib_1();
 	Add_Auto_Cmds_dbserver();
 	autoStruct_fixup_MissionHeaderDescription();
 	autoStruct_fixup_MissionSearchGuestBio();
@@ -49,7 +42,6 @@ void doAutoRuns_dbserver_2(void)
 	static int once = 0;
 	if (once) return;
 	once = 1;
-	doAutoRuns_UtilitiesLib_2();
 }
 
 
@@ -59,7 +51,6 @@ void doAutoRuns_dbserver_3(void)
 	static int once = 0;
 	if (once) return;
 	once = 1;
-	doAutoRuns_UtilitiesLib_3();
 }
 
 
@@ -69,7 +60,6 @@ void doAutoRuns_dbserver_4(void)
 	static int once = 0;
 	if (once) return;
 	once = 1;
-	doAutoRuns_UtilitiesLib_4();
 }
 
 extern void utilitiesLibPreAutoRunStuff(void);
@@ -84,6 +74,11 @@ int MagicAutoRunFunc_dbserver(void)
 	return 0;
 }
 
+void do_auto_runs(void)
+{
+	MagicAutoRunFunc_dbserver();
+}
+
 };
 
 
@@ -92,8 +87,8 @@ PARSABLE
 6
 "Add_Auto_Cmds_dbserver" "autogen_magiccommands" 1 "" "" 
 "_dbserver_AutoRun_SPECIALINTERNAL" "_SPECIAL_INTERNAL" 0 "" "" 
-"autoStruct_fixup_MissionHeaderDescription" "c:\game\code\CoH\dbserver\..\Common\MissionSearch.h" 1 "" "" 
-"autoStruct_fixup_MissionSearchGuestBio" "c:\game\code\CoH\dbserver\..\Common\MissionSearch.h" 1 "" "" 
-"autoStruct_fixup_MissionSearchHeader" "c:\game\code\CoH\dbserver\..\Common\MissionSearch.h" 1 "" "" 
-"autoStruct_fixup_MissionSearchParams" "c:\game\code\CoH\dbserver\..\Common\MissionSearch.h" 1 "" "" 
+"autoStruct_fixup_MissionHeaderDescription" "D:\CoH\repotest\Source\dbserver\..\Common\MissionSearch.h" 1 "" "" 
+"autoStruct_fixup_MissionSearchGuestBio" "D:\CoH\repotest\Source\dbserver\..\Common\MissionSearch.h" 1 "" "" 
+"autoStruct_fixup_MissionSearchHeader" "D:\CoH\repotest\Source\dbserver\..\Common\MissionSearch.h" 1 "" "" 
+"autoStruct_fixup_MissionSearchParams" "D:\CoH\repotest\Source\dbserver\..\Common\MissionSearch.h" 1 "" "" 
 #endif

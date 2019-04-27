@@ -1,7 +1,7 @@
 #ifndef _STRUTILS_H_ 
 #define _STRUTILS_H_
 
-#include "stdio.h"
+#include <cstdio>
 
 // From "../../libs/UtilitiesLib/stdtypes.h"
 #if defined(_FULLDEBUG)
@@ -111,7 +111,7 @@ void ReplaceMacrosInPlace(char *pString, char *pMacros[][2]);
 
 void FixupBackslashedQuotes(char *pSourceString);
 
-char *GetFileNameWithoutDirectories(char *pSourceName);
+const char *GetFileNameWithoutDirectories(const char *pSourceName);
 void MakeStringAllAlphaNumAndUppercase(char *pString);
 void MakeStringAllAlphaNum(char *pString);
 

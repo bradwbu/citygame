@@ -434,7 +434,7 @@ static void loadConfigFiles()
 
 	if (write_templates)
 	{
-		playerCreatedStoryArc_GenerateData();
+		// playerCreatedStoryArc_GenerateData();
 		containerWriteTemplates(template_dir);
 		exit(0);
 	}

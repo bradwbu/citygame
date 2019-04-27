@@ -21,16 +21,6 @@ extern void autoStruct_fixup_MissionHeaderDescription(void);
 extern void autoStruct_fixup_MissionSearchGuestBio(void);
 extern void autoStruct_fixup_MissionSearchHeader(void);
 extern void autoStruct_fixup_MissionSearchParams(void);
-void doAutoRuns_UtilitiesLib_0(void);
-void doAutoRuns_UtilitiesLib_1(void);
-void doAutoRuns_UtilitiesLib_2(void);
-void doAutoRuns_UtilitiesLib_3(void);
-void doAutoRuns_UtilitiesLib_4(void);
-void doAutoRuns_AILib_0(void);
-void doAutoRuns_AILib_1(void);
-void doAutoRuns_AILib_2(void);
-void doAutoRuns_AILib_3(void);
-void doAutoRuns_AILib_4(void);
 
 
 void doAutoRuns_mapserver_0(void)
@@ -38,8 +28,6 @@ void doAutoRuns_mapserver_0(void)
 	static int once = 0;
 	if (once) return;
 	once = 1;
-	doAutoRuns_UtilitiesLib_0();
-	doAutoRuns_AILib_0();
 	_mapserver_AutoRun_SPECIALINTERNAL();
 }
 
@@ -50,8 +38,6 @@ void doAutoRuns_mapserver_1(void)
 	static int once = 0;
 	if (once) return;
 	once = 1;
-	doAutoRuns_UtilitiesLib_1();
-	doAutoRuns_AILib_1();
 	Add_Auto_Cmds_mapserver();
 	autoStruct_fixup_ArchitectMapComponent();
 	autoStruct_fixup_ArchitectMapComponentPlace();
@@ -76,8 +62,6 @@ void doAutoRuns_mapserver_2(void)
 	static int once = 0;
 	if (once) return;
 	once = 1;
-	doAutoRuns_UtilitiesLib_2();
-	doAutoRuns_AILib_2();
 }
 
 
@@ -87,8 +71,6 @@ void doAutoRuns_mapserver_3(void)
 	static int once = 0;
 	if (once) return;
 	once = 1;
-	doAutoRuns_UtilitiesLib_3();
-	doAutoRuns_AILib_3();
 }
 
 
@@ -98,8 +80,6 @@ void doAutoRuns_mapserver_4(void)
 	static int once = 0;
 	if (once) return;
 	once = 1;
-	doAutoRuns_UtilitiesLib_4();
-	doAutoRuns_AILib_4();
 }
 
 extern void utilitiesLibPreAutoRunStuff(void);
@@ -127,18 +107,18 @@ PARSABLE
 16
 "Add_Auto_Cmds_mapserver" "autogen_magiccommands" 1 "" "" 
 "_mapserver_AutoRun_SPECIALINTERNAL" "_SPECIAL_INTERNAL" 0 "" "" 
-"autoStruct_fixup_ArchitectMapComponent" "c:\game\code\CoH\MapServer\..\Common\group\groupMetaMinimap.h" 1 "" "" 
-"autoStruct_fixup_ArchitectMapComponentPlace" "c:\game\code\CoH\MapServer\..\Common\group\groupMetaMinimap.h" 1 "" "" 
-"autoStruct_fixup_ArchitectMapHeader" "c:\game\code\CoH\MapServer\..\Common\group\groupMetaMinimap.h" 1 "" "" 
-"autoStruct_fixup_ArchitectMapSubMap" "c:\game\code\CoH\MapServer\..\Common\group\groupMetaMinimap.h" 1 "" "" 
-"autoStruct_fixup_MMElement" "c:\game\code\CoH\MapServer\..\Common\storyarc\playerCreatedStoryarcValidate.h" 1 "" "" 
-"autoStruct_fixup_MMElementList" "c:\game\code\CoH\MapServer\..\Common\storyarc\playerCreatedStoryarcValidate.h" 1 "" "" 
-"autoStruct_fixup_MMRegion" "c:\game\code\CoH\MapServer\..\Common\storyarc\playerCreatedStoryarcValidate.h" 1 "" "" 
-"autoStruct_fixup_MMRegionButton" "c:\game\code\CoH\MapServer\..\Common\storyarc\playerCreatedStoryarcValidate.h" 1 "" "" 
-"autoStruct_fixup_MMScrollSet_Loader" "c:\game\code\CoH\MapServer\..\Common\storyarc\playerCreatedStoryarcValidate.h" 1 "" "" 
-"autoStruct_fixup_MapLimit" "c:\game\code\CoH\MapServer\..\Common\storyarc\playerCreatedStoryarcValidate.h" 1 "" "" 
-"autoStruct_fixup_MissionHeaderDescription" "c:\game\code\CoH\MapServer\..\Common\MissionSearch.h" 1 "" "" 
-"autoStruct_fixup_MissionSearchGuestBio" "c:\game\code\CoH\MapServer\..\Common\MissionSearch.h" 1 "" "" 
-"autoStruct_fixup_MissionSearchHeader" "c:\game\code\CoH\MapServer\..\Common\MissionSearch.h" 1 "" "" 
-"autoStruct_fixup_MissionSearchParams" "c:\game\code\CoH\MapServer\..\Common\MissionSearch.h" 1 "" "" 
+"autoStruct_fixup_ArchitectMapComponent" "D:\CoH\repotest\Source\MapServer\..\Common\group\groupMetaMinimap.h" 1 "" "" 
+"autoStruct_fixup_ArchitectMapComponentPlace" "D:\CoH\repotest\Source\MapServer\..\Common\group\groupMetaMinimap.h" 1 "" "" 
+"autoStruct_fixup_ArchitectMapHeader" "D:\CoH\repotest\Source\MapServer\..\Common\group\groupMetaMinimap.h" 1 "" "" 
+"autoStruct_fixup_ArchitectMapSubMap" "D:\CoH\repotest\Source\MapServer\..\Common\group\groupMetaMinimap.h" 1 "" "" 
+"autoStruct_fixup_MMElement" "D:\CoH\repotest\Source\MapServer\..\Common\storyarc\playerCreatedStoryarcValidate.h" 1 "" "" 
+"autoStruct_fixup_MMElementList" "D:\CoH\repotest\Source\MapServer\..\Common\storyarc\playerCreatedStoryarcValidate.h" 1 "" "" 
+"autoStruct_fixup_MMRegion" "D:\CoH\repotest\Source\MapServer\..\Common\storyarc\playerCreatedStoryarcValidate.h" 1 "" "" 
+"autoStruct_fixup_MMRegionButton" "D:\CoH\repotest\Source\MapServer\..\Common\storyarc\playerCreatedStoryarcValidate.h" 1 "" "" 
+"autoStruct_fixup_MMScrollSet_Loader" "D:\CoH\repotest\Source\MapServer\..\Common\storyarc\playerCreatedStoryarcValidate.h" 1 "" "" 
+"autoStruct_fixup_MapLimit" "D:\CoH\repotest\Source\MapServer\..\Common\storyarc\playerCreatedStoryarcValidate.h" 1 "" "" 
+"autoStruct_fixup_MissionHeaderDescription" "D:\CoH\repotest\Source\MapServer\..\Common\MissionSearch.h" 1 "" "" 
+"autoStruct_fixup_MissionSearchGuestBio" "D:\CoH\repotest\Source\MapServer\..\Common\MissionSearch.h" 1 "" "" 
+"autoStruct_fixup_MissionSearchHeader" "D:\CoH\repotest\Source\MapServer\..\Common\MissionSearch.h" 1 "" "" 
+"autoStruct_fixup_MissionSearchParams" "D:\CoH\repotest\Source\MapServer\..\Common\MissionSearch.h" 1 "" "" 
 #endif

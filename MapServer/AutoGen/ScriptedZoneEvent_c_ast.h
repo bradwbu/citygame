@@ -6,7 +6,7 @@
 
 //#ifed-out include to fool incredibuild dependencies
 #if 0
-#include "c:\game\code\CoH\MapServer\.\script\zoneevents\ScriptedZoneEvent.c"
+#include "D:\CoH\repotest\Source\MapServer\script\zoneevents\ScriptedZoneEvent.c"
 #endif
 
 

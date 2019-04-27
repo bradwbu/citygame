@@ -1,4 +1,4 @@
-#include "stdio.h"
+#include <cstdio>
 #include "string.h"
 #include "windows.h"
 #include "strutils.h"
@@ -220,9 +220,9 @@ void FixupBackslashedQuotes(char *pSourceString)
 
 
 
-char *GetFileNameWithoutDirectories(char *pSourceName)
+const char *GetFileNameWithoutDirectories(const char *pSourceName)
 {
-	char *pOutString = pSourceName + strlen(pSourceName);
+	const char *pOutString = pSourceName + strlen(pSourceName);
 
 	while (pOutString > pSourceName && !(*pOutString == '\\' || *pOutString == '/'))
 	{

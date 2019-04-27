@@ -2,7 +2,7 @@
 
 //#ifed-out include to fool incredibuild dependencies
 #if 0
-#include "c:\game\code\CoH\MapServer\..\Common\seq\bones.h"
+#include "D:\CoH\repotest\Source\MapServer\..\Common\seq\bones.h"
 #endif
 
 

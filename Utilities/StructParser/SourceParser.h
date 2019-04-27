@@ -11,6 +11,9 @@
 
 #include "utils.h"
 
+#include <vector>
+#include <string>
+
 #define MAX_BASE_SOURCE_PARSERS 8
 
 #define MAX_MAGIC_WORDS_PER_BASE_SOURCE_PARSER 12
@@ -139,6 +142,7 @@ private:
 	SourceParserVar *m_pFirstVar;
 
 private:
+	void AddProjectFiles(const std::vector<std::string> &attributes);
 	void ProcessProjectFile();
 	bool NeedToUpdateFile(char *pFileName, int iExtraData,  bool bForceUpdateUnlessFileDoesntExist);
 	void ScanSourceFile(char *pSourceFile);
@@ -157,11 +161,10 @@ private:
 	int FindProjectFileIndex(char *pFileName);
 	void DestroyLegacyMasterFiles(bool bBuildAll);
 	void MakeAutoGenDirectory();
-	void ProcessSolutionFile(bool bRecursivelyCallStructParser);
-	void CheckForRequiredFiles(char *pFileName);
+	void ProcessSolutionFile();
+	void CheckForRequiredFiles(const char *pFileName);
 	bool IsLibraryXBoxExcluded(char *pLibName);
 	bool DoMasterFilesExist();
-	void GetAdditionalStuffFromPropertySheets(char *pDirsAlreadyFound, char *pPropertySheetNames, char *pToolName, int iReservedWordToFind);
 	bool DidCleanBuildJustHappen();
 	void CleanOutAllAutoGenFiles();
 	bool IsQuickExitPossible();

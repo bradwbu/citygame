@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "stdio.h"
+#include <cstdio>
 #include "assert.h"
 #include "tokenizer.h"
 #include "structparser.h"
@@ -2914,7 +2914,7 @@ void StructParser::DumpStructInitFunc(FILE *pFile, STRUCT_DEF *pStruct)
 
 	fprintf(pFile, "\tstatic char once = 0;\n\tif (once) return 0;\n\tonce = 1;\n");
 
-	char *pFixedUpSourceFileName = GetFileNameWithoutDirectories(pStruct->sourceFileName);
+	const char *pFixedUpSourceFileName = GetFileNameWithoutDirectories(pStruct->sourceFileName);
 	while (*pFixedUpSourceFileName == '\\' || *pFixedUpSourceFileName == '/')
 	{
 		pFixedUpSourceFileName++;
@@ -4500,8 +4500,8 @@ void StructParser::WriteOutDataSingleFile(char *pFileName)
 	WriteHeaderFileEnd(pHeaderFile, pFileName);
 	fclose(pHeaderFile);
 
-	Tokenizer::StaticAssertf(MoveFileEx(tmpFileName, templateFileName, MOVEFILE_REPLACE_EXISTING), "Could not replace %s with %s", templateFileName, tmpFileName);
-	Tokenizer::StaticAssertf(MoveFileEx(tmpHeaderFileName, templateHeaderFileName, MOVEFILE_REPLACE_EXISTING), "Could not replace %s with %s", templateHeaderFileName, tmpHeaderFileName);
+	Tokenizer::StaticAssertf(MoveFileEx(tmpFileName, templateFileName, MOVEFILE_REPLACE_EXISTING) != 0, "Could not replace %s with %s", templateFileName, tmpFileName);
+	Tokenizer::StaticAssertf(MoveFileEx(tmpHeaderFileName, templateHeaderFileName, MOVEFILE_REPLACE_EXISTING) != 0, "Could not replace %s with %s", templateHeaderFileName, tmpHeaderFileName);
 }
 
 bool StructParser::StructHasWikiComments(STRUCT_DEF *pStruct)
@@ -4630,7 +4630,7 @@ void StructParser::FixupFieldName(STRUCT_FIELD_DESC *pField, bool bStripUndersco
 
 void StructParser::WriteHeaderFileStart(FILE *pFile, char *pSourceName)
 {
-	char *pShortenedFileName = GetFileNameWithoutDirectories(pSourceName);
+	const char *pShortenedFileName = GetFileNameWithoutDirectories(pSourceName);
 	char macroName[MAX_PATH];
 	sprintf(macroName, "_%s_AST_H_", pShortenedFileName);
 

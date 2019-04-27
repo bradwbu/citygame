@@ -2,7 +2,7 @@
 
 //#ifed-out include to fool incredibuild dependencies
 #if 0
-#include "c:\game\code\CoH\MapServer\..\Common\group\groupMetaMinimap.h"
+#include "D:\CoH\repotest\Source\MapServer\..\Common\group\groupMetaMinimap.h"
 #endif
 
 

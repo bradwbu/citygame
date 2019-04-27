@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "sourceparser.h"
 #include "strutils.h"
 
@@ -9,13 +10,17 @@
 #include "direct.h"
 #include "autoTestManager.h"
 #include "latelinkmanager.h"
+#include "FileWrapper.h"
+#include "libxml/xpath.h"
+#include <libxml/xpathInternals.h>
 
+#pragma comment(lib, "../../3rdparty/bin/iconv_a.lib")
+#pragma comment(lib, "../../3rdparty/bin/libxml2.lib")
+#pragma comment(lib, "../../3rdparty/bin/Win32/Release/zlibstat.lib")
 
 #define MAX_PROJECTS_ONE_SOLUTION 256
 
 #define MAX_WILDCARD_MAGIC_WORDS 16
-
-#define STRUCTPARSERSTUB_PROJ "StructParserStub"
 
 char sTime[] = __TIME__;
 
@@ -163,9 +168,6 @@ SourceParser::SourceParser()
 	m_FoundAutoGenFile1 = false;
 	m_bIsAnExecutable = false;
 
-	m_bProjectFileChanged = false;
-	m_bCleanBuildHappened = false;
-
 	m_pFirstVar = NULL;
 
 }
@@ -219,20 +221,18 @@ bool SourceParser::IsLibraryXBoxExcluded(char *pLibName)
 }
 
 
-void SourceParser::ProcessSolutionFile(bool bRecursivelyCallStructParser)
+void SourceParser::ProcessSolutionFile()
 {
 	Tokenizer tokenizer;
-	
+
 	int iNumProjects = 0;
 	char *pProjectNames[MAX_PROJECTS_ONE_SOLUTION];
 	char *pProjectIDStrings[MAX_PROJECTS_ONE_SOLUTION];
 	char *pProjectFullPaths[MAX_PROJECTS_ONE_SOLUTION];
 
 	bool bResult = tokenizer.LoadFromFile(m_SolutionPath);
-		
+
 	bool bFoundOurProject = false;
-	bool bFoundStubProj = false;
-	bool bDependsOnStubProj = false;
 
 	Tokenizer::StaticAssert(bResult, "Couldn't load solution file");
 
@@ -271,11 +271,6 @@ void SourceParser::ProcessSolutionFile(bool bRecursivelyCallStructParser)
 
 				pProjectNames[iNumProjects] = new char[token.iVal + 1];
 				strcpy(pProjectNames[iNumProjects], token.sVal);
-
-				if (strcmp(token.sVal, STRUCTPARSERSTUB_PROJ) == 0)
-				{
-					bFoundStubProj = true;
-				}
 
 				if (strcmp(token.sVal, m_ShortenedProjectFileName) == 0)
 				{
@@ -331,7 +326,7 @@ void SourceParser::ProcessSolutionFile(bool bRecursivelyCallStructParser)
 				if (token.eType == TOKEN_RESERVEDWORD && token.iVal == RW_LEFTBRACE)
 				{
 					char tempString[1024] = "{";
-					
+
 					tokenizer.SetDontParseInts(true);
 
 					do
@@ -363,20 +358,13 @@ void SourceParser::ProcessSolutionFile(bool bRecursivelyCallStructParser)
 					{
 						if (strcmp(tempString, pProjectIDStrings[i]) == 0)
 						{
-							if (strcmp(pProjectNames[i], STRUCTPARSERSTUB_PROJ) != 0)
-							{
-								tokenizer.Assert(m_iNumDependentLibraries < MAX_DEPENDENT_LIBRARIES, "too many dependent libraries");
-								strcpy(m_DependentLibraryNames[m_iNumDependentLibraries], pProjectNames[i]);
-								strcpy(m_DependentLibraryFullPaths[m_iNumDependentLibraries], pProjectFullPaths[i]);
-								m_bExcludeLibrariesFromXBOX[m_iNumDependentLibraries] = IsLibraryXBoxExcluded(pProjectNames[i]);
-								
-								
-								m_iNumDependentLibraries++;
-							}
-							else
-							{
-								bDependsOnStubProj = true;
-							}
+							tokenizer.Assert(m_iNumDependentLibraries < MAX_DEPENDENT_LIBRARIES, "too many dependent libraries");
+							strcpy(m_DependentLibraryNames[m_iNumDependentLibraries], pProjectNames[i]);
+							strcpy(m_DependentLibraryFullPaths[m_iNumDependentLibraries], pProjectFullPaths[i]);
+							m_bExcludeLibrariesFromXBOX[m_iNumDependentLibraries] = IsLibraryXBoxExcluded(pProjectNames[i]);
+
+
+							m_iNumDependentLibraries++;
 							break;
 						}
 					}
@@ -395,100 +383,10 @@ void SourceParser::ProcessSolutionFile(bool bRecursivelyCallStructParser)
 		}
 	} while (1);
 
-	if (bRecursivelyCallStructParser)
-	{
-		int i;
-
-		char solutionDirectory[MAX_PATH];
-		strcpy(solutionDirectory, m_SolutionPath);
-		int iSolutionLength = (int)strlen(solutionDirectory);
-		while (solutionDirectory[iSolutionLength - 1] != '\\' && solutionDirectory[iSolutionLength - 1] != '/')
-		{
-			solutionDirectory[iSolutionLength - 1] = 0;
-			iSolutionLength--;
-		}
-
-		
-		for (i=0; i < iNumProjects; i++)
-		{
-			if (_stricmp(pProjectNames[i], m_ShortenedProjectFileName) != 0)
-			{
-				char tempString1[1024];
-				char tempString2[1024];
-				sprintf(tempString1, "%s.%s|%s.Build.0 = ", 
-					pProjectIDStrings[i], m_pCurConfiguration, m_pCurTarget);
-				sprintf(tempString2, "%s.%s|%s.ActiveCfg = ", 
-					pProjectIDStrings[i], m_pCurConfiguration, m_pCurTarget);
-
-				if ((tokenizer.SetReadHeadAfterString(tempString1) || tokenizer.SetReadHeadAfterString(tempString2)) &&
-					!(IsLibraryXBoxExcluded(pProjectNames[i]) && strstr(m_pCurTarget, "Xbox")) )
-				{
-					char configToUse[128];
-					char platformToUse[128];
-
-					char fullPath[MAX_PATH];
-
-					char *pReadHead = tokenizer.GetReadHead();
-					char *pFirstBar = strchr(pReadHead, '|');
-
-
-					tokenizer.Assert(pFirstBar != NULL, "Couldn't find | while looking for config|platform");
-					
-					tokenizer.Assert(pFirstBar - pReadHead < 128, "Overflow while looking for config|platform");
-					
-					strncpy(configToUse, pReadHead, pFirstBar - pReadHead);
-					configToUse[pFirstBar - pReadHead] = 0;
-
-					char *pFirstNewLine = strchr(pFirstBar, '\n');
-
-					tokenizer.Assert(pFirstNewLine != NULL, "Couldn't find \\n while looking for config|platform");
-					tokenizer.Assert(pFirstNewLine - pFirstBar < 128, "Overflow while looking for config|platform");
-
-					strncpy(platformToUse, pFirstBar + 1, pFirstNewLine - pFirstBar - 1);
-					platformToUse[pFirstNewLine - pFirstBar - 2] = 0;
-
-					assembleFilePath(fullPath, solutionDirectory, pProjectFullPaths[i]);
-
-					int iFullPathLen = (int)strlen(fullPath);
-					while (fullPath[iFullPathLen - 1] != '\\' && fullPath[iFullPathLen - 1] != '/')
-					{
-						fullPath[iFullPathLen - 1] = 0;
-						iFullPathLen--;
-					}
-
-					char projectName[256];
-					sprintf(projectName, "%s.vcproj", pProjectNames[i]);
-
-					SourceParser *pRecurseParser = new SourceParser;
-
-					_chdir(fullPath);
-
-					printf("About to recursively call: %s X %s X %s X %s X %s X %s X %s\n",
-						m_Executable, fullPath, projectName, platformToUse, configToUse, m_pCurVCDir, m_SolutionPath);
-
-					pRecurseParser->ParseSource(fullPath, projectName, platformToUse, configToUse, m_pCurVCDir, m_SolutionPath, m_Executable);
-
-					delete pRecurseParser;
-				}
-			}
-		}
-
-		ProcessProjectFile();
-	}
-	else
-	{
-		if (bFoundStubProj && !bDependsOnStubProj)
-		{
-			char errorString[1024];
-			sprintf(errorString, "StructParserStub project exists, but project %s doesn't depend on it", m_ShortenedProjectFileName);
-			Tokenizer::StaticAssert(0, errorString);
-		}
-	}
-
 
 
 	int i;
-	
+
 	for (i=0; i < iNumProjects; i++)
 	{
 		delete [] pProjectNames[i];
@@ -497,9 +395,9 @@ void SourceParser::ProcessSolutionFile(bool bRecursivelyCallStructParser)
 	}
 }
 
-void SourceParser::CheckForRequiredFiles(char *pFileName)
+void SourceParser::CheckForRequiredFiles(const char *pFileName)
 {
-	char *pShortName = GetFileNameWithoutDirectories(pFileName);
+	const char *pShortName = GetFileNameWithoutDirectories(pFileName);
 
 	while (pShortName[0] == '\\' || pShortName[0] == '/')
 	{
@@ -516,11 +414,92 @@ void SourceParser::CheckForRequiredFiles(char *pFileName)
 	}
 }
 
-void SourceParser::GetAdditionalStuffFromPropertySheets(char *pDirsAlreadyFound, char *pPropertySheetNames, char *pToolName, int iReservedWordToFind)
+
+#define MAX_PROJECTS_ONE_SOLUTION 256
+
+static bool register_namespaces(xmlXPathContextPtr xpathCtx, const xmlChar* nsList)
+{
+	xmlChar* nsListDup;
+	xmlChar* prefix;
+	xmlChar* href;
+	xmlChar* next;
+
+	assert(xpathCtx);
+	assert(nsList);
+
+	nsListDup = xmlStrdup(nsList);
+	if(nsListDup == NULL) {
+		return false;	
+	}
+
+	next = nsListDup; 
+	while(next != NULL) {
+		/* skip spaces */
+		while((*next) == ' ') next++;
+		if((*next) == '\0') break;
+
+		/* find prefix */
+		prefix = next;
+		next = (xmlChar*)xmlStrchr(next, '=');
+		if(next == NULL) {
+			xmlFree(nsListDup);
+			return false;
+		}
+		*(next++) = '\0';	
+
+		/* find href */
+		href = next;
+		next = (xmlChar*)xmlStrchr(next, ' ');
+		if(next != NULL) {
+			*(next++) = '\0';	
+		}
+
+		/* do register namespace */
+		if(xmlXPathRegisterNs(xpathCtx, prefix, href) != 0) {
+			xmlFree(nsListDup);
+			return false;
+		}
+	}
+
+	xmlFree(nsListDup);
+	return true;
+}
+
+static std::vector<std::string> get_xpath_nodes_attributes(xmlDocPtr doc, xmlXPathContextPtr xpathCtx, std::string expression)
+{
+	xmlXPathObjectPtr xpathObj = xmlXPathEvalExpression(BAD_CAST expression.c_str(), xpathCtx);
+	xmlNodeSetPtr nodes = xpathObj->nodesetval;
+	int size = nodes ? nodes->nodeNr : 0;
+	std::vector<std::string> attributes;
+	for (int i = 0; i < size; ++i)
+	{
+		attributes.push_back((const char*)nodes->nodeTab[i]->children[0].content);
+	}
+	
+	xmlXPathFreeObject(xpathObj);
+	return attributes;
+}
+
+static std::string get_xpath_nodes_inner_text(xmlDocPtr doc, xmlXPathContextPtr xpathCtx, std::string expression)
+{
+	xmlXPathObjectPtr xpathObj = xmlXPathEvalExpression(BAD_CAST expression.c_str(), xpathCtx);
+	xmlNodeSetPtr nodes = xpathObj->nodesetval;
+	int size = nodes ? nodes->nodeNr : 0;
+	std::string inner_text;
+	for (int i = 0; i < size; ++i)
+	{
+		inner_text += (const char*)nodes->nodeTab[i]->children[0].content;
+	}
+	
+	xmlXPathFreeObject(xpathObj);
+	return inner_text;
+}
+
+static void GetAdditionalStuffFromPropertySheets(char *objectFileDir, char *pPropertySheetNames, const char *propertyGroup)
 {
 	char *pTemp;
 
-	if ((pTemp = strstr(pDirsAlreadyFound, "$(NOINHERIT)")))
+	if ((pTemp = strstr(objectFileDir, "$(NOINHERIT)")))
 	{
 		*pTemp = 0;
 		return;
@@ -545,313 +524,149 @@ void SourceParser::GetAdditionalStuffFromPropertySheets(char *pDirsAlreadyFound,
 			pPropertySheetNames = NULL;
 		}
 
-		if (strstr(fileName, "UpgradeFromVC71.vsprops"))
+		std::string expression = "/ms:Project/ms:PropertyGroup/ms:";
+		expression += propertyGroup;
+		
+		xmlDocPtr doc = xmlParseFile(fileName);
+		Tokenizer::StaticAssert(doc != NULL, "Couldn't load doc.");
+		xmlXPathContextPtr xpathCtx = xmlXPathNewContext(doc);
+		Tokenizer::StaticAssert(xpathCtx != NULL, "Couldn't load doc context.");
+		Tokenizer::StaticAssert(register_namespaces(xpathCtx, BAD_CAST "ms=http://schemas.microsoft.com/developer/msbuild/2003"), "Couldn't register namespace.");
+		std::string test = get_xpath_nodes_inner_text(doc, xpathCtx, expression).c_str();
+		if (test.size())
 		{
-			continue;
+			strcpy(objectFileDir, test.c_str());
 		}
 
-		Tokenizer tokenizer;
-		tokenizer.LoadFromFile(fileName);
-		tokenizer.SetExtraReservedWords(sProjectReservedWords);
-		
-		Token token;
-		enumTokenType eType;
-	
-		bool bDone = false;
-
-		do
-		{
-			eType = tokenizer.GetNextToken(&token);
-
-			if (eType == TOKEN_NONE)
-			{
-				break;
-			}
-
-			if (pToolName	? eType == TOKEN_STRING && strcmp(token.sVal, pToolName) == 0
-							: eType == TOKEN_IDENTIFIER && strcmp(token.sVal, "VisualStudioPropertySheet") == 0 )
-			{
-				do
-				{
-					eType = tokenizer.GetNextToken(&token);
-					if (eType == TOKEN_NONE)
-					{
-						bDone = true;
-						break;
-					}
-
-					if (eType == TOKEN_RESERVEDWORD && token.iVal == iReservedWordToFind)
-					{
-						tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_RESERVEDWORD, RW_EQUALS, "Expected = ");
-						tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_STRING, 0, "Expected string");
-
-						if(pDirsAlreadyFound[0])
-							strcat(pDirsAlreadyFound, ";");
-						strcat(pDirsAlreadyFound, token.sVal);
-						bDone = true;
-						break;
-					}
-
-					if (eType == TOKEN_RESERVEDWORD && token.iVal == RW_GT)
-					{
-						bDone = true;
-						break;
-					}
-				} while (true);
-			}
-
-		} while (!bDone);
-
+		xmlXPathFreeContext(xpathCtx);
+		xmlFreeDoc(doc);
 	}
 }
 
+void SourceParser::AddProjectFiles(const std::vector<std::string> &attributes)
+{
+	for (std::vector<std::string>::const_iterator iter = attributes.begin() ; iter != attributes.end(); ++iter)
+	{
+		const char* file = (*iter).c_str();
+		
+		//check for the two autogen files that are supposed to be included
+		CheckForRequiredFiles(file);
 
+		int len = (int)strlen(file);	
 
+		if ((len >= 3 && file[len - 2] == '.' && (file[len - 1] == 'h' || file[len - 1] == 'c')))
+		{
+			char sourceFileName[256];
+			sprintf(sourceFileName, "%s\\%s", m_ProjectPath, file);
 
-#define MAX_PROJECTS_ONE_SOLUTION 256
+			Tokenizer::StaticAssert(m_iNumProjectFiles < MAX_FILES_IN_PROJECT, "Too many files in project");
+
+			if (!ShouldFileBeExcluded(sourceFileName))
+			{
+				strcpy(m_ProjectFiles[m_iNumProjectFiles++], sourceFileName);
+			}
+		}
+	}
+}
 
 void SourceParser::ProcessProjectFile()
 {
-	char fullConfigName[100];
 	char propertySheetNames[512] = "";
 
+	xmlInitParser();
 
-	Tokenizer tokenizer;
+	/* Load XML document */
+	xmlDocPtr doc = xmlParseFile(m_FullProjectFileName);
+	Tokenizer::StaticAssert(doc != NULL, "Couldn't load doc.");
 
-	bool bResult = tokenizer.LoadFromFile(m_FullProjectFileName);
-		
-	Tokenizer::StaticAssert(bResult, "Couldn't open project file");
+	/* Create xpath evaluation context */
+	xmlXPathContextPtr xpathCtx = xmlXPathNewContext(doc);
+	Tokenizer::StaticAssert(xpathCtx != NULL, "Couldn't load doc context.");
+	Tokenizer::StaticAssert(register_namespaces(xpathCtx, BAD_CAST "ms=http://schemas.microsoft.com/developer/msbuild/2003"), "Couldn't register namespace.");
 
-	//set reservedwords used for parsing through .vcproj file
-	tokenizer.SetExtraReservedWords(sProjectReservedWords);
-
-	Token token;
-	enumTokenType eType;
-
-
-	bool bFoundConfiguration = false;
-	bool bFoundIntermediateDirectory = false;
-
-	sprintf(fullConfigName, "%s|%s", m_pCurConfiguration, m_pCurTarget);
-	m_AdditionalIncludeDirs[0] = 0;
-	m_PreprocessorDefines[0] = 0;
-	m_ObjectFileDir[0] = 0;
-
-	char compilerToolName[256] = "";
-
-	do
+	std::string condition = "'$(Configuration)|$(Platform)'=='";
+	condition += m_pCurConfiguration;
+	condition += "|";
+	condition += m_pCurTarget;
+	condition += "'";
+	std::string expression = "/ms:Project/ms:ImportGroup[@Condition = \"";
+	expression += condition;
+	expression += "\" and @Label = \"PropertySheets\"]/ms:Import[not(@Label)]/@Project";
+	std::vector<std::string> attributes = get_xpath_nodes_attributes(doc, xpathCtx, expression);
+	for (std::vector<std::string>::iterator iter = attributes.begin() ; iter != attributes.end(); ++iter)
 	{
-		eType = tokenizer.GetNextToken(&token);
-
-		if (eType == TOKEN_RESERVEDWORD && token.iVal == RW_CONFIGURATION)
+		if (propertySheetNames[0])
 		{
-			tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_RESERVEDWORD, RW_NAME, "Didn't find name after configuration");
-			tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_RESERVEDWORD, RW_EQUALS, "Didn't find = after name");
-			tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_STRING, 0, "Didn't find string after =");
-
-			if (strcmp(token.sVal, fullConfigName) == 0)
-			{
-				tokenizer.Assert(!bFoundConfiguration, "Found configuration more than once");
-
-				bFoundConfiguration = true;
-
-				char toolName[300] = "";
-
-				do
-				{
-					eType = tokenizer.GetNextToken(&token);
-
-					tokenizer.Assert(eType != TOKEN_NONE, "EOF found in middle of configuration");
-
-
-					if (eType == TOKEN_RESERVEDWORD && token.iVal == RW_PROPERTYSHEETS)
-					{
-						tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_RESERVEDWORD, RW_EQUALS, "Didn't find = after propertysheets");
-						tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_STRING, 512, "Didn't find string after =");
-						strcpy(propertySheetNames, token.sVal);
-
-						char objectFileDirs[TOKENIZER_MAX_STRING_LENGTH] = "";
-
-						if(bFoundIntermediateDirectory)
-							continue;
-
-						GetAdditionalStuffFromPropertySheets(objectFileDirs, propertySheetNames, NULL, RW_INTERMEDIATEDIRECTORY);
-						if(objectFileDirs[0])
-							bFoundIntermediateDirectory = true;
-						else if(!m_ObjectFileDir[0])
-							GetAdditionalStuffFromPropertySheets(objectFileDirs, propertySheetNames, NULL, RW_OUTPUTDIRECTORY);
-
-						if(objectFileDirs[0])
-						{
-							static char *sTempMacros[][2] =
-							{
-								{
-									"$(ConfigurationName)",
-									m_pCurConfiguration,
-								},
-								{
-									"$(PlatformName)",
-									m_pCurTarget,
-								},
-								{
-									NULL,
-									NULL
-								}
-							};
-
-							strcpy(m_ObjectFileDir, objectFileDirs);
-							ReplaceMacrosInPlace(m_ObjectFileDir, sTempMacros);
-							PutSlashAtEndOfString(m_ObjectFileDir);
-						}
-					}
-					else if (eType == TOKEN_RESERVEDWORD && token.iVal == RW_TOOL)
-					{
-						tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_RESERVEDWORD, RW_NAME, "Didn't find name after Tool");
-						tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_RESERVEDWORD, RW_EQUALS, "Didn't find = after name");
-						tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_STRING, 0, "Didn't find string after =");
-
-						strcpy(toolName, token.sVal);
-
-						if (strstr(toolName, "LinkerTool"))
-						{
-							Token nextToken;
-							enumTokenType eNextType;
-
-							eNextType = tokenizer.CheckNextToken(&nextToken);
-
-							if (!(eNextType == TOKEN_RESERVEDWORD && nextToken.iVal == RW_SLASH))
-							{
-								m_bIsAnExecutable = true;
-							}
-						}
-
-						if (strcmp(toolName, "VCCLCompilerTool") == 0 || strcmp(toolName, "VCCLX360CompilerTool") == 0)
-						{
-							strcpy(compilerToolName, toolName);
-						}
-					} 
-					else if (eType == TOKEN_RESERVEDWORD && token.iVal == RW_ADDITIONALINCLUDEDIRECTORIES)
-					{
-						if (strcmp(toolName, "VCCLCompilerTool") == 0 || strcmp(toolName, "VCCLX360CompilerTool") == 0)
-						{
-							if (m_AdditionalIncludeDirs[0] == 0)
-							{
-								tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_RESERVEDWORD, RW_EQUALS, "Didn't find = after AdditionalIncludeDirectories");
-								tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_STRING, 0, "Didn't find string after =");
-								strcpy(m_AdditionalIncludeDirs, token.sVal);
-								GetAdditionalStuffFromPropertySheets(m_AdditionalIncludeDirs, propertySheetNames, toolName, RW_ADDITIONALINCLUDEDIRECTORIES);
-							}
-						}
-					}
-					else if (eType == TOKEN_RESERVEDWORD && token.iVal == RW_PREPROCESSORDEFINITIONS)
-					{
-						if (strcmp(toolName, "VCCLCompilerTool") == 0 || strcmp(toolName, "VCCLX360CompilerTool") == 0)
-						{
-							if (m_PreprocessorDefines[0] == 0)
-							{
-								tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_RESERVEDWORD, RW_EQUALS, "Didn't find = after PreprocessorDefinitions");
-								tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_STRING, 0, "Didn't find string after =");
-								strcpy(m_PreprocessorDefines, token.sVal);
-								GetAdditionalStuffFromPropertySheets(m_PreprocessorDefines, propertySheetNames, toolName, RW_PREPROCESSORDEFINITIONS);
-
-								//mixed commas and semicolons screw things up... use all semicolons
-								ReplaceCharWithChar(m_PreprocessorDefines, ',', ';');
-							}
-						}
-					}
-					else if (eType == TOKEN_RESERVEDWORD && (token.iVal == RW_OUTPUTDIRECTORY || token.iVal == RW_OBJECTFILE || token.iVal == RW_INTERMEDIATEDIRECTORY))
-					{
-						//an "intermediateDirectory" token is higher priority than "outputdirectory" and/or "objectfile", 
-						//which are basically obsolete
-						if (token.iVal == RW_INTERMEDIATEDIRECTORY)
-						{
-							bFoundIntermediateDirectory = true;
-						}
-						else
-						{
-							if (bFoundIntermediateDirectory)
-							{
-								continue;
-							}
-						}
-						tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_RESERVEDWORD, RW_EQUALS, "Didn't find = after outputdirectory or objectfile");
-						tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_STRING, 0, "Didn't find string after =");
-						strcpy(m_ObjectFileDir, token.sVal);
-
-						static char *sTempMacros[][2] =
-						{
-							{
-								"$(ConfigurationName)",
-								m_pCurConfiguration,
-							},
-							{
-								"$(PlatformName)",
-								m_pCurTarget,
-							},
-							{
-								NULL,
-								NULL
-							}
-						};
-
-						ReplaceMacrosInPlace(m_ObjectFileDir, sTempMacros);
-
-						PutSlashAtEndOfString(m_ObjectFileDir);
-					}
-				}
-				while (!(eType == TOKEN_RESERVEDWORD && token.iVal == RW_CONFIGURATION));
-			}
-			else
-			{
-				tokenizer.GetTokensUntilReservedWord((enumReservedWordType)RW_CONFIGURATION);
-			}
+			strcat(propertySheetNames, ";");
 		}
-		else if (eType == TOKEN_RESERVEDWORD && token.iVal == RW_FILE)
-		{
 
-			eType = tokenizer.GetNextToken(&token);
-
-			if (eType == TOKEN_RESERVEDWORD && token.iVal == RW_RELATIVEPATH)
-			{
-				tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_RESERVEDWORD, RW_EQUALS, "Didn't find = after reservedword");
-				tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_STRING, 0, "Didn't find filename after =");
-
-				//check for the two autogen files that are supposed to be included
-				CheckForRequiredFiles(token.sVal);
-
-				int len = (int)strlen(token.sVal);	
-
-				if ((len >= 3 && token.sVal[len - 2] == '.' && (token.sVal[len - 1] == 'h' || token.sVal[len - 1] == 'c')))
-				{
-
-					char sourceFileName[256];
-					sprintf(sourceFileName, "%s\\%s", m_ProjectPath, token.sVal);
-
-					Tokenizer::StaticAssert(m_iNumProjectFiles < MAX_FILES_IN_PROJECT, "Too many files in project");
-					
-					if (!ShouldFileBeExcluded(sourceFileName))
-					{
-						strcpy(m_ProjectFiles[m_iNumProjectFiles++], sourceFileName);
-					}
-				}
-			}
-		}
-	} while (eType != TOKEN_NONE);
-
-	if (m_PreprocessorDefines[0] == 0 && compilerToolName)
+		strcat(propertySheetNames, (*iter).c_str());
+	}
+	
+	expression = "/ms:Project/ms:PropertyGroup[@Condition = \"";
+	expression += condition;
+	expression += "\" and @Label = \"Configuration\"]/ms:ConfigurationType";
+	if (get_xpath_nodes_inner_text(doc, xpathCtx, expression) == "Application")
 	{
-		GetAdditionalStuffFromPropertySheets(m_PreprocessorDefines, propertySheetNames, compilerToolName, RW_PREPROCESSORDEFINITIONS);
-		ReplaceCharWithChar(m_PreprocessorDefines, ',', ';');
+		m_bIsAnExecutable = true;
+	}
+	
+	m_ObjectFileDir[0] = '\0';
+	char objectFileDir[TOKENIZER_MAX_STRING_LENGTH] = "";
+	expression = "/ms:Project/ms:PropertyGroup/ms:IntDir[@Condition = \"";
+	expression += condition;
+	expression += "\"]";
+	strcpy(objectFileDir, get_xpath_nodes_inner_text(doc, xpathCtx, expression).c_str());
+
+	if(!objectFileDir[0])
+	{
+		GetAdditionalStuffFromPropertySheets(objectFileDir, propertySheetNames, "IntDir");
 	}
 
-	if (m_AdditionalIncludeDirs[0] == 0 && compilerToolName)
+	if(!objectFileDir[0])
 	{
-		GetAdditionalStuffFromPropertySheets(m_AdditionalIncludeDirs, propertySheetNames, compilerToolName, RW_ADDITIONALINCLUDEDIRECTORIES);
+		expression = "/ms:Project/ms:PropertyGroup/ms:OutDir[@Condition = \"";
+		expression += condition;
+		expression += "\"]";
+		strcpy(objectFileDir, get_xpath_nodes_inner_text(doc, xpathCtx, expression).c_str());
 	}
 
+	if(!objectFileDir[0])
+	{
+		GetAdditionalStuffFromPropertySheets(objectFileDir, propertySheetNames, "OutDir");
+	}
 
-	tokenizer.Assert(bFoundConfiguration, "never found configuration");
+	if(objectFileDir[0])
+	{
+		static char *sTempMacros[][2] =
+		{
+			{
+				"$(Configuration)",
+					m_pCurConfiguration,
+			},
+			{
+				"$(PlatformName)",
+					m_pCurTarget,
+				},
+				{
+					NULL,
+						NULL
+				}
+		};
 
+		strcpy(m_ObjectFileDir, objectFileDir);
+		ReplaceMacrosInPlace(m_ObjectFileDir, sTempMacros);
+		PutSlashAtEndOfString(m_ObjectFileDir);
+	}
+
+	Tokenizer::StaticAssert(m_ObjectFileDir[0] != 0, "Intermediate/Output directory could not be found. :(");
+
+	AddProjectFiles(get_xpath_nodes_attributes(doc, xpathCtx, "/ms:Project/ms:ItemGroup/ms:ClInclude/@Include"));
+	AddProjectFiles(get_xpath_nodes_attributes(doc, xpathCtx, "/ms:Project/ms:ItemGroup/ms:ClCompile/@Include"));
+
+	/* Cleanup */
+	xmlXPathFreeContext(xpathCtx);
+	xmlFreeDoc(doc);
 }
 
 bool SourceParser::NeedToUpdateFile(char *pFileName, int iExtraData, bool bForceUpdateUnlessFileDoesntExist)
@@ -930,25 +745,25 @@ void SourceParser::MakeAutoGenDirectory()
 bool SourceParser::DoMasterFilesExist()
 {
 	char fileName[MAX_PATH];
-	FILE *pFile;
+	FileWrapper *pFile;
 
 	sprintf(fileName, "%s\\AutoGen\\%s", m_ProjectPath, m_AutoGenFile1Name);
 
-	pFile = fopen(fileName, "rt");
+	pFile = fw_fopen(fileName, "rt");
 	if(!pFile)
 	{
 		return false;
 	}
-	fclose(pFile);
+	fw_fclose(pFile);
 
 	sprintf(fileName, "%s\\AutoGen\\%s", m_ProjectPath, m_AutoGenFile2Name);
 
-	pFile = fopen(fileName, "rt");
+	pFile = fw_fopen(fileName, "rt");
 	if(!pFile)
 	{
 		return false;
 	}
-	fclose(pFile);
+	fw_fclose(pFile);
 
 	return true;
 }
@@ -979,7 +794,7 @@ void SourceParser::CreateCleanBuildMarkerFile(void)
 
 	RemoveSuffixIfThere(fullDirString, "/");
 	RemoveSuffixIfThere(fullDirString, "\\");
-	
+
 	sprintf(systemString, "md \"%s\"  > NUL 2>&1", fullDirString);
 
 	system(systemString);
@@ -989,11 +804,11 @@ void SourceParser::CreateCleanBuildMarkerFile(void)
 		fullDirString);
 
 
-	FILE *pFile = fopen(fileName, "wt");
+	FileWrapper *pFile = fw_fopen(fileName, "wt");
 	if (pFile)
 	{
-		fprintf(pFile, "This file exists so that structparser will know when a clean build happens");
-		fclose(pFile);
+		fw_fprintf(pFile, "This file exists so that structparser will know when a clean build happens");
+		fw_fclose(pFile);
 	}
 }
 
@@ -1013,7 +828,7 @@ bool SourceParser::DidCleanBuildJustHappen()
 	{
 		return true;;
 	}
-	
+
 	CloseHandle(hFile);
 
 	return false;
@@ -1024,10 +839,10 @@ void SourceParser::CleanOutAllAutoGenFiles()
 	char tempString[256];
 	sprintf(tempString, "del /Q \"%s\\AutoGen\\*.*\"", m_ProjectPath);
 	system(tempString);
-	
+
 	sprintf(tempString, "del /Q \"%s\\wiki\\*.*\"", m_ProjectPath);
 	system(tempString);
-	
+
 	sprintf(tempString, "del /Q \"%s\\..\\Common\\AutoGen\\%s_*.*\"", m_ProjectPath, m_ShortenedProjectFileName);
 	system(tempString);
 }
@@ -1044,12 +859,11 @@ bool SourceParser::IsQuickExitPossible()
 	{
 		return false;
 	}
-		
+
 	GetFileTime(hFile, NULL, NULL, &fileTime);
 
 	if (CompareFileTime(&fileTime, m_pFileListLoader->GetMasterFileTime()) == 1)
 	{
-		m_bProjectFileChanged = true;
 		return false;
 	}
 
@@ -1064,7 +878,7 @@ bool SourceParser::IsQuickExitPossible()
 	{
 		return false;
 	}
-		
+
 	GetFileTime(hFile, NULL, NULL, &fileTime);
 
 	if (CompareFileTime(&fileTime, m_pFileListLoader->GetMasterFileTime()) == 1)
@@ -1159,8 +973,8 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
 			// Autogen files no longer used
 			if (!DoMasterFilesExist())
 			{
-				TRACE("Master files don't exist... doing full rebuild\n");
-				bForceReadAllFiles = true;
+			TRACE("Master files don't exist... doing full rebuild\n");
+			bForceReadAllFiles = true;
 			}
 			else
 			*/
@@ -1169,7 +983,6 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
 			{
 				TRACE("Clean build happened... doing full rebuild\n");
 				bForceReadAllFiles = true;
-				m_bCleanBuildHappened = true;
 			}
 			else
 			{
@@ -1181,8 +994,8 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
 				TRACE("Not doing quick exit... something must have changed\n");
 			}
 		}
-	
-	
+
+
 	}
 
 
@@ -1190,19 +1003,7 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
 
 	MakeAutoGenDirectory();
 
-	bool bNeedToRecurseOnAllOtherProjects = (_stricmp(m_ShortenedProjectFileName, STRUCTPARSERSTUB_PROJ) == 0);
-
-	if (bNeedToRecurseOnAllOtherProjects)
-	{
-		TRACE("This appears to be the StructParserStub project, so all we'll do is recursively\ncall structparser on other projects\n");
-	}
-
-	ProcessSolutionFile(bNeedToRecurseOnAllOtherProjects);
-
-	if (bNeedToRecurseOnAllOtherProjects)
-	{
-		return;
-	}
+	ProcessSolutionFile();
 
 	CreateParsers();
 
@@ -1225,18 +1026,18 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
 	}
 
 
-	
+
 
 
 	int i;
-	
+
 	for (i=0; i < m_iNumSourceParsers; i++)
 	{
 		m_pSourceParsers[i]->SetParent(this, i);
 		m_pSourceParsers[i]->SetProjectPathAndName(pProjectPath, m_ShortenedProjectFileName);
 	}
 
-	
+
 	if (!m_IdentifierDictionary.SetFileNameAndLoad(pProjectPath, m_ShortenedProjectFileName))
 	{
 		TRACE("Couldn't load identifier dictionary... forcing read all files\n");
@@ -1251,9 +1052,9 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
 			TRACE("Couldn't load stored data %d, forcing read all files\n", i);
 			bForceReadAllFiles = true;
 		}
-	
+
 	}
-	
+
 	if (MakeSpecialAutoRunFunction())
 	{
 		//make sure AutoRunManager has magic internal autorun
@@ -1273,9 +1074,9 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
 		bAtLeastOneFileUpdated |= m_bFilesNeedToBeUpdated[i] |= NeedToUpdateFile(m_ProjectFiles[i], m_iExtraDataPerFile[i], bForceReadAllFiles);
 	}
 
-/*	if (!bAtLeastOneFileUpdated && !bForceReadAllFiles)
+	/*	if (!bAtLeastOneFileUpdated && !bForceReadAllFiles)
 	{
-		return;
+	return;
 	}*/
 
 
@@ -1367,7 +1168,7 @@ void SourceParser::ScanSourceFile(char *pSourceFile)
 	{
 		m_pSourceParsers[i]->FoundMagicWord(pSourceFile, &tokenizer, MAGICWORD_BEGINNING_OF_FILE, NULL);
 	}
-	
+
 
 	do
 	{
@@ -1432,7 +1233,7 @@ void PutThingsIntoCommandLine(char *pCommandLine, char *pInputString, char *pPre
 	do
 	{
 		char includeDirString[TOKENIZER_MAX_STRING_LENGTH];
-	
+
 		//ignore all leading semicolons
 		while (pInputString[0] == ';')
 		{
@@ -1445,7 +1246,7 @@ void PutThingsIntoCommandLine(char *pCommandLine, char *pInputString, char *pPre
 		{
 			break;
 		}
-	
+
 		if (bStripTrailingSlashes)
 		{
 			RemoveSuffixIfThere(includeDirString, "\\");
@@ -1473,9 +1274,9 @@ void SourceParser::NukeCObjFile(char *pFileName)
 	_snprintf(buf, sizeof(buf), "%s%s.obj", m_ObjectFileDir, fileNameWithoutExtension);
 	remove(buf);
 }
-		
 
-		
+
+
 
 void ReplaceMacroInPlace(char *pString, char *pMacroToFind, char *pReplaceString)
 {
@@ -1646,9 +1447,9 @@ void SourceParser::ClearAllDependenciesForUpdatingFiles(void)
 void SourceParser::AddDependency(int iFile1, int iFile2)
 {
 	int i;
-	
+
 	Tokenizer::StaticAssert(iFile1 != iFile2, "File can't depend on itself");
-	
+
 	bool bFound = false;
 	for (i=0; i < m_iNumDependencies[iFile1]; i++)
 	{
@@ -1688,7 +1489,7 @@ void SourceParser::AddDependency(int iFile1, int iFile2)
 void SourceParser::ProcessAllFiles_ReadAll()
 {
 	ClearAllDependenciesForUpdatingFiles();
-	
+
 	int iFileNum;
 
 	for (iFileNum=0; iFileNum < m_iNumProjectFiles; iFileNum++)
@@ -1727,7 +1528,7 @@ void SourceParser::ProcessAllFiles_ReadAll()
 				int iOtherFileNum = FindProjectFileIndex(pDependencies[j]);
 				char errorString[1024];
 				sprintf(errorString, "Dependency file <<%s>> not found (depended on by %s)", pDependencies[j], m_ProjectFiles[iFileNum]);
-				
+
 				Tokenizer::StaticAssert(iOtherFileNum != -1 && iOtherFileNum != iFileNum, errorString);
 
 				AddDependency(iFileNum, iOtherFileNum);
@@ -1830,103 +1631,26 @@ void SourceParser::SetExtraDataFlagForFile(char *pFileName, int iFlag)
 	m_iExtraDataPerFile[iIndex] |= iFlag;
 }
 
-bool SourceParser::ProjectIsClientOrClientOnlyLib(void)
-{
-	if (strstr(m_PreprocessorDefines, "GAMECLIENT"))
-	{
-		return true;
-	}
-
-	if (strstr(m_PreprocessorDefines, "CLIENTLIBMAKEWRAPPERS"))
-	{
-		return true;
-	}
-
-	return false;
-}
-
-	//returns true if the projet is the game server, or a lib that is linked only into the game server
-bool SourceParser::ProjectIsGameServerOrGameServerOnlyLib(void)
-{
-	if (strstr(m_PreprocessorDefines, "GAMESERVER"))
-	{
-		return true;
-	}
-
-	if (strstr(m_PreprocessorDefines, "SERVERLIBMAKEWRAPPERS"))
-	{
-		return true;
-	}
-
-	return false;
-}
-
-
-int SourceParser::GetSVNVersion(char *pFileName)
-{
-
-	char tempFileName[MAX_PATH];
-	char systemString[1024];
-	GetTempFileName(".", "SPR", 0, tempFileName);
-
-	sprintf(systemString, "svn info \"%s\" > \"%s\"", pFileName, tempFileName);
-	system(systemString);
-
-	Tokenizer tokenizer;
-
-	if (!tokenizer.LoadFromFile(tempFileName))
-	{
-		return 0;
-	}
-
-	sprintf(systemString, "del \"%s\"", tempFileName);
-	system(systemString);
-
-	Token token;
-	enumTokenType eType;
-
-	do
-	{
-		eType = tokenizer.GetNextToken(&token);
-
-		if (eType == TOKEN_NONE)
-		{
-			return 0;
-		}
-
-		if (eType == TOKEN_IDENTIFIER && strcmp(token.sVal, "Revision") == 0)
-		{
-			tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_RESERVEDWORD, RW_COLON, "Expected : after Revision");
-			tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_INT, 0, "Expected int after Revision:");
-
-			return token.iVal;
-		}
-	}
-	while (1);
-
-	return 0;	
-}
-
 bool SourceParser::MakeSpecialAutoRunFunction(void)
 {
 	if (StringIsInList(m_ShortenedProjectFileName, sProjectNamesToExclude))
 	{
 		return false;
 	}
-/*
+	/*
 	if (_stricmp(m_ShortenedProjectFileName, "UtilitiesLib") == 0)
 	{
-		return true;
+	return true;
 	}
 
 	for (i=0; i < m_iNumDependentLibraries; i++)
 	{
-		if (_stricmp(m_DependentLibraryNames[i], "UtilitiesLib") == 0)
-		{
-			return true;
-		}
+	if (_stricmp(m_DependentLibraryNames[i], "UtilitiesLib") == 0)
+	{
+	return true;
 	}
-*/
+	}
+	*/
 	return true;
 }
 
@@ -1948,7 +1672,7 @@ public:
 	void LoadCommandsFromFile(char *pFileName);
 	void SortCommands(void);
 
-	void WriteCommands(FILE *pOutFile);
+	void WriteCommands(FileWrapper *pOutFile);
 
 	char *GetCategoryName();
 	bool IsHidden() { return m_bIsHidden; }
@@ -1998,7 +1722,7 @@ void MasterWikiCommandCategory::LoadCommandsFromFile(char *pFileName)
 	{
 		return;
 	}
-	
+
 	do
 	{
 		int iOffsetAtBeginningOfCommand;
@@ -2142,7 +1866,7 @@ void MergeSortCommands(SingleCommandStruct **ppList, int iListLen)
 
 
 
-	
+
 
 
 void MasterWikiCommandCategory::SortCommands(void)
@@ -2160,13 +1884,13 @@ void MasterWikiCommandCategory::SortCommands(void)
 
 }
 
-void MasterWikiCommandCategory::WriteCommands(FILE *pOutFile)
+void MasterWikiCommandCategory::WriteCommands(FileWrapper *pOutFile)
 {
 	SingleCommandStruct *pCounter = m_pFirstCommand;
 
 	while (pCounter)
 	{
-		fprintf(pOutFile, "%s\n\n", pCounter->pCommandDescription);
+		fw_fprintf(pOutFile, "%s\n\n", pCounter->pCommandDescription);
 
 		pCounter = pCounter->pNext;
 	}
@@ -2236,7 +1960,7 @@ void SourceParser::AddVariableValue(char *pVarName, char *pValue)
 			pVar->pValue = pNewBuf;
 			return;
 		}
-		
+
 		pVar = pVar->pNext;
 	}
 
@@ -2281,7 +2005,7 @@ void SourceParser::SetVariablesFromTokenizer(Tokenizer *pTokenizer, char *pStart
 			{
 				strcpy(fullIncludeName, token.sVal);
 			}
-			
+
 			Tokenizer *pIncludeTokenizer = new Tokenizer;
 			pIncludeTokenizer->SetExtraCharsAllowedInIdentifiers("#");
 			if (!pIncludeTokenizer->LoadFromFile(fullIncludeName))
@@ -2303,7 +2027,7 @@ void SourceParser::SetVariablesFromTokenizer(Tokenizer *pTokenizer, char *pStart
 			strcpy(varName, token.sVal);
 
 			pTokenizer->AssertNextTokenTypeAndGet(&token, TOKEN_RESERVEDWORD, RW_EQUALS, "Expected = after var name");
-			
+
 			do
 			{
 				pTokenizer->AssertNextTokenTypeAndGet(&token, TOKEN_IDENTIFIER, 0, "expected identifier for var value");

@@ -935,8 +935,7 @@ static int handleLogin(Packet *pak,GameClientLink *client)
 			memcpy(client->auth_user_data,test_auth_data,sizeof(client->auth_user_data));
 			client->loyalty = server_cfg.defaultLoyaltyPointsFakeAuth;
 			client->loyaltyLegacy = server_cfg.defaultLoyaltyLegacyPointsFakeAuth;
-			client->vip = 0;
-			client->vipFlagReady = 0;
+			client->vip = client->vipFlagReady = 1;
 		}
 		else
 		{
