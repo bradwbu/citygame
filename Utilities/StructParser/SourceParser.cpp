@@ -833,13 +833,13 @@ bool SourceParser::DidCleanBuildJustHappen()
 void SourceParser::CleanOutAllAutoGenFiles()
 {
 	char tempString[256];
-	sprintf(tempString, "del /Q \"%s\\AutoGen\\*.*\"", m_ProjectPath);
+	sprintf(tempString, "del /Q \"%s\\AutoGen\\*.*\" > NUL 2>&1", m_ProjectPath);
 	system(tempString);
 
-	sprintf(tempString, "del /Q \"%s\\wiki\\*.*\"", m_ProjectPath);
+	sprintf(tempString, "del /Q \"%s\\wiki\\*.*\" > NUL 2>&1", m_ProjectPath);
 	system(tempString);
 
-	sprintf(tempString, "del /Q \"%s\\..\\Common\\AutoGen\\%s_*.*\"", m_ProjectPath, m_ShortenedProjectFileName);
+	sprintf(tempString, "del /Q \"%s\\..\\Common\\AutoGen\\%s_*.*\" > NUL 2>&1", m_ProjectPath, m_ShortenedProjectFileName);
 	system(tempString);
 }
 
