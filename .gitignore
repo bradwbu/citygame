@@ -1,0 +1,30 @@
+# Crash dumps
+*.mdmp
+*.dmp
+
+# Visual Studio user settings
+*.user
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+
+# Visual C++ debug database
+*.pdb
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+
+# Assets installed by external means
+/bin/*/
+
+# Except the folders below
+!/bin/beaconizer/
+!/bin/qt_plugins/
+!/bin/textclientdebug/
