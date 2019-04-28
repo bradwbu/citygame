@@ -41,16 +41,19 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="HeroBrowser.props" />
   </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <Import Project="HeroBrowser.props" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">lib\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\</IntDir>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
     <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</EmbedManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">lib\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\</IntDir>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
@@ -64,7 +67,11 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
-    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">$(Platform)\$(Configuration)\</IntDir>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -76,7 +83,7 @@
       <AdditionalOptions>-Zm200 -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(QTDIR_COH)\include\QtCore;$(QTDIR_COH)\include\QtNetwork;$(QTDIR_COH)\include\QtGui;$(QTDIR_COH)\include\QtOpenGL;$(QTDIR_COH)\include\QtWebKit;$(QTDIR_COH)\include;.;$(QTDIR_COH)\include\ActiveQt;.moc;..\..\..\..\qt\4.7.1\mkspecs\default;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_WINDOWS;WIN32;BUILD_DLL;QT_LARGEFILE_SUPPORT;_WINDOWS;QT_DLL;QT_WEBKIT_LIB;QT_OPENGL_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;QT_THREAD_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>QT_DEBUG;_DEBUG;_WINDOWS;WIN32;QT_LARGEFILE_SUPPORT;QT_DLL;QT_WEBKIT_LIB;QT_OPENGL_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;QT_THREAD_SUPPORT;BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -95,8 +102,8 @@
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;_WINDOWS;QT_DLL;QT_WEBKIT_LIB;QT_OPENGL_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;QT_THREAD_SUPPORT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>glu32.lib;opengl32.lib;gdi32.lib;user32.lib;QtWebKitd4.lib;QtOpenGLd4.lib;QtGuid4.lib;QtNetworkd4.lib;QtCored4.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)HeroBrowser_d.dll</OutputFile>
+      <AdditionalDependencies>glu32.lib;opengl32.lib;gdi32.lib;user32.lib;QtWebKit4.lib;QtOpenGL4.lib;QtGui4.lib;QtNetwork4.lib;QtCore4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(QTDIR_COH)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -107,13 +114,9 @@
       </LinkTimeCodeGeneration>
     </Link>
     <PostBuildEvent>
-      <Message>Copy DLL and PDB to game bin</Message>
-      <Command>echo "Copying debug HeroBrowser to \bin and \bin\full debug..."
-xcopy /y $(ProjectDir)$(OutDir)$(TargetFileName) "$(SolutionDir)\..\..\bin"
-xcopy /y $(ProjectDir)$(OutDir)$(TargetName).pdb "$(SolutionDir)\..\..\bin"
-xcopy /y $(ProjectDir)$(OutDir)$(TargetFileName) "$(SolutionDir)\..\..\bin\full debug"
-xcopy /y $(ProjectDir)$(OutDir)$(TargetName).pdb "$(SolutionDir)\..\..\bin\full debug"
-</Command>
+      <Message>
+      </Message>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\..\bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -146,7 +149,7 @@ xcopy /y $(ProjectDir)$(OutDir)$(TargetName).pdb "$(SolutionDir)\..\..\bin\full 
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>glu32.lib;opengl32.lib;gdi32.lib;user32.lib;QtWebKit4.lib;QtOpenGL4.lib;QtGui4.lib;QtNetwork4.lib;QtCore4.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)HeroBrowser.dll</OutputFile>
+      <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(QTDIR_COH)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -157,13 +160,23 @@ xcopy /y $(ProjectDir)$(OutDir)$(TargetName).pdb "$(SolutionDir)\..\..\bin\full 
       </LinkTimeCodeGeneration>
     </Link>
     <PostBuildEvent>
-      <Message>Copy DLLs and .PDBs to bin</Message>
-      <Command>echo "Copying Release HeroBrowser to \bin and \bin\debug..."
-xcopy /y $(ProjectDir)$(OutDir)$(TargetFileName) $(SolutionDir)\..\..\bin\vc10
-xcopy /y $(ProjectDir)$(OutDir)$(TargetName).pdb $(SolutionDir)\..\..\bin\vc10
-xcopy /y $(ProjectDir)$(OutDir)$(TargetFileName) $(SolutionDir)\..\..\bin\vc10\debug
-xcopy /y $(ProjectDir)$(OutDir)$(TargetName).pdb $(SolutionDir)\..\..\bin\vc10\debug
-</Command>
+      <Message>
+      </Message>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\..\bin"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <Link>
+      <OutputFile>$(TargetPath)</OutputFile>
+      <AdditionalDependencies>glu32.lib;opengl32.lib;gdi32.lib;user32.lib;QtWebKit4.lib;QtOpenGL4.lib;QtGui4.lib;QtNetwork4.lib;QtCore4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR_COH)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(QTDIR_COH)\include\QtCore;$(QTDIR_COH)\include\QtNetwork;$(QTDIR_COH)\include\QtGui;$(QTDIR_COH)\include\QtOpenGL;$(QTDIR_COH)\include\QtWebKit;$(QTDIR_COH)\include;.;$(QTDIR_COH)\include\ActiveQt;.moc;..\..\..\..\qt\4.7.1\mkspecs\default;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDOWS;WIN32;BUILD_EXE;QT_LARGEFILE_SUPPORT;_WINDOWS;QT_DLL;QT_WEBKIT_LIB;QT_OPENGL_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;QT_THREAD_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\..\bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

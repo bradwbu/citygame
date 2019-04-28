@@ -28,6 +28,8 @@ ipch/
 
 # Ignore generated source files
 AutoGen/
+logs/
+.moc/
 
 # Assets installed by external means
 /bin/*/

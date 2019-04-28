@@ -99,12 +99,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">$(ProjectDir)..\bin\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)..\bin\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">$(ProjectDir)..\bin\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)..\bin\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Full Debug|x64'">$(ProjectDir)..\bin\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Opt Debug|x64'">$(ProjectDir)..\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">$(PlatformName)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(PlatformName)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">$(PlatformName)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(PlatformName)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Full Debug|x64'">$(PlatformName)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Opt Debug|x64'">$(PlatformName)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
     <Link>
@@ -113,8 +113,7 @@
       <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib;libclient.lib;librpc.lib;libsupp.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -124,8 +123,7 @@
       <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib;libclient.lib;librpc.lib;libsupp.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
@@ -135,8 +133,7 @@
       <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib;libclient.lib;librpc.lib;libsupp.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -146,8 +143,7 @@
       <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|x64'">
@@ -157,8 +153,7 @@
       <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|x64'">
@@ -168,8 +163,7 @@
       <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -70,10 +70,10 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Beaconizer|Win32'">$(ProjectDir)..\bin\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)..\bin\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">$(ProjectDir)..\bin\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">$(ProjectDir)..\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Beaconizer|Win32'">$(PlatformName)\$(Configuration).DbQuery\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(PlatformName)\$(Configuration).DbQuery\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">$(PlatformName)\$(Configuration).DbQuery\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">$(PlatformName)\$(Configuration).DbQuery\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -90,8 +90,7 @@
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Beaconizer|Win32'">
@@ -108,8 +107,7 @@
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
@@ -126,8 +124,7 @@
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
@@ -140,8 +137,7 @@
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>.\script\LuaLibs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
