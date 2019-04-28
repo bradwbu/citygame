@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{641C5F36-32EE-4323-B740-992B651CF9D6}</ProjectGuid>
     <RootNamespace>libzmq</RootNamespace>
   </PropertyGroup>

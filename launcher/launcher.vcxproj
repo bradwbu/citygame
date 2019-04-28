@@ -27,6 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{BBD9F1CB-7144-4AEB-8BBF-5C7F0A280208}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

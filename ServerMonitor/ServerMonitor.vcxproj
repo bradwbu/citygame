@@ -27,6 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{4B6A58D9-78C7-4C2B-83F6-70A866B422DC}</ProjectGuid>
     <RootNamespace>ServerMonitor</RootNamespace>
     <Keyword>Win32Proj</Keyword>

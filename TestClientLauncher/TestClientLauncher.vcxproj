@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{C9327828-4179-41BA-8A41-C95AAEA2D8BC}</ProjectGuid>
     <RootNamespace>TestClientLauncher</RootNamespace>
     <Keyword>Win32Proj</Keyword>

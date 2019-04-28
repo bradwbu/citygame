@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{2D4D004D-275A-4D4F-B700-51F74606ECAC}</ProjectGuid>
     <RootNamespace>game</RootNamespace>
   </PropertyGroup>

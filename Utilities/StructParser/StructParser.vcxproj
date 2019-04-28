@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{2D44B585-928F-4FFE-A3C8-6ACEBCB6409F}</ProjectGuid>
     <RootNamespace>StructParser</RootNamespace>
     <Keyword>Win32Proj</Keyword>

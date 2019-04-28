@@ -27,6 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{C54CC920-C5D6-4CF5-809B-CFAB3D19C8CD}</ProjectGuid>
     <RootNamespace>chatserver</RootNamespace>
     <Keyword>Win32Proj</Keyword>

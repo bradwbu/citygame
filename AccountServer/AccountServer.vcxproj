@@ -27,6 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{FBAA80EA-2F2D-4521-ABF4-2A30E507D682}</ProjectGuid>
     <RootNamespace>Accountserver</RootNamespace>
     <Keyword>Win32Proj</Keyword>

@@ -27,6 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{099AA8A8-CC04-47B2-B890-B7604632CA36}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>

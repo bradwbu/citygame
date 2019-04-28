@@ -27,6 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{661BE18B-FA52-4529-BB46-A2438C384F4E}</ProjectGuid>
     <RootNamespace>dbserver</RootNamespace>
   </PropertyGroup>

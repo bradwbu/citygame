@@ -27,6 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}</ProjectGuid>
     <RootNamespace>QueueServer</RootNamespace>
     <Keyword>Win32Proj</Keyword>

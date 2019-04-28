@@ -27,6 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{2F9D2A8B-E163-4D96-9058-0E81BAEC16CB}</ProjectGuid>
     <RootNamespace>ServerLib</RootNamespace>
   </PropertyGroup>

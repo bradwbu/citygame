@@ -15,6 +15,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{63678ADE-8025-4E76-BCC9-A4F869A5937E}</ProjectGuid>
     <RootNamespace>server</RootNamespace>
   </PropertyGroup>

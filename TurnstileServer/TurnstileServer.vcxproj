@@ -27,6 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{FEE2C8AC-09C2-4A87-A5AB-8EB73441DE9A}</ProjectGuid>
     <RootNamespace>TurnstileServer</RootNamespace>
     <Keyword>Win32Proj</Keyword>
