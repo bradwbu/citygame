@@ -1,20 +1,6 @@
 #include <zmq.h>
 #include "zeromqSocket.h"
 
-#ifdef _FULLDEBUG
-#ifdef _M_AMD64
-#pragma comment(lib,"libzmqd64.lib")
-#else
-#pragma comment(lib,"libzmqd.lib")
-#endif	
-#else
-#ifdef _M_AMD64
-#pragma comment(lib,"libzmqr64.lib")
-#else
-#pragma comment(lib,"libzmqr.lib")
-#endif	
-#endif
-
 void zmqInit(ZmqSocket* zmqConn, int zmqType)
 {
 	if (zmqConn)

@@ -13,20 +13,6 @@
 #include <timing.h>
 #include "log.h"
 
-#if defined(_OPTDEBUG) || defined(_RELEASE)
-#pragma comment(lib, "cryptlibrltcg.lib")
-#pragma comment(lib, "zlibsrcmrltcg.lib")
-#elif defined(_FULLDEBUG)
-#pragma comment(lib, "cryptlibd.lib")
-#pragma comment(lib, "zlibsrcmd.lib")
-#elif defined(_DEBUG)
-#pragma comment(lib, "cryptlibr.lib")
-#pragma comment(lib, "zlibsrcmr.lib")
-#else
-#error("Unknown UtilitiesLib configuration")
-#endif
-
-
 // Should packets include data type and length info?
 //	This variable can be set through pktSendDebugInfo().
 #ifdef FULLDEBUG

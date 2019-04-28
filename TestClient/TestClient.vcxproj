@@ -78,6 +78,24 @@
     <Link>
       <OutputFile>..\bin\$(Configuration)\TextClient.exe</OutputFile>
     </Link>
+    <PreBuildEvent>
+      <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
+    <PreBuildEvent>
+      <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
+    <PreBuildEvent>
+      <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="gameweb_server.c" />

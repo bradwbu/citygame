@@ -26,20 +26,6 @@
 /// Maximum number of messages to handle per tick
 #define POSTBACK_MESSAGES_PER_TICK 10000
 
-#ifdef _FULLDEBUG
-	#ifdef _M_AMD64
-		#pragma comment(lib,"libzmqd64.lib")
-	#else
-		#pragma comment(lib,"libzmqd.lib")
-	#endif	
-#else
-	#ifdef _M_AMD64
-		#pragma comment(lib,"libzmqr64.lib")
-	#else
-		#pragma comment(lib,"libzmqr.lib")
-	#endif	
-#endif
-
 #define MAX_MESSAGE_PARTS 6
 
 #define MSG_ADVERTISE "ADVERTISE"

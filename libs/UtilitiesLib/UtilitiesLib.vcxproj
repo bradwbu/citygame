@@ -167,40 +167,78 @@
     <ClCompile>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AdditionalIncludeDirectories>./UtilsNew;./utils;./assert;./components;./language;./network;./version;../crashrpt/src/;./components/TriCube;./UtilsNew/google_sparsehash/src/;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <PreBuildEvent>
+      <Command>..\..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AdditionalIncludeDirectories>./UtilsNew;./utils;./assert;./components;./language;./network;./version;../crashrpt/src/;./components/TriCube;./UtilsNew/google_sparsehash/src/;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <PreBuildEvent>
+      <Command>..\..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
     <ClCompile>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <TreatWarningAsError>false</TreatWarningAsError>
-      <AdditionalIncludeDirectories>UtilsNew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./UtilsNew;./utils;./assert;./components;./language;./network;./version;../crashrpt/src/;./components/TriCube;./UtilsNew/google_sparsehash/src/;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <PreBuildEvent>
+      <Command>..\..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|x64'">
     <ClCompile>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AdditionalIncludeDirectories>./UtilsNew;./utils;./assert;./components;./language;./network;./version;../crashrpt/src/;./components/TriCube;./UtilsNew/google_sparsehash/src/;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <PreBuildEvent>
+      <Command>..\..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <TreatWarningAsError>false</TreatWarningAsError>
-      <AdditionalIncludeDirectories>UtilsNew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./UtilsNew;./utils;./assert;./components;./language;./network;./version;../crashrpt/src/;./components/TriCube;./UtilsNew/google_sparsehash/src/;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <PreBuildEvent>
+      <Command>..\..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck>false</BufferSecurityCheck>
+      <AdditionalIncludeDirectories>./UtilsNew;./utils;./assert;./components;./language;./network;./version;../crashrpt/src/;./components/TriCube;./UtilsNew/google_sparsehash/src/;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <PreBuildEvent>
+      <Command>..\..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
+    <PreBuildEvent>
+      <Command>..\..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>./UtilsNew;./utils;./assert;./components;./language;./network;./version;../crashrpt/src/;./components/TriCube;./UtilsNew/google_sparsehash/src/;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|x64'">
+    <PreBuildEvent>
+      <Command>..\..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>./UtilsNew;./utils;./assert;./components;./language;./network;./version;../crashrpt/src/;./components/TriCube;./UtilsNew/google_sparsehash/src/;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>

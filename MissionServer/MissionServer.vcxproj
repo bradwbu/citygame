@@ -102,7 +102,35 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
   </PropertyGroup>
-  <ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
+    <PreBuildEvent>
+      <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
+    <PreBuildEvent>
+      <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PreBuildEvent>
+      <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|x64'">
+    <PreBuildEvent>
+      <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|x64'">
+    <PreBuildEvent>
+      <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MissionServer.c" />

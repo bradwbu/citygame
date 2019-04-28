@@ -5,7 +5,11 @@
 #ifdef BUILD_DLL
 #	define DLLAPI extern __declspec(dllexport)
 #else
+#ifndef BUILD_EXE
 #	define DLLAPI extern __declspec(dllimport)
+#else
+#   define DLLAPI
+#endif
 #endif
 
 #ifdef __cplusplus
