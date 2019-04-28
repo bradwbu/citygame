@@ -8,7 +8,6 @@
 #include "cmdgame.h"
 #include "messageStore.h"
 #include "language/langClientUtil.h"
-#include "perforce.h"
 #include "clientcomm.h"
 #include "comm_game.h"
 #include "file.h"
@@ -33,7 +32,7 @@ void editShowTitle()
 		if(strnicmp(mapName, "maps/", 5) == 0 || strnicmp(mapName, "maps\\", 5) == 0)
 			mapName += 5;
 
-		sprintf(titleBuffer, "City of Heroes : %s  PID: %d %s", mapName, _getpid(), perforceQueryBranchName(fileDataDir()));
+		sprintf(titleBuffer, "City of Heroes : %s  PID: %d", mapName, _getpid());
 		if (edit_state.isDirty)
 			strcat(titleBuffer,"*");
 	}

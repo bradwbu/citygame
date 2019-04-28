@@ -82,7 +82,6 @@
 
 #include "pmotion.h"
 #include "file.h"
-#include "perforce.h"
 
 #include "MapGenerator.h"
 #include "MissionControl.h"
@@ -1035,12 +1034,11 @@ void receivePackagedEnt(Packet *pak)
 	char *str = strdup(pktGetString(pak));
 	if(str)
 	{
-		const char *user = perforceQueryUserName();
 		char *pname = playerPtr()?playerPtr()->name:NULL;
 		char filename[MAX_PATH];
 		FILE *file;
 
-		sprintf(filename, "n:/nobackup/resource/characters/common/%s/%s.txt",user?user:"unknown",pname?pname:"unknown");
+		sprintf(filename, "n:/nobackup/resource/characters/common/%s/%s.txt","unknown",pname?pname:"unknown");
 		mkdirtree(filename);
 		if(file = fopen(filename, "wt"))
 		{
@@ -1566,8 +1564,6 @@ static int commHandleMessage(Packet *pak,int cmd,NetLink *link)
 
 				if ( msgType == EDITOR_MESSAGE_ERROR ) //Error from the editor
 					winErrorDialog(msg, "Program Error", 0, 0);
-				else if( msgType == EDITOR_MESSAGE_ERROR_SERVER_WRITE ) //message not from the editor
-					PerforceErrorDialog(msg);
 				else if( msgType == EDITOR_MESSAGE_HIGH_PRIORITY )  
 					winErrorDialog(msg, "The Editor Says", 0, 0); //Editor has a an important message like checkout
 				

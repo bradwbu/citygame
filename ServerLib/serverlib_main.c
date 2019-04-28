@@ -17,7 +17,6 @@
 #include "ConsoleDebug.h"
 #include "memcheck.h"
 #include "MemoryMonitor.h"
-#include "perforce.h"
 #include "FolderCache.h"
 
 #include "wininclude.h"
@@ -124,7 +123,6 @@ int main(int argc,char **argv)
 	}
 	preloadDLLs(0);
 
-	perforceDisable(1);
 	if(fileIsUsingDevData())
 	{
 		bsAssertOnErrors(true);

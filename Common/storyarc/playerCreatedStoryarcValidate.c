@@ -25,7 +25,6 @@
 #ifndef TEST_CLIENT
 #include "profanity.h"
 #endif
-#include "perforce.h"
 #include "MessageStoreUtil.h"
 #include "imageCapture.h"
 #include "SimpleParser.h"
@@ -583,17 +582,6 @@ void playerCreatedStoryArc_GenerateData()
 
 	//ParserWriteTextFile("scripts/Player_Created/PC_Def_New_Ents.txt", ParseMMVillainGroupList2, &gMMVillainGroupList, 0, 0);
 
-	if (attemptToCheckOut(file, 0))
-	{
-		ParserWriteTextFile(file, ParseMMNonSelectableEntities, &gMMNonSelectableEntities, 0, 0);
-		perforceSubmit(file, PERFORCE_PATH_FILE, "AUTO: playerCreatedStoryArc_GenerateData, PC_Def_NonSelectable_Entities");
-	}
-
-	if (attemptToCheckOut(file2, 0))
-	{
-		ParserWriteTextFile(file2, ParseMMSequencerAnimLists, &gMMSeqAnimLists, 0, 0);
-		perforceSubmit(file2, PERFORCE_PATH_FILE, "AUTO: playerCreatedStoryArc_GenerateData, PC_Def_Sequencer_Anims");
-	}
 }
 
 bool MMRewardsPostProcess(ParseTable pti[], MMRewards *rewards)

@@ -21,7 +21,6 @@
 #include "monitor.h"
 #include "admin.h"
 #include "net_linklist.h"
-#include "perforce.h"
 #include "file.h"
 #include "StashTable.h"
 #include "AppLocale.h"
@@ -893,10 +892,6 @@ int main(int argc,char **argv)
 	memCheckInit();
 
 	EXCEPTION_HANDLER_BEGIN
-	if (isProductionMode()) 
-	{
-		perforceDisable(1);
-	}
 	setAssertMode(ASSERTMODE_DEBUGBUTTONS | ASSERTMODE_FULLDUMP | ASSERTMODE_DATEDMINIDUMPS | ASSERTMODE_ZIPPED);
 	memMonitorInit();
 

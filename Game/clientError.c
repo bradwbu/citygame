@@ -18,27 +18,6 @@
 // Error callbacks
 //------------------------------------------------------------
 
-// MAK - do some scrounging around for the author info, then do popup
-void PerforceErrorDialog(char* errMsg)
-{
-	char author[200] = {0};
-	char temp[200] = {0};
-	char* intro = strstr(errMsg, g_lastAuthorIntro);
-	if (intro)
-	{
-		strncpyt(temp, intro + strlen(g_lastAuthorIntro), 200);
-		intro = strchr(temp, '\n');
-		if (intro) *intro = 0;
-
-		// HACK: if an actual author instead of an error message
-		if (strlen(temp) < 15) 
-			sprintf(author, "%s is Responsible", temp);
-		else 
-			strcpy(author, temp);
-	}
-	winErrorDialog(errMsg, 0, author[0]? author: NULL, errorWasForceShown());
-}
-
 static void letThemKnowWhy()
 {
 	static bool doneonce=false;
@@ -74,7 +53,6 @@ void clientErrorfCallback(char* errMsg)
 			{
 				if (!isDevelopmentMode())
 					letThemKnowWhy();
-				PerforceErrorDialog(errMsg);
 			} else if (game_state.cs_address[0]) {
 				char db_ip[100];
 				strcpy(db_ip, makeIpStr(ipFromString(game_state.cs_address)));
@@ -83,7 +61,6 @@ void clientErrorfCallback(char* errMsg)
 					strncmp(db_ip,"172.31.22.226",13)==0) 	// NCSoft CoV QA DBserver
 				{
 					letThemKnowWhy();
-					PerforceErrorDialog(errMsg);
 				}
 			}
 		}

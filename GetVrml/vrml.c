@@ -13,7 +13,6 @@
 #include "vrml.h"
 #include "tree.h"
 #include "geo.h"
-#include "perforce.h"
 
 typedef struct
 {
@@ -1156,17 +1155,6 @@ static void ParseVrmlForMaxFile(const char * vrml_path, const char * vrml_text)
 		if(!c) return;
 		c += 4; *c = 0;
 		strcat(buf, buf2);
-
-		if( fileExists(buf) && perforceQueryIsFileNew(buf) )
-		{
-			// add the max file to perforce (only need for new files, but doesnt hurt to do for all)
-			ret = perforceAdd(buf, PERFORCE_PATH_FILE);
-			if(ret != PERFORCE_NO_ERROR) {
-				Errorf("%s - FAILED to add file to perforce (%s)\n", buf, perforceOfflineGetErrorString(ret));
-			} else {
-				printf("%s - file added to perforce\n", buf);
-			}
-		}
 	}
 }
 

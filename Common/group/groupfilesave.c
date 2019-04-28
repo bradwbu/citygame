@@ -16,7 +16,6 @@
 #include "baseparse.h"
 #include "StashTable.h"
 #include "grouputil.h"
-#include "perforce.h"
 
 #ifdef SERVER
 #include "groupnetdb.h"
@@ -616,11 +615,6 @@ static int groupSaveMapInternal(char *fname,DefTracker **trackers,int refCount,c
 	{ int i; for( i=0 ; i < layerCount ; i++ ) {
 		if( layers[ i ].fileData )
 		{  //If this layer was changed and grouped
-			if( !bIsAutoSave && perforceQueryIsFileNew(layers[i].layerFileName))
-			{
-				// catch newly created layers here for addition to source control
-				perforceAdd(layers[i].layerFileName, PERFORCE_PATH_FILE);
-			}
 			writeToDiskAndFree(layers[i].layerFileName,&layers[i].fileData);
 		}
 	}}  
@@ -632,10 +626,6 @@ static int groupSaveMapInternal(char *fname,DefTracker **trackers,int refCount,c
 	size = estrLength(filedatap);
 	if (fname)
 	{
-		if(!bIsAutoSave && perforceQueryIsFileNew(fname)) {
-			// catch newly created layers here for addition to source control
-			perforceAdd(fname, PERFORCE_PATH_FILE);
-		}
 		writeToDiskAndFree(fname,filedatap);
 	}
 	group_info.lastSavedTime = ++group_info.ref_mod_time;
@@ -693,7 +683,6 @@ static int saveGroupFile(GroupFile *file)
 	for(i=0;i<count;i++)
 		saveDef(&filedata,file->defs[order[i]],0);
 	fileLocateWrite(file->fullname,buf);
-	attemptToCheckOut(buf, 0); // added for perforce, not sure how this didn't fail to write files in gimme since need a checkout here for included files
 	mkdirtree(buf);
 	writeToDiskAndFree(buf,&filedata);
 	free(order);

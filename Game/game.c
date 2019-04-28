@@ -59,7 +59,6 @@
 #include "titles.h"
 #include "seqgraphics.h"
 #include "edit_drawlines.h" //for sphere drawing
-#include "perforce.h"
 #include "clothnode.h"
 #include "gridcache.h"
 #include "uiChat.h"
@@ -426,7 +425,7 @@ void showBranchWarning()
 {
 	if (isDevelopmentMode()) {
 		char	titleBuffer[1000];
-		sprintf(titleBuffer, "City of Heroes : PID: %d %s", _getpid(), perforceQueryBranchName(fileDataDir()));
+		sprintf(titleBuffer, "City of Heroes : PID: %d", _getpid());
 		winSetText(titleBuffer);
 	}
 }
@@ -1374,12 +1373,6 @@ void parseArgs0(int argc, char **argv)
 			game_state.noVerify = 1;
 			bSkipArgIfPresent = true;
 		}
-		else if (CHECKARG("-noperforce"))
-		{
-			// disable perforce usage for life of the app.  To be used when perforce not available.
-			perforceDisable(1);
-			bSkipArgIfPresent = true;
-		}
 		else if (CHECKARG("-ignoreBadDriver"))
 		{
 			game_state.ignoreBadDrivers = 1;
@@ -1641,7 +1634,6 @@ void game_beforeParseArgs(int doLogging)
 	else 
 	{
 		// Production mode
-		perforceDisable(1);
 		setAssertMode( ASSERTMODE_MINIDUMP | ASSERTMODE_ERRORREPORT | ASSERTMODE_CALLBACK );
 		setAssertCallback(clientProductionCrashCallback);
 	}

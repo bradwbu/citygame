@@ -52,7 +52,6 @@
 #include "StringUtil.h"
 #include "offline.h"
 #include "loadBalancing.h"
-#include "perforce.h"
 #include "serverAutoStart.h"
 #include "FolderCache.h"
 #include "beaconservercomm.h"
@@ -1785,7 +1784,6 @@ int main(int argc,char **argv)
 		setAssertMode(ASSERTMODE_DEBUGBUTTONS |
 			ASSERTMODE_FULLDUMP |
 			ASSERTMODE_DATEDMINIDUMPS | ASSERTMODE_ZIPPED);
-		perforceDisable(1);
 	}
 	setAssertCallback(dbserverAsserCallback);
 	startupInfo(argc, argv);

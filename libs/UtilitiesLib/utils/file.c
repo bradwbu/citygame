@@ -34,7 +34,6 @@
 #include "memlog.h"
 #include "StringUtil.h"
 #include "earray.h"
-#include "perforce.h"
 #include "fileWatch.h"
 #include "file.h"
 #include "StringCache.h"
@@ -498,7 +497,7 @@ void fileAutoDataDir(bool bEnableSourceControl)
 	// Auto failed, or gameDataDirOverride was set above
 	fileLoadDataDirs(0);
 #ifndef _XBOX
-	printf("Using game data dir: %s (%s)\n", mainGameDataDir, bEnableSourceControl ? perforceQueryBranchName(mainGameDataDir) : "Perforce Disabled");
+	printf("Using game data dir: %s (%s)\n", mainGameDataDir, "Perforce Disabled");
 #endif
 }
 

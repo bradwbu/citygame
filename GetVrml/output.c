@@ -16,7 +16,6 @@
 #include "error.h"
 #include <io.h>
 #include <sys/stat.h>
-#include "perforce.h"
 #include "animtrackanimate.h"
 #include "zlib.h"
 #include "tricks.h"
@@ -953,23 +952,8 @@ void outputGroupInfo(char *fname)
 	count = size / sizeof(*model);
 	model = (void *)mem_blocks[MEM_MODELS].data;
 
-	if (!no_check_out && stricmp(perforceQueryLastAuthor(fname), "Not in database")!=0)
-	{
-		if (!perforceQueryIsFileLockedByMeOrNew(fname))
-		{
-			perforceSyncForce(fname, PERFORCE_PATH_FILE);
-			ret=perforceEdit(fname, PERFORCE_PATH_FILE);
-		}
-		else
-			ret = PERFORCE_NO_ERROR;
-		if (ret!=PERFORCE_NO_ERROR && ret!=PERFORCE_ERROR_NOT_IN_DB && ret!=PERFORCE_ERROR_ALREADY_DELETED && ret!=PERFORCE_ERROR_NO_SC)
-		{
-			Errorf("can't checkout %s. ignoring (%s)\n",fname,perforceOfflineGetErrorString(ret));
-			return;
-		}
-	} else {
-		_chmod(fname, _S_IREAD | _S_IWRITE);
-	}
+	_chmod(fname, _S_IREAD | _S_IWRITE);
+	
 	file = fopen(fname,"wt");
 	if (!file)
 		FatalErrorf("can't open %s for writing",fname);

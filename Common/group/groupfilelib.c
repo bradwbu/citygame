@@ -6,7 +6,6 @@
 #include "assert.h"
 #include "error.h"
 #include "strings_opt.h"
-#include "perforce.h"
 #include "fileutil.h"
 #include "FolderCache.h"
 #include "../edit/Menu.h"
@@ -133,7 +132,6 @@ static void addLibNameToHashes(GroupLibNameEntry *gn, int idx)
 		{
 			// seems like someone renamed a -> b -> a ... leak any old stuff and pretend it doesn't exist
 			printf("re-rename detected (leaking even more old data)\n");
-			ErrorFilenamef(new_txtname, "dup library piece name: %s/%s %s",old_libname,gn->name,new_libname);
 			if(!stashAddInt(group_name_hashes, gn->name, new_idx, true))
 				FatalErrorf("could not add %s/%s to groupname hash\n", new_libname, gn->name);
 			return;
@@ -143,8 +141,6 @@ static void addLibNameToHashes(GroupLibNameEntry *gn, int idx)
 			old_libname = old_txtname;
 		if (fileNewer(new_txtname,new_libname))
 			new_libname = new_txtname;
-		strcpy(old_author,perforceQueryLastAuthor(old_libname));
-		strcpy(new_author,perforceQueryLastAuthor(new_libname));
 		_unlink(fileLocateWrite_s(binfile_fullpath, NULL, 0));
 		FatalErrorf("dup name: %s/%s (%s)\n          %s/%s (%s)\n\n\n",old_libname,gn->name,old_author,new_libname,gn->name,new_author);
 	}

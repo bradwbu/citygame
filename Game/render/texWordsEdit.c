@@ -30,7 +30,6 @@
 #include "sprite_base.h"
 #include "sprite_font.h"
 #include "StringCache.h"
-#include "perforce.h"
 #include <sys/stat.h>
 #include "fileutil.h"
 #include "StringUtil.h"
@@ -1601,26 +1600,16 @@ void texWordsEdit_fileNew()
 void texWordsEdit_fileCheckout(char *fileName)
 {
 	char *s = fileName;
-	int ret;
 	forwardSlashes(s);
-	perforceSync(fileName, PERFORCE_PATH_FILE);
-	ret = perforceEdit(fileName, PERFORCE_PATH_FILE);
-	if (ret == NO_ERROR) {
-		tweditor_state.readonly = false;
-	}
+	tweditor_state.readonly = false;
 	texWordsEdit_undoReset();
 }
 
 void texWordsEdit_fileCheckin(char *fileName)
 {
 	char *s = fileName;
-	int ret;
 	forwardSlashes(s);
-	perforceAdd(fileName, PERFORCE_PATH_FILE);
-	ret = perforceSubmit(fileName, PERFORCE_PATH_FILE, "AUTO: texWordsEdit_fileCheckin");
-	if (ret == NO_ERROR) {
-		tweditor_state.readonly = true;
-	}
+	tweditor_state.readonly = true;
 	texWordsEdit_undoReset();
 }
 
@@ -2964,7 +2953,7 @@ static void writeNode(FILE *fout, TextureTreeNode *treeroot, char *dir)
 		} else {
 			const char *lastAuthor = "";
 			if (node->processed && node->bind && node->bind->texWord) {
-				lastAuthor = perforceQueryLastAuthor(node->bind->texWord->name);
+				lastAuthor = "Unknown";
 				if (strstriConst(lastAuthor, "file checked out")) {
 					lastAuthor = "CheckedOut";
 				} else if (strstriConst(lastAuthor, "Not in database")) {

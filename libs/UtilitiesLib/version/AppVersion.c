@@ -6,7 +6,6 @@
 #include "file.h"
 #include <string.h>
 #include <time.h>
-#include "perforce.h"
 #include "../network/crypt.h"
 
 char app_client_name[128] = "CityOfHeroes.exe";
@@ -77,7 +76,6 @@ const char *getDevVersion(void)
 	fileLastChangedWindows(name, &sys);
 	sprintf_s(SAFESTR(timestr),"%04hd-%02hd-%02hd %02hd:%02hd:%02hd",sys.wYear,sys.wMonth,sys.wDay,sys.wHour,sys.wMinute,sys.wSecond);
 	sprintf_s(SAFESTR(version),"dev: %s",timestr);
-	strcatf(version, " %s", perforceQueryBranchName(fileDataDir()));
 	return version;
 }
 

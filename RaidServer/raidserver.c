@@ -18,7 +18,6 @@
 #include "sysutil.h"
 #include "servercfg.h"
 #include "foldercache.h"
-#include "perforce.h"
 #include "consoledebug.h"
 #include "AppLocale.h"
 #include "memorymonitor.h"
@@ -1066,7 +1065,6 @@ int		i,timer;
 		setAssertMode(ASSERTMODE_DEBUGBUTTONS |
 			(!IsDebuggerPresent()? ASSERTMODE_MINIDUMP : 0));
 	} else {
-		perforceDisable(1);
 		// In production mode on the servers we want to save all dumps and do full dumps
 		setAssertMode(ASSERTMODE_DEBUGBUTTONS |
 			ASSERTMODE_FULLDUMP |
