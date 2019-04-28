@@ -17,6 +17,14 @@ ipch/
 *.map
 *.ilk
 *.bsc
+*.VC.db
+*.VC.opendb
+*.VC.db
+*.VC.db-shm
+*.VC.db-wal
+
+# Visual Studio 2019
+.vs/
 
 # Visual C++ debug database
 *.pdb
