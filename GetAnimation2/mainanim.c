@@ -25,7 +25,6 @@
 #include "process_skelx.h"
 #include "animtrack.h"
 #include "cmdcommon.h"
-#include "perforce.h"
 #include "FolderCache.h"
 #include "fileutil.h"
 #include "timing.h"
@@ -561,23 +560,6 @@ static Reasons processAnimationSingle( char * sourceFilePath )
 		return status;
 	}
 
-	// if necessary add the source file to version control
-	if(!g_no_version_control && perforceQueryIsFileNew(sourceFilePath))
-	{
-		PerforceErrorValue error;
-		printf( " [perforce] adding \"%s\"...", sourceFilePath );
-		error = perforceAdd(sourceFilePath, PERFORCE_PATH_FILE);
-		if( error )
-		{
-			printfColor(COLOR_RED|COLOR_BRIGHT,"failed.\n");
-			printfColor(COLOR_RED|COLOR_BRIGHT, "ERROR: failed to add file to perforce...[%s].\n", perforceOfflineGetErrorString(error));
-		}
-		else
-		{
-			printf("success.\n");
-		}
-	}
-
 	// the skeleton should reside in the same folder as the animation
 	// we are going to have to go searching for it...
 	strncpy_s( source_folder, 256, sourceFilePath, _TRUNCATE );
@@ -1056,14 +1038,7 @@ int main(int argc,char **argv)
 	else
 		g_force_rebuild = 0;
 
-	if(checkForArg(argc, argv, "-noperforce"))
-	{
-		g_no_version_control = 1;  // disable source control and allow working offline
-		// log that we are working offline
-		printfColor(COLOR_YELLOW|COLOR_BRIGHT,"WARNING: Working offline from version control ('-noperforce' flag)\n" );
-	}
-	else
-		g_no_version_control = 0;
+	g_no_version_control = 1;
 
 	if(checkForArg(argc, argv, "-monitor"))
 	{
@@ -1092,29 +1067,7 @@ int main(int argc,char **argv)
 		FolderCacheSetMode(FOLDER_CACHE_MODE_DEVELOPMENT_DYNAMIC);
 	}
 
-	// if we aren't explicitly disabling version control then
-	// initialize it here. If we fail to connect then we'll give the
-	// user the option to 'work offline' or to quit.
-	if (!g_no_version_control)
-	{
-		if (!perforceQueryAvailable())
-		{
-			const char* text =	"GetAnimation2 could not connect to the Perforce version control system.\n\n"
-								"Click OK to continue working in offline mode.\n\n"
-								"WARNING: If you work offline you will need to manually reconcile file\n"
-								"edits and additions with Perforce.\n";
-			if (okCancelDialog(text, "GetAnimation2: Perforce Is Unavailable") == IDOK)
-			{
-				// log that we are working offline
-				printfColor(COLOR_YELLOW|COLOR_BRIGHT,"WARNING: Working offline from version control (perforce unavailable)\n" );
-				g_no_version_control = true;
-			}
-			else
-				exit(0);	// QUIT, no version control and do not want to work offline
-		}
-	}
-
-	fileAutoDataDir(g_no_version_control==0);
+	fileAutoDataDir(true);
 
 	_getcwd(cwd, 128);
 

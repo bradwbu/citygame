@@ -40,7 +40,6 @@
 #include "SharedMemory.h"
 #include <gl/gl.h>
 #include "gl/glext.h"
-#include "perforce.h"
 #include "earray.h"
 #include "StashTable.h"
 #include "winutil.h"
@@ -106,7 +105,7 @@ static int				spew_initial_dupes = 0;
 static int				override_perforce=0;
 static int				scanlog = 0;
 static int				scan_check_alpha = 0;
-static int				noperforce = 0;
+static int				noperforce = 1;
 static int				num_reprocess=0;
 static int				num_repack = 0;
 static char				*tgaPath=NULL;
@@ -1592,45 +1591,9 @@ FileScanAction deleteIfMissingTga(char *dir, struct _finddata32_t *data) {
 			// This can happen all the time now, since people may not check their .tgas in right away
 			//printf("Not deleting %s's orphaned file : %s\n", fullpath);
 
-			if (force_mode==0 && !noperforce) {
-				if (perforceQueryIsFileMine(buf)) {
-					const char *lastauthor = perforceQueryLastAuthor(buf);
-					if (lastauthor && stricmp(lastauthor, perforceQueryUserName())!=0) {
-						if(override_perforce) {
-							printf("Processing %s's file: ", lastauthor);
-						} else {
-							if (stricmp(lastauthor, "Not in database")==0) {
-								// Not in database, see if we own the .tga
-								if (perforceQueryIsFileMine(fullpath)) {
-									// The .texture file is mine!  Delete it!
-								} else {
-									continue;
-								}
-							} else {
-								// Handle files that had their checkouts undone
-								if (perforceQueryIsFileMine(fullpath)) {
-									// The .texture file is mine!  Delete it!
-								} else {
-									continue;
-								}
-							}
-						}
-					}
-				}
-			}
-			if (no_check_out || noperforce) {
-				printf("Would delete : %s\n", fileLocateWrite_s(fullpath, NULL, 0));
-				deleted = true;
-				continue;
-			}
-			// It's orphaned, no other condition hit, delete it!
-			s = fileLocateWrite_s(fullpath, NULL, 0);
-			printf(" Deleting : %s\n", s);
-			perforceSyncForce(s, PERFORCE_PATH_FILE);
-			perforceDelete(s, PERFORCE_PATH_FILE);
-			fileForceRemove(s);
-			fileLocateFree(s);
+			printf("Would delete : %s\n", fileLocateWrite_s(fullpath, NULL, 0));
 			deleted = true;
+			continue;
 		} while (false);
 		if (!deleted) {
 			// Add this name to the duplicate textures checker
@@ -1727,15 +1690,7 @@ static bool checkForDuplicateNames(const char *texturefilename, bool bPrintToCon
 			if(bPrintToConsole)
 			{
 				// Already noted as a duplicate!
-				if (!noperforce)
-				{
-					lastauthor = perforceQueryLastAuthor(texturefilename);
-					printf("DupTex %s %s\n",lastauthor,texturefilename);
-				}
-				else
-				{
-					printf("DupTex %s\n",texturefilename);
-				}
+				printf("DupTex %s\n",texturefilename);
 			}
 			return true;
 		}
@@ -1745,26 +1700,10 @@ static bool checkForDuplicateNames(const char *texturefilename, bool bPrintToCon
 		} else {
 			if(bPrintToConsole)
 			{
-				if (!noperforce)
-				{
-					lastauthor = perforceQueryLastAuthor(texturefilename);
-					printf("DupTex %s %s\n",lastauthor,texturefilename);
-				}
-				else
-				{
-					printf("DupTex %s\n",texturefilename);
-				}
+				printf("DupTex %s\n",texturefilename);
 				sprintf(pathname, "%s/%s.tga", stashElementGetPointer(element), stashElementGetStringKey(element));
 
-				if (!noperforce)
-				{
-					lastauthor = perforceQueryLastAuthor(pathname);
-					printf("DupTex %s %s\n",lastauthor,pathname);
-				}
-				else
-				{
-					printf("DupTex %s\n",pathname);
-				}
+				printf("DupTex %s\n",pathname);
 			}
 			stashAddInt(htHasDups, filename, 1, false);
 			got_dups = true;
@@ -1983,43 +1922,9 @@ static int texWriteInnerLoop(TexDef *tex, bool just_init) {
 
 	PERFINFO_AUTO_STOP_START("perforceChecks", 1);
 
-	// Perforce checkout stuff
-	// get stats on the TGA file
-	bIsFileInDatabase = !noperforce && !perforceQueryIsFileNew(tex->name);
-	if (bIsFileInDatabase && !perforceQueryIsFileMine(tex->name) && (force_mode==0))
-	{
-		if (override_perforce) {
-			lastauthor = perforceQueryLastAuthor(tex->name);
-			printf("Processing %s's file: \n", lastauthor?lastauthor:"NO ONE");
-		} else {
-			reason |= 4;
-			PERFINFO_AUTO_STOP();
-			return 0;
-		}
-	}
-
-	// determine if output file needs to be added to perforce
-	if(!noperforce && !bIsFileInDatabase)
-		addFiles[0] = tex->name;
-
 	PERFINFO_AUTO_STOP_START("checkOut", 1);
-	if (no_check_out) {
-		_chmod(output_name, _S_IWRITE | _S_IREAD);
-		ret = NO_ERROR;
-	} else {
-		perforceSyncForce(output_name, PERFORCE_PATH_FILE);
-		ret=perforceEdit(output_name, PERFORCE_PATH_FILE);
-	}
-
-	if (ret!=NO_ERROR && ret!=PERFORCE_ERROR_NOT_IN_DB && ret!=PERFORCE_ERROR_ALREADY_DELETED && ret!=PERFORCE_ERROR_NO_SC)
-	{
-		Errorf("Can't checkout %s. (%s)\n",output_name,perforceOfflineGetErrorString(ret));
-		// Because of the checks above, if we get here, this file is one that should be processed!
-		if (!force_mode && !override_perforce)
-			FatalErrorf(".TGA file is owned by you, but .texture file is checked out by someone else!\n%s\n%s\n", srcName, output_name);
-		PERFINFO_AUTO_STOP();
-		return 0;
-	}
+	_chmod(output_name, _S_IWRITE | _S_IREAD);
+	ret = NO_ERROR;
 
 	PERFINFO_AUTO_STOP_START("write", 1);
 	num_repack++;
@@ -2076,36 +1981,6 @@ static int texWriteInnerLoop(TexDef *tex, bool just_init) {
 	//  exact same timestamp, and will probably be loaded from a pig instead!
 	//if (!force_mode && !override_perforce)
 	//	fileTouch(output_name, tex->name);
-
-	// determine if output file needs to be added to perforce
-	if(!noperforce && perforceQueryIsFileNew(output_name))
-		addFiles[1] = output_name;
-
-	// do perforce adds all at once when complete.  Note that gimme had no equivalent of add because all
-	//	files in the directory were considered to be new files available for checkin.
-	if(!noperforce)
-	{
-		int i;
-		for(i=0; i<2; i++)
-		{
-			if(!addFiles[i]) continue;
-			ret = perforceAdd(addFiles[i], PERFORCE_PATH_FILE);
-			if(ret != PERFORCE_NO_ERROR) {
-				Errorf("%s - FAILED to add file to perforce (%s)\n", addFiles[i], perforceOfflineGetErrorString(ret));
-			} else {
-				printf("%s - file added to perforce\n", addFiles[i]);
-			}
-		}
-	}
-
-	//if succeeded, auto-checkin .texture file here (better to do as a batch at the end?)
-	printf("\n");
-	if (!no_check_in) {
-		int ret;
-		PERFINFO_AUTO_STOP_START("checkIn", 1);
-		ret = perforceSubmit(output_name, PERFORCE_PATH_FILE, "AUTO: texWriteInnerLoop");
-		printf("\n");
-	}
 
 	PERFINFO_AUTO_STOP();
 	return 1;
@@ -2689,15 +2564,11 @@ int main(int argc,char **argv)
 	<dir to scan>	The folder to process, can also be a list of files to process\n\
 	-texinfo	Displays the information contained in the header of a .texture file\n\
 	-stayresident	Leaves GetTex running, monitoring the c:\\game\\src\\texture_library for new .tga files\n\
-	-nocheckin	Does not auto-checkin .texture files (default)\n\
-	-checkin	DOES auto-checkin .texture files\n\
-	-nocheckout	Does not auto-checkout .texture files\n\
 	-doprune	Prune/delete orphaned .texture files\n\
 	-noprompt	Does not ask for what options to use\n\
 	-nopause	Does not pause after displaying texture info with -texinfo\n\
 	-scancheckalpha	Check for 32bpp to 24bpp conversion on file scan\n\
 	-scanlog	Log the differences to C:\\GetTex_scanlog.txt\n\
-	-noperforce	Skip all perforce checks\n\
 	-spewdupes	Spew list of all duplicate textures at startup\n\
 	-cjpeg <path>	Custom cjpeg.exe file path\n"
 #if GETTEX_SUPPORT_LEGACY_TEXTURE_TOOL_EXES
@@ -2773,26 +2644,6 @@ int main(int argc,char **argv)
 		else if (stricmp(argv[i], "-override")==0) {
 			arg_offset++;
 			override_perforce = 1;
-		}
-		else if (stricmp(argv[i], "-nocheckin")==0) {
-			arg_offset++;
-			no_check_in = 1;
-		}
-		else if (stricmp(argv[i], "-checkin")==0) {
-			arg_offset++;
-			no_check_in = 0;
-		}
-		else if (stricmp(argv[i], "-nocheckout")==0) {
-			arg_offset++;
-			no_check_out = 1;
-			no_check_in = 1;
-		}
-		else if (stricmp(argv[i], "-noperforce")==0) {
-			arg_offset++;
-			noperforce = 1;
-			override_perforce = 1;
-			no_check_out = 1;
-			no_check_in = 1;
 		}
 		else if (stricmp(argv[i], "-stayresident")==0) {
 			arg_offset++;
@@ -2922,7 +2773,7 @@ int main(int argc,char **argv)
 
 	printf("Starting up... ");
 	loadstart_printf("");
-	fileAutoDataDir(no_check_out==0);
+	fileAutoDataDir(false);
 	loadend_printf("done.");
 
 	// Detect appropriate NVDXT.EXE

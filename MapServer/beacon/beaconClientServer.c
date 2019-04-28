@@ -2744,9 +2744,6 @@ void beaconHandleCmdLine(S32 argc, char** argv){
 			HANDLER("-beaconnonetstart"){
 				beaconizerInit.noNetStart = 1;
 			}
-			HANDLER("-beaconnoperforce"){
-				beaconServerSetPerforceUsage(0);
-			}
 			HANDLER("-beacondatatoolsrootpath"){
 				if(HAS_PARAM){
 					beaconServerSetDataToolsRootPath(GET_NEXT_PARAM);

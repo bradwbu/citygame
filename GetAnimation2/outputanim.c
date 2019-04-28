@@ -11,7 +11,6 @@
 #include "outputanim.h" 
 #include "assert.h"
 #include "processanim.h"
-#include "perforce.h"
 #include "error.h"
 #include "file.h"
 #include <sys/stat.h>
@@ -226,47 +225,8 @@ void outputAnimTrackToAnimFile( SkeletonAnimTrack * skeleton, char * targetFileP
 	oldData = fileAlloc(targetFilePath, &oldSize);
 	bExistingFile = oldData && oldSize;
 
-	if( !g_no_version_control )
-	{
-		int error;
-
-		// see if version control is tracking this file (whether or not it exists locally)
-		bControlNewFile = perforceQueryIsFileNew(targetFilePath);
-		if (!bControlNewFile)
-		{
-			// this file is currently under version control
-			// checkout the file for editing (if we don't have it already)
-			if ( perforceQueryIsFileMine(targetFilePath) )
-			{
-				printf( " [perforce] file is currently checked out by you.\n" );
-			}
-			else
-			{
-				printf( " [perforce] checking out \"%s\"...", targetFilePath );
-				error = perforceEdit(targetFilePath, PERFORCE_PATH_FILE);
-				if( error )
-				{
-					printfColor(COLOR_RED|COLOR_BRIGHT,"failed.\n");
-					printfColor(COLOR_RED|COLOR_BRIGHT, "ERROR: checkout failed...[%s].\n Skipping write of \"%s\".\n", perforceOfflineGetErrorString(error), targetFilePath);
-					// Do we always remove the write lock so that the file gets processed or do we skip processing?
-					free(oldData);
-					return;	// skip processing
-				}
-				else
-				{
-					printf("success.\n");
-					bJustCheckedOut = true;	// note that we just checked out the file in case we want to revert
-				}
-			}
-		}
-	}
-	else
-	{
-		// note: the 'checkout'/'add' designation in this case isn't completely accurate when the same file is
-		// reprocessed multiple times offline, but maybe still informative the first time the file is processed
-		printfColor(COLOR_YELLOW, " [offline] Would %s: \"%s\"\n", bExistingFile ? "checkout":"add", targetFilePath);
-		chmod(targetFilePath, _S_IREAD | _S_IWRITE );
-	}
+	printfColor(COLOR_YELLOW, " [offline] Would %s: \"%s\"\n", bExistingFile ? "checkout":"add", targetFilePath);
+	chmod(targetFilePath, _S_IREAD | _S_IWRITE );
 
 	//**
 	// Write the new data
@@ -329,50 +289,8 @@ void outputAnimTrackToAnimFile( SkeletonAnimTrack * skeleton, char * targetFileP
 		int newSize;
 
 		newData = fileAlloc(targetFilePath, &newSize);
-		
-		if (newData && newSize == oldSize)
-		{
-			if (memcmp(newData, oldData, newSize)==0)
-			{
-				printfColor(COLOR_YELLOW," Processed file is identical to existing file\n");
-				// try to undo the checkout only if we just checked it out and wrote the same file.
-				if(!g_no_version_control && bJustCheckedOut)
-				{
-					PerforceErrorValue error;
-					printf( " [perforce] reverting checkout of \"%s\"...", targetFilePath );
-					error = perforceRevert(targetFilePath, PERFORCE_PATH_FILE);
-					if( error )
-					{
-						printfColor(COLOR_RED|COLOR_BRIGHT,"failed.\n");
-						printfColor(COLOR_RED|COLOR_BRIGHT, "ERROR: failed to revert file...[%s].\n", perforceOfflineGetErrorString(error));
-					}
-					else
-					{
-						printf("success.\n");
-					}
-				}
-			}
-		}
 
 		free(oldData);
-	}
-
-	// add new file to version control
-	if(!g_no_version_control && bControlNewFile)
-	{
-		PerforceErrorValue error;
-
-		printf( " [perforce] adding \"%s\"...", targetFilePath );
-		error = perforceAdd(targetFilePath, PERFORCE_PATH_FILE);
-		if( error )
-		{
-			printfColor(COLOR_RED|COLOR_BRIGHT,"failed.\n");
-			printfColor(COLOR_RED|COLOR_BRIGHT, "ERROR: failed to add file to perforce...[%s].\n", perforceOfflineGetErrorString(error));
-		}
-		else
-		{
-			printf("success.\n");
-		}
 	}
 
 }

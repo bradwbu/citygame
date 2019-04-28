@@ -1384,14 +1384,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\utils\perforce.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\utils\perforce.h"
-				>
-			</File>
-			<File
 				RelativePath=".\utils\PigDir.c"
 				>
 			</File>

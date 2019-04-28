@@ -12,7 +12,6 @@
 #include "stringutil.h"
 #include "scriptvars.h"
 #include "mathutil.h"
-#include "perforce.h"
 #include "AppLocale.h"
 #include "queue.h"
 #include "earray.h"
@@ -2543,7 +2542,7 @@ void msSaveMessageStore(MessageStore *store)
 	char *args[10];
 	FILE *fout;
 	bool changed=false;
-	bool checkedOut;
+	bool checkedOut=true;
 	int trysLeft=5;
 	char filename[512];
 	
@@ -2563,25 +2562,6 @@ void msSaveMessageStore(MessageStore *store)
 	}
 	if (!changed)
 		return;
-
-	// Checkout *before* editing!
-	do {
-		int ret;
-		perforceSyncForce( store->fileLoadedFrom, PERFORCE_PATH_FILE );
-		ret = perforceEdit( store->fileLoadedFrom, PERFORCE_PATH_FILE );
-		if (NO_ERROR!=ret && ret!=PERFORCE_ERROR_NO_SC) {
-			checkedOut = false;
-			Sleep(250);
-			trysLeft--;
-		} else {
-			// Either we don't have perforce access or it checked it out
-			checkedOut = true;
-		}
-	} while (!checkedOut && trysLeft);
-	if (!checkedOut) {
-		Errorf("Unable to check out %s for editing, please have it checked back in and then re-run the Save command, otherwise the text will not be saved!", store->fileLoadedFrom);
-		return;
-	}
 
 	// Read message store, keeping comments, changing modified versions
 	fileLocateWrite(store->fileLoadedFrom, filename);
@@ -2677,8 +2657,6 @@ void msSaveMessageStore(MessageStore *store)
 		}
 	}
 	fclose(fout);
-	perforceAdd(store->fileLoadedFrom, PERFORCE_PATH_FILE);
-	perforceSubmit( store->fileLoadedFrom, PERFORCE_PATH_FILE, "AUTO: msSaveMessageStore");
 	free(messageData);
 }
 

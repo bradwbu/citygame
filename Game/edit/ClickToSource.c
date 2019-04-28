@@ -12,7 +12,6 @@
 #include "entdebug.h"
 #include "uicontextmenu.h"
 #include "stashtable.h"
-#include "perforce.h"
 #include "timing.h"
 #include "renderprim.h"
 #include "textureatlas.h"
@@ -34,7 +33,6 @@ U32 g_ctsstate = CTS_SINGLECLICK;
 static char currentFile[MAX_PATH];
 #define SAVE_CURRENT_FILENAME(filename)	sprintf(currentFile, "%s/%s", fileDataDir(), filename);	forwardSlashes(currentFile);
 
-static char* perforceUser = NULL;
 static ContextMenu* subMenu = NULL;
 
 //static ClickToSourceLink** sourceLinks = 0;
@@ -71,7 +69,7 @@ static int ctsHandlePerforceMessage(int perforceMessage)
 	if (!perforceMessage)
 		return 0;
 
-	ctsUpdateStatus(currentFile, perforceOfflineGetErrorString(perforceMessage));
+	ctsUpdateStatus(currentFile, "");
 	return perforceMessage;
 }
 
@@ -108,16 +106,7 @@ static void ctsCheckoutFile()
 {
 	if (fileExists(currentFile))
 	{
-		perforceSync(currentFile, PERFORCE_PATH_FILE);
-		if (!ctsHandlePerforceMessage(perforceEdit(currentFile, PERFORCE_PATH_FILE)))
-		{
-			ctsOpenFile();
-			ctsUpdateStatus(currentFile, "File checked out.");
-		}
-		else
-		{
-			ctsUpdateStatus(currentFile, "File could not be checked out.");
-		}
+		ctsUpdateStatus(currentFile, "File checked out.");
 	}
 	else
 		ctsUpdateStatus(currentFile, "File does not exist.");
@@ -127,8 +116,7 @@ static void ctsCheckinFile()
 {
 	if (fileExists(currentFile))
 	{
-		if (!ctsHandlePerforceMessage(perforceGuiSubmitFile(currentFile)))
-			ctsUpdateStatus(currentFile, "Checking in file...");
+		ctsUpdateStatus(currentFile, "Checking in file...");
 	}
 	else
 		ctsUpdateStatus(currentFile, "File does not exist.");
@@ -138,8 +126,7 @@ static void ctsUndoCheckout()
 {
 	if (fileExists(currentFile))
 	{
-		if (!ctsHandlePerforceMessage(perforceRevert(currentFile, PERFORCE_PATH_FILE)))
-			ctsUpdateStatus(currentFile, "File unchecked out.");
+		ctsUpdateStatus(currentFile, "File unchecked out.");
 	}
 	else
 		ctsUpdateStatus(currentFile, "File does not exist.");
@@ -147,16 +134,14 @@ static void ctsUndoCheckout()
 
 static void ctsGetLatest()
 {
-	if (!ctsHandlePerforceMessage(perforceSync(currentFile, PERFORCE_PATH_FILE)))
-		ctsUpdateStatus(currentFile, "You just got the latest version.");
+	ctsUpdateStatus(currentFile, "You just got the latest version.");
 }
 
 static void ctsCheckRevisions()
 {
 	if (fileExists(currentFile))
 	{
-		if (!ctsHandlePerforceMessage(perforceGuiHistory(currentFile)))
-			ctsUpdateStatus(currentFile, "Getting file revision information.");
+		ctsUpdateStatus(currentFile, "Getting file revision information.");
 	}
 }
 
@@ -166,7 +151,7 @@ static char* ctsGetBranchNumber(void* notUsed)
 	static int init = 0;
 	if (!init)
 	{
-		sprintf(branchNumber, "Branch %s", perforceQueryBranchName(fileDataDir()));
+		sprintf(branchNumber, "Branch (disabled)");
 		init = 1;
 	}
 	return branchNumber;
@@ -210,7 +195,7 @@ static int ctsFileNotCheckedOut(void* notUsed)
 {
 	static CMVisType visType;
 	if (!visChecksAreCached)
-		visType = (fileExists(currentFile) && !perforceQueryIsFileMine(currentFile + strlen(fileDataDir())+1))?CM_AVAILABLE:CM_VISIBLE;
+		visType = (fileExists(currentFile) && false)?CM_AVAILABLE:CM_VISIBLE;
 	return visType;
 }
 
@@ -219,7 +204,7 @@ static int ctsFileCheckedOutByYou(void* notUsed)
 	static CMVisType visType;
 	if (!visChecksAreCached)
 	{ 
-		visType =(fileExists(currentFile) && !perforceQueryIsFileMine(currentFile + strlen(fileDataDir())+1))?CM_AVAILABLE:CM_VISIBLE;
+		visType =(fileExists(currentFile) && false)?CM_AVAILABLE:CM_VISIBLE;
 	}
 	return visType;
 }
@@ -228,7 +213,7 @@ static int ctsFileExistsWithSC(void* notUsed)
 {
 	static CMVisType visType;
 	if (!visChecksAreCached)
-		visType = (fileExists(currentFile) && perforceQueryAvailable())?CM_AVAILABLE:CM_VISIBLE;
+		visType = (fileExists(currentFile) && false)?CM_AVAILABLE:CM_VISIBLE;
 	return visType;
 }
 
@@ -243,7 +228,6 @@ static void ctsShowContextMenu()
 static void ctsSetupSubMenu()
 {
 	subMenu = contextMenu_Create(NULL);
-	perforceUser = strdup(perforceQueryUserName());
 	contextMenu_addVariableText(subMenu, ctsGetBranchNumber, 0);
 	contextMenu_addCode(subMenu, ctsFileExists, NULL, (CMCode)ctsOpenFile, NULL, "Open File", 0);
 	contextMenu_addCode(subMenu, ctsFileExists, NULL, (CMCode)ctsOpenDirectory, NULL, "Open Directory", 0);
@@ -396,43 +380,19 @@ int WriteAnObject( const char * libraryPieceName )
 	{
 		char costumeFileName[256];
 		const char * userName;
-		int ret;
 		FileWrapper * file = 0;
 
 		//////// Check out and open the costume
-		userName = perforceQueryUserName();
+		userName = "Unknown";
 		if(userName)
 			sprintf( costumeFileName, "Defs/Objects/Objects%s.nd", userName );
 		else
 			sprintf( costumeFileName, "Defs/Objects/Objects.nd" );
 
-		perforceSync( costumeFileName, PERFORCE_PATH_FILE );
-		ret = perforceEdit( costumeFileName, PERFORCE_PATH_FILE );
-
-		if( ret == PERFORCE_ERROR_NOTLOCKEDBYYOU )
+		file = fileOpen( costumeFileName, "at" );
+		if (!file)
 		{
-			char errorMessage[256];
-			sprintf(errorMessage,  "Costume file %s is already checked out. ", costumeFileName );
-			Errorf( errorMessage);
-		}
-
-		if( ret == NO_ERROR  || 
-			ret == PERFORCE_ERROR_NO_SC || 
-			ret == PERFORCE_ERROR_FILENOTFOUND || 
-			ret == PERFORCE_ERROR_NOT_IN_DB || 
-			ret == PERFORCE_ERROR_ALREADY_CHECKEDOUT ||
-			ret == PERFORCE_ERROR_ALREADY_DELETED )
-		{
-			file = fileOpen( costumeFileName, "at" );
-			if (!file)
-			{
-				Errorf( "Error opening costume file %s.", costumeFileName );
-			}
-
-		}
-		else
-		{
-			Errorf( "Unexplained Perforce error (%d) trying to check out %s.", ret, costumeFileName);
+			Errorf( "Error opening costume file %s.", costumeFileName );
 		}
 
 		if( !file )
@@ -484,38 +444,15 @@ int WriteAnObject( const char * libraryPieceName )
 	//Compose a new EntType if needed
 	if( !entTypeDef )
 	{
-		int ret;
 		FileWrapper * file = 0;
 		char entTypeFileNameWithPath[400];
 
 		sprintf( entTypeFileNameWithPath, "ent_types/%s.txt", entTypeFileName ); 
 
-		perforceSync( entTypeFileNameWithPath, PERFORCE_PATH_FILE );
-		ret = perforceEdit( entTypeFileNameWithPath, PERFORCE_PATH_FILE );
-
-		if( ret == PERFORCE_ERROR_NOTLOCKEDBYYOU )
+		file = fileOpen( entTypeFileNameWithPath, "wt" );
+		if (!file)
 		{
-			char errorMessage[256];
-			sprintf(errorMessage, "8 (Make Object failed) Perforce error with EntType file %s. Tell Garth", entTypeFileNameWithPath );
-			Errorf( errorMessage);
-		}
-
-		if( ret == NO_ERROR  || 
-			ret == PERFORCE_ERROR_NO_SC || 
-			ret == PERFORCE_ERROR_FILENOTFOUND || 
-			ret == PERFORCE_ERROR_NOT_IN_DB || 
-			ret == PERFORCE_ERROR_ALREADY_CHECKEDOUT ) 
-		{
-			file = fileOpen( entTypeFileNameWithPath, "wt" );
-			if (!file)
-			{
-				Errorf( "9 (Make Object failed) Error opening %s EntType, tell Woomer", entTypeFileNameWithPath );
-			}
-
-		}
-		else
-		{
-			Errorf( "10 (Make Object failed). Unexplained Perforce error with EntType %s. Tell James.", entTypeFileNameWithPath );
+			Errorf( "9 (Make Object failed) Error opening %s EntType, tell Woomer", entTypeFileNameWithPath );
 		}
 
 

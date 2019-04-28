@@ -11,7 +11,6 @@
 #include "timing.h"
 #include "utils.h"
 #include "file.h"
-#include "perforce.h"
 #include "HashFunctions.h"
 #include "EString.h"
 #include "mathutil.h"
@@ -112,7 +111,7 @@ NORETURN FatalErrorf(char const *fmt, ...)
 }
 
 NORETURN FatalErrorFilenamef(const char *filename, char const *fmt, ...) {
-	const char *user = g_disableLastAuthor?"UNKNOWN":perforceQueryLastAuthor(filename);
+	const char *user = "UNKNOWN";
 	char str[1024];
 	char str2[1024];
 	va_list ap;
@@ -120,7 +119,7 @@ NORETURN FatalErrorFilenamef(const char *filename, char const *fmt, ...) {
 
 	if (strcmp(user, "Not in database")==0) {
 		sprintf_s(SAFESTR(buf), "SCRIPTS.LOC/%s", filename);
-		user = g_disableLastAuthor?"UNKNOWN":perforceQueryLastAuthor(buf);
+		user = "UNKNOWN";
 		if (strcmp(user, "Not in database")!=0) {
 			// Found something better!
 			filename = buf;
@@ -269,11 +268,11 @@ void ErrorFilenamevInternal(const char *filename, char const *fmt, va_list ap) {
 	}
 	else 
 	{
-		user = g_disableLastAuthor?"UNKNOWN":perforceQueryLastAuthor(filename);
+		user = "UNKNOWN";
 		if (strcmp(user, "Not in database")==0) 
 		{
 			sprintf_s(SAFESTR(buf), "SCRIPTS.LOC/%s", filename);
-			user = g_disableLastAuthor?"UNKNOWN":perforceQueryLastAuthor(buf);
+			user = "UNKNOWN";
 			if (strcmp(user, "Not in database")!=0) 
 			{
 				// Found something better!
@@ -282,8 +281,6 @@ void ErrorFilenamevInternal(const char *filename, char const *fmt, va_list ap) {
 		}
 		estrConcatf(str2, "File: %s\nLast Author/Status:%s\n%s", filename, user, *str);
 		errorLogFileHasError(filename);
-		if (!g_disableLastAuthor && perforceQueryIsFileMine(filename))
-			mine = true;
 	}
 	if (mine)
 		forceShowThisError(true);
@@ -304,18 +301,14 @@ void ErrorFilenameDupInternal(const char *filename1, const char *filename2, cons
 {
 	const char *newest_file;
 
-	const char *user1 = g_disableLastAuthor?"UNKNOWN":perforceQueryLastAuthor(filename1);
-	const char *user2 = g_disableLastAuthor?"UNKNOWN":perforceQueryLastAuthor(filename2);
+	const char *user1 = "UNKNOWN";
+	const char *user2 = "UNKNOWN";
 
 	if (fileNewer(filename1, filename2))
 		newest_file = filename1;
 	else
 		newest_file = filename2;
-	if (perforceQueryIsFileLockedByMeOrNew(filename1))
-		newest_file = filename1; // Always give blame to locally modified files
-	if (perforceQueryIsFileLockedByMeOrNew(filename2))
-		newest_file = filename2; // Always give blame to locally modified files
-
+		
 	errorLogFileHasError(filename1);
 	errorLogFileHasError(filename2);
 

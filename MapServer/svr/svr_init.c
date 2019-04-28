@@ -92,7 +92,6 @@
 #include "parseClientInput.h"
 #include "anim.h"
 #include "skillobj.h"
-#include "perforce.h"
 #include "baseloadsave.h"
 #include "basedata.h"
 #include "taskRandom.h"
@@ -541,11 +540,6 @@ static void parseArgs0(int argc,char **argv)
 		else if (stricmp(argv[i], "-productionmode")==0)
 		{
 			g_force_production_mode = 1;
-		}
-		else if (stricmp(argv[i], "-noperforce")==0)
-		{
-			// disable perforce usage for life of the app.  To be used when perforce not available.
-			perforceDisable(1);
 		}
 #endif
 		else if (stricmp(argv[i], "-locale")==0)
@@ -1948,7 +1942,6 @@ int __cdecl main(int argc,char **argv)
 		// Only tell the DbServer to auto-delink us if we're in production mode
 		setAssertCallback(dbDelinkMeWrapper);
 		dirMonSetBufferSize(4096); // Don't use much memory for the DirMonitor, not much should ever need be reloaded anyway!
-		perforceDisable(1);
 	}
 	// Set the assert mode, if we're launched by a launcher we probably get our assert mode overridden by the DbServer
 	// In production mode on the servers we want to save all minidumps timestamped, or possibly full dumps

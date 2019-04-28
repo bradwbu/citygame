@@ -9,7 +9,6 @@ can operate on. The name is derived from: ANIMation Export.
 #include "stdtypes.h"
 #include "utils.h"
 #include "earray.h"
-#include "perforce.h"
 #include "mathutil.h"
 #include "import_animx.h"
 
@@ -72,10 +71,6 @@ unsigned int LoadAnimation( const char* sourcepath )
 {
 	U32 numFrames;
 	U32 numNodes;
-
-	// we use the utilities library for the struct parser
-	// but we don't want any gimme operations/error messages from our MAX plugin.
-	perforceDisable(true);
 
 	// Read ANIMX file
 	ParserLoadFiles(NULL, (char*)sourcepath, 0, 0, parse_TAnimX, &g_imported_animx, 0, NULL, NULL);

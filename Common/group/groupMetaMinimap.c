@@ -10,7 +10,6 @@
 #include "groupfileload.h"
 #include "mathutil.h"
 #include "groupProperties.h"
-#include "perforce.h"
 #include "bases.h"
 #include "error.h"
 #if SERVER
@@ -941,13 +940,6 @@ void minimap_saveHeader(char *filename)
 	if(strlen(headerName) + strlen(".minimap") < 512)
 	{
 		strcpy(headerName+strlen(headerName), ".minimap");
-	}
-	if (attemptToCheckOut(headerName, 1))
-	{
-		ParserWriteTextFile(headerName, parse_ArchitectMapHeader, header, 0, 0);
-		perforceAdd(headerName, PERFORCE_PATH_FILE);
-		// fpe removed 1/7/11 -- now part of default changelist so won't be missed
-		//perforceSubmit(headerName, PERFORCE_PATH_FILE, "AUTO: minimap_saveHeader");
 	}
 	s_freeHeader(header);
 }

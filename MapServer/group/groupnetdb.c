@@ -21,7 +21,6 @@
 #include "groupdb_util.h"
 #include "groupdbmodify.h"
 #include "utils.h"
-#include "perforce.h"
 #include "groupdyn.h"
 #include "dbdoor.h"
 #include "locationTask.h"	// for VisitLocationLoad()
@@ -880,13 +879,6 @@ static DefTracker * receiveAndUpdateTracker(Packet * pak, UpdateMode update_orig
 	if(bHadSharedProp && def->properties != NULL && !stashFindPointer(def->properties, "SharedFrom", &shareProp)) {
 		if(ref->parent)
 			groupRefModify(ref->parent);
-		else {
-			// parent is root, need to check it out so it can be saved
-			LayerCheckoutStatus * les = getLayerCheckoutStatus( world_name );
-			if( les->perforceStatus != LAYER_IS_CHECKED_OUT_TO_ME ) {
-				les->perforceStatus = attemptToCheckOut( world_name, 0 );
-			}
-		}
 	}
 
 	// make a handle to ret and then reopen it
@@ -1356,7 +1348,6 @@ void worldHandleMsg(NetLink *link,Packet *pak)
 				{
 					char givenName[256]; 
 					char layerFileName[MAX_PATH]; 
-					LayerCheckoutStatus * les;
 					char *	layerName = 0;
 					char * suffix;
 					int	checkoutSuccess = 0;
@@ -1396,11 +1387,6 @@ void worldHandleMsg(NetLink *link,Packet *pak)
 								suffix = layerFileName;
 							strcpy(suffix, shareProp->value_str);
 						}
-
-						/////Get that file's checkout status
-						les = getLayerCheckoutStatus( layerFileName );
-						if( les->perforceStatus != LAYER_IS_CHECKED_OUT_TO_ME ) 
-							les->perforceStatus = attemptToCheckOut( layerFileName, 0 );
 					}
 					else
 					{
@@ -1410,18 +1396,6 @@ void worldHandleMsg(NetLink *link,Packet *pak)
 				else
 					rootMapHasBeenModified = 1; //This is not a layer
 			}
-		}
-
-		//If the scene file has changed or if any ref that is not part of a layer has been modified, then update the root file
-		//TO DO: also need to get if the list of layers has changed. Unfortunately, I don't record this very well.
-		//wait, actually a new ref will count as modified.  A deleted ref would be the only check needed
-		//also if you make something a layer, it needs to understand that is a change to the root
-		if( rootMapHasBeenModified || 0 != stricmp( group_info.scenefile, oldSceneFile ) || 0 != stricmp( group_info.loadscreen, oldLoadScreen ) )
-		{
-			LayerCheckoutStatus * les = getLayerCheckoutStatus( world_name );
-
-			if( les->perforceStatus != LAYER_IS_CHECKED_OUT_TO_ME ) 
-				les->perforceStatus = attemptToCheckOut( world_name, 0 );
 		}
 	}
 	////////////////End Handle Checkouts ///////////////////////////////////////////////////////////////////

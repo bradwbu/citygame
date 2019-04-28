@@ -17,27 +17,6 @@ static void addErrorToQueue(char *str);
 //------------------------------------------------------------
 // Error callbacks
 //------------------------------------------------------------
-// MAK - do some scrounging around for the author info, then do popup
-void PerforceErrorDialog(char* errMsg)
-{
-	char author[200] = {0};
-	char temp[200] = {0};
-	char* intro = strstr(errMsg, g_lastAuthorIntro);
-	if (intro)
-	{
-		strncpyt(temp, intro + strlen(g_lastAuthorIntro), 200);
-		intro = strchr(temp, '\n');
-		if (intro) *intro = 0;
-
-		// HACK: if an actual author instead of an error message
-		if (strlen(temp) < 15) 
-			sprintf(author, "%s is Responsible", temp);
-		else 
-			strcpy(author, temp);
-	}
-	errorDialog(compatibleGetConsoleWindow(), errMsg, 0, author[0]? author: NULL, errorWasForceShown());
-}
-
 #define NEVER_SHOW_DIALOG_BOX 1
 #define FORCE_SHOW_DIALOG_BOX 2
 
@@ -65,7 +44,6 @@ void serverErrorfCallback(char* errMsg)
 		// These items are not overridden by FORCE_SHOW_DIALOG_BOX
 		&& ErrorfCount() < 5 && !server_state.create_bins && !write_templates)
 	{
-		PerforceErrorDialog(errMsg);
 	}
 	else
 	{

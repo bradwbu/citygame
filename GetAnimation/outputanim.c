@@ -11,7 +11,6 @@
 #include "outputanim.h" 
 #include "assert.h"
 #include "processanim.h"
-#include "perforce.h"
 #include "error.h"
 #include "file.h"
 #include <sys/stat.h>
@@ -213,17 +212,7 @@ void outputAnimTrackToAnimFile( SkeletonAnimTrack * skeleton, char * targetFileP
 	int oldSize, newSize;
 
 	// #### open .anim file ##########
-	if( !g_no_checkout )
-	{
-		int error;
-		printf( "Trying To Checkout %s...", targetFilePath );
-		perforceSyncForce(targetFilePath, PERFORCE_PATH_FILE);
-		error = perforceEdit(targetFilePath, PERFORCE_PATH_FILE);
-		if( error )
-			printf( "But I failed.\n" );
-		else
-			printf( " Success.\n");
-	} else {
+	if( g_no_checkout ) {
 		printf( " WOULD CHECK OUT: %s\n", targetFilePath);
 		chmod(targetFilePath, _S_IREAD | _S_IWRITE );
 	}
@@ -277,17 +266,6 @@ void outputAnimTrackToAnimFile( SkeletonAnimTrack * skeleton, char * targetFileP
 	fwrite( mem_blocks[MEM_ANIMDATA].data, mem_blocks[MEM_ANIMDATA].used, 1, file);
 
 	fclose(file);
-
-	// Check for no changes (and undo checkout)
-	newData = fileAlloc(targetFilePath, &newSize);
-	if (!newData || !oldData || newSize != oldSize)
-		return;
-	if (memcmp(newData, oldData, newSize)==0) {
-		printf(" File did not change in processing%s\n", g_no_checkout ? "" : ", undoing checkout...");
-		if (!g_no_checkout) {
-			perforceRevert(targetFilePath, PERFORCE_PATH_FILE);
-		}
-	}
 }
 ///################### End Write data to a file ##########################################
 

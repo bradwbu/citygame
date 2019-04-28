@@ -292,7 +292,6 @@ typedef struct BeaconServer {
 	S32									generateOnly;
 	S32									checkEncounterPositionsOnly;
 	S32									testRequestClient;
-	S32									noPerforceUsage;
 	S32									symStore;
 	S32									writeCurMapData;
 	

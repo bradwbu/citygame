@@ -8,7 +8,6 @@
 #include "file.h"
 #include "error.h"
 #include "uiCostume.h"
-#include "perforce.h"
 
 CostumeMasterList	gCostumeOriginal = {0};
 
@@ -262,11 +261,6 @@ int costumeReportDiff( int flags )
 	{
 		char buffer[1000];
 
-		// check out good version
-		sprintf( buffer, "%s/menu/costume", valid_data_dir );
-		perforceSyncForce(buffer, PERFORCE_PATH_FOLDER);
-		perforceEdit(buffer, PERFORCE_PATH_FOLDER);
-
 		// delete good version
 		sprintf( buffer, "rd %s\\menu\\costume /s /q", backSlashes(valid_data_dir) );
 		system( buffer );
@@ -274,12 +268,6 @@ int costumeReportDiff( int flags )
 		// copy new version to good version
 		sprintf( buffer, "xcopy %s\\menu\\costume %s\\menu\\costume /s /i ", backSlashes(data_dir),  backSlashes(valid_data_dir) );
 		system( buffer );
-
-		// check in 
-		sprintf( buffer, "%s/menu/costume", valid_data_dir );
-		perforceAdd(buffer, PERFORCE_PATH_FOLDER);
-		perforceSubmit(buffer, PERFORCE_PATH_FOLDER, "AUTO: costumeReportDiff");
-
 	}
 
 	return diff_failed;

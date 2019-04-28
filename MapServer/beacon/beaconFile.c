@@ -9,7 +9,6 @@
 #include "groupnetsend.h"
 #include "entserver.h"
 #include "entVarUpdate.h"
-#include "perforce.h"
 #include "EString.h"
 #include "strings_opt.h"
 #include "beaconGenerate.h"
@@ -323,13 +322,6 @@ static S32 beaconWriteDateFile(S32 doCheckoutCheckin){
 		
 		fclose(f);
 
-		if(doCheckoutCheckin)
-		{
-			perforceAdd(beacon_process.beaconDateFileName, PERFORCE_PATH_FILE);
-			perforceEdit(beacon_process.beaconDateFileName, PERFORCE_PATH_FILE);
-			success = !perforceSubmit(beacon_process.beaconDateFileName, PERFORCE_PATH_FILE, "AUTO: beaconWriteDateFile");
-		}
-		
 		return success;
 	}
 	
@@ -538,14 +530,11 @@ static void writeBeaconFileToFile(const void* data, U32 size){
 }
 
 static S32 writeBeaconFile(char* fileName, S32 writeCheck, S32 doCheckoutCheckin){
-	S32 i;
+	S32 i = 0;
 
 	// Check out the beacon file for modificaiton
 
-	if(doCheckoutCheckin){
-		perforceSyncForce( fileName, PERFORCE_PATH_FILE );
-		perforceEdit( fileName, PERFORCE_PATH_FILE );
-	}else{
+	if(!doCheckoutCheckin){
 		DeleteFile(fileName);
 	}
 	
@@ -583,12 +572,6 @@ static S32 writeBeaconFile(char* fileName, S32 writeCheck, S32 doCheckoutCheckin
 	fileClose(beaconWriter.fileHandle);
 
 	beaconWriter.fileHandle = NULL;
-
-	if(doCheckoutCheckin){
-		perforceAdd(fileName, PERFORCE_PATH_FILE);
-		perforceEdit(fileName, PERFORCE_PATH_FILE);
-		i = !perforceSubmit(fileName, PERFORCE_PATH_FILE, "AUTO: writeBeaconFile");
-	}
 
 	// Write the date file.
 	
@@ -1565,33 +1548,6 @@ void beaconWriteCurrentFile(S32 doCheckoutCheckin){
 	writeBeaconFile(fileName, 1, doCheckoutCheckin);
 }
 
-void beaconRemoveOldFiles(void){
-	S32 i;
-	
-	printf("\n\n*** Removing Old Beacon Files ***\n");
-	
-	for(i = 0; i < curBeaconFileVersion; i++){
-		char fileName[1000];
-		
-		beaconGetBeaconFileName(fileName, i);
-		
-		if(fileExists(fileName)){
-			printf("   REMOVING: %s\n", fileName);
-			
-			perforceDelete(fileName, PERFORCE_PATH_FILE);
-		}
-		
-		strcat(fileName, ".date");
-		
-		if(fileExists(fileName)){
-			printf("   REMOVING: %s\n", fileName);
-			
-			perforceDelete(fileName, PERFORCE_PATH_FILE);
-		}
-	}
-	printf("*** Done Removing Old Beacon Files ***\n\n");
-}
-
 void beaconFindBeaconsInWorldData(S32 loadNPC, S32 loadTraffic){
 	combatBeaconGridBlockSize = 256;
 	
@@ -1936,8 +1892,6 @@ static void undoCheckout(char* fileName){
 	}
 		
 	printf("Undoing checkout: %s...", fileName);
-
-	perforceRevert(fileName, PERFORCE_PATH_FILE);
 	
 	printf(" DONE!\n");
 }
@@ -1985,54 +1939,6 @@ void beaconProcessSetConsoleCtrlHandler(S32 on){
 }
 
 static S32 beaconGetFileLock(char* fileName, S32* isNew){
-	S32 perforce_ret;
-
-	forwardSlashes(fileName);
-
-	printf("Checking out file: %s\n", fileName);
-
-	perforceSyncForce( fileName, PERFORCE_PATH_FILE );
-	perforce_ret = perforceEdit( fileName, PERFORCE_PATH_FILE );
-
-	if(	perforce_ret == PERFORCE_ERROR_NOT_IN_DB ||
-		perforce_ret == PERFORCE_ERROR_ALREADY_DELETED)
-	{
-		FILE* f;
-		
-		makeBeaconFileDirectory(fileName);
-
-		printf("\n  WARNING: File not found in Perforce database, trying to create it...\n");
-
-		f = fileOpen(fileName, "wb");
-
-		if(!f){
-			printf("CANCELED: Can't create temp file: %s\n", fileName);
-			return 0;
-		}
-		
-		fileClose(f);
-
-		perforceAdd(fileName, PERFORCE_PATH_FILE);
-		if(perforceSubmit(fileName, PERFORCE_PATH_FILE, "AUTO: beaconGetFileLock")){
-			printf("CANCELED: Can't checkin temp file: %s\n", fileName);
-			return 0;
-		}
-
-		perforceSyncForce( fileName, PERFORCE_PATH_FILE );
-		perforce_ret = perforceEdit( fileName, PERFORCE_PATH_FILE );
-
-		if(isNew){
-			*isNew = 1;
-		}
-	}
-	
-	if(perforce_ret){
-		printf("\nCANCELED: Can't checkout file(%d): %s\n", perforce_ret, fileName);
-		return 0;
-	}
-	
-	printf("    SUCCESS!\n");
-	
 	return 1;
 }
 
@@ -2739,10 +2645,6 @@ S32 beaconCheckoutBeaconFiles(S32 noFileCheck, S32 removeOldFiles){
 	
 	if(beaconFileIsUpToDate(noFileCheck)){
 		beaconProcessUndoCheckouts();
-		
-		if(removeOldFiles){
-			beaconRemoveOldFiles();
-		}
 
 		return 0;
 	}
@@ -2864,38 +2766,11 @@ void beaconProcess(S32 noFileCheck, S32 removeOldFiles, S32 generateOnly){
 	printf("Writing file: %s\n", beacon_process.beaconFileName);
 	
 	if(writeBeaconFile(beacon_process.beaconFileName, 1, 1)){
-		if(removeOldFiles){
-			beaconRemoveOldFiles();
-		}
+		
 	}
 	
 	printf("\nFile size: %d bytes\n", fileSize(beacon_process.beaconFileName));
 	
-	consoleSetColor(COLOR_GREEN | COLOR_BRIGHT, 0);
-	
-	/*printf(	"\n"
-			"\nЩЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЛ"
-			"\n? ____________           _________       ______       _____   _______________     ____    ?
-			"\n? лллллллллллл__       __лллллллл?_     лллллл_      лллл?  лллллллллллллл?   _лллл_   ?
-			"\n? лллллллллллллл_     _лллллллллллл?    лллллл?     лллл?  лллллллллллллл?  _лллллл_  ?
-			"\n? лллллллллллллл?   _лллллллллллллл?   лллллллл_    лллл?  лллллллллллллл?  лллллллл  ?
-			"\n? лллл?    лллллл   лллллл     лллллл   лллллллл?   лллл?  лллл?            лллллллл  ?
-			"\n? лллл?     лллл?  лллл?      лллл?  лллллллллл_  лллл?  лллл?            лллллллл  ?
-			"\n? лллл?     лллл?  лллл?      лллл?  лллллллллл? лллл?  лллл?____         лллллл   ?
-			"\n? лллл?     лллл?  лллл?      лллл?  лллллллллллл_лллл?  лллллллллл         лллллл   ?
-			"\n? лллл?     лллл?  лллл?      лллл?  лллл?лллллллллллл   лллллллллл          лллл    ?
-			"\n? лллл?     лллл?  лллл?      лллл?  лллл? лллллллллл?  лллллллллл          лллл    ?
-			"\n? лллл?     лллл?  лллл?      лллл?  лллл?  лллллллллл   лллл?               лл     ?
-			"\n? лллл?    _лллл?  лллл?     _лллл?  лллл?   лллллллл?  лллл?               лл     ?
-			"\n? лллл?____лллллл   лллллл_____лллллл   лллл?    лллллллл   лллл?_________     ____    ?
-			"\n? лллллллллллллл?    лллллллллллллл?   лллл?     лллллл?  лллллллллллллл?   _лллл_   ?
-			"\n? лллллллллллллл       лллллллллллл?    лллл?      лллллл   лллллллллллллл?   лллллл   ?
-			"\n? лллллллллллл           лллллллл?      лллл?       лллл?  лллллллллллллл?    лллл    ?
-			"\n?                                                                                         ?
-			"\nШЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭМ"
-			"\n"
-			"\n" );*/ //WTF is this shit????
-
 	beaconProcessSetConsoleCtrlHandler(0);
 
 	assert(heapValidateAll());

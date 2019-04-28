@@ -6,7 +6,6 @@
 #include "utils.h"
 #include "seqsequence.h"
 #include <string.h>
-#include "perforce.h"
 #include "assert.h"
 #include "animtrackanimate.h"
 #include "SharedMemory.h"
@@ -874,8 +873,6 @@ static void setupTrick(TrickInfo *trick, bool shared_memory)
 		char	author1[1000],author2[1000];
 
 		stashFindPointer( trick_list.trick_name_hashes,trick->name, &dup_trick );
-		strcpy(author1,perforceQueryLastAuthor(trick->file_name));
-		strcpy(author2,perforceQueryLastAuthor(dup_trick->file_name));
 		Errorf("duplicate trick: %s\n1st %s (checked in by: %s)\n2nd %s (checked in by: %s)\n\n",
 			trick->name,trick->file_name,author1,dup_trick->file_name,author2);
 	}

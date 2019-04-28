@@ -10,7 +10,6 @@
 #include "utils.h"
 #include "strings_opt.h"
 #include "file.h"
-#include "perforce.h"
 //
 #include "language/MessageStore.h"
 #include "textparser.h"
@@ -1088,8 +1087,6 @@ void cmdOldSaveMessageStore( CmdList *cmdlist, char * filename )
 		return;
 
 	sprintf_s(SAFESTR(filepath), "texts\\English\\%s", filename );
-	perforceSyncForce(filepath, PERFORCE_PATH_FILE);
-	perforceEdit(filepath, PERFORCE_PATH_FILE);
 
 	file = fileOpen( filepath, "wt" );
 	if (!file)
@@ -1163,9 +1160,6 @@ void cmdOldSaveMessageStore( CmdList *cmdlist, char * filename )
 		}
 	}
 	fclose(file);
-
-	perforceAdd(filepath, PERFORCE_PATH_FILE);
-	perforceSubmit(filepath, PERFORCE_PATH_FILE, "AUTO: cmdOldSaveMessageStore");
 }
 
 void cmdOldApplyOperation(int* var, int value, CmdContext* cmd_context)

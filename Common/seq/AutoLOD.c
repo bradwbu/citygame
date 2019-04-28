@@ -8,7 +8,6 @@
 #include "StashTable.h"
 #include "timing.h"
 #include "FolderCache.h"
-#include "perforce.h"
 
 #include "AutoLOD.h"
 #include "anim.h"
@@ -303,8 +302,6 @@ void lodinfoLoadPostProcess(void)
 			ModelLODInfo *dup_lodinfo = 0;
 
 			stashFindPointer(lod_hash, buf, &dup_lodinfo );
-			strcpy(author1,perforceQueryLastAuthor(lodinfo->parsed_filename));
-			strcpy(author2,perforceQueryLastAuthor(dup_lodinfo->parsed_filename));
 			Errorf("Duplicate LOD info: %s\n1st %s (checked in by: %s)\n2nd %s (checked in by: %s)\n\n",
 				lodinfo->modelname, lodinfo->parsed_filename, author1, dup_lodinfo->parsed_filename, author2);
 			errorLogFileHasError(lodinfo->parsed_filename);
@@ -692,9 +689,6 @@ void writeLODInfo(ModelLODInfo *info, char *geoname)
 		// write the lod file and add to source control if necessary
 		mkdirtree(info->parsed_filename);
 		ParserWriteTextFile(info->parsed_filename, parse_lods, &infos, 0, 0);
-		if(perforceQueryIsFileNew(info->parsed_filename)) {
-			perforceAdd(info->parsed_filename, PERFORCE_PATH_FILE);
-		}
 
 		for (i = 0; i < eaSize(&infos.infos); i++)
 			infos.infos[i]->lods = lods[i];

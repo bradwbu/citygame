@@ -6,7 +6,6 @@
 #include "utils.h"
 #include <string.h>
 #include "groupfilelib.h"
-#include "perforce.h"
 #include "dbcomm.h"
 #include "file.h"
 #include "anim.h"
@@ -20,37 +19,10 @@
 
 GroupDef *protect_parent;
 //I think this is only for checking out library pieces...
+
 int checkoutMapFile(const char *fname)
 {
-	PerforceErrorValue ret;
-
-	if(perforceQueryIsFileMine(fname)) {
-		return 1; // already checked out to me (or newly added)
-	} else if (!perforceQueryIsFileLatest(fname)) {
-		// The user doesn't have the latest version of the file, do not let them edit it!
-		// If we were to check out the file here, the file would be changed on disk, but not reloaded,
-		//   and that would be bad!  Someone else's changes would most likely be lost.
-		sendEditMessage(NULL, 1, "Error: file (%s) unable to be checked out, someone else has changed it since you last got latest.  Exit, get latest and reload the map.", fname!=NULL?fname:"NULL");
-		return 0;
-	} else {
-		perforceSync(fname, PERFORCE_PATH_FILE);
-		if (ret=perforceEdit(fname, PERFORCE_PATH_FILE)) { // attempt to check out here
-			if (ret!=PERFORCE_ERROR_NOT_IN_DB) {
-				sendEditMessage(NULL, ret!=PERFORCE_ERROR_NOT_IN_DB, "Error: file (%s) unable to be checked out (%s)%s", fname!=NULL?fname:"NULL", perforceOfflineGetErrorString(ret), ret==PERFORCE_ERROR_NOT_IN_DB?" You will need to add it (check in) manually.":(ret==PERFORCE_ERROR_NO_SC)?" Editing locally only.":"");
-			}
-			if (ret==PERFORCE_ERROR_NOT_IN_DB || ret==PERFORCE_ERROR_NO_SC) {
-				// Not in the db, it will be added when we save it
-				// pretend it's checked out
-				return 1;
-			} else {
-				// Other error checking it out, cancel the edit operation
-				return 0;
-			}
-		} else {
-			sendEditMessage(NULL, 0, "File \"%s\" checked out for %s", fname!=NULL?fname:"UNNAMED", perforceQueryUserName());
-			return 1;
-		}
-	}
+	return 1;
 }
 
 int checkoutDefFileByName(const char *dir,const char *name)
@@ -86,7 +58,7 @@ int checkoutDefFileByName(const char *dir,const char *name)
 	strcpy(s,".txt");
 	sprintf(libpath, "%s/%s", fileDataDir(), libname);
 	return 1;
-*/
+	*/
 }
 
 int checkoutDefFile(GroupDef *def)
