@@ -36,7 +36,6 @@
 #include "anim.h"
 #include "textureatlas.h"
 #include "StringCache.h"
-#include "perforce.h"
 #include "StashTable.h"
 #include "tex_gen.h"
 #include "osdependent.h"
@@ -1336,10 +1335,10 @@ int texFillInBind(char *filename, BasicTexture *bind) {
 			char *newestFile;
 			U32 timestamp1, timestamp2;
 			sprintf(fn1, "texture_library/%s/%s.texture", old->dirname, s);
-			strcpy(la1, perforceQueryLastAuthor(fn1));
+			strcpy(la1, "UNKNOWN");
 			timestamp1 = fileLastChanged(fn1);
 			sprintf(fn2, "texture_library/%s/%s.texture", bind->dirname, s);
-			strcpy(la2, perforceQueryLastAuthor(fn2));
+			strcpy(la2, "UNKNOWN");
 			timestamp2 = fileLastChanged(fn2);
 			if (timestamp1 > timestamp2) {
 				newestFile = fn1;

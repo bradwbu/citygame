@@ -2,7 +2,6 @@
 #include "assert.h"
 #include "error.h"
 #include "mathutil.h"
-#include "perforce.h"
 #include "textparser.h"
 #include "utils.h"
 #include "fileutil.h"
@@ -163,7 +162,7 @@ static void editLODsApplyStateMachine(void)
 					fileLocateWrite(edit_lods.model->filename, vrmlname);
 					strstriReplace(vrmlname, "/data/", "/src/");
 					changeFileExt(vrmlname,".wrl",vrmlname);
-					if (!fileExists(vrmlname) || !perforceQueryIsFileMine(vrmlname))
+					if (!fileExists(vrmlname))
 					{
 						Errorf("You do not have %s checked out, GetVrml will not reprocess file!", vrmlname);
 						apply_state = APPLY_STATE_CANCEL;
@@ -198,32 +197,9 @@ static void editLODsApplyStateMachine(void)
 
 		xcase APPLY_STATE_CHECKOUT:
 		{
-			// checkout lod file
-			if (fileLocateRead(getLODFileName(edit_lods.model->filename), outputname))
-			{
-				int ret;
-				fileLocateWrite(getLODFileName(edit_lods.model->filename), outputname);
-				perforceSync(outputname, PERFORCE_PATH_FILE);
-				ret = perforceEdit(outputname, PERFORCE_PATH_FILE);
-				if (ret != 0 && ret != PERFORCE_ERROR_NOT_IN_DB && ret != PERFORCE_ERROR_ALREADY_CHECKEDOUT)
-				{
-					// failed checkout
-					ErrorFilenamef(outputname, "Failed to checkout %s", outputname);
-					releaseGetVrmlLock();
-					apply_state = APPLY_STATE_CANCEL;
-				}
-				else
-				{
-					apply_state = APPLY_STATE_WRITELOD;
-					setEditStatusWindowText("Saving LOD file...");
-				}
-			}
-			else
-			{
-				fileLocateWrite(getLODFileName(edit_lods.model->filename), outputname);
-				apply_state = APPLY_STATE_WRITELOD;
-				setEditStatusWindowText("Saving LOD file...");
-			}
+			fileLocateWrite(getLODFileName(edit_lods.model->filename), outputname);
+			apply_state = APPLY_STATE_WRITELOD;
+			setEditStatusWindowText("Saving LOD file...");
 		}
 
 		xcase APPLY_STATE_WRITELOD:

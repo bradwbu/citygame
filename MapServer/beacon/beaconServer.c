@@ -5,7 +5,6 @@
 #include "comm_backend.h"
 #include "StashTable.h"
 #include "winutil.h"
-#include "perforce.h"
 #include "missionMapCommon.h"
 #include "log.h"
 #include "seqstate.h"
@@ -2307,10 +2306,6 @@ static void beaconServerVerifyEncounterPositions(void){
 
 }
 
-void beaconServerSetPerforceUsage(S32 on){
-	beacon_server.noPerforceUsage = on ? 0 : 1;
-}
-
 static S32 beaconServerBeginMapProcess(char* mapFileName){
 	S32 canceled = 0;
 
@@ -2326,8 +2321,7 @@ static S32 beaconServerBeginMapProcess(char* mapFileName){
 	{
 		canceled = 1;
 	}
-	else if(	!beacon_server.noPerforceUsage && 
-		!beaconCheckoutBeaconFiles(beacon_server.forceRebuild, 0)) // Checkout the beacon files
+	else if(!beaconCheckoutBeaconFiles(beacon_server.forceRebuild, 0)) // Checkout the beacon files
 	{
 		canceled = 1;
 	}
@@ -2760,39 +2754,7 @@ static void beaconServerGetLatestData(void){
 	
 	_chdir("c:\\game\\");
 	
-	if( beacon_server.noPerforceUsage )
-	{
-		beaconPrintf(COLOR_YELLOW, "Skipping Perforce get because it is disabled\n");
-	}
-	else
-	{
-		S32 error;
-		char maps_path[MAX_PATH];
-		sprintf(maps_path, "%s/server/maps", beaconServerGetDataPath());
-
-		beaconPrintf(COLOR_GREEN, "Getting latest data:\n\n");
-
-		error = perforceSync("c:/game/tools", PERFORCE_PATH_FOLDER);
-		assertmsg(!error, "Perforce returned an error!");
-
-		error = perforceRevert(maps_path, PERFORCE_PATH_FOLDER);
-		assertmsg(!error, "Perforce returned an error!");
-
-		error = perforceSync(beaconServerGetToolsPath(), PERFORCE_PATH_FOLDER);
-		assertmsg(!error, "Perforce returned an error!");
-
-		error = perforceSync("c:/game/tools", PERFORCE_PATH_FOLDER);
-		assertmsg(!error, "Perforce returned an error!");
-
-		error = perforceSync(beaconServerGetDataPath(), PERFORCE_PATH_FOLDER);
-		assertmsg(!error, "Perforce returned an error!");
-	
-		// Restore the window icon.
-	
-		beaconServerSetIcon(0, 0);
-
-		beaconPrintf(COLOR_GREEN, "\nDone getting latest data!\n\n");
-	}
+	beaconPrintf(COLOR_YELLOW, "Skipping Perforce get because it is disabled\n");
 }
 
 static void beaconServerInitNetwork(void){
@@ -2884,11 +2846,6 @@ static char* beaconMyCmdLineParams(S32 noNetStart){
 			STR_COMBINE_CAT(" ");
 			STR_COMBINE_CAT(beacon_server.masterServerName);
 		}
-	}
-	if(	!beacon_server.isMasterServer &&
-		beacon_server.noPerforceUsage)
-	{
-		STR_COMBINE_CAT(" -beaconnoperforce");
 	}
 	if(beacon_server.dataToolsRootPath){
 		STR_COMBINE_CAT(" -beacondatatoolsrootpath \"");
@@ -3117,11 +3074,7 @@ static void beaconServerStartup(BeaconizerType beaconizerType,
 		if(!beacon_server.isRequestServer){
 			beaconPrintf(COLOR_GREEN, "Perforce enabled: ");
 
-			if(beacon_server.noPerforceUsage){
-				beaconPrintf(COLOR_RED, "NO!\n");
-			}else{
-				beaconPrintf(COLOR_GREEN, "YES\n");
-			}
+			beaconPrintf(COLOR_RED, "NO!\n");
 
 			if(beacon_server.isAutoServer){
 				beacon_server.loadMaps = 1;
@@ -3229,11 +3182,11 @@ static void beaconServerStartup(BeaconizerType beaconizerType,
 
 	beacon_server.curMapIndex = -1;
 
-	printf(	"\n\n[дддддддддддд BEACON %sSERVER RUNNING %sдддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд]\n",
+	printf(	"\n\n[О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ BEACON %sSERVER RUNNING %sО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫]\n",
 			beacon_server.isMasterServer ? "MASTER " :
 				beacon_server.isRequestServer ? "REQUEST " :
 					"",
-			beacon_server.isMasterServer ? "" : "дддддд?");
+			beacon_server.isMasterServer ? "" : "О©╫О©╫О©╫О©╫О©╫О©╫?");
 
 	beaconCurTimeString(1);
 }
@@ -4005,7 +3958,7 @@ static void printClientState(BeaconServerClientData* client, S32 index, void* us
 		}
 	}
 
-	printf("цддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд\n");
+	printf("О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫\n");
 
 	printf("?s", index == beacon_server.selectedClient ? ">" : " ");
 
@@ -4243,13 +4196,13 @@ static void beaconServerPrintClientStates(void){
 	consoleSetDefaultColor();
 
 	printf(	"\n"
-			"       зддддддддддддд?n"
+			"       О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫?n"
 			"       ?");
 
 	beaconPrintf(COLOR_RED|COLOR_GREEN|COLOR_BLUE, "Client Info");
 
 	printf(	" ?n"
-			"зддддддадддддддддддддадддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд\n"
+			"О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫\n"
 			"?");
 
 	beaconPrintf(COLOR_GREEN,
@@ -4264,11 +4217,11 @@ static void beaconServerPrintClientStates(void){
 		beaconServerMoveSelection(0);
 		beaconServerForEachClient(printClientState, NULL);
 	}else{
-		printf(	"цддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд\n"
+		printf(	"О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫\n"
 				"?No Clients Connected!\n");
 	}
 
-	printf(	"юддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд\n"
+	printf(	"О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫\n"
 			"\n\n");
 }
 
@@ -5318,7 +5271,6 @@ static void beaconServerMainMenu(void){
 					" 0. Kill Clients On All Sentries\n"
 					"-----------------------------------------------------\n"
 					" C. Print client states.\n"
-					" G. Toggle perforce usage.\n"
 					" W. Write current map data.\n"
 					" L. Map list submenu.\n"
 					" N. Cancel current map.\n"
@@ -5415,12 +5367,6 @@ static void beaconServerMainMenu(void){
 			xcase 'c':{
 				beaconPrintf(COLOR_YELLOW, "Client list...\n\n");
 				beaconServerPrintClientStates();
-			}
-
-			xcase 'g':{
-				S32 on = beacon_server.noPerforceUsage = !beacon_server.noPerforceUsage;
-
-				beaconPrintf(COLOR_YELLOW, "Perforce usage: %s\n\n", on ? "OFF" : "ON");
 			}
 
 			xcase 'w':{
@@ -5889,7 +5835,7 @@ static void beaconServerDoStateWriteFile(void){
 		beaconServerUpdateTitle("Writing beacon file to disk!");
 
 		printf("Writing file: ");
-		beaconWriteCurrentFile(!beacon_server.noPerforceUsage);
+		beaconWriteCurrentFile(false);
 		printf("Done!\n");
 	}else{
 		beaconServerUpdateTitle("Writing beacon file to memory!");

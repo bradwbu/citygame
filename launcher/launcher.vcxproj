@@ -110,7 +110,7 @@
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalLibraryDirectories>..\3rdparty\p4api\bin\$(Platform)\;..\3rdparty\bin\;..\3rdparty\bin\$(Platform)\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib;libclient.lib;librpc.lib;libsupp.lib;</AdditionalDependencies>
+      <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
@@ -120,7 +120,7 @@
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalLibraryDirectories>..\3rdparty\p4api\bin\$(Platform)\;..\3rdparty\bin\;..\3rdparty\bin\$(Platform)\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib;libclient.lib;librpc.lib;libsupp.lib;</AdditionalDependencies>
+      <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
@@ -130,7 +130,7 @@
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalLibraryDirectories>..\3rdparty\p4api\bin\$(Platform)\;..\3rdparty\bin\;..\3rdparty\bin\$(Platform)\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib;libclient.lib;librpc.lib;libsupp.lib;</AdditionalDependencies>
+      <AdditionalDependencies>psapi.lib;kernel32.lib;user32.lib;uuid.lib;shell32.lib;advapi32.lib;gdi32.lib;cryptlib.lib;zlibstat.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>

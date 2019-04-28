@@ -455,7 +455,6 @@
     <ClCompile Include="utils\memtrack.c" />
     <ClCompile Include="utils\mutex.c" />
     <ClCompile Include="utils\osdependent.c" />
-    <ClCompile Include="utils\perforce.cpp" />
     <ClCompile Include="utils\PigDir.c" />
     <ClCompile Include="utils\PigFileWrapper.c" />
     <ClCompile Include="utils\piglib.c" />
@@ -1737,7 +1736,6 @@
     <ClInclude Include="utils\memtrack.h" />
     <ClInclude Include="utils\mutex.h" />
     <ClInclude Include="utils\osdependent.h" />
-    <ClInclude Include="utils\perforce.h" />
     <ClInclude Include="utils\PigDir.h" />
     <ClInclude Include="utils\PigFileWrapper.h" />
     <ClInclude Include="utils\piglib.h" />

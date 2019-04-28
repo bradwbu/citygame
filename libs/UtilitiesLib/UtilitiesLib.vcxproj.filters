@@ -165,9 +165,6 @@
     <ClCompile Include="utils\osdependent.c">
       <Filter>utils</Filter>
     </ClCompile>
-    <ClCompile Include="utils\perforce.cpp">
-      <Filter>utils</Filter>
-    </ClCompile>
     <ClCompile Include="utils\PigDir.c">
       <Filter>utils</Filter>
     </ClCompile>
@@ -662,9 +659,6 @@
       <Filter>utils</Filter>
     </ClInclude>
     <ClInclude Include="utils\osdependent.h">
-      <Filter>utils</Filter>
-    </ClInclude>
-    <ClInclude Include="utils\perforce.h">
       <Filter>utils</Filter>
     </ClInclude>
     <ClInclude Include="utils\PigDir.h">

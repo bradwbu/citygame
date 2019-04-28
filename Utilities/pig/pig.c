@@ -16,7 +16,6 @@
 #include "file.h"
 #include "utils.h"
 #include "genericlist.h"
-#include "perforce.h"
 
 #include "timing.h"
 #include <direct.h>
@@ -1239,7 +1238,6 @@ int main(int argc, char **argv)
 
 	memCheckInit();
 	fileAllPathsAbsolute(true);
-	perforceDisable(true);
 	setAssertMode( (!IsDebuggerPresent()? ASSERTMODE_THROWEXCEPTION : 0) | ASSERTMODE_DEBUGBUTTONS);
 	threadedFileCopyInit(1); // Just to pre-init the critical sections.  If this solves the crash, look into it more!
 

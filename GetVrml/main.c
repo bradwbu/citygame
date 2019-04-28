@@ -36,7 +36,6 @@
 #include <fcntl.h>
 #include "earray.h"
 
-#include "perforce.h"
 GlobalState global_state;
 
 static StashTable vrmls_by_trick_file = 0;
@@ -576,29 +575,8 @@ static Reasons processVrml2(char *out_fname, char *vrml_name, char *out_group_fn
 		//	ret=perforceSubmit(out_fname, PERFORCE_PATH_FILE, "AUTO: processVrml2");
 		//}
 
-		// We're going to cancel if the WRL is not owned  by me
-		bIsFileInDatabase = !no_check_out && !perforceQueryIsFileNew(vrml_name);
-		if (bIsFileInDatabase && !force_rebuild && !perforceQueryIsFileMine(vrml_name))
-		{
-			if (0) { // !g_output_dir[0]) { // Don't warn if we're outputting to a special (sparse) folder
-				const char *lastauthor = perforceQueryLastAuthor(vrml_name);
-				printf("\n");
-				printf("Warning: .geo file is older than .WRL file, but you do not have the .WRL file checked\n");
-				printf("  out, so it is being skipped.  ");
-				if (stricmp(lastauthor, "You do not have the latest version")==0) {
-					printf("You do not have the latest version of the .WRL file.\n");
-				} else {
-					printf("%s may have forgot to process it before checking it in.\n", lastauthor);
-				}
-			}
-			return REASON_NOTYOURS;
-		}
-
 		// add vrml file to source control if not there already
-		if(!bIsFileInDatabase)
-		{
-			addFiles[0] = vrml_name;
-		}
+		addFiles[0] = vrml_name;
 
 		printf("\n");
 		//			if (!fileExists(out_fname)) {
@@ -608,41 +586,8 @@ static Reasons processVrml2(char *out_fname, char *vrml_name, char *out_group_fn
 		//				fclose(fnew);
 		//			}
 
-		if (!no_check_out && bIsFileInDatabase) {
-			if (!perforceQueryIsFileLockedByMeOrNew(out_fname))
-			{
-				perforceSyncForce(out_fname, PERFORCE_PATH_FILE);
-				ret=perforceEdit(out_fname, PERFORCE_PATH_FILE);
-			}
-			else
-				ret = NO_ERROR;
-		} else {
-			_chmod(out_fname, _S_IWRITE | _S_IREAD);
-			ret = NO_ERROR;
-		}
-
-		if (ret!=NO_ERROR && ret!=PERFORCE_ERROR_NOT_IN_DB && ret!=PERFORCE_ERROR_NO_SC)
-		{
-			Errorf("Can't checkout %s. (%s)\n",out_fname,perforceOfflineGetErrorString(ret));
-			if (strstri((char*)perforceOfflineGetErrorString(ret), "already deleted")) {
-				consoleSetFGColor(COLOR_RED|COLOR_BRIGHT);
-				printf("WARNING: \"%s\" has been previously marked as deleted,\n   you will need to manually re-add this file with Perforce\n", out_fname);
-				consoleSetFGColor(COLOR_RED|COLOR_GREEN|COLOR_BLUE);
-			} else {
-				// Because of the checks above, if we get here, this file is one that should be processed!
-				if (!force_rebuild)
-					FatalErrorf(".WRL file is owned by you, but .geo file is checked out by someone else!\n%s (%s)\n%s\n", vrml_name, perforceQueryLastAuthor(vrml_name), out_fname);
-				return REASON_CHECKOUTFAILED;
-			}
-		}
-
-		if (!no_check_out)
-		{
-			if (no_lods)
-				perforceOfflineBlockFile(out_fname, "File processed by GetVrml with the nolods flag, you must reprocess the file before checking it in.");
-			else if (perforceOfflineQueryIsFileBlocked(out_fname))
-				perforceOfflineUnblockFile(out_fname);
-		}
+		_chmod(out_fname, _S_IWRITE | _S_IREAD);
+		ret = NO_ERROR;
 
 		if (!doReLODWarningCheck(vrml_name, out_fname, targetlibrary == PLAYER_LIBRARY))
 			return REASON_NOTNEWER;
@@ -659,12 +604,6 @@ static Reasons processVrml2(char *out_fname, char *vrml_name, char *out_group_fn
 			fileForceRemove(bakname);
 		}
 
-		// determine if output file needs to be added to perforce
-		if(!no_check_out && perforceQueryIsFileNew(out_fname))
-		{
-			addFiles[1] = out_fname;
-		}
-
 		if(targetlibrary == OBJECT_LIBRARY)
 		{
 			checkVrmlName(vrml_name);
@@ -674,12 +613,6 @@ static Reasons processVrml2(char *out_fname, char *vrml_name, char *out_group_fn
 			{
 				outputData(out_fname);
 				outputGroupInfo(out_group_fname);
-
-				// determine if secondary output file needs to be added to perforce
-				if(!no_check_out && perforceQueryIsFileNew(out_group_fname))
-				{
-					addFiles[2] = out_group_fname;
-				}
 			}
 		}
 		else if(targetlibrary == PLAYER_LIBRARY)
@@ -691,23 +624,6 @@ static Reasons processVrml2(char *out_fname, char *vrml_name, char *out_group_fn
 		{
 			geoAddFile(vrml_name, out_fname, NO_MERGE_NODES, PROCESS_SCALEBONES_ONLY, 0, is_legacy);
 			outputData(out_fname);
-		}
-
-		// do perforce adds all at once when complete.  Note that gimme had no equivalent of add because all
-		//	files in the directory were considered to be new files available for checkin.
-		if(!no_check_out)
-		{
-			int i;
-			for(i=0; i<3; i++)
-			{
-				if(!addFiles[i]) continue;
-				ret = perforceAdd(addFiles[i], PERFORCE_PATH_FILE);
-				if(ret != PERFORCE_NO_ERROR) {
-					Errorf("%s - FAILED to add file to perforce (%s)\n", addFiles[i], perforceOfflineGetErrorString(ret));
-				} else {
-					printf("%s - file added to perforce\n", addFiles[i]);
-				}
-			}
 		}
 
 		// reload anim header

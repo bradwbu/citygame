@@ -16,7 +16,6 @@
 #include "textparser.h"
 #include "structDefines.h"
 #include "sock.h"
-#include "perforce.h"
 #include "file.h"
 #include "sysutil.h"
 #include "foldercache.h"
@@ -1630,7 +1629,6 @@ int main(int argc,char **argv)
 		setAssertMode(ASSERTMODE_DEBUGBUTTONS |
 			(!IsDebuggerPresent()? ASSERTMODE_MINIDUMP : 0));
 	} else {
-		perforceDisable(1); 
 		// In production mode on the servers we want to save all dumps and do full dumps
 		setAssertMode(ASSERTMODE_DEBUGBUTTONS |
 			ASSERTMODE_FULLDUMP |

@@ -957,7 +957,6 @@ float camGetPlayerHeight() { return 0.0; }
 
 GlobalMotionState global_motion_state;
 
-void PerforceErrorDialog(char* errMsg) { printf("%s", errMsg); }
 void winErrorDialog(char *str, char* title, char* fault) { printf("%s %s %s", str, title, fault); }
 
 // *********************************************************************************

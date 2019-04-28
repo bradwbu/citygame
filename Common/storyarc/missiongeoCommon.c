@@ -20,7 +20,6 @@
 #include "missionMapCommon.h"
 #include "missionMapCommon.h"
 #include "missiongeoCommon.h"
-#include "perforce.h"
 
 #include "mathutil.h"
 #include "error.h"
@@ -949,15 +948,7 @@ void missionMapStats_SaveToFile(MissionMapStats *mapStats, int checkin)
 	char fileName[1000];
 	//sprintf(fileName, "%s/%s.mapstats", fileDataDir(), mapStats->pchMapName);
 	sprintf(fileName, "%s.mapstats", forwardSlashes(mapStats->pchMapName) );
-	if (attemptToCheckOut(fileName, 0))
-	{
-		missionMapStats_Save(mapStats, fileName);
-		if( checkin )
-		{
-			perforceAdd(fileName, PERFORCE_PATH_FILE);
-			perforceSubmit(fileName, PERFORCE_PATH_FILE, "AUTO: missionMapStats_SaveToFile");
-		}
-	} // else do error handling?
+	missionMapStats_Save(mapStats, fileName);
 }
 
 // used on map save

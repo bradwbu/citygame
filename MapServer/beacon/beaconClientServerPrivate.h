@@ -208,7 +208,6 @@ void		beaconServerSetDataToolsRootPath(const char* dataToolsRootPath);
 const char* beaconServerGetDataToolsRootPath(void);
 const char* beaconServerGetDataPath(void);
 const char* beaconServerGetToolsPath(void);
-void		beaconServerSetPerforceUsage(S32 on);
 void		beaconServerSetRequestCacheDir(const char* cacheDir);
 void		beaconServerSetSymStore(void);
 void		beaconServer(BeaconizerType beaconizerType, const char* masterServerName, S32 noNetStart);
