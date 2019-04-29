@@ -433,7 +433,7 @@ static void loadConfigFiles()
 
 	if (write_templates)
 	{
-		// playerCreatedStoryArc_GenerateData();
+		playerCreatedStoryArc_GenerateData();
 		containerWriteTemplates(template_dir);
 		exit(0);
 	}
@@ -2047,6 +2047,8 @@ int __cdecl main(int argc,char **argv)
 	MonorailsLoad();
 	loadend_printf("done");
 
+	seqPreloadSeqInfos(); // Must be *before* groupLoadMap
+
 	loadConfigFiles(); // templates get written here.
 
 	if (grid_cache_bits < 0)
@@ -2065,8 +2067,6 @@ int __cdecl main(int argc,char **argv)
 	}
 
 	loadstart_printf("loading sequencers...");
-
-	seqPreloadSeqInfos(); // Must be *before* groupLoadMap
 
 #ifdef RAGDOLL // ragdoll requires all seq info on server
 	seqPreLoadPlayerCharacterAnimations(SEQ_LOAD_FULL_SHARED); 
