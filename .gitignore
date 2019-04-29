@@ -53,6 +53,7 @@ logs/
 /bin/libzmq.dll
 /3rdparty/bin/
 /bin/*.exe
+obj/
 
 Win32/
 x64/
