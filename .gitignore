@@ -52,6 +52,7 @@ logs/
 /Utilities/bin/StructParser.exe
 /bin/libzmq.dll
 /3rdparty/bin/
+/bin/*.dll
 /bin/*.exe
 obj/
 
