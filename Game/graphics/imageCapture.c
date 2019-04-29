@@ -104,7 +104,6 @@ extern FxEngine fx_engine;
 #define MM_IMAGE_BUFFER_SIZE 15
 int getCurrentMapImages(unsigned int, unsigned int, U8 ***);
 void loadMapForImages(char *);
-int attemptToCheckOut( char * fileName, int force_checkout );
 
 
 //ImageCapture_WriteMapImages: Creates bird's eye images of a map for the Mission Maker

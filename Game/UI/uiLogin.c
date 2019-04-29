@@ -4164,12 +4164,9 @@ static void loginFrame()
 			cryptStore(g_achPassword, g_achPassword, sizeof(g_achPassword));
 		}
 
-		s_loggedIn_serverSelected = loginToAuthServer(0) ? LOGIN_STAGE_EULA : LOGIN_STAGE_START;
-		if (s_loggedIn_serverSelected != LOGIN_STAGE_START)
-		{
-			if(!game_state.cryptic)
-				smf_SetRawText(s_editPassword, "", false);
-		}
+		loginToAuthServer(0);
+
+		s_loggedIn_serverSelected = LOGIN_STAGE_SERVER_SELECT;
 	}
 
 	exitButtonX = xPosition(screenScaleX, screenScaleY, LOGIN_X + LOGIN_BUTTON_WD / 2);
@@ -4181,7 +4178,7 @@ static void loginFrame()
 		sndPlay("N_Deselect", SOUND_GAME);
 		windowExit(0);
 	}
-
+	/*
 	if (D_MOUSEHIT == drawHybridBar(&heAccounts[0], 0, 
 		xPosition(screenScaleX, screenScaleY, WEB_X + WEB_BUTTON_WD / 2),
 		yPosition(screenScaleX, screenScaleY, WEB_Y + 25.0f), 20.0f, 
@@ -4198,7 +4195,7 @@ static void loginFrame()
 			webOpenURLNoStore(getCreateNewAccountURL());
 		}
 	}
-
+	
 	if (D_MOUSEHIT == drawHybridBar(&heAccounts[1], 0, 
 		xPosition(screenScaleX, screenScaleY, WEB_X + WEB_BUTTON_WD / 2),
 		yPosition(screenScaleX, screenScaleY, WEB_Y + 125.0f), 20.0f, 
@@ -4206,11 +4203,11 @@ static void loginFrame()
 	{
 		ShellCommandByLocale(manageaccount_addresses, getCurrentLocale(), false);
 	}
-
+	*/
 #ifndef DISABLE_SETTINGS_BUTTON
 	if (D_MOUSEHIT == drawHybridBar(&heAccounts[2], 0, 
 		xPosition(screenScaleX, screenScaleY, WEB_X + WEB_BUTTON_WD / 2),
-		yPosition(screenScaleX, screenScaleY, WEB_Y + 190.0f), 20.0f, 
+		yPosition(screenScaleX, screenScaleY, LOGIN_BUTTON_Y + 70), 20.0f, 
 		SETTINGS_BUTTON_WD, UIScale, HB_ROUND_ENDS | HB_ALWAYS_FULL_ALPHA, 1.f, H_ALIGN_LEFT, V_ALIGN_CENTER ))
 	{
 		windows_Show("options");
@@ -4220,7 +4217,7 @@ static void loginFrame()
 	//*****************************************
 	// Link to Existing Account Radio Button
 	//*****************************************
-
+	/*
 	BuildCBox(&box,
 		xPosition(screenScaleX, screenScaleY, WEB_X),
 		yPosition(screenScaleX, screenScaleY, WEB_Y + 67),
@@ -4250,6 +4247,7 @@ static void loginFrame()
 		- str_wd(&hybridbold_12, textScale, textScale, textStd("LinkToExistingAccountString")) / 2 - mark->width / 2 * textScale,
 		yPosition(screenScaleX, screenScaleY, WEB_Y + 75) - mark->height / 2 * textScale, 20, textScale, textScale,
 		CLR_WHITE );
+		*/
 
 	// dev mode character fetch button
 	if((encryptedKeyedAccessLevel() || isDevelopmentMode()) && fileExists("c:/game/tools/util/dbquery.exe"))
