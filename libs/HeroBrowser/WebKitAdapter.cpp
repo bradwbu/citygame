@@ -480,7 +480,7 @@ QNetworkReply *HeroNetworkAccessManager::createRequest(Operation op, const QNetw
 	// provide a client interface for setting arbitrary conditional header customizations
 
 	// Conditionally provide PlayNC required headers
-	// For Live, all of the PlayNC requests will be denoted by being located at https://secure.<optioal.>ncsoft.com/ (the entire “secure” subdomain of ncsoft.com belongs to PlayNC.
+	// For Live, all of the PlayNC requests will be denoted by being located at https://secure.<optioal.>ncsoft.com/ (the entire �secure� subdomain of ncsoft.com belongs to PlayNC.
 	// For QA and Dev, the distinction is not as clear-cut and we may just have to settle for http(s)://*.ncsoft.corp.
 	QRegExp rx("^(https://secure(\\.[^/]+)*\\.ncsoft\\.com|https?://[^/]+\\.ncsoft\\-url\\-stripped\\-todo\\.corp)", Qt::CaseInsensitive);
 	if (rx.indexIn(customized_request.url().toString())>= 0)
@@ -705,9 +705,9 @@ bool WebKitAdapter::authorize(char const* username, char const* response, char c
 		QString html("<html><body bgcolor=black text=white><p/><p/><h3>&nbsp;&nbsp;&nbsp;%1</h3></body></html>");
 		QString wait("Server is not responding. Please try again later.");
 		if (m_language == "de")
-			wait = "Der Server antwortet nicht. Bitte versuchen Sie es später erneut.";
+			wait = "Der Server antwortet nicht. Bitte versuchen Sie es sp�ter erneut.";
 		else if (m_language == "fr")
-			wait = "Le serveur ne répond pas. Veuillez réessayer plus tard.";
+			wait = "Le serveur ne r�pond pas. Veuillez r�essayer plus tard.";
 		QString page_html = html.arg(wait);
 
 		m_page.triggerAction(QWebPage::Stop);	// stop any loads in progress
@@ -941,7 +941,7 @@ void WebKitAdapter::net_finishedSlot(QNetworkReply* reply)
 		if (m_language == "de")
 			content = "Storniert.";
 		else if (m_language == "fr")
-			content = "Annulée.";
+			content = "Annul�e.";
 		QString page_html = html.arg(content);
 
 		m_view_web.setHtml( page_html, QUrl() );
