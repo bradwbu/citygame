@@ -527,7 +527,7 @@ static void saveCubemap(const char* dirName, const char *name, void *filteredFac
 			sprintf(filename, "%s/coh_%s_%02d_cubemap_face%d.tga", parentDir, the_date, counter, i);
 		}
 
-		if (!dirName || attemptToCheckOut(filename, 1))
+		if (!dirName)
 			tgaSave(filename, filteredFaces[i], size, size, 4);
 	}
 
