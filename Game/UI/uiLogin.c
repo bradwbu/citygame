@@ -732,16 +732,16 @@ void GRNagCancelledLogin(void)
 
 static char const *manageaccount_addresses[LOCALE_ID_COUNT + 1] =
 {
-	"https://secure.ncsoft.com/cgi-bin/plaync_login.pl?language=en",
+	"https://secure.ncsoft-url-stripped-todo.com/cgi-bin/plaync_login.pl?language=en",
 	NULL,
 	NULL,
 	NULL,
 	NULL,
-	"https://secure.ncsoft.com/cgi-bin/plaync_login.pl?language=de",
-	"https://secure.ncsoft.com/cgi-bin/plaync_login.pl?language=fr",
-	"https://secure.ncsoft.com/cgi-bin/plaync_login.pl?language=es",
+	"https://secure.ncsoft-url-stripped-todo.com/cgi-bin/plaync_login.pl?language=de",
+	"https://secure.ncsoft-url-stripped-todo.com/cgi-bin/plaync_login.pl?language=fr",
+	"https://secure.ncsoft-url-stripped-todo.com/cgi-bin/plaync_login.pl?language=es",
 	// UK English alternate URL comes at the end of the list
-	"https://secure.ncsoft.com/cgi-bin/plaync_login.pl?language=en-gb"
+	"https://secure.ncsoft-url-stripped-todo.com/cgi-bin/plaync_login.pl?language=en-gb"
 };
 
 //----------------------------------------------------------------------------------------------------------------------------------
@@ -3945,15 +3945,15 @@ static const char *getCreateNewAccountURL()
 
 		if (strstriConst(project, "cohtest"))
 		{
-			return "https://plaync-preplay.austin.ncwest.ncsoft.corp/cgi-bin/playncCreate.pl?qsr=m:COH"; // QA URL HERE
+			return "https://plaync-preplay.austin.ncwest.ncsoft-url-stripped-todo.corp/cgi-bin/playncCreate.pl?qsr=m:COH"; // QA URL HERE
 		}
 		else if (strstriConst(project, "cohbeta"))
 		{
-			return "https://secure.pts.ncsoft.com/cgi-bin/playncCreate.pl?qsr=m:COH"; // PTS URL HERE
+			return "https://secure.pts.ncsoft-url-stripped-todo.com/cgi-bin/playncCreate.pl?qsr=m:COH"; // PTS URL HERE
 		}
 		else
 		{
-			return "https://secure.ncsoft.com/cgi-bin/playncCreate.pl?qsr=m:COH"; // LIVE URL HERE
+			return "https://secure.ncsoft-url-stripped-todo.com/cgi-bin/playncCreate.pl?qsr=m:COH"; // LIVE URL HERE
 		}
 	}
 
@@ -3968,15 +3968,15 @@ static const char *getCreateLinkedAccountURL()
 
 		if (strstriConst(project, "cohtest"))
 		{
-			return "https://plaync-preplay.austin.ncwest.ncsoft.corp/cgi-bin/quickStart.pl?qsr=m:COH"; // QA URL HERE
+			return "https://plaync-preplay.austin.ncwest.ncsoft-url-stripped-todo.corp/cgi-bin/quickStart.pl?qsr=m:COH"; // QA URL HERE
 		}
 		else if (strstriConst(project, "cohbeta"))
 		{
-			return "https://secure.pts.ncsoft.com/cgi-bin/quickStart.pl?qsr=m:COH"; // PTS URL HERE
+			return "https://secure.pts.ncsoft-url-stripped-todo.com/cgi-bin/quickStart.pl?qsr=m:COH"; // PTS URL HERE
 		}
 		else
 		{
-			return "https://secure.ncsoft.com/cgi-bin/quickStart.pl?qsr=m:COH"; // LIVE URL HERE
+			return "https://secure.ncsoft-url-stripped-todo.com/cgi-bin/quickStart.pl?qsr=m:COH"; // LIVE URL HERE
 		}
 	}
 

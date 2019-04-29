@@ -46,9 +46,9 @@ void clientErrorfCallback(char* errMsg)
 			if (isDevelopmentMode() ||
 				cmdAccessLevel() > 0 ||
 				// Check IP for QA and internal test
-				strncmp(db_info.address,"172.31.101",10)==0 ||
-				strncmp(db_info.address,"172.31.22.220",13)==0 || 	// NCSoft CoH QA DBserver
-				strncmp(db_info.address,"172.31.22.226",13)==0 || 	// NCSoft CoV QA DBserver
+				strncmp(db_info.address,"ip-stripped-todo",10)==0 ||
+				strncmp(db_info.address,"ip-stripped-todo",13)==0 || 	// NCSoft CoH QA DBserver
+				strncmp(db_info.address,"ip-stripped-todo",13)==0 || 	// NCSoft CoV QA DBserver
 				game_state.local_map_server)
 			{
 				if (!isDevelopmentMode())
@@ -56,9 +56,9 @@ void clientErrorfCallback(char* errMsg)
 			} else if (game_state.cs_address[0]) {
 				char db_ip[100];
 				strcpy(db_ip, makeIpStr(ipFromString(game_state.cs_address)));
-				if (strncmp(db_ip,"172.31.101",10)==0 ||
-					strncmp(db_ip,"172.31.22.220",13)==0 || 	// NCSoft CoH QA DBserver
-					strncmp(db_ip,"172.31.22.226",13)==0) 	// NCSoft CoV QA DBserver
+				if (strncmp(db_ip,"ip-stripped-todo",10)==0 ||
+					strncmp(db_ip,"ip-stripped-todo",13)==0 || 	// NCSoft CoH QA DBserver
+					strncmp(db_ip,"ip-stripped-todo",13)==0) 	// NCSoft CoV QA DBserver
 				{
 					letThemKnowWhy();
 				}
