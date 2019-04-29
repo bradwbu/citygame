@@ -6,6 +6,6 @@
 void saveAutoResumeInfoCryptic(void);
 void saveAutoResumeInfoToRegistry(void);
 int getAutoResumeInfoCryptic( void );
-int getAutoResumeInfoFromRegistry( GfxSettings * gfxSettings, char * accountName, int * dontSaveName, int* savePassword );
+int getAutoResumeInfoFromRegistry( GfxSettings * gfxSettings, char * accountName, int * dontSaveName );
 
 #endif
