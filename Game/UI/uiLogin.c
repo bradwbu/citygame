@@ -165,6 +165,7 @@ static char g_ServerName[SERVER_NAME_SIZE];
 char g_achAccountName[32];
 U8 g_achPassword[MAX_PASSWORD_LEN];  // NOT A STRING!  This is the encrypted password.
 int g_iDontSaveName;
+int g_iSavePassword;
 int g_linkToExistingAccount = 0;
 
 char g_shardVisitorData[SHARD_VISITOR_DATA_SIZE];
@@ -177,6 +178,7 @@ U16 g_shardVisitorPort;
 static SMFBlock *s_labelAccount;
 static SMFBlock *s_editAccount;
 static SMFBlock *s_rememberAccount;
+static SMFBlock *s_rememberPassword;
 static SMFBlock *s_labelPassword;
 static SMFBlock *s_editPassword;
 static SMFBlock *s_linkToAccount;
@@ -3647,7 +3649,7 @@ static void eulaFrame()
 #define LOGIN_Y			240
 #define LOGIN_WD		342
 #define LOGIN_HT		278
-#define LOGIN_BUTTON_Y	(LOGIN_Y + 245)
+#define LOGIN_BUTTON_Y	(LOGIN_Y + 245) // 275
 #define LOGIN_BUTTON_WD	165
 #define WEB_X			(LOGIN_X)
 #define WEB_Y			(LOGIN_Y + LOGIN_HT + 20)
@@ -4116,6 +4118,43 @@ static void loginFrame()
 		yPosition(screenScaleX, screenScaleY, LOGIN_Y + 173), 20,
 		LOGIN_WD * UIScale, LOGIN_HT * UIScale, 0, 0, &gTextAttr_LightHybridBlueHybrid12, 0);
 
+	// remember password
+
+	/*
+	...todo when we figure out how to store passwords safely
+	& when we figure out how to add localization strings
+
+	BuildCBox(&box,
+		xPosition(screenScaleX, screenScaleY, LOGIN_X),
+		yPosition(screenScaleX, screenScaleY, LOGIN_Y + 205),
+		LOGIN_WD * UIScale, 15*UIScale);
+	if( mouseCollision(&box) )
+	{
+		if( mouseClickHit( &box, MS_LEFT) )
+		{
+			g_iSavePassword = !g_iSavePassword;
+			saveAutoResumeInfoToRegistry();
+		}
+	}
+
+	if( g_iSavePassword )
+		mark = atlasLoadTexture( "loginscreen_checkfield.tga" );
+	else
+		mark = atlasLoadTexture( "loginscreen_checkfield_selected.tga" );
+
+	gTextAttr_WhiteHybridBold12.piColor = (int *)LOGIN_FOREGROUND_TEXT_COLOR;  //set custom color depending on current artist
+	smf_Display(s_rememberPassword, 
+		xPosition(screenScaleX, screenScaleY, LOGIN_X), 
+		yPosition(screenScaleX, screenScaleY, LOGIN_Y + 205), 20,
+		LOGIN_WD * UIScale, LOGIN_HT * UIScale, 0, 0, &gTextAttr_WhiteHybridBold12, 0);
+	gTextAttr_WhiteHybridBold12.piColor = (int *)0xffffffff;  //revert color
+	display_sprite(mark,
+		xPosition(screenScaleX, screenScaleY, LOGIN_X + LOGIN_WD / 2) - 40 * textScale
+		- str_wd(&hybridbold_12, textScale, textScale, textStd("RememberAccountPassword")) / 2 - mark->width / 2 * textScale,
+		yPosition(screenScaleX, screenScaleY, LOGIN_Y + 213) - mark->height / 2 * textScale, 20, textScale, textScale,
+		CLR_WHITE );
+		*/
+
 	//*****************************************
 	// Buttons and Input Handling
 	//*****************************************
@@ -4164,12 +4203,9 @@ static void loginFrame()
 			cryptStore(g_achPassword, g_achPassword, sizeof(g_achPassword));
 		}
 
-		s_loggedIn_serverSelected = loginToAuthServer(0) ? LOGIN_STAGE_EULA : LOGIN_STAGE_START;
-		if (s_loggedIn_serverSelected != LOGIN_STAGE_START)
-		{
-			if(!game_state.cryptic)
-				smf_SetRawText(s_editPassword, "", false);
-		}
+		loginToAuthServer(0);
+
+		s_loggedIn_serverSelected = LOGIN_STAGE_SERVER_SELECT;
 	}
 
 	exitButtonX = xPosition(screenScaleX, screenScaleY, LOGIN_X + LOGIN_BUTTON_WD / 2);
@@ -4181,7 +4217,7 @@ static void loginFrame()
 		sndPlay("N_Deselect", SOUND_GAME);
 		windowExit(0);
 	}
-
+	/*
 	if (D_MOUSEHIT == drawHybridBar(&heAccounts[0], 0, 
 		xPosition(screenScaleX, screenScaleY, WEB_X + WEB_BUTTON_WD / 2),
 		yPosition(screenScaleX, screenScaleY, WEB_Y + 25.0f), 20.0f, 
@@ -4198,7 +4234,7 @@ static void loginFrame()
 			webOpenURLNoStore(getCreateNewAccountURL());
 		}
 	}
-
+	
 	if (D_MOUSEHIT == drawHybridBar(&heAccounts[1], 0, 
 		xPosition(screenScaleX, screenScaleY, WEB_X + WEB_BUTTON_WD / 2),
 		yPosition(screenScaleX, screenScaleY, WEB_Y + 125.0f), 20.0f, 
@@ -4206,11 +4242,11 @@ static void loginFrame()
 	{
 		ShellCommandByLocale(manageaccount_addresses, getCurrentLocale(), false);
 	}
-
+	*/
 #ifndef DISABLE_SETTINGS_BUTTON
 	if (D_MOUSEHIT == drawHybridBar(&heAccounts[2], 0, 
 		xPosition(screenScaleX, screenScaleY, WEB_X + WEB_BUTTON_WD / 2),
-		yPosition(screenScaleX, screenScaleY, WEB_Y + 190.0f), 20.0f, 
+		yPosition(screenScaleX, screenScaleY, LOGIN_BUTTON_Y + 70), 20.0f, 
 		SETTINGS_BUTTON_WD, UIScale, HB_ROUND_ENDS | HB_ALWAYS_FULL_ALPHA, 1.f, H_ALIGN_LEFT, V_ALIGN_CENTER ))
 	{
 		windows_Show("options");
@@ -4220,7 +4256,7 @@ static void loginFrame()
 	//*****************************************
 	// Link to Existing Account Radio Button
 	//*****************************************
-
+	/*
 	BuildCBox(&box,
 		xPosition(screenScaleX, screenScaleY, WEB_X),
 		yPosition(screenScaleX, screenScaleY, WEB_Y + 67),
@@ -4250,6 +4286,7 @@ static void loginFrame()
 		- str_wd(&hybridbold_12, textScale, textScale, textStd("LinkToExistingAccountString")) / 2 - mark->width / 2 * textScale,
 		yPosition(screenScaleX, screenScaleY, WEB_Y + 75) - mark->height / 2 * textScale, 20, textScale, textScale,
 		CLR_WHITE );
+		*/
 
 	// dev mode character fetch button
 	if((encryptedKeyedAccessLevel() || isDevelopmentMode()) && fileExists("c:/game/tools/util/dbquery.exe"))
@@ -4403,6 +4440,16 @@ void loginMenu()
 					SMFOutputMode_StripAllTagsAndCodes, SMFDisplayMode_AllCharacters, SMFContextMenuMode_None,
 					SMAlignment_Center, 0, 0, 0);
 				smf_SetRawText(s_rememberAccount, textStd("RememberAccountName"), false);
+			}
+
+			if (!s_rememberPassword)
+			{
+				s_rememberPassword = smfBlock_Create();
+				smf_SetFlags(s_rememberPassword, SMFEditMode_Unselectable, SMFLineBreakMode_SingleLine, 
+					SMFInputMode_AnyTextNoTagsOrCodes, 0, SMFScrollMode_ExternalOnly,
+					SMFOutputMode_StripAllTagsAndCodes, SMFDisplayMode_AllCharacters, SMFContextMenuMode_None,
+					SMAlignment_Center, 0, 0, 0);
+				smf_SetRawText(s_rememberPassword, textStd("RememberAccountPassword"), false);
 			}
 
 			// --------------------

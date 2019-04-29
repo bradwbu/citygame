@@ -103,6 +103,7 @@ void saveAutoResumeInfoToRegistry(void)
 
 	//TO DO Should be params to this function really
 	gfxSettings_temp.dontSaveName = g_iDontSaveName;
+	gfxSettings_temp.savePassword = g_iSavePassword; // todo
 
 	if( gfxSettings_temp.dontSaveName )
 		Strncpyt(gfxSettings_temp.accountName, "");
@@ -122,7 +123,7 @@ void saveAutoResumeInfoToRegistry(void)
 	}
 }
 
-int getAutoResumeInfoFromRegistry( GfxSettings * gfxSettings, char * accountName, int * dontSaveName )
+int getAutoResumeInfoFromRegistry( GfxSettings * gfxSettings, char * accountName, int * dontSaveName, int* savePassword )
 {
 	// Determine what settings may need to be overwritten
 	bool isFirstRun = true;
@@ -177,6 +178,8 @@ int getAutoResumeInfoFromRegistry( GfxSettings * gfxSettings, char * accountName
 
 	if (dontSaveName)
 		*dontSaveName = gfxSettings->dontSaveName;
+	if (savePassword)
+		*savePassword = gfxSettings->savePassword;
 
 	g_audio_state.uisurround = gfxSettings->enable3DSound;
 

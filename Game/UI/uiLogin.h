@@ -42,6 +42,7 @@ extern void startGRWebSwitch(void);
 extern char g_achAccountName[32];
 extern U8 g_achPassword[32]; // NOT A STRING!  This is the encrypted password.
 extern int g_iDontSaveName;
+extern int g_iSavePassword;
 extern char g_shardVisitorData[];
 extern U32 g_shardVisitorDBID;
 extern U32 g_shardVisitorUID;

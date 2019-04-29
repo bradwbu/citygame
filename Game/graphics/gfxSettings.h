@@ -206,6 +206,7 @@ typedef struct GfxSettings
 	// Non-graphics settings
 	char accountName[128];
 	int dontSaveName;
+	int savePassword;
 
 	int version;			// GFXSETTINGS_VERSION
 } GfxSettings;

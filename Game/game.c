@@ -1695,7 +1695,7 @@ void game_beforeParseArgs(int doLogging)
 	{
 		GfxSettings gfxSettings = {0};
 		gfxGetInitialSettings( &gfxSettings );
-		getAutoResumeInfoFromRegistry( &gfxSettings, g_achAccountName, &g_iDontSaveName );
+		getAutoResumeInfoFromRegistry( &gfxSettings, g_achAccountName, &g_iDontSaveName, &g_iSavePassword );
 
 		//Make sure the gfx settings are valid (TO DO do more validating...)
 		if( gfxSettings.advanced.worldDetailLevel < 0.01f || gfxSettings.advanced.worldDetailLevel > 2.0f ||
