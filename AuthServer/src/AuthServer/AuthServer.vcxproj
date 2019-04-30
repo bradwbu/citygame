@@ -78,7 +78,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;ws2_32.lib;imagehlp.lib;Mswsock.lib;cryptlibrsseltcg.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\..\..\bin\$(Configuration)\AuthServer.exe</OutputFile>
+      <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>..\..\..\3rdparty\bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -125,8 +125,8 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;ws2_32.lib;Mswsock.lib;imagehlp.lib;cryptlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\..\..\bin\$(Configuration)\AuthServer.exe</OutputFile>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;ws2_32.lib;Mswsock.lib;imagehlp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>..\..\..\3rdparty\bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
