@@ -5,8 +5,6 @@
 #include "PreComp.h"
 
 
-// 2003-11-25 darkangel
-// Wanted Service쪽으로 사용자 정보를 보낼때 사용한다. 
 bool SendWantedServerLogout( char *name, int uid, ServerId gameserver )
 {
 _BEFORE
@@ -32,7 +30,7 @@ _BEFORE
 	memcpy( sndmsg+20, &stime, 4 );
 
 	if (pWantedSocket && config.UseWantedSystem && (!WantedServerReconnect)) {
-		log.AddLog( LOG_WARN, "Wanted User LogOut, %s", name );
+		logger.AddLog( LOG_WARN, "Wanted User LogOut, %s", name );
 		gWantedLock.ReadLock();
 		pWantedSocket->AddRef();
 		pWantedSocket->Send("cb", AW_QUIT, 24, sndmsg );
@@ -61,8 +59,6 @@ bool AccountDB::FindAccount( int uid, char *account, ServerId & lastServer, int 
 	UserMap::iterator it = usermap.find(uid);
 	if ( it != usermap.end()) {
 		strncpy( account, it->second.account, MAX_ACCOUNT_LEN+1 );
-		// 2003-11-25 darkangel
-		// 이미 CriticalSection안에 들어와 있는데 InterlockedExchange같은 바보짓은 하지 말아라. 
 		hTimer = it->second.timerHandle;
 		it->second.timerHandle = NULL;
 		lastServer = it->second.lastworld;
@@ -110,10 +106,6 @@ bool  AccountDB::FindAccount( int uid, char *account, int *loginflag, int *warnf
 	return result;
 }
 
-// 2003-07-06 darkangel
-// UpdateSocket 은 현재 연결된 소켓을 MAP에 반영하기 위한 것이다. 
-// 각 원 Time md5key가 고유로 같이 따라 다니도록 되어 있고 현재 게임 중이라면
-// Update하지 않는다. 왜냐하면 현재 월드서버와 접속 중이라면 소켓이 넘어올리 없기 때문이다.
 int AccountDB::UpdateSocket( int uid, SOCKET s, int md5key, ServerId serverid  )
 {
 _BEFORE
@@ -146,9 +138,6 @@ _AFTER_FIN
 	return S_NO_LOGININFO;
 }
 
-// 2003-07-06 darkangel
-// Map에 Account를 등록할때 사용된다. 
-// 만일 이미 등록되어 있을 경우에는 이중 로그인으로 간주하고 두 계정을 모두 Kick시키게 된다. 
 bool AccountDB::RegAccount( LoginUser *loginuser, int uid, CSocketServerEx *sEx, int remainTime, int quotaTime )
 {
 	bool result=false;
@@ -159,8 +148,6 @@ bool AccountDB::RegAccount( LoginUser *loginuser, int uid, CSocketServerEx *sEx,
 	m_lock.Leave();
 	
 	if ( result == false ){
-		// kick account를 할경우 메세지를 보낼지는 사실 결정 안해도 된다. 
-		// 다시 로그인 하라고 하니까.
 		KickAccount( uid,S_ALREADY_LOGIN, true );
 		sEx->Send( "cc", AC_LOGIN_FAIL, S_ALREADY_LOGIN );
 	}  else {
@@ -247,8 +234,6 @@ void AccountDB::FinishedQueue( int uid )
     m_lock.Leave();
 }
 
-// IA_IP_KICK에 의한 Kick일 경우에는 IPServer쪽으로 불필요한 ReleaseSession을 요청하게 된다. 
-// reasoncode로 구분할수 있으나 시간이 된다면 KickAccount 를 하나 더 만드는것이 맞을것 같다. 
 bool AccountDB::KickAccount( int uid, char reasoncode, bool sendmsg )
 {
 	bool result = false;
@@ -295,8 +280,6 @@ bool AccountDB::KickAccount( int uid, char reasoncode, bool sendmsg )
 	} else
 		m_lock.Leave();
 	
-
-	// Map에 없다면 Kick시킬 필요가 없다. 
 	if ( result == true ) {
 		if ( config.UseWantedSystem ){
 			if ( (warn_flag & 4) == 4 )
@@ -317,7 +300,7 @@ bool AccountDB::KickAccount( int uid, char reasoncode, bool sendmsg )
 			if ( !g_ServerList.IsServerUp(serverid) )
 			{
 	#ifdef _DEBUG
-				log.AddLog( LOG_ERROR, "Invalid Serverid :%d, %s", serverid, account );
+				logger.AddLog( LOG_ERROR, "Invalid Serverid :%d, %s", serverid, account );
 	#endif
 				if ( (stat < 1000) && ( stat > 0)){
 					int sessionid = ipsessionDB.DelSessionID( uid );
@@ -398,7 +381,6 @@ _BEFORE
 	m_lock.Leave();
 
 	account[MAX_ACCOUNT_LEN] = 0;
-	// 로그인해 있고 erase되었으면 IP관련된 처리를 한다. 
 	if (result){ 
 		if ( config.UseWantedSystem ){
 			if ( ( warn_flag & 4 ) == 4 )	
@@ -421,7 +403,7 @@ _BEFORE
 		if ( !g_ServerList.IsServerUp(preserverid))
 		{
 #ifdef _DEBUG
-			log.AddLog( LOG_ERROR, "Invalid Serverid :%d, %s", serverid, account );
+			logger.AddLog( LOG_ERROR, "Invalid Serverid :%d, %s", serverid, account );
 #endif 
 		} else {
 			SendSocket( g_ServerList.GetInternalAddress(serverid), "cdcs", SQ_KICK_ACCOUNT, uid ,reasoncode, account );
@@ -478,10 +460,6 @@ SOCKET AccountDB::FindSocket( int uid, bool SetTimer )
 	return s;
 }
 
-// 2003-07-06 darkangel
-// 서버를 선택했을때 소켓을 찾는 것이다. 
-// 만일 setTimer가 True이면 5분내로 월드서버에서 로그인 메세지를 보내주어야 한다. 
-// 보내지 않으면 자동으로 로그아웃 시켜 버린다.
 SOCKET AccountDB::FindSocket( int uid, ServerId serverid, bool SetTimer, ServerId *preserverid, char *account )
 {
 	SOCKET s=NULL;
@@ -519,10 +497,6 @@ _AFTER_FIN
 	return s;
 }
 
-// 2003-07-06 darkangel
-// 사용자 정보를 MAP에서 삭제한다. 
-// logout과 틀린점은 사용시간을 기록하지 않고 순수하게 데이타만 삭제한다. 
-// 하지만 PC방이면 글쎄.. 기록해야 하지 않을까?
 bool AccountDB::removeAccount( int uid, char *account )
 {
 	bool result=false;
@@ -549,7 +523,6 @@ bool AccountDB::removeAccount( int uid, char *account )
 		}
 		if (stat<1000) {
 			int sessionid = ipsessionDB.DelSessionID( uid );
-			//sessionid가 존재해야 의미가 있다.
 			if ( sessionid )
 				ipsessionDB.ReleaseSessionRequest( sessionid,  ip, stat );
 		}
@@ -586,10 +559,8 @@ _BEFORE
 	}
 	m_lock.Leave();
 	account[14]=0;
-	// 로그인 정보가 존재하면.
 	if ((stat<1000) && result ){
 		int sessionid = ipsessionDB.DelSessionID( uid );
-		//sessionid가 존재해야 의미가 있다.
 		if ( sessionid ){
 			ipsessionDB.ReleaseSessionRequest( sessionid,  ip, stat );
 		}
@@ -608,7 +579,6 @@ _AFTER_FIN
 	return true;
 }
 
-// 2003-12-18 serverid 파라미터 추가
 bool AccountDB::logoutAccount( int uid, int md5key )
 {
 	bool result=false;
@@ -647,7 +617,6 @@ _BEFORE
 		}
 	}
 	m_lock.Leave();
-	// 로그인 정보가 존재하면
 	account[MAX_ACCOUNT_LEN] = 0;
 	if ( result ) {
 		if ( config.UseWantedSystem ){
@@ -712,11 +681,6 @@ bool AccountDB::logoutAccount( int uid )
 	return result;
 }
 
-
-// 2003-07-20 darkangel
-// Game시작을 알려준다. 실제 월드서버에 접속한 때를 알려주는 것이고
-// 이 루틴을 사용자가 ByPass하게 되면 사용시간이 남지 않는다. ( 설마 그런일이 발생할까? )
-
 bool AccountDB::recordGamePlayTime( int uid , ServerId serverid)
 {
 	bool result = false;
@@ -750,7 +714,6 @@ _BEFORE
 	}
 	m_lock.Leave();
 
-	// IPServer쪽에 시작을 알려주도록 한다.
 	if ( (stat < 1000) && ( stat > 0) && result ){
 		ipsessionDB.ConfirmIPCharge( uid, loginip.S_un.S_addr, stat, serverid );
 	}
@@ -767,7 +730,6 @@ _BEFORE
 
 		char sndmsg[28];
 		memset(sndmsg,0, 28);
-	// wanted socket이기 때문에 확인해야 한다. 
 		if ( config.gameId == 8 )
 			sndmsg[0]=2;
 		memcpy( sndmsg+1, &uid, 4 );
@@ -1078,9 +1040,6 @@ bool AccountDB::RecordLogout( char reasoncode, int uid, time_t loginTime, time_t
 	return true;
 }
 
-// 정량 결제를 체크한다. 
-// 남은 시간이 있는지를 검사해서 있으면 등록하고 없으면 남은 시간 없음을 표시한다. 
-
 char AccountDB::UserTimeLogin( int uid, LoginUser *lu, int *RemainTime )
 {
 	char ErrorCode=S_ALL_OK;
@@ -1094,7 +1053,6 @@ char AccountDB::UserTimeLogin( int uid, LoginUser *lu, int *RemainTime )
 	return ErrorCode;
 }
 
-// 개인 정액및 정량 결제를 체크 한다. 
 char AccountDB::CheckPersonalPayStat(CSocketServerEx *pSocket, LoginUser *lu, int Uid)
 {
 	char result=S_ALL_OK;
@@ -1102,34 +1060,30 @@ char AccountDB::CheckPersonalPayStat(CSocketServerEx *pSocket, LoginUser *lu, in
 	int OperationCode = (int)(( lu->stat% 1000 ) / 100 );
 	int RemainTime=0;
 
-//  결제 stat이  0이면 더이상 체크할 필요가 없다. 
 	if ( lu->stat == 0 ) {
 		result = S_NOT_PAID;
 	} else if ( OperationCode == PERSONAL_SPECIFIC ) {
-		// 정량 결제를 체크해서 성공이면 밑으로 진행. 실패이면 사용자에게 결과 통보하고 끝
 		result=UserTimeLogin( Uid, lu, &RemainTime );
 	} else if ( OperationCode == PERSONAL_POINT ) {
 		CDBConn dbconn(g_linDB);
 		
 	}
 
-	// 정액과 정량결제 모두 실패인 경우
 	if ( result != S_ALL_OK ) {
 		pSocket->Send( "cc", AC_LOGIN_FAIL, result );
-		return result; // 로그인 Fail 이므로 더이상 진행할 필요 없다. 
+		return result;
 	}
 	
-	// 정액과 정량 둘중에 하나라도 통과하면  사용 가능한 계정으로 등록한다. 등록에 실패하면  이중 로그인이 된다. 
 	if ( accountdb.RegAccount( lu, Uid, pSocket, RemainTime, 0 ) ){
 
-	    log.AddLog( LOG_VERBOSE, "SND: AC_LOGIN_OK,uid:%d,account:%s", Uid, lu->account);
+	    logger.AddLog( LOG_VERBOSE, "SND: AC_LOGIN_OK,uid:%d,account:%s", Uid, lu->account);
 
 		pSocket->m_lastIO = GetTickCount();
 //		WriteAction( "login", lu->account, lu->loginIp, lu->ssn, lu->gender, 0, lu->stat );
 		WriteLogD( LOG_ACCOUNT_AUTHED, lu->account, lu->loginIp, lu->stat, lu->age, lu->gender, 0, reporter.m_UserCount, Uid );
 	} else{
 		
-        log.AddLog( LOG_WARN, "SND: AC_LOGIN_FAIL,uid:%d,account:%s,ip:%d.%d.%d.%d,%x", Uid, lu->account, lu->loginIp.S_un.S_un_b.s_b1, lu->loginIp.S_un.S_un_b.s_b2, lu->loginIp.S_un.S_un_b.s_b3, lu->loginIp.S_un.S_un_b.s_b4, pSocket->GetSocket() );
+        logger.AddLog( LOG_WARN, "SND: AC_LOGIN_FAIL,uid:%d,account:%s,ip:%d.%d.%d.%d,%x", Uid, lu->account, lu->loginIp.S_un.S_un_b.s_b1, lu->loginIp.S_un.S_un_b.s_b2, lu->loginIp.S_un.S_un_b.s_b3, lu->loginIp.S_un.S_un_b.s_b4, pSocket->GetSocket() );
 	}
 
 	return result;
@@ -1137,8 +1091,6 @@ char AccountDB::CheckPersonalPayStat(CSocketServerEx *pSocket, LoginUser *lu, in
 
 char AccountDB::CheckUserTime(int Uid, int *RemainTime)
 {
-	// UserTimeLogin을 Check할 경우에는 user_time 테이블이 존재한다.
-	// Logic : user_time Table에서 total_time을 Select해온다. 
 	char ErrorCode=S_ALL_OK;
 
 	CDBConn conn(g_linDB);
@@ -1168,9 +1120,6 @@ char AccountDB::CheckUserTime(int Uid, int *RemainTime)
 	return ErrorCode;
 }
 
-// 2003-07-06 darkangel
-// 서버 선택후에 선택된 서버로 사용자 정보를 보내주도록 한다. 
-
 char AccountDB::AboutToPlay(int uid, char *account, int time_left, int loginflag, int warnflag, int md5key, CSocketServerEx *pSocket, ServerId serverid, int stat, int queueLevel, int loyalty, int loyaltyLegacy)
 {
 	char error = S_ALL_OK;
@@ -1180,10 +1129,9 @@ char AccountDB::AboutToPlay(int uid, char *account, int time_left, int loginflag
 	if (config.payStatOverride != -1)
 	{
 		stat = config.payStatOverride;
-		log.AddLog(LOG_WARN, "PayStatOverride is set to %d!", config.payStatOverride);
+		logger.AddLog(LOG_WARN, "PayStatOverride is set to %d!", config.payStatOverride);
 	}
 
-	// user data가 필요한 경우에 user_data를 읽어 오도록 한다. 
 	if ( config.UserData ){
 		unsigned char userdata[MAX_USERDATA];
 		
@@ -1212,7 +1160,7 @@ char AccountDB::AboutToPlay(int uid, char *account, int time_left, int loginflag
 		if ( !g_ServerList.IsServerUp(serverid) )
 		{
 #ifdef _DEBUG
-			log.AddLog( LOG_ERROR, "Invalid Serverid :%d, %s", serverid, account );
+			logger.AddLog(LOG_ERROR, "Invalid Serverid :%d, %s", serverid, account );
 #endif 
 		} else {
 			AS_LOG_VERBOSE( "User data from SQL for uid %d: %02x%02x%02x%02x-%02x%02x%02x%02x-%02x%02x%02x%02x-%02x%02x%02x%02x",
@@ -1255,15 +1203,13 @@ char AccountDB::AboutToPlay(int uid, char *account, int time_left, int loginflag
 		if ( !g_ServerList.IsServerUp(serverid) )
 		{
 #ifdef _DEBUG
-			log.AddLog( LOG_ERROR, "Invalid Serverid :%d, %s", serverid, account );
+			logger.AddLog(LOG_ERROR, "Invalid Serverid :%d, %s", serverid, account );
 #endif
 		}else{
-			// server에 제대로 데이타를 보내면.
 			result = SendSocket( g_ServerList.GetInternalAddress(serverid), "cdsdddd", SQ_ABOUT_TO_PLAY, uid, account, time_left, loginflag, warnflag, stat, queueLevel );
 		}
 	}
 
-	// pSocket이 NULL이 아닐때에만 동작해야 한다....
 	if ( pSocket ) {
 		if ( result == FALSE ){
 			AS_LOG_VERBOSE( "SND: AC_PLAY_FAIL,server down", S_SERVER_DOWN );
@@ -1273,7 +1219,6 @@ char AccountDB::AboutToPlay(int uid, char *account, int time_left, int loginflag
 
 			AS_LOG_VERBOSE( "SND: SQ_ABOUT_TO_PLAY,account:%s", account );
 		
-			// 소켓을 업데이트 한다. 
 			if( (error=UpdateSocket( uid, pSocket->GetSocket(), md5key, serverid )) != S_ALL_OK){
 				AS_LOG_VERBOSE( "SND: AC_PLAY_FAIL,error:%d", error);
 				pSocket->Send( "cc", AC_PLAY_FAIL, error );		
@@ -1283,11 +1228,6 @@ char AccountDB::AboutToPlay(int uid, char *account, int time_left, int loginflag
 
 	return error;
 }
-
-
-// 2003-07-06 darkangel
-// 사용자 정보를 저장된 userMap에서 가져온다. 
-// StartIPCharge에서 부르며 그때는 이미 로그인도 되고 게임도 된다는 것이기 때문에 Timer를 지워야 한다.
 
 bool AccountDB::GetAccountInfo( int uid, char *account, int *loginflag, int *warnflag, int *md5key, SOCKET *s )
 {
@@ -1315,7 +1255,6 @@ bool AccountDB::GetAccountInfo( int uid, char *account, int *loginflag, int *war
 	return result;
 }
 
-// IP 과금을 정지 시키기 위한 정보를 복사해 올때 사용한다. 
 bool AccountDB::GetAccountInfoForIPStop( int uid, char *account, int *stat, in_addr *loginip, time_t *loginTime )
 {
 	bool result = false;
@@ -1345,11 +1284,7 @@ bool AccountDB::RegAccountByServer( LoginUser *loginuser, int uid, CSocketServer
 	m_lock.Leave();
 	
 	if ( result == false ){
-		// kick account를 할경우 메세지를 보낼지는 사실 결정 안해도 된다. 
-		// 다시 로그인 하라고 하니까.
 		KickAccount( uid,S_ALREADY_LOGIN, true );
-	}  else {
-		// 그냥 잘 로그인 된거다. 뭐 
 	}
 	return result;
 }	
