@@ -464,7 +464,6 @@ Global
 		{E7F065BB-3F72-4E63-8E80-F67B0AE1EFA3}.Full Debug|Win32.Build.0 = Debug|Win32
 		{E7F065BB-3F72-4E63-8E80-F67B0AE1EFA3}.Full Debug|x64.ActiveCfg = Debug|Win32
 		{E7F065BB-3F72-4E63-8E80-F67B0AE1EFA3}.Opt Debug|Win32.ActiveCfg = Debug|Win32
-		{E7F065BB-3F72-4E63-8E80-F67B0AE1EFA3}.Opt Debug|Win32.Build.0 = Debug|Win32
 		{E7F065BB-3F72-4E63-8E80-F67B0AE1EFA3}.Opt Debug|x64.ActiveCfg = Debug|Win32
 		{E7F065BB-3F72-4E63-8E80-F67B0AE1EFA3}.Release|Win32.ActiveCfg = Debug|Win32
 		{E7F065BB-3F72-4E63-8E80-F67B0AE1EFA3}.Release|x64.ActiveCfg = Debug|Win32
@@ -499,7 +498,6 @@ Global
 		{520DEA29-29B8-4DF1-B102-A9E835D0BBCE}.Full Debug|Win32.Build.0 = Debug|Win32
 		{520DEA29-29B8-4DF1-B102-A9E835D0BBCE}.Full Debug|x64.ActiveCfg = Debug|Win32
 		{520DEA29-29B8-4DF1-B102-A9E835D0BBCE}.Opt Debug|Win32.ActiveCfg = Debug|Win32
-		{520DEA29-29B8-4DF1-B102-A9E835D0BBCE}.Opt Debug|Win32.Build.0 = Debug|Win32
 		{520DEA29-29B8-4DF1-B102-A9E835D0BBCE}.Opt Debug|x64.ActiveCfg = Debug|Win32
 		{520DEA29-29B8-4DF1-B102-A9E835D0BBCE}.Release|Win32.ActiveCfg = Debug|Win32
 		{520DEA29-29B8-4DF1-B102-A9E835D0BBCE}.Release|x64.ActiveCfg = Debug|Win32
@@ -547,7 +545,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A5ACD6EA-47EE-47C3-B95C-23279A71379A}
 		AMDCaProjectFile = C:\src\CoH\MasterSolution\CodeAnalyst\MasterSolution.caw
+		SolutionGuid = {A5ACD6EA-47EE-47C3-B95C-23279A71379A}
 	EndGlobalSection
 EndGlobal
