@@ -123,13 +123,13 @@ void BrowserOpenLoginFailure(void * foo)
     {
         mod = g_ncnc_1024_dev_pubmod;
         mod_len = ARRAY_SIZE(g_ncnc_1024_dev_pubmod);
-        url = "http://plaync-preplay.ncaustin.com:8001";
+        url = "http://plaync-preplay.ncaustin-url-stripped-todo.com:8001";
     }
     else
     {
         mod = g_ncnc_1024_pub_pubmod;
         mod_len = ARRAY_SIZE( g_ncnc_1024_pub_pubmod );
-        url = "https://secure.ncsoft.com";
+        url = "https://secure.ncsoft-url-stripped-todo.com";
     }
 
     if(locIsEuropean(getCurrentLocale())) 

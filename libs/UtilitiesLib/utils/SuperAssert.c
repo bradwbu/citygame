@@ -1162,7 +1162,7 @@ static void sendAssertEmail(void)
 		++cur;
 	}
 
-	Strncatt(command, " -from assert@ncsoft.com");
+	Strncatt(command, " -from assert@ncsoft-url-stripped-todo.com");
 	Strncatt(command, " -subj \"Assert on ");
 	Strncatt(command, g_machineName[0] ? g_machineName : "Unknown");
 	Strncatt(command, "\"");
