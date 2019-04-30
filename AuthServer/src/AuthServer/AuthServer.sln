@@ -7,7 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AuthServer", "AuthServer.vc
 		Release.AspNetCompiler.Debug = "False"
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "arda2", "..\..\lib\arda2\arda2_vc8.vcxproj", "{86057C3B-EF19-4D2C-A123-B67FFF48186A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "arda2", "..\..\lib\arda2\arda2.vcxproj", "{86057C3B-EF19-4D2C-A123-B67FFF48186A}"
 	ProjectSection(WebsiteProperties) = preProject
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.Debug = "False"
