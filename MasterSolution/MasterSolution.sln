@@ -288,16 +288,20 @@ Global
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Beaconizer|Win32.ActiveCfg = Opt Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Beaconizer|x64.ActiveCfg = Opt Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Debug|Win32.Build.0 = Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Debug|x64.ActiveCfg = Opt Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Full Debug|Win32.ActiveCfg = Full Debug|Win32
+		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Full Debug|Win32.Build.0 = Full Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Full Debug|x64.ActiveCfg = Opt Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Opt Debug|Win32.ActiveCfg = Opt Debug|Win32
+		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Opt Debug|Win32.Build.0 = Opt Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Opt Debug|x64.ActiveCfg = Opt Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Release|Win32.ActiveCfg = Opt Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Release|x64.ActiveCfg = Opt Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Template|Win32.ActiveCfg = Opt Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.Template|x64.ActiveCfg = Opt Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.TextClientDebug|Win32.ActiveCfg = Opt Debug|Win32
+		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.TextClientDebug|Win32.Build.0 = Opt Debug|Win32
 		{4E588D6E-9FCC-463F-9E33-698C84DAC7BB}.TextClientDebug|x64.ActiveCfg = Opt Debug|Win32
 		{10980900-D4E8-420B-ADE5-06AFDDD419BF}.Beaconizer|Win32.ActiveCfg = Opt Debug|Win32
 		{10980900-D4E8-420B-ADE5-06AFDDD419BF}.Beaconizer|Win32.Build.0 = Opt Debug|Win32
@@ -545,7 +549,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		AMDCaProjectFile = C:\src\CoH\MasterSolution\CodeAnalyst\MasterSolution.caw
 		SolutionGuid = {A5ACD6EA-47EE-47C3-B95C-23279A71379A}
+		AMDCaProjectFile = C:\src\CoH\MasterSolution\CodeAnalyst\MasterSolution.caw
 	EndGlobalSection
 EndGlobal

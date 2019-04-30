@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <ProjectGuid>{9E1C935D-FDA7-45B8-9229-5420D79B8592}</ProjectGuid>
     <RootNamespace>AuthServer</RootNamespace>
   </PropertyGroup>

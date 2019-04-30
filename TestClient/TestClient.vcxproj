@@ -75,9 +75,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='TextClientDebug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>TEXT_CLIENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Game\UI\Hybrid;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
+      <AdditionalDependencies>cryptlib.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\3rdparty\zlibsrc\$(Platform)\Debug\;..\3rdparty\cryptopp\$(Platform)\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
@@ -92,10 +95,15 @@
     </PreBuildEvent>
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
+      <AdditionalDependencies>cryptlib.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\3rdparty\zlibsrc\$(PlatformName)\$(Configuration)\;..\3rdparty\cryptopp\$(PlatformName)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\Game\UI\Hybrid;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
     <PreBuildEvent>
@@ -103,10 +111,15 @@
     </PreBuildEvent>
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
+      <AdditionalDependencies>cryptlib.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\3rdparty\zlibsrc\$(Platform)\Debug\;..\3rdparty\cryptopp\$(Platform)\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\Game\UI\Hybrid;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
     <PreBuildEvent>
@@ -114,18 +127,22 @@
     </PreBuildEvent>
     <Link>
       <OutputFile>$(TargetPath)</OutputFile>
+      <AdditionalDependencies>cryptlib.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\3rdparty\zlibsrc\$(Platform)\Release\;..\3rdparty\cryptopp\$(Platform)\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin"</Command>
     </PostBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\Game\UI\Hybrid;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="gameweb_server.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='TextClientDebug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">false</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="..\Common\account\AccountData.c" />
+    <ClCompile Include="..\Common\account\AccountInventory.c" />
+    <ClCompile Include="..\Common\account\AccountTypes.cpp" />
+    <ClCompile Include="..\Common\entity\character_combat_eval.c" />
+    <ClCompile Include="..\Common\entity\incarnate.c" />
     <ClCompile Include="win\win_init.c" />
     <ClCompile Include="..\Game\player\inventory_client.c" />
     <ClCompile Include="..\Game\group\groupdynrecv.c" />
@@ -237,9 +254,7 @@
     <ClCompile Include="..\Common\gameComm\VillainDef.c" />
     <ClCompile Include="..\Common\auction\Auction.c" />
     <ClCompile Include="..\Common\auction\AuctionData.c" />
-    <ClCompile Include="..\Common\account\AccountBilling.c" />
     <ClCompile Include="..\Common\account\AccountCatalog.c" />
-    <ClCompile Include="..\Common\account\AccountPayment.c" />
     <ClCompile Include="ArenaFighter.c" />
     <ClCompile Include="chatter.c" />
     <ClCompile Include="externs.c" />
@@ -264,12 +279,6 @@
     <ClCompile Include="..\Common\filter\validate_name.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="gameweb_server.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='TextClientDebug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">false</ExcludedFromBuild>
-    </ClInclude>
     <ClInclude Include="win\win_init.h" />
     <ClInclude Include="..\Common\gridcoll\ctri.h" />
     <ClInclude Include="..\Game\player\inventory_client.h" />
@@ -391,10 +400,8 @@
     <ClInclude Include="..\Common\gameComm\VillainDef.h" />
     <ClInclude Include="..\Common\auction\Auction.h" />
     <ClInclude Include="..\Common\auction\AuctionData.h" />
-    <ClInclude Include="..\Common\account\AccountBilling.h" />
     <ClInclude Include="..\Common\account\AccountCatalog.h" />
     <ClInclude Include="..\Common\account\AccountData.h" />
-    <ClInclude Include="..\Common\account\AccountPayment.h" />
     <ClInclude Include="ArenaFighter.h" />
     <ClInclude Include="bigrams.h" />
     <ClInclude Include="chatter.h" />
