@@ -5,14 +5,13 @@ typedef struct Packet Packet;
 typedef struct Entity Entity;
 
 #include "stdtypes.h"
+#include "chatdefs.h"
 #include "entvarupdate.h"
 
 #define MAX_CHAT_WINDOWS		5
 #define MAX_CHAT_CHANNELS		15		// # of USER channels
 #define MAX_CHAT_TABS			20		
 #define MAX_TAB_NAME_LEN		18
-#define MAX_CHANNEL_NAME_LEN	25
-
 
 typedef enum {
 	ChannelType_None = 0,
@@ -53,7 +52,7 @@ typedef struct ChatTabSettings{
 
 typedef struct ChatChannelSettings{
 
-	char name[MAX_CHANNEL_NAME_LEN+1];
+	char name[MAX_CHANNELNAME + 1];
 	int optionsBF;
 	int color1;
 	int color2;
