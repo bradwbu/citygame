@@ -759,9 +759,11 @@ void parseArgs2(int argc,char **argv)
 
 	db_state.local_server = 1;
 	server_state.disableSpecialReturn = 0;
+	server_state.advertisedIp[0] = 0;
 
 	cfg_setIsBetaShard(0);
 	cfg_setMARTY_enabled(0);
+
 
 	for(i=1;i<argc;i++)
 	{
@@ -1386,6 +1388,12 @@ void parseArgs2(int argc,char **argv)
 			else
 				Errorf("Invalid command line parameters for '-maintenanceHours begin end', begin and end need to be hours from 0-24");
 		}
+		else if (stricmp(argv[i], "-advertisedIp") == 0)
+		{
+			int iplen = sizeof(server_state.advertisedIp) / sizeof(server_state.advertisedIp[0]);
+			strncpy(server_state.advertisedIp, argv[++i], iplen - 1);
+			server_state.advertisedIp[iplen - 1] = 0; 
+		}
 		else if (argv[i][0])
 		{
 			Errorf("Invalid command line parameter passed to mapserver.exe: %s", argv[i]);
@@ -1468,7 +1476,14 @@ int connectToDbserver(float timeout)
 	static bool done_once = false;
 	// In -localmapserver mode, this function is called to reconnect as well as for an initial connection
 
-	setHostIpList(ip_list);
+	if (server_state.advertisedIp[0] == 0)
+	{
+		setHostIpList(ip_list, NULL);
+	}
+	else
+	{
+		setHostIpList(ip_list, server_state.advertisedIp);
+	}
 
 	if (!done_once) {
 		loadstart_printf("Listening for clients..");
