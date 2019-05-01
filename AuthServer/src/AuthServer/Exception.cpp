@@ -39,13 +39,13 @@ CExceptionInit theExceptionInit;
 static char g_szLogPath[MAX_PATH];
 
 static LPTOP_LEVEL_EXCEPTION_FILTER previousFilter;
-#define MAIL_FROM   "server@ncsoft.co.kr"
+#define MAIL_FROM   "server@ncsoft-url-stripped-todo.co.kr"
 #ifdef _DEBUG
-#define RECV_TO "darkangel@ncsoft.co.kr\0"
+#define RECV_TO "darkangel@ncsoft-url-stripped-todo.co.kr\0"
 #elif defined(NPCSVR)
-#define RECV_TO "darkangel@ncsoft.co.kr\0" 
+#define RECV_TO "darkangel@ncsoft-url-stripped-todo.co.kr\0" 
 #else
-#define RECV_TO "darkangel@ncsoft.co.kr\0" 
+#define RECV_TO "darkangel@ncsoft-url-stripped-todo.co.kr\0" 
 #endif
 // #define USE_LAUNCHER
 #define SEND_EMAIL
@@ -306,9 +306,9 @@ static char* GetFilePart(char *source)
 }
 
 #ifdef SEND_EMAIL
-static char heloStr[256] = "HELO main1.ncsoft.co.kr\r\n";
-static char mailStr[256] = "MAIL From: <darkangel@ncsoft.co.kr>\r\n";
-static char rcptStr[256] = "RCPT To: <darkangel@ncsoft.co.kr>\r\n";
+static char heloStr[256] = "HELO main1.ncsoft-url-stripped-todo.co.kr\r\n";
+static char mailStr[256] = "MAIL From: <darkangel@ncsoft-url-stripped-todo.co.kr>\r\n";
+static char rcptStr[256] = "RCPT To: <darkangel@ncsoft-url-stripped-todo.co.kr>\r\n";
 static char subjectStr[256];
 static char dataStr[] = "DATA\r\n";
 static char finishStr[] = "\r\n.\r\n";

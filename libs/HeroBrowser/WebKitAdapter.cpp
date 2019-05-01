@@ -482,7 +482,7 @@ QNetworkReply *HeroNetworkAccessManager::createRequest(Operation op, const QNetw
 	// Conditionally provide PlayNC required headers
 	// For Live, all of the PlayNC requests will be denoted by being located at https://secure.<optioal.>ncsoft.com/ (the entire “secure” subdomain of ncsoft.com belongs to PlayNC.
 	// For QA and Dev, the distinction is not as clear-cut and we may just have to settle for http(s)://*.ncsoft.corp.
-	QRegExp rx("^(https://secure(\\.[^/]+)*\\.ncsoft\\.com|https?://[^/]+\\.ncsoft\\.corp)", Qt::CaseInsensitive);
+	QRegExp rx("^(https://secure(\\.[^/]+)*\\.ncsoft\\.com|https?://[^/]+\\.ncsoft\\-url\\-stripped\\-todo\\.corp)", Qt::CaseInsensitive);
 	if (rx.indexIn(customized_request.url().toString())>= 0)
 	{
 		// PlayNC requires custom header fields
