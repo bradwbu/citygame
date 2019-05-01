@@ -557,7 +557,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		AMDCaProjectFile = C:\src\CoH\MasterSolution\CodeAnalyst\MasterSolution.caw
 		SolutionGuid = {A5ACD6EA-47EE-47C3-B95C-23279A71379A}
+		AMDCaProjectFile = C:\src\CoH\MasterSolution\CodeAnalyst\MasterSolution.caw
 	EndGlobalSection
 EndGlobal

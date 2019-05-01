@@ -84,10 +84,10 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Link>
-      <AdditionalDependencies>IJGWin32.lib;cryptlib.lib;zlibstat.lib;../Utilities/Allegorithmic/1.x/lib/win32/release/substance_ogl2.lib;HeroBrowser.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>IJGWin32.lib;cryptlib.lib;zlibstat.lib;../Utilities/Allegorithmic/1.x/lib/win32/release/substance_ogl2.lib;HeroBrowser.lib;CubeMapGenLib_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>LIBCPD.lib;LIBCD.lib;MSVCRTD.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>..\libs\HeroBrowser\$(PlatformName)\$(Configuration)\;..\3rdparty\IJGWin32\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\3rdparty\libcubemapgen\;..\3rdparty\zlibsrc\$(Platform)\$(Configuration)\;..\libs\HeroBrowser\$(Platform)\$(Configuration)\;..\3rdparty\IJGWin32\$(Platform)\$(Configuration)\;..\3rdparty\cryptopp\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
@@ -104,7 +104,7 @@
       <AdditionalDependencies>IJGWin32.lib;cryptlib.lib;zlibstat.lib;../Utilities/Allegorithmic/1.x/lib/win32/release/substance_ogl2.lib;HeroBrowser.lib;CubeMapGenLib_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>LIBCPD.lib;LIBCD.lib;MSVCRTD.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>..\libs\HeroBrowser\$(PlatformName)\Debug\;..\3rdparty\bin\$(Platform)\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\3rdparty\libcubemapgen\;..\3rdparty\zlibsrc\$(Platform)\Debug\;..\libs\HeroBrowser\$(Platform)\Debug\;..\3rdparty\IJGWin32\$(Platform)\Debug\;..\3rdparty\cryptopp\$(Platform)\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
