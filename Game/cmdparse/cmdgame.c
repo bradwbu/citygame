@@ -192,7 +192,6 @@
 #include "inventory_client.h"
 #include "AccountCatalog.h"
 #include "uiBody.h"
-#include "..\libs\HeroBrowser\HeroBrowser.h"
 #include "../../3rdparty/steam/coh_steam_api.h"
 #include "basedata.h"
 
