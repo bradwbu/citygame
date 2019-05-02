@@ -1767,9 +1767,6 @@
     <ClCompile Include="UI\Hybrid\uiLWC.c">
       <Filter>UI\Hybrid</Filter>
     </ClCompile>
-    <ClCompile Include="UI\Hybrid\uiMainStoreAccess.c">
-      <Filter>UI\Hybrid</Filter>
-    </ClCompile>
     <ClCompile Include="UI\Hybrid\uiOrigin.c">
       <Filter>UI\Hybrid</Filter>
     </ClCompile>
@@ -3523,9 +3520,6 @@
       <Filter>UI\Hybrid</Filter>
     </ClInclude>
     <ClInclude Include="UI\Hybrid\uiLWC.h">
-      <Filter>UI\Hybrid</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Hybrid\uiMainStoreAccess.h">
       <Filter>UI\Hybrid</Filter>
     </ClInclude>
     <ClInclude Include="UI\Hybrid\uiOrigin.h">

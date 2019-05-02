@@ -393,7 +393,6 @@ static WindowMap s_aUserWindows[] =
 	{ "paragonrewards",	WDW_LOYALTY_TREE, 1, 1, 0	},
 	{ "webstore",		WDW_WEB_STORE, 1, 1, 0	},
 	{ "paragonmarket",	WDW_WEB_STORE, 1, 1, 0	},
-	// Cattan { "mainstoreaccess",WDW_MAIN_STORE_ACCESS, 1, 0, 0	},
 	{ "loyaltytreeaccess",WDW_LOYALTY_TREE_ACCESS, 1, 0, 0	},
 	{ "lwcui",			WDW_LWC_UI, 0, 0 ,0 },
 	{ "salvageopen",	WDW_SALVAGE_OPEN, 0, 0 ,0 },

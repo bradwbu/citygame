@@ -1168,7 +1168,6 @@
     <ClCompile Include="UI\Hybrid\uiLoyaltyTree.c" />
     <ClCompile Include="UI\Hybrid\uiLoyaltyTreeAccess.c" />
     <ClCompile Include="UI\Hybrid\uiLWC.c" />
-    <ClCompile Include="UI\Hybrid\uiMainStoreAccess.c" />
     <ClCompile Include="UI\Hybrid\uiOrigin.c" />
     <ClCompile Include="UI\Hybrid\uiPlaystyle.c" />
     <ClCompile Include="UI\Hybrid\uiPower.c" />
@@ -2296,7 +2295,6 @@
     <ClInclude Include="UI\Hybrid\uiLoyaltyTree.h" />
     <ClInclude Include="UI\Hybrid\uiLoyaltyTreeAccess.h" />
     <ClInclude Include="UI\Hybrid\uiLWC.h" />
-    <ClInclude Include="UI\Hybrid\uiMainStoreAccess.h" />
     <ClInclude Include="UI\Hybrid\uiOrigin.h" />
     <ClInclude Include="UI\Hybrid\uiPlaystyle.h" />
     <ClInclude Include="UI\Hybrid\uiPower.h" />
