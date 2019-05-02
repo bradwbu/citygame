@@ -112,11 +112,11 @@ A build from scratch takes around 40 minutes on an average machine so please be 
 > Set up a shortcut to start up the City of Heroes client by creating a new shortcut to CityOfHeroes.exe in D:\ Ouroboros\Source\bin (assuming you used D:\ Ouroboros as you clone root folder)
 and add following arguments to Target filed in the shortcut dialog
 ```
--db 127.0.0.1 -console -project "coh"
+-db 127.0.0.1 -console -project "Ouroboros"
 ```
 > so the whole command would look like
 ```
-D:\Ouroboros\Source\bin\CityOfHeroes.exe -db 127.0.0.1 -console -project "coh"
+D:\Ouroboros\Source\bin\CityOfHeroes.exe -db 127.0.0.1 -console -project "Ouroboros"
 ```
 
 > Start the dbserver by typing or setting up a shortcut to dbserver.exe in D:\ Ouroboros\Source\bin like
