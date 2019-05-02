@@ -592,7 +592,7 @@ static void loadEntityChatSettings(Entity * e, int full_update)
 	// set the user send channel (if applicable)
 	i = settings->userSendChannel;
 	if(  e->pl->chatSendChannel == INFO_CHANNEL && i >= 0 && i < MAX_CHAT_CHANNELS)
-		strncpyt(gUserSendChannel, settings->channels[i].name, MAX_CHANNEL_NAME_LEN);
+		strncpyt(gUserSendChannel, settings->channels[i].name, MAX_CHANNELNAME);
 	else
 		gUserSendChannel[0] = 0;
 
@@ -919,7 +919,7 @@ void loadChatSettings( char * pchFile )
 			goto file_error;
 		else
 		{
-			strcpy_s(channel->name, MAX_CHANNEL_NAME_LEN+1, args[0]);
+			strcpy_s(channel->name, MAX_CHANNELNAME + 1, args[0]);
 			channel->optionsBF = atoi(args[1]);
 			channel->color1 = atoi(args[2]);
 			channel->color2 = atoi(args[3]);
