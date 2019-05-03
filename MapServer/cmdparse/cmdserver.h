@@ -174,8 +174,6 @@ typedef struct ServerState
 	U32		maintenance_daily_end;						// ending hour of window for automatic daily maintenance
 	int MARTY_enabled;
 
-	char advertisedIp[256];                             // IP address to advertise to clients
-
 } ServerState;
 
 extern ServerState server_state;

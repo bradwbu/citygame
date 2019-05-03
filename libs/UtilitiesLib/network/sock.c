@@ -212,10 +212,10 @@ U32		ip_local,ip_remote,*addr,t;
 	ip_list[1] = ip_remote;
 }
 
-int setHostIpList(U32 ip_list[2], const char* ip)
+int setHostIpList(U32 ip_list[2])
 {
 	struct hostent *host_ent;
-	host_ent = gethostbyname(ip);
+	host_ent = gethostbyname(NULL);
 	if (!host_ent) 
 	{
 		printWinErr("setHostIpList", __FILE__, __LINE__, WSAGetLastError());
@@ -232,7 +232,7 @@ U32 getHostLocalIp()
 	static U32 cachedAt = 0;
 
 	if(!cachedAt || (timerSecondsSince2000() - cachedAt) > kSecBeforeRefresh) {
-		if (!setHostIpList(ip_list, NULL)) {
+		if (!setHostIpList(ip_list)) {
 			cachedAt = 0;
 			return 0;
 		}

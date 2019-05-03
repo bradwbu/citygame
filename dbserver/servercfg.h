@@ -114,7 +114,7 @@ typedef struct ServerCfg
 	unsigned __int64 metrics_hwm; //sets the high water mark for the metric's system ZeroMQ connection
 
 	//This is used to tell the mapserver to advertise this address to clients
-	char advertisedIp[256];
+	U32 advertisedIp;
 
 } ServerCfg;
 

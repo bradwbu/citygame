@@ -1569,10 +1569,6 @@ int launcherCommStartProcess(const char *db_hostname, U32 host_ip, MapCon* map_c
 	{
 		estrConcatf(&cmd, " -xpscale %f", server_cfg.xpscale);
 	}
-	if (server_cfg.advertisedIp[0] != 0)
-	{
-		estrConcatf(&cmd, " -advertisedIp %s", server_cfg.advertisedIp);
-	}
 	{
 		WeeklyTFCfg *weeklyTF_cfg = WeeklyTFCfg_getCurrentWeek(0);
 		if (weeklyTF_cfg && eaSize(&weeklyTF_cfg->weeklyTFTokens))
