@@ -40,7 +40,10 @@ logs/
 .moc/
 
 # Assets installed by external means
+/Utilities/pig/PigLibTest/
+/Utilities/bin/
 /bin/*/
+
 
 # Except the folders below
 !/bin/beaconizer/
