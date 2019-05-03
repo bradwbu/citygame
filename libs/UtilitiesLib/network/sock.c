@@ -9,6 +9,10 @@
 #include "endian.h"
 #include "strings_opt.h"
 #include "log.h"
+#include <winsock2.h>
+#include <WS2tcpip.h>
+#include <iphlpapi.h>
+#include <ws2def.h>
 
 void	sockSetAddr(struct sockaddr_in *addr,unsigned int ip,int port)
 {
@@ -163,6 +167,8 @@ char *makeHostNameStr(U32 ip)
 	return host_ent->h_name;
 }
 
+#define MALLOC(x) HeapAlloc(GetProcessHeap(), 0, (x))
+#define FREE(x) HeapFree(GetProcessHeap(), 0, (x))
 
 // From RFC 1918
 //   The Internet Assigned Numbers Authority (IANA) has reserved the
@@ -175,6 +181,11 @@ char *makeHostNameStr(U32 ip)
 int isLocalIp(U32 ip)
 {
 	U8	a,b,c,d;
+	int i;
+	PMIB_IPADDRTABLE pIPAddrTable;
+	DWORD dwSize = 0;
+	DWORD dwRetVal = 0;
+	LPVOID lpMsgBuf;
 
 	a = ip & 255;
 	b = (ip >> 8) & 255;
@@ -188,6 +199,43 @@ int isLocalIp(U32 ip)
 		return 1;
 	if (a == 127 && b == 0 && c == 0 && d == 1)
 		return 1;
+
+	// TODO: this runs on _all_ incoming connections, might want to limit this check to specific ports?
+	// sorry for the Windows-specific code, future code porters -Pazaz
+	pIPAddrTable = (MIB_IPADDRTABLE*)MALLOC(sizeof(MIB_IPADDRTABLE));
+	if (pIPAddrTable) {
+		if (GetIpAddrTable(pIPAddrTable, &dwSize, 0) == ERROR_INSUFFICIENT_BUFFER) {
+			FREE(pIPAddrTable);
+			pIPAddrTable = (MIB_IPADDRTABLE*)MALLOC(dwSize);
+		}
+		if (pIPAddrTable == NULL) {
+			printf("Memory allocation failed for GetIpAddrTable\n");
+			return 0;
+		}
+	}
+
+	if ((dwRetVal = GetIpAddrTable(pIPAddrTable, &dwSize, 0)) != NO_ERROR) {
+		printf("GetIpAddrTable failed with error %d\n", dwRetVal);
+		if (FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, NULL, dwRetVal, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+			(LPTSTR)& lpMsgBuf, 0, NULL)) {
+			printf("\tError: %s", lpMsgBuf);
+			LocalFree(lpMsgBuf);
+		}
+		return 0;
+	}
+
+	for (i = 0; i < (int)pIPAddrTable->dwNumEntries; i++) {
+		if (pIPAddrTable->table[i].dwAddr == ip) {
+			return 1;
+		}
+	}
+	
+	/* if memory leaks occur, add this in and make sure it gets run
+	if (pIPAddrTable) {
+		FREE(pIPAddrTable);
+		pIPAddrTable = NULL;
+	}*/
+
 	return 0;
 }
 
