@@ -23,7 +23,6 @@
 #include "uiWebBrowser.h"
 #include "uiPlaySpanStoreLauncher.h"
 #include "rt_tune.h"
-#include "..\libs\HeroBrowser\HeroBrowser.h"
 #include "sound.h"
 #include "uiDialog.h"
 #include "inventory_client.h"
