@@ -171,9 +171,6 @@ char *makeHostNameStr(U32 ip)
 
 // sorry for the Windows-specific code, future code porters -Pazaz
 #ifdef _WIN32
-#define MALLOC(x) HeapAlloc(GetProcessHeap(), 0, (x))
-#define FREE(x) HeapFree(GetProcessHeap(), 0, (x))
-
 static PMIB_IPADDRTABLE pIPAddrTable;
 #endif
 
@@ -210,11 +207,11 @@ int isLocalIp(U32 ip)
 
 #ifdef _WIN32
 	if (!pIPAddrTable) {
-		pIPAddrTable = (MIB_IPADDRTABLE*)MALLOC(sizeof(MIB_IPADDRTABLE));
+		pIPAddrTable = (MIB_IPADDRTABLE*)malloc(sizeof(MIB_IPADDRTABLE));
 		if (pIPAddrTable) {
 			if (GetIpAddrTable(pIPAddrTable, &dwSize, 0) == ERROR_INSUFFICIENT_BUFFER) {
-				FREE(pIPAddrTable);
-				pIPAddrTable = (MIB_IPADDRTABLE*)MALLOC(dwSize);
+				free(pIPAddrTable);
+				pIPAddrTable = (MIB_IPADDRTABLE*)malloc(dwSize);
 			}
 			if (pIPAddrTable == NULL) {
 				printf("Memory allocation failed for GetIpAddrTable\n");
@@ -241,7 +238,7 @@ int isLocalIp(U32 ip)
 	
 	/* if memory leaks occur, add this in and make sure it gets run
 	if (pIPAddrTable) {
-		FREE(pIPAddrTable);
+		free(pIPAddrTable);
 		pIPAddrTable = NULL;
 	}*/
 #endif
