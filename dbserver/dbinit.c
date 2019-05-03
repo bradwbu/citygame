@@ -1255,7 +1255,7 @@ void dbInit(int start_static)
 		F32 minTimeToWait=15;
 		int minStaticMapLaunchers=1;
 		F32 minTimeToWaitPerLauncher=3;
-		bool adequateLaunchersConnected=true;
+		bool adequateLaunchersConnected=false;
 
 		if (start_static)
 		{
@@ -1304,19 +1304,21 @@ void dbInit(int start_static)
 			}
 
 			// Start LogServer, other servers
-			// adequateLaunchersConnected = serverAutoStartInit();
+			adequateLaunchersConnected = serverAutoStartInit();
 			if (!adequateLaunchersConnected) {
-				int response = MessageBox(compatibleGetConsoleWindow(), "Launchers specified in loadBalanceShardSpecific.cfg or servers.cfg are not connected (see console).\nThese MUST be connected for the server to operate properly, please fix this and click Retry.  (See DbServer console window for details.)", "DbServer Startup ERROR", MB_ABORTRETRYIGNORE|MB_SYSTEMMODAL);
-				if (response==IDABORT) {
-					exit(1);
-				} else if (response==IDRETRY) {
-					// Loop
-					loadBalanceConfigLoad(); // Reload
-					WeeklyTFCfgLoad();
-					serverCfgLoad(); // Reload (for Master-BeaconServer IP).
-				} else if (response==IDIGNORE) {
-					adequateLaunchersConnected = true;
-				}
+				printf_stderr("Launchers specified in loadBalanceShardSpecific.cfg or servers.cfg are not connected. Without these launchers the application servers will function in a degraded state.\n");
+				adequateLaunchersConnected = true;
+				//int response = MessageBox(compatibleGetConsoleWindow(), "Launchers specified in loadBalanceShardSpecific.cfg or servers.cfg are not connected (see console).\nThese MUST be connected for the server to operate properly, please fix this and click Retry.  (See DbServer console window for details.)", "DbServer Startup ERROR", MB_ABORTRETRYIGNORE|MB_SYSTEMMODAL);
+				//if (response==IDABORT) {
+				//	exit(1);
+				//} else if (response==IDRETRY) {
+				//	// Loop
+				//	loadBalanceConfigLoad(); // Reload
+				//	WeeklyTFCfgLoad();
+				//	serverCfgLoad(); // Reload (for Master-BeaconServer IP).
+				//} else if (response==IDIGNORE) {
+				//	adequateLaunchersConnected = true;
+				//}
 			}
 		} while (!adequateLaunchersConnected);		
 
