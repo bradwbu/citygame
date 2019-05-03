@@ -10,10 +10,8 @@
 #include "strings_opt.h"
 #include "log.h"
 #ifdef _WIN32
-#include <winsock2.h>
-#include <WS2tcpip.h>
+#include <wininclude.h>
 #include <iphlpapi.h>
-#include <ws2def.h>
 #endif
 
 void	sockSetAddr(struct sockaddr_in *addr,unsigned int ip,int port)
