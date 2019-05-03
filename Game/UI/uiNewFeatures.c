@@ -8,7 +8,6 @@
 #include "uiUtil.h"
 #include "sprite_text.h"
 #include "sprite_font.h"
-#include "..\libs\HeroBrowser\HeroBrowser.h"
 #include "StringCache.h"
 #include "entity.h"
 #include "entPlayer.h"
@@ -64,11 +63,15 @@ int newFeaturesWindow()
 
 int newFeatures_webDataRetrieveCallback(void * data)
 {
+#if defined(USE_QTWEBKIT_BROWSER)
 	HeroWebNoticeDataGeneric* pGeneric = (HeroWebNoticeDataGeneric*)data;
 	webDataVersion = pGeneric->i1;
 	webDataReceived = allocAddString(pGeneric->s1);
 	webDataProcess = WEBDATA_PROCESSING;
 	return true;
+#else
+	return false;
+#endif // USE_QTWEBKIT_BROWSER
 }
 
 void newFeatures_queryWebData(void)
@@ -98,7 +101,9 @@ void newFeatures_update(void)
 			}
 
 			//close off connection
+#if defined(USE_QTWEBKIT_BROWSER)
 			webDataRetriever_destroy();
+#endif // USE_QTWEBKIT_BROWSER
 		}
 	}
 	else if (webDataProcess == WEBDATA_WAITING)

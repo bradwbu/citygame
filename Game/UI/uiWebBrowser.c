@@ -1,5 +1,4 @@
 #include "uiWebBrowser.h"
-#include "..\libs\HeroBrowser\HeroBrowser.h"
 
 #include "uiGame.h"				//	for start_menu
 #include "uiUtilMenu.h"			//	for drawBackground
@@ -54,7 +53,9 @@ static bool g_is_link_hovered;
 static char g_home_url[1024];	// home url if url is supplied with the 'web' command to enter browser
 static bool g_exit_signal;		// signals that user wants to exit the browser
 
+#if defined(USE_QTWEBKIT_BROWSER)
 static EHeroWebCursor	g_web_cursor_shape = kWebCursor_Arrow;
+#endif // USE_QTWEBKIT_BROWSER
 
 // Variables that control the size and placement of the browser
 
@@ -86,6 +87,7 @@ static int uiFocusChangeRequestCallback(void* focusOwner, void* focusRequester)
 
 static int convert_virtual_key_to_web_key( int key_val )
 {
+#if defined(USE_QTWEBKIT_BROWSER)
 	int key_web = -1;	// unhandled key
 
 	switch (key_val)
@@ -121,6 +123,9 @@ static int convert_virtual_key_to_web_key( int key_val )
 	}
 
 	return key_web;
+#else
+	return -1; // unhandled key
+#endif // USE_QTWEBKIT_BROWSER
 }
 
 const char* getLocalePlayNC( void )
@@ -168,13 +173,19 @@ bool uiWebBrowser_goto_url(const char* url)
 	else
 	{
 		if (cmdAccessLevel()>ACCESS_USER) printf("browser: goto '%s'\n", url );
+#if defined(USE_QTWEBKIT_BROWSER)
 		return webBrowser_goto(url);
+#else
+		return false;
+#endif // USE_QTWEBKIT_BROWSER
 	}
 }
 
 void uiWebBrowser_go_back()
 {
+#if defined(USE_QTWEBKIT_BROWSER)
 	webBrowser_triggerAction(kWebAction_Back);
+#endif // USE_QTWEBKIT_BROWSER
 }
 
 static void convert_ui_to_browser_coords( int* ix, int* iy )
@@ -244,17 +255,21 @@ void uiWebBrowser_update_screen_position(int x, int y, float z_layer)
 static bool request_input_focus(void)
 {
 	int ok_to_focus = uiGetFocusEx(&g_browser_focus_token, TRUE, uiFocusChangeRequestCallback);
+#if defined(USE_QTWEBKIT_BROWSER)
 	if (ok_to_focus)
 	{
 		webBrowser_activate();
 	}
+#endif // USE_QTWEBKIT_BROWSER
 	return ok_to_focus;
 }
 
 static void release_input_focus(void)
 {
+#if defined(USE_QTWEBKIT_BROWSER)
 	uiReturnFocus(&g_browser_focus_token);	// release focus if we have it
 	webBrowser_deactivate();
+#endif // USE_QTWEBKIT_BROWSER
 }
 
 bool uiWebBrowser_has_focus(void)
@@ -264,6 +279,7 @@ bool uiWebBrowser_has_focus(void)
 
 static void generate_browser_key_event(KeyInput* input)
 {
+#if defined(USE_QTWEBKIT_BROWSER)
 	int modifiers = 0;
 	int key_val = input->key;
 	int key_type = kWebKeyType_Normal;
@@ -283,11 +299,13 @@ static void generate_browser_key_event(KeyInput* input)
 		key_type = kWebKeyType_Special;
 	}
 	webBrowser_keyEvent( kWebEvent_KeyPress, key_type, key_val, modifiers);
+#endif // USE_QTWEBKIT_BROWSER
 }
 
 // returns true if we converted the input to a web action
 static bool generate_browser_key_action(KeyInput* input)
 {
+#if defined(USE_QTWEBKIT_BROWSER)
 	if (input->type == KIT_EditKey)
 	{
 		if (input->attrib&KIA_CONTROL)
@@ -309,6 +327,7 @@ static bool generate_browser_key_action(KeyInput* input)
 			}
 		}
 	}
+#endif // USE_QTWEBKIT_BROWSER
 	return false;	// no web action generated
 }
 
@@ -317,6 +336,7 @@ static bool generate_browser_key_action(KeyInput* input)
 // so we also handle events such as authorization timeouts
 void uiWebBowser_generate_events(bool * eventActivated)
 {
+#if defined(USE_QTWEBKIT_BROWSER)
 	static int s_mouse_last_x = 0x80000000;
 	static int s_mouse_last_y = 0x80000000;
 	int x, y;
@@ -453,10 +473,12 @@ void uiWebBowser_generate_events(bool * eventActivated)
 	}
 
 	//PlaySpanStoreLauncher_ServiceHeroAuths();	// check for timouts on any authorizations in progress
+#endif // USE_QTWEBKIT_BROWSER
 }
 
 // render and service native coh ui elements around the browser
 // return true if we should exit the menu
+#if defined(USE_QTWEBKIT_BROWSER)
 static bool uiWebBrowser_handle_native_ui(void)
 {
 	int bExitMenu = false;
@@ -608,8 +630,11 @@ static int webNotifyCallback( EHeroWebNotice notice, void* data )
 	return true;
 }
 
+#endif // USE_QTWEBKIT_BROWSER
+
 void uiWebBrowser_render()
 {
+#if defined(USE_QTWEBKIT_BROWSER)
 	onlydevassert( g_web_tex_bind );
 
 	// Ask Hero Browser to render current page if necessary (e.g. dirty/updated)
@@ -659,10 +684,12 @@ void uiWebBrowser_render()
 		display_sprite_ex(0, g_web_tex_bind, g_panel_left, g_panel_top, g_panel_zlayer, sx, sy, 0xffffffff,
 							0xffffffff, 0xffffffff, 0xffffffff, u0, v0, u1, v1, 0, 0, clipperGetCurrent(), 1, H_ALIGN_LEFT, V_ALIGN_TOP);
 	}
+#endif // USE_QTWEBKIT_BROWSER
 }
 
 void uiWebBrowser_set_cursor(void)
 {
+#if defined(USE_QTWEBKIT_BROWSER)
 	// set an appropriate cursor for the user
 	if (g_mouse_in_web_window && g_load_progress<75)
 	{
@@ -692,6 +719,7 @@ void uiWebBrowser_set_cursor(void)
 	{
 		setCursor( NULL, NULL, FALSE, 2, 2 );
 	}
+#endif // USE_QTWEBKIT_BROWSER
 }
 
 static void oneTimeInit(void)
@@ -704,7 +732,9 @@ static void oneTimeInit(void)
 	if (!oneTimeOnly)
 	{
 		int max_disk_cache_size = 0; // not currently used, 0x2800000;	// 40MB
+#if defined(USE_QTWEBKIT_BROWSER)
 		webBrowser_system_init( getLocalePlayNC(), max_disk_cache_size, kWebFlag_None, regGetAppKey());
+#endif // USE_QTWEBKIT_BROWSER
 
 		oneTimeOnly = true;
 		// @todo call explicit destroy of the HeroBrowser system when app exits
@@ -750,6 +780,7 @@ bool uiWebBrowser_initialize_service(int page_width, int page_height, int page_v
 		g_load_progress = 0;
 		g_is_link_hovered = 0;
 		g_exit_signal = false;
+#if defined(USE_QTWEBKIT_BROWSER)
 		g_web_cursor_shape = kWebCursor_Arrow;
 
 		// ask HeroBrowser to create the real web page
@@ -758,6 +789,7 @@ bool uiWebBrowser_initialize_service(int page_width, int page_height, int page_v
 		webBrowser_setPartner( webNotifyCallback );
 
 		request_input_focus();
+#endif // USE_QTWEBKIT_BROWSER
 
 		g_menu_initialized = 1;
 	}
@@ -787,8 +819,10 @@ void uiWebBrowser_exit_handling(void)
 	wtFlush(render_thread);
 
 	// destroy the browser objects
+#if defined(USE_QTWEBKIT_BROWSER)
 	webBrowser_destroy();
 	webBrowser_tick(200);	// give browser system up to n milliseconds to service events
+#endif // USE_QTWEBKIT_BROWSER
 
 	// reset our tracking state
 	g_menu_initialized = false;
@@ -810,6 +844,7 @@ void uiWebBrowser_exit_handling(void)
 // function also needs to handle initialization and exit
 void uiWebBrowser_menu_service()
 {
+#if defined(USE_QTWEBKIT_BROWSER)
 	// if exit signal is set handle shutdown
 	if (g_exit_signal)
 	{
@@ -849,12 +884,16 @@ void uiWebBrowser_menu_service()
 	{
 		g_exit_signal = true;	// set exit signal to begin graceful shutdown
 	}
+#endif // USE_QTWEBKIT_BROWSER
 }
 
 void uiWebBrowser_get_web_reset_data(const char * url)
 {
 	oneTimeInit();
 
+#if defined(USE_QTWEBKIT_BROWSER)
 	webDataRetriever_getWebResetData(newFeatures_webDataRetrieveCallback, url);
+#endif // USE_QTWEBKIT_BROWSER
 }
+
 

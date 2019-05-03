@@ -26,7 +26,6 @@
 #include "net_linklist.h"
 #include "net_link.h"
 #include "crypt.h"
-#include "../../libs/HeroBrowser/HeroBrowser.h"
 #include "../../3rdparty/steam/coh_steam_api.h"
 
 // modulus for live 
@@ -158,6 +157,7 @@ void BrowserOpenLoginFailure(void * foo)
 
 void BrowserSendSteamAuthSessionTicket(void)
 {
+#if defined(USE_QTWEBKIT_BROWSER)
 	if (game_state.steamIsInitialized)
 	{
 		U8 steam_auth_ticket[STEAM_AUTH_SESSION_TICKET_MAX_LEN];
@@ -178,5 +178,6 @@ void BrowserSendSteamAuthSessionTicket(void)
 		if (steam_auth_ticket_len)
 			webBrowser_setSteamAuthSessionTicket(steam_auth_ticket, steam_auth_ticket_len);
 	}
+#endif // USE_QTWEBKIT_BROWSER
 }
 

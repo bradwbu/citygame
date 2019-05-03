@@ -47,7 +47,6 @@
 #include "ZowieClient.h"
 #include "uiAuction.h"
 #include "uiLogin.h"
-#include "..\..\libs\HeroBrowser\HeroBrowser.h"
 
 extern int gClickToMoveButton;
 
