@@ -207,16 +207,13 @@ int isLocalIp(U32 ip)
 
 #ifdef _WIN32
 	if (!pIPAddrTable) {
-		pIPAddrTable = (MIB_IPADDRTABLE*)malloc(sizeof(MIB_IPADDRTABLE));
-		if (pIPAddrTable) {
-			if (GetIpAddrTable(pIPAddrTable, &dwSize, 0) == ERROR_INSUFFICIENT_BUFFER) {
-				free(pIPAddrTable);
-				pIPAddrTable = (MIB_IPADDRTABLE*)malloc(dwSize);
-			}
-			if (pIPAddrTable == NULL) {
-				printf("Memory allocation failed for GetIpAddrTable\n");
-				return 0;
-			}
+		if (GetIpAddrTable(pIPAddrTable, &dwSize, 0) == ERROR_INSUFFICIENT_BUFFER) {
+			free(pIPAddrTable);
+			pIPAddrTable = (MIB_IPADDRTABLE*)malloc(dwSize);
+		}
+		if (pIPAddrTable == NULL) {
+			printf("Memory allocation failed for GetIpAddrTable\n");
+			return 0;
 		}
 
 		if ((dwRetVal = GetIpAddrTable(pIPAddrTable, &dwSize, 0)) != NO_ERROR) {
