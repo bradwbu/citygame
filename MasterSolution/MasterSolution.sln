@@ -417,13 +417,16 @@ Global
 		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Beaconizer|x64.ActiveCfg = Debug|Win32
 		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Debug|Win32.ActiveCfg = Debug|Win32
 		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Debug|Win32.Build.0 = Debug|Win32
-		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Debug|x64.ActiveCfg = Debug|Win32
+		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Debug|x64.ActiveCfg = Debug|x64
+		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Debug|x64.Build.0 = Debug|x64
 		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Full Debug|Win32.ActiveCfg = Full Debug|Win32
 		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Full Debug|Win32.Build.0 = Full Debug|Win32
-		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Full Debug|x64.ActiveCfg = Debug|Win32
+		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Full Debug|x64.ActiveCfg = Full Debug|x64
+		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Full Debug|x64.Build.0 = Full Debug|x64
 		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Opt Debug|Win32.ActiveCfg = Opt Debug|Win32
 		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Opt Debug|Win32.Build.0 = Opt Debug|Win32
-		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Opt Debug|x64.ActiveCfg = Debug|Win32
+		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Opt Debug|x64.ActiveCfg = Opt Debug|x64
+		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Opt Debug|x64.Build.0 = Opt Debug|x64
 		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Release|Win32.ActiveCfg = Opt Debug|Win32
 		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Release|x64.ActiveCfg = Debug|Win32
 		{B7439A8F-E55B-41BB-AA6F-66864F3DFC56}.Template|Win32.ActiveCfg = Debug|Win32
@@ -541,7 +544,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A5ACD6EA-47EE-47C3-B95C-23279A71379A}
 		AMDCaProjectFile = C:\src\CoH\MasterSolution\CodeAnalyst\MasterSolution.caw
+		SolutionGuid = {A5ACD6EA-47EE-47C3-B95C-23279A71379A}
 	EndGlobalSection
 EndGlobal
