@@ -352,16 +352,28 @@ void ImageHelpStackWalk(HANDLE LogFile, PCONTEXT ptrContext)
 	STACKFRAME sf;
 	memset(&sf, 0, sizeof(sf));
 
-	sf.AddrPC.Offset       = ptrContext->Eip;
 	sf.AddrPC.Mode         = AddrModeFlat;
-	sf.AddrStack.Offset    = ptrContext->Esp;
 	sf.AddrStack.Mode      = AddrModeFlat;
-	sf.AddrFrame.Offset    = ptrContext->Ebp;
 	sf.AddrFrame.Mode      = AddrModeFlat;
 
-	while ( 1 )
+#ifdef _M_IX86
+	sf.AddrPC.Offset = ptrContext->Eip;
+	sf.AddrStack.Offset = ptrContext->Esp;
+	sf.AddrFrame.Offset = ptrContext->Ebp;
+
+	DWORD machineType = IMAGE_FILE_MACHINE_I386;
+#endif
+#ifdef _M_X64
+	sf.AddrPC.Offset = ptrContext->Rip;
+	sf.AddrStack.Offset = ptrContext->Rsp;
+	sf.AddrFrame.Offset = ptrContext->Rbp;
+
+	DWORD machineType = IMAGE_FILE_MACHINE_AMD64;
+#endif
+
+	for ( ; ; )
 	{
-		if (!StackWalk(IMAGE_FILE_MACHINE_I386,
+		if (!StackWalk(machineType,
 						GetCurrentProcess(),
 						GetCurrentThread(),
 						&sf,
@@ -382,10 +394,14 @@ void ImageHelpStackWalk(HANDLE LogFile, PCONTEXT ptrContext)
 		pSymbol->SizeOfStruct = sizeof(symbolBuffer);
 		pSymbol->MaxNameLength = 512;
 
+#ifdef _M_IX86
 		DWORD symDisplacement = 0;
+#endif
+#ifdef _M_X64
+		DWORD64 symDisplacement = 0;
+#endif
 
-		if (SymGetSymFromAddr(GetCurrentProcess(), sf.AddrPC.Offset,
-							&symDisplacement, pSymbol)) {
+		if (SymGetSymFromAddr(GetCurrentProcess(), sf.AddrPC.Offset, &symDisplacement, pSymbol)) {
 			hprintf(LogFile, "%s+%x ", pSymbol->Name, symDisplacement);
 		} 
 		{// No symbol found.  Print out the logical address instead.
@@ -395,20 +411,20 @@ void ImageHelpStackWalk(HANDLE LogFile, PCONTEXT ptrContext)
 			// VirtualQuery can be used to get the allocation base associated with a
 			// code address, which is the same as the ModuleHandle. This can be used
 			// to get the filename of the module that the crash happened in.
-			if (VirtualQuery(IntToPtr(sf.AddrPC.Offset), &MemInfo, sizeof(MemInfo)) &&
+			if (VirtualQuery(reinterpret_cast<void*>(sf.AddrPC.Offset), &MemInfo, sizeof(MemInfo)) &&
 					GetModuleFileName((HINSTANCE)MemInfo.AllocationBase,
 					CrashModulePathName, sizeof(CrashModulePathName)) > 0)
 				CrashModuleFileName = GetFilePart(CrashModulePathName);
 
 			CHAR szModule[MAX_PATH] = "";
 			DWORD section = 0, offset = 0;
-			GetLogicalAddress(IntToPtr(sf.AddrPC.Offset),
+			GetLogicalAddress(reinterpret_cast<void*>(sf.AddrPC.Offset),
 								szModule, sizeof(szModule), section, offset);
 			hprintf(LogFile, "%04x:%08x %s\r\n", section, offset, szModule);
 
 			hprintf(LogFile, "Params: %08x %08x %08x %08x\r\n", sf.Params[0], sf.Params[1], sf.Params[2], sf.Params[3]);
 			hprintf(LogFile, "[%s] Bytes at CS:EIP: ", CrashModuleFileName);
-			unsigned char *code = (unsigned char*) IntToPtr(sf.AddrPC.Offset);
+			unsigned char *code = reinterpret_cast<unsigned char*>(sf.AddrPC.Offset);
 			for (int codebyte = 0; codebyte < NumCodeBytes; codebyte++) {
 				__try {
 					hprintf(LogFile, "%02x ", code[codebyte]);
@@ -422,7 +438,9 @@ void ImageHelpStackWalk(HANDLE LogFile, PCONTEXT ptrContext)
 	}
 }
 
-void	IntelStackWalk(HANDLE LogFile, PCONTEXT ptrContext)
+#ifdef _M_IX86
+
+void IntelStackWalk(HANDLE LogFile, PCONTEXT ptrContext)
 {
 	hprintf(LogFile, "\r\nIntel Call Stack Information\r\n");
 
@@ -609,16 +627,24 @@ static void GenerateExceptionReport(PEXCEPTION_POINTERS data)
 		ImageHelpStackWalk(LogFile, Context);
 		SymCleanup(GetCurrentProcess());
 	}
-#ifdef _M_IX86  // Intel Only!
 	else {
 		// Walk the stack using x86 specific code
 		IntelStackWalk(LogFile, Context );
 	}
-#endif
 
 	RecordModuleList(LogFile);
 	CloseHandle(LogFile);
 }
+
+#else  // _M_IX86
+
+static void GenerateExceptionReport(PEXCEPTION_POINTERS /* data */)
+{
+	// TODO: Implement 64 bit version
+}
+
+#endif // _M_IX86
+
 
 LONG WINAPI RecordExceptionInfo(PEXCEPTION_POINTERS data)
 {
