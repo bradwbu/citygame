@@ -433,7 +433,7 @@ static void loadConfigFiles()
 
 	if (write_templates)
 	{
-		playerCreatedStoryArc_GenerateData();
+		// playerCreatedStoryArc_GenerateData();
 		containerWriteTemplates(template_dir);
 		exit(0);
 	}
@@ -762,7 +762,6 @@ void parseArgs2(int argc,char **argv)
 
 	cfg_setIsBetaShard(0);
 	cfg_setMARTY_enabled(0);
-
 
 	for(i=1;i<argc;i++)
 	{
@@ -1468,6 +1467,7 @@ int connectToDbserver(float timeout)
 	U32		ip_list[3] = {0,0,0};
 	static bool done_once = false;
 	// In -localmapserver mode, this function is called to reconnect as well as for an initial connection
+
 	setHostIpList(ip_list);
 
 	if (!done_once) {
@@ -2047,8 +2047,6 @@ int __cdecl main(int argc,char **argv)
 	MonorailsLoad();
 	loadend_printf("done");
 
-	seqPreloadSeqInfos(); // Must be *before* groupLoadMap
-
 	loadConfigFiles(); // templates get written here.
 
 	if (grid_cache_bits < 0)
@@ -2067,6 +2065,8 @@ int __cdecl main(int argc,char **argv)
 	}
 
 	loadstart_printf("loading sequencers...");
+
+	seqPreloadSeqInfos(); // Must be *before* groupLoadMap
 
 #ifdef RAGDOLL // ragdoll requires all seq info on server
 	seqPreLoadPlayerCharacterAnimations(SEQ_LOAD_FULL_SHARED); 

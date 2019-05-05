@@ -214,14 +214,13 @@ U32		ip_local,ip_remote,*addr,t;
 
 int setHostIpList(U32 ip_list[2])
 {
-	struct hostent *host_ent;
+	struct hostent	*host_ent;
 	host_ent = gethostbyname(NULL);
-	if (!host_ent) 
-	{
+	if (!host_ent) {
 		printWinErr("setHostIpList", __FILE__, __LINE__, WSAGetLastError());
 		return 0;
 	}
-	setIpList(host_ent, ip_list);
+	setIpList(host_ent,ip_list);
 	return 1;
 }
 
