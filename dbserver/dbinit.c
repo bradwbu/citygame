@@ -1217,7 +1217,9 @@ void dbInit(int start_static)
 	
 	repairAuthId();
 
+#if defined(DO_STUPID_DATABASE_TESTS)
 	testDataBaseTypes(testdatabasetypes_list);
+#endif
 	offlineInitOnce();
 	backupLoadIndexFiles();
 	
