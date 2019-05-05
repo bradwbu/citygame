@@ -234,9 +234,11 @@ static char*			g_dbserverprependmsg = "_UNKNOWN_          \"_UNKNOWN_\"        0
 
 int logShouldWrite( LogType type, LogLevel level)
 {
-	if(DISABLE_CHAT_LOGGING && type == LOG_CHAT) {
+#if defined(DISABLE_CHAT_LOGGING)
+	if(type == LOG_CHAT) {
 		return;
 	}
+#endif
 
 	return INRANGE0(type, LOG_COUNT) && level <= s_log_data[type].level;
 }

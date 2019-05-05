@@ -87,7 +87,7 @@ typedef enum LogLevel
 #define LOG_LOCAL			1<<2 // The message is logged on this machine (in addition to sending to logserver if needed)
 #define LOG_CONSOLE_ALWAYS	1<<3 // Display logged line in the console even if level is too low
 
-#define DISABLE_CHAT_LOGGING 1
+#define DISABLE_CHAT_LOGGING
 
 void logSetLevel( LogType type, LogLevel level);
 void logSetDefaultFile(char *fname);
