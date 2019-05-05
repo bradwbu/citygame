@@ -418,7 +418,6 @@
     <ClInclude Include="storage\stoConfigFile.h" />
     <ClInclude Include="storage\stoFile.h" />
     <ClInclude Include="storage\stoFileBuffer.h" />
-    <ClInclude Include="storage\stoFileCryptFile.h" />
     <ClInclude Include="storage\stoFileMemory.h" />
     <ClInclude Include="storage\stoFileMemoryMap.h" />
     <ClInclude Include="storage\stoFileOSFile.h" />
@@ -530,7 +529,6 @@
     <ClCompile Include="storage\stoCompressor.cpp" />
     <ClCompile Include="storage\stoConfigFile.cpp" />
     <ClCompile Include="storage\stoFile.cpp" />
-    <ClCompile Include="storage\stoFileCryptFile.cpp" />
     <ClCompile Include="storage\stoFileMemory.cpp" />
     <ClCompile Include="storage\stoFileMemoryMap.cpp" />
     <ClCompile Include="storage\stoFileOSFile.cpp" />
