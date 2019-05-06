@@ -308,6 +308,7 @@ FileScanAction pigInputProcessor(char* dir, struct _finddata32_t* data) {
 	STR_COMBINE_SSS(filename, dir, "/", data->name);
 	fn = filename + strlen(base_folder);
 	if (*fn=='/') fn++;
+	fn = strdup(fn);
 
 	// check against filespec
 	if (!currentIncludes)
@@ -323,7 +324,7 @@ FileScanAction pigInputProcessor(char* dir, struct _finddata32_t* data) {
 	forwardSlashes(filename);
 	fixDoubleSlashes(filename);
 	assert(strnicmp(filename, base_folder, strlen(base_folder))==0);
-	entry->fname = strdup(fn);
+	entry->fname = fn;
 	entry->dont_pack = !zip_compress;
 #if 0
 	{
