@@ -231,6 +231,10 @@ static bool testFileSpec(const char *filename, FileSpecNode *fileSpecNode, bool 
 	int dummyInt = 0;
 	int num_filespecs;
 
+	// If no file spec supplied, match everything
+	if (!fileSpecNode)
+		return true;
+
 	if ((currentlyIncluded && !fileSpecNode->bIsIncludes) ||
 		(!currentlyIncluded && fileSpecNode->bIsIncludes))
 	{
