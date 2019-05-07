@@ -84,7 +84,7 @@ typedef struct LineDesc
 	struct 
 	{
         ContainerPackType type;
-		int		size;
+		intptr_t size;
 		char	*name;
 		StructIndirection indirection[MAX_INDIRECTIONS];
 		IntFromStr	*int_from_str_func;
