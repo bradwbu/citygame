@@ -9,7 +9,7 @@
 * Functions:
 */
 
-#include "cryptLib/sha512Impl.h"
+#include "sha512Impl.h"
 #include <cassert>
 
 using namespace cryptLib;
@@ -29,7 +29,7 @@ sha512Impl::~sha512Impl()
 // due to type restrictions by the compiler (currently Bloodshed Dev-C++)
 void sha512Impl::_LoadK()
 {
-	const uint64 k[160] = {
+	const uint64_t k[160] = {
 		0x428A2F98, 0xD728AE22, 0x71374491, 0x23EF65CD,
 			0xB5C0FBCF, 0xEC4D3B2F, 0xE9B5DBA5, 0x8189DBBC,
 			0x3956C25B, 0xF348B538, 0x59F111F1, 0xB605D019, 
@@ -71,36 +71,36 @@ void sha512Impl::_LoadK()
 			0x4CC5D4BE, 0xCB3E42B6, 0x597F299C, 0xFC657E2A, 
 			0x5FCB6FAB, 0x3AD6FAEC, 0x6C44198C, 0x4A475817
 	};
-	for (uint32 i = 0,j = 0; i < 80; ++i,j+=2)
+	for (uint32_t i = 0,j = 0; i < 80; ++i,j+=2)
 	{
-		K[i] = (static_cast<uint64>(k[j]) << 32) + static_cast<uint64>(k[j+1]);
+		K[i] = (static_cast<uint64_t>(k[j]) << 32) + static_cast<uint64_t>(k[j+1]);
 	}
 }
 
-void sha512Impl::_PackMBlock(MessageBlock& m, const string& s, uint32 index)
+void sha512Impl::_PackMBlock(MessageBlock& m, const std::string& s, uint32_t index)
 {
-	for (uint32 i = 0; i < 128; i+=8)
+	for (uint32_t i = 0; i < 128; i+=8)
 	{
 		m._[i/8] = 
-			(static_cast<uint64>(static_cast<uint8>(s.at(index + i + 0))) << 56) +
-			(static_cast<uint64>(static_cast<uint8>(s.at(index + i + 1))) << 48) +
-			(static_cast<uint64>(static_cast<uint8>(s.at(index + i + 2))) << 40) +
-			(static_cast<uint64>(static_cast<uint8>(s.at(index + i + 3))) << 32) +
-			(static_cast<uint64>(static_cast<uint8>(s.at(index + i + 4))) << 24) +
-			(static_cast<uint64>(static_cast<uint8>(s.at(index + i + 5))) << 16) +
-			(static_cast<uint64>(static_cast<uint8>(s.at(index + i + 6))) << 8) +
-			static_cast<uint64>(static_cast<uint8>(s.at(index + i + 7)));
+			(static_cast<uint64_t>(static_cast<uint8_t>(s.at(index + i + 0))) << 56) +
+			(static_cast<uint64_t>(static_cast<uint8_t>(s.at(index + i + 1))) << 48) +
+			(static_cast<uint64_t>(static_cast<uint8_t>(s.at(index + i + 2))) << 40) +
+			(static_cast<uint64_t>(static_cast<uint8_t>(s.at(index + i + 3))) << 32) +
+			(static_cast<uint64_t>(static_cast<uint8_t>(s.at(index + i + 4))) << 24) +
+			(static_cast<uint64_t>(static_cast<uint8_t>(s.at(index + i + 5))) << 16) +
+			(static_cast<uint64_t>(static_cast<uint8_t>(s.at(index + i + 6))) << 8) +
+			static_cast<uint64_t>(static_cast<uint8_t>(s.at(index + i + 7)));
 	}
 }
 
-void sha512Impl::GetMessageDigest(digest512& hash, string& message)
+void sha512Impl::GetMessageDigest(digest512& hash, std::string& message)
 {
 	// Step 1: Pad the message
-	uint64 len = static_cast<uint64>(message.length());
+	uint64_t len = static_cast<uint64_t>(message.length());
 	len <<= 3; // multiply by 8 to get number of bits
 	// Pad to 896 % 1024
-	uint32 remainder = static_cast<uint32>(len % 1024); // yes, truncate, for now
-	uint32 distance = 0;
+	uint32_t remainder = static_cast<uint32_t>(len % 1024); // yes, truncate, for now
+	uint32_t distance = 0;
 	if (remainder >= 896)
 	{
 		// The "distance" to pad is the remaining bits to make 1024 plus
@@ -116,20 +116,20 @@ void sha512Impl::GetMessageDigest(digest512& hash, string& message)
 		distance = 896 - remainder - 1 - 7;
 	}
 	// Pad the "1" and 7 "0"'s
-	uint8 c0 = 1 << 7;
+	uint8_t c0 = 1 << 7;
 	message += c0;
 
 	// Pad the distance == the remaining 0's
 	c0 = 0;
-	uint32 distInBytes = distance >> 3;
-	for (uint32 i = 0; i < distInBytes; ++i)
+	uint32_t distInBytes = distance >> 3;
+	for (uint32_t i = 0; i < distInBytes; ++i)
 		message += c0;
 
 	// Pad the length in 128 bits
 	c0 = 0;
-	for (uint32 i = 0; i < 8; ++i) // 64-bits of 0's
+	for (uint32_t i = 0; i < 8; ++i) // 64-bits of 0's
 		message += c0;
-	uint64 l1 = len;
+	uint64_t l1 = len;
 	for (int i = 7; i >= 0; --i) // 64-bits of the actual length
 	{
 		l1 >>= (i*8);
@@ -147,31 +147,31 @@ void sha512Impl::GetMessageDigest(digest512& hash, string& message)
 	// Instead of allocating memory for MessageBlock's we will parse this in-place
 
 	// Step 3: Set the initial hash value
-	hash._[0] = (static_cast<uint64>(0x6A09E667) << 32) + static_cast<uint64>(0xF3BCC908);
-	hash._[1] = (static_cast<uint64>(0xBB67AE85) << 32) + static_cast<uint64>(0x84CAA73B);
-	hash._[2] = (static_cast<uint64>(0x3C6EF372) << 32) + static_cast<uint64>(0xFE94F82B);
-	hash._[3] = (static_cast<uint64>(0xA54FF53A) << 32) + static_cast<uint64>(0x5F1D36F1);
-	hash._[4] = (static_cast<uint64>(0x510E527F) << 32) + static_cast<uint64>(0xADE682D1);
-	hash._[5] = (static_cast<uint64>(0x9B05688C) << 32) + static_cast<uint64>(0x2B3E6C1F);
-	hash._[6] = (static_cast<uint64>(0x1F83D9AB) << 32) + static_cast<uint64>(0xFB41BD6B);
-	hash._[7] = (static_cast<uint64>(0x5BE0CD19) << 32) + static_cast<uint64>(0x137E2179);
+	hash._[0] = (static_cast<uint64_t>(0x6A09E667) << 32) + static_cast<uint64_t>(0xF3BCC908);
+	hash._[1] = (static_cast<uint64_t>(0xBB67AE85) << 32) + static_cast<uint64_t>(0x84CAA73B);
+	hash._[2] = (static_cast<uint64_t>(0x3C6EF372) << 32) + static_cast<uint64_t>(0xFE94F82B);
+	hash._[3] = (static_cast<uint64_t>(0xA54FF53A) << 32) + static_cast<uint64_t>(0x5F1D36F1);
+	hash._[4] = (static_cast<uint64_t>(0x510E527F) << 32) + static_cast<uint64_t>(0xADE682D1);
+	hash._[5] = (static_cast<uint64_t>(0x9B05688C) << 32) + static_cast<uint64_t>(0x2B3E6C1F);
+	hash._[6] = (static_cast<uint64_t>(0x1F83D9AB) << 32) + static_cast<uint64_t>(0xFB41BD6B);
+	hash._[7] = (static_cast<uint64_t>(0x5BE0CD19) << 32) + static_cast<uint64_t>(0x137E2179);
 
 	// Step 4: Get the hash
 	len >>= 7; // divide by 128 to get # of MessageBlocks (128 == 1024 bits)
 	MessageBlock m;
 	MessageSchedule W;
-	uint64 a,b,c,d,e,f,g,h; // "working variables"
-	uint64 t1,t2; // "temporaries"
-	for (uint32 i = 0; i < len; ++i)
+	uint64_t a,b,c,d,e,f,g,h; // "working variables"
+	uint64_t t1,t2; // "temporaries"
+	for (uint32_t i = 0; i < len; ++i)
 	{
 		// Get the ith MessageBlock
 		_PackMBlock(m,message,i<<7);
 		// Prepare the message schedule for the ith block
-		for (uint32 t = 0; t < 16; ++t)
+		for (uint32_t t = 0; t < 16; ++t)
 		{
 			W._[t] = m._[t];
 		}
-		for (uint32 t = 16; t < 80; ++t)
+		for (uint32_t t = 16; t < 80; ++t)
 		{
 			W._[t] = _LowercaseSigma_1(W._[t-2]) + 
 				W._[t-7] +
@@ -188,7 +188,7 @@ void sha512Impl::GetMessageDigest(digest512& hash, string& message)
 		g = hash._[6];
 		h = hash._[7];
 		// Process message schedule
-		for (uint32 t = 0; t < 80; ++t)
+		for (uint32_t t = 0; t < 80; ++t)
 		{
 			t1 = h + _UppercaseSigma_1(e) + _Ch(e,f,g) + K[t] + W._[t];
 			t2 = _UppercaseSigma_0(a) + _Maj(a,b,c);

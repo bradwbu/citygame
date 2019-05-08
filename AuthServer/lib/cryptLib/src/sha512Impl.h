@@ -18,9 +18,7 @@
 #ifndef _SHA512IMPL_H_
 #define _SHA512IMPL_H_
 
-#include "arda2/core/corFirst.h"
-#include "arda2/core/corStdString.h"
-#include "cryptLib/sha.h"
+#include "../include/cryptLib/sha.h"
 
 namespace cryptLib
 {
@@ -31,76 +29,76 @@ namespace cryptLib
 		sha512Impl();
 		~sha512Impl();
 
-		void GetMessageDigest(digest512& hash, string& message);
+		void GetMessageDigest(digest512& hash, std::string& message);
 
 	private:
 
 		// Private Data
-		uint64 K[80];		// constants
-		uint8 w_bits;		// == 64-bits for 512-bit algorithm
+		uint64_t K[80];		// constants
+		uint8_t w_bits;		// == 64-bits for 512-bit algorithm
 
 		// Types
 		struct MessageBlock // a message block of 1024 bits
 		{
-			uint64 _[16];
+			uint64_t _[16];
 		};
 		struct MessageSchedule	// used during computation
 		{
-			uint64 _[80];
+			uint64_t _[80];
 		};
 
 		// Private Functions
 		void _LoadK();
 		// Bit-manipulation functions
-		inline uint64 _ROTR(const uint8 n, const uint64 x);
-		inline uint64 _SHR(const uint8 n, const uint64 x);
-		inline uint64 _Ch(const uint64 x, const uint64 y, const uint64 z);
-		inline uint64 _Maj(const uint64 x, const uint64 y, const uint64 z);
+		inline uint64_t _ROTR(const uint8_t n, const uint64_t x);
+		inline uint64_t _SHR(const uint8_t n, const uint64_t x);
+		inline uint64_t _Ch(const uint64_t x, const uint64_t y, const uint64_t z);
+		inline uint64_t _Maj(const uint64_t x, const uint64_t y, const uint64_t z);
 		// Algorithm-specific functions
 		// For all magic numbers, please see disclaimer at beginning of document
-		uint64 _UppercaseSigma_0(const uint64 x);
-		uint64 _UppercaseSigma_1(const uint64 x);
-		uint64 _LowercaseSigma_0(const uint64 x);
-		uint64 _LowercaseSigma_1(const uint64 x);
+		uint64_t _UppercaseSigma_0(const uint64_t x);
+		uint64_t _UppercaseSigma_1(const uint64_t x);
+		uint64_t _LowercaseSigma_0(const uint64_t x);
+		uint64_t _LowercaseSigma_1(const uint64_t x);
 
-		inline void _PackMBlock(MessageBlock& m, const string& s, uint32 index);
+		inline void _PackMBlock(MessageBlock& m, const std::string& s, uint32_t index);
 	};
 
 	// Bit Ops Functions
-	inline uint64 sha512Impl::_ROTR(const uint8 n, const uint64 x)
+	inline uint64_t sha512Impl::_ROTR(const uint8_t n, const uint64_t x)
 	{
 		return ((x >> n) | (x << (w_bits-n)));
 	}
-	inline uint64 sha512Impl::_SHR(const uint8 n, const uint64 x)
+	inline uint64_t sha512Impl::_SHR(const uint8_t n, const uint64_t x)
 	{
 		return (x >> n);
 	}
-	inline uint64 sha512Impl::_Ch(const uint64 x, const uint64 y, const uint64 z)
+	inline uint64_t sha512Impl::_Ch(const uint64_t x, const uint64_t y, const uint64_t z)
 	{
 		return ((x & y) ^ ((~x) & z));
 	}
-	inline uint64 sha512Impl::_Maj(const uint64 x, const uint64 y, const uint64 z)
+	inline uint64_t sha512Impl::_Maj(const uint64_t x, const uint64_t y, const uint64_t z)
 	{
 		return ((x & y) ^ (x & z) ^ (y & z));
 	}
 	// Algorithm-specific functions
 	// For all magic numbers, please see disclaimer at beginning of document
-	inline uint64 sha512Impl::_UppercaseSigma_0(const uint64 x)
+	inline uint64_t sha512Impl::_UppercaseSigma_0(const uint64_t x)
 	{
 		return (_ROTR(28,x) ^ _ROTR(34,x) ^ _ROTR(39,x));
 	}
 	// For all magic numbers, please see disclaimer at beginning of document
-	inline uint64 sha512Impl::_UppercaseSigma_1(const uint64 x)
+	inline uint64_t sha512Impl::_UppercaseSigma_1(const uint64_t x)
 	{
 		return (_ROTR(14,x) ^ _ROTR(18,x) ^ _ROTR(41,x));
 	}
 	// For all magic numbers, please see disclaimer at beginning of document
-	inline uint64 sha512Impl::_LowercaseSigma_0(const uint64 x)
+	inline uint64_t sha512Impl::_LowercaseSigma_0(const uint64_t x)
 	{
 		return (_ROTR(1,x) ^ _ROTR(8,x) ^ _SHR(7,x));
 	}
 	// For all magic numbers, please see disclaimer at beginning of document
-	inline uint64 sha512Impl::_LowercaseSigma_1(const uint64 x)
+	inline uint64_t sha512Impl::_LowercaseSigma_1(const uint64_t x)
 	{
 		return (_ROTR(19,x) ^ _ROTR(61,x) ^ _SHR(6,x));
 	}

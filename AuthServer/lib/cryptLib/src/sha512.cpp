@@ -9,8 +9,8 @@
 * Functions:
 */
 
-#include "cryptLib/sha512.h"
-#include "cryptLib/sha512Impl.h"
+#include "../include/cryptlib/sha512.h"
+#include "sha512Impl.h"
 
 using namespace cryptLib;
 
@@ -24,7 +24,7 @@ sha512::~sha512()
 	delete m_impl;
 }
 
-void sha512::GetMessageDigest(digest512& hash, string message) // Yes, pass message by value so we can modify the copy, not the original (for bit-padding)
+void sha512::GetMessageDigest(digest512& hash, std::string message) // Yes, pass message by value so we can modify the copy, not the original (for bit-padding)
 {
 	m_impl->GetMessageDigest(hash,message);
 }
