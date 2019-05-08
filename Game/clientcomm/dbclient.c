@@ -1114,7 +1114,11 @@ int dbConnect(char *server,int port,int user_id,int cookie,char *auth_name,int n
 		// Check for registry value saying the Updater has something to say
 		pktSendString(pak, regGetPatchValue());
 		{
+#if defined(DISABLE_RENDER_TELEMETRY)
+			char *systemSpecString = "Disabled";
+#else
 			char *systemSpecString = rdrGetSystemSpecCSVString();
+#endif
 			pktSendString(pak, "");
 			pktSendZipped(pak, strlen(systemSpecString)+1, systemSpecString);
 		}
