@@ -194,6 +194,7 @@ void addCrashedMap(MapCon *map_con, char * message, char *status, int ipaddr)
 		COPY(num_ents);
 		COPY(launcher_id);
 		COPY(dontAutoStart);
+		COPY(transient);
 		COPY(introZone);
 		COPY(is_static);
 		crashed->base_map_id = map_con->id;
