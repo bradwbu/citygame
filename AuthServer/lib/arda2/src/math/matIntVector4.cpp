@@ -1,5 +1,5 @@
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matIntVector4.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matIntVector4.h"
 
 const matIntVector4 matIntVector4::Zero(matZero);
 const matIntVector4 matIntVector4::Max(matMaximum);

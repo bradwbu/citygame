@@ -1,5 +1,5 @@
-#include "arda2/storage/stoFirst.h"
-#include "arda2/storage/stoCompressor.h"
+#include "../../include/arda2/storage/stoFirst.h"
+#include "../../include/arda2/storage/stoCompressor.h"
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -17,8 +17,8 @@ const char *stoCompressor::kUnchangedName = "Unchanged";
 // not on Xenon or PS3
 #if !CORE_SYSTEM_XENON&&!CORE_SYSTEM_PS3
 
-#include "zlib.h"
-#include "bzlib.h"
+#include "zlib/zlib.h"
+#include "bzlib/bzlib.h"
 
 /**
  * gets the name of a compression scheme from an enum

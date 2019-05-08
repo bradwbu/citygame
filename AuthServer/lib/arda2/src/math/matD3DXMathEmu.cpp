@@ -7,8 +7,8 @@ purpose:
 *****************************************************************************/
 
 #define NO_MATBASE_REMAPPING
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matD3DXMathEmu.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matD3DXMathEmu.h"
 
 //
 // Helpers

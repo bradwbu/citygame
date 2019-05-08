@@ -1,12 +1,12 @@
-#include "arda2/core/corFirst.h"
+#include "../../include/arda2/core/corFirst.h"
 
-#include "arda2/properties/proFirst.h"
+#include "../../include/arda2/properties/proFirst.h"
 
-#include "matAdapters.h"
+#include "../../include/arda2/math/matAdapters.h"
 
-#include "arda2/properties/proClass.h"
+#include "../../include/arda2/properties/proClass.h"
 
-#include "matProperty.h"
+#include "../../include/arda2/math/matProperty.h"
 
 
 /**

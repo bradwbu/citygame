@@ -6,9 +6,8 @@ author(s):  Peter M. Freese
 purpose:    Error logger
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
-
-#include "arda2/error/errErrorHandlerLogger.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/error/errErrorHandlerLogger.h"
 
 #if CORE_SYSTEM_PS3
 #include <time.h>

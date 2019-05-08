@@ -1,11 +1,11 @@
-#include "arda2/core/corFirst.h"
+#include "../../include/arda2/core/corFirst.h"
 
-#include "proFirst.h"
+#include "../../include/arda2/properties/proFirst.h"
 
-#include "arda2/properties/proObject.h"
-#include "arda2/properties/proProperty.h"
-#include "arda2/properties/proClass.h"
-#include "arda2/properties/proClassRegistry.h"
+#include "../../include/arda2/properties/proObject.h"
+#include "../../include/arda2/properties/proProperty.h"
+#include "../../include/arda2/properties/proClass.h"
+#include "../../include/arda2/properties/proClassRegistry.h"
 
 using namespace std;
 

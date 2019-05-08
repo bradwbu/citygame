@@ -8,8 +8,8 @@
                 @file
 **/
 
-#include "arda2/storage/stoFirst.h"
-#include "arda2/storage/stoFileUtils.h"
+#include "../../include/arda2/storage/stoFirst.h"
+#include "../../include/arda2/storage/stoFileUtils.h"
 
 using namespace std;
 
@@ -192,10 +192,10 @@ void stoFileUtils::ListDirectory( IN const char *pathSpec, OUT vector<string> &r
     if ( stoFileUtils::IsDirectory(sPathSpec.c_str()) )
         sPathSpec += "/*";
 
-    WIN32_FIND_DATA FindFileData;
+    WIN32_FIND_DATAA FindFileData;
     HANDLE hFind;
 
-    hFind = FindFirstFile(sPathSpec.c_str(), &FindFileData);
+    hFind = FindFirstFileA(sPathSpec.c_str(), &FindFileData);
 
     if (hFind == INVALID_HANDLE_VALUE) 
     {
@@ -212,7 +212,7 @@ void stoFileUtils::ListDirectory( IN const char *pathSpec, OUT vector<string> &r
         {
             results.push_back( string(FindFileData.cFileName));
         }
-        alive = FindNextFile(hFind, &FindFileData);
+        alive = FindNextFileA(hFind, &FindFileData);
     }
 
     FindClose(hFind);
@@ -317,7 +317,7 @@ bool stoFileUtils::CreateDirectory( IN const char *path, IN bool force )
     }
 
 #if CORE_SYSTEM_WINAPI
-    if (!::CreateDirectory(path, NULL) )
+    if (!::CreateDirectoryA(path, NULL) )
         return false;
 #else
     //LINUX create directory goes here
@@ -500,7 +500,7 @@ bool stoFileUtils::DeleteFile( IN const char *fullPath, IN bool force )
 bool stoFileUtils::MoveFile( IN const char *sourcePath, IN const char *destinationPath )
 {
 #ifdef WIN32
-    return ::MoveFile(sourcePath, destinationPath) != 0;
+    return ::MoveFileA(sourcePath, destinationPath) != 0;
 #else
     return rename(sourcePath, destinationPath) != 0;
 #endif
@@ -509,7 +509,7 @@ bool stoFileUtils::MoveFile( IN const char *sourcePath, IN const char *destinati
 bool stoFileUtils::CopyFile( IN const char *sourcePath, IN const char *destinationPath )
 {
 #ifdef WIN32
-    return ::CopyFile(sourcePath, destinationPath, true) != 0;
+    return ::CopyFileA(sourcePath, destinationPath, true) != 0;
 #else
     return rename(sourcePath, destinationPath) != 0;
 #endif
@@ -959,7 +959,7 @@ string stoFileUtils::GetExecutableDirectory()
 {
 #if CORE_SYSTEM_WINAPI
     char path[_MAX_PATH], drive[_MAX_DRIVE], dir[_MAX_DIR];
-    stoFileUtils::SplitPath( stoStripQuotes( ::GetCommandLine() ).c_str(),
+    stoFileUtils::SplitPath( stoStripQuotes( ::GetCommandLineA() ).c_str(),
         drive, dir, NULL, NULL);
     stoFileUtils::MergePath(path, drive, dir, NULL, NULL);
     return string(path);

@@ -6,8 +6,8 @@
 	purpose:	4x4 Matrix Math functions
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matMatrix4x4.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matMatrix4x4.h"
 
 
 const matMatrix4x4 matMatrix4x4::Identity(matIdentity);

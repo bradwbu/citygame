@@ -6,8 +6,8 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
-#include "arda2/memory/memMemory.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/memory/memMemory.h"
 
 
 #if CORE_SYSTEM_PS3

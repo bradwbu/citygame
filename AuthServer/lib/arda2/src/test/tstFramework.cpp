@@ -9,8 +9,8 @@
  */
 
 
-#include "arda2/test/tstFramework.h"
-#include "arda2/test/tstUnit.h"
+#include "../../include/arda2/test/tstFramework.h"
+#include "../../include/arda2/test/tstUnit.h"
 #include <stdio.h>
 #include <stdarg.h>
 

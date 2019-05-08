@@ -6,9 +6,9 @@ author(s):	Jason Beardsley
 purpose:	
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matVector3.h"
-#include "arda2/math/matDistance.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matVector3.h"
+#include "../../include/arda2/math/matDistance.h"
 
 
 /********************************************************************/

@@ -1,7 +1,7 @@
-#include "arda2/core/corFirst.h"
-#include "proXmlParser.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/properties/proXmlParser.h"
 
-#include "proStringUtils.h"
+#include "../../include/arda2/properties/proStringUtils.h"
 
 using namespace std;
 

@@ -9,8 +9,8 @@
 				instructions on using these.
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
-#include "arda2/util/utlRect.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/util/utlRect.h"
 
 const utlRect utlRect::Zero = utlRect(0,0,0,0);
 

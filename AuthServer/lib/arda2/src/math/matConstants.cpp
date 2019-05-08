@@ -6,8 +6,8 @@ author(s):	Peter M. Freese
 purpose:	
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matConstants.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matConstants.h"
 
 // Math constants are initialized using #defines rather than interdependent definitions
 // This eliminates any problems arising from static initialization order. If you add new

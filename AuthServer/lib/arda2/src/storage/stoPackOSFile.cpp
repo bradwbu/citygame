@@ -12,13 +12,13 @@
  *  @file
 **/
 
-#include "arda2/storage/stoFirst.h"
-#include "arda2/storage/stoFileView.h"
-#include "arda2/storage/stoChunk.h"
-#include "arda2/storage/stoPackOSFile.h"
-#include "arda2/storage/stoFileUtils.h"
+#include "../../include/arda2/storage/stoFirst.h"
+#include "../../include/arda2/storage/stoFileView.h"
+#include "../../include/arda2/storage/stoChunk.h"
+#include "../../include/arda2/storage/stoPackOSFile.h"
+#include "../../include/arda2/storage/stoFileUtils.h"
 
-#include "arda2/core/corStlAlgorithm.h"
+#include "../../include/arda2/core/corStlAlgorithm.h"
 
 using namespace std;
 

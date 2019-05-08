@@ -6,8 +6,8 @@ author(s):	Ryan Prescott
 purpose:	
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
-#include "arda2/util/utlTokenizer.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/util/utlTokenizer.h"
 
 using namespace std;
 

@@ -1,11 +1,11 @@
-#include "arda2/core/corFirst.h"
+#include "../../include/arda2/core/corFirst.h"
 
-#include "proFirst.h"
+#include "../../include/arda2/properties/proFirst.h"
 
-#include "arda2/properties/proClass.h"
-#include "arda2/properties/proObject.h"
-#include "arda2/properties/proClassNative.h"
-#include "arda2/properties/proPropertyNative.h"
+#include "../../include/arda2/properties/proClass.h"
+#include "../../include/arda2/properties/proObject.h"
+#include "../../include/arda2/properties/proClassNative.h"
+#include "../../include/arda2/properties/proPropertyNative.h"
 
 PRO_REGISTER_ABSTRACT_CLASS(proClass, proObject)
 //REG_PROPERTY_STRING(proClass, Name)

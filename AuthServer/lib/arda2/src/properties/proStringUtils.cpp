@@ -1,10 +1,10 @@
-#include "arda2/core/corFirst.h"
+#include "../../include/arda2/core/corFirst.h"
 
-#include "proFirst.h"
+#include "../../include/arda2/properties/proFirst.h"
 
-#include "arda2/util/utlTokenizer.h"
-#include "arda2/properties/proProperty.h"
-#include "arda2/properties/proStringUtils.h"
+#include "../../include/arda2/util/utlTokenizer.h"
+#include "../../include/arda2/properties/proProperty.h"
+#include "../../include/arda2/properties/proStringUtils.h"
 
 using namespace std;
 

@@ -6,9 +6,9 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matVector3.h"
-#include "arda2/math/matIntersect.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matVector3.h"
+#include "../../include/arda2/math/matIntersect.h"
 
 bool matIntersectTriangle(	const matVector3& vStart, const matVector3& vDir, 
 							const matVector3& v0, const matVector3& v1, const matVector3& v2,

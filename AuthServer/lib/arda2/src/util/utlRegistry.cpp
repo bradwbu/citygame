@@ -13,8 +13,8 @@
  *
  */
 
-#include "arda2/core/corFirst.h"
-#include "arda2/util/utlRegistry.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/util/utlRegistry.h"
 
 #if CORE_SYSTEM_WINAPI && !(CORE_SYSTEM_XENON)
 
@@ -64,7 +64,7 @@ utlRegistryValue::~utlRegistryValue()
  * @note The registry value will contain a copy of the name, so the original should
  *       be managed by the caller and may be deleted after this function returns.
  */
-void utlRegistryValue::SetName(const LPTSTR pName)
+void utlRegistryValue::SetName(LPCTSTR pName)
 {
     // Delete any previously set name
     // Note that the memory that is allocated for the name always comes
@@ -115,7 +115,7 @@ void utlRegistryValue::SetValue(const BYTE* pValue, DWORD size)
 void utlRegistryValue::Report(const LPTSTR pPath) const
 {
     // Need a string to represent the default value if there's no name
-    LPTSTR pValueName;
+    LPCTSTR pValueName;
     if (m_pName)
         pValueName = m_pName;
     else
@@ -166,7 +166,7 @@ void utlRegistryValue::Report(const LPTSTR pPath) const
  * @param name Pointer to the name of the key
  * @param defaultValue Pointer to a string to use as the default value for the key
  */
-utlRegistryKey::utlRegistryKey(const LPTSTR pName, const LPTSTR pDefaultValue)
+utlRegistryKey::utlRegistryKey(LPCTSTR pName, LPCTSTR pDefaultValue)
 {
     if (pName)
         m_pKeyName = _tcsdup(pName);
@@ -217,7 +217,7 @@ utlRegistryKey::~utlRegistryKey()
  *
  * @param name Pointer to the string representing the name of the registry key
  */
-void utlRegistryKey::SetName(const LPTSTR pName)
+void utlRegistryKey::SetName(LPCTSTR pName)
 {
     // Note that the memory that is allocated for the name always comes
     // from _tcsdup, which requires the standard delete, not the array delete
@@ -328,7 +328,7 @@ bool utlRegistryKey::RemoveFromRegistry(HKEY parentHK) const
  * 
  * @return Pointer to the new key
  */
-utlRegistryKey* utlRegistryKey::NewKey(const LPTSTR pName, const LPTSTR pDefaultValue) 
+utlRegistryKey* utlRegistryKey::NewKey(LPCTSTR pName, LPCTSTR pDefaultValue) 
 { 
     utlRegistryKey* pNewKey = new utlRegistryKey( pName, pDefaultValue);
     m_subKeys.push_back(pNewKey);
@@ -344,7 +344,7 @@ utlRegistryKey* utlRegistryKey::NewKey(const LPTSTR pName, const LPTSTR pDefault
  * @return Pointer to the key of the given name if one exists, NULL if no child
  *         key of that name exists
  */
-utlRegistryKey* utlRegistryKey::GetKey(const LPTSTR pKeyName)
+utlRegistryKey* utlRegistryKey::GetKey(LPCTSTR pKeyName)
 {
     RegKeyVec::iterator keyIt = m_subKeys.begin();
     RegKeyVec::const_iterator keyEnd = m_subKeys.end();
@@ -381,7 +381,7 @@ utlRegistryValue* utlRegistryKey::NewValue()
  * @return Pointer to the value with the given name, NULL if no child value
  *         with the given name could be found in this key
  */
-utlRegistryValue* utlRegistryKey::GetValue(const LPTSTR pValueName)
+utlRegistryValue* utlRegistryKey::GetValue(LPCTSTR pValueName)
 {
     RegValueVec::iterator valueIt = m_values.begin();
     RegValueVec::const_iterator valueEnd = m_values.end();
@@ -406,7 +406,7 @@ utlRegistryValue* utlRegistryKey::GetValue(const LPTSTR pValueName)
  */
 void utlRegistryKey::Report(HKEY parentKey) const
 {
-    LPTSTR pPath;
+    LPCTSTR pPath;
     if (parentKey == HKEY_CLASSES_ROOT)
     {
         pPath = _T("HKEY_CLASSES_ROOT");
@@ -455,7 +455,7 @@ void utlRegistryKey::Report(HKEY parentKey) const
 
     corOutputDebugString(outBuff);
 
-    Report(pPath);
+    Report((HKEY)pPath);
 }
 
 /** 

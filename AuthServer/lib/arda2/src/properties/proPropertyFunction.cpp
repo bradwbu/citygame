@@ -1,9 +1,9 @@
-#include "arda2/core/corFirst.h"
-#include "arda2/math/matFirst.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/math/matFirst.h"
 
-#include "arda2/properties/proPropertyNative.h"
-#include "arda2/properties/proPropertyOwner.h"
-#include "arda2/properties/proPropertyFunction.h"
+#include "../../include/arda2/properties/proPropertyNative.h"
+#include "../../include/arda2/properties/proPropertyOwner.h"
+#include "../../include/arda2/properties/proPropertyFunction.h"
 
 #if CORE_COMPILER_GNU
 #include <stdarg.h>

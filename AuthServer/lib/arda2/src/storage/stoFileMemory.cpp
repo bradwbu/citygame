@@ -8,8 +8,8 @@
 				buffer at the expense of some periodic reallocation.
 *****************************************************************************/
 
-#include "arda2/storage/stoFirst.h"
-#include "arda2/storage/stoFileMemory.h"
+#include "../../include/arda2/storage/stoFirst.h"
+#include "../../include/arda2/storage/stoFileMemory.h"
 
 stoFileMemory::stoFileMemory( uint reserveSize ) :
 	m_pBuffer(NULL),

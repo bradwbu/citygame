@@ -1,5 +1,5 @@
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matMatrix4x3T.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matMatrix4x3T.h"
 
 matMatrix4x3T& matMatrix4x3T::StoreReflect( IN const matPlane& ReflectPlane )
 {

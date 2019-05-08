@@ -8,12 +8,12 @@
                 @file
 **/
 
-#include "arda2/core/corFirst.h"
-#include "arda2/core/corStlAlgorithm.h"
-#include "arda2/util/utlStringTable.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/core/corStlAlgorithm.h"
+#include "../../include/arda2/util/utlStringTable.h"
 
 const utlStringId utlStringId::ID_NONE;
-char *utlStringTable::s_nullString = "";
+const char* utlStringTable::s_nullString = "";
 
 utlStringTable g_stringTable;
 

@@ -6,9 +6,9 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
-#include "arda2/thread/thrThread.h"
-#include "arda2/timer/timTimer.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/thread/thrThread.h"
+#include "../../include/arda2/timer/timTimer.h"
 
 
 thrThread::thrThread() : m_tid(0), m_hThread(0)

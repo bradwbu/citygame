@@ -6,15 +6,15 @@ author(s):  Peter M. Freese
 purpose:    Error dialog with stack trace and ignore capability
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
+#include "../../include/arda2/core/corFirst.h"
 
 #if CORE_SYSTEM_WINAPI & !CORE_SYSTEM_XENON
 
-#include "arda2/util/utlStackDbg.h"
+#include "../../include/arda2/util/utlStackDbg.h"
 #include <winuser.h>
 
-#include "arda2/error/errErrorHandlerDialog.h"
-#include "arda2/util/utlEnumOperators.h"
+#include "../../include/arda2/error/errErrorHandlerDialog.h"
+#include "../../include/arda2/util/utlEnumOperators.h"
 
 #define ID_ERRDLG_MESSAGE   0x8000
 #define ID_ERRDLG_OK		0x8001

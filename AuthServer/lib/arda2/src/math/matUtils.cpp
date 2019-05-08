@@ -9,8 +9,8 @@
  */
 
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matUtils.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matUtils.h"
 
 
 /*

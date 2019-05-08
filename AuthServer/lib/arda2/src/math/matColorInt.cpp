@@ -6,10 +6,10 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matColorInt.h"
-#include "arda2/math/matColor.h"
-#include "arda2/math/matVector4.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matColorInt.h"
+#include "../../include/arda2/math/matColor.h"
+#include "../../include/arda2/math/matVector4.h"
 
 const matColorInt matColorInt::Black   (  0,   0,   0);
 const matColorInt matColorInt::Blue    (  0,   0, 255);

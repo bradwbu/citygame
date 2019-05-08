@@ -1,5 +1,5 @@
-#include "arda2/core/corFirst.h"
-#include "arda2/util/utlBitArray.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/util/utlBitArray.h"
 
 utlBitProxyHelper::utlBitProxyHelper(utlBitArray &array, unsigned pos):
     mArray(array), mPos(pos)

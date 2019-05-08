@@ -1,15 +1,15 @@
-#include "arda2/core/corFirst.h"
+#include "../../include/arda2/core/corFirst.h"
 
-#include "proFirst.h"
+#include "../../include/arda2/properties/proFirst.h"
 
-#include "arda2/properties/proObject.h"
-#include "arda2/properties/proClass.h"
-#include "arda2/properties/proObserver.h"
+#include "../../include/arda2/properties/proObject.h"
+#include "../../include/arda2/properties/proClass.h"
+#include "../../include/arda2/properties/proObserver.h"
 
-#include "arda2/properties/proPropertyOwner.h"
-#include "arda2/properties/proClassOwner.h"
-#include "arda2/properties/proObjectWriter.h"
-#include "arda2/properties/proObjectReader.h"
+#include "../../include/arda2/properties/proPropertyOwner.h"
+#include "../../include/arda2/properties/proClassOwner.h"
+#include "../../include/arda2/properties/proObjectWriter.h"
+#include "../../include/arda2/properties/proObjectReader.h"
 
 PRO_REGISTER_CLASS(proObject, NULL)
 

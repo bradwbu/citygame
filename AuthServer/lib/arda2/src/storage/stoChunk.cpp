@@ -6,8 +6,8 @@
     purpose:    
 *****************************************************************************/
 
-#include "arda2/storage/stoFirst.h"
-#include "arda2/storage/stoChunk.h"
+#include "../../include/arda2/storage/stoFirst.h"
+#include "../../include/arda2/storage/stoChunk.h"
 
 #include <cctype>
 

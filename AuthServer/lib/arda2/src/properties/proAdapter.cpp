@@ -1,8 +1,8 @@
-#include "arda2/core/corFirst.h"
-#include "proFirst.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/properties/proFirst.h"
 
-#include "proAdapter.h"
-#include "proClassNative.h"
+#include "../../include/arda2/properties/proAdapter.h"
+#include "../../include/arda2/properties/proClassNative.h"
 
 PRO_REGISTER_ABSTRACT_CLASS( proAdapterShared, proObject)
 

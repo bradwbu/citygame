@@ -6,9 +6,9 @@
     purpose:    OS File implementation of file object
 *****************************************************************************/
 
-#include "arda2/storage/stoFirst.h"
-#include "arda2/storage/stoFileOSFile.h"
-#include "arda2/storage/stoFileUtils.h"
+#include "../../include/arda2/storage/stoFirst.h"
+#include "../../include/arda2/storage/stoFileOSFile.h"
+#include "../../include/arda2/storage/stoFileUtils.h"
 
 #include <errno.h>
 #include <sys/types.h>

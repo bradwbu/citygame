@@ -1,14 +1,14 @@
-#include "arda2/core/corFirst.h"
+#include "../../include/arda2/core/corFirst.h"
 
-#include "proFirst.h"
+#include "../../include/arda2/properties/proFirst.h"
 
-#include "arda2/util/utlTokenizer.h"
+#include "../../include/arda2/util/utlTokenizer.h"
 
-#include "arda2/properties/proPropertyNative.h"
-#include "arda2/properties/proClassNative.h"
+#include "../../include/arda2/properties/proPropertyNative.h"
+#include "../../include/arda2/properties/proClassNative.h"
 
-#include "arda2/properties/proObjectWriter.h"
-#include "arda2/properties/proObjectReader.h"
+#include "../../include/arda2/properties/proObjectWriter.h"
+#include "../../include/arda2/properties/proObjectReader.h"
 
 using namespace std;
 

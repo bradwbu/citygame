@@ -1,6 +1,6 @@
 
-#include "arda2/core/corFirst.h"
-#include "arda2/storage/stoPropertyStream.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/storage/stoPropertyStream.h"
 
 
 /****************** output file stream implementation ***************/

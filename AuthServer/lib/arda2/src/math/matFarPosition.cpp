@@ -6,9 +6,9 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matFarPosition.h"
-#include "arda2/util/utlPoint.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matFarPosition.h"
+#include "../../include/arda2/util/utlPoint.h"
 
 #define NORMALIZATION	1
 matFarPosition matFarPosition::Zero(matZero);

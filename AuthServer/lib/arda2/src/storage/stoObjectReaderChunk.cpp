@@ -7,19 +7,19 @@
  *
  *  @file
 **/
-#include "arda2/core/corFirst.h"
-#include "stoFirst.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/storage/stoFirst.h"
 
-#include "stoObjectChunk.h"
-#include "stoObjectReaderChunk.h"
+#include "../../include/arda2/storage/stoObjectChunk.h"
+#include "../../include/arda2/storage/stoObjectReaderChunk.h"
 
-#include "arda2/properties/proClassRegistry.h"
-#include "arda2/properties/proObject.h"
-#include "arda2/properties/proProperty.h"
-#include "arda2/properties/proPropertyOwner.h"
-#include "arda2/properties/proPropertyNative.h"
+#include "../../include/arda2/properties/proClassRegistry.h"
+#include "../../include/arda2/properties/proObject.h"
+#include "../../include/arda2/properties/proProperty.h"
+#include "../../include/arda2/properties/proPropertyOwner.h"
+#include "../../include/arda2/properties/proPropertyNative.h"
 
-#include "arda2/storage/stoChunk.h"
+#include "../../include/arda2/storage/stoChunk.h"
 
 using namespace std;
 

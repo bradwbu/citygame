@@ -1,6 +1,7 @@
-#include "arda2/core/corFirst.h"
-#include "arda2/core/corStlHashFunc.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/core/corStlHashFunc.h"
 
+#include <string>
 #include <cctype>
 #include <cwctype> // wide characters
 

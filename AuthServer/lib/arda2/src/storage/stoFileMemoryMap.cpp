@@ -5,8 +5,8 @@
 	
 	purpose:	
 *****************************************************************************/
-#include "arda2/storage/stoFirst.h"
-#include "arda2/storage/stoFileMemoryMap.h"
+#include "../../include/arda2/storage/stoFirst.h"
+#include "../../include/arda2/storage/stoFileMemoryMap.h"
 
 #if CORE_SYSTEM_WINAPI && !(CORE_SYSTEM_XENON)
 
@@ -60,7 +60,7 @@ errResult stoFileMemoryMap::Open( const char* filename, AccessMode mode )
 			break;
 	}
 
-	m_hFile = CreateFile(
+	m_hFile = CreateFileA(
 		filename, 
 		dwDesiredAccess, 
 		dwShareMode, 

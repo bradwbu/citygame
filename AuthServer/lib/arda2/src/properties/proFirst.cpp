@@ -1,5 +1,5 @@
-#include "arda2/core/corFirst.h"
-#include "arda2/properties/proFirst.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/properties/proFirst.h"
 
 static const char *proTypeNames[] =
 {

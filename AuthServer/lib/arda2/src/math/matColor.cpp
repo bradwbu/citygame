@@ -6,9 +6,9 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matColor.h"
-#include "arda2/math/matColorInt.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matColor.h"
+#include "../../include/arda2/math/matColorInt.h"
 
 const matColor matColor::Black	(0.0f, 0.0f, 0.0f);
 const matColor matColor::White	(1.0f, 1.0f, 1.0f);

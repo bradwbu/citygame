@@ -6,7 +6,7 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h" // includes corWindows.h
+#include "../../include/arda2/core/corFirst.h" // includes corWindows.h
 #include <stdio.h>
 #include <stdarg.h>
 
@@ -24,7 +24,7 @@ void corOutputDebugString(const char* format, ...)
   va_end(args);
   // finally output it
 #if CORE_SYSTEM_WINAPI
-  OutputDebugString(tmp);
+  OutputDebugStringA(tmp);
 #else
   // best approximation
   fputs(tmp, stderr);

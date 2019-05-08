@@ -1,8 +1,8 @@
-#include "arda2/core/corFirst.h"
-#include "arda2/properties/proClassNative.h"
-#include "arda2/properties/proPropertyNative.h"
-#include "arda2/properties/proPropertyOwner.h"
-#include "arda2/properties/proUndoCmds.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/properties/proClassNative.h"
+#include "../../include/arda2/properties/proPropertyNative.h"
+#include "../../include/arda2/properties/proPropertyOwner.h"
+#include "../../include/arda2/properties/proUndoCmds.h"
 
 using namespace std;
 

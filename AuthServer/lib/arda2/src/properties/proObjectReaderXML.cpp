@@ -1,13 +1,13 @@
-#include "arda2/core/corFirst.h"
-#include "proFirst.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/properties/proFirst.h"
 
-#include "proObjectReaderXML.h"
+#include "../../include/arda2/properties/proObjectReaderXML.h"
 
-#include "arda2/properties/proClass.h"
-#include "arda2/properties/proProperty.h"
-#include "arda2/properties/proStream.h"
-#include "arda2/properties/proStringUtils.h"
-#include "arda2/properties/proPropertyNative.h"
+#include "../../include/arda2/properties/proClass.h"
+#include "../../include/arda2/properties/proProperty.h"
+#include "../../include/arda2/properties/proStream.h"
+#include "../../include/arda2/properties/proStringUtils.h"
+#include "../../include/arda2/properties/proPropertyNative.h"
 
 
 PRO_REGISTER_CLASS(proObjectReaderXML, proObjectReader)
@@ -17,7 +17,7 @@ PRO_REGISTER_CLASS(proObjectReaderXML, proObjectReader)
 #include <mbstring.h>
 #endif
 
-#include "proXmlParser.h"
+#include "../../include/arda2/properties/proXmlParser.h"
 
 using namespace std;
 

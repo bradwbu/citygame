@@ -1,9 +1,8 @@
-#include "arda2/core/corFirst.h"
-#include "arda2/properties/proFirst.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/properties/proFirst.h"
 
-#include "proChildSort.h"
-
-#include "arda2/properties/proProperty.h"
+#include "../../include/arda2/properties/proChildSort.h"
+#include "../../include/arda2/properties/proProperty.h"
 
 proChildSortByName::proChildSortByName()
 {

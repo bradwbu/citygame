@@ -8,8 +8,8 @@
 //* 
 //****************************************************************************
 
-#include "arda2/core/corFirst.h"
-#include "arda2/perf/prfCounter.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/perf/prfCounter.h"
 
 using namespace std;
 

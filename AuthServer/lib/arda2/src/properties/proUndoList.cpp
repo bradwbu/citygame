@@ -1,9 +1,9 @@
-#include "arda2/core/corFirst.h"
-#include "arda2/properties/proClassNative.h"
-#include "arda2/properties/proPropertyNative.h"
-#include "arda2/properties/proPropertyOwner.h"
-#include "arda2/properties/proUndoList.h"
-#include "arda2/properties/proUndoCmds.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/properties/proClassNative.h"
+#include "../../include/arda2/properties/proPropertyNative.h"
+#include "../../include/arda2/properties/proPropertyOwner.h"
+#include "../../include/arda2/properties/proUndoList.h"
+#include "../../include/arda2/properties/proUndoCmds.h"
 
 PRO_REGISTER_CLASS(proUndoList, proObject)
 

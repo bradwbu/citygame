@@ -6,8 +6,8 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matPlane.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matPlane.h"
 
 bool matPlane::IntersectsSegment( IN const matVector3 &vStart, IN const matVector3 &vEnd, OUT float *pT, OUT matVector3 *pIntersection )
 {

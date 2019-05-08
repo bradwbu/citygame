@@ -1,6 +1,6 @@
 
-#include "arda2/core/corFirst.h"
-#include "arda2/util/utlModule.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/util/utlModule.h"
 
 #if !CORE_SYSTEM_PS3
 // Not available on PS3
@@ -65,7 +65,7 @@ bool utlModule::BindModule(const char* moduleName)
     }
     else
     {
-        m_handle = LoadLibrary( moduleName );
+        m_handle = LoadLibraryA( moduleName );
     }
 
 #else

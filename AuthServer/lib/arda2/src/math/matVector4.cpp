@@ -6,8 +6,8 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matVector4.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matVector4.h"
 
 void matVector4::StoreComponentClamp(	const matVector4& min,
 										const matVector4& max)

@@ -6,8 +6,8 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matVector3.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matVector3.h"
 
 /*
 	NOTE[pmf]: Most of this file can be inlined, as it will either call the D3DX

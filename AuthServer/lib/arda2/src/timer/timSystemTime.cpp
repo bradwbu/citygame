@@ -11,7 +11,7 @@
  *
  */
 
-#include "timSystemTime.h"
+#include "../../include/arda2/timer/timSystemTime.h"
 #if CORE_SYSTEM_LINUX
 #include <time.h>
 #include <sys/time.h>

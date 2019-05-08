@@ -9,8 +9,7 @@
 				instructions on using these.
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
-
-#include "arda2/util/utlPoint.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/util/utlPoint.h"
 
 const utlPoint utlPoint::Zero = utlPoint(0,0);

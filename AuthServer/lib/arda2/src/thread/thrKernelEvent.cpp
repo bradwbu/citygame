@@ -1,5 +1,5 @@
-#include "arda2/core/corFirst.h"
-#include "arda2/thread/thrKernelEvent.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/thread/thrKernelEvent.h"
 
 
 thrKernelEvent::thrKernelEvent( bool bManualReset, bool bInitialState, char *szName ) :
@@ -11,7 +11,7 @@ thrKernelEvent::thrKernelEvent( bool bManualReset, bool bInitialState, char *szN
 
 {
 #if CORE_SYSTEM_WINAPI
-    SetHandle(::CreateEvent(NULL, bManualReset, bInitialState, szName));
+    SetHandle(::CreateEventA(NULL, bManualReset, bInitialState, szName));
 #else
     UNREF(szName);
     pthread_mutex_init(&m_mutex, NULL);

@@ -1,12 +1,12 @@
 
-#include "arda2/core/corFirst.h"
-#include "arda2/util/utlProperty.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/util/utlProperty.h"
 
-#include "arda2/properties/proObjectWriter.h"
-#include "arda2/properties/proObjectReader.h"
+#include "../../include/arda2/properties/proObjectWriter.h"
+#include "../../include/arda2/properties/proObjectReader.h"
 
 
-#include "arda2/properties/proClassNative.h"
+#include "../../include/arda2/properties/proClassNative.h"
 
 using namespace std;
 PRO_REGISTER_ABSTRACT_CLASS(utlPropertyRect, proProperty)

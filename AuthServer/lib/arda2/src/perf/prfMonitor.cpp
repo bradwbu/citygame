@@ -7,8 +7,8 @@
 //* 
 //****************************************************************************
 
-#include "arda2/core/corFirst.h"
-#include "arda2/perf/prfMonitor.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/perf/prfMonitor.h"
 
 #ifdef PERFMON_ENABLE
 

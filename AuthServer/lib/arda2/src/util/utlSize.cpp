@@ -6,7 +6,7 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
-#include "arda2/util/utlSize.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/util/utlSize.h"
 
 const utlSize utlSize::Zero = utlSize(0,0);

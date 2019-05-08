@@ -6,8 +6,8 @@
     purpose:    
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
-#include "arda2/core/corErrorHandler.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/core/corErrorHandler.h"
 #include <stdio.h>
 #include <ctime>
 
@@ -193,7 +193,7 @@ errHandlerResult corErrorHandler::DefaultReport(const char* szFileName, int iLin
 #if CORE_SYSTEM_XENON
         retval = EH_Break;
 #elif CORE_SYSTEM_WINAPI
-        const int result = MessageBox(NULL, message, "Program error", MB_OKCANCEL | MB_APPLMODAL);
+        const int result = MessageBoxA(NULL, message, "Program error", MB_OKCANCEL | MB_APPLMODAL);
         if (result == IDCANCEL)
             retval = EH_Break;
 #endif // !Xenon

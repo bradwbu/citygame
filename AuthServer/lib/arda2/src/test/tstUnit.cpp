@@ -8,8 +8,8 @@
  *              @file
  */
 
-#include "arda2/core/corFirst.h"
-#include "arda2/test/tstUnit.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/test/tstUnit.h"
 #include <stdio.h>
 
 tstUnit* tstUnit::sm_listHead = NULL;

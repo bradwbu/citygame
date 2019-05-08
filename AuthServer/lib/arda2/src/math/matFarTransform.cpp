@@ -6,9 +6,9 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matFarTransform.h"
-#include "arda2/math/matMatrix4x4.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matFarTransform.h"
+#include "../../include/arda2/math/matMatrix4x4.h"
 
 /**
  *  Transforms the provided point from local space into world space represented as a matFarPosition

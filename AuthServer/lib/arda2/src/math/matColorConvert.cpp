@@ -1,8 +1,8 @@
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matVector3.h"
-#include "arda2/math/matMatrix4x4.h"
-#include "arda2/math/matColorConvert.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matVector3.h"
+#include "../../include/arda2/math/matMatrix4x4.h"
+#include "../../include/arda2/math/matColorConvert.h"
 
 namespace ColorConvertPrivate
 {

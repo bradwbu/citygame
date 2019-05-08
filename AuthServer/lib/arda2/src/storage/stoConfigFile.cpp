@@ -8,10 +8,10 @@
                 @file
 **/
 
-#include "arda2/storage/stoFirst.h"
-#include "arda2/storage/stoConfigFile.h"
-#include "arda2/storage/stoFileOSFile.h"
-#include "arda2/storage/stoFileBuffer.h"
+#include "../../include/arda2/storage/stoFirst.h"
+#include "../../include/arda2/storage/stoConfigFile.h"
+#include "../../include/arda2/storage/stoFileOSFile.h"
+#include "../../include/arda2/storage/stoFileBuffer.h"
 
 #include <ctype.h>
 

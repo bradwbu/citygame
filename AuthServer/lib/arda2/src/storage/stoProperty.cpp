@@ -1,11 +1,11 @@
 
-#include "arda2/storage/stoFirst.h"
-#include "arda2/core/corStlAlgorithm.h"
-#include "arda2/storage/stoProperty.h"
-#include "arda2/storage/stoConfigFile.h"
+#include "../../include/arda2/storage/stoFirst.h"
+#include "../../include/arda2/core/corStlAlgorithm.h"
+#include "../../include/arda2/storage/stoProperty.h"
+#include "../../include/arda2/storage/stoConfigFile.h"
 
 
-#include "arda2/properties/proClassNative.h"
+#include "../../include/arda2/properties/proClassNative.h"
 
 using namespace std;
 PRO_REGISTER_ABSTRACT_CLASS(stoPropertyFilename, proPropertyString)

@@ -13,10 +13,10 @@
  */
 //******************************************************************************
 
-#include "arda2/core/corFirst.h"
-#include "arda2/core/corCast.h"
-#include "arda2/memory/memExplicitHeap.h"
-#include "arda2/memory/memMemory.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/core/corCast.h"
+#include "../../include/arda2/memory/memExplicitHeap.h"
+#include "../../include/arda2/memory/memMemory.h"
 
 
 //******************************************************************************

@@ -6,9 +6,9 @@
 	purpose:	Math Quaternion functions
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matQuaternion.h"
-#include "arda2/math/matMatrix4x4.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matQuaternion.h"
+#include "../../include/arda2/math/matMatrix4x4.h"
 
 const matQuaternion matQuaternion::Identity(matIdentity);
 

@@ -14,10 +14,10 @@
  */
 //******************************************************************************
 
-#include "arda2/core/corFirst.h"
-#include "arda2/perf/prfSizer.h"
-#include "arda2/core/corStlAlgorithm.h"
-#include "arda2/core/corStlVector.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/perf/prfSizer.h"
+#include "../../include/arda2/core/corStlAlgorithm.h"
+#include "../../include/arda2/core/corStlVector.h"
 
 using namespace std;
 

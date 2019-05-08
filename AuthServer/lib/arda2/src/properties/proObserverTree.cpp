@@ -1,9 +1,9 @@
-#include "arda2/core/corFirst.h"
+#include "../../include/arda2/core/corFirst.h"
 
-#include "arda2/properties/proFirst.h"
-#include "arda2/properties/proObject.h"
-#include "arda2/properties/proObserverTree.h"
-#include "arda2/properties/proStringUtils.h"
+#include "../../include/arda2/properties/proFirst.h"
+#include "../../include/arda2/properties/proObject.h"
+#include "../../include/arda2/properties/proObserverTree.h"
+#include "../../include/arda2/properties/proStringUtils.h"
 
 using namespace std;
 

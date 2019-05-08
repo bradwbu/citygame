@@ -6,9 +6,9 @@ author(s):	Peter M. Freese
 purpose:	
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
-#include "arda2/core/corError.h"
-#include "arda2/core/corErrorHandler.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/core/corError.h"
+#include "../../include/arda2/core/corErrorHandler.h"
 
 #include <signal.h> // for raise()
 #if CORE_SYSTEM_XENON

@@ -8,8 +8,8 @@
  *              @file
  */
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matFarPlane.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matFarPlane.h"
 
 
 void matFarPlane::Set( const matVector3 &vNormal, const matFarPosition &vPointOnPlane )

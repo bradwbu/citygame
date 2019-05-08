@@ -6,8 +6,8 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
-#include "arda2/core/corArgFormatter.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/core/corArgFormatter.h"
 #include <stdio.h>
 #include <stdarg.h>
 

@@ -1,13 +1,13 @@
-#include "arda2/core/corFirst.h"
-#include "arda2/properties/proFirst.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/properties/proFirst.h"
 
 
-#include "arda2/properties/proClass.h"
-#include "arda2/properties/proPropertyOwner.h"
-#include "arda2/properties/proClassRegistry.h"
-#include "arda2/properties/proPropertyNative.h"
+#include "../../include/arda2/properties/proClass.h"
+#include "../../include/arda2/properties/proPropertyOwner.h"
+#include "../../include/arda2/properties/proClassRegistry.h"
+#include "../../include/arda2/properties/proPropertyNative.h"
 
-#include "arda2/properties/proClassAdapter.h"
+#include "../../include/arda2/properties/proClassAdapter.h"
 
 using namespace std;
 

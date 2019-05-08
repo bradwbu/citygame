@@ -6,8 +6,8 @@
 	purpose:	
 *****************************************************************************/
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matRandom.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matRandom.h"
 
 
 // default singleton generator

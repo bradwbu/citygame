@@ -9,14 +9,14 @@
 
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
+#include "../../include/arda2/core/corFirst.h"
 
 #if CORE_SYSTEM_WINAPI
 
-#include "arda2/core/corStdString.h"
+#include "../../include/arda2/core/corStdString.h"
 
-#include "arda2/memory/memMemoryDbg.h"
-#include "arda2/util/utlStackDbg.h"
+#include "../../include/arda2/memory/memMemoryDbg.h"
+#include "../../include/arda2/util/utlStackDbg.h"
 #include <stdio.h>
 #include <crtdbg.h>
 

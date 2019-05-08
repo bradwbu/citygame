@@ -10,11 +10,11 @@
 **/
 //-----------------------------------------------------------------------------
 
-#include "arda2/core/corFirst.h"
-#include "proValidator.h"
-#include "arda2/properties/proClassNative.h"
-#include "arda2/properties/proStringUtils.h"
-#include "arda2/math/matUtils.h"
+#include "../../include/arda2/core/corFirst.h"
+#include "../../include/arda2/properties/proValidator.h"
+#include "../../include/arda2/properties/proClassNative.h"
+#include "../../include/arda2/properties/proStringUtils.h"
+#include "../../include/arda2/math/matUtils.h"
 
 using namespace std;
 

@@ -9,13 +9,13 @@
 				This code was borrowed from BugSlayer MSJ
 *****************************************************************************/
 
-#include "arda2/core/corFirst.h"
+#include "../../include/arda2/core/corFirst.h"
 
 #if CORE_SYSTEM_WIN32
 // Equivalent to this functionality on 360 is Dm*, like DmGetSymbolFromAddress()
 
 
-#include "arda2/util/utlStackDbg.h"
+#include "../../include/arda2/util/utlStackDbg.h"
 #include <stdio.h>
 
 //#include <string.h>
@@ -57,9 +57,9 @@ static StackWalk64FunctionType              StackWalkFunction;
 bool utlStackDbg::Install()
 {
   // try to load the libraries
-  m_hLibrary = LoadLibrary("dbghelp.dll");
+  m_hLibrary = LoadLibraryA("dbghelp.dll");
   if (!m_hLibrary)
-    m_hLibrary = LoadLibrary("imagehlp.dll");
+    m_hLibrary = LoadLibraryA("imagehlp.dll");
   if (!m_hLibrary)
     return false;
 
@@ -83,7 +83,7 @@ bool utlStackDbg::Install()
 
   // get the file name of the current running exe
   char szModuleFileName[MAX_PATH];
-  if (!GetModuleFileName(NULL, szModuleFileName, sizeof(szModuleFileName)))
+  if (!GetModuleFileNameA(NULL, szModuleFileName, sizeof(szModuleFileName)))
     return false;
 
   // get the directory name that has the executable
@@ -99,7 +99,7 @@ bool utlStackDbg::Install()
     return false;
 
   // open the current exe image file
-  HANDLE hFile = CreateFile(szModuleFileName, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+  HANDLE hFile = CreateFileA(szModuleFileName, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
   if (hFile == INVALID_HANDLE_VALUE)
     return false;
 

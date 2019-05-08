@@ -1,14 +1,14 @@
 
-#include "arda2/math/matFirst.h"
-#include "arda2/math/matProperty.h"
-#include "arda2/math/matAdapters.h"
+#include "../../include/arda2/math/matFirst.h"
+#include "../../include/arda2/math/matProperty.h"
+#include "../../include/arda2/math/matAdapters.h"
 
-#include "arda2/properties/proObjectWriter.h"
-#include "arda2/properties/proObjectReader.h"
+#include "../../include/arda2/properties/proObjectWriter.h"
+#include "../../include/arda2/properties/proObjectReader.h"
 
 //#if BUILD_PROPERTY_SYSTEM
 
-#include "arda2/properties/proClassNative.h"
+#include "../../include/arda2/properties/proClassNative.h"
 
 using namespace std;
 
