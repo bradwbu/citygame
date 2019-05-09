@@ -1,7 +1,5 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.202
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dbserver", "..\dbserver\dbserver.vcxproj", "{661BE18B-FA52-4529-BB46-A2438C384F4E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mapserver", "..\MapServer\mapserver.vcxproj", "{63678ADE-8025-4E76-BCC9-A4F869A5937D}"
@@ -192,7 +190,6 @@ Global
 		{63678ADE-8025-4E76-BCC9-A4F869A5937E}.Beaconizer|Win32.ActiveCfg = Opt Debug|Win32
 		{63678ADE-8025-4E76-BCC9-A4F869A5937E}.Beaconizer|x64.ActiveCfg = Opt Debug|Win32
 		{63678ADE-8025-4E76-BCC9-A4F869A5937E}.Debug|Win32.ActiveCfg = Debug|Win32
-		{63678ADE-8025-4E76-BCC9-A4F869A5937E}.Debug|Win32.Build.0 = Debug|Win32
 		{63678ADE-8025-4E76-BCC9-A4F869A5937E}.Debug|x64.ActiveCfg = Debug|Win32
 		{63678ADE-8025-4E76-BCC9-A4F869A5937E}.Full Debug|Win32.ActiveCfg = Full Debug|Win32
 		{63678ADE-8025-4E76-BCC9-A4F869A5937E}.Full Debug|Win32.Build.0 = Full Debug|Win32
@@ -312,6 +309,7 @@ Global
 		{10980900-D4E8-420B-ADE5-06AFDDD419BF}.Beaconizer|Win32.Build.0 = Opt Debug|Win32
 		{10980900-D4E8-420B-ADE5-06AFDDD419BF}.Beaconizer|x64.ActiveCfg = Opt Debug|Win32
 		{10980900-D4E8-420B-ADE5-06AFDDD419BF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{10980900-D4E8-420B-ADE5-06AFDDD419BF}.Debug|Win32.Build.0 = Debug|Win32
 		{10980900-D4E8-420B-ADE5-06AFDDD419BF}.Debug|x64.ActiveCfg = Debug|x64
 		{10980900-D4E8-420B-ADE5-06AFDDD419BF}.Debug|x64.Build.0 = Debug|x64
 		{10980900-D4E8-420B-ADE5-06AFDDD419BF}.Full Debug|Win32.ActiveCfg = Full Debug|Win32
@@ -544,7 +542,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		AMDCaProjectFile = C:\src\CoH\MasterSolution\CodeAnalyst\MasterSolution.caw
 		SolutionGuid = {A5ACD6EA-47EE-47C3-B95C-23279A71379A}
+		AMDCaProjectFile = C:\src\CoH\MasterSolution\CodeAnalyst\MasterSolution.caw
 	EndGlobalSection
 EndGlobal
