@@ -236,7 +236,7 @@ int logShouldWrite( LogType type, LogLevel level)
 {
 #if defined(DISABLE_CHAT_LOGGING)
 	if(type == LOG_CHAT) {
-		return;
+		return 0;
 	}
 #endif
 
