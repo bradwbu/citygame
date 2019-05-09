@@ -891,22 +891,22 @@ bool AccountDB::RecordLogout( char reasoncode, int uid, time_t loginTime, time_t
 	{
 		CDBConn conn(g_linDB);
 
-        SQLLEN cbUid=0;
+		SQLINTEGER cbUid=0;
 		SQLBindParameter( conn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&uid), 0, &cbUid );
 		
-        SQLLEN cblastlogin=0;
+		SQLINTEGER cblastlogin=0;
 		SQLBindParameter( conn.m_stmt, 2, SQL_PARAM_INPUT, SQL_C_TYPE_TIMESTAMP,SQL_TIMESTAMP, 19, 0, (SQLPOINTER)&dblogin, 0, &cblastlogin );
 		
-        SQLLEN cblastlogout=0;
+		SQLINTEGER cblastlogout=0;
 		SQLBindParameter( conn.m_stmt, 3, SQL_PARAM_INPUT, SQL_C_TYPE_TIMESTAMP,SQL_TIMESTAMP, 19, 0, (SQLPOINTER)&dblogout, 0, &cblastlogout );
 		
-        SQLLEN cblastgame=0;
+		SQLINTEGER cblastgame=0;
 		SQLBindParameter( conn.m_stmt, 4, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&LastGame), 0, &cblastgame );
 
-        SQLLEN cblastworld=0;
+		SQLINTEGER cblastworld=0;
 		SQLBindParameter( conn.m_stmt, 5, SQL_PARAM_INPUT, SQL_C_UTINYINT, SQL_TINYINT, 0, 0, (SQLPOINTER)(&lastWorldId), 0, &cblastworld );
 
-        SQLLEN cblastIP=SQL_NTS;
+		SQLINTEGER cblastIP=SQL_NTS;
 		SQLBindParameter( conn.m_stmt, 6, SQL_PARAM_INPUT, SQL_C_TCHAR, SQL_VARCHAR, 15, 0, (SQLPOINTER)szIP, (SQLINTEGER)strlen(szIP), &cblastIP );
 
 		char buffer[256];
@@ -928,40 +928,40 @@ bool AccountDB::RecordLogout( char reasoncode, int uid, time_t loginTime, time_t
 		CDBConn conn(g_linDB);
 
 		//Add logout entry to the activity log
-        SQLLEN accountName_strLen=SQL_NTS;
+		SQLINTEGER accountName_strLen=SQL_NTS;
 		SQLBindParameter( conn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_CHAR, SQL_CHAR, 14, 0, (SQLPOINTER)account, 14, &accountName_strLen);
 
-        SQLLEN userIdLen = 4;
+		SQLINTEGER userIdLen = 4;
 		SQLBindParameter( conn.m_stmt, 2, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&uid), 0, &userIdLen);
 
  
-        SQLLEN serverIdLen = 4;
+		SQLINTEGER serverIdLen = 4;
 		SQLBindParameter( conn.m_stmt, 3, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&lastWorld, 0, &serverIdLen);
 
 
-        SQLLEN clientIPLen=SQL_NTS;
+		SQLINTEGER clientIPLen=SQL_NTS;
 		SQLBindParameter( conn.m_stmt, 4, SQL_PARAM_INPUT, SQL_C_TCHAR, SQL_VARCHAR, 15, 0, (SQLPOINTER)szIP, (SQLINTEGER)strlen(szIP), &clientIPLen );
 
 
-        SQLLEN lastLoginLen=0;
+		SQLINTEGER lastLoginLen=0;
 		SQLBindParameter( conn.m_stmt, 5, SQL_PARAM_INPUT, SQL_C_TYPE_TIMESTAMP,SQL_TIMESTAMP, 19, 0, (SQLPOINTER)&dblogin, 0, &lastLoginLen );
 
-        SQLLEN queueLoginLen=0;
+		SQLINTEGER queueLoginLen=0;
 		SQLBindParameter( conn.m_stmt, 6, SQL_PARAM_INPUT, SQL_C_TYPE_TIMESTAMP,SQL_TIMESTAMP, 19, 0, (SQLPOINTER)&dbqueuelogin, 0, &queueLoginLen );
 	
 		//Current system doesnt keep track of different auth logins and game logins, it just overwrites
 		//the same login value on the user account
-        SQLLEN gameLoginLen=0;
+		SQLINTEGER gameLoginLen=0;
 		SQLBindParameter( conn.m_stmt, 7, SQL_PARAM_INPUT, SQL_C_TYPE_TIMESTAMP,SQL_TIMESTAMP, 19, 0, (SQLPOINTER)&dblogin, 0, &gameLoginLen );
 	
 
-        SQLLEN lastLogoutLen=0;
+		SQLINTEGER lastLogoutLen=0;
 		SQLBindParameter( conn.m_stmt, 8, SQL_PARAM_INPUT, SQL_C_TYPE_TIMESTAMP,SQL_TIMESTAMP, 19, 0, (SQLPOINTER)&dblogout, 0, &lastLogoutLen );
 	
-        SQLLEN logoutTypeLen=0;
+	    SQLINTEGER logoutTypeLen=0;
 		SQLBindParameter( conn.m_stmt, 9, SQL_PARAM_INPUT, SQL_C_CHAR,SQL_CHAR, 1, 0, (SQLPOINTER)&reasoncode, 1, &logoutTypeLen );
 
-        SQLLEN cdKindLen=0;
+		SQLINTEGER cdKindLen=0;
 		SQLBindParameter( conn.m_stmt, 10, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&cdkind, 1, &cdKindLen );
 
 		char buffer[256];
@@ -999,9 +999,9 @@ bool AccountDB::RecordLogout( char reasoncode, int uid, time_t loginTime, time_t
 	} else if ( OperationCode == PERSONAL_SPECIFIC ) {
 
 		CDBConn conn(g_linDB);
-        SQLLEN cUseTime=0;
+		SQLINTEGER cUseTime=0;
 		SQLBindParameter( conn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&usetime), 0, &cUseTime );
-        SQLLEN cbUid=0;
+		SQLINTEGER cbUid=0;
 		SQLBindParameter( conn.m_stmt, 2, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&uid), 0, &cbUid );
 
 		char buffer[256];
@@ -1016,13 +1016,13 @@ bool AccountDB::RecordLogout( char reasoncode, int uid, time_t loginTime, time_t
 
 	} else if ( OperationCode == PERSONAL_POINT ) {
 		CDBConn conn(g_linDB);
-        SQLLEN cbAccount=0;
-        SQLLEN cbTime=0;
+		SQLINTEGER cbAccount=0;
+		SQLINTEGER cbTime=0;
 		char buffer[256];
 		SQLBindParameter( conn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_TCHAR, SQL_VARCHAR, MAX_ACCOUNT_LEN, 0, (SQLPOINTER)account, (SQLINTEGER)strlen(account), &cbAccount );
-        SQLLEN cblastlogin=0;
+		SQLINTEGER cblastlogin=0;
 		SQLBindParameter( conn.m_stmt, 2, SQL_PARAM_INPUT, SQL_C_TYPE_TIMESTAMP,SQL_TIMESTAMP, 19, 0, (SQLPOINTER)&dblogin, 0, &cblastlogin );
-        SQLLEN cblastlogout=0;
+		SQLINTEGER cblastlogout=0;
 		SQLBindParameter( conn.m_stmt, 3, SQL_PARAM_INPUT, SQL_C_TYPE_TIMESTAMP,SQL_TIMESTAMP, 19, 0, (SQLPOINTER)&dblogout, 0, &cblastlogout );
 
 		sprintf( buffer, "{CALL dbo.ap_LogoutWithPoint( ?,?,? )}" );
@@ -1095,10 +1095,10 @@ char AccountDB::CheckUserTime(int Uid, int *RemainTime)
 
 	CDBConn conn(g_linDB);
 	
-    SQLLEN cbUid=0;
+	SQLINTEGER cbUid=0;
 	SQLBindParameter( conn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&Uid), 0, &cbUid );
 	
-    SQLLEN cbUserTime=0;
+	SQLINTEGER cbUserTime=0;
 	SQLBindParameter( conn.m_stmt, 2, SQL_PARAM_OUTPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(RemainTime), 0, &cbUserTime );
 	
 	char buffer[256];
@@ -1142,13 +1142,13 @@ char AccountDB::AboutToPlay(int uid, char *account, int time_left, int loginflag
 		// forces CDBConn::~CDBConn() to be called.
 		{
 		CDBConn dbconn(g_linDB);
-        SQLLEN UserInd=0;
+		SQLINTEGER UserInd=0;
 		SQLBindCol( dbconn.m_stmt, 1, SQL_C_BINARY, (char *)(userdata), MAX_USERDATA_ORIG, &UserInd );
 
-        SQLLEN UserIndNew=0;
+		SQLINTEGER UserIndNew=0;
 		SQLBindCol( dbconn.m_stmt, 2, SQL_C_BINARY, (char *)(&userdata[MAX_USERDATA_ORIG]), MAX_USERDATA_NEW, &UserIndNew );
 
-        SQLLEN cbUid=0;
+		SQLINTEGER cbUid=0;
 		SQLBindParameter( dbconn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&uid), 0, &cbUid );
 
 		dbconn.Execute( "SELECT user_data, user_data_new FROM user_data WHERE uid = ?" );

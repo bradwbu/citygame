@@ -38,9 +38,8 @@ static InvertibleRSAFunction* RSA_Params = NULL;
 
 void InitRSAParams()
 {
-	std::unique_ptr<InvertibleRSAFunction> p(std::make_unique<InvertibleRSAFunction>());
-	p->Initialize(s_rng, 1152);
-	RSA_Params = p.release();
+	LC_RNG rng(time(NULL));
+	RSA_Params = new InvertibleRSAFunction(rng, 1152);
 }
 
 void DecryptRSAText(char*ciphertextstr, int bufferLen)
@@ -182,13 +181,13 @@ static bool LoginPacketSecure(CSocketServerEx *mysocket, const unsigned char *pa
 
 		{
 		CDBConn dbconn(g_linDB);
-        SQLLEN UserInd=0;
+		SQLINTEGER UserInd=0;
 		SQLBindCol( dbconn.m_stmt, 1, SQL_C_BINARY, (char *)(userdata), MAX_USERDATA_ORIG, &UserInd );
 
-        SQLLEN UserIndNew=0;
+		SQLINTEGER UserIndNew=0;
 		SQLBindCol( dbconn.m_stmt, 2, SQL_C_BINARY, (char *)(&userdata[MAX_USERDATA_ORIG]), MAX_USERDATA_NEW, &UserIndNew );
 
-        SQLLEN cbUid=0;
+		SQLINTEGER cbUid=0;
 		SQLBindParameter( dbconn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&account.uid), 0, &cbUid );
 
 		dbconn.Execute( "SELECT user_data, user_data_new FROM user_data WHERE uid = ?" );

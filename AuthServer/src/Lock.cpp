@@ -77,7 +77,7 @@ void CLock::Wait()
 			return;
         }
         // pause
-        YieldProcessor();
+		YieldProcessor();
 	}
 	count = 4000;
 	while(--count >= 0) {

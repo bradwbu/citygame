@@ -404,23 +404,23 @@ void CServerList::UpdateDB() const
 
     // Record "server 0," which is actually the total number of connected users
     {
-        SQLLEN logtimeLen=0;
+        SQLINTEGER logtimeLen=0;
 		SQLBindParameter( conn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_TYPE_TIMESTAMP,SQL_TIMESTAMP, 19, 0, (SQLPOINTER)&dblogtime, 0, &logtimeLen );
 	  
-        SQLLEN serverIdLen = 4;
+        SQLINTEGER serverIdLen = 4;
 		unsigned long serverid = 0;
 		SQLBindParameter( conn.m_stmt, 2, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&serverid, 0, &serverIdLen);
 
-        SQLLEN worlduserLen = 4;
+        SQLINTEGER worlduserLen = 4;
 		SQLBindParameter( conn.m_stmt, 3, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&(reporter.m_UserCount), 0, &worlduserLen);
 
-        SQLLEN limituserLen = 4;
+        SQLINTEGER limituserLen = 4;
 		SQLBindParameter( conn.m_stmt, 4, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&(reporter.m_UserCount), 0, &limituserLen);
 
-        SQLLEN authuserLen = 4;
+        SQLINTEGER authuserLen = 4;
 		SQLBindParameter( conn.m_stmt, 5, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&(reporter.m_UserCount), 0, &authuserLen);
  
-        SQLLEN waituserLen = 4;
+		SQLINTEGER waituserLen = 4;
 		SQLBindParameter( conn.m_stmt, 6, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&reporter.m_SocketCount, 0, &waituserLen);
 
 		RETCODE RetCode= SQLExecDirectA( conn.m_stmt, (SQLCHAR*)buffer, SQL_NTS );
@@ -436,23 +436,23 @@ void CServerList::UpdateDB() const
     // Record the count for all the real servers
 	for (ServerListType::const_iterator i=m_serverList.begin(); i!=m_serverList.end(); ++i)
 	{
-        SQLLEN logtimeLen=0;
+        SQLINTEGER logtimeLen=0;
 		SQLBindParameter( conn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_TYPE_TIMESTAMP,SQL_TIMESTAMP, 19, 0, (SQLPOINTER)&dblogtime, 0, &logtimeLen );
 	  
-        SQLLEN serverIdLen = 4;
+        SQLINTEGER serverIdLen = 4;
 		unsigned long serverid = i->first.GetValueChar();
 		SQLBindParameter( conn.m_stmt, 2, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&serverid, 0, &serverIdLen);
 
-        SQLLEN worlduserLen = 4;
+        SQLINTEGER worlduserLen = 4;
 		SQLBindParameter( conn.m_stmt, 3, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&(i->second.UserNum), 0, &worlduserLen);
 
-        SQLLEN limituserLen = 4;
+        SQLINTEGER limituserLen = 4;
 		SQLBindParameter( conn.m_stmt, 4, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&(i->second.maxUsers), 0, &limituserLen);
 
-        SQLLEN authuserLen = 4;
+        SQLINTEGER authuserLen = 4;
 		SQLBindParameter( conn.m_stmt, 5, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&(reporter.m_UserCount), 0, &authuserLen);
  
-        SQLLEN waituserLen = 4;
+		SQLINTEGER waituserLen = 4;
 		SQLBindParameter( conn.m_stmt, 6, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&reporter.m_SocketCount, 0, &waituserLen);
 
 		RETCODE RetCode= SQLExecDirectA( conn.m_stmt, (SQLCHAR*)buffer, SQL_NTS );
