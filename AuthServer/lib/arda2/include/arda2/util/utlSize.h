@@ -1,12 +1,12 @@
 /*****************************************************************************
-	created:	2001/08/14
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	Integer Size class which wraps the windows SIZE
-				structure. This is based loosely on the code in
-				afxwin.h and afxwin1.inline; see the MFC docs for
-				instructions on using these.
+    created:    2001/08/14
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    Integer Size class which wraps the windows SIZE
+                structure. This is based loosely on the code in
+                afxwin.h and afxwin1.inline; see the MFC docs for
+                instructions on using these.
 *****************************************************************************/
 
 #ifndef   INCLUDED_utlSize
@@ -23,55 +23,55 @@ class utlSize : public tagSIZE
 {
 public:
 
-	// Constructors
-	utlSize()
-	{ /* random filled */ }
+    // Constructors
+    utlSize()
+    { /* random filled */ }
 
-	utlSize(int initCX, int initCY)
-	{ cx = initCX; cy = initCY; }
+    utlSize(int initCX, int initCY)
+    { cx = initCX; cy = initCY; }
 
-	utlSize(const SIZE &initSize)
-	{ *(SIZE*)this = initSize; }
+    utlSize(const SIZE &initSize)
+    { *(SIZE*)this = initSize; }
 
-	utlSize(const POINT &initPt)
-	{ *(POINT*)this = initPt; }
+    utlSize(const POINT &initPt)
+    { *(POINT*)this = initPt; }
 
-	utlSize(const utlSize& rhs)
-	{ cx = rhs.cx; cy = rhs.cy; }
+    utlSize(const utlSize& rhs)
+    { cx = rhs.cx; cy = rhs.cy; }
 
 #if CORE_SYSTEM_WINAPI
-	explicit utlSize(DWORD dwSize)
-	{
-		cx = (short)LOWORD(dwSize);
-		cy = (short)HIWORD(dwSize);
-	}
+    explicit utlSize(DWORD dwSize)
+    {
+        cx = (short)LOWORD(dwSize);
+        cy = (short)HIWORD(dwSize);
+    }
 #endif
 
-	static const utlSize Zero;	// zero object
+    static const utlSize Zero;    // zero object
 
-	// Attributes
-	bool IsZero(void) const;
+    // Attributes
+    bool IsZero(void) const;
 
-	// Operations
-	const utlSize& operator=(const utlSize& rhs);
-	void Set(int cxNew, int cyNew);
-	bool operator==(const SIZE &size) const;
-	bool operator!=(const SIZE &size) const;
-	const utlSize& operator+=(const SIZE &size);
-	const utlSize& operator-=(const SIZE &size);
-	const utlSize& operator*=(int mult);
-	const utlSize& operator/=(int div);
+    // Operations
+    const utlSize& operator=(const utlSize& rhs);
+    void Set(int cxNew, int cyNew);
+    bool operator==(const SIZE &size) const;
+    bool operator!=(const SIZE &size) const;
+    const utlSize& operator+=(const SIZE &size);
+    const utlSize& operator-=(const SIZE &size);
+    const utlSize& operator*=(int mult);
+    const utlSize& operator/=(int div);
 
-	utlSize operator-() const;
-	utlSize operator*(int mult) const;
-	utlSize operator/(int div) const;
+    utlSize operator-() const;
+    utlSize operator*(int mult) const;
+    utlSize operator/(int div) const;
 };
 
 utlSize operator+(const SIZE &s1, const SIZE &s2);
 utlSize operator-(const SIZE &s1, const SIZE &s2);
 
 // note: these are all "if and only if" conditions (for both members).
-//		 so if !(size1 <= size2) that does NOT mean (size1 > size2).
+//         so if !(size1 <= size2) that does NOT mean (size1 > size2).
 bool operator <  (SIZE l, SIZE r);
 bool operator <= (SIZE l, SIZE r);
 bool operator >  (SIZE l, SIZE r);
@@ -79,10 +79,10 @@ bool operator >= (SIZE l, SIZE r);
 
 inline utlSize operator%(const utlSize& sz, int32 div)
 {
-	utlSize temp = sz;
-	temp.cx = temp.cx % div;
-	temp.cy = temp.cy % div;
-	return temp;
+    utlSize temp = sz;
+    temp.cx = temp.cx % div;
+    temp.cy = temp.cy % div;
+    return temp;
 }
 
 inline bool utlSize::IsZero() const

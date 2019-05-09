@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2002/05/02
-	copyright:	2002, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	Includes the (non-standard) <hashset> template class
+    created:    2002/05/02
+    copyright:    2002, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    Includes the (non-standard) <hashset> template class
 *****************************************************************************/
 
 #ifndef   INCLUDED_corStlHashSet

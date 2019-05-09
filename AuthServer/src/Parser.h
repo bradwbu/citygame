@@ -14,8 +14,8 @@
 
 enum Token 
 {
-	eWord,
-	ePeriod, 
+    eWord,
+    ePeriod, 
     eComma, 
     eMinus, 
     eColon, 
@@ -23,14 +23,14 @@ enum Token
     eEqual, 
     eSlash, 
     eAmpersand,
-	eLeftParen, 
+    eLeftParen, 
     eRightParen, 
     eNewLine,
-	eNumber,
+    eNumber,
     eEOF
 };
 
-#define MAX_TOKEN_LEN	70
+#define MAX_TOKEN_LEN    70
 
 extern Token GetToken(std::istream& stream, char* value, bool strOnly);
 

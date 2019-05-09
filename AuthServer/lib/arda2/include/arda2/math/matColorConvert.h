@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2002/04/10
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Ryan Prescott
+    created:    2002/04/10
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Ryan Prescott
 
-	purpose:	provide colorspace conversion
+    purpose:    provide colorspace conversion
 *****************************************************************************/
 
 #ifndef __DEFINEDmatConvert

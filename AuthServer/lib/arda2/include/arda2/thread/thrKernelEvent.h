@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/08/13
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	Thin class wrapper for win32 Event Objects
+    created:    2001/08/13
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    Thin class wrapper for win32 Event Objects
 *****************************************************************************/
 
 #ifndef   INCLUDED_thrKernelEvent

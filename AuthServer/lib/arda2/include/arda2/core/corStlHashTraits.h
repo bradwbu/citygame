@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:    2002-09-23
-	copyright:	2002, NCsoft. All Rights Reserved
-	author(s):	Jason Beardsley
-	
-	purpose:	Hash traits for hashed containers.
+    created:    2002-09-23
+    copyright:    2002, NCsoft. All Rights Reserved
+    author(s):    Jason Beardsley
+    
+    purpose:    Hash traits for hashed containers.
 *****************************************************************************/
 
 #ifndef INCLUDED_corStlHashTraits

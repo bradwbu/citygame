@@ -89,7 +89,7 @@ namespace stoFileUtils
     // OS independent Directory operations
     bool    FileExists( IN const char *fullpath );
 
-	bool    IsReadOnly( IN const char *fullpath );
+    bool    IsReadOnly( IN const char *fullpath );
 
     bool    IsFile( IN const char *fullPath );
 

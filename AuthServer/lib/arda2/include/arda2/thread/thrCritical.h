@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/08/09
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	Critical section utility classes
+    created:    2001/08/09
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    Critical section utility classes
 *****************************************************************************/
 
 #ifndef   INCLUDED_thrCritical
@@ -24,53 +24,53 @@ class thrCriticalSection
 {
 public:
     thrCriticalSection()
-	{
+    {
 #if CORE_SYSTEM_WINAPI
-		InitializeCriticalSection(&m_winCriticalSection);
+        InitializeCriticalSection(&m_winCriticalSection);
 #else
-		// use recursive mutex to emulate the functionalitry of win32 critical sections.
-		pthread_mutexattr_init(&m_attr);
-		pthread_mutexattr_settype(&m_attr, PTHREAD_MUTEX_RECURSIVE_NP);
-		pthread_mutex_init(&m_mutex, &m_attr);
+        // use recursive mutex to emulate the functionalitry of win32 critical sections.
+        pthread_mutexattr_init(&m_attr);
+        pthread_mutexattr_settype(&m_attr, PTHREAD_MUTEX_RECURSIVE_NP);
+        pthread_mutex_init(&m_mutex, &m_attr);
 #endif
 
-		m_valid = true;
-	}
+        m_valid = true;
+    }
 
-	~thrCriticalSection()
-	{
+    ~thrCriticalSection()
+    {
 #if CORE_SYSTEM_WINAPI
-		DeleteCriticalSection(&m_winCriticalSection);
+        DeleteCriticalSection(&m_winCriticalSection);
 #else
-		pthread_mutexattr_destroy(&m_attr);
-		pthread_mutex_destroy(&m_mutex);
+        pthread_mutexattr_destroy(&m_attr);
+        pthread_mutex_destroy(&m_mutex);
 #endif
-		m_valid = false;
-	}
+        m_valid = false;
+    }
 
-	void Enter()
-	{
-		if ( m_valid )
-		{
+    void Enter()
+    {
+        if ( m_valid )
+        {
 #if CORE_SYSTEM_WINAPI
-			EnterCriticalSection(&m_winCriticalSection);
+            EnterCriticalSection(&m_winCriticalSection);
 #else
-			pthread_mutex_lock(&m_mutex);
+            pthread_mutex_lock(&m_mutex);
 #endif
-		}
-	}
+        }
+    }
 
-	void Leave()
-	{
-		if ( m_valid )
-		{
+    void Leave()
+    {
+        if ( m_valid )
+        {
 #if CORE_SYSTEM_WINAPI
-			LeaveCriticalSection(&m_winCriticalSection);
+            LeaveCriticalSection(&m_winCriticalSection);
 #else
-			pthread_mutex_unlock(&m_mutex);
+            pthread_mutex_unlock(&m_mutex);
 #endif
-		}
-	}
+        }
+    }
 
 private:
     // disable copy constructor and assignment operator
@@ -78,12 +78,12 @@ private:
     thrCriticalSection& operator=( const thrCriticalSection& );
 
 #if CORE_SYSTEM_WINAPI
-	CRITICAL_SECTION	m_winCriticalSection;
+    CRITICAL_SECTION    m_winCriticalSection;
 #else
-	pthread_mutex_t         m_mutex;
-	pthread_mutexattr_t     m_attr;
+    pthread_mutex_t         m_mutex;
+    pthread_mutexattr_t     m_attr;
 #endif
-	bool				m_valid;
+    bool                m_valid;
 
 };
 
@@ -95,25 +95,25 @@ private:
 class thrEnterCritical
 {
 public:
-	thrEnterCritical( thrCriticalSection &critical ) :
-	  m_critical(critical)
-	{
-		  m_critical.Enter();
+    thrEnterCritical( thrCriticalSection &critical ) :
+      m_critical(critical)
+    {
+          m_critical.Enter();
 
-	}
+    }
 
-	~thrEnterCritical()
-	{
-		m_critical.Leave();
-	}
+    ~thrEnterCritical()
+    {
+        m_critical.Leave();
+    }
 protected:
-	
+    
 private:
     // disable copy constructor and assignment operator
     thrEnterCritical( const thrEnterCritical& );
     thrEnterCritical& operator=( const thrEnterCritical& );
 
-	thrCriticalSection	&m_critical;
+    thrCriticalSection    &m_critical;
 };
 
 

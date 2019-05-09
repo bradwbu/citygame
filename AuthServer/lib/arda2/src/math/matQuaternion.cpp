@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2002/10/02
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
+    created:    2002/10/02
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
 
-	purpose:	Math Quaternion functions
+    purpose:    Math Quaternion functions
 *****************************************************************************/
 
 #include "../../include/arda2/math/matFirst.h"
@@ -12,11 +12,11 @@
 
 const matQuaternion matQuaternion::Identity(matIdentity);
 
-void matQuaternion::StoreLookDir( const	matVector3& vForward, const matVector3& vGoalUp )
+void matQuaternion::StoreLookDir( const    matVector3& vForward, const matVector3& vGoalUp )
 {
-	matMatrix4x4 mLook;
-	mLook.StoreLookDir(vForward, vGoalUp);
-	StoreFromMatrix(mLook);
+    matMatrix4x4 mLook;
+    mLook.StoreLookDir(vForward, vGoalUp);
+    StoreFromMatrix(mLook);
 }
 
 
@@ -35,12 +35,12 @@ public:
         m_q0(1.2f, -0.5f, 0.33f, 1.1f),
         m_q1(-1.1f, 0.6f, 0.34f, -0.99f),
         m_q2(2.03f, 1.1f, 0.654f, -0.983f)
-	{
-	}
+    {
+    }
 
-	virtual void Register()
-	{
-		SetName("matQuaternion");
+    virtual void Register()
+    {
+        SetName("matQuaternion");
 
         AddDependency("matUtils");
         AddDependency("matVector3");
@@ -59,17 +59,17 @@ public:
         AddTestCase("matQuaternion::FromYPR",    &matQuaternionTests::TestFromYPR);
         AddTestCase("matQuaternion::FromMatrix", &matQuaternionTests::TestFromMatrix);
         AddTestCase("matQuaternion::AxisAngle",  &matQuaternionTests::TestAxisAngle);
-	};
+    };
 
-	virtual void UnitTestSetup()
-	{
-		// set up code
-	}
+    virtual void UnitTestSetup()
+    {
+        // set up code
+    }
 
-	virtual void UnitTestTearDown()
-	{
-		// tear down code
-	}
+    virtual void UnitTestTearDown()
+    {
+        // tear down code
+    }
 
     void TestIdentity() const
     {

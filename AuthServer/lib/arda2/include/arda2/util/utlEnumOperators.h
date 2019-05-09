@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2002/04/11
-	copyright:	2002, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	
+    created:    2002/04/11
+    copyright:    2002, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    
 *****************************************************************************/
 
 #ifndef   INCLUDED_utlEnumOperators

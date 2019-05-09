@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2002/08/19
-	copyright:	2002, NCSoft. All Rights Reserved
-	author(s):	Ryan M. Prescott
-	
-	purpose:	put your generalized allocation stuff here...
+    created:    2002/08/19
+    copyright:    2002, NCSoft. All Rights Reserved
+    author(s):    Ryan M. Prescott
+    
+    purpose:    put your generalized allocation stuff here...
 *****************************************************************************/
 
 #ifndef   INCLUDED_memMemory_h

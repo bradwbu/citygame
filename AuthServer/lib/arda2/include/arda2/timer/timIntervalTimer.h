@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/10/05
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	
+    created:    2001/10/05
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    
 *****************************************************************************/
 
 #ifndef   INCLUDED_timIntervalTimer
@@ -17,38 +17,38 @@
 class timIntervalTimer
 {
 public:
-	timIntervalTimer( uint frequency, uint interval = 0 ) : 
-		m_timer(frequency),
-		m_interval(interval)
-	{
-		Reset();
-	};
+    timIntervalTimer( uint frequency, uint interval = 0 ) : 
+        m_timer(frequency),
+        m_interval(interval)
+    {
+        Reset();
+    };
 
-	void SetInterval( uint interval )
-	{
-		m_interval = interval;
-	}
+    void SetInterval( uint interval )
+    {
+        m_interval = interval;
+    }
 
-	bool IsTriggered() const
-	{
-		return m_timer.GetElapsed() >= m_triggerTime;
-	}
+    bool IsTriggered() const
+    {
+        return m_timer.GetElapsed() >= m_triggerTime;
+    }
 
-	void Reset()
-	{
-		m_triggerTime = m_interval;
-		m_timer.Reset();
-	}
+    void Reset()
+    {
+        m_triggerTime = m_interval;
+        m_timer.Reset();
+    }
 
-	void ForceTrigger()
-	{
-		m_triggerTime = 0;
-	}
+    void ForceTrigger()
+    {
+        m_triggerTime = 0;
+    }
 
 private:
-	timTimer		m_timer;
-	uint			m_interval;
-	uint			m_triggerTime;
+    timTimer        m_timer;
+    uint            m_interval;
+    uint            m_triggerTime;
 };
 
 

@@ -18,29 +18,29 @@
 typedef struct _SQLPool_ 
 {
     //TBROWN - adding a constructor to init these values so that it's obvious if they
-	//need to be cleaned up or not
-	_SQLPool_() : reset(false), hdbc(NULL), stmt(NULL), pNext(NULL)
-	{
-		bool here = true;
-	}
-	BOOL reset;
-	SQLHDBC hdbc;
-	SQLHSTMT stmt;
-	struct _SQLPool_ *pNext;
+    //need to be cleaned up or not
+    _SQLPool_() : reset(false), hdbc(NULL), stmt(NULL), pNext(NULL)
+    {
+        bool here = true;
+    }
+    BOOL reset;
+    SQLHDBC hdbc;
+    SQLHSTMT stmt;
+    struct _SQLPool_ *pNext;
 } SQLPool;
 
 class DBEnv : public CIOObject{
 protected:
     CLock m_lock;
-	SQLHENV m_henv;
-	SQLPool *m_pSqlPool;
+    SQLHENV m_henv;
+    SQLPool *m_pSqlPool;
     SQLPool *m_pFreeSqlPool;
     SQLPool *m_pFreeSqlPoolEnd;
     SQLCHAR m_connStr[MAX_CONN_STR];
     int m_connCount;
     BOOL m_recoveryNeeded;
 
-	static const char* GameIdToRegistryKey(int gameId);
+    static const char* GameIdToRegistryKey(int gameId);
 
 public:
     virtual void OnEventCallback() {}
@@ -52,59 +52,59 @@ public:
 
     DBEnv();
     ~DBEnv();
-	void Init(int connCount);
-	void Destroy();
-	bool Login(bool reset=false);
-	void AllocSQLPool();
+    void Init(int connCount);
+    void Destroy();
+    bool Login(bool reset=false);
+    void AllocSQLPool();
     bool LoadConnStrFromReg();
     void SaveConnStrToReg();
 };
 
 class CDBConn {
 public:
-	SQLHSTMT m_stmt;
+    SQLHSTMT m_stmt;
     int m_colNum;
     int m_paramNum;
 
-	CDBConn(DBEnv *env);
-	~CDBConn();
+    CDBConn(DBEnv *env);
+    ~CDBConn();
 
-	bool SetAutoCommit(bool autoCommit);
-	bool EndTran(SQLSMALLINT compType);
-	bool Execute(const char *format, ...);
-	bool ExecuteIndirect(const char *format, ...);
-	bool ExecuteInsert(const char *format, ...);
-	bool ExecuteInsertIndirect(const char *format, ...);
-	bool ExecuteDelete(const char *format, ...);
-	bool Fetch(bool *nodata = NULL);
-	void Error(SQLSMALLINT handleType, SQLHANDLE handle, const char *command);
-	void ErrorExceptInsert(SQLSMALLINT handleType, SQLHANDLE handle, const char *command);
+    bool SetAutoCommit(bool autoCommit);
+    bool EndTran(SQLSMALLINT compType);
+    bool Execute(const char *format, ...);
+    bool ExecuteIndirect(const char *format, ...);
+    bool ExecuteInsert(const char *format, ...);
+    bool ExecuteInsertIndirect(const char *format, ...);
+    bool ExecuteDelete(const char *format, ...);
+    bool Fetch(bool *nodata = NULL);
+    void Error(SQLSMALLINT handleType, SQLHANDLE handle, const char *command);
+    void ErrorExceptInsert(SQLSMALLINT handleType, SQLHANDLE handle, const char *command);
 
     // column binding for fetch
-	void SetColumnNumber(int n);
-	void Bind(char *str, int size);
-	void Bind(char *n);
-	void Bind(unsigned char *n);
-	void Bind(unsigned *n);
-	void Bind(int *n);
-	void Bind(short *n);
+    void SetColumnNumber(int n);
+    void Bind(char *str, int size);
+    void Bind(char *n);
+    void Bind(unsigned char *n);
+    void Bind(unsigned *n);
+    void Bind(int *n);
+    void Bind(short *n);
 
     // parameter binding for parameterized call
-	void SetParamNumber(int n);
-	void BindParam(char *str, int size, SQLSMALLINT type = SQL_PARAM_INPUT);
-	void BindParam(char *n, SQLSMALLINT type = SQL_PARAM_INPUT);
-	void BindParam(unsigned char *n, SQLSMALLINT type = SQL_PARAM_INPUT);
-	void BindParam(unsigned *n, SQLSMALLINT type = SQL_PARAM_INPUT);
-	void BindParam(int *n, SQLSMALLINT type = SQL_PARAM_INPUT);
-	void BindParam(short *n, SQLSMALLINT type = SQL_PARAM_INPUT);
+    void SetParamNumber(int n);
+    void BindParam(char *str, int size, SQLSMALLINT type = SQL_PARAM_INPUT);
+    void BindParam(char *n, SQLSMALLINT type = SQL_PARAM_INPUT);
+    void BindParam(unsigned char *n, SQLSMALLINT type = SQL_PARAM_INPUT);
+    void BindParam(unsigned *n, SQLSMALLINT type = SQL_PARAM_INPUT);
+    void BindParam(int *n, SQLSMALLINT type = SQL_PARAM_INPUT);
+    void BindParam(short *n, SQLSMALLINT type = SQL_PARAM_INPUT);
 
-	void ResetHtmt(void);
+    void ResetHtmt(void);
     void CloseCursor(void) { SQLCloseCursor(m_stmt); }
 
     friend BOOL CALLBACK LoginDlgProc(HWND hDlg, DWORD dwMessage, DWORD wParam, DWORD lParam);
 
 protected:
-	SQLPool *m_pCurSql;
+    SQLPool *m_pCurSql;
     DBEnv *m_pEnv;
 
 };

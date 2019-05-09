@@ -12,25 +12,25 @@
 class CReporter  
 {
 public:
-	CReporter();
-	virtual ~CReporter();
+    CReporter();
+    virtual ~CReporter();
 
     long m_InGameUser;
-	long m_UserCount;
+    long m_UserCount;
     long m_SocketCount;
-	long m_SocketEXObjectCount;
-	void SetWnd(HWND wnd);
+    long m_SocketEXObjectCount;
+    void SetWnd(HWND wnd);
     HWND GetWnd();
-	void Redraw();
-	void Resize(int width, int height);
+    void Redraw();
+    void Resize(int width, int height);
     void Reset();
 
 protected:
-	HWND m_wnd;
-	HFONT m_font;
-	RECT m_clientRect;
-	HBRUSH m_brush;
-	SIZE m_fontSize;
+    HWND m_wnd;
+    HFONT m_font;
+    RECT m_clientRect;
+    HBRUSH m_brush;
+    SIZE m_fontSize;
     SYSTEMTIME m_st;
 };
 

@@ -1,14 +1,14 @@
 /*****************************************************************************
-	created:	2002/04/03
-	copyright:	2002, NCSoft. All Rights Reserved
-	author(s):	Tom Gambill
-	
-	purpose:	Debug overloads for new and new[] that call the debug version
-				of themselves and supply the actual source line info for 	
-				output later using _CrtSetDbgFlag()
+    created:    2002/04/03
+    copyright:    2002, NCSoft. All Rights Reserved
+    author(s):    Tom Gambill
+    
+    purpose:    Debug overloads for new and new[] that call the debug version
+                of themselves and supply the actual source line info for     
+                output later using _CrtSetDbgFlag()
 
 *****************************************************************************/
-	
+    
 #ifndef   INCLUDED_memMemoryDbg
 #define   INCLUDED_memMemoryDbg
 

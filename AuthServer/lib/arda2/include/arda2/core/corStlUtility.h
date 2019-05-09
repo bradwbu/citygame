@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2002/11/26
-	copyright:	2002, NCSoft. All Rights Reserved
-	author(s):	David M. Aldridge
-	
-	purpose:	Includes the STL <utility> header
+    created:    2002/11/26
+    copyright:    2002, NCSoft. All Rights Reserved
+    author(s):    David M. Aldridge
+    
+    purpose:    Includes the STL <utility> header
 *****************************************************************************/
 
 #ifndef   INCLUDED_corStlUtility

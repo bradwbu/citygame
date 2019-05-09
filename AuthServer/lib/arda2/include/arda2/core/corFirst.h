@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/04/24
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	Primary include file
+    created:    2001/04/24
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    Primary include file
 *****************************************************************************/
 
 #ifndef   INCLUDED_corFirst
@@ -29,25 +29,25 @@
 template <class T>
 inline const T& Min(const T& x, const T& y)
 {
-	return x < y ? x : y;
+    return x < y ? x : y;
 }
 
 template <class T>
 inline const T& Min(const T& x, const T& y, const T& z)
 {
-	return Min(x, Min(y, z));
+    return Min(x, Min(y, z));
 }
 
 template <class T>
 inline const T& Max(const T& x, const T& y)
 {
-	return x > y ? x : y;
+    return x > y ? x : y;
 }
 
 template <class T>
 inline const T& Max(const T& x, const T& y, const T& z)
 {
-	return Max(x, Max(y, z));
+    return Max(x, Max(y, z));
 }
 
 #if CORE_COMPILER_GNU
@@ -61,40 +61,40 @@ inline void ZeroMemory(void* p, size_t s)
 
 template <class T> inline void ZeroObject( T &p )
 {
-	::ZeroMemory(&p, sizeof(p));
+    ::ZeroMemory(&p, sizeof(p));
 }
 
 
 
 template <class T> inline void SafeDelete( T * &p )
 {
-	delete p;
-	p = NULL;
+    delete p;
+    p = NULL;
 }
 
 
 template <class T> inline void SafeDeleteArray( T * &p )
 {
-	delete [] p;
-	p = NULL;
+    delete [] p;
+    p = NULL;
 }
 
 
 template <class T> inline void SafeRelease( T * &p )
 {
-	if( p )	
-		p->Release();
-	p = NULL;
+    if( p )    
+        p->Release();
+    p = NULL;
 }
 
 template <class T> inline long ComRefCount( T *pUnknown )
 {
-	if ( pUnknown )
-	{
-		pUnknown->AddRef();
-		return pUnknown->Release();
-	}
-	return 0;
+    if ( pUnknown )
+    {
+        pUnknown->AddRef();
+        return pUnknown->Release();
+    }
+    return 0;
 }
 
 

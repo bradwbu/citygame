@@ -71,7 +71,7 @@ errResult stoFileOSFile::Open( const char* filename, AccessMode mode, bool textF
         break;
 
     case kAccessNone:
-	    return ER_Failure;
+        return ER_Failure;
     }
 
     m_accessMode = mode;

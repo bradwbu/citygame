@@ -10,35 +10,35 @@
 
 CIOObject::CIOObject()
 {
-	refcount = 1;
+    refcount = 1;
 }
 
 CIOObject::~CIOObject()
 {
-	_ASSERTE(refcount == 0);
+    _ASSERTE(refcount == 0);
 }
 
 int CIOObject::AddRef( void ) 
 {
-	InterlockedIncrement( &refcount );
-	return refcount;
+    InterlockedIncrement( &refcount );
+    return refcount;
 }
 
 void CIOObject::ReleaseRef( void )
 {
-	if ( InterlockedDecrement( &refcount ) == 0 )
-		delete this;
+    if ( InterlockedDecrement( &refcount ) == 0 )
+        delete this;
 }
 
 BOOL CIOObject::PostObject( int dwDataSize, HANDLE completionPort )
 {
-	return PostQueuedCompletionStatus( completionPort, dwDataSize, (DWORD)PtrToUint(this), NULL );
+    return PostQueuedCompletionStatus( completionPort, dwDataSize, (DWORD)PtrToUint(this), NULL );
 }
 
 BOOL CIOObject::RegisterTimer( UINT waitTime, BOOL setEvent )
 {
     if(job.PushTimer(this, waitTime, setEvent)) {
-	    AddRef();
+        AddRef();
         return TRUE;
     } else {
         return FALSE;
@@ -48,21 +48,21 @@ BOOL CIOObject::RegisterTimer( UINT waitTime, BOOL setEvent )
 
 bool CIOObject::RegisterEvent( HANDLE hEvent )
 {
-	if ( job.PushEvent( hEvent, this ))
-		return true;
-	else
-		return false;
+    if ( job.PushEvent( hEvent, this ))
+        return true;
+    else
+        return false;
 }
 
 void CIOObject::OnIOCallback( BOOL bSuccess, DWORD dwTransferred, LPOVERLAPPED lpOverlapped )
 {
-	return;
+    return;
 }
 
 void CIOObject::OnTimerCallback(void)
 {
-	ReleaseRef();
-	return;
+    ReleaseRef();
+    return;
 }
 
 void CIOObject::OnEventCallback( void )

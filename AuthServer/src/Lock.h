@@ -35,8 +35,8 @@ protected:
 
 public:
 
-	CLock(LockType a = eCriticalSection, DWORD spinCount = 0);
-	~CLock();
+    CLock(LockType a = eCriticalSection, DWORD spinCount = 0);
+    ~CLock();
     void Enter();
     void Leave();
     bool TryEnter();
@@ -44,19 +44,19 @@ public:
 
 class CRWLock {
 public:
-	CRWLock();
-	~CRWLock();
+    CRWLock();
+    ~CRWLock();
 
-	void ReadLock();
-	void ReadUnlock();
-	void WriteLock();
-	bool WriteTryLock();
-	void WriteUnlock();
+    void ReadLock();
+    void ReadUnlock();
+    void WriteLock();
+    bool WriteTryLock();
+    void WriteUnlock();
 
 private:
-	CRITICAL_SECTION mutex;
-	HANDLE dataLock;
-	int readerCount;
+    CRITICAL_SECTION mutex;
+    HANDLE dataLock;
+    int readerCount;
 };
 
 #endif // !defined(AFX_LOCK_H__F2FDB4C3_6D4A_4344_BC16_923008A7A9B3__INCLUDED_)

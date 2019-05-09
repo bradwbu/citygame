@@ -20,41 +20,41 @@
 class CServerList  
 {
 public:
-	CServerList();
-	~CServerList();
+    CServerList();
+    ~CServerList();
 
-	void Load();
+    void Load();
 
-	void SetServerStatus(ServerId id, ServerStatus status);
-	void SetServerVIPStatus(ServerId id, int isVIP);
+    void SetServerStatus(ServerId id, ServerStatus status);
+    void SetServerVIPStatus(ServerId id, int isVIP);
 
-	ServerId SetServerSocketByAddress(in_addr address, CSocketServer *socket);
-	bool SetServerSocketById(ServerId id, CSocketServer *socket, in_addr actualAddress, short int actualPort);
-	void RemoveSocket(CSocketServer *socket);
+    ServerId SetServerSocketByAddress(in_addr address, CSocketServer *socket);
+    bool SetServerSocketById(ServerId id, CSocketServer *socket, in_addr actualAddress, short int actualPort);
+    void RemoveSocket(CSocketServer *socket);
 
-	in_addr GetInternalAddress(ServerId id) const;
+    in_addr GetInternalAddress(ServerId id) const;
 
-	bool IsServerUp(ServerId id) const;
-	bool IsServerVIPonly(ServerId id) const;
+    bool IsServerUp(ServerId id) const;
+    bool IsServerVIPonly(ServerId id) const;
 
-	void RequestUserCounts() const;
-	void SetServerUserCount( ServerId id, short userCount, short userLimit);
-	void SetServerQueueSize( ServerId id, int queueLevel, int queueSize, int queueTime);
+    void RequestUserCounts() const;
+    void SetServerUserCount( ServerId id, short userCount, short userLimit);
+    void SetServerQueueSize( ServerId id, int queueLevel, int queueSize, int queueTime);
 
-	void MakeServerListPacket(std::vector<char> & buffer, ServerId lastServer, int regions[MAX_REGIONS]) const;
-	void MakeQueueSizePacket(std::vector<char> & buffer) const;
+    void MakeServerListPacket(std::vector<char> & buffer, ServerId lastServer, int regions[MAX_REGIONS]) const;
+    void MakeQueueSizePacket(std::vector<char> & buffer) const;
 
-	void UpdateDB() const;
+    void UpdateDB() const;
 
 private:
-	typedef std::map<ServerId, WorldServer> ServerListType;
-	typedef std::map<ServerId, std::vector<std::pair<int, int> > > QueueSizesType;
-	ServerListType m_serverList;
-	QueueSizesType m_queueSizes;
-	HANDLE m_timer;
-	mutable CRWLock mylock;
+    typedef std::map<ServerId, WorldServer> ServerListType;
+    typedef std::map<ServerId, std::vector<std::pair<int, int> > > QueueSizesType;
+    ServerListType m_serverList;
+    QueueSizesType m_queueSizes;
+    HANDLE m_timer;
+    mutable CRWLock mylock;
 
-	ServerId GetFreeServerId() const;
+    ServerId GetFreeServerId() const;
 };
 
 extern CServerList g_ServerList;

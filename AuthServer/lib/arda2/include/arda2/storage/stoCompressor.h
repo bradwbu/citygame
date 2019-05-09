@@ -18,40 +18,40 @@
 class stoCompressor
 {
 public:
-	enum compressionScheme
-	{
-		kClear,
-		kZlib,
-		kBzip2,
+    enum compressionScheme
+    {
+        kClear,
+        kZlib,
+        kBzip2,
         kUnchanged // not an actual scheme - specifies to NOT change the existing compression of a file
-	};
-	
-	static const char *kClearName;
-	static const char *kZlibName;
-	static const char *kBzip2Name;
+    };
+    
+    static const char *kClearName;
+    static const char *kZlibName;
+    static const char *kBzip2Name;
     static const char *kUnchangedName;
 
-	// gets the worst case size for a scheme for an input size
-	static int32 GetWorstCase( compressionScheme scheme, int32 inSize);
+    // gets the worst case size for a scheme for an input size
+    static int32 GetWorstCase( compressionScheme scheme, int32 inSize);
 
-	// gets a string name of the compression
-	static const char *GetCompressionLabel(compressionScheme scheme);
+    // gets a string name of the compression
+    static const char *GetCompressionLabel(compressionScheme scheme);
 
-	// un-compresses a buffer to a buffer
-	static errResult UnCompress(
-						compressionScheme  scheme,
-						char			   *destBuf,	// destinationn buffer
-						int32              *destSize,	// size of dest buffer (out)
-						char			  *srcBuf,		// source buffer
-						int32              srcSize);	// size of source buffer (in)
+    // un-compresses a buffer to a buffer
+    static errResult UnCompress(
+                        compressionScheme  scheme,
+                        char               *destBuf,    // destinationn buffer
+                        int32              *destSize,    // size of dest buffer (out)
+                        char              *srcBuf,        // source buffer
+                        int32              srcSize);    // size of source buffer (in)
 
-	// compresses a buffer to a buffer
-	static errResult Compress(
-						compressionScheme  scheme,
-						char			   *destBuf,	// destinationn buffer
-						int32              *destSize,	// size of dest buffer (out)
-						char			   *srcBuf,		// source buffer
-						int32              srcSize);	// size of source buffer (in)
+    // compresses a buffer to a buffer
+    static errResult Compress(
+                        compressionScheme  scheme,
+                        char               *destBuf,    // destinationn buffer
+                        int32              *destSize,    // size of dest buffer (out)
+                        char               *srcBuf,        // source buffer
+                        int32              srcSize);    // size of source buffer (in)
 };
 
 

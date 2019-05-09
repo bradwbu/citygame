@@ -92,7 +92,7 @@ public:
     errResult Initialize();
     void      Destroy();
 
-    void	  BeginNewFrame();
+    void      BeginNewFrame();
     void      Optimize();
     void      Flush();
 

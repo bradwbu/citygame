@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2002/02/06
-	copyright:	2002, NCSoft. All Rights Reserved
-	author(s):	Ryan M. Prescott
-	
-	purpose:	threadage
+    created:    2002/02/06
+    copyright:    2002, NCSoft. All Rights Reserved
+    author(s):    Ryan M. Prescott
+    
+    purpose:    threadage
 *****************************************************************************/
 
 #ifndef _THR_THREAD_H_
@@ -11,8 +11,8 @@
 
 #if CORE_SYSTEM_WINAPI
 // win32 implementation for windows
-#define OSTHREADHANDLE	HANDLE
-#define TIDTYPE		DWORD
+#define OSTHREADHANDLE    HANDLE
+#define TIDTYPE        DWORD
 #else
 // Pthread Implementation for Linux
 #include "pthread.h"
@@ -22,7 +22,7 @@
 
 class thrThread {
 public:
-    virtual	~thrThread();
+    virtual    ~thrThread();
     void Run();
     void Create(bool CreateSuspended);
     void Suspend();

@@ -130,96 +130,96 @@ void utlStringTable::Clear()
 class utlStringTableTests : public tstUnit
 {
 private:
-	utlStringTable	m_table;
-	utlStringId		m_id0;
-	utlStringId		m_id1;
-	utlStringId		m_id2;
-	utlStringId		m_id3;
-	utlStringId		m_id4;
+    utlStringTable    m_table;
+    utlStringId        m_id0;
+    utlStringId        m_id1;
+    utlStringId        m_id2;
+    utlStringId        m_id3;
+    utlStringId        m_id4;
 public:
-	utlStringTableTests()
-	{
-	}
+    utlStringTableTests()
+    {
+    }
 
-	virtual void Register()
-	{
-		SetName("utlStringTable");
+    virtual void Register()
+    {
+        SetName("utlStringTable");
 
-		AddTestCase("utlStringTable::AddString()", &utlStringTableTests::TestAddString);
-		AddTestCase("utlStringTable::GetId()", &utlStringTableTests::TestGetId);
-		AddTestCase("utlStringTable::GetString()", &utlStringTableTests::TestGetString);
-		AddTestCase("utlStringTable::Clear()", &utlStringTableTests::TestClear);
-	};
+        AddTestCase("utlStringTable::AddString()", &utlStringTableTests::TestAddString);
+        AddTestCase("utlStringTable::GetId()", &utlStringTableTests::TestGetId);
+        AddTestCase("utlStringTable::GetString()", &utlStringTableTests::TestGetString);
+        AddTestCase("utlStringTable::Clear()", &utlStringTableTests::TestClear);
+    };
 
-	virtual void TestCaseSetup()
-	{
-		m_id0 = m_table.AddString("test0");
-		m_id1 = m_table.AddString("test1");
-		m_id2 = m_table.AddString("test2");
-		m_id3 = m_table.AddString("test3");
-		m_id4 = m_table.AddString("test4");
-	}
+    virtual void TestCaseSetup()
+    {
+        m_id0 = m_table.AddString("test0");
+        m_id1 = m_table.AddString("test1");
+        m_id2 = m_table.AddString("test2");
+        m_id3 = m_table.AddString("test3");
+        m_id4 = m_table.AddString("test4");
+    }
 
-	virtual void TestCaseTearDown()
-	{
-		m_table.Clear();
-	}
+    virtual void TestCaseTearDown()
+    {
+        m_table.Clear();
+    }
 
-	void TestAddString() const
-	{
-		utlStringTable table;
+    void TestAddString() const
+    {
+        utlStringTable table;
 
-		utlStringId	id0 = table.AddString("test0");
-		TESTASSERT(id0.IsValid());
+        utlStringId    id0 = table.AddString("test0");
+        TESTASSERT(id0.IsValid());
 
-		utlStringId	id1 = table.AddString("test1");
-		TESTASSERT(id1.IsValid());
+        utlStringId    id1 = table.AddString("test1");
+        TESTASSERT(id1.IsValid());
 
-		TESTASSERT(id0 != id1);
+        TESTASSERT(id0 != id1);
 
-		utlStringId id2 = table.AddString("test0");
-		TESTASSERT(id2 == id0);
+        utlStringId id2 = table.AddString("test0");
+        TESTASSERT(id2 == id0);
 
-		utlStringId id3 = table.AddString("TEST1");
-		TESTASSERT(id3 == id1);
+        utlStringId id3 = table.AddString("TEST1");
+        TESTASSERT(id3 == id1);
 
-		utlStringId id4 = table.AddString("");
-		TESTASSERT(id4 == utlStringId::ID_NONE);
+        utlStringId id4 = table.AddString("");
+        TESTASSERT(id4 == utlStringId::ID_NONE);
 
-		utlStringId id5 = table.AddString(NULL);
-		TESTASSERT(id5 == utlStringId::ID_NONE);
-	}
+        utlStringId id5 = table.AddString(NULL);
+        TESTASSERT(id5 == utlStringId::ID_NONE);
+    }
 
-	void TestGetId() const
-	{
-		TESTASSERT(m_table.GetId("test0") == m_id0);
-		TESTASSERT(m_table.GetId("test1") == m_id1);
-		TESTASSERT(m_table.GetId("test2") == m_id2);
-		TESTASSERT(m_table.GetId("tEsT0") == m_id0);
-		TESTASSERT(m_table.GetId("TEST10") == utlStringId::ID_NONE);
-		TESTASSERT(m_table.GetId("") == utlStringId::ID_NONE);
-		TESTASSERT(m_table.GetId(NULL) == utlStringId::ID_NONE);
-	}
+    void TestGetId() const
+    {
+        TESTASSERT(m_table.GetId("test0") == m_id0);
+        TESTASSERT(m_table.GetId("test1") == m_id1);
+        TESTASSERT(m_table.GetId("test2") == m_id2);
+        TESTASSERT(m_table.GetId("tEsT0") == m_id0);
+        TESTASSERT(m_table.GetId("TEST10") == utlStringId::ID_NONE);
+        TESTASSERT(m_table.GetId("") == utlStringId::ID_NONE);
+        TESTASSERT(m_table.GetId(NULL) == utlStringId::ID_NONE);
+    }
 
-	void TestGetString() const
-	{
-		TESTASSERT(strcmp(m_table.GetString(m_id0), "test0") == 0);
-		TESTASSERT(strcmp(m_table.GetString(m_id1), "test1") == 0);
-		TESTASSERT(strcmp(m_table.GetString(m_id2), "test2") == 0);
-	}
+    void TestGetString() const
+    {
+        TESTASSERT(strcmp(m_table.GetString(m_id0), "test0") == 0);
+        TESTASSERT(strcmp(m_table.GetString(m_id1), "test1") == 0);
+        TESTASSERT(strcmp(m_table.GetString(m_id2), "test2") == 0);
+    }
 
-	void TestClear() const
-	{
-		utlStringTable table;
+    void TestClear() const
+    {
+        utlStringTable table;
 
-		table.AddString("test0");
-		table.AddString("test1");
-		table.AddString("test0");
+        table.AddString("test0");
+        table.AddString("test1");
+        table.AddString("test0");
 
-		table.Clear();
-		utlStringId id0 = table.GetId("test0");
-		TESTASSERT(id0 == utlStringId::ID_NONE);
-	}
+        table.Clear();
+        utlStringId id0 = table.GetId("test0");
+        TESTASSERT(id0 == utlStringId::ID_NONE);
+    }
 };
 
 EXPORTUNITTESTOBJECT(utlStringTableTests);

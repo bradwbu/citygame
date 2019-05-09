@@ -1,9 +1,9 @@
 /*****************************************************************************
-created:	2002/10/23
-copyright:	2002, NCSoft. All Rights Reserved
-author(s):	Jason Beardsley
+created:    2002/10/23
+copyright:    2002, NCSoft. All Rights Reserved
+author(s):    Jason Beardsley
 
-purpose:	
+purpose:    
 *****************************************************************************/
 
 #include "../../include/arda2/math/matFirst.h"

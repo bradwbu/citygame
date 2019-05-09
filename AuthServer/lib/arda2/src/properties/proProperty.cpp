@@ -433,24 +433,24 @@ void proPropertyEnum::SetEnumString(const string &anEnum)
 
 void proPropertyEnum::SetEnumTable(const EnumTable *aTable, uint aTableSize)
 {
-	// this function is note meant to be used per frame or for any performance
+    // this function is note meant to be used per frame or for any performance
 
-	string enumString;
-	string comma = ",";
-	char number[64];
+    string enumString;
+    string comma = ",";
+    char number[64];
 
-	for( uint i = 0; i < aTableSize; ++i )
-	{
-		enumString += aTable[i].key;
-		enumString += ",";
+    for( uint i = 0; i < aTableSize; ++i )
+    {
+        enumString += aTable[i].key;
+        enumString += ",";
 
         // can use itoa?
         sprintf(number, "%ul", aTable[i].value);
-		enumString += number;
-		enumString += comma;
-	}
+        enumString += number;
+        enumString += comma;
+    }
 
-	SetEnumString( enumString );
+    SetEnumString( enumString );
 }
 
 uint proPropertyEnum::GetEnumerationValue(const string &astring) const 

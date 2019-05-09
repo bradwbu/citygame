@@ -20,7 +20,7 @@ bool timTimer::s_initialized = false;
 uint64 timTimer::s_systemFrequency = 0;
 
 #if CORE_SYSTEM_WIN32
-//#define USE_CPU_COUNTER 1	// MS recommends using QueryPerformanceCounter over rdtsc...
+//#define USE_CPU_COUNTER 1    // MS recommends using QueryPerformanceCounter over rdtsc...
 #endif
 
 timTimer::timTimer( uint frequency ) :
@@ -218,11 +218,11 @@ void corSleep(int milliseconds)
 #elif CORE_SYSTEM_PS3
     sys_timer_usleep(1000*milliseconds); // in u-seconds
 #else
-	struct timespec t;
-	struct timespec rem;
-	t.tv_sec = milliseconds/1000;
-	t.tv_nsec = (milliseconds % 1000) * 1000000;
-	nanosleep(&t, &rem);
+    struct timespec t;
+    struct timespec rem;
+    t.tv_sec = milliseconds/1000;
+    t.tv_nsec = (milliseconds % 1000) * 1000000;
+    nanosleep(&t, &rem);
 #endif
 }
 
@@ -240,13 +240,13 @@ uint32 timUseOneCPU()
 {
 #if CORE_SYSTEM_WINAPI && !(CORE_SYSTEM_XENON)
     HANDLE handle =::GetCurrentProcess();
-	DWORD_PTR processMask = 0x0000;
+    DWORD_PTR processMask = 0x0000;
     DWORD_PTR systemMask = 0x0000;
     int result = ::GetProcessAffinityMask(handle, &processMask, &systemMask);
     if (result)
     {
         DWORD_PTR newProcessMask = 0x0001;
-	    if (::SetProcessAffinityMask(handle, newProcessMask))
+        if (::SetProcessAffinityMask(handle, newProcessMask))
             return (uint32)processMask;
     }
 #endif

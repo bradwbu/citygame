@@ -267,7 +267,7 @@ stoConfigFile::stoConfigFile( const string &filename ) :
     m_status(ER_Failure)
 {
     Initialize();
-	Load();
+    Load();
 }
 
 
@@ -317,15 +317,15 @@ errResult stoConfigFile::Load( IN stoFile& file )
 
     stoFileBuffer buffer(file);
 
-	while ( !buffer.Eof() )
-	{
+    while ( !buffer.Eof() )
+    {
         string sLine;
         buffer.ReadLine(sLine);
-		const char *pChar = sLine.c_str();
+        const char *pChar = sLine.c_str();
 
-		// strip out leading whitespace
-		while ( isspace(*pChar) )
-			pChar++;
+        // strip out leading whitespace
+        while ( isspace(*pChar) )
+            pChar++;
 
         if ( *pChar == '[' )
         {

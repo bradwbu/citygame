@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/04/24
-	copyright:	2001, NCSoft. All Rights Reserved, except where noted.
-	author(s):	Andy Mitchell, except where noted.
-	
-	purpose:	General purpose bit array, from Andrew Kirmse/Game Programming Gems
+    created:    2001/04/24
+    copyright:    2001, NCSoft. All Rights Reserved, except where noted.
+    author(s):    Andy Mitchell, except where noted.
+    
+    purpose:    General purpose bit array, from Andrew Kirmse/Game Programming Gems
 *****************************************************************************/
 
 // A one-dimensional array of bits, similar to STL bitset.

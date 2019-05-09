@@ -3,7 +3,7 @@ created:    2002/09/20
 copyright:  2002, NCsoft. All Rights Reserved
 author(s):  Jason Beardsley
 
-purpose:	
+purpose:    
 *****************************************************************************/
 
 #define NO_MATBASE_REMAPPING
@@ -1616,12 +1616,12 @@ public:
       v000(0.0f, 0.0f, 0.0f),
       v111(1.0f, 1.0f, 1.0f),
       v123(1.0f, 2.0f, 3.0f)
-	{
-	}
+    {
+    }
 
-	virtual void Register()
-	{
-		SetName("matD3DXMathEmu");
+    virtual void Register()
+    {
+        SetName("matD3DXMathEmu");
         AddDependency("matUtils");
 
         AddTestCase("matBaseVECTOR3 construction", &matD3DXMathEmuTests::TestVECTOR3Construction);
@@ -1638,17 +1638,17 @@ public:
         AddTestCase("matBasePLANE operators", &matD3DXMathEmuTests::TestPlaneOperators);
         AddTestCase("matBasePlaneFromPointNormal()", &matD3DXMathEmuTests::TestPlaneFromPointNormal);
         AddTestCase("matBasePlaneFromPoints()", &matD3DXMathEmuTests::TestPlaneFromPoints);
-	};
+    };
 
-	virtual void UnitTestSetup()
-	{
-		// set up code
-	}
+    virtual void UnitTestSetup()
+    {
+        // set up code
+    }
 
-	virtual void UnitTestTearDown()
-	{
-		// tear down code
-	}
+    virtual void UnitTestTearDown()
+    {
+        // tear down code
+    }
 
     void TestVECTOR3Construction() const
     {

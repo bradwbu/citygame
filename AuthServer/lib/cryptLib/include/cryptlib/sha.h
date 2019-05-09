@@ -16,8 +16,8 @@
 #include <cstdio>
 #include <cstdint>
 
-#define w_32_bits 32	// SHA-1, SHA-256 uses w=32, i.e. 32-bit "blocks"
-#define w_64_bits 64	// SHA-512 uses w=64, i.e. 64-bit "blocks"
+#define w_32_bits 32    // SHA-1, SHA-256 uses w=32, i.e. 32-bit "blocks"
+#define w_64_bits 64    // SHA-512 uses w=64, i.e. 64-bit "blocks"
 
 namespace cryptLib
 {

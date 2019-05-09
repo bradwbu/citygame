@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/09/28
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	
+    created:    2001/09/28
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    
 *****************************************************************************/
 
 #include "../../include/arda2/math/matFirst.h"
@@ -167,7 +167,7 @@ void matFarTransform::LocalRotateEuler( float fYaw, float fPitch, float fRoll )
  */
 void matFarTransform::SetEulerAngles( float fYaw, float fPitch, float fRoll )
 {
-	m_localTransform.ModifyQuaternion().StoreEulerAngles(fYaw, fPitch, fRoll);
+    m_localTransform.ModifyQuaternion().StoreEulerAngles(fYaw, fPitch, fRoll);
     ++m_iChangeStamp;
 }
 

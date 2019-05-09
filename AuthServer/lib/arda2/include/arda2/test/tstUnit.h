@@ -17,8 +17,8 @@
 #include "../core/corFirst.h"
 #include "../util/utlStringTable.h"
 
-#pragma deprecated("DECLAREUNITTESTOBJECT")	// this macro should no longer be used
-#define DECLAREUNITTESTOBJECT(classname)	// use EXPORTUNITTESTOBJECT() instead
+#pragma deprecated("DECLAREUNITTESTOBJECT")    // this macro should no longer be used
+#define DECLAREUNITTESTOBJECT(classname)    // use EXPORTUNITTESTOBJECT() instead
 
 #define EXPORTUNITTESTOBJECT(classname) \
     classname classname##_Object; \

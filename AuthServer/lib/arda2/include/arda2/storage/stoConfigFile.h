@@ -137,8 +137,8 @@ class stoConfigFile
 {
 public:
     stoConfigFile();
-	stoConfigFile( const std::string& filename );
-	~stoConfigFile( void );
+    stoConfigFile( const std::string& filename );
+    ~stoConfigFile( void );
 
     errResult Load( const std::string &filename );
     errResult Load( stoFile &file );
@@ -162,7 +162,7 @@ public:
 
     // set an existing value (or add another value with the same key - dupe)
     template <typename T>
-	void SetValue( IN const std::string &sSection, IN const std::string &sKey, IN T value, bool dupe = false )
+    void SetValue( IN const std::string &sSection, IN const std::string &sKey, IN T value, bool dupe = false )
     {
         stoConfigFileSection *pSection = GetSection(sSection);
         pSection->SetValue(sKey, value, dupe);

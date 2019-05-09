@@ -1,13 +1,13 @@
 /*****************************************************************************
-	created:	2003/03/28
-	copyright:	2001,	NCSoft.	All	Rights Reserved
-	author(s):	Ryan Prescott
-	
-	purpose:	
+    created:    2003/03/28
+    copyright:    2001,    NCSoft.    All    Rights Reserved
+    author(s):    Ryan Prescott
+    
+    purpose:    
 *****************************************************************************/
 
-#ifndef		INCLUDED_stoSafeList
-#define		INCLUDED_stoSafeList
+#ifndef        INCLUDED_stoSafeList
+#define        INCLUDED_stoSafeList
 
 #include "../core/corStlQueue.h"
 #include "../thread/thrCritical.h"

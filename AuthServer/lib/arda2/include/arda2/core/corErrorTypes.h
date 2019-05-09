@@ -1,11 +1,11 @@
 /**
-	copyright:	(c) 2003, NCsoft. All Rights Reserved
-	author(s):	Peter Freese
-	purpose:	
-	modified:	$DateTime: 2005/11/17 10:07:52 $
-				$Author: cthurow $
-				$Change: 178508 $
-				@file
+    copyright:    (c) 2003, NCsoft. All Rights Reserved
+    author(s):    Peter Freese
+    purpose:    
+    modified:    $DateTime: 2005/11/17 10:07:52 $
+                $Author: cthurow $
+                $Change: 178508 $
+                @file
 **/
 
 #ifndef   INCLUDED_corErrorTypes_h

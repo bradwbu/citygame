@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/07/31
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	Wrapper around including <windows.h> and friends
+    created:    2001/07/31
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    Wrapper around including <windows.h> and friends
 *****************************************************************************/
 
 #ifndef   INCLUDED_corWindows
@@ -118,22 +118,22 @@ typedef unsigned long DWORD;
 
 typedef struct tagSIZE
 {
-	long cx;
-	long cy;
+    long cx;
+    long cy;
 } SIZE;
 
 typedef struct tagPOINT
 {
-	long x;
-	long y;
+    long x;
+    long y;
 } POINT;
 
 typedef struct tagRECT
 {
-	long left;
-	long top;
-	long right;
-	long bottom;
+    long left;
+    long top;
+    long right;
+    long bottom;
 } RECT;
 
 #endif

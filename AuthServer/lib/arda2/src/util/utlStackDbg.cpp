@@ -1,12 +1,12 @@
 /*****************************************************************************
-	created:	2002/04/03
-	copyright:	2002, NCSoft. All Rights Reserved
-	author(s):	Tom Gambill
-	
-	purpose:	Provides the ability to walk the stack with symbols during the
-				execution of the application
+    created:    2002/04/03
+    copyright:    2002, NCSoft. All Rights Reserved
+    author(s):    Tom Gambill
+    
+    purpose:    Provides the ability to walk the stack with symbols during the
+                execution of the application
 
-				This code was borrowed from BugSlayer MSJ
+                This code was borrowed from BugSlayer MSJ
 *****************************************************************************/
 
 #include "../../include/arda2/core/corFirst.h"
@@ -50,8 +50,8 @@ static StackWalk64FunctionType              StackWalkFunction;
 //*****************************************************************
 //*  Install()
 //*
-//*		Loads the help dll and initializes everything needed to 
-//*		walk the stack on the current process.
+//*        Loads the help dll and initializes everything needed to 
+//*        walk the stack on the current process.
 //*
 //*****************************************************************
 bool utlStackDbg::Install()
@@ -117,7 +117,7 @@ bool utlStackDbg::Install()
 //*****************************************************************
 //*  Release()
 //*
-//*		Unload the DLL and release
+//*        Unload the DLL and release
 //*
 //*****************************************************************
 void utlStackDbg::Release()
@@ -143,64 +143,64 @@ void utlStackDbg::Release()
 //*****************************************************************
 //*  GetSingleton()
 //*
-//*		Initializes the first time, then returns the same static 
-//*		object after that
+//*        Initializes the first time, then returns the same static 
+//*        object after that
 //*
 //*****************************************************************
 utlStackDbg& utlStackDbg::GetSingleton() 
 {
-	static utlStackDbg s_Singleton;
+    static utlStackDbg s_Singleton;
 
-	if ( !s_Singleton.IsInstalled() )
-	{
-		s_Singleton.Install();
-	}
+    if ( !s_Singleton.IsInstalled() )
+    {
+        s_Singleton.Install();
+    }
 
-	return s_Singleton;
+    return s_Singleton;
 }
 
 
 //*****************************************************************
 //*  GetCallerReturnAddress()
 //*
-//*		Gets the return address of the caller from the current
-//*		stack location
+//*        Gets the return address of the caller from the current
+//*        stack location
 //*
 //*****************************************************************
 DWORD utlStackDbg::GetCallerReturnAddress(int iStackFramesBack)
 {
-	if (!m_bInstalled)
-		return 0;
+    if (!m_bInstalled)
+        return 0;
 
-	// setup the thread context information
+    // setup the thread context information
     HANDLE hThread = GetCurrentThread();
-	CONTEXT stCtx;
-	stCtx.ContextFlags = CONTEXT_CONTROL;
-	if (!GetThreadContext(hThread, &stCtx))
-		return 0;
+    CONTEXT stCtx;
+    stCtx.ContextFlags = CONTEXT_CONTROL;
+    if (!GetThreadContext(hThread, &stCtx))
+        return 0;
 
-	// setup the current stack frame
-	STACKFRAME64 stFrame;
-	ZeroMemory(&stFrame, sizeof(stFrame));
-	stFrame.AddrPC.Mode      = AddrModeFlat;
-	stFrame.AddrPC.Offset    = stCtx.Eip;
-	stFrame.AddrStack.Mode   = AddrModeFlat;
-	stFrame.AddrStack.Offset = stCtx.Esp;
-	stFrame.AddrFrame.Mode   = AddrModeFlat;
-	stFrame.AddrFrame.Offset = stCtx.Ebp;
+    // setup the current stack frame
+    STACKFRAME64 stFrame;
+    ZeroMemory(&stFrame, sizeof(stFrame));
+    stFrame.AddrPC.Mode      = AddrModeFlat;
+    stFrame.AddrPC.Offset    = stCtx.Eip;
+    stFrame.AddrStack.Mode   = AddrModeFlat;
+    stFrame.AddrStack.Offset = stCtx.Esp;
+    stFrame.AddrFrame.Mode   = AddrModeFlat;
+    stFrame.AddrFrame.Offset = stCtx.Ebp;
 
-	// Don't count the call into 
-	++iStackFramesBack;
+    // Don't count the call into 
+    ++iStackFramesBack;
 
-	// trace the stack back up to 512 frames
-	for ( ; iStackFramesBack && StackWalkFunction(IMAGE_FILE_MACHINE_I386, m_hProcess, hThread, &stFrame, &stCtx, NULL, SymFunctionTableAccessFunction, SymGetModuleBaseFunction, NULL); --iStackFramesBack)
-		;
+    // trace the stack back up to 512 frames
+    for ( ; iStackFramesBack && StackWalkFunction(IMAGE_FILE_MACHINE_I386, m_hProcess, hThread, &stFrame, &stCtx, NULL, SymFunctionTableAccessFunction, SymGetModuleBaseFunction, NULL); --iStackFramesBack)
+        ;
 
-	// make sure we got back as far as they requested
-	if (iStackFramesBack == 0)
-		return (DWORD)stFrame.AddrPC.Offset;
+    // make sure we got back as far as they requested
+    if (iStackFramesBack == 0)
+        return (DWORD)stFrame.AddrPC.Offset;
 
-	return 0;
+    return 0;
 }
 
 // getprogramcounterix86 - Helper function that retrieves the program counter
@@ -233,19 +233,19 @@ unsigned long GetProgramCounterIntelX86()
     return programcounter;
 }
 
-int	utlStackDbg::StackProbe( int iStartDepth, DWORD *pAddresses, int iProbeDepth )
+int    utlStackDbg::StackProbe( int iStartDepth, DWORD *pAddresses, int iProbeDepth )
 {
-	if (!m_bInstalled)
-		return 0;
+    if (!m_bInstalled)
+        return 0;
 
-	// setup the thread context information
+    // setup the thread context information
     HANDLE hThread = GetCurrentThread();
-	CONTEXT stCtx;
+    CONTEXT stCtx;
     unsigned long framePointer;
     unsigned long programCounter;
 
     programCounter = GetProgramCounterIntelX86();
-	__asm mov [framePointer], ebp  // Get the frame pointer (aka base pointer)
+    __asm mov [framePointer], ebp  // Get the frame pointer (aka base pointer)
 
     // Initialize the STACKFRAME64 structure.
     STACKFRAME64 frame;
@@ -256,22 +256,22 @@ int	utlStackDbg::StackProbe( int iStartDepth, DWORD *pAddresses, int iProbeDepth
     frame.AddrFrame.Mode   = AddrModeFlat;
 
     // NOTE: do we need these too?
-	//frame.AddrStack.Mode   = AddrModeFlat;
-	//frame.AddrStack.Offset = stCtx.Esp;
+    //frame.AddrStack.Mode   = AddrModeFlat;
+    //frame.AddrStack.Offset = stCtx.Esp;
 
-	int iAddresses = 0;
-	for ( int iDepth = 0; iAddresses < iProbeDepth; ++iDepth )
-	{
-		if ( !StackWalkFunction(IMAGE_FILE_MACHINE_I386, m_hProcess, hThread, &frame, &stCtx, NULL, SymFunctionTableAccessFunction, SymGetModuleBaseFunction, NULL) )
-			break;
+    int iAddresses = 0;
+    for ( int iDepth = 0; iAddresses < iProbeDepth; ++iDepth )
+    {
+        if ( !StackWalkFunction(IMAGE_FILE_MACHINE_I386, m_hProcess, hThread, &frame, &stCtx, NULL, SymFunctionTableAccessFunction, SymGetModuleBaseFunction, NULL) )
+            break;
 
-		if ( iDepth > iStartDepth )
-		{
-			pAddresses[iAddresses++] = (DWORD)frame.AddrPC.Offset;
-		}
-	}
+        if ( iDepth > iStartDepth )
+        {
+            pAddresses[iAddresses++] = (DWORD)frame.AddrPC.Offset;
+        }
+    }
 
-	return iAddresses;
+    return iAddresses;
 }
 
 
@@ -279,8 +279,8 @@ int	utlStackDbg::StackProbe( int iStartDepth, DWORD *pAddresses, int iProbeDepth
 //*****************************************************************
 //*  GetModuleNameFromAddress()
 //*
-//*		Returns the EXE or DLL name that contains the method at the
-//*		address.
+//*        Returns the EXE or DLL name that contains the method at the
+//*        address.
 //*
 //*****************************************************************
 void utlStackDbg::GetModuleNameFromAddress(DWORD dwAddress, char *szModuleName, int iMaxModuleNameLength)
@@ -316,7 +316,7 @@ void utlStackDbg::GetModuleNameFromAddress(DWORD dwAddress, char *szModuleName, 
 //*****************************************************************
 //*  GetSymbolNameFromAddress()
 //*
-//*		Returns the symbol name from the address
+//*        Returns the symbol name from the address
 //*
 //*****************************************************************
 bool utlStackDbg::GetSymbolNameFromAddress(DWORD dwAddress, char *szSymbolName, int iMaxSymbolNameLength)
@@ -350,71 +350,71 @@ bool utlStackDbg::GetSymbolNameFromAddress(DWORD dwAddress, char *szSymbolName, 
 //*****************************************************************
 //*  GetFileNameAndLineFromAddress()
 //*
-//*		Returns the filename and line number from the address
+//*        Returns the filename and line number from the address
 //*
 //*****************************************************************
 bool utlStackDbg::GetFileNameAndLineFromAddress(DWORD dwAddress, char *&szFileName, int &riLineNumber)
 {
-	szFileName = 0;
-	riLineNumber = 0;
-	if (!m_bInstalled || !SymGetLineFromAddrFunction)
-		return false;
+    szFileName = 0;
+    riLineNumber = 0;
+    if (!m_bInstalled || !SymGetLineFromAddrFunction)
+        return false;
 
-	// deal with bug where symbol engine only finds source line dwAddresses that fall exactly on a zero displacement
-	const int     MAX_SEARCH = 5;
-	IMAGEHLP_LINE line;
-	DWORD         displacement;
-	for (DWORD i = 0; i < MAX_SEARCH; ++i)
-	{
-		// setup the struct to receive the source file and line number
-		ZeroMemory(&line, sizeof(line));
-		line.SizeOfStruct = sizeof(line);
-		displacement = 0;
+    // deal with bug where symbol engine only finds source line dwAddresses that fall exactly on a zero displacement
+    const int     MAX_SEARCH = 5;
+    IMAGEHLP_LINE line;
+    DWORD         displacement;
+    for (DWORD i = 0; i < MAX_SEARCH; ++i)
+    {
+        // setup the struct to receive the source file and line number
+        ZeroMemory(&line, sizeof(line));
+        line.SizeOfStruct = sizeof(line);
+        displacement = 0;
 
-		if (SymGetLineFromAddrFunction(m_hProcess, dwAddress - i, &displacement, &line))
-		{
-			szFileName = line.FileName;
-			riLineNumber = line.LineNumber;
-			return true;
-		}
-	}
+        if (SymGetLineFromAddrFunction(m_hProcess, dwAddress - i, &displacement, &line))
+        {
+            szFileName = line.FileName;
+            riLineNumber = line.LineNumber;
+            return true;
+        }
+    }
 
-	return false;
+    return false;
 }
 
-#define MAX_SYMBOL_LEN	96
+#define MAX_SYMBOL_LEN    96
 
 bool utlStackDbg::BuildStackTraceStringFromProbe(int iNumAddresses, DWORD *pAddresses, char *szStackTrace, int iMaxLen)
 {
-	if (!SymGetLineFromAddrFunction)
-		return false;
+    if (!SymGetLineFromAddrFunction)
+        return false;
 
-	int iCurPos = 0;
-	for ( int i = 0; i < iNumAddresses; ++ i )
-	{
-		//* Get the address of the caller at this depth
-		DWORD dwAddress = pAddresses[i];
+    int iCurPos = 0;
+    for ( int i = 0; i < iNumAddresses; ++ i )
+    {
+        //* Get the address of the caller at this depth
+        DWORD dwAddress = pAddresses[i];
 
-		IMAGEHLP_LINE line;
-		DWORD         displacement = 0;
-		ZeroMemory(&line, sizeof(line));
-		line.SizeOfStruct = sizeof(line);
-		if (SymGetLineFromAddrFunction(m_hProcess, dwAddress, &displacement, &line) && line.FileName)
-		{
-			char szSymbol[MAX_SYMBOL_LEN]; szSymbol[0] = '\0';
-			GetSymbolNameFromAddress(dwAddress, szSymbol, MAX_SYMBOL_LEN);
+        IMAGEHLP_LINE line;
+        DWORD         displacement = 0;
+        ZeroMemory(&line, sizeof(line));
+        line.SizeOfStruct = sizeof(line);
+        if (SymGetLineFromAddrFunction(m_hProcess, dwAddress, &displacement, &line) && line.FileName)
+        {
+            char szSymbol[MAX_SYMBOL_LEN]; szSymbol[0] = '\0';
+            GetSymbolNameFromAddress(dwAddress, szSymbol, MAX_SYMBOL_LEN);
 
-			//* We have something, add it to the current string
-			iCurPos += snprintf(&szStackTrace[iCurPos], iMaxLen - iCurPos, "%s(%d) : %s\r\n", line.FileName, line.LineNumber, szSymbol);
-		}
-		else
-		{
-			//* We don't have the symbols for this function, put in a place holder
-			iCurPos += snprintf(&szStackTrace[iCurPos], iMaxLen - iCurPos, "<Unknown> \r\n");
-		}
-	}
+            //* We have something, add it to the current string
+            iCurPos += snprintf(&szStackTrace[iCurPos], iMaxLen - iCurPos, "%s(%d) : %s\r\n", line.FileName, line.LineNumber, szSymbol);
+        }
+        else
+        {
+            //* We don't have the symbols for this function, put in a place holder
+            iCurPos += snprintf(&szStackTrace[iCurPos], iMaxLen - iCurPos, "<Unknown> \r\n");
+        }
+    }
 
-	return true;
+    return true;
 }
 
 
@@ -422,21 +422,21 @@ bool utlStackDbg::BuildStackTraceStringFromProbe(int iNumAddresses, DWORD *pAddr
 //*****************************************************************
 //*  BuildStackTraceStringFromAddress()
 //*
-//*		Fills a string with a text representation of a stack trace
-//*		from the depth specified
+//*        Fills a string with a text representation of a stack trace
+//*        from the depth specified
 //*
 //*****************************************************************
 bool utlStackDbg::BuildStackTraceStringFromAddress(int iStartDepth, int iMaxDepth, char *szStackTrace, int iMaxLen)
 {
-	if (!SymGetLineFromAddrFunction)
-		return false;
+    if (!SymGetLineFromAddrFunction)
+        return false;
 
-	const int kMaxDepth = 20;
-	iMaxDepth = Min(iMaxDepth, kMaxDepth);
-	DWORD addresses[kMaxDepth];
-	int iDepth = StackProbe(iStartDepth + 1, addresses, iMaxDepth);
+    const int kMaxDepth = 20;
+    iMaxDepth = Min(iMaxDepth, kMaxDepth);
+    DWORD addresses[kMaxDepth];
+    int iDepth = StackProbe(iStartDepth + 1, addresses, iMaxDepth);
 
-	return BuildStackTraceStringFromProbe(iDepth, addresses, szStackTrace, iMaxLen);
+    return BuildStackTraceStringFromProbe(iDepth, addresses, szStackTrace, iMaxLen);
 }
 
 #endif // WIN32

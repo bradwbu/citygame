@@ -1,9 +1,9 @@
 /*****************************************************************************
-created:	2002-09-19
-copyright:	2002, NCSoft. All Rights Reserved
-author(s):	Jason Beardsley
+created:    2002-09-19
+copyright:    2002, NCSoft. All Rights Reserved
+author(s):    Jason Beardsley
 
-purpose:	Emulation of d3dx9math.h types and functions, for non-Win32.
+purpose:    Emulation of d3dx9math.h types and functions, for non-Win32.
 Note that this is not a complete implementation, just enough to
 get the math library to build.
 *****************************************************************************/
@@ -974,9 +974,9 @@ inline matBaseMATRIX* D3DXMatrixTransformation(
 #define matBasePlaneNormalize                   D3DXPlaneNormalize          
 
 static const matBaseMATRIX s_identityMat(1.0f, 0.0f, 0.0f, 0.0f,
-										 0.0f, 1.0f, 0.0f, 0.0f,
-										 0.0f, 0.0f, 1.0f, 0.0f,
-										 0.0f, 0.0f, 0.0f, 1.0f);
+                                         0.0f, 1.0f, 0.0f, 0.0f,
+                                         0.0f, 0.0f, 1.0f, 0.0f,
+                                         0.0f, 0.0f, 0.0f, 1.0f);
 
 #endif
 

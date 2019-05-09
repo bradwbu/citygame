@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/04/24
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	Includes the STL <set> class
+    created:    2001/04/24
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    Includes the STL <set> class
 *****************************************************************************/
 
 #ifndef   INCLUDED_corStlSet

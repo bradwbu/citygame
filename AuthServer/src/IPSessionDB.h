@@ -15,32 +15,32 @@
 class CIPSessionDB  
 {
 private:
-	SESSIONMAP IPSessionMap;
-	UserPointerMap    WaitingUser;
-	CLock WaitUserLock;
-	CLock IPSessionLock;
+    SESSIONMAP IPSessionMap;
+    UserPointerMap    WaitingUser;
+    CLock WaitUserLock;
+    CLock IPSessionLock;
 
-	bool AddUserWait( int uid, LoginUser *lu );
-	bool DelUserWait( int uid, LoginUser **lu );
+    bool AddUserWait( int uid, LoginUser *lu );
+    bool DelUserWait( int uid, LoginUser **lu );
 public:
-	char StopIPCharge( UINT uid, UINT ip, int kind, int UseTime, time_t loginTime, ServerId lastworld, const char *account );
-	char StartIPCharge( UINT uid, UINT ip, int kind, ServerId WorldID);
-	char ReleaseSessionRequest(int IPSession,in_addr IP, int kind);
-	
-	char ReadyToIPCharge( UINT uid, UINT ip, int kind, ServerId WorldID );
-	char ConfirmIPCharge( UINT uid, UINT ip, int kind, ServerId WorldID );
+    char StopIPCharge( UINT uid, UINT ip, int kind, int UseTime, time_t loginTime, ServerId lastworld, const char *account );
+    char StartIPCharge( UINT uid, UINT ip, int kind, ServerId WorldID);
+    char ReleaseSessionRequest(int IPSession,in_addr IP, int kind);
+    
+    char ReadyToIPCharge( UINT uid, UINT ip, int kind, ServerId WorldID );
+    char ConfirmIPCharge( UINT uid, UINT ip, int kind, ServerId WorldID );
 
-	char AcquireSessionRequest(LoginUser *lu, int uid);
-	char AcquireSessionSuccess( int Uid, int IPSession, char ErrorCode, int SpecificTime=0, int Kind=0 );
-	char AcquireSessionFail( int Uid, int IPSession, char ErrorCode );
-	
-	int FindSessionID( int Uid );
-	int DelSessionID( int Uid );
-	int AddSessionID ( int Uid, int IPSession );
-	bool DellAllWaitingSessionID( void );
+    char AcquireSessionRequest(LoginUser *lu, int uid);
+    char AcquireSessionSuccess( int Uid, int IPSession, char ErrorCode, int SpecificTime=0, int Kind=0 );
+    char AcquireSessionFail( int Uid, int IPSession, char ErrorCode );
+    
+    int FindSessionID( int Uid );
+    int DelSessionID( int Uid );
+    int AddSessionID ( int Uid, int IPSession );
+    bool DellAllWaitingSessionID( void );
 
-	CIPSessionDB();
-	virtual ~CIPSessionDB();
+    CIPSessionDB();
+    virtual ~CIPSessionDB();
 
 };
 
@@ -53,55 +53,55 @@ class CIPSocket
 : public CIOSocket
 {
 public:
-//	bool reconnect;
+//    bool reconnect;
 
-	CIPSocket(SOCKET sock);
+    CIPSocket(SOCKET sock);
 
-	virtual ~CIPSocket();
-	static CIPSocket* Allocate(SOCKET s);
-	virtual void OnCreate();
-	virtual void OnRead();
-	virtual void OnClose(SOCKET closedSocket);
-	virtual void OnTimerCallback( );
-	friend class CIPPacketServer;
-	
-	in_addr getaddr( void ) { return addr; };
-	void SetAddress( in_addr in_Addr ){
-		addr = in_Addr;
-	};
-	void SetConnectSessionKey( UINT sessionKey ){
-		ConnectSessionKey = sessionKey;
-	}
-	bool Send(const char* format, ...);
-	const char * IP();
+    virtual ~CIPSocket();
+    static CIPSocket* Allocate(SOCKET s);
+    virtual void OnCreate();
+    virtual void OnRead();
+    virtual void OnClose(SOCKET closedSocket);
+    virtual void OnTimerCallback( );
+    friend class CIPPacketServer;
+    
+    in_addr getaddr( void ) { return addr; };
+    void SetAddress( in_addr in_Addr ){
+        addr = in_Addr;
+    };
+    void SetConnectSessionKey( UINT sessionKey ){
+        ConnectSessionKey = sessionKey;
+    }
+    bool Send(const char* format, ...);
+    const char * IP();
 
-//	char serverid;
-	int opFlag;
-	UINT ConnectSessionKey;
+//    char serverid;
+    int opFlag;
+    UINT ConnectSessionKey;
 protected:
-	int packetLen;
+    int packetLen;
 
-	SocketMode mode;
-	IPPacketFunc *packetTable;
-	in_addr addr;
-	sockaddr_in Destination;
-	char* host;
+    SocketMode mode;
+    IPPacketFunc *packetTable;
+    in_addr addr;
+    sockaddr_in Destination;
+    char* host;
 };
 
 
 class CIPPacketServer : public CIOObject
 {
 public:
-	typedef bool (*IPPacketFunc)(CIOSocket* , const unsigned char* packet);
+    typedef bool (*IPPacketFunc)(CIOSocket* , const unsigned char* packet);
 
-	CIOSocket *m_pSocket;
-	CIOBuffer   *m_pBuf;
-	IPPacketFunc	m_pFunc;
-	static LONG g_nPendingPacket;
-	static CIPPacketServer* Alloc();
-	static void FreeAll();
-	void Free();
-	virtual void OnIOCallback(BOOL bSuccess, DWORD dwTransferred, LPOVERLAPPED lpOverlapped);
+    CIOSocket *m_pSocket;
+    CIOBuffer   *m_pBuf;
+    IPPacketFunc    m_pFunc;
+    static LONG g_nPendingPacket;
+    static CIPPacketServer* Alloc();
+    static void FreeAll();
+    void Free();
+    virtual void OnIOCallback(BOOL bSuccess, DWORD dwTransferred, LPOVERLAPPED lpOverlapped);
 };
 
 extern CIPSocket *pIPSocket;

@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/08/06
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	templatized cast operations
+    created:    2001/08/06
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    templatized cast operations
 *****************************************************************************/
 
 #ifndef   INCLUDED_corCast
@@ -28,7 +28,7 @@ template <typename To, typename From>
 inline To verify_cast(const From& f)
 {
 #if ISDEBUG()
-	errAssert( dynamic_cast<To>(f) );
+    errAssert( dynamic_cast<To>(f) );
 #endif
 
   return static_cast<To>(f);

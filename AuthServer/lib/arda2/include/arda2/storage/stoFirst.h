@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2002/08/05
-	copyright:	2002, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	
+    created:    2002/08/05
+    copyright:    2002, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    
 *****************************************************************************/
 
 #ifndef   INCLUDED_stofirst_h

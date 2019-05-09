@@ -996,39 +996,39 @@ void ConvertPathSlashes( char *p )
 class stoFileUtilsTests : public tstUnit
 {
 public:
-	stoFileUtilsTests()
-	{
-	}
+    stoFileUtilsTests()
+    {
+    }
 
-	virtual void Register()
-	{
-		SetName("stoFileUtils");
+    virtual void Register()
+    {
+        SetName("stoFileUtils");
 
-		AddTestCase("SplitPath()", &stoFileUtilsTests::TestSplitPath);
-		AddTestCase("MergePath()", &stoFileUtilsTests::TestMergePath);
-		AddTestCase("AddDefaultExtension()", &stoFileUtilsTests::TestAddDefaultExtension);
-		AddTestCase("GetExecutableDirectory()", &stoFileUtilsTests::TestGetExecutableDirectory);
-		AddTestCase("CreateDirectory()", &stoFileUtilsTests::TestCreateDirectory);
-		AddTestCase("FileExists()", &stoFileUtilsTests::TestFileExists);
-		AddTestCase("IsReadOnly()", &stoFileUtilsTests::TestIsReadOnly);
-		AddTestCase("IsFile()", &stoFileUtilsTests::TestIsFile);
-		AddTestCase("IsDirectory()", &stoFileUtilsTests::TestIsDirectory);
-		AddTestCase("DeleteDirectory()", &stoFileUtilsTests::TestDeleteDirectory);
-		AddTestCase("ListDirectory()", &stoFileUtilsTests::TestListDirectory);
-		AddTestCase("CreateDirectoryTree()", &stoFileUtilsTests::TestCreateDirectoryTree);
-		AddTestCase("CreateDirectoryForFile()", &stoFileUtilsTests::TestCreateDirectoryForFile);
-		AddTestCase("Match()", &stoFileUtilsTests::TestMatch);
-	};
+        AddTestCase("SplitPath()", &stoFileUtilsTests::TestSplitPath);
+        AddTestCase("MergePath()", &stoFileUtilsTests::TestMergePath);
+        AddTestCase("AddDefaultExtension()", &stoFileUtilsTests::TestAddDefaultExtension);
+        AddTestCase("GetExecutableDirectory()", &stoFileUtilsTests::TestGetExecutableDirectory);
+        AddTestCase("CreateDirectory()", &stoFileUtilsTests::TestCreateDirectory);
+        AddTestCase("FileExists()", &stoFileUtilsTests::TestFileExists);
+        AddTestCase("IsReadOnly()", &stoFileUtilsTests::TestIsReadOnly);
+        AddTestCase("IsFile()", &stoFileUtilsTests::TestIsFile);
+        AddTestCase("IsDirectory()", &stoFileUtilsTests::TestIsDirectory);
+        AddTestCase("DeleteDirectory()", &stoFileUtilsTests::TestDeleteDirectory);
+        AddTestCase("ListDirectory()", &stoFileUtilsTests::TestListDirectory);
+        AddTestCase("CreateDirectoryTree()", &stoFileUtilsTests::TestCreateDirectoryTree);
+        AddTestCase("CreateDirectoryForFile()", &stoFileUtilsTests::TestCreateDirectoryForFile);
+        AddTestCase("Match()", &stoFileUtilsTests::TestMatch);
+    };
 
-	virtual void UnitTestSetup()
-	{
-		// set up code
-	}
+    virtual void UnitTestSetup()
+    {
+        // set up code
+    }
 
-	virtual void UnitTestTearDown()
-	{
-		// tear down code
-	}
+    virtual void UnitTestTearDown()
+    {
+        // tear down code
+    }
 
     void TestSplitPath() const
     {
@@ -1144,8 +1144,8 @@ public:
     {
         string pathStr;
         if (ISOK(stoFileUtils::GetTempFileName(NULL, "stoFileUtilsTest_FileExists", pathStr)))
-	{
-	  const char *path = pathStr.c_str();
+    {
+      const char *path = pathStr.c_str();
           TESTASSERT(stoFileUtils::FileExists(path) == false);
 
           int hFile = open(path, O_WRONLY | O_CREAT | O_TRUNC, _S_IWRITE | _S_IREAD);
@@ -1156,7 +1156,7 @@ public:
           unlink(path);
           TESTASSERT(stoFileUtils::FileExists(path) == false);
 
-	  stoFileUtils::CreateDirectory(path);
+      stoFileUtils::CreateDirectory(path);
           TESTASSERT(stoFileUtils::FileExists(path) == true);
 
           rmdir(path);
@@ -1171,9 +1171,9 @@ public:
 #if !CORE_SYSTEM_PS3 
         string pathStr;
         if (!ISOK(stoFileUtils::GetTempFileName(NULL, "stoFileUtilsTest_IsReadOnly", pathStr)))
-	  return;
+      return;
 
-	const char *path = pathStr.c_str();
+    const char *path = pathStr.c_str();
 
         TESTASSERT(stoFileUtils::IsReadOnly(path) == false);
 
@@ -1196,9 +1196,9 @@ public:
     {
         string pathStr;
         if (!ISOK(stoFileUtils::GetTempFileName(NULL, "stoFileUtilsTest_IsFile", pathStr)))
-	  return;
+      return;
 
-	const char *path = pathStr.c_str();
+    const char *path = pathStr.c_str();
 
         TESTASSERT(stoFileUtils::FileExists(path) == false);
 
@@ -1218,9 +1218,9 @@ public:
     {
         string pathStr;
         if (!ISOK(stoFileUtils::GetTempFileName(NULL, "stoFileUtilsTest_IsDirectory", pathStr)))
-	  return;
+      return;
 
-	const char *path = pathStr.c_str();
+    const char *path = pathStr.c_str();
 
         TESTASSERT(stoFileUtils::IsDirectory(path) == false);
 
@@ -1240,9 +1240,9 @@ public:
     {
         string pathStr;
         if (!ISOK(stoFileUtils::GetTempFileName(NULL, "stoFileUtilsTest_CreateDirectory", pathStr)))
-	  return;
+      return;
 
-	const char *path = pathStr.c_str();
+    const char *path = pathStr.c_str();
 
         TESTASSERT(stoFileUtils::IsDirectory(path) == false);
 
@@ -1257,9 +1257,9 @@ public:
     {
         string pathStr;
         if (!ISOK(stoFileUtils::GetTempFileName(NULL, "stoFileUtilsTest_DeleteDirectory", pathStr)))
-	  return;
+      return;
 
-	const char *path = pathStr.c_str();
+    const char *path = pathStr.c_str();
 
         stoFileUtils::CreateDirectory(path);
         TESTASSERT(stoFileUtils::IsDirectory(path) == true);
@@ -1290,9 +1290,9 @@ public:
     {
         string pathStr;
         if (!ISOK(stoFileUtils::GetTempFileName(NULL, "stoFileUtilsTest_ListDirectory", pathStr)))
-	  return;
+      return;
 
-	const char *dir = pathStr.c_str();
+    const char *dir = pathStr.c_str();
 
         stoFileUtils::CreateDirectory(dir);
 
@@ -1324,9 +1324,9 @@ public:
     {
         string pathStr;
         if (!ISOK(stoFileUtils::GetTempFileName(NULL, "stoFileUtilsTest_CreateDirectoryTree", pathStr)))
-	  return;
+      return;
 
-	const char *path = pathStr.c_str();
+    const char *path = pathStr.c_str();
 
         char dir1[_MAX_PATH];
         strcpy(dir1, path);
@@ -1369,9 +1369,9 @@ public:
     {
         string pathStr;
         if (!ISOK(stoFileUtils::GetTempFileName(NULL, "stoFileUtilsTest_CreateDirectoryForFile", pathStr)))
-	  return;
+      return;
 
-	const char *basepath = pathStr.c_str();
+    const char *basepath = pathStr.c_str();
 
         char path[_MAX_PATH];
 

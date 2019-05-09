@@ -143,11 +143,11 @@ class proPropertyEnum : public proPropertyUint
 {
     PRO_DECLARE_OBJECT
 public:
-	struct EnumTable
-	{
-		std::string key;
-		uint   value;
-	};
+    struct EnumTable
+    {
+        std::string key;
+        uint   value;
+    };
 
     proPropertyEnum() : proPropertyUint() {}
     virtual ~proPropertyEnum() {}
@@ -166,7 +166,7 @@ public:
 
     // --- enumeration interface ---
     void    SetEnumString(const std::string &anEnum);
-	void    SetEnumTable(const EnumTable *aTable, uint aTableSize);
+    void    SetEnumTable(const EnumTable *aTable, uint aTableSize);
     void    GetEnumeration( std::vector<std::string> &value) const;
     uint    GetEnumerationValue( const std::string &astring ) const;
     std::string  GetEnumerationValue(uint value) const;

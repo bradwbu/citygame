@@ -28,32 +28,32 @@ struct tagDATE_STRUCT {
 class CAccount  
 {
 public:
-	CAccount();
-	virtual ~CAccount();
-	char Load( const char *name );
-	char LoadPassword( const char *name , char *pwd, unsigned char& hash_type, unsigned int& salt );
-	char LoadEtc();
-	char  CheckPassword( const char *name, char *dbpwdLineage2, char *dbpwdSHA512, int oneTimeKey, bool useMD5 );
+    CAccount();
+    virtual ~CAccount();
+    char Load( const char *name );
+    char LoadPassword( const char *name , char *pwd, unsigned char& hash_type, unsigned int& salt );
+    char LoadEtc();
+    char  CheckPassword( const char *name, char *dbpwdLineage2, char *dbpwdSHA512, int oneTimeKey, bool useMD5 );
 
-	
-	int block_flag;
-	int block_flag2;
-	int warn_flag;
-	int pay_stat;
-	int uid;
-	int login_flag;
-	int subscription_flag;
-	int remainTime, quotaTime;
-	int loyalty, loyaltyLegacy;
-	int queueLevel;
-	int MakeBlockInfo( char *msg );
-	int nSSN,ssn2;
-	char age;
-	char gender;
-	char account[MAX_ACCOUNT_LEN+1];
-	char ssn[MAX_SSN_LEN+1];
-	ServerId lastworld;
-	SQL_TIMESTAMP_STRUCT  block_end_date;
+    
+    int block_flag;
+    int block_flag2;
+    int warn_flag;
+    int pay_stat;
+    int uid;
+    int login_flag;
+    int subscription_flag;
+    int remainTime, quotaTime;
+    int loyalty, loyaltyLegacy;
+    int queueLevel;
+    int MakeBlockInfo( char *msg );
+    int nSSN,ssn2;
+    char age;
+    char gender;
+    char account[MAX_ACCOUNT_LEN+1];
+    char ssn[MAX_SSN_LEN+1];
+    ServerId lastworld;
+    SQL_TIMESTAMP_STRUCT  block_end_date;
     int regions[MAX_REGIONS];
 };
 

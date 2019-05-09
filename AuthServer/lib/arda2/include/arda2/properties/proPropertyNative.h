@@ -440,22 +440,22 @@ class Property_##c##_##p##Ref : public proPropertyBitfieldNative\
 public:\
     Property_##c##_##p##Ref(const std::string &data="")\
     {\
-		proClass *cls = proClassRegistry::ClassForName<proClassNative*>(#c);\
-		if (cls) { cls->AddProperty(this); }\
-		m_isNative = true;\
-		SetBitfieldString(data);\
-		proClassRegistry::RegisterAnnotation(this,#annotations);\
+        proClass *cls = proClassRegistry::ClassForName<proClassNative*>(#c);\
+        if (cls) { cls->AddProperty(this); }\
+        m_isNative = true;\
+        SetBitfieldString(data);\
+        proClassRegistry::RegisterAnnotation(this,#annotations);\
     }\
     \
     void SetValue(proObject* o, const uint val )\
     {\
-		set(c, o, p)\
-		o->PropertyChanged(s_name);\
+        set(c, o, p)\
+        o->PropertyChanged(s_name);\
     }\
     \
     uint GetValue(const proObject* o) const\
     {\
-		get(c, o, p);\
+        get(c, o, p);\
     }\
     virtual const std::string &GetName() const { return s_name; }\
     virtual proClass* GetDeclaringClass() const { return proClassRegistry::ClassForName<proClass*>(#c); }\
@@ -516,6 +516,6 @@ PRO_REGISTER_CLASS(Property_##c##_##p##Ref, proPropertyBitfieldNative)
         REG_PROPERTY_ENUM_TABLE_INTERNAL(c, p, enumTable, enumTableSize, GET_CODE, SET_CODE, annotations )
 
 #define REG_PROPERTY_BITFIELD_ANNO(c, p, enumData, annotations) \
-		REG_PROPERTY_BITFIELD_INTERNAL(c, p, enumData, GET_CODE, SET_CODE, annotations )
+        REG_PROPERTY_BITFIELD_INTERNAL(c, p, enumData, GET_CODE, SET_CODE, annotations )
 
 #endif //__proPropertyNative_h__

@@ -72,25 +72,25 @@ public:
         _21(f21), _22(f22), _23(f23), _24(f24),
         _31(f31), _32(f32), _33(f33), _34(f34) {};
 
-    const matVector4&	GetRow0() const;
-    const matVector4&	GetRow1() const;
-    const matVector4&	GetRow2() const;
-    const matVector4&	GetRow3() const;
+    const matVector4&    GetRow0() const;
+    const matVector4&    GetRow1() const;
+    const matVector4&    GetRow2() const;
+    const matVector4&    GetRow3() const;
 
-    matVector4&			GetRow0();
-    matVector4&			GetRow1();
-    matVector4&			GetRow2();
-    matVector4&			GetRow3();
+    matVector4&            GetRow0();
+    matVector4&            GetRow1();
+    matVector4&            GetRow2();
+    matVector4&            GetRow3();
 
-    const matVector3	GetPosition() const;
-    matVector3			GetPosition();
-    void				SetPosition( IN const matVector3& v3Position );
+    const matVector3    GetPosition() const;
+    matVector3            GetPosition();
+    void                SetPosition( IN const matVector3& v3Position );
 
     matMatrix4x3T&      Multiply( const matMatrix4x3T &mat );
 
-    matMatrix4x3T&		StoreEulerAngles( float fYaw, float fPitch, float fRoll );
-    matMatrix4x3T&		StoreQuaternion( const matQuaternion &rOrientation );
-    matMatrix4x3T&		StoreReflect( const matPlane& ReflectPlane );
+    matMatrix4x3T&        StoreEulerAngles( float fYaw, float fPitch, float fRoll );
+    matMatrix4x3T&        StoreQuaternion( const matQuaternion &rOrientation );
+    matMatrix4x3T&        StoreReflect( const matPlane& ReflectPlane );
     matMatrix4x3T&      StoreMatrix(const matMatrix4x4& rhs);
 
     matMatrix4x3T&      StoreMultiply( const matMatrix4x3T &mat1, const matMatrix4x3T &mat2 );

@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2003/02/24
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Ryan M. Prescott
-	
-	purpose:	Includes STL <Functional>
+    created:    2003/02/24
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Ryan M. Prescott
+    
+    purpose:    Includes STL <Functional>
 *****************************************************************************/
 
 #ifndef   INCLUDED_corStlFunctional

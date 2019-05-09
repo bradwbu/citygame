@@ -181,7 +181,7 @@ public:
         m_quaternion = rhs.m_quaternion; 
         m_position = rhs.m_position;
         m_vScale = rhs.m_vScale;
-		m_bNonUniformScale = rhs.m_bNonUniformScale;
+        m_bNonUniformScale = rhs.m_bNonUniformScale;
         m_dirtyFlags = rhs.m_dirtyFlags;
         if ( !m_dirtyFlags.Test(kMatrix) )
             m_matrix = rhs.m_matrix;

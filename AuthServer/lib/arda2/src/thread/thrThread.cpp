@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2002/08/05
-	copyright:	2002, NCSoft. All Rights Reserved
-	author(s):	Ryan Prescott
-	
-	purpose:	
+    created:    2002/08/05
+    copyright:    2002, NCSoft. All Rights Reserved
+    author(s):    Ryan Prescott
+    
+    purpose:    
 *****************************************************************************/
 
 #include "../../include/arda2/core/corFirst.h"
@@ -43,7 +43,7 @@ void thrThread::Create(bool CreateSuspended)
 #if CORE_SYSTEM_WINAPI
         m_hThread = CreateThread(NULL, 0, thrThread::Dispatch, this, CreateSuspended?CREATE_SUSPENDED:0, &m_tid);
         if (m_hThread == NULL)
-	{
+    {
             ERR_REPORTV(ES_Error, ("Error creating thread <%d>", GetLastError()) );
         }
 #else
@@ -52,7 +52,7 @@ void thrThread::Create(bool CreateSuspended)
         {       
             ERR_REPORTV(ES_Error, ("Error creating thread <%d>", value));
         }
-	m_tid = (int)m_hThread;
+    m_tid = (int)m_hThread;
 #endif
     }
     else
@@ -82,7 +82,7 @@ void thrThread::Suspend()
 #if CORE_SYSTEM_WINAPI
         SuspendThread(m_hThread);
 #else
-	ERR_UNIMPLEMENTED();
+    ERR_UNIMPLEMENTED();
 #endif
     }
 }

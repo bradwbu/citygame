@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/04/24
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	
+    created:    2001/04/24
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    
 *****************************************************************************/
 
 #ifndef   INCLUDED_corPlatformMacros
@@ -35,7 +35,7 @@
 // wcscasecmp   _wcsicmp        case-insensitive wchar_t strcmp()
 // strncasecmp  _strnicmp       case-insensitive string compare, w/len
 // putenv       _putenv         put entry into app environment
-// atoi64		_atoi64			convert ascii string to 64-bit integer
+// atoi64        _atoi64            convert ascii string to 64-bit integer
 
 //
 // MSVC

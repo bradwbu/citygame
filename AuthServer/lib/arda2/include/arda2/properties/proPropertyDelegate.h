@@ -163,11 +163,11 @@ class Property_##c##_##p##Ref : public proPropertyBitfieldNative\
 public:\
     Property_##c##_##p##Ref(const std::string &data="")\
     {\
-		proClass *cls = proClassRegistry::ClassForName<proClassNative*>(#c);\
-		if (cls) { cls->AddProperty(this); }\
-		m_isNative = true;\
-		SetBitfieldString(data);\
-		proClassRegistry::RegisterAnnotation(this,#annotations);\
+        proClass *cls = proClassRegistry::ClassForName<proClassNative*>(#c);\
+        if (cls) { cls->AddProperty(this); }\
+        m_isNative = true;\
+        SetBitfieldString(data);\
+        proClassRegistry::RegisterAnnotation(this,#annotations);\
     }\
     \
     void SetValue(proObject* anObject, const uint val )\
@@ -263,7 +263,7 @@ PRO_REGISTER_CLASS(Property_##c##_##p##Ref, proPropertyBitfieldNative)
         REG_PROPERTY_INTERNAL_OBJ_DELEGATE(proObject*, proObject*, pro, Object, c, p, get, set, clas, annotations )
 
 #define REG_PROPERTY_BITFIELD_DELEGATE_ANNO(c, p, enumData, get, set, annotations) \
-		REG_PROPERTY_BITFIELD_INTERNAL_DELEGATE(c, p, enumData, get, set, annotations )
+        REG_PROPERTY_BITFIELD_INTERNAL_DELEGATE(c, p, enumData, get, set, annotations )
 
 #define REG_PROPERTY_ENUM_DELEGATE_ANNO(c, p, enumData, get, set, annotations)\
     REG_PROPERTY_ENUM_INTERNAL_DELEGATE(c, p, get, set, annotations )\

@@ -16,7 +16,7 @@
 #define RQ_LOG_SEND_MSG      0
 #define RQ_SET_CHECK_STATUS  1
 #define RQ_SERVER_STARTED    3
-#define AUTH_LOG_TYPE		 6
+#define AUTH_LOG_TYPE         6
 #define SERVER_TYPE          1
 
 class CLogSocket;
@@ -28,52 +28,52 @@ class CLogSocket
 : public CIOSocket
 {
 public:
-	SOCKET m_socket;
+    SOCKET m_socket;
 
-	CLogSocket(SOCKET sock);
-	
-	virtual ~CLogSocket();
-	static CLogSocket* Allocate(SOCKET s);
-	virtual void OnCreate();
-	virtual void OnRead();
-	virtual void OnClose(SOCKET closedSocket);
-	virtual void OnTimerCallback( );
-	friend class CLogPacketServer;
-	
-	in_addr getaddr( void ) { return addr; };
-	void SetAddress( in_addr in_Addr ){
-		addr = in_Addr;
-	};
+    CLogSocket(SOCKET sock);
+    
+    virtual ~CLogSocket();
+    static CLogSocket* Allocate(SOCKET s);
+    virtual void OnCreate();
+    virtual void OnRead();
+    virtual void OnClose(SOCKET closedSocket);
+    virtual void OnTimerCallback( );
+    friend class CLogPacketServer;
+    
+    in_addr getaddr( void ) { return addr; };
+    void SetAddress( in_addr in_Addr ){
+        addr = in_Addr;
+    };
 
-	void Send(const char* format, ...);
-	void Send2(const char* format, ...);
-	const char * IP();
+    void Send(const char* format, ...);
+    void Send2(const char* format, ...);
+    const char * IP();
 
-	char serverid;
+    char serverid;
 
 protected:
-	int packetLen;
+    int packetLen;
 
-	SocketMode mode;
-	LOGPacketFunc *packetTable;
-	in_addr addr;
-	sockaddr_in LogDAddress;
-	char* host;
+    SocketMode mode;
+    LOGPacketFunc *packetTable;
+    in_addr addr;
+    sockaddr_in LogDAddress;
+    char* host;
 };
 
 class CLogPacketServer : public CIOObject
 {
 public:
-	typedef bool (*LOGPacketFunc)(CIOSocket* , const unsigned char* packet);
+    typedef bool (*LOGPacketFunc)(CIOSocket* , const unsigned char* packet);
 
-	CIOSocket *m_pSocket;
-	CIOBuffer   *m_pBuf;
-	LOGPacketFunc	m_pFunc;
-	static LONG g_nPendingPacket;
-	static CLogPacketServer* Alloc();
-	static void FreeAll();
-	void Free();
-	virtual void OnIOCallback(BOOL bSuccess, DWORD dwTransferred, LPOVERLAPPED lpOverlapped);
+    CIOSocket *m_pSocket;
+    CIOBuffer   *m_pBuf;
+    LOGPacketFunc    m_pFunc;
+    static LONG g_nPendingPacket;
+    static CLogPacketServer* Alloc();
+    static void FreeAll();
+    void Free();
+    virtual void OnIOCallback(BOOL bSuccess, DWORD dwTransferred, LPOVERLAPPED lpOverlapped);
 };
 
 extern CLogSocket *pLogSocket;

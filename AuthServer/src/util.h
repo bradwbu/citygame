@@ -34,22 +34,22 @@ HFONT GetAFont(HDC hdc);
 
 inline int GetIntFromPacket(const unsigned char *&packet)
 {
-	int result = ((int *)packet)[0];
+    int result = ((int *)packet)[0];
     packet += 4;
     return result;
 }
 
 inline in_addr GetAddrFromPacket(const unsigned char *&packet)
 {
-	in_addr result;
-	*((int *)&result) = ((int *)packet)[0];
+    in_addr result;
+    *((int *)&result) = ((int *)packet)[0];
     packet += 4;
     return result;
 }
 
 inline short GetShortFromPacket(const unsigned char *&packet)
 {
-	short result = ((short *)packet)[0];
+    short result = ((short *)packet)[0];
     packet += 2;
     return result;
 }

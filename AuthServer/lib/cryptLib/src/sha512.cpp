@@ -16,15 +16,15 @@ using namespace cryptLib;
 
 sha512::sha512()
 {
-	m_impl = new sha512Impl();
+    m_impl = new sha512Impl();
 }
 
 sha512::~sha512()
 {
-	delete m_impl;
+    delete m_impl;
 }
 
 void sha512::GetMessageDigest(digest512& hash, std::string message) // Yes, pass message by value so we can modify the copy, not the original (for bit-padding)
 {
-	m_impl->GetMessageDigest(hash,message);
+    m_impl->GetMessageDigest(hash,message);
 }

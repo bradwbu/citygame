@@ -63,17 +63,17 @@ void errErrorHandlerLogger::Init(
 errHandlerResult errErrorHandlerLogger::Report(const char* szFileName, int iLineNumber, 
                                             errSeverity /*nSeverity*/, const char *szSeverity, const char* szDescription)
 {
-	static char timeStamp[128] = {0};
-	memset(timeStamp,0,128);
+    static char timeStamp[128] = {0};
+    memset(timeStamp,0,128);
 
 #if CORE_SYSTEM_LINUX
-	static struct tm t;
-	static time_t _t;
-	time(&_t);
-	localtime_r(&_t,&t);
-	strftime(timeStamp,128,"%T",&t);
+    static struct tm t;
+    static time_t _t;
+    time(&_t);
+    localtime_r(&_t,&t);
+    strftime(timeStamp,128,"%T",&t);
 #elif CORE_SYSTEM_WINAPI
-	_strtime(timeStamp);
+    _strtime(timeStamp);
 #endif // CORE_SYSTEM_LINUX
 
 #if CORE_SYSTEM_WINAPI

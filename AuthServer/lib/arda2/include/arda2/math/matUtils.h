@@ -72,7 +72,7 @@ template <typename T> inline const T matSmoothStep(const T &StartVal, const T &E
  *   
  *  @return interpolated value
  */
-template <typename T> inline const T matBilerp(	const T &v0, 
+template <typename T> inline const T matBilerp(    const T &v0, 
                                                const T &v1,
                                                const T &v2,
                                                const T &v3,
@@ -151,8 +151,8 @@ inline bool matIsNegative( float f )
     Exponent bias is 127 for normalized #s
 
                    Special values
-    exp | unbiased | value				       | type
-    255 |          |					       | Infinity or NaN
+    exp | unbiased | value                       | type
+    255 |          |                           | Infinity or NaN
     254 |   127    |(-1)^s*(1.f1f2...)*2^127   | Normalized
      2  |  -125    |(-1)^s*(1.f1f2...)*2^-125  | Normalized
      1  |  -126    |(-1)^s*(1.f1f2...)*2^-126  | Normalized

@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2002-02-12
-	copyright:	2002, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	Includes the (non-standard) <hashmap> template class
+    created:    2002-02-12
+    copyright:    2002, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    Includes the (non-standard) <hashmap> template class
 *****************************************************************************/
 
 #ifndef   INCLUDED_corStlHashmap
@@ -28,7 +28,7 @@
 // that mask incompatibilities between VC.NET and GCC.
 
 #if CORE_COMPILER_MSVC7 || CORE_COMPILER_MSVC8
-#define		stdhash	stdext
+#define        stdhash    stdext
 
 template < typename KeyType,
            typename ValueType,
@@ -42,7 +42,7 @@ class HashMultiMap : public std::unordered_multimap<KeyType, ValueType, corHashT
 
 
 #elif CORE_COMPILER_MSVC || CORE_SYSTEM_PS3
-#define		stdhash	std
+#define        stdhash    std
 
 template < typename KeyType,
 typename ValueType,
@@ -56,7 +56,7 @@ class HashMultiMap : public std::unordered_multimap<KeyType, ValueType, corHashT
 
 
 #elif CORE_COMPILER_GNU
-#define		stdhash
+#define        stdhash
 
 template < typename KeyType,
            typename ValueType,

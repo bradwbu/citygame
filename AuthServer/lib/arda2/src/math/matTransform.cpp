@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001-07-25
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter Freese, Tom Gambill
-	
-	purpose:	
+    created:    2001-07-25
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter Freese, Tom Gambill
+    
+    purpose:    
 *****************************************************************************/
 
 #include "../../include/arda2/math/matFirst.h"
@@ -16,13 +16,13 @@
 //*
 //*****************************************************************
 matTransform::matTransform() :
-	m_matrix(matIdentity),
-	m_matrixInverse(matIdentity),
-	m_quaternion(matIdentity),
-	m_position(matZero),
+    m_matrix(matIdentity),
+    m_matrixInverse(matIdentity),
+    m_quaternion(matIdentity),
+    m_position(matZero),
     m_vScale(1.0f,1.0f,1.0f),
     m_vInvScale(1.0f,1.0f,1.0f),
-	m_iChangeStamp(0),
+    m_iChangeStamp(0),
     m_bNonUniformScale(false)
 {
 }
@@ -32,7 +32,7 @@ const matMatrix4x4& matTransform::UpdateMatrix() const
     m_matrix.StoreTransformation(m_vScale, m_quaternion, m_position);
     
     m_dirtyFlags.Clear(kMatrix);
-	return m_matrix;
+    return m_matrix;
 }
 
 
@@ -41,27 +41,27 @@ const matMatrix4x4& matTransform::UpdateMatrixInverse() const
     if ( IsNonUniformScale() )
         m_matrixInverse.StoreInverse(GetMatrix());
     else
-	    m_matrixInverse.StoreInverseFast(GetMatrix());
-	m_dirtyFlags.Clear(kMatrixInverse);
+        m_matrixInverse.StoreInverseFast(GetMatrix());
+    m_dirtyFlags.Clear(kMatrixInverse);
 
-	return m_matrixInverse;
+    return m_matrixInverse;
 }
 
 
 const matVector3& matTransform::UpdateInvScale() const
 {
-	if ( IsNonUniformScale() )
-	{
-		m_vInvScale.x = 1.0f / m_vScale.x;
-		m_vInvScale.y = 1.0f / m_vScale.y;
-		m_vInvScale.z = 1.0f / m_vScale.z;
-	}
-	else
-	{
-		m_vInvScale.x = m_vInvScale.y = m_vInvScale.z = 1.0f / m_vScale.x;
-	}
-	m_dirtyFlags.Clear(kInvScale);
-	return m_vInvScale;
+    if ( IsNonUniformScale() )
+    {
+        m_vInvScale.x = 1.0f / m_vScale.x;
+        m_vInvScale.y = 1.0f / m_vScale.y;
+        m_vInvScale.z = 1.0f / m_vScale.z;
+    }
+    else
+    {
+        m_vInvScale.x = m_vInvScale.y = m_vInvScale.z = 1.0f / m_vScale.x;
+    }
+    m_dirtyFlags.Clear(kInvScale);
+    return m_vInvScale;
 }
 
 
@@ -90,9 +90,9 @@ matTransform& matTransform::PostTransform( const matTransform& rhs )
 
 matVector3 matTransform::TransformPoint( const matVector3& vIn ) const
 {
-	matVector3 v;
-	v.StoreTransformPoint(GetMatrix(), vIn);
-	return v;
+    matVector3 v;
+    v.StoreTransformPoint(GetMatrix(), vIn);
+    return v;
 }
 
 // Deprecated in favor of TransformVectorNoScaling
@@ -119,9 +119,9 @@ matVector3 matTransform::TransformVectorWithScaling( const matVector3& vIn ) con
 
 matVector3 matTransform::InverseTransformPoint( const matVector3& vIn ) const
 {
-	matVector3 v;
-	v.StoreTransformPoint(GetMatrixInverse(), vIn);
-	return v;
+    matVector3 v;
+    v.StoreTransformPoint(GetMatrixInverse(), vIn);
+    return v;
 }
 
 // Deprecated in favor of InverseTransformVectorNoScaling

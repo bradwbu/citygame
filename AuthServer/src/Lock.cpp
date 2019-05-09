@@ -39,7 +39,7 @@ CLock::~CLock()
 bool CLock::TryEnter()
 {
     if(m_type == eCustomSpinLock) {
-		return InterlockedExchange(&m_customLock, 1) == 0;
+        return InterlockedExchange(&m_customLock, 1) == 0;
     } else {
         return false;
     }
@@ -49,7 +49,7 @@ void CLock::Enter()
 {
     if(m_type == eCustomSpinLock) {
         if(InterlockedExchange(&m_customLock, 1)) {
-			Wait();
+            Wait();
         }
     } else {
         EnterCriticalSection(&m_critical); 
@@ -71,80 +71,80 @@ void CLock::Wait()
         return;
     }
 
-	int count = 4000;
-	while(--count >= 0) {
+    int count = 4000;
+    while(--count >= 0) {
         if(InterlockedExchange(&m_customLock, 1) == 0) {
-			return;
+            return;
         }
         // pause
-		YieldProcessor();
-	}
-	count = 4000;
-	while(--count >= 0) {
-		SwitchToThread();
+        YieldProcessor();
+    }
+    count = 4000;
+    while(--count >= 0) {
+        SwitchToThread();
         if(InterlockedExchange(&m_customLock, 1) == 0) {
-			return;
+            return;
         }
-	}
-	for( ; ; ) {
-		Sleep(1000);
+    }
+    for( ; ; ) {
+        Sleep(1000);
         if(InterlockedExchange(&m_customLock, 1) == 0) {
-			return;
+            return;
         }
-	}
+    }
 }
 
 
 CRWLock::CRWLock()
 {
-	readerCount = 0;
-	dataLock = CreateSemaphore(NULL, 1, 1, NULL);
-	_ASSERTE(dataLock);
-	InitializeCriticalSection(&mutex);
+    readerCount = 0;
+    dataLock = CreateSemaphore(NULL, 1, 1, NULL);
+    _ASSERTE(dataLock);
+    InitializeCriticalSection(&mutex);
 }
 
 CRWLock::~CRWLock()
 {
-	CloseHandle(dataLock);
-	DeleteCriticalSection(&mutex);
+    CloseHandle(dataLock);
+    DeleteCriticalSection(&mutex);
 }
 
 void CRWLock::ReadLock()
 {
-	EnterCriticalSection(&mutex);
-	if (++readerCount == 1) {
-		if (WaitForSingleObject(dataLock, INFINITE) != WAIT_OBJECT_0) {
-			logger.AddLog(LOG_ERROR, "ReadLock failed on dataLock");
-		}
-	}
-	LeaveCriticalSection(&mutex);
+    EnterCriticalSection(&mutex);
+    if (++readerCount == 1) {
+        if (WaitForSingleObject(dataLock, INFINITE) != WAIT_OBJECT_0) {
+            logger.AddLog(LOG_ERROR, "ReadLock failed on dataLock");
+        }
+    }
+    LeaveCriticalSection(&mutex);
 }
 
 void CRWLock::ReadUnlock()
 {
-	LONG prevCount;
-	EnterCriticalSection(&mutex);
-	if (--readerCount == 0) {
-		ReleaseSemaphore(dataLock, 1, &prevCount);
-	}
-	LeaveCriticalSection(&mutex);
+    LONG prevCount;
+    EnterCriticalSection(&mutex);
+    if (--readerCount == 0) {
+        ReleaseSemaphore(dataLock, 1, &prevCount);
+    }
+    LeaveCriticalSection(&mutex);
 }
 
 void CRWLock::WriteLock()
 {
-	WaitForSingleObject(dataLock, INFINITE);
+    WaitForSingleObject(dataLock, INFINITE);
 }
 
 bool CRWLock::WriteTryLock()
 {
-	return WaitForSingleObject(dataLock, 0) == WAIT_OBJECT_0;
+    return WaitForSingleObject(dataLock, 0) == WAIT_OBJECT_0;
 }
 
 void CRWLock::WriteUnlock()
 {
-	LONG prevCount;
-	ReleaseSemaphore(dataLock, 1, &prevCount);
-	if (prevCount != 0) {
-		logger.AddLog(LOG_ERROR, "WriteUnlock semaphore was not locked");
-	}
+    LONG prevCount;
+    ReleaseSemaphore(dataLock, 1, &prevCount);
+    if (prevCount != 0) {
+        logger.AddLog(LOG_ERROR, "WriteUnlock semaphore was not locked");
+    }
 }

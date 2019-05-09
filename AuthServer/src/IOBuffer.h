@@ -16,36 +16,36 @@
 class CIOBuffer
 {
 public:
-	char m_buffer[BUFFER_SIZE];
-	DWORD m_size;
-	CIOBuffer *m_pNext;
-	LONG m_ref;
-	CIOBuffer();
+    char m_buffer[BUFFER_SIZE];
+    DWORD m_size;
+    CIOBuffer *m_pNext;
+    LONG m_ref;
+    CIOBuffer();
 
-	virtual ~CIOBuffer();
-	static CIOBuffer *Alloc();
+    virtual ~CIOBuffer();
+    static CIOBuffer *Alloc();
 
-	static void FreeAll();
-	void AddRef() { InterlockedIncrement(&m_ref); }
-	void Release() { if (InterlockedDecrement(&m_ref) == 0) Free(); }
+    static void FreeAll();
+    void AddRef() { InterlockedIncrement(&m_ref); }
+    void Release() { if (InterlockedDecrement(&m_ref) == 0) Free(); }
     void Free();
 };
 
 class CIOBufferPool
 {
 public:
-	class Slot
-	{
-	public:
-		CIOBuffer *m_pBuffer;
-		CLock m_lock;
+    class Slot
+    {
+    public:
+        CIOBuffer *m_pBuffer;
+        CLock m_lock;
 
-		Slot() : m_pBuffer(NULL), m_lock(eSystemSpinLock, 4000) {}
-	};
-	static Slot m_slot[16];
-	static long	m_alloc;
-	static long	m_free;
-	~CIOBufferPool() { CIOBuffer::FreeAll(); }
+        Slot() : m_pBuffer(NULL), m_lock(eSystemSpinLock, 4000) {}
+    };
+    static Slot m_slot[16];
+    static long    m_alloc;
+    static long    m_free;
+    ~CIOBufferPool() { CIOBuffer::FreeAll(); }
 };
 
 extern CIOBufferPool g_bufferPool;

@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/04/24
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	Things to do before including a C++ library/STL header
+    created:    2001/04/24
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    Things to do before including a C++ library/STL header
 *****************************************************************************/
 
 // This file is included before any STL file, so it does not and should not
@@ -14,7 +14,7 @@
 //
 #if CORE_COMPILER_MSVC
 
-#pragma warning( push )	// post file has corresponding pop
+#pragma warning( push )    // post file has corresponding pop
 
 // unreachable code
 #pragma warning( disable : 4702 )

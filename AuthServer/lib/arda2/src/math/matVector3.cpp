@@ -1,18 +1,18 @@
 /*****************************************************************************
-	created:	2001/10/31
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	
+    created:    2001/10/31
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    
 *****************************************************************************/
 
 #include "../../include/arda2/math/matFirst.h"
 #include "../../include/arda2/math/matVector3.h"
 
 /*
-	NOTE[pmf]: Most of this file can be inlined, as it will either call the D3DX
-	functions or our own math layer. For the sake of reduced compile dependency,
-	these functions are not inlined at present.
+    NOTE[pmf]: Most of this file can be inlined, as it will either call the D3DX
+    functions or our own math layer. For the sake of reduced compile dependency,
+    these functions are not inlined at present.
  */
 
 const matVector3 matVector3::Zero(matZero);
@@ -24,10 +24,10 @@ const matVector3 matVector3::Right(1.0f, 0.0f, 0.0f);
 const matVector3 matVector3::Forward(0.0f, 0.0f, 1.0f);
 
 
-void matVector3::StoreComponentClamp(	const matVector3& min,
+void matVector3::StoreComponentClamp(    const matVector3& min,
                                      const matVector3& max)
 {
-    // componentwise clamp	
+    // componentwise clamp    
     x = matClamp(x, min.x, max.x);
     y = matClamp(y, min.y, max.y);
     z = matClamp(z, min.z, max.z);

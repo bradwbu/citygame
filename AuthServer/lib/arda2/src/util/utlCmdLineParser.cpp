@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2003/01/29
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Sean Riley
-	
-	purpose:	
+    created:    2003/01/29
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Sean Riley
+    
+    purpose:    
 *****************************************************************************/
 
 #include "../../include/arda2/core/corFirst.h"
@@ -27,14 +27,14 @@ string utlCmdLineParser::kNoCommand = string("*");
 **/
 cmdArgSet utlCmdLineParser::GetArgs()
 {
-	cmdArgSet argMap;
+    cmdArgSet argMap;
 
-	int i=1;
+    int i=1;
 
-	while (i < m_argc)
-	{
-		if (m_argv[i][0] == '-')
-		{
+    while (i < m_argc)
+    {
+        if (m_argv[i][0] == '-')
+        {
             // this is a command
             char *cmd = &m_argv[i][1];
 
@@ -68,9 +68,9 @@ cmdArgSet utlCmdLineParser::GetArgs()
             argMap.insert( cmdArgSet::value_type(kNoCommand,string( m_argv[i])) );
             i++;
         }
-	}
+    }
 
-	return argMap;
+    return argMap;
 }
 
 /**
@@ -88,14 +88,14 @@ cmdArgSet utlCmdLineParser::GetArgs()
 **/
 cmdArgArray utlCmdLineParser::GetArgsArray()
 {
-	cmdArgArray argMap;
+    cmdArgArray argMap;
 
-	int i=1;
+    int i=1;
 
-	while (i < m_argc)
-	{
-		if (m_argv[i][0] == '-')
-		{
+    while (i < m_argc)
+    {
+        if (m_argv[i][0] == '-')
+        {
             // this is a command
             char *cmd = &m_argv[i][1];
 
@@ -129,9 +129,9 @@ cmdArgArray utlCmdLineParser::GetArgsArray()
             argMap.insert( cmdArgSet::value_type(kNoCommand,string( m_argv[i])) );
             i++;
         }
-	}
+    }
 
-	return argMap;
+    return argMap;
 }
 
 /**
@@ -141,21 +141,21 @@ cmdArgArray utlCmdLineParser::GetArgsArray()
 **/
 string utlCmdLineParser::GetInfo()
 {
-	string out;
-	char buf[256];
+    string out;
+    char buf[256];
 
-	cmdArgSet argMap = GetArgs();
+    cmdArgSet argMap = GetArgs();
 
-	cmdArgSet::iterator it = argMap.begin();
-	cmdArgSet::iterator end = argMap.end();
-	for (; it != end; it++)
-	{
-		const string &cmd = it->first;
-		 string &value= it->second;
-		 snprintf(buf, 255, " Flag: '%s' Value: '%s'\n", cmd.c_str(), value.c_str());
-		out += buf;
-	}
-	return out;
+    cmdArgSet::iterator it = argMap.begin();
+    cmdArgSet::iterator end = argMap.end();
+    for (; it != end; it++)
+    {
+        const string &cmd = it->first;
+         string &value= it->second;
+         snprintf(buf, 255, " Flag: '%s' Value: '%s'\n", cmd.c_str(), value.c_str());
+        out += buf;
+    }
+    return out;
 }
 
 

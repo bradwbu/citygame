@@ -1,12 +1,12 @@
 /*****************************************************************************
-	created:	2001/08/14
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	Integer Rect class which wraps the windows RECT
-				structure. This is based loosely on the code in
-				afxwin.h and afxwin1.inline; see the MFC docs for
-				instructions on using these.
+    created:    2001/08/14
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    Integer Rect class which wraps the windows RECT
+                structure. This is based loosely on the code in
+                afxwin.h and afxwin1.inline; see the MFC docs for
+                instructions on using these.
 *****************************************************************************/
 
 #ifndef   INCLUDED_utlRect
@@ -25,98 +25,98 @@ class utlRect : public tagRECT
 {
 public:
 
-	// Constructors
-	utlRect();
-	utlRect(int l, int t, int r, int b);
-	utlRect(const RECT &srcRect);
-	utlRect(const POINT &point, const SIZE &size);
-	utlRect(const POINT &topLeft, const POINT &bottomRight);
+    // Constructors
+    utlRect();
+    utlRect(int l, int t, int r, int b);
+    utlRect(const RECT &srcRect);
+    utlRect(const POINT &point, const SIZE &size);
+    utlRect(const POINT &topLeft, const POINT &bottomRight);
 
-	static const utlRect Zero;	// zero object
+    static const utlRect Zero;    // zero object
 
-	// Attributes (in addition to RECT members)
-	int Width() const;
-	int Height() const;
-	utlSize Size() const;
-	utlRect SizeRect() const;
-	utlPoint& TopLeft();
-	utlPoint& BottomRight();
-	const utlPoint& TopLeft() const;
-	const utlPoint& BottomRight() const;
-	utlPoint TopRight() const;
-	utlPoint BottomLeft() const;
-	utlPoint Center() const;
+    // Attributes (in addition to RECT members)
+    int Width() const;
+    int Height() const;
+    utlSize Size() const;
+    utlRect SizeRect() const;
+    utlPoint& TopLeft();
+    utlPoint& BottomRight();
+    const utlPoint& TopLeft() const;
+    const utlPoint& BottomRight() const;
+    utlPoint TopRight() const;
+    utlPoint BottomLeft() const;
+    utlPoint Center() const;
 
-	bool IsEmpty() const;		// rect has no area (may be backwards)
-	bool IsValid() const;		// rect has area (not backwards)
-	bool IsNormal() const;		// rect is organized normally (not backwards, empty is allowed)
-	bool IsNull() const;		// all rect params are 0
-	operator BOOL() const;
+    bool IsEmpty() const;        // rect has no area (may be backwards)
+    bool IsValid() const;        // rect has area (not backwards)
+    bool IsNormal() const;        // rect is organized normally (not backwards, empty is allowed)
+    bool IsNull() const;        // all rect params are 0
+    operator BOOL() const;
 
-	// Operations
-	void Set(int x1, int y1, int x2, int y2);
-	void Set(const POINT &topLeft, const POINT &bottomRight);
-	void Set(const POINT &point, const SIZE &size);
-	void SetEmpty();
+    // Operations
+    void Set(int x1, int y1, int x2, int y2);
+    void Set(const POINT &topLeft, const POINT &bottomRight);
+    void Set(const POINT &point, const SIZE &size);
+    void SetEmpty();
 
-	void Inflate(int val);
-	void Inflate(int x, int y);
-	void Inflate(const SIZE &size);
-	void Inflate(const RECT &rect);
-	void Inflate(int l, int t, int r, int b);
+    void Inflate(int val);
+    void Inflate(int x, int y);
+    void Inflate(const SIZE &size);
+    void Inflate(const RECT &rect);
+    void Inflate(int l, int t, int r, int b);
 
-	void Deflate(int val);
-	void Deflate(int x, int y);
-	void Deflate(const SIZE &size);
-	void Deflate(const RECT &rect);
-	void Deflate(int l, int t, int r, int b);
+    void Deflate(int val);
+    void Deflate(int x, int y);
+    void Deflate(const SIZE &size);
+    void Deflate(const RECT &rect);
+    void Deflate(int l, int t, int r, int b);
 
-	void Offset(int x, int y);
-	void Offset(const SIZE &size);
-	void Offset(const POINT &point);
-	void OffsetX(int x);
-	void OffsetY(int y);
-	void NormalizeRect();
+    void Offset(int x, int y);
+    void Offset(const SIZE &size);
+    void Offset(const POINT &point);
+    void OffsetX(int x);
+    void OffsetY(int y);
+    void NormalizeRect();
 
-	void MoveTo(const POINT &origin);
-	void ResizeTo(const SIZE &size);
+    void MoveTo(const POINT &origin);
+    void ResizeTo(const SIZE &size);
 
-	bool Intersects(const RECT &r) const;
-	const utlRect& Intersect(const RECT &r );
-	bool IntersectValid(const RECT &r );
-	const utlRect& Union(const RECT &r );
+    bool Intersects(const RECT &r) const;
+    const utlRect& Intersect(const RECT &r );
+    bool IntersectValid(const RECT &r );
+    const utlRect& Union(const RECT &r );
 
-	// boolean operations with separate operands
-	const utlRect& Intersect(const RECT &rect1, const RECT &rect2);
-	bool IntersectValid(const RECT &rect1, const RECT &rect2);
-	const utlRect& Union(const RECT &rect1, const RECT &rect2);
+    // boolean operations with separate operands
+    const utlRect& Intersect(const RECT &rect1, const RECT &rect2);
+    bool IntersectValid(const RECT &rect1, const RECT &rect2);
+    const utlRect& Union(const RECT &rect1, const RECT &rect2);
 
-	bool Contains(const POINT &p) const;
-	bool ContainsX(const POINT &p) const;	// allows p == BottomRight
-	bool Contains(const RECT &other) const;
+    bool Contains(const POINT &p) const;
+    bool ContainsX(const POINT &p) const;    // allows p == BottomRight
+    bool Contains(const RECT &other) const;
 
-	// special stuff
-	bool ConstrainTo(const utlRect &bounds);
-	void CenterIn(const utlRect &container);
+    // special stuff
+    bool ConstrainTo(const utlRect &bounds);
+    void CenterIn(const utlRect &container);
 
-	// operator overloads
-	const utlRect& operator=(const RECT& srcRect);
-	bool operator==(const RECT& rect) const;
-	bool operator!=(const RECT& rect) const;
-	const utlRect& operator+=(const POINT &point);
-	const utlRect& operator+=(const SIZE &size);
-	const utlRect& operator-=(const POINT &point);
-	const utlRect& operator-=(const SIZE &size);
-	const utlRect& operator&=(const RECT& rect);
-	const utlRect& operator|=(const RECT& rect);
+    // operator overloads
+    const utlRect& operator=(const RECT& srcRect);
+    bool operator==(const RECT& rect) const;
+    bool operator!=(const RECT& rect) const;
+    const utlRect& operator+=(const POINT &point);
+    const utlRect& operator+=(const SIZE &size);
+    const utlRect& operator-=(const POINT &point);
+    const utlRect& operator-=(const SIZE &size);
+    const utlRect& operator&=(const RECT& rect);
+    const utlRect& operator|=(const RECT& rect);
 
-	// Operators returning utlRect values
-	utlRect operator+(const POINT &point) const;
-	utlRect operator+(const RECT &rect) const;
-	utlRect operator+(const SIZE &size) const;
-	utlRect operator-(const POINT &point) const;
-	utlRect operator-(const SIZE &size) const;
-	utlRect operator-(const RECT &rect) const;
+    // Operators returning utlRect values
+    utlRect operator+(const POINT &point) const;
+    utlRect operator+(const RECT &rect) const;
+    utlRect operator+(const SIZE &size) const;
+    utlRect operator-(const POINT &point) const;
+    utlRect operator-(const SIZE &size) const;
+    utlRect operator-(const RECT &rect) const;
 };
 
 utlRect Union( const RECT &r0, const RECT &r1 );
@@ -251,8 +251,8 @@ inline void utlRect::OffsetY( int y )
 
 inline void utlRect::MoveTo( const POINT &origin)
 {
-	right += origin.x - left; left = origin.x;
-	bottom += origin.y - top; top = origin.y;
+    right += origin.x - left; left = origin.x;
+    bottom += origin.y - top; top = origin.y;
 }
 
 inline void utlRect::ResizeTo( const SIZE &size )
@@ -262,7 +262,7 @@ inline bool utlRect::Intersects( const RECT &r ) const
 { return left < r.right && right > r.left && top < r.bottom && bottom > r.top; }
 
 inline const utlRect& utlRect::Intersect( const RECT &r )
-{ if (!IntersectValid(r)) { left = top = right = bottom = 0; } return *this; }	// $ inefficient! fix assumption in future - allow invalid rects!
+{ if (!IntersectValid(r)) { left = top = right = bottom = 0; } return *this; }    // $ inefficient! fix assumption in future - allow invalid rects!
 
 inline bool utlRect::IntersectValid( const RECT &r )
 { left = Max(left, r.left); top = Max(top, r.top); right = Min(right, r.right); bottom = Min(bottom, r.bottom); return IsValid(); }
@@ -338,19 +338,19 @@ inline utlRect operator|(const RECT &r1, const RECT& r2)
 
 inline void utlRect::NormalizeRect()
 {
-	int nTemp;
-	if (left > right)
-	{
-		nTemp = left;
-		left  = right;
-		right = nTemp;
-	}
-	if (top > bottom)
-	{
-		nTemp  = top;
-		top    = bottom;
-		bottom = nTemp;
-	}
+    int nTemp;
+    if (left > right)
+    {
+        nTemp = left;
+        left  = right;
+        right = nTemp;
+    }
+    if (top > bottom)
+    {
+        nTemp  = top;
+        top    = bottom;
+        bottom = nTemp;
+    }
 }
 
 

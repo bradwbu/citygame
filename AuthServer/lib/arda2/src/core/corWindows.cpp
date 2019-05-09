@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/04/23
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	
+    created:    2001/04/23
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    
 *****************************************************************************/
 
 #include "../../include/arda2/core/corFirst.h" // includes corWindows.h

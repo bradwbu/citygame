@@ -30,7 +30,7 @@ namespace cryptLib
 
     private:
 
-        sha512Impl*	m_impl;
+        sha512Impl*    m_impl;
     };
 } // namespace cryptLib
 

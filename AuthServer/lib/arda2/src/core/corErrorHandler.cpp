@@ -157,17 +157,17 @@ errHandlerResult corErrorHandler::DefaultReport(const char* szFileName, int iLin
 
     char message[1024];
 
-	static char timeStamp[128] = {0};
-	memset(timeStamp,0,128);
+    static char timeStamp[128] = {0};
+    memset(timeStamp,0,128);
 
 #if CORE_SYSTEM_LINUX
-	static struct tm t;
-	static time_t _t;
-	time(&_t);
-	localtime_r(&_t,&t);
-	strftime(timeStamp,128,"%T",&t);
+    static struct tm t;
+    static time_t _t;
+    time(&_t);
+    localtime_r(&_t,&t);
+    strftime(timeStamp,128,"%T",&t);
 #elif CORE_SYSTEM_WINAPI
-	_strtime(timeStamp);
+    _strtime(timeStamp);
 #endif
 
     // format a message

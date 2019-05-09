@@ -765,7 +765,7 @@ public:
         m_name(defaultString), 
         m_flag(defaultBool),
         m_number(0),
-		m_enumNumber(0),
+        m_enumNumber(0),
         m_objectPtr(NULL),
         m_objectPtrFunky(0),
         m_bits(defaultBits)
@@ -800,10 +800,10 @@ public:
     void SetFunkyObject(proObject *value) { m_objectPtrFunky = value; }
     void SetBits( uint aBits ) { m_bits = aBits; }
 
-	enum Values
-	{
-		EVT_A, EVT_B, EVT_C, EVT_D,
-	};
+    enum Values
+    {
+        EVT_A, EVT_B, EVT_C, EVT_D,
+    };
 
     static proPropertyEnum::EnumTable s_EnumTable[4];
 
@@ -816,7 +816,7 @@ protected:
     string m_name;
     bool m_flag;
     uint m_number;
-	uint m_enumNumber;
+    uint m_enumNumber;
     proObject *m_objectPtr;
     proObject *m_objectPtrFunky;
     uint m_bits;
@@ -824,10 +824,10 @@ protected:
 
 proPropertyEnum::EnumTable proTestClass::s_EnumTable[4] =
 {
-	"enumA", proTestClass::EVT_A,
-	"enumB", proTestClass::EVT_B,
-	"enumC", proTestClass::EVT_C,
-	"enumD", proTestClass::EVT_D,
+    "enumA", proTestClass::EVT_A,
+    "enumB", proTestClass::EVT_B,
+    "enumC", proTestClass::EVT_C,
+    "enumD", proTestClass::EVT_D,
 };
 
 //----------------------------------------------------------------------------
@@ -870,7 +870,7 @@ public:
         m_name(""), 
         m_flag(false),
         m_number(0),
-		m_enumNumber(0),
+        m_enumNumber(0),
         m_objectPtr(0),
         m_bits(0)
      {}
@@ -900,10 +900,10 @@ public:
     void SetObject(proObject *value) { m_objectPtr = value; }
     void SetBits( uint aBits ) { m_bits = aBits; }
 
-	enum Values
-	{
-		EVT_A, EVT_B, EVT_C, EVT_D,
-	};
+    enum Values
+    {
+        EVT_A, EVT_B, EVT_C, EVT_D,
+    };
 
     static proPropertyEnum::EnumTable s_EnumTable[4];
 
@@ -914,17 +914,17 @@ protected:
     string m_name;
     bool m_flag;
     uint m_number;
-	uint m_enumNumber;
+    uint m_enumNumber;
     proObject *m_objectPtr;
     uint m_bits;
 };
 
 proPropertyEnum::EnumTable proTestClassWithAnnotations::s_EnumTable[] =
 {
-	"enumA2", proTestClassWithAnnotations::EVT_A,
-	"enumB2", proTestClassWithAnnotations::EVT_B,
-	"enumC2", proTestClassWithAnnotations::EVT_C,
-	"enumD2", proTestClassWithAnnotations::EVT_D,
+    "enumA2", proTestClassWithAnnotations::EVT_A,
+    "enumB2", proTestClassWithAnnotations::EVT_B,
+    "enumC2", proTestClassWithAnnotations::EVT_C,
+    "enumD2", proTestClassWithAnnotations::EVT_D,
 };
 
 PRO_REGISTER_CLASS(proTestClassWithAnnotations, proObject)
@@ -952,7 +952,7 @@ public:
         m_name(""), 
         m_flag(false),
         m_number(0),
-		m_enumNumber(0),
+        m_enumNumber(0),
         m_objectPtr(0),
         m_bits(0),
         m_FunkyPtr(0),
@@ -998,10 +998,10 @@ public:
 
 protected:
 
-	enum Values
-	{
-		EVT_A, EVT_B, EVT_C, EVT_D,
-	};
+    enum Values
+    {
+        EVT_A, EVT_B, EVT_C, EVT_D,
+    };
 
 protected:
     int m_x;
@@ -1010,7 +1010,7 @@ protected:
     string m_name;
     bool m_flag;
     uint m_number;
-	uint m_enumNumber;
+    uint m_enumNumber;
     proObject *m_objectPtr;
     uint m_bits;
     proObject* m_FunkyPtr;
@@ -1021,10 +1021,10 @@ protected:
 
 proPropertyEnum::EnumTable proBasicTypesWithDelegates::s_EnumTable[] =
 {
-	"pbtwdA", proBasicTypesWithDelegates::EVT_A,
-	"pbtwdB", proBasicTypesWithDelegates::EVT_B,
-	"pbtwdC", proBasicTypesWithDelegates::EVT_C,
-	"pbtwdD", proBasicTypesWithDelegates::EVT_D,
+    "pbtwdA", proBasicTypesWithDelegates::EVT_A,
+    "pbtwdB", proBasicTypesWithDelegates::EVT_B,
+    "pbtwdC", proBasicTypesWithDelegates::EVT_C,
+    "pbtwdD", proBasicTypesWithDelegates::EVT_D,
 };
 
 typedef proBasicTypesWithDelegates PBTWD;
@@ -1055,7 +1055,7 @@ public:
         m_name(""), 
         m_flag(false),
         m_number(0),
-		m_enumNumber(0),
+        m_enumNumber(0),
         m_objectPtr(0),
         m_bits(0),
         m_FunkyPtr(0),
@@ -1102,10 +1102,10 @@ public:
 
 protected:
 
-	enum Values
-	{
-		EVT_A, EVT_B, EVT_C, EVT_D,
-	};
+    enum Values
+    {
+        EVT_A, EVT_B, EVT_C, EVT_D,
+    };
 
 protected:
     int m_x;
@@ -1114,7 +1114,7 @@ protected:
     string m_name;
     bool m_flag;
     uint m_number;
-	uint m_enumNumber;
+    uint m_enumNumber;
     proObject *m_objectPtr;
     uint m_bits;
     proObject* m_FunkyPtr;
@@ -1125,10 +1125,10 @@ protected:
 
 proPropertyEnum::EnumTable proBasicTypesWithAnnotationsAndDelegates::s_EnumTable[] =
 {
-	"pbtwaadA", proBasicTypesWithAnnotationsAndDelegates::EVT_A,
-	"pbtwaadB", proBasicTypesWithAnnotationsAndDelegates::EVT_B,
-	"pbtwaadC", proBasicTypesWithAnnotationsAndDelegates::EVT_C,
-	"pbtwaadD", proBasicTypesWithAnnotationsAndDelegates::EVT_D,
+    "pbtwaadA", proBasicTypesWithAnnotationsAndDelegates::EVT_A,
+    "pbtwaadB", proBasicTypesWithAnnotationsAndDelegates::EVT_B,
+    "pbtwaadC", proBasicTypesWithAnnotationsAndDelegates::EVT_C,
+    "pbtwaadD", proBasicTypesWithAnnotationsAndDelegates::EVT_D,
 };
 
 PRO_REGISTER_CLASS(proBasicTypesWithAnnotationsAndDelegates, proObject)
@@ -1272,11 +1272,11 @@ public:
         proPropertyEnum *proEnum = static_cast<proPropertyEnum*>(pro);
         uint valueEnum = proEnum->GetValue(m_object);
         TESTASSERT( valueEnum == 0);
-		proEnum->SetValue( m_object, proEnum->GetEnumerationValue("one") );
+        proEnum->SetValue( m_object, proEnum->GetEnumerationValue("one") );
         uint valueEnum1 = proEnum->GetValue(m_object);
         TESTASSERT( valueEnum1 == 1);
 
-		// testing the delegate property macros
+        // testing the delegate property macros
         pro = m_object->GetPropertyByName("Funky");
         TESTASSERT( pro->GetDataType() == DT_int );
         proInt = static_cast<proPropertyInt*>(pro);
@@ -1531,43 +1531,43 @@ public:
     void testEnumTable() const
     {
         // Test new enum property initializer
-		proProperty* pro = m_object->GetPropertyByName("EnumTableNumber");
+        proProperty* pro = m_object->GetPropertyByName("EnumTableNumber");
         TESTASSERT( pro->GetDataType() == DT_enum );
-		proPropertyEnum *proEnum2 = static_cast<proPropertyEnum*>(pro);
-		proEnum2->SetValue( m_object, proEnum2->GetEnumerationValue(proTestClass::s_EnumTable[2].key) );
-		uint valueEnum2 = proEnum2->GetValue(m_object);
+        proPropertyEnum *proEnum2 = static_cast<proPropertyEnum*>(pro);
+        proEnum2->SetValue( m_object, proEnum2->GetEnumerationValue(proTestClass::s_EnumTable[2].key) );
+        uint valueEnum2 = proEnum2->GetValue(m_object);
         TESTASSERT( valueEnum2 == proTestClass::s_EnumTable[2].value );
 
-		// inserting some dynamic fields to the current enum table
-		{
-			vector< string > stringList;
-			proEnum2->GetEnumeration( stringList );
+        // inserting some dynamic fields to the current enum table
+        {
+            vector< string > stringList;
+            proEnum2->GetEnumeration( stringList );
 
-			proPropertyEnum::EnumTable entry;
+            proPropertyEnum::EnumTable entry;
 
-			vector< proPropertyEnum::EnumTable > table;
-			for( vector<string>::iterator sit = stringList.begin(); sit != stringList.end(); sit++ )
-			{
-				entry.key   = *(sit);
-				entry.value = proEnum2->GetEnumerationValue(entry.key);
-				table.push_back( entry );
-			}
+            vector< proPropertyEnum::EnumTable > table;
+            for( vector<string>::iterator sit = stringList.begin(); sit != stringList.end(); sit++ )
+            {
+                entry.key   = *(sit);
+                entry.value = proEnum2->GetEnumerationValue(entry.key);
+                table.push_back( entry );
+            }
 
-			entry.key   = "dynA";
-			entry.value = 101;
-			table.push_back( entry );
+            entry.key   = "dynA";
+            entry.value = 101;
+            table.push_back( entry );
 
-			entry.key   = "dynB";
-			entry.value = 102;
-			table.push_back( entry );
+            entry.key   = "dynB";
+            entry.value = 102;
+            table.push_back( entry );
 
-			proEnum2->SetEnumTable( &table.front(), (uint)table.size() );
-		}
+            proEnum2->SetEnumTable( &table.front(), (uint)table.size() );
+        }
 
         // verifying the new table has been set
-		proEnum2->SetValue( m_object, proEnum2->GetEnumerationValue("dynA") );
-		valueEnum2 = proEnum2->GetValue(m_object);
-		TESTASSERT( valueEnum2 == 101 );
+        proEnum2->SetValue( m_object, proEnum2->GetEnumerationValue("dynA") );
+        valueEnum2 = proEnum2->GetValue(m_object);
+        TESTASSERT( valueEnum2 == 101 );
     }
 };
 

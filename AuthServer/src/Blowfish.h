@@ -53,13 +53,13 @@ union aword {
 };
 #endif  /* ORDER_BADC */
 
-#ifdef __cplusplus	// for avoiding c++ identifier decoration
+#ifdef __cplusplus    // for avoiding c++ identifier decoration
 extern "C"
 {
 #endif
 
 typedef struct {
-		UWORD_32bits S[4][256], P[bf_N+2];
+        UWORD_32bits S[4][256], P[bf_N+2];
 } Blowfish_matrix;
 
 void Blowfish_encipher(unsigned long *xl, unsigned long *xr);
@@ -75,6 +75,6 @@ void Blowfish_decipher_local(Blowfish_matrix *mtx, UWORD_32bits *xl, UWORD_32bit
 void BlowfishDecryptLocal(Blowfish_matrix *mtx, unsigned char *buf, int length);
 void BlowfishEncryptLocal(Blowfish_matrix *mtx, unsigned char *buf, int length);
 
-#ifdef __cplusplus	// for avoiding c++ identifier decoration
+#ifdef __cplusplus    // for avoiding c++ identifier decoration
 }
 #endif

@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2003/01/29
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Sean Riley
-	
-	purpose:	convert cmd line into a map of args
+    created:    2003/01/29
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Sean Riley
+    
+    purpose:    convert cmd line into a map of args
 
 *****************************************************************************/
 
@@ -37,20 +37,20 @@ typedef std::multimap< std::string, std::string > cmdArgArray;
 class utlCmdLineParser
 {
 public:
-	utlCmdLineParser(int32 argc, char **argv) : m_argc(argc), m_argv(argv) {};
-	~utlCmdLineParser() {};
-	void AddLoneArg(const std::string &arg) { m_loneArgs.push_back(arg); };
+    utlCmdLineParser(int32 argc, char **argv) : m_argc(argc), m_argv(argv) {};
+    ~utlCmdLineParser() {};
+    void AddLoneArg(const std::string &arg) { m_loneArgs.push_back(arg); };
 
-	cmdArgSet GetArgs();
-	cmdArgArray GetArgsArray();
+    cmdArgSet GetArgs();
+    cmdArgArray GetArgsArray();
 
     std::string GetInfo();
 
-	static std::string kNoCommand;
+    static std::string kNoCommand;
 
 private:
-	int32 m_argc;
-	char **m_argv;
+    int32 m_argc;
+    char **m_argv;
     std::list<std::string> m_loneArgs;
 
 };

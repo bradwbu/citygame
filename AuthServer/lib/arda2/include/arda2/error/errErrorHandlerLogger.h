@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2002/05/02
-	copyright:	2002, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
+    created:    2002/05/02
+    copyright:    2002, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
 
-	purpose:	Error logger
+    purpose:    Error logger
 *****************************************************************************/
 
 #ifndef   INCLUDED_errErrorHandlerLogger
@@ -37,22 +37,22 @@ public:
         kAppendToFile
     };
 
-	errErrorHandlerLogger(bool useStdOut=false, ePathLogging hidePaths=kFull, const char *filePrefix = NULL, eAppendLogging append=kAppendToFile);
-	~errErrorHandlerLogger();
+    errErrorHandlerLogger(bool useStdOut=false, ePathLogging hidePaths=kFull, const char *filePrefix = NULL, eAppendLogging append=kAppendToFile);
+    ~errErrorHandlerLogger();
 
-	void Init(bool useStdOut=false, ePathLogging hidePaths=kFull, const char *filePrefix = NULL, eAppendLogging append=kAppendToFile);
-	void SetUseStdOut(bool value) { m_useStdOut = value; }
-	void SetHidePaths(ePathLogging value) { m_hidePaths = value; }
+    void Init(bool useStdOut=false, ePathLogging hidePaths=kFull, const char *filePrefix = NULL, eAppendLogging append=kAppendToFile);
+    void SetUseStdOut(bool value) { m_useStdOut = value; }
+    void SetHidePaths(ePathLogging value) { m_hidePaths = value; }
 
 protected:  
 
     void RotateLogFile();
 
-	errHandlerResult Report(const char* szFileName, int iLineNumber, 
-		errSeverity nSeverity, const char *szErrorLevel, const char* szDescription);
+    errHandlerResult Report(const char* szFileName, int iLineNumber, 
+        errSeverity nSeverity, const char *szErrorLevel, const char* szDescription);
 
-	bool m_useStdOut;
-	ePathLogging m_hidePaths;
+    bool m_useStdOut;
+    ePathLogging m_hidePaths;
     const char *m_filePrefix;
     FILE *m_fp;
     eAppendLogging m_append;

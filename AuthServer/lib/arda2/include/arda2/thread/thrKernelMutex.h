@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001/08/13
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	
+    created:    2001/08/13
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    
 *****************************************************************************/
 
 #ifndef   INCLUDED_thrKernelMutex
@@ -16,22 +16,22 @@
 class thrKernelMutex : public thrKernelObject
 {
 public:
-	thrKernelMutex( bool bInitialOwner = false, char *szName = NULL)
-	{
-		SetHandle(::CreateMutex(NULL, bInitialOwner, szName));
-	}
-	virtual ~thrKernelMutex()
-	{
-	}
+    thrKernelMutex( bool bInitialOwner = false, char *szName = NULL)
+    {
+        SetHandle(::CreateMutex(NULL, bInitialOwner, szName));
+    }
+    virtual ~thrKernelMutex()
+    {
+    }
 
       // releases the mutex after previously acquiring it via Wait()
     bool Release(void)
-	{
-		return  ::ReleaseMutex(GetHandle()) != 0;
-	}
+    {
+        return  ::ReleaseMutex(GetHandle()) != 0;
+    }
 
 protected:
-	
+    
 private:
     // disable copy constructor and assignment operator
     thrKernelMutex( const thrKernelMutex& );

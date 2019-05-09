@@ -41,46 +41,46 @@ bool matFarPlane::IntersectsSegment( IN const matFarPosition &vStart, IN const m
 {
     matVector3 vLocalStart = vStart.GetRelativeVector(m_segment);
     matVector3 vLocalEnd = vEnd.GetRelativeVector(m_segment);
-	const float fStartT = m_localPlane.GetSignedDistance(vLocalStart);
-	const float fEndT = m_localPlane.GetSignedDistance(vLocalEnd);
-	
-	// check to make sure the endpoints span the plane
-	if ( fStartT * fEndT > 0.0f )
-		return false;
-	
-	if ( pT || pIntersection )
-	{
-		float t;
+    const float fStartT = m_localPlane.GetSignedDistance(vLocalStart);
+    const float fEndT = m_localPlane.GetSignedDistance(vLocalEnd);
+    
+    // check to make sure the endpoints span the plane
+    if ( fStartT * fEndT > 0.0f )
+        return false;
+    
+    if ( pT || pIntersection )
+    {
+        float t;
 
-		// check for start on the plane
-		if ( fStartT == 0.0f )
-		{
-			t = 0.0f;
-		}
-		// check for end on the plane
-		else if ( fEndT == 0.0f )
-		{
-			t = 1.0f;
-		}
-		else
-		{
-			// solve parametric equation to find the intersection point
-			float absStartT = fabsf(fStartT);
-			float absEndT   = fabsf(fEndT);
-			t = absStartT / (absStartT + absEndT);
-		}
+        // check for start on the plane
+        if ( fStartT == 0.0f )
+        {
+            t = 0.0f;
+        }
+        // check for end on the plane
+        else if ( fEndT == 0.0f )
+        {
+            t = 1.0f;
+        }
+        else
+        {
+            // solve parametric equation to find the intersection point
+            float absStartT = fabsf(fStartT);
+            float absEndT   = fabsf(fEndT);
+            t = absStartT / (absStartT + absEndT);
+        }
 
-		if ( pT )
-			*pT = t;
+        if ( pT )
+            *pT = t;
 
-		if ( pIntersection )
+        if ( pIntersection )
         {
             *pIntersection = vStart;
             pIntersection->Translate(t * (vEnd - vStart));
         }
-	}
-	
-	return true;
+    }
+    
+    return true;
 }
 
 bool matFarPlane::IntersectsRay( IN matFarPosition &vStart, IN const matVector3 &vDir, OUT float *pT, OUT matFarPosition *pIntersection)
@@ -95,8 +95,8 @@ bool matFarPlane::IntersectsRay( IN matFarPosition &vStart, IN const matVector3 
     float deltaD = m_localPlane.GetSignedDistance(vLocalStart);
 
     float t = -deltaD / cosAlpha;
-	if ( t < 0.0f )
-		return false;
+    if ( t < 0.0f )
+        return false;
 
     if ( pT )
         *pT = t;

@@ -18,21 +18,21 @@
 class CIOTimer 
 {
 public:
-	DWORD   m_tick;
-	CIOObject *m_pObject;
+    DWORD   m_tick;
+    CIOObject *m_pObject;
     CIOTimer(CIOObject *pObject, DWORD tick) : m_tick(tick), m_pObject(pObject) {}
-	bool operator<(const CIOTimer& right) const 
+    bool operator<(const CIOTimer& right) const 
     {
-		return (LONG)+(m_tick - right.m_tick) > 0;
-	}
+        return (LONG)+(m_tick - right.m_tick) > 0;
+    }
 };
 
 class CIOTopTimer : public CIOObject
 {
 public:
-	CIOTopTimer(){}
+    CIOTopTimer(){}
     ~CIOTopTimer(){}
-	virtual void OnTimerCallback(void);
+    virtual void OnTimerCallback(void);
     virtual void OnEventCallback() {}
     virtual void OnIOCallback(BOOL vector, LPOVERLAPPED pOverlapped,DWORD transferred ) {}
 };
@@ -54,14 +54,14 @@ public:
 
 private:
     CIOTopTimer *pIOTopTimer;
-	CLock m_lock;
+    CLock m_lock;
     DWORD m_topTick;
     HANDLE m_timerEvent;
     HANDLE m_terminateEvent;
     std::vector<HANDLE> m_handles;
     std::vector<CIOObject *> m_objects;
     PriorityTimerQueue m_timerQueue;
-	BOOL m_terminating;
+    BOOL m_terminating;
 };
 
 extern CJob job;

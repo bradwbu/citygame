@@ -844,8 +844,8 @@ public:
     matPropertyTests() { };
     virtual ~matPropertyTests() { };
 
-	virtual void Register()
-	{
+    virtual void Register()
+    {
         SetName("matProperty");
 
         AddTestCase( "matPropertyTests::TestIndividualGetAndSet",

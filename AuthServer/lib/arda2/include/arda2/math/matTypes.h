@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2001-07-25
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Tom Gambill
-	
-	purpose:	
+    created:    2001-07-25
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Tom Gambill
+    
+    purpose:    
 *****************************************************************************/
 
 #ifndef   INCLUDED_matTypes
@@ -31,46 +31,46 @@
 // by type.
 enum matZeroType
 {
-	matZero = 0
+    matZero = 0
 };
 
 enum matIdentityType
 {
-	matIdentity = 1
+    matIdentity = 1
 };
 
 enum matMinimumType
 {
-	matMinimum = 2
+    matMinimum = 2
 };
 
 enum matMaximumType
 {
-	matMaximum = 3
+    matMaximum = 3
 };
 
 #if CORE_COMPILER_MSVC
 #pragma warning(push)
-#pragma warning(disable:4035)		// turn off warning about no return value
+#pragma warning(disable:4035)        // turn off warning about no return value
 #endif
 
 //* Return the shift value for the passed power-of-two dimension.
 inline int GetShift( int n )
 {
 #if CORE_COMPILER_MSVC && CORE_SYSTEM_WIN32
-	__asm
-	{
-		mov		edx, [n]
-		bsr		eax, edx
-	}
+    __asm
+    {
+        mov        edx, [n]
+        bsr        eax, edx
+    }
 #else
     int edx = n;
-	int eax = 31;
-	int mask = 0x80000000;
-	while ((edx & mask) == 0 && mask) {
-		mask >>= 1;
-		--eax;
-	}
+    int eax = 31;
+    int mask = 0x80000000;
+    while ((edx & mask) == 0 && mask) {
+        mask >>= 1;
+        --eax;
+    }
     return eax;
 #endif
 }
@@ -79,20 +79,20 @@ inline int GetShift( int n )
 inline int GetZeroShift( int n )
 {
 #if CORE_COMPILER_MSVC && CORE_SYSTEM_WIN32
-	__asm
-	{
-		mov		edx, [n]
-		bsf		eax, edx
-	}
+    __asm
+    {
+        mov        edx, [n]
+        bsf        eax, edx
+    }
 #else
     int edx = n;
-	int eax = 0;
-	int mask = 0x00000001;
-	while ((edx & mask) == 0 && mask)
+    int eax = 0;
+    int mask = 0x00000001;
+    while ((edx & mask) == 0 && mask)
     {
-		mask <<= 1;
-		++eax;
-	}
+        mask <<= 1;
+        ++eax;
+    }
     return eax;
 #endif
 }
@@ -114,7 +114,7 @@ inline bool IsPower2( T n )
 template <class T>
 inline T MakePower2Up( T n )
 {
-	return T((n == 0) ? 1 : (2 << GetShift(n)));
+    return T((n == 0) ? 1 : (2 << GetShift(n)));
 }
 
 
@@ -123,7 +123,7 @@ inline T MakePower2Up( T n )
 template <class T>
 inline T MakePower2Down( T n )
 {
-	return T((n == 0) ? 0 : (1 << GetShift(n)));
+    return T((n == 0) ? 0 : (1 << GetShift(n)));
 }
 
 

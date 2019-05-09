@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2002/10/23
-	copyright:	2002, NCSoft. All Rights Reserved
-	author(s):	Jason Beardsley
-	
-	purpose:	Functions for computing distance between various objects.
+    created:    2002/10/23
+    copyright:    2002, NCSoft. All Rights Reserved
+    author(s):    Jason Beardsley
+    
+    purpose:    Functions for computing distance between various objects.
 *****************************************************************************/
 
 #ifndef INCLUDED_matDistance_h

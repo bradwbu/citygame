@@ -1,12 +1,12 @@
 /*****************************************************************************
-	created:	2001/08/14
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	Integer Point class which wraps the windows POINT
-				structure. This is based loosely on the code in
-				afxwin.h and afxwin1.inline; see the MFC docs for
-				instructions on using these.
+    created:    2001/08/14
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    Integer Point class which wraps the windows POINT
+                structure. This is based loosely on the code in
+                afxwin.h and afxwin1.inline; see the MFC docs for
+                instructions on using these.
 *****************************************************************************/
 
 #ifndef   INCLUDED_utlPoint
@@ -22,55 +22,55 @@ class utlPoint : public tagPOINT
 {
 public:
 
-	// Constructors
-	utlPoint()
-	{ /* random filled */ }
+    // Constructors
+    utlPoint()
+    { /* random filled */ }
 
-	utlPoint(int initX, int initY)
-	{ x = initX; y = initY; }
+    utlPoint(int initX, int initY)
+    { x = initX; y = initY; }
 
-	utlPoint(POINT initPt)
-	{ *(POINT*)this = initPt; }
+    utlPoint(POINT initPt)
+    { *(POINT*)this = initPt; }
 
-	utlPoint(SIZE initSize)
-	{ *(SIZE*)this = initSize; }
+    utlPoint(SIZE initSize)
+    { *(SIZE*)this = initSize; }
 
 #if CORE_SYSTEM_WINAPI
-	explicit utlPoint(DWORD dwPoint)
-	{
-		x = (short)LOWORD(dwPoint);
-		y = (short)HIWORD(dwPoint);
-	}
+    explicit utlPoint(DWORD dwPoint)
+    {
+        x = (short)LOWORD(dwPoint);
+        y = (short)HIWORD(dwPoint);
+    }
 #endif
 
-	static const utlPoint Zero;	// zero object
+    static const utlPoint Zero;    // zero object
 
-	// Attributes
-	bool IsZero(void) const;
+    // Attributes
+    bool IsZero(void) const;
 
-	// Operations
-	void Offset(int xOffset, int yOffset);
-	void Offset(POINT point);
-	void Offset(SIZE size);
-	void Set(int xNew, int yNew);
-	const utlPoint& operator+=(SIZE size);
-	const utlPoint& operator-=(SIZE size);
-	const utlPoint& operator+=(POINT point);
-	const utlPoint& operator-=(POINT point);
-	const utlPoint operator/(int32 divisor) const;
+    // Operations
+    void Offset(int xOffset, int yOffset);
+    void Offset(POINT point);
+    void Offset(SIZE size);
+    void Set(int xNew, int yNew);
+    const utlPoint& operator+=(SIZE size);
+    const utlPoint& operator-=(SIZE size);
+    const utlPoint& operator+=(POINT point);
+    const utlPoint& operator-=(POINT point);
+    const utlPoint operator/(int32 divisor) const;
 
-	utlPoint operator-() const;
+    utlPoint operator-() const;
 };
 
 class utlPointCompare
 {
 public:
-	bool operator()(const utlPoint &p1, const utlPoint &p2) const
-	{
-		if (p1.x < p2.x) return true;
-		if (p2.x < p1.x) return false;
-		return p1.y < p2.y;
-	}
+    bool operator()(const utlPoint &p1, const utlPoint &p2) const
+    {
+        if (p1.x < p2.x) return true;
+        if (p2.x < p1.x) return false;
+        return p1.y < p2.y;
+    }
 };
 
 

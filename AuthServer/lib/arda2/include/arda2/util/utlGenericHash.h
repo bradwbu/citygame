@@ -1,9 +1,9 @@
 /*****************************************************************************
-	created:	2004/01/13
-	copyright:	2004, NCSoft. All Rights Reserved
-	author(s):	Ryan Prescott
-	
-	purpose:	
+    created:    2004/01/13
+    copyright:    2004, NCSoft. All Rights Reserved
+    author(s):    Ryan Prescott
+    
+    purpose:    
 *****************************************************************************/
 
 #ifndef   INCLUDED_utlGenericHash_h

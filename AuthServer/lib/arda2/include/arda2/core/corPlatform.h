@@ -1,10 +1,10 @@
 /*****************************************************************************
-	created:	2001/04/24
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
+    created:    2001/04/24
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
 
-	purpose:	Determines operating system, compiler, CPU architecture, and host
-				byte order.
+    purpose:    Determines operating system, compiler, CPU architecture, and host
+                byte order.
 *****************************************************************************/
 
 #ifndef   INCLUDED_corPlatform
@@ -14,37 +14,37 @@
 #endif // _MSC_VER > 1000
 
 
-//	This file creates a set of #defines which describe the current operating system,
-//	compiler, CPU type, and host byte order. After pre-processing, one of each of the
-//	following sets of #defines will have a value of non-zero, and each of the others
-//	will be defined as zero. By defining these as non-zero or zero instead of defined
-//	or undefined, this prevents accidental misuse from types on definitions.
+//    This file creates a set of #defines which describe the current operating system,
+//    compiler, CPU type, and host byte order. After pre-processing, one of each of the
+//    following sets of #defines will have a value of non-zero, and each of the others
+//    will be defined as zero. By defining these as non-zero or zero instead of defined
+//    or undefined, this prevents accidental misuse from types on definitions.
 //
-//	Operation system -- one of:
+//    Operation system -- one of:
 //
-//		CORE_SYSTEM_WIN32
-//		CORE_SYSTEM_XENON
-//		CORE_SYSTEM_WINAPI = CORE_SYSTEM_WIN32 || CORE_SYSTEM_XENON
-//		CORE_SYSTEM_LINUX
+//        CORE_SYSTEM_WIN32
+//        CORE_SYSTEM_XENON
+//        CORE_SYSTEM_WINAPI = CORE_SYSTEM_WIN32 || CORE_SYSTEM_XENON
+//        CORE_SYSTEM_LINUX
 //      CORE_SYSTEM_PS3
-//		CORE_SYSTEM_SOLARIS
-//		CORE_SYSTEM_MAC
+//        CORE_SYSTEM_SOLARIS
+//        CORE_SYSTEM_MAC
 //
-//	Compiler -- one of:
-//		CORE_COMPILER_GNU
-//		CORE_COMPILER_MSVC
+//    Compiler -- one of:
+//        CORE_COMPILER_GNU
+//        CORE_COMPILER_MSVC
 //
-//	Architecture -- one of:
-//		CORE_ARCH_X86
+//    Architecture -- one of:
+//        CORE_ARCH_X86
 //      CORE_ARCH_X64
 //      CORE_ARCH_POWERPC
 //      CORE_ARCH_CELL_PPU
 //      CORE_ARCH_CELL_SPU
-//		CORE_ARCH_SPARC
+//        CORE_ARCH_SPARC
 //
-//	Byte order -- one of:
-//		CORE_BYTEORDER_LITTLE
-//		CORE_BYTEORDER_BIG
+//    Byte order -- one of:
+//        CORE_BYTEORDER_LITTLE
+//        CORE_BYTEORDER_BIG
 
 
 //

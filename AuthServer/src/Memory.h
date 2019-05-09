@@ -1,12 +1,12 @@
-#ifndef	_MEMORY_H_
+#ifndef    _MEMORY_H_
 #define _MEMORY_H_
 
 class MemoryObject
 {
 public:
 #if 0
-	void *operator new(size_t nSize) { return malloc(nSize); }
-	void operator delete(void* pData) { free(pData); }
+    void *operator new(size_t nSize) { return malloc(nSize); }
+    void operator delete(void* pData) { free(pData); }
 #endif
 };
 

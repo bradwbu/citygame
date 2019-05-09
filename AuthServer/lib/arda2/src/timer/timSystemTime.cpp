@@ -15,31 +15,31 @@
 #if CORE_SYSTEM_LINUX
 #include <time.h>
 #include <sys/time.h>
-#define		TIMEZONE	timezone
+#define        TIMEZONE    timezone
 #else
 #include <time.h>
-#define		TIMEZONE	_timezone
+#define        TIMEZONE    _timezone
 #endif
 
 SystemTime::SystemTime()
 {
-	GetTimeUTC();
+    GetTimeUTC();
 }
 
 SystemTime::SystemTime(uint16 year, uint8 month, uint8 day, uint8 hour, uint8 minute, uint8 second, uint16 millisecond)
 {
     m_year = year;
-	m_month = month;
-	m_day = day;
-	m_hour = hour;
-	m_minute = minute;
-	m_second = second;
-	m_millisecond = millisecond;
+    m_month = month;
+    m_day = day;
+    m_hour = hour;
+    m_minute = minute;
+    m_second = second;
+    m_millisecond = millisecond;
 }
 
 SystemTime::SystemTime(unsigned int currentTimeSeconds, unsigned int currentTimeMicroseconds)
 {
-	BuildTime(currentTimeSeconds, currentTimeMicroseconds/1000);
+    BuildTime(currentTimeSeconds, currentTimeMicroseconds/1000);
 }
 
 SystemTime::~SystemTime()
@@ -63,73 +63,73 @@ void SystemTime::SecondsAndMicroseconds(unsigned int &currentTimeSeconds, unsign
 
 void SystemTime::GetTimeUTC()
 {
-	uint32 sec;
-	uint32 msec;
+    uint32 sec;
+    uint32 msec;
 #if CORE_SYSTEM_LINUX
-	struct timeval tv;
-	gettimeofday(&tv, NULL);
-	sec = tv.tv_sec;
-	msec = tv.tv_usec / 1000;
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    sec = tv.tv_sec;
+    msec = tv.tv_usec / 1000;
 #else
 //#if CORE_SYSTEM_WIN32
-	time_t sectime;
-	SYSTEMTIME systime;
-	time(&sectime);
-	GetSystemTime(&systime);
-	sec = static_cast<uint32>(sectime);
-	msec = systime.wMilliseconds;
+    time_t sectime;
+    SYSTEMTIME systime;
+    time(&sectime);
+    GetSystemTime(&systime);
+    sec = static_cast<uint32>(sectime);
+    msec = systime.wMilliseconds;
 #endif 
 
-	BuildTime(sec, msec);
+    BuildTime(sec, msec);
 }
 
 void SystemTime::BuildTime(unsigned int sec, unsigned int milliseconds)
 {
-	struct tm tmOut;
-	memset(&tmOut, 0, sizeof(tm));
-	time_t tmp = static_cast<time_t>(sec);
+    struct tm tmOut;
+    memset(&tmOut, 0, sizeof(tm));
+    time_t tmp = static_cast<time_t>(sec);
 
 #if CORE_SYSTEM_LINUX
-	struct tm tmval;
-	gmtime_r(&tmp, &tmval);
-	tmOut = tmval;
+    struct tm tmval;
+    gmtime_r(&tmp, &tmval);
+    tmOut = tmval;
 #else
 //#if CORE_SYSTEM_WIN32
-	struct tm* ptmval = NULL;
-	ptmval = gmtime(&tmp);
+    struct tm* ptmval = NULL;
+    ptmval = gmtime(&tmp);
     if (ptmval != 0)
     {
-	    tmOut = *ptmval;
+        tmOut = *ptmval;
     }
 #endif
 
-	m_year = static_cast<uint16>(tmOut.tm_year + 1900);
-	m_month = static_cast<uint8>(tmOut.tm_mon + 1);
-	m_day = static_cast<uint8>(tmOut.tm_mday);
-	m_hour = static_cast<uint8>(tmOut.tm_hour);
-	m_minute = static_cast<uint8>(tmOut.tm_min);
-	m_second = static_cast<uint8>(tmOut.tm_sec);
-	m_millisecond = static_cast<uint16>(milliseconds);
+    m_year = static_cast<uint16>(tmOut.tm_year + 1900);
+    m_month = static_cast<uint8>(tmOut.tm_mon + 1);
+    m_day = static_cast<uint8>(tmOut.tm_mday);
+    m_hour = static_cast<uint8>(tmOut.tm_hour);
+    m_minute = static_cast<uint8>(tmOut.tm_min);
+    m_second = static_cast<uint8>(tmOut.tm_sec);
+    m_millisecond = static_cast<uint16>(milliseconds);
 }
 
 //void SystemTime::GetTimeLocal()
 //{
-//	uint32 sec;
-//	uint32 msec;
+//    uint32 sec;
+//    uint32 msec;
 //#if CORE_SYSTEM_LINUX
-//	struct timeval tv;
-//	gettimeofday(&tv, NULL);
-//	sec = tv.tv_sec;
-//	msec = tv.tv_usec / 1000;
+//    struct timeval tv;
+//    gettimeofday(&tv, NULL);
+//    sec = tv.tv_sec;
+//    msec = tv.tv_usec / 1000;
 //#else
 ////#if CORE_SYSTEM_WIN32
-//	time_t sectime;
-//	SYSTEMTIME systime;
-//	time(&sectime);
-//	GetLocalTime(&systime);
-//	sec = static_cast<uint32>(sectime);
-//	msec = systime.wMilliseconds;
+//    time_t sectime;
+//    SYSTEMTIME systime;
+//    time(&sectime);
+//    GetLocalTime(&systime);
+//    sec = static_cast<uint32>(sectime);
+//    msec = systime.wMilliseconds;
 //#endif 
 //
-//	BuildTime(sec, msec);
+//    BuildTime(sec, msec);
 //}

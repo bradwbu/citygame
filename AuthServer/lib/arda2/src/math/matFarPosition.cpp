@@ -1,16 +1,16 @@
 /*****************************************************************************
-	created:	2001/09/25
-	copyright:	2001, NCSoft. All Rights Reserved
-	author(s):	Peter M. Freese
-	
-	purpose:	
+    created:    2001/09/25
+    copyright:    2001, NCSoft. All Rights Reserved
+    author(s):    Peter M. Freese
+    
+    purpose:    
 *****************************************************************************/
 
 #include "../../include/arda2/math/matFirst.h"
 #include "../../include/arda2/math/matFarPosition.h"
 #include "../../include/arda2/util/utlPoint.h"
 
-#define NORMALIZATION	1
+#define NORMALIZATION    1
 matFarPosition matFarPosition::Zero(matZero);
 
 void matFarPosition::Normalize()

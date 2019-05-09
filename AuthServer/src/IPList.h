@@ -12,8 +12,8 @@
 #include "GlobalAuth.h"
 
 typedef struct {
-	UINT ip;
-	BYTE conn_num;
+    UINT ip;
+    BYTE conn_num;
 } IPACCESS;
 
 typedef std::map< unsigned long, INT > ACCESSMAP;
@@ -21,21 +21,21 @@ typedef std::map< unsigned long, INT > ACCESSMAP;
 class CIPAccessLimit
 {
 private:
-	CRITICAL_SECTION lock[16];
-	int GetIPLockValue( in_addr ip );
-	ACCESSMAP accessmap[16];
+    CRITICAL_SECTION lock[16];
+    int GetIPLockValue( in_addr ip );
+    ACCESSMAP accessmap[16];
 public:
-	bool SetAccessIP( in_addr ip );
-	bool DelAccessIP( in_addr ip );
-	CIPAccessLimit();
-	virtual ~CIPAccessLimit();
+    bool SetAccessIP( in_addr ip );
+    bool DelAccessIP( in_addr ip );
+    CIPAccessLimit();
+    virtual ~CIPAccessLimit();
 };
 
 class IPRecord
 {
 public:
-	unsigned begin;
-	unsigned end;
+    unsigned begin;
+    unsigned end;
 };
 
 bool  inline operator < (const IPRecord &x, const IPRecord &y) 
@@ -46,14 +46,14 @@ bool  inline operator < (unsigned x, const IPRecord &y) { return x < y.end; }
 class CIPList
 {
 protected:
-	std::vector<IPRecord> table;
-	CRWLock lock;
+    std::vector<IPRecord> table;
+    CRWLock lock;
 
 public:
-	CIPList();
+    CIPList();
 
-	BOOL Load(const char *fileName);
-	BOOL IpExists(in_addr ipAddr);
+    BOOL Load(const char *fileName);
+    BOOL IpExists(in_addr ipAddr);
 };
 
 extern CIPAccessLimit IPaccessLimit;

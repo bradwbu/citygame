@@ -48,39 +48,39 @@ public:
 
 
     // FIXME[pmf]: Hmm... these methods are misleadingly named, as they DON'T return the row, just part of the orientation submatrix
-    const matVector3&	GetRow0() const;
-    const matVector3&	GetRow1() const;
-    const matVector3&	GetRow2() const;
-    const matVector3&	GetRow3() const;
+    const matVector3&    GetRow0() const;
+    const matVector3&    GetRow1() const;
+    const matVector3&    GetRow2() const;
+    const matVector3&    GetRow3() const;
 
-    matVector3&			GetRow0();
-    matVector3&			GetRow1();
-    matVector3&			GetRow2();
-    matVector3&			GetRow3();
+    matVector3&            GetRow0();
+    matVector3&            GetRow1();
+    matVector3&            GetRow2();
+    matVector3&            GetRow3();
 
-    const matVector3	GetPosition() const;
-    matVector3			GetPosition();
-    void				SetPosition( IN const matVector3& v3Position );
+    const matVector3    GetPosition() const;
+    matVector3            GetPosition();
+    void                SetPosition( IN const matVector3& v3Position );
 
     matMatrix4x4T&      Multiply( const matMatrix4x4T &mat );
 
-    matMatrix4x4T&		StoreIdentity();
+    matMatrix4x4T&        StoreIdentity();
     matMatrix4x4T&      StoreMatrix(const matMatrix4x4& rhs);
     matMatrix4x4T&      StoreMultiply( const matMatrix4x4T &mat1, const matMatrix4x4T &mat2 );
     matMatrix4x4T&      StoreMultiply( const matMatrix4x3T &mat1, const matMatrix4x4T &mat2 );
-    matMatrix4x4T&		StoreQuaternion( const matQuaternion &rOrientation );
+    matMatrix4x4T&        StoreQuaternion( const matQuaternion &rOrientation );
 
     // texture coordinate transform matrices
-    matMatrix4x4T&		StoreUVTransformation( const matVector2 &Scaling, 
+    matMatrix4x4T&        StoreUVTransformation( const matVector2 &Scaling, 
                                                const float      &fRotation,
                                                const matVector2 &Translation );
 
     // projection matrices
-    void	StoreOrthographicLH( float Width, float Height, float MinZ, float MaxZ );
-    void	StoreOrthographicRH( float Width, float Height, float MinZ, float MaxZ );
+    void    StoreOrthographicLH( float Width, float Height, float MinZ, float MaxZ );
+    void    StoreOrthographicRH( float Width, float Height, float MinZ, float MaxZ );
 
-    void	StorePerspectiveLH(float Width, float Height, float MinZ, float MaxZ );
-    void	StorePerspectiveRH(float Width, float Height, float MinZ, float MaxZ );
+    void    StorePerspectiveLH(float Width, float Height, float MinZ, float MaxZ );
+    void    StorePerspectiveRH(float Width, float Height, float MinZ, float MaxZ );
 };
 
 // inlines
@@ -359,7 +359,7 @@ inline void matMatrix4x4T::StoreOrthographicLH( float Width, float Height, float
 *  Calculate the right-hand orthographic projection matrix, and then switch values in the matrix
 *  to account for the transposed version of the matrix.
 */
-inline void	matMatrix4x4T::StoreOrthographicRH( float Width, float Height, float MinZ, float MaxZ )
+inline void    matMatrix4x4T::StoreOrthographicRH( float Width, float Height, float MinZ, float MaxZ )
 {
     matBaseMatrixOrthoRH(this, Width, Height, MinZ, MaxZ);
     _34 = _43;
