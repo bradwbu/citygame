@@ -92,7 +92,7 @@ bool DBEnv::Login(bool reset)
 		SQLCHAR complStr[1024];
 		SQLSMALLINT complLen;
 		while (1) {
-			ret = SQLDriverConnect(hDbc, NULL, m_connStr, (SQLSMALLINT)strlen((const char*)m_connStr),
+			ret = SQLDriverConnectA(hDbc, NULL, m_connStr, (SQLSMALLINT)strlen((const char*)m_connStr),
 				complStr, sizeof(complStr), &complLen, SQL_DRIVER_NOPROMPT);
 			if (ret == SQL_SUCCESS || ret == SQL_SUCCESS_WITH_INFO)
 				break;
@@ -123,7 +123,7 @@ void DBEnv::AllocSQLPool(void)
 			// Connect to data source
 			SQLCHAR complStr[1024];
 			SQLSMALLINT complLen;
-			ret = SQLDriverConnect(m_pSqlPool[i].hdbc, NULL, m_connStr, (SQLSMALLINT)strlen((const char*)m_connStr),
+			ret = SQLDriverConnectA(m_pSqlPool[i].hdbc, NULL, m_connStr, (SQLSMALLINT)strlen((const char*)m_connStr),
 				complStr, sizeof(complStr), &complLen, SQL_DRIVER_NOPROMPT);
 			if (ret == SQL_SUCCESS || ret == SQL_SUCCESS_WITH_INFO) {
 				ret = SQLAllocHandle(SQL_HANDLE_STMT, m_pSqlPool[i].hdbc, &m_pSqlPool[i].stmt);
@@ -202,7 +202,7 @@ bool DBEnv::LoadConnStrFromReg()
 		return false;
 	}
 
-	e = RegOpenKeyEx(HKEY_CURRENT_USER, GLOBALAUTH_REG_ENTRY, 0, KEY_READ, &hKey);
+	e = RegOpenKeyExA(HKEY_CURRENT_USER, GLOBALAUTH_REG_ENTRY, 0, KEY_READ, &hKey);
 	if (e == ERROR_SUCCESS) {
 		dwSize = MAX_CONN_STR;
 		e = RegQueryValueEx(hKey, (LPTSTR)keyStr, NULL, &dwType, buffer, &dwSize);
@@ -233,14 +233,14 @@ void DBEnv::SaveConnStrToReg()
 	{
 		const char *error_message = "Invalid gameId set in config file. Don't know how to store the connection in the registry.";
 		logger.AddLog(LOG_ERROR, error_message);
-		MessageBox( NULL, error_message, "Error", MB_ICONERROR | MB_OK );
+		MessageBoxA( NULL, error_message, "Error", MB_ICONERROR | MB_OK );
 		exit(0);
 	}
 
 
 	strcpy((char *)buffer, (const char *)m_connStr);
     DesWriteBlock(buffer, MAX_CONN_STR);
-	LONG e = RegCreateKeyEx(HKEY_CURRENT_USER, GLOBALAUTH_REG_ENTRY, 0, "", 
+	LONG e = RegCreateKeyExA(HKEY_CURRENT_USER, GLOBALAUTH_REG_ENTRY, 0, NULL, 
       REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &hKey, &dwResult);
 	if (e == ERROR_SUCCESS) {
 		DWORD dwType = REG_BINARY;
@@ -346,12 +346,12 @@ BOOL CALLBACK LoginDlgProc(HWND hDlg, DWORD dwMessage, DWORD wParam, DWORD lPara
 	switch (dwMessage) {
 	case WM_INITDIALOG:
         pEnv = (DBEnv *)(INT_PTR)lParam;
-        char *pDefault;
-        char *pTitle;
+        const char *pDefault;
+        const char *pTitle;
         pDefault = "AuthDB";
         pTitle = "ODBC Connection Info";
-		SendDlgItemMessage(hDlg, IDC_FILE, WM_SETTEXT, 0, (LPARAM)pDefault);
-        SetWindowText(hDlg, (LPCTSTR)pTitle);
+		SendDlgItemMessageA(hDlg, IDC_FILE, WM_SETTEXT, 0, (LPARAM)pDefault);
+        SetWindowTextA(hDlg, pTitle);
 		return 0;
 	case WM_COMMAND:
 		switch (wParam) {
@@ -389,7 +389,7 @@ bool CDBConn::Execute(const char *format, ...)
 	va_end(ap);
 	SQLRETURN r = SQL_ERROR;
 	if (len > 0) {
-		r = SQLExecDirect(m_stmt, (SQLCHAR*)buffer, len);
+		r = SQLExecDirectA(m_stmt, (SQLCHAR*)buffer, len);
 	}
 	if (r == SQL_SUCCESS ) {
 		return true;
@@ -408,7 +408,7 @@ bool CDBConn::ExecuteIndirect(const char *format, ...)
 	va_end(ap);
 	SQLRETURN r = SQL_ERROR;
 	if (len > 0) {
-		SQLPrepare(m_stmt, (SQLCHAR*)buffer, SQL_NTS);
+		SQLPrepareA(m_stmt, (SQLCHAR*)buffer, SQL_NTS);
 		r = SQLExecute(m_stmt);
 	}
 	if (r == SQL_SUCCESS || r == SQL_SUCCESS_WITH_INFO) {
@@ -432,7 +432,7 @@ bool CDBConn::ExecuteInsert(const char *format, ...)
 	va_end(ap);
 	SQLRETURN r = SQL_ERROR;
 	if (len > 0) {
-		r = SQLExecDirect(m_stmt, (SQLCHAR*)buffer, len);
+		r = SQLExecDirectA(m_stmt, (SQLCHAR*)buffer, len);
 	}
 	if (r == SQL_SUCCESS || r == SQL_SUCCESS_WITH_INFO) {
 		return true;
@@ -451,7 +451,7 @@ bool CDBConn::ExecuteInsertIndirect(const char *format, ...)
 	va_end(ap);
 	SQLRETURN r = SQL_ERROR;
 	if (len > 0) {
-		SQLPrepare(m_stmt, (SQLCHAR*)buffer, SQL_NTS);
+		SQLPrepareA(m_stmt, (SQLCHAR*)buffer, SQL_NTS);
 		r = SQLExecute(m_stmt);
 	}
 	if (r == SQL_SUCCESS || r == SQL_SUCCESS_WITH_INFO) {
@@ -472,7 +472,7 @@ bool CDBConn::ExecuteDelete(const char *format, ...)
 	va_end(ap);
 	SQLRETURN r = SQL_ERROR;
 	if (len > 0) {
-		r = SQLExecDirect(m_stmt, (SQLCHAR*)buffer, len);
+		r = SQLExecDirectA(m_stmt, (SQLCHAR*)buffer, len);
 	}
 	if (r == SQL_SUCCESS || r == SQL_SUCCESS_WITH_INFO || r == SQL_NO_DATA) {
 		return true;
@@ -537,7 +537,7 @@ void CDBConn::Error(SQLSMALLINT handleType, SQLHANDLE handle, const char *comman
 	SQLSMALLINT len;
     SQLRETURN r;
 
-    r = SQLGetDiagRec(handleType, handle, 1, state, &native, message, sizeof(message), &len);
+    r = SQLGetDiagRecA(handleType, handle, 1, state, &native, message, sizeof(message), &len);
 	if (r == SQL_SUCCESS) {
     	if (command) {
     		logger.AddLog(LOG_ERROR, "sql: %s", command);
@@ -561,7 +561,7 @@ void CDBConn::ErrorExceptInsert(SQLSMALLINT handleType, SQLHANDLE handle, const 
 	SQLINTEGER native;
 	SQLCHAR message[256];
 	SQLSMALLINT len;
-	if (SQLGetDiagRec(handleType, handle, 1, state, &native, message, sizeof(message), &len) == SQL_SUCCESS) {
+	if (SQLGetDiagRecA(handleType, handle, 1, state, &native, message, sizeof(message), &len) == SQL_SUCCESS) {
 		if (strcmp((char*)state, "23000")) {
 			if (command) {
 				logger.AddLog(LOG_ERROR, "sql: %s", command);

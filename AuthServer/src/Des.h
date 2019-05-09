@@ -12,7 +12,7 @@ extern "C"
 {
 #endif
 
-void DesKeyInit(char *password);
+void DesKeyInit(const char *password);
 void DesWriteBlock(void *buf, int len);
 void DesReadBlock(void *buf, int len);
 

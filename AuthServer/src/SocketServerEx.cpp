@@ -18,8 +18,9 @@ AccountDB accountdb;
 
 BOOL SendSocket(in_addr , const char *format, ...);
 
-#include "../../../3rdparty/cryptopp/rng.h"
-#include "../../../3rdparty/cryptopp/rsa.h"
+#include "cryptlib/osrng.h"
+#include "cryptlib/rng.h"
+#include "cryptlib/rsa.h"
 
 using namespace CryptoPP;
 using CryptoPP::InvertibleRSAFunction;
@@ -31,17 +32,20 @@ struct RSA
 	typedef RSAFunction PublicKey;
 	typedef InvertibleRSAFunction PrivateKey;
 };
-static InvertibleRSAFunction *RSA_Params = NULL;
+
+__declspec(thread) static AutoSeededRandomPool s_rng;
+static InvertibleRSAFunction* RSA_Params = NULL;
 
 void InitRSAParams()
 {
-	LC_RNG rng(time(NULL));
-	RSA_Params = new InvertibleRSAFunction(rng, 1152);
+	std::unique_ptr<InvertibleRSAFunction> p(std::make_unique<InvertibleRSAFunction>());
+	p->Initialize(s_rng, 1152);
+	RSA_Params = p.release();
 }
 
 void DecryptRSAText(char*ciphertextstr, int bufferLen)
 {
-	RSA::PrivateKey privateKey(*RSA_Params);
+	::RSA::PrivateKey privateKey(*RSA_Params);
 
 	__declspec(thread) static RSAES_OAEP_SHA_Decryptor *decryptor = NULL;
 	if (!decryptor)
@@ -51,16 +55,21 @@ void DecryptRSAText(char*ciphertextstr, int bufferLen)
 	// Decryption
 	CryptoPP::SecByteBlock ciphertext((byte*)ciphertextstr, bufferLen);
 	// Now that there is a concrete object, we can check sizes
-	assert( 0 != decryptor->CipherTextLength() );
-	assert( ciphertext.Size() <= decryptor->CipherTextLength() );
+	assert(0 != decryptor->FixedCiphertextLength());
+	assert(ciphertext.size() <= decryptor->FixedCiphertextLength());
 
-	// Create recovered text space
-	unsigned int dpl = decryptor->MaxPlainTextLength();
-	assert( 0 != dpl );
-	CryptoPP::SecByteBlock recovered( dpl );
+	size_t dpl = decryptor->MaxPlaintextLength(ciphertext.size());
+	assert(0 != dpl);
+	CryptoPP::SecByteBlock recovered(dpl);
 
-	decryptor->Decrypt( ciphertext, recovered);
-	memcpy(ciphertextstr, recovered.Begin(), recovered.Size());
+	DecodingResult result = decryptor->Decrypt(s_rng, ciphertext, ciphertext.size(), recovered);
+	assert(result.isValidCoding);
+	assert(result.messageLength <= decryptor->MaxPlaintextLength(ciphertext.size()));
+
+    recovered.resize(result.messageLength);
+    assert(recovered.size() <= static_cast<size_t>(bufferLen));
+
+    memcpy(ciphertextstr, recovered.begin(), recovered.size());
 }
 
 
@@ -138,7 +147,7 @@ static bool LoginPacketSecure(CSocketServerEx *mysocket, const unsigned char *pa
 		memset(bmsg, 0, 4096);
 		int len=account.MakeBlockInfo( bmsg+3 );
 		int len2 = len+config.PacketSizeType;
-		bmsg[0] = len2;
+		bmsg[0] = static_cast<char>(len2);
 		bmsg[1] = len2>>8;
 		bmsg[2] = AC_BLOCKED_ACCOUNT_WITH_MSG;
 		AS_LOG_VERBOSE( "SND: AC_BLOCKED_ACCOUNT_WITH_MSG;,block_flag:%d",account.block_flag);
@@ -173,13 +182,13 @@ static bool LoginPacketSecure(CSocketServerEx *mysocket, const unsigned char *pa
 
 		{
 		CDBConn dbconn(g_linDB);
-		SQLINTEGER UserInd=0;
+        SQLLEN UserInd=0;
 		SQLBindCol( dbconn.m_stmt, 1, SQL_C_BINARY, (char *)(userdata), MAX_USERDATA_ORIG, &UserInd );
 
-		SQLINTEGER UserIndNew=0;
+        SQLLEN UserIndNew=0;
 		SQLBindCol( dbconn.m_stmt, 2, SQL_C_BINARY, (char *)(&userdata[MAX_USERDATA_ORIG]), MAX_USERDATA_NEW, &UserIndNew );
 
-		SQLINTEGER cbUid=0;
+        SQLLEN cbUid=0;
 		SQLBindParameter( dbconn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&account.uid), 0, &cbUid );
 
 		dbconn.Execute( "SELECT user_data, user_data_new FROM user_data WHERE uid = ?" );
@@ -428,8 +437,8 @@ _BEFORE
 	} else {
 		len -= 1;
 		len = len + config.PacketSizeType;
-		buffer[0] = len;
-		buffer[1] = len >> 8;
+		buffer[0] = static_cast<char>(len);
+		buffer[1] = static_cast<char>(len >> 8);
 	}
 	pBuffer->m_size = len+3-config.PacketSizeType;
 	pSocket->Write(pBuffer);
@@ -614,12 +623,12 @@ void CSocketServerEx::OnCreate()
 	static int expByteCount;
 
 	if (!modBuffer) {
-		modByteCount = RSA_Params->GetModulus().MinEncodedSize();
-		expByteCount = RSA_Params->GetExponent().MinEncodedSize();
+		modByteCount = static_cast<int>(RSA_Params->GetModulus().MinEncodedSize());
+		expByteCount = static_cast<int>(RSA_Params->GetPublicExponent().MinEncodedSize());
 		modBuffer = new byte[modByteCount];
 		expBuffer = new byte[expByteCount];
 		RSA_Params->GetModulus().Encode(modBuffer, modByteCount);
-		RSA_Params->GetExponent().Encode(expBuffer, expByteCount);
+		RSA_Params->GetPublicExponent().Encode(expBuffer, expByteCount);
 	}
 
 	oneTimeKey = rand() << 16 | rand();
@@ -667,8 +676,8 @@ void CSocketServerEx::Send(const char* format, ...)
 		DumpPacket( (unsigned char*)buffer, len+3-config.PacketSizeType );
 #endif
 		len = tmplen - 1 + config.PacketSizeType;
-		buffer[0] = len;
-		buffer[1] = len >> 8;
+		buffer[0] = static_cast<char>(len);
+		buffer[1] = static_cast<char>(len >> 8);
 		
 		pBuffer->m_size = tmplen+2;
 
@@ -694,8 +703,8 @@ void CSocketServerEx::NonEncSend(const char* format, ...)
 	} else {
 		len -= 1;
 		len = len + config.PacketSizeType;
-		buffer[0] = len;
-		buffer[1] = len >> 8;
+		buffer[0] = static_cast<char>(len);
+		buffer[1] = static_cast<char>(len >> 8);
 
 	}
 	pBuffer->m_size = len+3-config.PacketSizeType;
@@ -723,8 +732,8 @@ void CSocketServerEx::Send( const char *sendmsg, int msglen )
 	int tmplen = msglen - 2;
 	EncPacket( (unsigned char *)(buffer+2), EncOneTimeKey, tmplen );
 	int len = tmplen - 1 + config.PacketSizeType;
-	buffer[0] = len;
-	buffer[1] = len >> 8;
+	buffer[0] = static_cast<char>(len);
+	buffer[1] = static_cast<char>(len >> 8);
 	pBuffer->m_size = tmplen+2;
 	Write(pBuffer);
 }

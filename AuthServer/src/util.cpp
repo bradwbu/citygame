@@ -8,6 +8,8 @@
 #include "cryptLib/sha.h"
 #include "cryptLib/sha512.h"
 
+using namespace std;
+
 int Assemble(char* buf, int bufLen, const char* format, va_list ap)
 {
 	const char* f = format;

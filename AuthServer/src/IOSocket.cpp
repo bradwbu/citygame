@@ -47,7 +47,7 @@ void CIOSocket::OnClose( SOCKET )
 
 void CIOSocket::CloseSocket( void )
 {
-	SOCKET hSocket = InterlockedExchange((LPLONG)&m_hSocket, INVALID_SOCKET);
+	SOCKET hSocket = (SOCKET)InterlockedExchangePointer((PVOID volatile*)&m_hSocket, (PVOID)INVALID_SOCKET);
 	if (hSocket != INVALID_SOCKET) {
 		OnClose(hSocket);
 		LINGER linger;

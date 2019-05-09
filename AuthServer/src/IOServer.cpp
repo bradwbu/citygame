@@ -39,8 +39,8 @@ void CIOServer::Close()
 	SOCKET temp_socket;
 
 	if ( m_hSocket != INVALID_SOCKET ) {
-		temp_socket = InterlockedExchange( (LONG *)&m_hSocket, INVALID_SOCKET );
-		closesocket( temp_socket );
+		temp_socket = (SOCKET)InterlockedExchangePointer((PVOID volatile*)&m_hSocket, (PVOID)INVALID_SOCKET);
+		closesocket(temp_socket);
 	}
 }
 
@@ -540,8 +540,8 @@ void CIOServerEx::Close()
 	SOCKET temp_socket;
 
 	if ( m_hSocket != INVALID_SOCKET ) {
-		temp_socket = InterlockedExchange( (LONG *)&m_hSocket, INVALID_SOCKET );
-		closesocket( temp_socket );
+		temp_socket = (SOCKET)InterlockedExchangePointer((PVOID volatile*)&m_hSocket, (PVOID)INVALID_SOCKET);
+		closesocket(temp_socket);
 	}
 	
 	if(m_acceptEvent != WSA_INVALID_EVENT) {

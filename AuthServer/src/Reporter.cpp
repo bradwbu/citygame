@@ -47,7 +47,7 @@ void CReporter::Redraw()
 		SelectObject(hdc, m_font);
 		GetClientRect(m_wnd, &m_clientRect);
 		m_brush = (HBRUSH)GetStockObject(WHITE_BRUSH);
-		GetTextExtentPoint32(hdc, "H", 1, &m_fontSize);
+		GetTextExtentPoint32A(hdc, "H", 1, &m_fontSize);
 	} else {
 		SelectObject(hdc, m_font);
 	}
@@ -61,7 +61,7 @@ void CReporter::Redraw()
       m_UserCount, m_SocketCount, g_AcceptExThread, g_nRunningThread );
 #endif
 	SetTextColor(hdc, RGB(0, 0, 0));
-	TextOut(hdc, 0, 0, str, (int)strlen(str));
+	TextOutA(hdc, 0, 0, str, (int)strlen(str));
 
 	EndPaint(m_wnd, &paint);
 }

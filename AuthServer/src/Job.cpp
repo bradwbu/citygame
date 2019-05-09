@@ -32,12 +32,11 @@ _BEFORE
 	    LONG waitTime = (LONG)(m_topTick - tick);
 	    if(waitTime <= 0) {
 		    m_lock.Enter();
-		    CIOTimer &top = m_timerQueue.top();
-		    CIOObject *pObject = top.m_pObject;
+		    CIOObject *pObject = m_timerQueue.top().m_pObject;
 		    for( ; ; ) {
 			    m_timerQueue.pop();
 				pObject->OnTimerCallback();
-			    top = m_timerQueue.top();
+				const CIOTimer& top = m_timerQueue.top();
 			    waitTime = (LONG)(top.m_tick - tick);
 			    if(waitTime > 0) {
 				    m_topTick = top.m_tick;

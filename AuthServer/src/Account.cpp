@@ -5,8 +5,9 @@
 #include "precomp.h"
 #include "md5.h"
 #include "cryptLib/sha.h"
-#include "../../../3rdparty/cryptopp/adler32.h"
+#include "cryptlib/Adler32.h"
 
+using namespace std;
 using namespace CryptoPP;
 
 //////////////////////////////////////////////////////////////////////
@@ -82,35 +83,35 @@ char CAccount::Load( const char *name )
 
 	CDBConn conn(g_linDB);
 
- 	SQLINTEGER cbName=SQL_NTS;
+ 	SQLLEN cbName=SQL_NTS;
 	SQLBindParameter( conn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_TCHAR, SQL_VARCHAR, MAX_ACCOUNT_LEN, 0, (SQLPOINTER)name, (SQLINTEGER)strlen(name), &cbName );
 
-	SQLINTEGER cbUid=0;
+    SQLLEN cbUid=0;
 	SQLBindParameter( conn.m_stmt, 2, SQL_PARAM_OUTPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&uid), 0, &cbUid );
 	
-	SQLINTEGER cbPayStat=0;
+    SQLLEN cbPayStat=0;
 	SQLBindParameter( conn.m_stmt, 3, SQL_PARAM_OUTPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&pay_stat), 0, &cbPayStat );
 
-	SQLINTEGER cbLoginFlag=0;
+    SQLLEN cbLoginFlag=0;
 	SQLBindParameter( conn.m_stmt, 4, SQL_PARAM_OUTPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&login_flag), 0, &cbLoginFlag );
 
-	SQLINTEGER cbWarnFlag=0;
+    SQLLEN cbWarnFlag=0;
 	SQLBindParameter( conn.m_stmt, 5, SQL_PARAM_OUTPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&warn_flag), 0, &cbWarnFlag );
 
-	SQLINTEGER cbblockFlag=0;
+    SQLLEN cbblockFlag=0;
 	SQLBindParameter( conn.m_stmt, 6, SQL_PARAM_OUTPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&block_flag), 0, &cbblockFlag );
 
-	SQLINTEGER cbblockFlag2=0;
+    SQLLEN cbblockFlag2=0;
 	SQLBindParameter( conn.m_stmt, 7, SQL_PARAM_OUTPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&block_flag2), 0, &cbblockFlag2 );
 	
-	SQLINTEGER cbsubscribe=0;
+    SQLLEN cbsubscribe=0;
 	SQLBindParameter( conn.m_stmt, 8, SQL_PARAM_OUTPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&subscription_flag), 0, &cbsubscribe );
 
-	SQLINTEGER cblastworld=0;
+    SQLLEN cblastworld=0;
 	SQLBindParameter( conn.m_stmt, 9, SQL_PARAM_OUTPUT, SQL_C_UTINYINT, SQL_TINYINT, 0, 0, (SQLPOINTER)(&lastworld), 0, &cblastworld );
 
 	block_end_date.year = -1;
-	SQLINTEGER cbBlockEndDate = 0;
+    SQLLEN cbBlockEndDate = 0;
 	SQLBindParameter( conn.m_stmt,10, 
 					  SQL_PARAM_OUTPUT, 
 					  SQL_C_TYPE_TIMESTAMP, 
@@ -123,15 +124,15 @@ char CAccount::Load( const char *name )
 
 	SQLBindParameter( conn.m_stmt, 11, SQL_PARAM_OUTPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&queueLevel), 0, 0);
 
-	SQLINTEGER cbloyalty=0;
+    SQLLEN cbloyalty=0;
 	SQLBindParameter( conn.m_stmt, 12, SQL_PARAM_OUTPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&loyalty), 0, &cbloyalty );
 
-	SQLINTEGER cbloyaltyLegacy=0;
+    SQLLEN cbloyaltyLegacy=0;
 	SQLBindParameter( conn.m_stmt, 13, SQL_PARAM_OUTPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&loyaltyLegacy), 0, &cbloyaltyLegacy );
 
 	char buffer[256];
 	sprintf( buffer, "{CALL dbo.ap_GStat (?,?,?,?,?,?,?,?,?,?,?,?,?) }" );
-	RETCODE RetCode= SQLExecDirect( conn.m_stmt, (SQLCHAR*)buffer, SQL_NTS );
+	RETCODE RetCode= SQLExecDirectA( conn.m_stmt, (SQLCHAR*)buffer, SQL_NTS );
 	bool nodata;
 	if ( RetCode == SQL_SUCCESS ) {
 		if ( conn.Fetch(&nodata)){
@@ -158,11 +159,11 @@ char CAccount::Load( const char *name )
     cbUid=0;
 	SQLBindParameter( conn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&uid), 0, &cbUid );
 
-    SQLINTEGER cbRegion=0;
+    SQLLEN cbRegion=0;
     SQLBindCol( conn.m_stmt, 1, SQL_C_SLONG, &region, 0, &cbRegion);
 
 	sprintf( buffer, "{CALL get_server_groups (?) }" );
-    RetCode= SQLExecDirect( conn.m_stmt, (SQLCHAR*)buffer, SQL_NTS );
+    RetCode= SQLExecDirectA( conn.m_stmt, (SQLCHAR*)buffer, SQL_NTS );
 	if ( RetCode == SQL_SUCCESS )
     {
         nodata=false;
@@ -262,18 +263,18 @@ char CAccount::LoadPassword( const char *name, char *passwd, unsigned char& hash
 	passwd[0] = 0;
 	CDBConn conn(g_linDB);
 	
-	SQLINTEGER cbName=SQL_NTS;
+    SQLLEN cbName=SQL_NTS;
 	SQLBindParameter( conn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_TCHAR, SQL_VARCHAR, MAX_ACCOUNT_LEN, SQL_IGNORED_PARAM, (SQLPOINTER)name, (SQLINTEGER)strlen(name), &cbName );
-	SQLINTEGER cbPwd=SQL_NTS;
+    SQLLEN cbPwd=SQL_NTS;
 	SQLBindParameter( conn.m_stmt, 2, SQL_PARAM_OUTPUT, SQL_C_BINARY, SQL_BINARY, ENC_PWD_LEN, SQL_IGNORED_PARAM, (SQLPOINTER)passwd, ENC_PWD_LEN, &cbPwd );
-	SQLINTEGER cbHashType=sizeof(hash_type);
+    SQLLEN cbHashType=sizeof(hash_type);
 	SQLBindParameter( conn.m_stmt, 3, SQL_PARAM_OUTPUT, SQL_C_TINYINT, SQL_TINYINT, SQL_IGNORED_PARAM, SQL_IGNORED_PARAM, (SQLPOINTER)(&hash_type), SQL_IGNORED_PARAM, &cbHashType);
-	SQLINTEGER cbSalt=sizeof(salt);
+    SQLLEN cbSalt=sizeof(salt);
 	SQLBindParameter( conn.m_stmt, 4, SQL_PARAM_OUTPUT, SQL_C_SLONG, SQL_INTEGER, SQL_IGNORED_PARAM, SQL_IGNORED_PARAM, (SQLPOINTER)(&salt), SQL_IGNORED_PARAM, &cbSalt );
 
 	char buffer[256];
 	sprintf( buffer, "{CALL dbo.ap_GPwd (?,?,?,?) }" );
-	RETCODE RetCode= SQLExecDirect( conn.m_stmt, (SQLCHAR*)buffer, SQL_NTS );
+	RETCODE RetCode= SQLExecDirectA( conn.m_stmt, (SQLCHAR*)buffer, SQL_NTS );
 
 	char result = S_DATABASE_FAIL;
 
@@ -418,11 +419,11 @@ char CAccount::CheckPassword( const char *name, char *dbpwdLineage2, char *dbpwd
   				CRC.Final((byte*)&salt);
 
   				CDBConn dbconn(g_linDB);
-  				SQLINTEGER cbPwd = ENC_PWD_LEN;
+                SQLLEN cbPwd = ENC_PWD_LEN;
   				SQLBindParameter( dbconn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_BINARY, SQL_BINARY, ENC_PWD_LEN, 0, (SQLPOINTER)passwdSHA512, ENC_PWD_LEN, &cbPwd );
-   				SQLINTEGER cbSalt = 0;
+                SQLLEN cbSalt = 0;
   				SQLBindParameter( dbconn.m_stmt, 2, SQL_PARAM_INPUT, SQL_C_SLONG, SQL_INTEGER, 0, 0, (SQLPOINTER)(&salt), 0, &cbSalt );
-  				SQLINTEGER cbName=SQL_NTS;
+                SQLLEN cbName=SQL_NTS;
   				SQLBindParameter( dbconn.m_stmt, 3, SQL_PARAM_INPUT, SQL_C_TCHAR, SQL_VARCHAR, MAX_ACCOUNT_LEN, SQL_IGNORED_PARAM, (SQLPOINTER)name, (SQLINTEGER)strlen(name), &cbName );
   
   				dbconn.Execute( SQL_UPDATE_PASSWORD_TYPE);

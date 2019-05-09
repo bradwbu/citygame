@@ -30,7 +30,7 @@ public:
 	virtual void Enable(bool flag)	{ enabled = flag; }
 			void SetMsgAllowed( LogType logType, bool bAllow );
 			bool GetMsgAllowed( LogType logType );
-	virtual void AddLog(LogType type, char* format, ...);
+	virtual void AddLog(LogType type, const char* format, ...);
 	virtual void ConstructLogPath( struct tm *tm, char* pathBuff, size_t pathBuffSz );
 	virtual HANDLE OpenLogFile( const char* logFilePath );
 	virtual bool StartNewLog( struct tm *tm )	{ return ( tm->tm_mday != prevDay || tm->tm_hour != prevHour || currFlag != prevFlag ); }

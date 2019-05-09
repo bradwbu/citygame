@@ -56,17 +56,17 @@ const int StackColumns = 8;		// Number of columns in stack dump.
 // The one limitation that this imposes is that wvsprintf, and
 // therefore hprintf, cannot handle floating point numbers.
 
-static void __cdecl hprintf(HANDLE LogFile, char* Format, ...)
+static void __cdecl hprintf(HANDLE LogFile, const char* Format, ...)
 {
 		char buffer[2000];	// wvsprintf never prints more than one K.
 
 		va_list arglist;
 		va_start( arglist, Format);
-		wvsprintf(buffer, Format, arglist);
+		wvsprintfA(buffer, Format, arglist);
 		va_end( arglist);
 
 		DWORD NumBytes;
-		WriteFile(LogFile, buffer, lstrlen(buffer), &NumBytes, 0);
+		WriteFile(LogFile, buffer, lstrlenA(buffer), &NumBytes, 0);
 }
 
 // Print the specified FILETIME to output in a human readable format,
@@ -80,7 +80,7 @@ static void PrintTime(char *output, FILETIME TimeToPrint)
 		{
 				// What a silly way to print out the file date/time. Oh well,
 				// it works, and I'm not aware of a cleaner way to do it.
-				wsprintf(output, "%d/%d/%d %02d:%02d:%02d",
+				wsprintfA(output, "%d/%d/%d %02d:%02d:%02d",
 										(Date / 32) & 15, Date & 31, (Date / 512) + 1980,
 										(Time / 2048), (Time / 32) & 63, (Time & 31) * 2);
 		}
@@ -96,7 +96,7 @@ static void ShowModuleInfo(HANDLE LogFile, HINSTANCE ModuleHandle)
 	char ModName[MAX_PATH];
 	__try
 	{
-		if (GetModuleFileName(ModuleHandle, ModName, sizeof(ModName)) > 0)
+		if (GetModuleFileNameA(ModuleHandle, ModName, sizeof(ModName)) > 0)
 		{
 			// If GetModuleFileName returns greater than zero then this must
 			// be a valid code module address. Therefore we can try to walk
@@ -110,7 +110,7 @@ static void ShowModuleInfo(HANDLE LogFile, HINSTANCE ModuleHandle)
 				return;
 			// Open the code module file so that we can get its file date
 			// and size.
-			HANDLE ModuleFile = CreateFile(ModName, GENERIC_READ,
+			HANDLE ModuleFile = CreateFileA(ModName, GENERIC_READ,
 									FILE_SHARE_READ, 0, OPEN_EXISTING,
 									FILE_ATTRIBUTE_NORMAL, 0);
 			char TimeBuffer[100] = "";
@@ -121,8 +121,8 @@ static void ShowModuleInfo(HANDLE LogFile, HINSTANCE ModuleHandle)
 				FILETIME	LastWriteTime;
 				if (GetFileTime(ModuleFile, 0, 0, &LastWriteTime))
 				{
-					wsprintf(TimeBuffer, " - file date is ");
-					PrintTime(TimeBuffer + lstrlen(TimeBuffer), LastWriteTime);
+					wsprintfA(TimeBuffer, " - file date is ");
+					PrintTime(TimeBuffer + lstrlenA(TimeBuffer), LastWriteTime);
 				}
 				CloseHandle(ModuleFile);
 			}
@@ -198,11 +198,11 @@ BOOL getVideoDesc(char *descStr, int bufferSize)
 	DWORD dataSize;
 	BOOL retValue = FALSE;
 
-	result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, REG_DISPLAY,
+	result = RegOpenKeyExA(HKEY_LOCAL_MACHINE, REG_DISPLAY,
 		0, KEY_QUERY_VALUE, &hKey);
 	if (result == ERROR_SUCCESS) {
 		dataSize = bufferSize;
-		result = RegQueryValueEx(hKey, "DriverDesc", NULL, &dataType, (BYTE *)descStr, &dataSize);
+		result = RegQueryValueExA(hKey, "DriverDesc", NULL, &dataType, (BYTE *)descStr, &dataSize);
 		if (result == ERROR_SUCCESS) {
 			retValue = TRUE;
 		}
@@ -219,12 +219,12 @@ static void RecordSystemInformation(HANDLE LogFile)
 	PrintTime(TimeBuffer, CurrentTime);
 	hprintf(LogFile, "Error occurred at %s.\r\n", TimeBuffer);
 	char	ModuleName[MAX_PATH];
-	if (GetModuleFileName(0, ModuleName, sizeof(ModuleName)) <= 0)
-		lstrcpy(ModuleName, "Unknown");
+	if (GetModuleFileNameA(0, ModuleName, sizeof(ModuleName)) <= 0)
+		lstrcpyA(ModuleName, "Unknown");
 	char	UserName[200];
 	DWORD UserNameSize = sizeof(UserName);
-	if (!GetUserName(UserName, &UserNameSize))
-		lstrcpy(UserName, "Unknown");
+	if (!GetUserNameA(UserName, &UserNameSize))
+		lstrcpyA(UserName, "Unknown");
 	hprintf(LogFile, "%s, run by %s.\r\n", ModuleName, UserName);
 
 	SYSTEM_INFO	SystemInfo;
@@ -247,7 +247,7 @@ static const char *GetExceptionDescription(DWORD ExceptionCode)
 		struct ExceptionNames
 		{
 				DWORD	ExceptionCode;
-				char*	ExceptionName;
+				const char*	ExceptionName;
 		};
 
 		ExceptionNames ExceptionMap[] =
@@ -305,7 +305,7 @@ BOOL GetLogicalAddress(
 
 	UINT_PTR hMod = (UINT_PTR)(mbi.AllocationBase);
 
-	if ( !GetModuleFileName( (HMODULE)hMod, szModule, len ) )
+	if ( !GetModuleFileNameA( (HMODULE)hMod, szModule, len ) )
 		return FALSE;
 
 	// Point to the DOS header in memory
@@ -352,16 +352,28 @@ void ImageHelpStackWalk(HANDLE LogFile, PCONTEXT ptrContext)
 	STACKFRAME sf;
 	memset(&sf, 0, sizeof(sf));
 
-	sf.AddrPC.Offset       = ptrContext->Eip;
 	sf.AddrPC.Mode         = AddrModeFlat;
-	sf.AddrStack.Offset    = ptrContext->Esp;
 	sf.AddrStack.Mode      = AddrModeFlat;
-	sf.AddrFrame.Offset    = ptrContext->Ebp;
 	sf.AddrFrame.Mode      = AddrModeFlat;
 
-	while ( 1 )
+#ifdef _M_IX86
+	sf.AddrPC.Offset = ptrContext->Eip;
+	sf.AddrStack.Offset = ptrContext->Esp;
+	sf.AddrFrame.Offset = ptrContext->Ebp;
+
+	DWORD machineType = IMAGE_FILE_MACHINE_I386;
+#endif
+#ifdef _M_X64
+	sf.AddrPC.Offset = ptrContext->Rip;
+	sf.AddrStack.Offset = ptrContext->Rsp;
+	sf.AddrFrame.Offset = ptrContext->Rbp;
+
+	DWORD machineType = IMAGE_FILE_MACHINE_AMD64;
+#endif
+
+	for ( ; ; )
 	{
-		if (!StackWalk(IMAGE_FILE_MACHINE_I386,
+		if (!StackWalk(machineType,
 						GetCurrentProcess(),
 						GetCurrentThread(),
 						&sf,
@@ -382,33 +394,37 @@ void ImageHelpStackWalk(HANDLE LogFile, PCONTEXT ptrContext)
 		pSymbol->SizeOfStruct = sizeof(symbolBuffer);
 		pSymbol->MaxNameLength = 512;
 
+#ifdef _M_IX86
 		DWORD symDisplacement = 0;
+#endif
+#ifdef _M_X64
+		DWORD64 symDisplacement = 0;
+#endif
 
-		if (SymGetSymFromAddr(GetCurrentProcess(), sf.AddrPC.Offset,
-							&symDisplacement, pSymbol)) {
+		if (SymGetSymFromAddr(GetCurrentProcess(), sf.AddrPC.Offset, &symDisplacement, pSymbol)) {
 			hprintf(LogFile, "%s+%x ", pSymbol->Name, symDisplacement);
 		} 
 		{// No symbol found.  Print out the logical address instead.
 			char CrashModulePathName[MAX_PATH];
-			char *CrashModuleFileName = "Unknown";
+			const char *CrashModuleFileName = "Unknown";
 			MEMORY_BASIC_INFORMATION MemInfo;
 			// VirtualQuery can be used to get the allocation base associated with a
 			// code address, which is the same as the ModuleHandle. This can be used
 			// to get the filename of the module that the crash happened in.
-			if (VirtualQuery(IntToPtr(sf.AddrPC.Offset), &MemInfo, sizeof(MemInfo)) &&
-					GetModuleFileName((HINSTANCE)MemInfo.AllocationBase,
+			if (VirtualQuery(reinterpret_cast<void*>(sf.AddrPC.Offset), &MemInfo, sizeof(MemInfo)) &&
+					GetModuleFileNameA((HINSTANCE)MemInfo.AllocationBase,
 					CrashModulePathName, sizeof(CrashModulePathName)) > 0)
 				CrashModuleFileName = GetFilePart(CrashModulePathName);
 
 			CHAR szModule[MAX_PATH] = "";
 			DWORD section = 0, offset = 0;
-			GetLogicalAddress(IntToPtr(sf.AddrPC.Offset),
+			GetLogicalAddress(reinterpret_cast<void*>(sf.AddrPC.Offset),
 								szModule, sizeof(szModule), section, offset);
 			hprintf(LogFile, "%04x:%08x %s\r\n", section, offset, szModule);
 
 			hprintf(LogFile, "Params: %08x %08x %08x %08x\r\n", sf.Params[0], sf.Params[1], sf.Params[2], sf.Params[3]);
 			hprintf(LogFile, "[%s] Bytes at CS:EIP: ", CrashModuleFileName);
-			unsigned char *code = (unsigned char*) IntToPtr(sf.AddrPC.Offset);
+			unsigned char *code = reinterpret_cast<unsigned char*>(sf.AddrPC.Offset);
 			for (int codebyte = 0; codebyte < NumCodeBytes; codebyte++) {
 				__try {
 					hprintf(LogFile, "%02x ", code[codebyte]);
@@ -422,7 +438,9 @@ void ImageHelpStackWalk(HANDLE LogFile, PCONTEXT ptrContext)
 	}
 }
 
-void	IntelStackWalk(HANDLE LogFile, PCONTEXT ptrContext)
+#ifdef _M_IX86
+
+void IntelStackWalk(HANDLE LogFile, PCONTEXT ptrContext)
 {
 	hprintf(LogFile, "\r\nIntel Call Stack Information\r\n");
 
@@ -472,10 +490,10 @@ void	IntelStackWalk(HANDLE LogFile, PCONTEXT ptrContext)
 
 static void GenerateExceptionReport(PEXCEPTION_POINTERS data)
 {
-	HANDLE LogFile = CreateFile(g_szLogPath, GENERIC_WRITE, 0, 0,
+	HANDLE LogFile = CreateFileA(g_szLogPath, GENERIC_WRITE, 0, 0,
 	OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL | FILE_FLAG_WRITE_THROUGH, 0);
 	if (LogFile == INVALID_HANDLE_VALUE) {
-		OutputDebugString("Error creating exception report");
+		OutputDebugStringA("Error creating exception report");
 		return;
 	}
 	// Append to the error logger.
@@ -488,13 +506,13 @@ static void GenerateExceptionReport(PEXCEPTION_POINTERS data)
 	PCONTEXT Context = data->ContextRecord;
 
 	char CrashModulePathName[MAX_PATH];
-	char *CrashModuleFileName = "Unknown";
+	const char *CrashModuleFileName = "Unknown";
 	MEMORY_BASIC_INFORMATION MemInfo;
 	// VirtualQuery can be used to get the allocation base associated with a
 	// code address, which is the same as the ModuleHandle. This can be used
 	// to get the filename of the module that the crash happened in.
 	if (VirtualQuery((void*)IntToPtr(Context->Eip), &MemInfo, sizeof(MemInfo)) &&
-			GetModuleFileName((HINSTANCE)MemInfo.AllocationBase,
+			GetModuleFileNameA((HINSTANCE)MemInfo.AllocationBase,
 			CrashModulePathName, sizeof(CrashModulePathName)) > 0)
 		CrashModuleFileName = GetFilePart(CrashModulePathName);
 
@@ -517,14 +535,14 @@ static void GenerateExceptionReport(PEXCEPTION_POINTERS data)
 		const char* readwrite = "Read from";
 		if (Exception->ExceptionInformation[0])
 			readwrite = "Write to";
-		wsprintf(DebugMessage, "%s location %08x caused an access violation.\r\n",
+		wsprintfA(DebugMessage, "%s location %08x caused an access violation.\r\n",
 				readwrite, Exception->ExceptionInformation[1]);
 #ifdef	_DEBUG
 		// The VisualC++ debugger doesn't actually tell you whether a read
 		// or a write caused the access violation, nor does it tell what
 		// address was being read or written. So I fixed that.
-		OutputDebugString("Exception handler: ");
-		OutputDebugString(DebugMessage);
+		OutputDebugStringA("Exception handler: ");
+		OutputDebugStringA(DebugMessage);
 #endif
 		hprintf(LogFile, "%s", DebugMessage);
 	}
@@ -585,11 +603,11 @@ static void GenerateExceptionReport(PEXCEPTION_POINTERS data)
 		char* output = buffer;
 		while (pStack + 1 <= pStackTop) {
 			if ((Count % StackColumns) == 0)
-				output += wsprintf(output, "%08x: ", pStack);
-			char *Suffix = " ";
+				output += wsprintfA(output, "%08x: ", pStack);
+			const char *Suffix = " ";
 			if ((++Count % StackColumns) == 0 || pStack + 2 > pStackTop)
 				Suffix = "\r\n";
-			output += wsprintf(output, "%08x%s", *pStack, Suffix);
+			output += wsprintfA(output, "%08x%s", *pStack, Suffix);
 			pStack++;
 			// Check for when the buffer is almost full, and flush it to disk.
 			if (output > nearend) {
@@ -609,16 +627,24 @@ static void GenerateExceptionReport(PEXCEPTION_POINTERS data)
 		ImageHelpStackWalk(LogFile, Context);
 		SymCleanup(GetCurrentProcess());
 	}
-#ifdef _M_IX86  // Intel Only!
 	else {
 		// Walk the stack using x86 specific code
 		IntelStackWalk(LogFile, Context );
 	}
-#endif
 
 	RecordModuleList(LogFile);
 	CloseHandle(LogFile);
 }
+
+#else  // _M_IX86
+
+static void GenerateExceptionReport(PEXCEPTION_POINTERS /* data */)
+{
+	// TODO: Implement 64 bit version
+}
+
+#endif // _M_IX86
+
 
 LONG WINAPI RecordExceptionInfo(PEXCEPTION_POINTERS data)
 {
@@ -633,7 +659,7 @@ LONG WINAPI RecordExceptionInfo(PEXCEPTION_POINTERS data)
 
 	if (!Terminating && data->ExceptionRecord->ExceptionCode != 0xe0000001) {
 		CLogCritical theCritical;
-		DeleteFile(g_szLogPath);
+		DeleteFileA(g_szLogPath);
 		GenerateExceptionReport(data);
 	}
 
@@ -662,18 +688,18 @@ CExceptionInit::CExceptionInit()
 	char FileName[MAX_PATH] = "Unknown";
 	// Create a filename to record the error information to.
 	// Storing it in the executable directory works well.
-	if (GetModuleFileName(0, g_szLogPath, sizeof(g_szLogPath)) <= 0)
+	if (GetModuleFileNameA(0, g_szLogPath, sizeof(g_szLogPath)) <= 0)
 		g_szLogPath[0] = 0;
 	char *FilePart = GetFilePart(g_szLogPath);
 
 	// Extract the file name portion and remove it's file extension. We'll
 	// use that name shortly.
-	lstrcpy(FileName, FilePart);
+	lstrcpyA(FileName, FilePart);
 	char *lastperiod = strrchr(FileName, '.');
 	if (lastperiod)
 		lastperiod[0] = 0;
 	// Replace the executable filename with our error log file name.
-	lstrcpy(FilePart, "GlobalAuthError.txt");
+	lstrcpyA(FilePart, "GlobalAuthError.txt");
 	g_timeStart = time(NULL);
 	SetUpExceptionFilter();
 }
@@ -698,7 +724,7 @@ void ELOG(LPCSTR lpszFormat, ...)
 
 		::GetLocalTime(&st);
 
-		HANDLE hFile  = CreateFile(g_szLogPath, GENERIC_READ | GENERIC_WRITE, 0, NULL,
+		HANDLE hFile  = CreateFileA(g_szLogPath, GENERIC_READ | GENERIC_WRITE, 0, NULL,
 				OPEN_ALWAYS,  FILE_ATTRIBUTE_NORMAL, NULL);
 		if (hFile == INVALID_HANDLE_VALUE)
 				return;
@@ -714,7 +740,7 @@ void ELOG(LPCSTR lpszFormat, ...)
 		WriteFile(hFile, buff, n, &dwWritten, NULL);
 		n = _vsnprintf(buff, sizeof(buff), lpszFormat, args);
 #ifdef	_DEBUG
-		OutputDebugString(buff);
+		OutputDebugStringA(buff);
 #endif
 		if (n < 0)
 				goto cleanup;
@@ -769,7 +795,7 @@ void trans_func( unsigned int u, _EXCEPTION_POINTERS* pExp )
 		return;
 	{
 		CLogCritical theCritical;
-		DeleteFile(g_szLogPath);
+		DeleteFileA(g_szLogPath);
 		GenerateExceptionReport(pExp);
 	}
 	throw new CSystemException( u );
@@ -792,10 +818,10 @@ void send_exception(bool bExit)
 void	exception_init()
 {
 	return;
-	HANDLE hFile = CreateFile(g_szLogPath, GENERIC_READ, 0, NULL, OPEN_EXISTING, 0, NULL);
+	HANDLE hFile = CreateFileA(g_szLogPath, GENERIC_READ, 0, NULL, OPEN_EXISTING, 0, NULL);
 	if (hFile != INVALID_HANDLE_VALUE) {
 		CloseHandle(hFile);
-		DeleteFile(g_szLogPath);
+		DeleteFileA(g_szLogPath);
 	}
 }
 

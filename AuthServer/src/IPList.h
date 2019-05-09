@@ -52,7 +52,7 @@ protected:
 public:
 	CIPList();
 
-	BOOL Load(char *fileName);
+	BOOL Load(const char *fileName);
 	BOOL IpExists(in_addr ipAddr);
 };
 

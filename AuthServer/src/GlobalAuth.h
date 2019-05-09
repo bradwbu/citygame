@@ -3,7 +3,7 @@
 #pragma warning(disable: 4786)
 
 #ifndef _WIN32_WINNT
-#define _WIN32_WINNT 0x0500
+#define _WIN32_WINNT 0x0501
 //#define WIN32_LEAN_AND_MEAN 
 #endif
 
@@ -25,7 +25,6 @@
 #include <sql.h>
 #include <sqlext.h>
 
-
 #include <vector>
 #include <queue>
 #include <map>
@@ -33,6 +32,7 @@
 #include <set>
 #include <strstream>
 #include <fstream>
+#include <cassert>
 
 #include "XTREE"
 #include "exception.h"

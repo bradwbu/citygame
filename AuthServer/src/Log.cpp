@@ -93,7 +93,7 @@ void CFileLog::ConstructLogPath( struct tm *tm, char* pathBuff, size_t pathBuffS
 
 HANDLE CFileLog::OpenLogFile( const char* logFilePath )
 {
-	return CreateFile(logFilePath, GENERIC_WRITE, FILE_SHARE_READ,
+	return CreateFileA(logFilePath, GENERIC_WRITE, FILE_SHARE_READ,
 								NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 }
 
@@ -155,7 +155,7 @@ void CFileLog::AddLogEx( LogType type, const char* format, va_list argList )
 
 }
 
-void CFileLog::AddLog(LogType type, char* format, ...)
+void CFileLog::AddLog(LogType type, const char* format, ...)
 {
 	va_list argList;
 	va_start(argList,format);
@@ -244,7 +244,7 @@ void CLog::Redraw( void )
 		SelectObject(hdc, font);
 		GetClientRect(wnd, &clientRect);
 		brush = (HBRUSH)GetStockObject(WHITE_BRUSH);
-		GetTextExtentPoint32(hdc, "H", 1, &fontSize);
+		GetTextExtentPoint32A(hdc, "H", 1, &fontSize);
 	} else {
 		SelectObject(hdc, font);
 	}
@@ -257,7 +257,7 @@ void CLog::Redraw( void )
 		i = (i - 1) & (nLine - 1);
 		if (lines[i].str) {
 			SetTextColor(hdc, colors[lines[i].type]);
-			TextOut(hdc, 0, y, lines[i].str, lines[i].len);
+			TextOutA(hdc, 0, y, lines[i].str, lines[i].len);
 		}
 		rect.left = lines[i].len * fontSize.cx;
 		rect.right = clientRect.right;

@@ -496,7 +496,7 @@ void DesReadBlock(void *buf, int len)
 	DesMem(buf, len & 0xfffffff8, 0);
 }
 
-void DesKeyInit(char *password)
+void DesKeyInit(const char *password)
 {                                       /* initialize all des arrays    */
 	char    key64bit[8];
 	char   *key ;

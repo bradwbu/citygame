@@ -91,7 +91,7 @@ static void ShowConfigFileLoadError( void )
 		"    %s\\%s", 
 			cwd, 
 			CONFIG_FILENAME );
-	MessageBox( mainWnd, msg, "Fatal Error", MB_ICONERROR | MB_OK );
+	MessageBoxA( mainWnd, msg, "Fatal Error", MB_ICONERROR | MB_OK );
 }
 
 static void ShowLogDirectoryError( void )
@@ -106,7 +106,7 @@ static void ShowLogDirectoryError( void )
 			config.logDirectory,
 			cwd,
 			config.logDirectory );
-	MessageBox( mainWnd, msg, "Fatal Error", MB_ICONERROR | MB_OK );
+	MessageBoxA( mainWnd, msg, "Fatal Error", MB_ICONERROR | MB_OK );
 }
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -195,7 +195,7 @@ unsigned char blowFishKey[] = {
 	0x6a, 0x35, 0xaf, 0xf5, 0x37, 0x11, 0xd3, 0x5a, 0xc8, 0x42
 };
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
 
 
@@ -204,9 +204,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	tmpFlag |= _CRTDBG_LEAK_CHECK_DF;
 	_CrtSetDbgFlag(tmpFlag);
 #endif
-	HWND prevHwnd = FindWindow( NULL, "AuthServer" );
+	HWND prevHwnd = FindWindow(NULL, L"AuthServer");
 	if ( prevHwnd != NULL ){
-		MessageBox( NULL, "An instance of Authserver is already running.", "Error", MB_ICONERROR | MB_OK );
+		MessageBox(NULL, L"An instance of Authserver is already running.", L"Error", MB_ICONERROR | MB_OK );
 		exit(0);
 	}
 	
@@ -231,7 +231,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	wcx.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wcx.hbrBackground = (HBRUSH) NULL;
 	wcx.lpszMenuName = NULL;
-	wcx.lpszClassName = "AuthServer";
+	wcx.lpszClassName = L"AuthServer";
 	wcx.hIconSm = NULL;
 	ATOM windowClass = RegisterClassEx(&wcx);
 	g_instance = hInstance;
@@ -246,19 +246,19 @@ exception_init();
 		return 0;
 	}
 
-	mainWnd = CreateWindowEx(0, (const char*)windowClass, "AuthServer", WS_OVERLAPPEDWINDOW,
+	mainWnd = CreateWindowEx(0, (LPCWSTR)windowClass, L"AuthServer", WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, 0, 860, 440, NULL, NULL, hInstance, NULL);
 
-	logWnd = CreateWindowEx(WS_EX_CLIENTEDGE, (const char*)windowClass, "", WS_CHILD, 0, 30, 640, 720,
+	logWnd = CreateWindowEx(WS_EX_CLIENTEDGE, (LPCWSTR)windowClass, L"", WS_CHILD, 0, 30, 640, 720,
 		mainWnd, NULL, hInstance, NULL);
 
-	reporterWnd = CreateWindowEx(WS_EX_CLIENTEDGE, (const char*)windowClass, "", WS_CHILD, 0, 0, 640, 30,
+	reporterWnd = CreateWindowEx(WS_EX_CLIENTEDGE, (LPCWSTR)windowClass, L"", WS_CHILD, 0, 0, 640, 30,
 		mainWnd, NULL, hInstance, NULL);
 
-	reloadServerButtonWnd = CreateWindowEx(0, "BUTTON", "Reload Server List", WS_CHILD|BS_PUSHBUTTON, 600, 0, 40, 30, mainWnd,
+	reloadServerButtonWnd = CreateWindowEx(0, L"BUTTON", L"Reload Server List", WS_CHILD|BS_PUSHBUTTON, 600, 0, 40, 30, mainWnd,
 		(HMENU)RELOAD_BUTTON_ID, hInstance, NULL);
 
-	verboseLoggingButtonWnd = CreateWindowEx(0, "BUTTON", "Logging Level", WS_CHILD|BS_PUSHBUTTON, 600, 0, 40, 30, mainWnd,
+	verboseLoggingButtonWnd = CreateWindowEx(0, L"BUTTON", L"Logging Level", WS_CHILD|BS_PUSHBUTTON, 600, 0, 40, 30, mainWnd,
 		(HMENU)LOGLEVEL_BUTTON_ID, hInstance, NULL);
 		
 	logger.SetWnd( logWnd );

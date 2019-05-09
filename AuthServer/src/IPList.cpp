@@ -90,7 +90,7 @@ CIPList forbiddenIPList;
 CIPList allowedIPList;
 
 
-BOOL CIPList::Load(char *fileName)
+BOOL CIPList::Load(const char *fileName)
 {
 	std::ifstream inp(fileName);
 	int line = 0;
