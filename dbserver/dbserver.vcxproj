@@ -143,6 +143,7 @@
     </PostBuildEvent>
     <ClCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Common\account;..\3rdparty\zeromq2-1\include;..\libs\UtilitiesLib\UtilsCXX;..\libs\UtilitiesLib\UtilsNew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
@@ -210,6 +211,7 @@
     </Link>
     <ClCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Common\account;..\3rdparty\zeromq2-1\include;..\libs\UtilitiesLib\UtilsCXX;..\libs\UtilitiesLib\UtilsNew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
