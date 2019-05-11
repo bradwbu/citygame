@@ -33,12 +33,14 @@ function Invoke-BuildAll {
     Invoke-Build -Solution $Solution -Configuration "Release" -Platform "$Platform"
 }
 
+# Outdated cryptopp, will be removed as soon as everything is ported to 2019
 Invoke-BuildAll "..\3rdparty\cryptopp\cryptlib.sln" -Platform "Win32"
 Invoke-BuildAll "..\3rdparty\cryptopp\cryptlib.sln" -Platform "x64"
 
 Invoke-BuildAll "..\3rdparty\cryptopp-8.3\build\vs2019\cryptlib.sln" -Platform "x86"
 Invoke-BuildAll "..\3rdparty\cryptopp-8.3\build\vs2019\cryptlib.sln" -Platform "x64"
 
+# Outdated zlib, will be removed as soon as everything is ported to 2019
 Invoke-BuildAll "..\3rdparty\zlibsrc\zlibvc.sln" -Platform "Win32"
 Invoke-BuildAll "..\3rdparty\zlibsrc\zlibvc.sln" -Platform "x64"
 
@@ -48,6 +50,7 @@ Invoke-BuildAll "..\3rdparty\zlib-1.2.11\build\vs2019\zlib.sln" -Platform "x64"
 Invoke-BuildAll "..\3rdparty\bzip2-1.0.6\build\vs2019\libbz2.sln" -Platform "x86"
 Invoke-BuildAll "..\3rdparty\bzip2-1.0.6\build\vs2019\libbz2.sln" -Platform "x64"
 
+# zeromq will be completly reomoved as it is not needed 
 Invoke-BuildAll "..\3rdparty\zeromq2-1\builds\msvc\msvc.sln" -Platform "Win32"
 Invoke-BuildAll "..\3rdparty\zeromq2-1\builds\msvc\msvc.sln" -Platform "x64"
 
