@@ -354,6 +354,8 @@ void handleAuthUpdateRequest(AccountServerShard *shard, Packet *packet_in)
 
 	if (g_accountServerState.cfg.grant_sku_from_list)
 	{
+		bool changed = false;
+
 		load_SkuPairList();
 		if (g_SkuPairList.skuList)
 		{
@@ -365,12 +367,28 @@ void handleAuthUpdateRequest(AccountServerShard *shard, Packet *packet_in)
 				AccountInventory *inv = AccountInventorySet_Find(&pAccount->invSet, sku);
 				int granted_total = inv ? inv->granted_total : 0;
 
-				if (!granted_total && accountCatalogIsProductAvailable(sku))
+				const AccountProduct* product = accountCatalogGetProduct(SKU(pair->sku_id));
+				int grant_limit = product ? product->grantLimit : 0;
+
+				int grant_amount = MIN(pair->amount, grant_limit); // grant only up to the allowed amount
+				grant_amount = MAX(grant_amount - granted_total, 0); // grant only difference between requested and already granted
+
+				// special case :(
+				if (product && !product->grantLimit)
 				{
-					devassert(!orderIdIsNull(Transaction_GamePurchaseBySkuId(pAccount, sku, 0, 0, 1, false)));
+					grant_amount = MAX(pair->amount - granted_total, 0);
+				}
+
+				if (grant_amount && accountCatalogIsProductAvailable(sku))
+				{
+					devassert(!orderIdIsNull(Transaction_GamePurchaseBySkuId(pAccount, sku, 0, 0, grant_amount, false)));
+					changed = true;
 				}
 			}
-			AccountDb_MarkUpdate(pAccount, ACCOUNTDB_UPDATE_SQL_ACCOUNT);
+			if (changed)
+			{
+				AccountDb_MarkUpdate(pAccount, ACCOUNTDB_UPDATE_SQL_ACCOUNT);
+			}
 		}
 	}
 	else if (g_accountServerState.cfg.grant_all_sku)
