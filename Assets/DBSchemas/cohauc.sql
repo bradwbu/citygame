@@ -17,9 +17,9 @@ end
 GO
 ALTER DATABASE [cohauc] SET ANSI_NULL_DEFAULT OFF 
 GO
-ALTER DATABASE [cohauc] SET ANSI_NULLS OFF 
+ALTER DATABASE [cohauc] SET ANSI_NULLS ON 
 GO
-ALTER DATABASE [cohauc] SET ANSI_PADDING OFF 
+ALTER DATABASE [cohauc] SET ANSI_PADDING ON 
 GO
 ALTER DATABASE [cohauc] SET ANSI_WARNINGS OFF 
 GO
@@ -61,7 +61,7 @@ ALTER DATABASE [cohauc] SET READ_COMMITTED_SNAPSHOT OFF
 GO
 ALTER DATABASE [cohauc] SET HONOR_BROKER_PRIORITY OFF 
 GO
-ALTER DATABASE [cohauc] SET RECOVERY SIMPLE 
+ALTER DATABASE [cohauc] SET RECOVERY FULL 
 GO
 ALTER DATABASE [cohauc] SET  MULTI_USER 
 GO
@@ -332,7 +332,8 @@ CREATE TABLE [dbo].[parse_versions](
 	[ents_crc] [int] NULL,
 	[history_crc] [int] NULL
 ) ON [PRIMARY]
-
+GO
+INSERT [dbo].[parse_versions] ([shards_crc], [ents_crc], [history_crc]) VALUES (0, 0, 0)
 GO
 /****** Object:  Table [dbo].[shards]    Script Date: 4/19/2019 11:56:41 PM ******/
 SET ANSI_NULLS ON

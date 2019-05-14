@@ -22,10 +22,10 @@ GO
 ALTER DATABASE [cohacc] SET ANSI_NULL_DEFAULT OFF 
 GO
 
-ALTER DATABASE [cohacc] SET ANSI_NULLS OFF 
+ALTER DATABASE [cohacc] SET ANSI_NULLS ON 
 GO
 
-ALTER DATABASE [cohacc] SET ANSI_PADDING OFF 
+ALTER DATABASE [cohacc] SET ANSI_PADDING ON 
 GO
 
 ALTER DATABASE [cohacc] SET ANSI_WARNINGS OFF 
@@ -85,7 +85,7 @@ GO
 ALTER DATABASE [cohacc] SET HONOR_BROKER_PRIORITY OFF 
 GO
 
-ALTER DATABASE [cohacc] SET RECOVERY SIMPLE 
+ALTER DATABASE [cohacc] SET RECOVERY FULL 
 GO
 
 ALTER DATABASE [cohacc] SET  MULTI_USER 
@@ -167,9 +167,6 @@ CREATE TABLE [dbo].[product_type](
 ) ON [PRIMARY]
 GO
 
-USE [cohacc]
-GO
-
 /****** Object:  Table [dbo].[product]    Script Date: 5/1/2019 5:03:43 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -197,12 +194,6 @@ GO
 ALTER TABLE [dbo].[product] CHECK CONSTRAINT [FK_product_product_type]
 GO
 
-USE [cohacc]
-GO
-
-USE [cohacc]
-GO
-
 /****** Object:  Table [dbo].[game_log]    Script Date: 5/1/2019 5:03:13 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -221,7 +212,7 @@ CREATE TABLE [dbo].[game_log](
 	[claimed] [int] NULL,
 	[csr_did_it] [bit] NULL,
 	[parent_order_id] [uniqueidentifier] NULL,
-	[saved] [int] NULL,
+	[saved] [bit] NULL,
  CONSTRAINT [PK_game_log] PRIMARY KEY CLUSTERED 
 (
 	[order_id] ASC
@@ -241,9 +232,6 @@ REFERENCES [dbo].[product] ([sku_id])
 GO
 
 ALTER TABLE [dbo].[game_log] CHECK CONSTRAINT [FK_game_log_product]
-GO
-
-USE [cohacc]
 GO
 
 /****** Object:  Table [dbo].[inventory]    Script Date: 5/1/2019 5:03:29 PM ******/
@@ -285,9 +273,6 @@ GO
 ALTER TABLE [dbo].[inventory] ADD  DEFAULT ((0)) FOR [saved_total]
 GO
 
-USE [cohacc]
-GO
-
 /****** Object:  Table [dbo].[mtx_log]    Script Date: 5/1/2019 5:03:35 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -323,9 +308,6 @@ GO
 ALTER TABLE [dbo].[mtx_log] CHECK CONSTRAINT [FK_mtx_log_product]
 GO
 
-USE [cohacc]
-GO
-
 /****** Object:  UserDefinedTableType [dbo].[TVP_game_transaction]    Script Date: 5/1/2019 5:04:49 PM ******/
 CREATE TYPE [dbo].[TVP_game_transaction] AS TABLE(
 	[order_id] [uniqueidentifier] NULL,
@@ -340,7 +322,30 @@ CREATE TYPE [dbo].[TVP_game_transaction] AS TABLE(
 )
 GO
 
-USE [cohacc]
+/****** Object:  UserDefinedFunction [dbo].[greater_smalldatetime]    Script Date: 5/1/2019 5:03:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date, ,>
+-- Description:	<Description, ,>
+-- =============================================
+CREATE FUNCTION [dbo].[greater_smalldatetime]
+(
+	-- Add the parameters for the function here
+	@a smalldatetime,
+	@b smalldatetime
+)
+RETURNS smalldatetime
+AS
+BEGIN
+	IF @a > @b BEGIN
+		RETURN @a;
+	END
+	RETURN @b;
+END
 GO
 
 /****** Object:  StoredProcedure [dbo].[SP_add_game_transaction]    Script Date: 5/1/2019 5:03:59 PM ******/
@@ -393,12 +398,12 @@ BEGIN
 			WHEN NOT MATCHED BY TARGET THEN
 				INSERT (auth_id, sku_id, granted_total, claimed_total, expires)
 				VALUES (source.auth_id, source.sku_id, source.granted, source.claimed,
-					NULL)
+					DATEADD(second, @expiration_seconds * source.quantity, GETDATE()))
 			WHEN MATCHED THEN
 				UPDATE SET
 					granted_total = target.granted_total + source.granted,
 					claimed_total = target.claimed_total + source.claimed,
-					expires = NULL;
+					expires = DATEADD(second, @expiration_seconds * source.quantity, greater_smalldatetime(target.expires, GETDATE()));
 	END
 	
 	SELECT sku_id, granted_total, claimed_total, saved_total, expires FROM dbo.inventory WHERE auth_id=@auth_id AND sku_id=@sku_id;
@@ -406,9 +411,6 @@ BEGIN
 	COMMIT TRANSACTION;
 END
 
-GO
-
-USE [cohacc]
 GO
 
 /****** Object:  StoredProcedure [dbo].[SP_add_micro_transaction]    Script Date: 5/1/2019 5:04:05 PM ******/
@@ -454,10 +456,10 @@ BEGIN
                   WHEN NOT MATCHED BY TARGET THEN
                         INSERT (auth_id, sku_id, granted_total, claimed_total, expires)
                         VALUES (source.auth_id, source.sku_id, source.quantity, 0,
-                              NULL)                   
+                              DATEADD(second, @expiration_seconds * source.quantity, GETDATE()))                   
                   WHEN MATCHED THEN
                         UPDATE SET granted_total = target.granted_total + source.quantity,
-                              expires = NULL;
+                              expires = DATEADD(second, @expiration_seconds * source.quantity, greater_smalldatetime(target.expires, GETDATE()));
       END
       
       SELECT sku_id, granted_total, claimed_total, saved_total, expires FROM dbo.inventory WHERE auth_id=@auth_id AND sku_id=@sku_id;
@@ -465,9 +467,6 @@ BEGIN
       COMMIT TRANSACTION;
 END
 
-GO
-
-USE [cohacc]
 GO
 
 /****** Object:  StoredProcedure [dbo].[SP_add_multi_game_transaction]    Script Date: 5/1/2019 5:04:10 PM ******/
@@ -527,9 +526,6 @@ END
 
 GO
 
-USE [cohacc]
-GO
-
 /****** Object:  StoredProcedure [dbo].[SP_find_or_create_account]    Script Date: 5/1/2019 5:04:15 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -582,9 +578,6 @@ END
 
 GO
 
-USE [cohacc]
-GO
-
 /****** Object:  StoredProcedure [dbo].[SP_read_unsaved_game_transactions]    Script Date: 5/1/2019 5:04:21 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -613,9 +606,6 @@ BEGIN
                   AND (ent_id=@ent_id OR @ent_id IS NULL);
 END
 
-GO
-
-USE [cohacc]
 GO
 
 /****** Object:  StoredProcedure [dbo].[SP_revert_game_transaction]    Script Date: 5/1/2019 5:04:26 PM ******/
@@ -676,9 +666,6 @@ END
 
 GO
 
-USE [cohacc]
-GO
-
 /****** Object:  StoredProcedure [dbo].[SP_save_game_transaction]    Script Date: 5/1/2019 5:04:30 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -731,9 +718,6 @@ BEGIN
 	COMMIT TRANSACTION;
 END
 
-GO
-
-USE [cohacc]
 GO
 
 /****** Object:  StoredProcedure [dbo].[SP_update_account]    Script Date: 5/1/2019 5:04:35 PM ******/
