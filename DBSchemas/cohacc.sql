@@ -236,13 +236,6 @@ GO
 ALTER TABLE [dbo].[game_log] CHECK CONSTRAINT [FK_game_log_account]
 GO
 
-ALTER TABLE [dbo].[game_log]  WITH CHECK ADD  CONSTRAINT [FK_game_log_parent_order] FOREIGN KEY([parent_order_id])
-REFERENCES [dbo].[game_log] ([order_id])
-GO
-
-ALTER TABLE [dbo].[game_log] CHECK CONSTRAINT [FK_game_log_parent_order]
-GO
-
 ALTER TABLE [dbo].[game_log]  WITH CHECK ADD  CONSTRAINT [FK_game_log_product] FOREIGN KEY([sku_id])
 REFERENCES [dbo].[product] ([sku_id])
 GO
@@ -343,8 +336,7 @@ CREATE TYPE [dbo].[TVP_game_transaction] AS TABLE(
 	[ent_id] [int] NULL,
 	[granted] [int] NULL,
 	[claimed] [int] NULL,
-	[csr_did_it] [bit] NULL,
-	[parent_order_id] [uniqueidentifier] NULL
+	[csr_did_it] [bit] NULL
 )
 GO
 
