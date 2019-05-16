@@ -93,7 +93,7 @@
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\CityOfHeroes.*"</Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\Ouroboros.*"</Command>
     </PostBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>UI\Hybrid;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -110,7 +110,7 @@
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\CityOfHeroes.*"</Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\Ouroboros.*"</Command>
     </PostBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>UI\Hybrid;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -127,7 +127,7 @@
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\CityOfHeroes.*"</Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\Ouroboros.*"</Command>
     </PostBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>UI\Hybrid;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -149,7 +149,7 @@
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\CityOfHeroes.*"</Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\Ouroboros.*"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
