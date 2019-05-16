@@ -398,12 +398,26 @@ BEGIN
 			WHEN NOT MATCHED BY TARGET THEN
 				INSERT (auth_id, sku_id, granted_total, claimed_total, expires)
 				VALUES (source.auth_id, source.sku_id, source.granted, source.claimed,
-					DATEADD(second, @expiration_seconds * source.quantity, GETDATE()))
+					CASE WHEN @expiration_seconds 
+						IS NULL
+					THEN
+						NULL
+					ELSE
+						DATEADD(second, @expiration_seconds * source.granted, GETDATE())
+					END
+					)
 			WHEN MATCHED THEN
 				UPDATE SET
 					granted_total = target.granted_total + source.granted,
 					claimed_total = target.claimed_total + source.claimed,
-					expires = DATEADD(second, @expiration_seconds * source.quantity, greater_smalldatetime(target.expires, GETDATE()));
+					expires =
+					CASE WHEN @expiration_seconds 
+						IS NULL
+					THEN
+						NULL
+					ELSE
+						DATEADD(second, @expiration_seconds * source.granted, GETDATE())
+					END;
 	END
 	
 	SELECT sku_id, granted_total, claimed_total, saved_total, expires FROM dbo.inventory WHERE auth_id=@auth_id AND sku_id=@sku_id;
@@ -451,15 +465,30 @@ BEGIN
                   VALUES (@order_id, @auth_id, @sku_id, @transaction_date, @quantity, @points);
 
             MERGE INTO inventory AS target
-                  USING (SELECT @auth_id, @sku_id, @quantity) AS source (auth_id, sku_id, quantity)
-                  ON (target.auth_id = source.auth_id) AND (target.sku_id = source.sku_id)
-                  WHEN NOT MATCHED BY TARGET THEN
-                        INSERT (auth_id, sku_id, granted_total, claimed_total, expires)
-                        VALUES (source.auth_id, source.sku_id, source.quantity, 0,
-                              DATEADD(second, @expiration_seconds * source.quantity, GETDATE()))                   
-                  WHEN MATCHED THEN
-                        UPDATE SET granted_total = target.granted_total + source.quantity,
-                              expires = DATEADD(second, @expiration_seconds * source.quantity, greater_smalldatetime(target.expires, GETDATE()));
+				USING (SELECT @auth_id, @sku_id, @quantity) AS source (auth_id, sku_id, quantity)
+				ON (target.auth_id = source.auth_id) AND (target.sku_id = source.sku_id)
+				WHEN NOT MATCHED BY TARGET THEN
+					INSERT (auth_id, sku_id, granted_total, claimed_total, expires)
+					VALUES (source.auth_id, source.sku_id, source.quantity, 0,
+				CASE WHEN @expiration_seconds 
+					IS NULL
+				THEN
+					NULL
+				ELSE
+					DATEADD(second, @expiration_seconds * source.granted, GETDATE())
+				END
+				)
+			WHEN MATCHED THEN
+				UPDATE SET
+					granted_total = target.granted_total + source.quantity,
+					expires =
+					CASE WHEN @expiration_seconds 
+						IS NULL
+					THEN
+						NULL
+					ELSE
+						DATEADD(second, @expiration_seconds * source.granted, GETDATE())
+					END;
       END
       
       SELECT sku_id, granted_total, claimed_total, saved_total, expires FROM dbo.inventory WHERE auth_id=@auth_id AND sku_id=@sku_id;
