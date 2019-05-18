@@ -154,7 +154,7 @@ static ParseTable parse_AccountServerCfg[] =
 	{ "cohURL_NewFeaturesUpdate",				TOK_STRING(AccountServerCfg,cohURL_NewFeaturesUpdate,NULL)		},
 	{ "GrantSKUFromList",						TOK_BOOLFLAG(AccountServerCfg,grant_sku_from_list,0)			},
 	{ "GrantAllSKU",							TOK_BOOLFLAG(AccountServerCfg,grant_all_sku,0)					},
-	{ "MinLoyaltyPoints",						TOK_INT(AccountServerCfg,min_loyalty_points,1)					},
+	{ "MinLoyaltyPoints",						TOK_INT(AccountServerCfg,min_loyalty_points,0)					},
 	{ "AutoBuyProducts",						TOK_BOOLFLAG(AccountServerCfg,auto_buy_products,0)				},
 	// Legacy stuff
 	{ "ArchiveMerged",							TOK_BOOLFLAG(AccountServerCfg,archive_merged,0)					},
