@@ -322,6 +322,45 @@ CREATE TYPE [dbo].[TVP_game_transaction] AS TABLE(
 )
 GO
 
+/****** Object:  Index [IDX_account_name]    Script Date: 5/1/2019 5:03:59 PM ******/
+CREATE UNIQUE NONCLUSTERED INDEX [IDX_account_name] ON [dbo].[account]
+(
+	[name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+/****** Object:  Index [IDX_game_log_auth_id]    Script Date: 5/1/2019 5:03:59 PM ******/
+CREATE NONCLUSTERED INDEX [IDX_game_log_auth_id] ON [dbo].[game_log]
+(
+	[auth_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+GO
+
+/****** Object:  Index [IDX_game_log_sku_id]    Script Date: 5/1/2019 5:03:59 PM ******/
+CREATE NONCLUSTERED INDEX [IDX_game_log_sku_id] ON [dbo].[game_log]
+(
+	[sku_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+/****** Object:  Index [IDX_inventory_auth_id]    Script Date: 5/1/2019 5:03:59 PM ******/
+CREATE NONCLUSTERED INDEX [IDX_inventory_auth_id] ON [dbo].[inventory]
+(
+	[auth_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+GO
+
+/****** Object:  Index [IDX_inventory_sku_id]    Script Date: 5/1/2019 5:03:59 PM ******/
+CREATE NONCLUSTERED INDEX [IDX_inventory_sku_id] ON [dbo].[inventory]
+(
+	[sku_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
 /****** Object:  UserDefinedFunction [dbo].[greater_smalldatetime]    Script Date: 5/1/2019 5:03:59 PM ******/
 SET ANSI_NULLS ON
 GO
