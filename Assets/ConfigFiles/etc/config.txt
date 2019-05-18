@@ -154,7 +154,7 @@ chargeWhenServerDown = true
 UsePacketLog = 7
 
 ; Use new method for password encryption
-EEncrypt = true
+Encrypt = true
 
 DesApply = true
 

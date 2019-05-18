@@ -489,6 +489,7 @@ int authLogin(char *name,char *password)
 	}
 	loadend_printf("ok");
 
+	authSetKey(1234, 1);		// turn on encryption for first packet, key is ignored for blowfish
 	loadstart_printf("Auth:Waiting for protocol version... ");
 	if (!authWaitFor(AC_PROTOCOL_VER)) {
 		loadend_printf("failed");
