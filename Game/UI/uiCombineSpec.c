@@ -69,6 +69,9 @@
 #include "uiSalvage.h"
 
 #include "VillainDef.h"
+
+#include "AccountCatalog.h"
+
 //-------------------------------------------------------------
 
 void TestDimReturns(Power *ppow);
@@ -2469,7 +2472,8 @@ void combineSpecMenu()
 	s_combo_trash( FRAME_SPACE + 30, FRAME_BOT - 25, 50, screenScaleX, screenScaleY );
 
 	//store icon
-	drawHybridStoreLargeButton("045-000-000-000", (DEFAULT_SCRN_WD-FRAME_SPACE-35)*screenScaleX, (FRAME_BOT-25)*screenScaleY, 50, MIN(screenScaleX, screenScaleY), CLR_WHITE, HB_STORE_CATEGORY, 0);  //PSID_Enhancement
+	if (!accountCatalog_IsAutoBuyEnabled())
+		drawHybridStoreLargeButton("045-000-000-000", (DEFAULT_SCRN_WD-FRAME_SPACE-35)*screenScaleX, (FRAME_BOT-25)*screenScaleY, 50, MIN(screenScaleX, screenScaleY), CLR_WHITE, HB_STORE_CATEGORY, 0);  //PSID_Enhancement
 
 	if( combo.open )
 	{

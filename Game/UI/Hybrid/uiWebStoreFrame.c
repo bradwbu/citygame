@@ -115,9 +115,7 @@ void webStoreFrame(int show); //fwd declaration
 
 void webStoreOpenProduct(const char * product)
 {
-	const AccountStoreAccessInfo* info = accountCatalog_GetStoreAccessInfo();
-
-	if (product && info && info->playSpanStoreFlags & STOREFLAG_AUTO_BUY_PRODUCTS)
+	if (product && accountCatalog_IsAutoBuyEnabled())
 	{
 		AccountStoreBuyProduct(auth_info.uid, skuIdFromString(product), 1);
 		return;
@@ -132,9 +130,7 @@ void webStoreOpenProduct(const char * product)
 
 void webStoreOpenCategory(const char * category)
 {
-	const AccountStoreAccessInfo* info = accountCatalog_GetStoreAccessInfo();
-
-	if (category && info && info->playSpanStoreFlags & STOREFLAG_AUTO_BUY_PRODUCTS)
+	if (category && accountCatalog_IsAutoBuyEnabled())
 	{
 		return;
 	}
@@ -148,9 +144,7 @@ void webStoreOpenCategory(const char * category)
 
 void webStoreAddToCart(const char * product)
 {
-	const AccountStoreAccessInfo* info = accountCatalog_GetStoreAccessInfo();
-
-	if (product && info && info->playSpanStoreFlags & STOREFLAG_AUTO_BUY_PRODUCTS)
+	if (product && accountCatalog_IsAutoBuyEnabled())
 	{
 		AccountStoreBuyProduct(auth_info.uid, skuIdFromString(product), 1);
 		return;
@@ -169,9 +163,7 @@ void webStoreAddMultipleToCart(const ShoppingCart * products, U32 first, U32 las
 	U32 numSkus = last - first;
 	char skus[256] = "";
 
-	const AccountStoreAccessInfo* info = accountCatalog_GetStoreAccessInfo();
-
-	if (products && info && info->playSpanStoreFlags & STOREFLAG_AUTO_BUY_PRODUCTS)
+	if (products && accountCatalog_IsAutoBuyEnabled())
 	{
 		devassert(numSkus && products->itemCount >= last);
 

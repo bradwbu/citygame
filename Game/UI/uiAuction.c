@@ -999,7 +999,8 @@ static F32 drawAuctionSearch( F32 x, F32 y, F32 z, F32 wd, F32 sc, int color )
 	}
 
 	// store button
-	drawHybridStoreSmallButton( "020-070-000-000", x + wd - 60.f*sc, y + 55.f*sc, z, sc, color, HB_STORE_CATEGORY, WDW_AUCTION ); //PSID_Auction
+	if (!accountCatalog_IsAutoBuyEnabled())
+		drawHybridStoreSmallButton( "020-070-000-000", x + wd - 60.f*sc, y + 55.f*sc, z, sc, color, HB_STORE_CATEGORY, WDW_AUCTION ); //PSID_Auction
 
   	return 80*sc;
 }

@@ -334,6 +334,11 @@ const AccountStoreAccessInfo* accountCatalog_GetStoreAccessInfo( void )
 	return &s_StoreAccessInfo;
 }
 
+bool accountCatalog_IsAutoBuyEnabled()
+{
+	return (s_StoreAccessInfo.playSpanStoreFlags & STOREFLAG_AUTO_BUY_PRODUCTS) != 0;
+}
+
 void accountCatalog_ReleaseStoreAccessInfo( void )
 {
 	free( (void*)s_StoreAccessInfo.playSpanDomain );

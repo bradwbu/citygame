@@ -25,6 +25,7 @@
 #include "cmdgame.h"
 #include "AccountData.h"
 #include "inventory_client.h"
+#include "AccountCatalog.h"
 
 //------------------------------------------------------------------------------------------------------
 // Init ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -143,7 +144,8 @@ static void initDock()
 	contextMenu_addCode(	 dockContext, alwaysAvailable,				0,									dockwindow_selfInfo,		0,									"CMPersonalInfo",	0);
 	contextMenu_addCode(	 dockContext, dockwindow_usingChatServer,	0,									displayChatHandleDialog,	0,									"CMChatHandle",		0);	
 	contextMenu_addCode(	 dockContext, alwaysAvailable,				&windowNums[WDW_LOYALTY_TREE],		dockwindow_open,			&windowNums[WDW_LOYALTY_TREE],		"CMLoyaltyTreeWindow",	0);
-	contextMenu_addCode(	 dockContext, alwaysAvailable,				&windowNums[WDW_WEB_STORE],			dockwindow_open,			&windowNums[WDW_WEB_STORE],			"CMWebStoreWindow",	0);
+	if (!accountCatalog_IsAutoBuyEnabled())
+		contextMenu_addCode(	 dockContext, alwaysAvailable,				&windowNums[WDW_WEB_STORE],			dockwindow_open,			&windowNums[WDW_WEB_STORE],			"CMWebStoreWindow",	0);
 	contextMenu_addCode(	 dockContext, alwaysAvailable,				&windowNums[WDW_OPTIONS],			dockwindow_open,			&windowNums[WDW_OPTIONS],			"CMOptionsMenu",	0);
 	contextMenu_addCode(	 dockContext, alwaysAvailable,				&windowNums[WDW_PETITION],			dockwindow_open,			&windowNums[WDW_PETITION],			"CMSupport",		0);
 	contextMenu_addCode(	 dockContext, alwaysAvailable,				&windowNums[WDW_QUIT],				dockwindow_open,			&windowNums[WDW_QUIT],				"CMQuitWindow",		0);
