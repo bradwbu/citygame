@@ -2564,9 +2564,6 @@ static void selectCharacter()
 		estrDestroy(&tooltip);
 	}
 
-	if (!accountCatalog_IsAutoBuyEnabled())
-		drawHybridStoreMenuButton(NULL, 979.f, 31.f, 120.f, 1.f, CLR_WHITE, 0);
-
 	if (D_MOUSEHIT == drawHybridButton(&sButtonDelete, 900.f, 31.f, 120.f, 1.f, 0xbb0000ff, enableDeleteButton ? HB_DRAW_BACKING : (HB_DISABLED|HB_DRAW_BACKING)))
 	{
 		//Delete character here.
