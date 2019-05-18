@@ -74,6 +74,8 @@ typedef struct ServerCfg
 	F32		timeZoneDelta;
 	int		disableContainerBackups;
 	F32		xpscale;
+	F32		aescale;
+	F32		ticketscale;
 	int		auction_last_login_delay;
 	char	client_commands[2000];
 	U32		missionserver_max_queueSize;
