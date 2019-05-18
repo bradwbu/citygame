@@ -66,20 +66,7 @@ typedef struct AccountServerCfg
 	U32 playSpanAuthRekeyIntervalMins;				// interval at which we create a new playspan digest with an updated auth timeout.  (At least 2x per timeout in case one gets lost)
 
 	// Web store URL info from account_server.cfg
-	char *playSpanDomain;
 	char* playSpanCatalog;
-	char *playSpanURL_Home;
-	char *playSpanURL_CategoryView;
-	char *playSpanURL_ItemView;
-	char *playSpanURL_ShowCart;
-	char *playSpanURL_AddToCart;
-	char *playSpanURL_ManageAccount;
-	char *playSpanURL_SupportPage;
-	char *playSpanURL_SupportPageDE;
-	char *playSpanURL_SupportPageFR;
-	char *playSpanURL_UpgradeToVIP;
-	char *cohURL_NewFeatures;
-	char *cohURL_NewFeaturesUpdate;
 
 	bool grant_sku_from_list;
 	bool grant_all_sku;

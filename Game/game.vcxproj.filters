@@ -1809,9 +1809,6 @@
       <Filter>graphics</Filter>
     </ClCompile>
     <ClCompile Include="validateFiles.c" />
-    <ClCompile Include="UI\uiPlaySpanStoreLauncher.c">
-      <Filter>UI\Menu</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Common\auth\auth.h">
@@ -3555,9 +3552,6 @@
     </ClInclude>
     <ClInclude Include="..\Common\LWC_common.h" />
     <ClInclude Include="UI\uiSalvageOpen.h">
-      <Filter>UI\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\uiPlaySpanStoreLauncher.h">
       <Filter>UI\Menu</Filter>
     </ClInclude>
   </ItemGroup>
