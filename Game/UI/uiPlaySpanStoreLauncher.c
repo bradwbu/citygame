@@ -4,7 +4,6 @@
 ****************************************************************************/
 
 #include "uiPlaySpanStoreLauncher.h"
-#include "uiWebBrowser.h"
 #include "assert.h"
 #include "AccountCatalog.h"
 #include "uiLogin.h"
@@ -424,7 +423,7 @@ bool PlaySpanStoreLauncher_NewFeaturesUpdate()
 	char url[128];
 	if (buildStoreURL (kCohNewFeaturesUpdatePageId, 0, 0, 0, url, 128))
 	{
-		uiWebBrowser_get_web_reset_data(url);
+		//uiWebBrowser_get_web_reset_data(url);
 		return true;
 	}
 	return false;
@@ -758,7 +757,7 @@ bool gotoPlaySpanStorePage(
 		return false;
 	}
 	
-	return uiWebBrowser_goto_url( storeURL );
+	return true; //uiWebBrowser_goto_url( storeURL );
 }
 
 void addToURL( char** anEStrBuffer, int* pNumArgsAdded, const char* argName, const char* argValue )

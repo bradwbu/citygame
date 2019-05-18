@@ -48,7 +48,7 @@ int newFeaturesWindow()
 	{
 		if (mouseClickHitNoCol(MS_LEFT))
 		{
-			webStoreOpenNewFeatures();
+			//webStoreOpenNewFeatures();
 		}
 		//hover color
 		textColor = CLR_WHITE;

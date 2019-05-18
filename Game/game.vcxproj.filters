@@ -1372,9 +1372,6 @@
     <ClCompile Include="UI\uiUtilMenu.c">
       <Filter>UI\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="UI\uiWebUtil.c">
-      <Filter>UI\Menu</Filter>
-    </ClCompile>
     <ClCompile Include="UI\sprite\sprite_base.c">
       <Filter>UI\sprite</Filter>
     </ClCompile>
@@ -1786,9 +1783,6 @@
       <Filter>UI\Hybrid</Filter>
     </ClCompile>
     <ClCompile Include="UI\uiContactFinder.c">
-      <Filter>UI\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="UI\uiWebBrowser.c">
       <Filter>UI\Menu</Filter>
     </ClCompile>
     <ClCompile Include="LWC.c" />
@@ -3140,9 +3134,6 @@
     <ClInclude Include="UI\uiUtilMenu.h">
       <Filter>UI\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="UI\uiWebUtil.h">
-      <Filter>UI\Menu</Filter>
-    </ClInclude>
     <ClInclude Include="UI\sprite\sprite_base.h">
       <Filter>UI\sprite</Filter>
     </ClInclude>
@@ -3544,9 +3535,6 @@
       <Filter>UI\Hybrid</Filter>
     </ClInclude>
     <ClInclude Include="UI\uiContactFinder.h">
-      <Filter>UI\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\uiWebBrowser.h">
       <Filter>UI\Menu</Filter>
     </ClInclude>
     <ClInclude Include="LWC.h" />

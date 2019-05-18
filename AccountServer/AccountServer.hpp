@@ -25,7 +25,6 @@ typedef struct StashTableImp* StashTable;
 typedef struct StaticDefineInt StaticDefineInt;
 typedef struct Account Account;
 typedef struct AccountProduct AccountProduct;
-typedef struct PostBackRelay PostBackRelay;
 class AccountRequest;
 
 typedef struct AccountServerShard
@@ -52,11 +51,7 @@ typedef struct AccountServerCfg
 	char mtxEnvironment[32];
 	int mtxIOThreads;
 	char mtxSecretKey[256];
-	PostBackRelay **relays;
 	
-	// PlayNC authentication for web clients
-	char playNCChallengeRespSecretKey[256];
-
 	// SQL configuration
 	char sqlLogin[1024];
 	char sqlDbName[1024];

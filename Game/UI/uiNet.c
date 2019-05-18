@@ -4459,14 +4459,14 @@ void receiveChangeWindowColors(Packet *pak)
 void displaySupportHome(Packet *pak)
 {
 #ifndef TEST_CLIENT
-	webStoreOpenSupport();
+	//webStoreOpenSupport();
 #endif
 }
 
 void displaySupportKB(Packet *pak)
 {
 #ifndef TEST_CLIENT
-	webStoreOpenSupportKB(pktGetBitsAuto(pak));
+	pktGetBitsAuto(pak);
 #endif
 }
 
