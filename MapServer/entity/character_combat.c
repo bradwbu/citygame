@@ -4923,8 +4923,8 @@ void character_TurnOnActiveTogglePowers(Character *p)
 				// character_Reset and resumeCharacter, which both want to be the
 				// one to turn on toggles when resetting powers after being offline.
 				for (ppowListItem = powlist_GetFirst(&p->listTogglePowers, &iter);
-						ppowListItem != NULL;
-						ppowListItem = powlist_GetNext(&iter))
+					ppowListItem != NULL;
+					ppowListItem = powlist_GetNext(&iter))
 				{
 					// If it's already in the list, don't activate it again
 					if (ppowListItem->ppow->ppowBase == ppow->ppowBase) {
