@@ -1351,7 +1351,6 @@ static void drawItemInfo( AuctionItem * pItem, F32 x, F32 y, F32 z, F32 wd, F32 
 						if (pHelp)
 						{
 							estrConcatCharString(&pchInfo, pHelp);
-							estrDestroy(&pHelp);
 						}
 						uiEnhancementFree(&pEnh);
 					}
