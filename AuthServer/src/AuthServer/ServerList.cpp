@@ -39,8 +39,8 @@ void CServerList::Load()
 
 	conn.Bind( &localServerId );
 	conn.Bind( worldserver.name, 26 );
-	conn.Bind( worldserver.ip, 16 );
-	conn.Bind( worldserver.inner_ip, 16 );
+	conn.Bind( worldserver.ip, 256 );
+	conn.Bind( worldserver.inner_ip, 256 );
 	conn.Bind( &worldserver.ageLimit );
 	conn.Bind( &worldserver.pkflag );
     conn.Bind( &worldserver.region_id );
@@ -52,8 +52,8 @@ void CServerList::Load()
 		while( !nodata )
 		{
 			worldserver.serverid.SetValue(localServerId);
-			worldserver.inner_addr.S_un.S_addr = inet_addr( worldserver.inner_ip );
-			worldserver.outer_addr.S_un.S_addr = inet_addr( worldserver.ip);
+			worldserver.inner_addr.S_un.S_addr = *(ULONG*)gethostbyname(worldserver.inner_ip)->h_addr_list[0];
+			worldserver.outer_addr.S_un.S_addr = *(ULONG*)gethostbyname(worldserver.ip)->h_addr_list[0];
 			worldserver.outer_port=config.worldPort;
 			worldserver.s = NULL;
 			worldserver.UserNum = 0;
