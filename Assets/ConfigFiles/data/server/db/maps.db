@@ -1326,7 +1326,7 @@ Container 16
 	SafePlayersLow 40
 	SafePlayersHigh 90
 	MaxCritters 2000
-	Ouroboros PrimalHero, Praetorian
+	Ouroboros PrimalHero
 	DontAutoStart 1
 	Transient 1
 ContainerEnd
@@ -1421,7 +1421,7 @@ Container 17
 	SafePlayersLow 40
 	SafePlayersHigh 90
 	MaxCritters 2000
-	Ouroboros PrimalVillain, Praetorian
+	Ouroboros PrimalVillain
 	DontAutoStart 1
 	Transient 1
 ContainerEnd
