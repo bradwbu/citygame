@@ -93,7 +93,7 @@
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\CityOfHeroes.*"</Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\Ouroboros_Test.*"</Command>
     </PostBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>UI\Hybrid;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -110,7 +110,7 @@
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\CityOfHeroes.*"</Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\Ouroboros_Test.*"</Command>
     </PostBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>UI\Hybrid;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -127,7 +127,7 @@
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\CityOfHeroes.*"</Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\Ouroboros_Test.*"</Command>
     </PostBuildEvent>
     <ClCompile>
       <AdditionalIncludeDirectories>UI\Hybrid;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -149,7 +149,7 @@
       <Command>..\utilities\bin\structparser X %(RootDir)%(Directory) X %(Filename).vcxproj X $(Platform) X $(Configuration) X $(VCInstallDir) X $(SolutionPath)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\CityOfHeroes.*"</Command>
+      <Command>xcopy /Y /D "$(TargetPath)" "$(ProjectDir)..\bin\Ouroboros.*"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -2590,6 +2590,7 @@
     <None Include="CrypticIcn.ico" />
     <None Include="Icon_Cov.ico" />
     <None Include="Icon_Korean.ico" />
+    <None Include="Icon_Ouroboros.ico" />
     <None Include="Icon_Rogue.ico" />
     <None Include="Icon_Statesman.ico" />
     <None Include="logo4small.bmp" />

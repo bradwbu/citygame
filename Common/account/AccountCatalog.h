@@ -82,6 +82,7 @@ typedef struct _AccountStoreAccessInfo
 } AccountStoreAccessInfo;
 
 const AccountStoreAccessInfo*	accountCatalog_GetStoreAccessInfo( void );
+bool					accountCatalog_IsAutoBuyEnabled();
 void					accountCatalog_ReleaseStoreAccessInfo( void );
 void					accountCatalog_CacheAcctServerCatalogUpdate( Packet* pak_in );
 void					accountCatalog_AddAcctServerCatalogToPacket( Packet* pak_out );
