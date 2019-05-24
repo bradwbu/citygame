@@ -1377,6 +1377,18 @@ void parseArgs0(int argc, char **argv)
 			game_state.ignoreBadDrivers = 1;
 			bSkipArgIfPresent = true;
 		}
+		else if (CHECKARG("-patchDir"))
+		{
+			argv[i][0] = 0;
+			if (i+1 < argc && argv[i+1])
+			{
+				forwardSlashes(argv[i+1]);
+				PigSetAddPatchDir(unquote(argv[i+1]));
+
+				argv[i+1][0] = 0;
+				++i;
+			}
+		}
 
 		if(bSkipArgIfPresent)
 		{

@@ -641,8 +641,9 @@ void CSocketServerEx::OnCreate()
         Send("cdddbdb", AC_PROTOCOL_VER, oneTimeKey, config.ProtocolVer, 
             expByteCount, expByteCount, expBuffer, modByteCount, modByteCount, modBuffer);
     else{
-        NonEncSend("cdddbdb", AC_PROTOCOL_VER, oneTimeKey, 0, 
-            expByteCount, expByteCount, expBuffer, modByteCount, modByteCount, modBuffer);
+		// XXX: Is there a reason to not send the protocol version when doing non-enc?
+		NonEncSend("cdddbdb", AC_PROTOCOL_VER, oneTimeKey, config.ProtocolVer,
+			expByteCount, expByteCount, expBuffer, modByteCount, modByteCount, modBuffer);
     }
     AS_LOG_VERBOSE( "SND: AC_PROTOCOL_VER,onetimekey:%d,buildNumber:%d", oneTimeKey, buildNumber );
     OnRead();

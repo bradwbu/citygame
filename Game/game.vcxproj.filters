@@ -3601,6 +3601,9 @@
     <None Include="logo4small_rogue.bmp">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="Icon_Ouroboros.ico">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">

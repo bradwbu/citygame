@@ -17,9 +17,9 @@ end
 GO
 ALTER DATABASE [cohauth] SET ANSI_NULL_DEFAULT OFF 
 GO
-ALTER DATABASE [cohauth] SET ANSI_NULLS OFF 
+ALTER DATABASE [cohauth] SET ANSI_NULLS ON 
 GO
-ALTER DATABASE [cohauth] SET ANSI_PADDING OFF 
+ALTER DATABASE [cohauth] SET ANSI_PADDING ON 
 GO
 ALTER DATABASE [cohauth] SET ANSI_WARNINGS OFF 
 GO
@@ -61,7 +61,7 @@ ALTER DATABASE [cohauth] SET READ_COMMITTED_SNAPSHOT OFF
 GO
 ALTER DATABASE [cohauth] SET HONOR_BROKER_PRIORITY OFF 
 GO
-ALTER DATABASE [cohauth] SET RECOVERY SIMPLE 
+ALTER DATABASE [cohauth] SET RECOVERY FULL 
 GO
 ALTER DATABASE [cohauth] SET  MULTI_USER 
 GO
@@ -319,7 +319,7 @@ CREATE TABLE [dbo].[block_msg](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
 /****** Object:  Table [dbo].[gm_illegal_login]    Script Date: 4/19/2019 11:57:18 PM ******/
 SET ANSI_NULLS ON
@@ -334,7 +334,7 @@ CREATE TABLE [dbo].[gm_illegal_login](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
 /****** Object:  Table [dbo].[server]    Script Date: 4/19/2019 11:57:18 PM ******/
 SET ANSI_NULLS ON
@@ -358,7 +358,7 @@ CREATE TABLE [dbo].[server](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
 /****** Object:  Table [dbo].[user_account]    Script Date: 4/19/2019 11:57:18 PM ******/
 SET ANSI_NULLS ON
@@ -394,7 +394,7 @@ CREATE TABLE [dbo].[user_account](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
 /****** Object:  Table [dbo].[user_auth]    Script Date: 4/19/2019 11:57:18 PM ******/
 SET ANSI_NULLS ON
@@ -415,7 +415,7 @@ CREATE TABLE [dbo].[user_auth](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
 /****** Object:  Table [dbo].[user_count]    Script Date: 4/19/2019 11:57:18 PM ******/
 SET ANSI_NULLS ON
@@ -454,7 +454,7 @@ CREATE TABLE [dbo].[user_data](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
 /****** Object:  Table [dbo].[user_info]    Script Date: 4/19/2019 11:57:18 PM ******/
 SET ANSI_NULLS ON
@@ -473,7 +473,7 @@ CREATE TABLE [dbo].[user_info](
 ) ON [PRIMARY]
 
 GO
-SET ANSI_PADDING OFF
+SET ANSI_PADDING ON
 GO
 /****** Object:  Table [dbo].[user_server_group]    Script Date: 4/19/2019 11:57:18 PM ******/
 SET ANSI_NULLS ON

@@ -6,6 +6,9 @@
 #include "account.h"
 
 #define MAX_IP_LEN 15
+// In theory, the game client can accept up to 255 characters
+// of shard name, but there's no reason to give it that much
+// as it cannot render that much anyway.
 #define MAX_SERVER_NAME 25
 
 #define FREE_DURATION      0

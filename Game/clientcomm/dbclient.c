@@ -1082,13 +1082,13 @@ int dbConnect(char *server,int port,int user_id,int cookie,char *auth_name,int n
 			#ifdef TEST_CLIENT
 				// Have TestClient checksum CityOfHeroes.exe
 				if (strEndsWith(exenamecopy, "TestClient.exe")) {
-					strcpy(strstri(exenamecopy, "TestClient.exe"), "CityOfHeroes.exe");
+					strcpy(strstri(exenamecopy, "TestClient.exe"), "Ouroboros.exe");
 				}
 			#endif
 			#ifdef TEXT_CLIENT
 				// Have TextClient checksum CityOfHeroes.exe
 				if (strEndsWith(exenamecopy, "TextClient.exe")) {
-					strcpy(strstri(exenamecopy, "TextClient.exe"), "CityOfHeroes.exe");
+					strcpy(strstri(exenamecopy, "TextClient.exe"), "Ouroboros.exe");
 				}
 			#endif
 			// Hack for running development build executables
