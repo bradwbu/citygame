@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="FromGame">
+      <UniqueIdentifier>{f9d53e8e-80a3-4b7e-8e7c-c7b085268636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FromGame\bases">
+      <UniqueIdentifier>{a9651edf-9bc0-49bf-a785-7025308118fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FromGame\bases\common">
+      <UniqueIdentifier>{d881f22b-ffcf-48c7-a0e1-ce0f1a59bb42}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Common\bases\test\DetailRecipe_test.cpp">
+      <Filter>FromGame\bases\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\unitTestCommon\unitTestMain.cpp" />
+  </ItemGroup>
+</Project>
