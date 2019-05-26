@@ -2097,6 +2097,7 @@ int __cdecl main(int argc,char **argv)
 
 	if(!server_state.create_bins)
 	{
+		cmdCfgLoad();
 		connectToDbserver(NO_TIMEOUT);
 
 		if (map_batch_cmds)

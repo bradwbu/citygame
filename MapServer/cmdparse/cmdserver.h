@@ -194,6 +194,7 @@ void cmdOldServerHandleRelay(char *msg);
 void serverSynchTime(void);
 void cmdOldServerReadInternal(char *buf);
 
+void cmdCfgLoad(void);
 
 int serverFindSkyByName(const char *name);
 void serverSetSkyFade(int sky1, int sky2, F32 weight); // 0.0 = all sky1
