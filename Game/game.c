@@ -126,7 +126,6 @@
 #include "UtilsNew/profiler.h"
 #include "ssemath.h"
 #include "uiAuction.h"
-#include "uiPlaySpanStoreLauncher.h"
 #include "uiSalvageOpen.h"
 #include "zowieClient.h"
 #include "hwlight.h"
@@ -1999,10 +1998,6 @@ void game_loadData(int isCostumeCreator)
 		UPDATE_PROGRESS_STRING("Loading items.. ");
 		load_Stores();
 		loadend_printf("");
-		
-		// PlaySpan URL defs
-		PlaySpanStoreLauncher_InitModule();
-
 	}
 
 	PERFINFO_AUTO_STOP_START("middle9", 1);

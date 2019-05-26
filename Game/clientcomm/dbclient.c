@@ -37,7 +37,6 @@
 #include "Player.h"
 #include "inventory_client.h"
 #include "authclient.h"
-#include "uiPlaySpanStoreLauncher.h"
 #include "clientcomm.h"
 #include "font.h"
 
@@ -473,7 +472,7 @@ void handleAccountPlayNCAuthKeyUpdate(Packet *pak)
 	int request_key = pktGetBitsAuto(pak);
 	char * auth_key = pktGetString(pak);
 	#if ! defined(TEST_CLIENT)		
-		PlaySpanStoreLauncher_ReceiveAuthKeyResponse(request_key, auth_key);
+		//PlaySpanStoreLauncher_ReceiveAuthKeyResponse(request_key, auth_key);
 	#endif
 }
 
@@ -482,7 +481,7 @@ void handleClientAuth(Packet *pak)
 	U32 timeStamp = pktGetBitsAuto(pak);
 	char* digest = pktGetString(pak);
 	#if ! defined(TEST_CLIENT)	
-		PlaySpanStoreLauncher_SetDigest( timeStamp, digest );
+		//PlaySpanStoreLauncher_SetDigest( timeStamp, digest );
 	#endif
 }
 
