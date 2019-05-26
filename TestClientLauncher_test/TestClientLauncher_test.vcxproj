@@ -22,6 +22,7 @@
     <ProjectGuid>{C1C4ABCB-C616-48C0-A944-EBD35195F392}</ProjectGuid>
     <RootNamespace>TestClientLauncher_test</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'" Label="Configuration">
@@ -36,7 +37,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='TextClientDebug|Win32'" Label="Configuration">
@@ -85,7 +86,12 @@
     <ClCompile>
       <AdditionalIncludeDirectories>include/;../Game;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib/network;../libs/UtilitiesLib/utils;../libs/UtilitiesLib/components;../libs/UtilitiesLib/assert;../libs/UtilitiesLib/;../common/Utilitieslib/assert;../Common/cmdparse.h;../Game/cmdparse;../Common/entity;../Common/gameComm;../Game/gameComm/common;../Game/gameComm;../Common/player;../Game/UI/sprite;../Game/menu;../Game/entity;../Game/player;../Game/UI;../common/language;../common/utils;../common/components;../common/network;../common;..\TestClientLauncher;../lf;../3rdparty/zlibsrc;../Game/render;../glh;../3rdparty/cryptopp;../3rdparty/VTune;../3rdparty/freetype-2.1.2/include;..\common\assert;../Game/edit;../common/gridcoll;../common/group;../Game/graphics;../Game/graphics/fx;../Game/win;../common/seq;../common/cmdparse;../game/clientcomm;../mapserver/dbcomm;../dbserver;../Game/sound;../mapserver/beacon;../mapserver/combat;../mapserver/entity;../MapServer;../Common/Junk;../Game/group;../3rdparty/jpgdlib\inc;../3rdparty/oggvorbis/include;../common/version;../Common/bases;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NON_CONFORMING_SWPRINTFS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>../3rdparty/cryptopp/$(Platform)/$(Configuration);../3rdparty/zlibsrc/$(Platform)/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Iphlpapi.lib;cryptlib.lib;zlibstat.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
     <ClCompile>

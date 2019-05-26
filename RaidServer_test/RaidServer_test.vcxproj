@@ -30,11 +30,12 @@
     <ProjectGuid>{F8113EDA-0968-4C73-8E55-E2F04611F9D3}</ProjectGuid>
     <RootNamespace>RaidServer_test</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'" Label="Configuration">
@@ -148,7 +149,12 @@
     <ClCompile>
       <AdditionalIncludeDirectories>..\RaidServer;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/version;../libs/UtilitiesLib/language;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../mapserver/storyarc;../common/storyarc;../mapserver/container;../mapserver;../mapserver/svr;../mapserver/entity;../mapserver/cmdparse;../mapserver/dbcomm;../common/cmdparse;../common/gameData;../mapserver/gamesys;../game/render/thread;../common/language;../common/version;../common\player;../common/bases;../mapserver/group;../mapserver/gameComm;..\mapserver\language;..\StatServer;..\MapServer;..\NovodeXWrapper;..\Game\win;..\Common\junk;../mapserver/beacon;../mapserver/ai;../mapserver/player;../Common/seq;../mapserver/combat;../mapserver/generator;../libs/UtilitiesLib/;../libs/UtilitiesLib/utils;../Common/cmdparse;../Common/entity;../Common/gameComm;../Game/menu;../Game/player;../common/player;.;../game;../lf;../glh;../3rdparty/VTune;../game/graphics;../game/clientcomm;../common/filter;../mapserver/filter;../mapserver/script;../Common/skills;../mapserver/script/zoneevents;../mapserver/bases;entity;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RAIDSERVER;AUX_SERVER_DEFINE;CONTAINER_SERVER;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>../3rdparty/cryptopp/$(Platform)/$(Configuration);../3rdparty/zlibsrc/$(Platform)/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Iphlpapi.lib;cryptlib.lib;zlibstat.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\unitTestCommon\unitTestMain.cpp" />

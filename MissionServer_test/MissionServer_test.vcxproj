@@ -30,11 +30,12 @@
     <ProjectGuid>{F6A226AF-54D6-44A1-AD07-198DD47FD63C}</ProjectGuid>
     <RootNamespace>MissionServer_test</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'" Label="Configuration">
@@ -142,7 +143,12 @@
     <ClCompile>
       <AdditionalIncludeDirectories>..\ServerLib;..\Common\persist;..\common\entity;..\common\version;..\common\utils;..\common;..\MissionServer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>MISSIONSERVER;PROJECT_MISSIONSERVER;SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>../3rdparty/cryptopp/$(Platform)/$(Configuration);../3rdparty/zlibsrc/$(Platform)/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Iphlpapi.lib;cryptlib.lib;zlibstat.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\unitTestCommon\unitTestMain.cpp" />

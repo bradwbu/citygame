@@ -30,6 +30,7 @@
     <ProjectGuid>{23BDF6BA-DCC0-4AE4-BB8E-067CA0E3A7AC}</ProjectGuid>
     <RootNamespace>dbquery_test</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'" Label="Configuration">
@@ -39,7 +40,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'" Label="Configuration">
@@ -144,7 +145,12 @@
     <ClCompile>
       <AdditionalIncludeDirectories>..\mapserver\language;..\Game\win;..\Common\junk;../libs/UtilitiesLib\assert;../common/entity;..\mapserver\beacon;..\mapserver\ai;..\mapserver\svr;..\mapserver\player;..\mapserver\entity;../Common/seq;..\mapserver\combat;..\mapserver\container;..\mapserver\generator;../libs/UtilitiesLib/;../libs/UtilitiesLib/components;../libs/UtilitiesLib/network;../libs/UtilitiesLib/utils;..\mapserver\group;..\mapserver\cmdparse;../Common/cmdparse;../Common/entity;../Common/gameComm;..\mapserver\gameComm;../Game/menu;../Game/player;../common/player;../common;../common/language;../common/utils;..\mapserver;../game;../lf;../3rdparty/zlibsrc;../game/render;../glh;../3rdparty/cryptopp;../3rdparty/VTune;../dbserver;../common/gridcoll;../common/group;../common/cmdparse;../common/seq;../game/graphics;../game/clientcomm;..\mapserver\dbcomm;..\mapserver\storyarc;../common/version;../common/storyarc;../common/filter;..\mapserver\filter;..\mapserver\script;../mapserver/gamesys;../game/render/thread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DBQUERY;SERVER;AUX_SERVER_DEFINE;USEZLIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>../3rdparty/cryptopp/$(Platform)/$(Configuration);../3rdparty/zlibsrc/$(Platform)/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Iphlpapi.lib;cryptlib.lib;zlibstat.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|x64'">
     <Midl>
