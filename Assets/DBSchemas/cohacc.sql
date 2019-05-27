@@ -514,7 +514,7 @@ BEGIN
 				THEN
 					NULL
 				ELSE
-					DATEADD(second, @expiration_seconds * source.granted, GETDATE())
+					DATEADD(second, @expiration_seconds * source.quantity, GETDATE())
 				END
 				)
 			WHEN MATCHED THEN
@@ -526,7 +526,7 @@ BEGIN
 					THEN
 						NULL
 					ELSE
-						DATEADD(second, @expiration_seconds * source.granted, GETDATE())
+						DATEADD(second, @expiration_seconds * source.quantity, GETDATE())
 					END;
       END
       
