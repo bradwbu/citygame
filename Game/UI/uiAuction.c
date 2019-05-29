@@ -1351,7 +1351,6 @@ static void drawItemInfo( AuctionItem * pItem, F32 x, F32 y, F32 z, F32 wd, F32 
 						if (pHelp)
 						{
 							estrConcatCharString(&pchInfo, pHelp);
-							estrDestroy(&pHelp);
 						}
 						uiEnhancementFree(&pEnh);
 					}
@@ -1505,7 +1504,7 @@ static F32 drawAuctionItem( AuctionItem * pItem, int i, F32 x, F32 y, F32 z, F32
 		if(gAuctionDisabled)
 			offerFlag |= (MMBUTTON_LOCKED|MMBUTTON_GRAYEDOUT);
 
-		if( currentFilter.update );
+		if( currentFilter.update )
 			auction_updateHistory(pItem->pchIdentifier);
 
 		s_taTitle.piColor = (int*)colorFromItem(pItem,CLR_AH_TEXT_SELECTED);
