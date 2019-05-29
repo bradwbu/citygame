@@ -111,37 +111,37 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\ArenaServer;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../mapserver/storyarc;../common/storyarc;../mapserver/container;../mapserver;../mapserver/svr;../mapserver/entity;../mapserver/cmdparse;../mapserver/dbcomm;../common/cmdparse;../common/gameData;../mapserver/gamesys;../game/render/thread;../common/language;../common/version;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ArenaServer;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../common/storyarc;../common/cmdparse;../common/gameData;../game/render/thread;../common/language;../common/version;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRTDBG_MAP_ALLOC;AUX_SERVER_DEFINE;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\ArenaServer;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../mapserver/storyarc;../common/storyarc;../mapserver/container;../mapserver;../mapserver/svr;../mapserver/entity;../mapserver/cmdparse;../mapserver/dbcomm;../common/cmdparse;../common/gameData;../mapserver/gamesys;../game/render/thread;../common/language;../common/version;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ArenaServer;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../common/storyarc;../common/cmdparse;../common/gameData;../game/render/thread;../common/language;../common/version;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRTDBG_MAP_ALLOC;AUX_SERVER_DEFINE;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\ArenaServer;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../mapserver/storyarc;../common/storyarc;../mapserver/container;../mapserver;../mapserver/svr;../mapserver/entity;../mapserver/cmdparse;../mapserver/dbcomm;../common/cmdparse;../common/gameData;../mapserver/gamesys;../game/render/thread;../common/language;../common/version;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ArenaServer;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../common/storyarc;../common/cmdparse;../common/gameData;../game/render/thread;../common/language;../common/version;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRTDBG_MAP_ALLOC;AUX_SERVER_DEFINE;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\ArenaServer;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../mapserver/storyarc;../common/storyarc;../mapserver/container;../mapserver;../mapserver/svr;../mapserver/entity;../mapserver/cmdparse;../mapserver/dbcomm;../common/cmdparse;../common/gameData;../mapserver/gamesys;../game/render/thread;../common/language;../common/version;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ArenaServer;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../common/storyarc;../common/cmdparse;../common/gameData;../game/render/thread;../common/language;../common/version;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRTDBG_MAP_ALLOC;AUX_SERVER_DEFINE;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\ArenaServer;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../mapserver/storyarc;../common/storyarc;../mapserver/container;../mapserver;../mapserver/svr;../mapserver/entity;../mapserver/cmdparse;../mapserver/dbcomm;../common/cmdparse;../common/gameData;../mapserver/gamesys;../game/render/thread;../common/language;../common/version;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ArenaServer;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../common/storyarc;../common/cmdparse;../common/gameData;../game/render/thread;../common/language;../common/version;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRTDBG_MAP_ALLOC;AUX_SERVER_DEFINE;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\ArenaServer;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../mapserver/storyarc;../common/storyarc;../mapserver/container;../mapserver;../mapserver/svr;../mapserver/entity;../mapserver/cmdparse;../mapserver/dbcomm;../common/cmdparse;../common/gameData;../mapserver/gamesys;../game/render/thread;../common/language;../common/version;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ArenaServer;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../common/entity;../common/seq;../common/gridcoll;../game/render;../common/gameComm;../common/group;../common/storyarc;../common/cmdparse;../common/gameData;../game/render/thread;../common/language;../common/version;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SECURE_STRINGS;WIN32;_CONSOLE;_CRTDBG_MAP_ALLOC=1;_CRTDBG_MAP_ALLOC;AUX_SERVER_DEFINE;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>

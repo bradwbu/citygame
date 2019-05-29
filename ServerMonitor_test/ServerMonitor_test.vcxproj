@@ -119,25 +119,25 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\MapServer\dbcomm\;..\dbserver;..\Common\entity\;..\Mapserver\container;..\CmdRelay;..\Common;..\ServerMonitor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\Common\entity\;..\CmdRelay;..\Common;..\ServerMonitor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDOWS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\MapServer\dbcomm\;..\dbserver;..\Common\entity\;..\Mapserver\container;..\CmdRelay;..\Common;..\ServerMonitor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\Common\entity\;..\CmdRelay;..\Common;..\ServerMonitor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDOWS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\MapServer\dbcomm\;..\dbserver;..\Common\entity\;..\Mapserver\container;..\CmdRelay;..\Common;..\ServerMonitor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\Common\entity\;..\CmdRelay;..\Common;..\ServerMonitor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDOWS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\MapServer\dbcomm\;..\dbserver;..\Common\entity\;..\Mapserver\container;..\CmdRelay;..\Common;..\ServerMonitor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\Common\entity\;..\CmdRelay;..\Common;..\ServerMonitor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDOWS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -151,7 +151,7 @@
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
     <ClCompile>
-      <AdditionalIncludeDirectories>..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\MapServer\dbcomm\;..\dbserver;..\Common\entity\;..\Mapserver\container;..\CmdRelay;..\Common;..\ServerMonitor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\Common\entity\;..\CmdRelay;..\Common;..\ServerMonitor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDOWS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -160,7 +160,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\MapServer\dbcomm\;..\dbserver;..\Common\entity\;..\Mapserver\container;..\CmdRelay;..\Common;..\ServerMonitor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\Common\entity\;..\CmdRelay;..\Common;..\ServerMonitor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WINDOWS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>

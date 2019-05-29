@@ -142,7 +142,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../mapserver/dbcomm;../MapServer;../common;../common/auction;..\dbserver;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../common;../common/auction;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;../libs/UtilitiesLib/UtilsCXX;../libs/UtilitiesLib/UtilsNew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DBSERVER;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -153,43 +153,43 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../mapserver/dbcomm;../MapServer;../common;../common/auction;..\dbserver;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../common;../common/auction;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;../libs/UtilitiesLib/UtilsCXX;../libs/UtilitiesLib/UtilsNew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DBSERVER;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../mapserver/dbcomm;../MapServer;../common;../common/auction;..\dbserver;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../common;../common/auction;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;../libs/UtilitiesLib/UtilsCXX;../libs/UtilitiesLib/UtilsNew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DBSERVER;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../mapserver/dbcomm;../MapServer;../common;../common/auction;..\dbserver;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../common;../common/auction;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;../libs/UtilitiesLib/UtilsCXX;../libs/UtilitiesLib/UtilsNew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DBSERVER;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../mapserver/dbcomm;../MapServer;../common;../common/auction;..\dbserver;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../common;../common/auction;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;../libs/UtilitiesLib/UtilsCXX;../libs/UtilitiesLib/UtilsNew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DBSERVER;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../mapserver/dbcomm;../MapServer;../common;../common/auction;..\dbserver;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../common;../common/auction;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;../libs/UtilitiesLib/UtilsCXX;../libs/UtilitiesLib/UtilsNew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DBSERVER;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../mapserver/dbcomm;../MapServer;../common;../common/auction;..\dbserver;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../common;../common/auction;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;../libs/UtilitiesLib/UtilsCXX;../libs/UtilitiesLib/UtilsNew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DBSERVER;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../mapserver/dbcomm;../MapServer;../common;../common/auction;..\dbserver;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\common\container;..\common\auth;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../common;../common/auction;../game;../lf;../3rdparty/zlibsrc;../game/render;../3rdparty/cryptopp;..\common\assert;..\common\network;..\common\entity;..\common\turnstileserver;../libs/UtilitiesLib/UtilsCXX;../libs/UtilitiesLib/UtilsNew;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DBSERVER;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>

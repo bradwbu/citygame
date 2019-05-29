@@ -111,37 +111,37 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\Common\persist;..\ChatAdmin;..\launcher;..\ServerMonitor;..\common\filter;..\common\language;..\common\version;../libs/UtilitiesLib;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../libs/UtilitiesLib\version;../libs/UtilitiesLib\language;../common;..\common;..\mapserver\filter;..\chatserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common\persist;..\ChatAdmin;..\launcher;..\ServerMonitor;..\common\filter;..\common\language;..\common\version;../libs/UtilitiesLib;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../libs/UtilitiesLib\version;../libs/UtilitiesLib\language;../common;..\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CHATSERVER;SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\Common\persist;..\ChatAdmin;..\launcher;..\ServerMonitor;..\common\filter;..\common\language;..\common\version;../libs/UtilitiesLib;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../libs/UtilitiesLib\version;../libs/UtilitiesLib\language;../common;..\common;..\mapserver\filter;..\chatserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common\persist;..\ChatAdmin;..\launcher;..\ServerMonitor;..\common\filter;..\common\language;..\common\version;../libs/UtilitiesLib;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../libs/UtilitiesLib\version;../libs/UtilitiesLib\language;../common;..\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CHATSERVER;SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\Common\persist;..\ChatAdmin;..\launcher;..\ServerMonitor;..\common\filter;..\common\language;..\common\version;../libs/UtilitiesLib;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../libs/UtilitiesLib\version;../libs/UtilitiesLib\language;../common;..\common;..\mapserver\filter;..\chatserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common\persist;..\ChatAdmin;..\launcher;..\ServerMonitor;..\common\filter;..\common\language;..\common\version;../libs/UtilitiesLib;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../libs/UtilitiesLib\version;../libs/UtilitiesLib\language;../common;..\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CHATSERVER;SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\Common\persist;..\ChatAdmin;..\launcher;..\ServerMonitor;..\common\filter;..\common\language;..\common\version;../libs/UtilitiesLib;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../libs/UtilitiesLib\version;../libs/UtilitiesLib\language;../common;..\common;..\mapserver\filter;..\chatserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common\persist;..\ChatAdmin;..\launcher;..\ServerMonitor;..\common\filter;..\common\language;..\common\version;../libs/UtilitiesLib;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../libs/UtilitiesLib\version;../libs/UtilitiesLib\language;../common;..\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CHATSERVER;SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\Common\persist;..\ChatAdmin;..\launcher;..\ServerMonitor;..\common\filter;..\common\language;..\common\version;../libs/UtilitiesLib;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../libs/UtilitiesLib\version;../libs/UtilitiesLib\language;../common;..\common;..\mapserver\filter;..\chatserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common\persist;..\ChatAdmin;..\launcher;..\ServerMonitor;..\common\filter;..\common\language;..\common\version;../libs/UtilitiesLib;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../libs/UtilitiesLib\version;../libs/UtilitiesLib\language;../common;..\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CHATSERVER;SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\Common\persist;..\ChatAdmin;..\launcher;..\ServerMonitor;..\common\filter;..\common\language;..\common\version;../libs/UtilitiesLib;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../libs/UtilitiesLib\version;../libs/UtilitiesLib\language;../common;..\common;..\mapserver\filter;..\chatserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common\persist;..\ChatAdmin;..\launcher;..\ServerMonitor;..\common\filter;..\common\language;..\common\version;../libs/UtilitiesLib;../libs/UtilitiesLib\assert;..\common\utils;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;../libs/UtilitiesLib\version;../libs/UtilitiesLib\language;../common;..\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CHATSERVER;SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>

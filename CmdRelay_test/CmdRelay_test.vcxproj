@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../3rdparty/zlibsrc;../mapserver/dbcomm;../common/utils;../common/components;../common/network;../common;../common/auction;../mapserver;../dbserver;../3rdparty/cryptopp;..\common\network;..\common\version;../common/entity;..\CmdRelay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common;../common/auction;../3rdparty/cryptopp;..\common\network;..\common\version;../common/entity;..\CmdRelay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MT;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>

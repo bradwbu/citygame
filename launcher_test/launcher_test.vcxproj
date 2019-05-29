@@ -111,37 +111,37 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/language;../libs/UtilitiesLib/version;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/entity;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/language;../libs/UtilitiesLib/version;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/entity;../common/auction;../common;../3rdparty/cryptopp;..\common\network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Full Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/language;../libs/UtilitiesLib/version;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/entity;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/language;../libs/UtilitiesLib/version;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/entity;../common/auction;../common;../3rdparty/cryptopp;..\common\network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/language;../libs/UtilitiesLib/version;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/entity;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/language;../libs/UtilitiesLib/version;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/entity;../common/auction;../common;../3rdparty/cryptopp;..\common\network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Opt Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/language;../libs/UtilitiesLib/version;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/entity;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/language;../libs/UtilitiesLib/version;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/entity;../common/auction;../common;../3rdparty/cryptopp;..\common\network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/language;../libs/UtilitiesLib/version;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/entity;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/language;../libs/UtilitiesLib/version;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/entity;../common/auction;../common;../3rdparty/cryptopp;..\common\network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/language;../libs/UtilitiesLib/version;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/entity;../common/auction;../common;../3rdparty/cryptopp;..\common\network;../dbserver;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../libs\UtilitiesLib\utils;../libs/UtilitiesLib\assert;../libs/UtilitiesLib/components;../libs/UtilitiesLib;../libs/UtilitiesLib/network;../libs/UtilitiesLib/language;../libs/UtilitiesLib/version;../3rdparty/zlibsrc;../common/utils;../common/components;../common/network;../common/entity;../common/auction;../common;../3rdparty/cryptopp;..\common\network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SECURE_STRINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
