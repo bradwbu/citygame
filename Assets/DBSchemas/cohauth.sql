@@ -346,8 +346,8 @@ GO
 CREATE TABLE [dbo].[server](
 	[id] [int] NOT NULL,
 	[name] [varchar](max) NULL,
-	[ip] [varchar](16) NULL,
-	[inner_ip] [varchar](16) NULL,
+	[ip] [varchar](256) NULL,
+	[inner_ip] [varchar](256) NULL,
 	[ageLimit] [int] NULL,
 	[pk_flag] [int] NULL,
 	[server_group_id] [int] NULL,

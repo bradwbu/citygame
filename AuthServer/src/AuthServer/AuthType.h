@@ -31,8 +31,8 @@ class CSocketServer;
 struct WorldServer
 {
 	ServerId serverid;
-	char ip[MAX_IP_LEN+1];
-	char inner_ip[MAX_IP_LEN+1];
+	char ip[255+1];
+	char inner_ip[255+1];
 	char name[MAX_SERVER_NAME+1];
 	in_addr outer_addr;
 	short int outer_port;
