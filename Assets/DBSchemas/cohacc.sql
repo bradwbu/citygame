@@ -427,6 +427,8 @@ BEGIN
 	BEGIN
 		DECLARE @expiration_seconds int = NULL;		
 		SELECT @expiration_seconds=expiration_seconds FROM dbo.product WHERE sku_id=@sku_id;
+		IF @expiration_seconds IS NOT NULL AND @granted > 400 
+			SELECT @granted = 400;
 
 		INSERT INTO dbo.game_log (order_id, auth_id, sku_id, transaction_date, csr_did_it, shard_id, ent_id, granted, claimed, parent_order_id)
 			VALUES (@order_id, @auth_id, @sku_id, @transaction_date, @csr_did_it, @shard_id, @ent_id, @granted, @claimed, @parent_order_id);
