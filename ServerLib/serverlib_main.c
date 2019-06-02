@@ -199,7 +199,7 @@ int main(int argc,char **argv)
     }
 
 	loadstart_printf("Networking startup...");
-	packetStartup(0,0);
+	packetStartup(0, !!(g_serverlibconfig.flags & kServerLibNetEncryption));
 	loadend_printf("");
 	
 	loadstart_printf("Loading data...");
