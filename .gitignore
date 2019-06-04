@@ -28,6 +28,7 @@ ipch/
 
 # New build layout
 /3rdparty/**/bin
+/libs/**/bin
 /AuthServer/**/bin
 
 # Visual C++ debug database
@@ -47,7 +48,6 @@ logs/
 /Utilities/pig/PigLibTest/
 /Utilities/bin/
 /bin/*/
-
 
 # Except the folders below
 !/bin/beaconizer/
