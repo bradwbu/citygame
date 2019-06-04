@@ -52,7 +52,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="../Utilities/Allegorithmic/1.x/lib/win32/release/substance_ogl2.lib ../3rdparty/libcubemapgen/CubeMapGenLib.lib ../3rdparty/steam/steam_api.lib ../libs/HeroBrowser/lib/HeroBrowser.lib"
+				AdditionalDependencies="../3rdparty/libcubemapgen/CubeMapGenLib.lib ../3rdparty/steam/steam_api.lib ../libs/HeroBrowser/lib/HeroBrowser.lib"
 				GenerateManifest="false"
 				ManifestFile=""
 				IgnoreDefaultLibraryNames="LIBCPD.lib;LIBCD.lib;MSVCRTD.lib"
@@ -120,7 +120,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="../Utilities/Allegorithmic/1.x/lib/win32/debug/substance_ogl2.lib ../3rdparty/libcubemapgen/CubeMapGenLib.lib ../3rdparty/steam/steam_api.lib ../libs/HeroBrowser/lib/HeroBrowser_d.lib"
+				AdditionalDependencies="../3rdparty/libcubemapgen/CubeMapGenLib.lib ../3rdparty/steam/steam_api.lib ../libs/HeroBrowser/lib/HeroBrowser_d.lib"
 				IgnoreDefaultLibraryNames="LIBCPD.lib;LIBCD.lib;MSVCRTD.lib"
 			/>
 			<Tool
@@ -185,7 +185,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="../Utilities/Allegorithmic/1.x/lib/win32/release/substance_ogl2.lib ../3rdparty/libcubemapgen/CubeMapGenLib.lib ../3rdparty/steam/steam_api.lib ../libs/HeroBrowser/lib/HeroBrowser.lib"
+				AdditionalDependencies="../3rdparty/libcubemapgen/CubeMapGenLib.lib ../3rdparty/steam/steam_api.lib ../libs/HeroBrowser/lib/HeroBrowser.lib"
 				GenerateManifest="false"
 				IgnoreDefaultLibraryNames="LIBCPMTD.lib;MSVCRTD.lib;LIBC.lib"
 			/>
@@ -251,7 +251,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="../Utilities/Allegorithmic/1.x/lib/win32/release/substance_ogl2.lib ../3rdparty/steam/steam_api.lib ../libs/HeroBrowser/lib/HeroBrowser.lib"
+				AdditionalDependencies="../3rdparty/steam/steam_api.lib ../libs/HeroBrowser/lib/HeroBrowser.lib"
 				GenerateManifest="false"
 				IgnoreDefaultLibraryNames="LIBCPMTD.lib;MSVCRTD.lib"
 			/>
@@ -1537,14 +1537,6 @@
 		<Filter
 			Name="graphics"
 			>
-			<File
-				RelativePath=".\graphics\allegorithmic.c"
-				>
-			</File>
-			<File
-				RelativePath=".\graphics\allegorithmic.h"
-				>
-			</File>
 			<File
 				RelativePath="graphics\camera.c"
 				>
