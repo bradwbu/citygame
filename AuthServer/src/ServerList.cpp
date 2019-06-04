@@ -338,7 +338,7 @@ void CServerList::MakeServerListPacket(std::vector<char> & buffer, ServerId last
                 if (config.ProtocolVer >= OUROBOROS_PROTOCOL_VERSION_1)
                 {
                     // Format: one byte of size and then a non-nullterminated string
-                    buffer.push_back(strnlen(i->second.name, MAX_SERVER_NAME));
+                    buffer.push_back(static_cast<char>(strnlen(i->second.name, MAX_SERVER_NAME)));
                     const char * s = i->second.name;
                     for (int j = 0; j < MAX_SERVER_NAME && *s; ++j, ++s)
                         buffer.push_back(*s);
