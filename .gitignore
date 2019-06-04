@@ -26,6 +26,10 @@ ipch/
 # Visual Studio 2019
 .vs/
 
+# New build layout
+/3rdparty/**/bin
+/AuthServer/**/bin
+
 # Visual C++ debug database
 *.pdb
 
