@@ -219,7 +219,7 @@ GenerateBlock_Return:
 
             ;; Clear artifacts
     xor     rax, rax
-	ret
+    ret
 
 MASM_RDRAND_GenerateBlock ENDP
 
@@ -307,7 +307,7 @@ GenerateBlock_Return:
 
             ;; Clear artifacts
     xor     eax, eax
-	ret
+    ret
 
 MASM_RDSEED_GenerateBlock ENDP
 

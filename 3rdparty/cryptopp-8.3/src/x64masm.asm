@@ -1335,8 +1335,8 @@ mov [r10+11*4], edx
 movdqa xmm6, [rsp + 02f0h]
 movdqa xmm7, [rsp + 0300h]
 add rsp, 80*4*2+12*4+8*8 + 2*16+8
-pop		rdi
-pop		rsi
+pop        rdi
+pop        rsi
 ret
 Sosemanuk_OperateKeystream ENDP
 
@@ -1557,7 +1557,7 @@ label5:
 movdqa xmm6, [rsp + 0h]
 movdqa xmm7, [rsp + 10h]
 add rsp, 2*16
-pop	rdi
+pop    rdi
 ret
 Panama_SSE2_Pull ENDP
 

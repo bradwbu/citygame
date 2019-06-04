@@ -18,7 +18,7 @@
    ------------------------------------------------------------------ */
 
 /* This program is a complete hack and should be rewritten properly.
-	 It isn't very complicated. */
+     It isn't very complicated. */
 
 #include <stdio.h>
 #include <errno.h>
@@ -393,7 +393,7 @@ Int32 main ( Int32 argc, Char** argv )
             bEnd[currBlock] = 0;
          }
          if (currBlock > 0 &&
-	     (bEnd[currBlock] - bStart[currBlock]) >= 130) {
+         (bEnd[currBlock] - bStart[currBlock]) >= 130) {
             fprintf ( stderr, "   block %d runs from " MaybeUInt64_FMT 
                               " to " MaybeUInt64_FMT "\n",
                       rbCtr+1,  bStart[currBlock], bEnd[currBlock] );
@@ -474,8 +474,8 @@ Int32 main ( Int32 argc, Char** argv )
             split = outFileName;
          } else {
             ++split;
-	 }
-	 /* Now split points to the start of the basename. */
+     }
+     /* Now split points to the start of the basename. */
          ofs  = (Int32)(split - outFileName);
          sprintf (split, "rec%5d", wrBlock+1);
          for (p = split; *p != 0; p++) if (*p == ' ') *p = '0';

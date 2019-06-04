@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "arda2", "..\..\libs\arda2\b
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cryptLib", "..\..\libs\cryptLib\build\vs2019\cryptLib.vcxproj", "{EB17772F-C351-41FF-86CF-BB55BC260D99}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libiconv", "..\..\3rdparty\libiconv-1.14\build\vs2019\libiconv.vcxproj", "{7B628C95-BD32-4233-927B-13AA4BB8AB3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -85,6 +87,14 @@ Global
 		{EB17772F-C351-41FF-86CF-BB55BC260D99}.Release|x64.Build.0 = Release|x64
 		{EB17772F-C351-41FF-86CF-BB55BC260D99}.Release|x86.ActiveCfg = Release|Win32
 		{EB17772F-C351-41FF-86CF-BB55BC260D99}.Release|x86.Build.0 = Release|Win32
+		{7B628C95-BD32-4233-927B-13AA4BB8AB3D}.Debug|x64.ActiveCfg = Debug|x64
+		{7B628C95-BD32-4233-927B-13AA4BB8AB3D}.Debug|x64.Build.0 = Debug|x64
+		{7B628C95-BD32-4233-927B-13AA4BB8AB3D}.Debug|x86.ActiveCfg = Debug|Win32
+		{7B628C95-BD32-4233-927B-13AA4BB8AB3D}.Debug|x86.Build.0 = Debug|Win32
+		{7B628C95-BD32-4233-927B-13AA4BB8AB3D}.Release|x64.ActiveCfg = Release|x64
+		{7B628C95-BD32-4233-927B-13AA4BB8AB3D}.Release|x64.Build.0 = Release|x64
+		{7B628C95-BD32-4233-927B-13AA4BB8AB3D}.Release|x86.ActiveCfg = Release|Win32
+		{7B628C95-BD32-4233-927B-13AA4BB8AB3D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +106,7 @@ Global
 		{ACA8C226-EF10-49F2-8B3D-D9939EE4A4FE} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{34C02977-76F9-4255-A87E-E0353E9E4A19} = {97E3A09F-08F3-4967-A309-922DCBA3F112}
 		{EB17772F-C351-41FF-86CF-BB55BC260D99} = {97E3A09F-08F3-4967-A309-922DCBA3F112}
+		{7B628C95-BD32-4233-927B-13AA4BB8AB3D} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}
