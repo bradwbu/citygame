@@ -99,6 +99,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\libs\arda2\include;$(ProjectDir)..\..\..\libs\cryptLib\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\cryptopp-8.3\include</AdditionalIncludeDirectories>
       <ExceptionHandling>Async</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -116,6 +117,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\libs\arda2\include;$(ProjectDir)..\..\..\libs\cryptLib\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\cryptopp-8.3\include</AdditionalIncludeDirectories>
       <ExceptionHandling>Async</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -135,6 +137,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\libs\arda2\include;$(ProjectDir)..\..\..\libs\cryptLib\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\cryptopp-8.3\include</AdditionalIncludeDirectories>
       <ExceptionHandling>Async</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -156,6 +159,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\libs\arda2\include;$(ProjectDir)..\..\..\libs\cryptLib\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\cryptopp-8.3\include</AdditionalIncludeDirectories>
       <ExceptionHandling>Async</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
