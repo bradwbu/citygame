@@ -10,6 +10,8 @@
 #ifndef __XML_EXPORTS_H__
 #define __XML_EXPORTS_H__
 
+#define LIBXML_STATIC
+
 /**
  * XMLPUBFUN, XMLPUBVAR, XMLCALL
  *

@@ -23,22 +23,10 @@
 
 #define _LIBICONV_VERSION 0x010E    /* version number: (major<<8) + minor */
 
-///////////////////////// 삭제 / DELETE / УДАЛИТЬ ///////////////////////
-//#if @HAVE_VISIBILITY@ && BUILDING_LIBICONV
-//#define LIBICONV_DLL_EXPORTED __attribute__((__visibility__("default")))
-//#else
-//#define LIBICONV_DLL_EXPORTED
-//#endif
-//extern LIBICONV_DLL_EXPORTED @DLL_VARIABLE@ int _libiconv_version; /* Likewise */
-///////////////////////// 추가 / ADD / ДОВАВЛЯТЬ //////////////////////
-#if BUILDING_LIBICONV
-#define LIBICONV_DLL_EXPORTED __declspec(dllexport)
-#elif defined (USING_STATIC_LIBICONV)
 #define LIBICONV_DLL_EXPORTED
-#else
-#define LIBICONV_DLL_EXPORTED __declspec(dllimport)
-#endif
+
 extern LIBICONV_DLL_EXPORTED int _libiconv_version; /* Likewise */
+
 ////////////////////////////////////////////////////////////////////////////////
 
 /* We would like to #include any system header file which could define
