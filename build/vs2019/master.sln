@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StructParser", "..\..\Utilities\StructParser\build\vs2019\StructParser.vcxproj", "{3D2903C7-C38E-43EF-8974-280D59DA4A6D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UtilitiesLib", "..\..\libs\UtilitiesLib\build\vs2019\UtilitiesLib.vcxproj", "{02B25697-0348-423C-8DF3-E1BDF89BB43D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -117,6 +119,14 @@ Global
 		{3D2903C7-C38E-43EF-8974-280D59DA4A6D}.Release|x64.Build.0 = Release|x64
 		{3D2903C7-C38E-43EF-8974-280D59DA4A6D}.Release|x86.ActiveCfg = Release|Win32
 		{3D2903C7-C38E-43EF-8974-280D59DA4A6D}.Release|x86.Build.0 = Release|Win32
+		{02B25697-0348-423C-8DF3-E1BDF89BB43D}.Debug|x64.ActiveCfg = Debug|x64
+		{02B25697-0348-423C-8DF3-E1BDF89BB43D}.Debug|x64.Build.0 = Debug|x64
+		{02B25697-0348-423C-8DF3-E1BDF89BB43D}.Debug|x86.ActiveCfg = Debug|Win32
+		{02B25697-0348-423C-8DF3-E1BDF89BB43D}.Debug|x86.Build.0 = Debug|Win32
+		{02B25697-0348-423C-8DF3-E1BDF89BB43D}.Release|x64.ActiveCfg = Release|x64
+		{02B25697-0348-423C-8DF3-E1BDF89BB43D}.Release|x64.Build.0 = Release|x64
+		{02B25697-0348-423C-8DF3-E1BDF89BB43D}.Release|x86.ActiveCfg = Release|Win32
+		{02B25697-0348-423C-8DF3-E1BDF89BB43D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,6 +141,7 @@ Global
 		{7B628C95-BD32-4233-927B-13AA4BB8AB3D} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{09B9BB62-4593-4EC4-BA61-C7DDF0EDC5E6} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{3D2903C7-C38E-43EF-8974-280D59DA4A6D} = {12A8C0CB-A6CD-4825-B496-70798183B350}
+		{02B25697-0348-423C-8DF3-E1BDF89BB43D} = {97E3A09F-08F3-4967-A309-922DCBA3F112}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}

@@ -30,6 +30,7 @@ ipch/
 /3rdparty/**/bin
 /libs/**/bin
 /AuthServer/**/bin
+/Utilities/StructParser/bin
 
 # Visual C++ debug database
 *.pdb

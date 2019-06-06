@@ -22,9 +22,9 @@ public:
     CRYPTOPP_STATIC_CONSTEXPR const char* StaticAlgorithmName() {return "Adler32";}
     std::string AlgorithmName() const {return StaticAlgorithmName();}
 
-private:
     void Reset() {m_s1 = 1; m_s2 = 0;}
 
+private:
     word16 m_s1, m_s2;
 };
 

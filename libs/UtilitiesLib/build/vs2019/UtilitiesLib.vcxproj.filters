@@ -1,0 +1,1133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files\components">
+      <UniqueIdentifier>{9d22cf3f-5edc-48b9-a973-c9b010321fc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\language">
+      <UniqueIdentifier>{5b013068-463d-4b84-9346-8186acd783b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\network">
+      <UniqueIdentifier>{1af1145c-b2e8-4bbb-a98f-34bfae09639b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{ff7ef5ba-93ba-44a8-8074-7a77d313048d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UtilsCXX">
+      <UniqueIdentifier>{cbc62a0b-e2cc-436c-b8ab-ffc22248865a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UtilsNew">
+      <UniqueIdentifier>{8569d40e-c0eb-417d-a53c-0988e1e79859}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\version">
+      <UniqueIdentifier>{33141811-706c-4327-ade6-e8f6f8ffc354}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\components\TriCube">
+      <UniqueIdentifier>{1dd41631-4ff3-44ad-91b2-36131424a30f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\assert">
+      <UniqueIdentifier>{c54b7367-f1df-4aba-b816-f55484e413a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{539495dc-f3db-44e7-9163-36d88a872578}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\components">
+      <UniqueIdentifier>{df0f7a6f-d047-4871-9758-1721998c389c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\language">
+      <UniqueIdentifier>{e23836f4-e057-4f6c-848d-bff32487f5d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network">
+      <UniqueIdentifier>{5ecde12a-1271-482f-8a6c-6325b4a7f9f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\version">
+      <UniqueIdentifier>{d71fc40f-7b81-4ca2-9f2a-ac00fc0db3e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UtilsNew">
+      <UniqueIdentifier>{51104d9a-e63d-447b-981d-08d2c1ac9798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UtilsCXX">
+      <UniqueIdentifier>{9aa4d2e6-683e-4339-8dba-d0c4c6a23d08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\components\TriCube">
+      <UniqueIdentifier>{66566476-0c7c-42cd-b5b1-8626f574ab1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UtilsNew\hashfunctions">
+      <UniqueIdentifier>{e9d96f08-9136-42ab-a01a-31d654d03041}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\assert\assert.h">
+      <Filter>Header Files\assert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utilitiesLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdtypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\cpu_count.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\TriCube\fpcube.h">
+      <Filter>Header Files\components\TriCube</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\TriCube\pcube.h">
+      <Filter>Header Files\components\TriCube</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\ArrayOld.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\AssociationList.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\BinarySearchTree.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\BitArray.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\bitfield.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\BitStream.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\BloomFilter.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\datalist.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\datapool.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\earray.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\EString.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\FilespecMap.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\Frustum.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\genericlist.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\GenericMesh.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\GenericPoly.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\gridpoly.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\HashFunctions.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\HashTableStack.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\mailbox.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\MemoryBank.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\MemoryPool.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\MemRef.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\MetaDictionary.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\MRUList.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\MultiVal.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\NamedBitArray.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\Octree.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\PerformanceCounter.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\Queue.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\ReferenceList.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\referencesystem.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\ReferenceSystem_Internal.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\RingBuffer.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\SharedHeap.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\sharedmalloc.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\SharedMemory.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\SharedQueue.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\SimpleSet.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\StashTable.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\StringCache.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\StringTable.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\components\WorkerThread.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\language\MessageStoreUtil.h">
+      <Filter>Header Files\language</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\language\MultiMessageStore.h">
+      <Filter>Header Files\language</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\language\AppLocale.h">
+      <Filter>Header Files\language</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\language\MessageStore.h">
+      <Filter>Header Files\language</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\rsa.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\NetworkSpecifier.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\netio_stats.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\netio_send.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\netio_receive.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\netio_core.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\netio.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\netcomp.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\net_version.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\net_typedefs.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\net_structdefs.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\net_socket.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\net_packetutil.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\net_packet_common.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\net_packet.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\net_masterlistref.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\net_masterlist.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\net_linklist.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\net_link.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\ftpclient.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\fingerprint.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\crypt.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\crc32c.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\blowfish.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\bindiff.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\bignum.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\network\sock.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\cmdoldparse.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\cmdoldparsetypes.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\Color.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\CommandFileParser.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\ConsoleDebug.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\contextQsort.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\ConvertUtf.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\dds.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\DebugState.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\DirMonitor.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\dobbs_hash.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\endian.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\error.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\eval.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\fastmath.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\file.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\fileutil.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\fileWatch.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\FolderCache.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\fpmacros.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\genericDialog.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\hoglib.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\hogutil.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\LineDist.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\ListView.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\log.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\mathn.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\mathn_internal.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\mathutil.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\memcheck.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\memlog.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\MemoryMonitor.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\memtrack.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\mutex.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\osdependent.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\PigDir.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\PigFileWrapper.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\piglib.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\piglib_internal.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\prefetch.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\process_util.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\qsortG.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\Quat.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\rand.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\RegistryReader.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\rgb_hsv.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\scriptvars.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\serialize.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\SimpleParser.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\ssemath.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\Stackdump.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\strings_opt.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\StringUtil.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\structDefines.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\structHist.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\structInternals.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\structNet.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\structoldnames.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\structTokenizer.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\SuperAssert.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\sysutil.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\textparser.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\textparserUtils.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\tga.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\threadedFileCopy.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\tiff.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\timing.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\tokenstore.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\UnitSpec.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\utils.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\winfiletime.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\wininclude.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\WinTabUtil.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\winutil.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\Breakpoint.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\Cbox.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\nullworkerpool.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\ring.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\ringchain.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\semaphoreworkerpool.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\sleeplock.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\taskthread.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\threadedpoolallocator.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\workerpoolbase.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\apcworkerpool.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\condition.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\criticalsection.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\futex.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\keyedcondition.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\list.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\listlist.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\lockingworkerpool.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsCXX\locklessworkerpool.hpp">
+      <Filter>Header Files\UtilsCXX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\Bits.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\lock.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\meta.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\ncHash.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\ncstd.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\ncutils.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\ntapiext.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\profiler.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\Str.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\Stream.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\timer.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\Array.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\barrier.h">
+      <Filter>Header Files\UtilsNew</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\version\AppRegCache.h">
+      <Filter>Header Files\version</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\version\AppVersion.h">
+      <Filter>Header Files\version</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\AppVersionDefines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\utils\cpu_count.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utilitiesLib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\TriCube\pcube.c">
+      <Filter>Source Files\components\TriCube</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\TriCube\fpcube.c">
+      <Filter>Source Files\components\TriCube</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\ReferenceSystem.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\RingBuffer.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\SharedHeap.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\sharedmalloc.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\SharedMemory.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\SharedQueue.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\SimpleSet.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\StashTable.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\StringCache.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\StringTable.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\WorkerThread.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\ArrayOld.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\AssociationList.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\AutoStructSupport.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\BinarySearchTree.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\BitArray.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\bitfield.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\BitStream.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\BloomFilter.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\datalist.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\datapool.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\earray.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\EString.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\FilespecMap.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\Frustum.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\genericlist.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\GenericMesh.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\GenericPoly.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\gridpoly.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\HashFunctions.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\HashTableStack.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\mailbox.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\MemAlloc.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\MemoryBank.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\MemoryPool.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\MemRef.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\metadictionary.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\MRUList.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\MultiVal.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\NamedBitArray.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\Octree.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\PerformanceCounter.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\Queue.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\components\ReferenceList.c">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\language\MessageStore.c">
+      <Filter>Source Files\language</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\language\MessageStoreUtil.c">
+      <Filter>Source Files\language</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\language\MultiMessageStore.c">
+      <Filter>Source Files\language</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\language\AppLocale.c">
+      <Filter>Source Files\language</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\fingerprint.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\ftpclient.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\net_link.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\net_linklist.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\net_masterlist.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\net_masterlistref.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\net_packet.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\net_packetutil.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\net_profile.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\net_socket.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\net_version.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\netcomp.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\netio_core.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\netio_receive.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\netio_send.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\netio_stats.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\NetworkSpecifier.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\rsa.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\sock.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\bignum.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\bindiff.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\blowfish.c">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\crc32c.cpp">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\network\crypt.cpp">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\Color.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\CommandFileParser.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\ConsoleDebug.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\contextQsort.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\ConvertUtf.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\dds.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\DebugState.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\DirMonitor.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\dobbs_hash.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\endian.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\error.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\eval.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\file.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\fileutil.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\fileWatch.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\FolderCache.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\FolderCacheNode.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\genericDialog.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\hoglib.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\hogutil.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\LineDist.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\ListView.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\log.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\mathutil.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\memcheck.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\memlog.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\MemoryMonitor.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\memtrack.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\mutex.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\osdependent.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\PigDir.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\PigFileWrapper.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\piglib.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\process_util.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\qsortG.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\Quat.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\quick_sprintf.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\rand.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\RegistryReader.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\rgb_hsv.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\scriptvars.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\serialize.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\SimpleParser.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\ssemath.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\Stackdump.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\strings_opt.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\StringUtil.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\structDefines.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\structHist.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\structInternals.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\structNet.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\structTokenizer.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\SuperAssert.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\sysutil.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\textparser.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\textparserReg.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\textparserUtils.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\tga.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\threadedFileCopy.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\tiff.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\timing.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\tokenstore.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\UnitSpec.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\utils.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\utils_opt.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\winfiletime.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\WinTabUtil.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\winutil.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\Breakpoint.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\buildVersion.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\cmdoldparse.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\MemoryHeap.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsCXX\ringchain.cpp">
+      <Filter>Source Files\UtilsCXX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsCXX\threadedpoolallocator.cpp">
+      <Filter>Source Files\UtilsCXX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\Bits.c">
+      <Filter>Source Files\UtilsNew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\lock.c">
+      <Filter>Source Files\UtilsNew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\meta.c">
+      <Filter>Source Files\UtilsNew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\ncstd.c">
+      <Filter>Source Files\UtilsNew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\ntapiext.c">
+      <Filter>Source Files\UtilsNew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\profiler.c">
+      <Filter>Source Files\UtilsNew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\Str.c">
+      <Filter>Source Files\UtilsNew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\Stream.c">
+      <Filter>Source Files\UtilsNew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\timer.c">
+      <Filter>Source Files\UtilsNew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\ncHash.cpp">
+      <Filter>Source Files\UtilsNew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\ncutils.cpp">
+      <Filter>Source Files\UtilsNew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\array.c">
+      <Filter>Source Files\UtilsNew</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UtilsNew\hashfunctions\lookup3.c">
+      <Filter>Source Files\UtilsNew\hashfunctions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\version\AppRegCache.c">
+      <Filter>Source Files\version</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\version\AppVersion.c">
+      <Filter>Source Files\version</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
