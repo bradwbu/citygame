@@ -22,9 +22,9 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{ACA8C226-EF10-49F2-8B3D-D9939EE4A4FE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>cryptlib</RootNamespace>
+    <RootNamespace>cryptopp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>cryptlib</ProjectName>
+    <ProjectName>cryptopp</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
