@@ -1,3 +1,4 @@
+#include "memcheck.h"
 #include "RingBuffer.h"
 #include "MemoryPool.h"
 #include "assert.h"

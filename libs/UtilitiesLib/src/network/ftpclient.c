@@ -156,7 +156,7 @@ BOOL FtpClient_SendDataCmd(FtpClient *c, const char *cmd, ...)
     // scan the reply: 
     // 227 Entering Passive Mode (206,127,155,235,193,198) (port hi/low)
     addr.sin_family = AF_INET;
-    r = sscanf(strstr(c->reply,"("),"(%u,%u,%u,%u,%u,%u",&addr.sin_addr.S_un.S_un_b.s_b1,&addr.sin_addr.S_un.S_un_b.s_b2,&addr.sin_addr.S_un.S_un_b.s_b3,&addr.sin_addr.S_un.S_un_b.s_b4,&porthi,&portlow);
+    r = sscanf(strstr(c->reply,"("),"(%hhu,%hhu,%hhu,%hhu,%u,%u",&addr.sin_addr.S_un.S_un_b.s_b1,&addr.sin_addr.S_un.S_un_b.s_b2,&addr.sin_addr.S_un.S_un_b.s_b3,&addr.sin_addr.S_un.S_un_b.s_b4,&porthi,&portlow);
     port = porthi<<8 | portlow;
     addr.sin_port = htons(port);
     

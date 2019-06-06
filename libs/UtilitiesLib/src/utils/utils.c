@@ -1361,18 +1361,18 @@ void* loadCrashRptDll()
 {
     HMODULE hDll = 0;
 #ifdef _M_X64
-    LPSTR dllName = "CrashRpt64.dll";
+    LPCSTR dllName = "CrashRpt64.dll";
 #else
-    LPTSTR dllName = "CrashRpt.dll";
+    LPCSTR dllName = "CrashRpt.dll";
 #endif
 
     hDll = LoadLibraryA(dllName);
     if (!hDll)
     {
 #ifdef _M_X64
-        LPSTR dllName = "../Src/CrashRpt/CrashRpt64.dll";
+        LPCSTR dllName = "../Src/CrashRpt/CrashRpt64.dll";
 #else
-        LPTSTR dllName = "../Src/CrashRpt/CrashRpt.dll";
+        LPCSTR dllName = "../Src/CrashRpt/CrashRpt.dll";
 #endif
         hDll = LoadLibraryA(dllName);
     }

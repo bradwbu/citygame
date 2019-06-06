@@ -415,7 +415,7 @@ void BeginProfile(size_t memory)
 
     profile.first = (ProfileEntry*)VirtualAlloc(NULL, memory, MEM_COMMIT, PAGE_READWRITE);
     if(!profile.first) {
-        printf("BeginProfile could not allocate %u bytes of memory\n", memory);
+        printf("BeginProfile could not allocate %zu bytes of memory\n", memory);
         return;
     }
 
@@ -528,8 +528,9 @@ void EndProfile(const char * filename)
 
             for(entry = profile.first; entry < profile.next; entry++)
             {
-                fprintf(f, "%d,%d,%d,0x%p,0x%p,%I64u\n",
-                        entry-profile.first,
+                long long first = entry - profile.first;
+                fprintf(f, "%lld,%d,%d,0x%p,0x%p,%I64u\n",
+                        first,
                         entry->parent,
 #ifdef ENABLE_THREADING
                         entry->threadId,

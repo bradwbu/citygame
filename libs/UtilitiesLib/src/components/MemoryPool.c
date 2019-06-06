@@ -15,10 +15,18 @@
 #include "qsortG.h"
 #include "UtilsNew/lock.h"
 
+
 #ifdef _FULLDEBUG
     #define MEMPOOL_DEBUG 1
 #else
     #define MEMPOOL_DEBUG 0
+#endif
+
+#if defined(NDEBUG)
+// Copied from #include <crtdbg.h>
+// TODO: I have no idea why somebody would use _calloc_dbg directly but this is a topic for later
+#define _calloc_dbg(c, s, t, f, l)      calloc(c, s)
+#define _malloc_dbg(s, t, f, l)         malloc(s)
 #endif
 
 #define CHUNK_ALIGNMENT            (16)
