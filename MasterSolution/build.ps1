@@ -44,4 +44,4 @@ Invoke-BuildAll "..\AuthServer\src\AuthServer\AuthServer.sln"
 
 Invoke-Build "ArtTools.sln" -Configuration "Debug" -Platform "Win32"
 
-Invoke-BuildAll "MasterSolution.sln""
+Invoke-BuildAll "MasterSolution.sln"
