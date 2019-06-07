@@ -3,7 +3,7 @@
 #include <cstdio>
 #include "strutils.h"
 
-
+namespace fs = std::filesystem;
 
 int gVerbose = 0;
 
@@ -22,6 +22,16 @@ OPTION_STRUCT gOptions[] =
 };
 
 #define NUM_OPTIONS (sizeof(gOptions) / sizeof(gOptions[0]))
+
+static char* RemoveTerminatingSeparator(char* dir)
+{
+    auto length = strlen(dir);
+    if (length > 0 && (dir[length - 1] == '\\' || dir[length - 1] == '/'))
+    {
+        dir[length - 1] = 0;
+    }
+    return dir;
+}
 
 int ReadOptionsFromFile(Tokenizer *pTokenizer)
 {
@@ -69,9 +79,6 @@ void WriteOptionsFile(char *pFileName)
     fclose(pOutFile);
 }
 
-
-
-
 void ProcessOptionFile(void)
 {
     char exeName[MAX_PATH];
@@ -97,82 +104,89 @@ void ProcessOptionFile(void)
     }
 }
 
-
-
-
-
 int main(int argc, char* argv[])
-{        
-
-    int i;
-
-/*
-    {
-        Tokenizer tokenizer;
-        
-        enumTokenType eType;
-        Token token;
-        
-        tokenizer.LoadFromFile("c:\\alextest.txt");
-        
-        tokenizer.SetCSourceStyleStrings(true);
-        tokenizer.SetNoNewlinesInStrings(true);
-
-        do
-        {
-            eType = tokenizer.GetNextToken(&token);
-        } while (eType != TOKEN_NONE);
-    }
-*/
-
+{
     ProcessOptionFile();
 
     char commandLine[2000];
-
     commandLine[0] = 0;
 
-    for (i=0; i < argc; i++)
+    for (int i=0; i < argc; ++i)
     {
         sprintf(commandLine + strlen(commandLine), " %s", argv[i]);
     }
 
     char *pSubStrings[20];
-    
     int iStringsFound = SubDivideStringAndRemoveWhiteSpace(pSubStrings, commandLine, 'X', 20);
 
     if (iStringsFound != 7)
     {
-        printf("ERROR: Couldn't find required arguments for StructParser. Should be structparser X projectpath X projectfilename X pcurtarget X pcurconfiguration X pcurVCDirectory X SolutionPath");
-    
+        printf("ERROR: Couldn't find required arguments for StructParser. Should be X $(ProjectPath) X $(ProjectDir)..\\..\\src\\ X $(ProjectDir)..\\..\\..\\..\\Common\\ X $(Platform) X $(Configuration) X $(SolutionPath)");
 
-
-        for (i=0; i < iStringsFound; i++)
+        for (int i = 0; i < iStringsFound; i++)
         {
             printf("%d: %s\n", i, pSubStrings[i]);
         }
     
         fflush(stdout);
-
         Sleep(100);
-
-        exit(1);
-
+        return 1;
     }
 
-    for (i=0; i < iStringsFound; i++)
+    for (int i = 0; i < iStringsFound; ++i)
     {
         printf("%s", pSubStrings[i]);
 
         if (i < iStringsFound - 1)
+        {
             printf(" X ");
+        }
     }
     printf("\n");
 
+    // Full path of project file, project file must at least exist in the specified location
+    fs::path projectPath{ fs::absolute(pSubStrings[1]) };
+    if (!fs::exists(projectPath))
+    {
+        printf("ERROR: Argument 1 (project path) is not valid");
+        return 1;
+    }
+    // Root of all source files in the project, must exist
+    fs::path sourceDir{ fs::absolute(RemoveTerminatingSeparator(pSubStrings[2])) };
+    if (!fs::exists(sourceDir))
+    {
+        printf("ERROR: Argument 2 (source dir) is not valid");
+        return 1;
+    }
+    // Root of all common source files in the code base, must exist
+    fs::path commonDir{ fs::absolute(RemoveTerminatingSeparator(pSubStrings[3])) };
+    if (!fs::exists(commonDir))
+    {
+        printf("ERROR: Argument 3 (common dir) is not valid");
+        return 1;
+    }
+    // Platform, we can only hope it is valid, at least we know it mist be longer than zero chars
+    std::string platform{ pSubStrings[4] };
+    if (platform.empty())
+    {
+        printf("ERROR: Argument 4 (platform) is not valid");
+        return 1;
+    }
+    // Configuration, we can only hope it is valid, at least we know it mist be longer than zero chars
+    std::string configuration{ pSubStrings[5] };
+    if (configuration.empty())
+    {
+        printf("ERROR: Argument 5 (configuration) is not valid");
+        return 1;
+    }
+    // Root of all common source files in the code base, must exist
+    fs::path solutionPath{ fs::absolute(pSubStrings[6]) };
+    if (!fs::exists(solutionPath))
+    {
+        printf("ERROR: Argument 6 (solution path) is not valid");
+        return 1;
+    }
 
-
-    SourceParser sourceParser;
-
-    sourceParser.ParseSource(pSubStrings[1], pSubStrings[2], pSubStrings[3], pSubStrings[4], pSubStrings[5], pSubStrings[6], argv[0]);
-
-    return 0;
+    auto sourceParser = std::make_unique<SourceParser>(); // SourceParser is over a MB big so don't allocate it on the stack
+    return sourceParser->ParseSource(projectPath, sourceDir, commonDir, platform, configuration, solutionPath);
 }

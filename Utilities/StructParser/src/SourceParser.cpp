@@ -14,6 +14,10 @@
 #include "libxml/xpath.h"
 #include <libxml/xpathInternals.h>
 
+#include <optional>
+
+namespace fs = std::filesystem;
+
 #define MAX_PROJECTS_ONE_SOLUTION 256
 
 #define MAX_WILDCARD_MAGIC_WORDS 16
@@ -84,7 +88,7 @@ static char const* sProjectNamesToExclude[] =
     NULL
 };
 
-bool ShouldFileBeExcluded(char *pFileName)
+bool ShouldFileBeExcluded(char const* pFileName)
 {
     char tempFileName[MAX_PATH];
     strcpy(tempFileName, pFileName);
@@ -130,8 +134,46 @@ bool ShouldFileBeExcluded(char *pFileName)
     return false;
 }
 
+template<typename T>
+T Argument(T value) noexcept
+{
+    return value;
+}
 
+template <typename T>
+T const* Argument(std::basic_string<T> const& value) noexcept
+{
+    return value.c_str();
+}
 
+template<size_t InitialLength = 200>
+class Formatter
+{
+public:
+    Formatter() = default;
+
+    template<typename... Args>
+    std::string format(char const* const format, Args const& ... args)
+    {
+        std::string result;
+        result.resize(InitialLength);
+        auto length = ::snprintf(result.data(), result.size() + 1, format, Argument(args)...);
+        if (length < 0)
+        {
+            return {};
+        }
+        result.resize(length);
+        if (length > InitialLength)
+        {
+            ::snprintf(result.data(), result.size() + 1, format, Argument(args)...);
+        }
+        return std::move(result);
+    }
+
+private:
+    Formatter(Formatter const& other) = delete;
+    Formatter& operator=(Formatter const& other) = delete;
+};
 
 SourceParser::SourceParser()
 {
@@ -176,7 +218,6 @@ void SourceParser::CreateParsers(void)
     //AutoRunManager should generally be last
     m_pSourceParsers[5] = m_pAutoRunManager = new AutoRunManager;
 }
-
 
 SourceParser::~SourceParser()
 {
@@ -223,7 +264,7 @@ void SourceParser::ProcessSolutionFile()
     char *pProjectIDStrings[MAX_PROJECTS_ONE_SOLUTION];
     char *pProjectFullPaths[MAX_PROJECTS_ONE_SOLUTION];
 
-    bool bResult = tokenizer.LoadFromFile(m_SolutionPath);
+    bool bResult = tokenizer.LoadFromFile(m_solutionPath.string().c_str());
 
     bool bFoundOurProject = false;
 
@@ -255,7 +296,7 @@ void SourceParser::ProcessSolutionFile()
 
             tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_STRING, MAX_PATH, "Expected project name");
 
-            if (StringIsInList(token.sVal, sProjectNamesToExclude) && strcmp(token.sVal, m_ShortenedProjectFileName) != 0)
+            if (StringIsInList(token.sVal, sProjectNamesToExclude) && strcmp(token.sVal, m_projectFileName.c_str()) != 0)
             {
                 //skip this project
             }
@@ -265,7 +306,7 @@ void SourceParser::ProcessSolutionFile()
                 pProjectNames[iNumProjects] = new char[token.iVal + 1];
                 strcpy(pProjectNames[iNumProjects], token.sVal);
 
-                if (strcmp(token.sVal, m_ShortenedProjectFileName) == 0)
+                if (strcmp(token.sVal, m_shortenedProjectFileName.c_str()) == 0)
                 {
                     bFoundOurProject = true;
                     tokenizer.SaveLocation();
@@ -473,7 +514,14 @@ static std::vector<std::string> get_xpath_nodes_attributes(xmlDocPtr doc, xmlXPa
     return attributes;
 }
 
-static std::string get_xpath_nodes_inner_text(xmlDocPtr doc, xmlXPathContextPtr xpathCtx, std::string expression)
+template<typename... Args>
+static std::vector<std::string> get_xpath_nodes_attributes(xmlDocPtr doc, xmlXPathContextPtr xpathCtx, char const* format, Args& ... args)
+{
+    auto expression = Formatter<>{}.format(format, std::forward<Args>(args)...);
+    return get_xpath_nodes_attributes(doc, xpathCtx, expression);
+}
+
+static std::string get_xpath_nodes_inner_text(xmlDocPtr doc, xmlXPathContextPtr xpathCtx, std::string const& expression)
 {
     xmlXPathObjectPtr xpathObj = xmlXPathEvalExpression(BAD_CAST expression.c_str(), xpathCtx);
     xmlNodeSetPtr nodes = xpathObj->nodesetval;
@@ -488,7 +536,15 @@ static std::string get_xpath_nodes_inner_text(xmlDocPtr doc, xmlXPathContextPtr 
     return inner_text;
 }
 
-static void GetAdditionalStuffFromPropertySheets(char *objectFileDir, char *pPropertySheetNames, const char *propertyGroup)
+
+template<typename... Args>
+static std::string get_xpath_nodes_inner_text(xmlDocPtr doc, xmlXPathContextPtr xpathCtx, char const* format, Args&... args)
+{
+    auto expression = Formatter<>{}.format(format, std::forward<Args>(args)...);
+    return get_xpath_nodes_inner_text(doc, xpathCtx, expression);
+}
+
+static void GetAdditionalStuffFromPropertySheets(char* objectFileDir, char *pPropertySheetNames, const char *propertyGroup)
 {
     char *pTemp;
 
@@ -536,27 +592,48 @@ static void GetAdditionalStuffFromPropertySheets(char *objectFileDir, char *pPro
     }
 }
 
-void SourceParser::AddProjectFiles(const std::vector<std::string> &attributes)
+
+bool SourceParser::ResolveMacros(std::string& s)
 {
-    for (std::vector<std::string>::const_iterator iter = attributes.begin() ; iter != attributes.end(); ++iter)
+
+    auto startMacro = s.find("$(");
+    if (startMacro == s.npos)
     {
-        const char* file = (*iter).c_str();
-        
-        //check for the two autogen files that are supposed to be included
-        CheckForRequiredFiles(file);
+        return true;
+    }
+    auto endMacro = s.find(")", startMacro + 2);
+    if (endMacro == s.npos)
+    {
+        return true;
+    }
+    auto length = endMacro - startMacro + 1;
+    auto it = macros_.find(std::string_view(s.data() + startMacro, length));
+    if (it == macros_.end())
+    {
+        return false;
+    }
+    s.replace(startMacro, length, it->second);
+    return ResolveMacros(s);
+}
 
-        int len = (int)strlen(file);    
+void SourceParser::AddProjectFiles(std::vector<std::string> const& attributes)
+{
+    for (auto const& file : attributes)
+    {
+        CheckForRequiredFiles(file.c_str());
 
+        auto len = file.length();
         if ((len >= 3 && file[len - 2] == '.' && (file[len - 1] == 'h' || file[len - 1] == 'c')))
         {
-            char sourceFileName[256];
-            sprintf(sourceFileName, "%s\\%s", m_ProjectPath, file);
+            fs::path path{ m_projectDir };
+            path.append(file);
 
             Tokenizer::StaticAssert(m_iNumProjectFiles < MAX_FILES_IN_PROJECT, "Too many files in project");
 
-            if (!ShouldFileBeExcluded(sourceFileName))
+            auto name = path.string();
+            if (!ShouldFileBeExcluded(name.c_str()))
             {
-                strcpy(m_ProjectFiles[m_iNumProjectFiles++], sourceFileName);
+                strcpy(m_ProjectFiles[m_iNumProjectFiles++], name.c_str());
             }
         }
     }
@@ -569,7 +646,7 @@ void SourceParser::ProcessProjectFile()
     xmlInitParser();
 
     /* Load XML document */
-    xmlDocPtr doc = xmlParseFile(m_FullProjectFileName);
+    xmlDocPtr doc = xmlParseFile(m_projectPath.string().c_str());
     Tokenizer::StaticAssert(doc != NULL, "Couldn't load doc.");
 
     /* Create xpath evaluation context */
@@ -577,83 +654,39 @@ void SourceParser::ProcessProjectFile()
     Tokenizer::StaticAssert(xpathCtx != NULL, "Couldn't load doc context.");
     Tokenizer::StaticAssert(register_namespaces(xpathCtx, BAD_CAST "ms=http://schemas.microsoft.com/developer/msbuild/2003"), "Couldn't register namespace.");
 
-    std::string condition = "'$(Configuration)|$(Platform)'=='";
-    condition += m_pCurConfiguration;
-    condition += "|";
-    condition += m_pCurTarget;
-    condition += "'";
-    std::string expression = "/ms:Project/ms:ImportGroup[@Condition = \"";
-    expression += condition;
-    expression += "\" and @Label = \"PropertySheets\"]/ms:Import[not(@Label)]/@Project";
-    std::vector<std::string> attributes = get_xpath_nodes_attributes(doc, xpathCtx, expression);
-    for (std::vector<std::string>::iterator iter = attributes.begin() ; iter != attributes.end(); ++iter)
+    // First try to set up additional macros. The order is important here. For example, IntDir might contain $(OutDir).
+    auto const condition = Formatter<>{}.format("'$(Configuration)|$(Platform)'=='%s|%s'", m_configuration, m_platform);
+    m_outDir = get_xpath_nodes_inner_text(doc, xpathCtx, "/ms:Project/ms:PropertyGroup[@Condition=\"%s\"]/ms:OutDir", condition);
+    Tokenizer::StaticAssert(!m_outDir.empty(), "Output directory could not be found");
+    Tokenizer::StaticAssert(ResolveMacros(m_outDir), "Not all macros in $(OutDir) could be resolved");
+    macros_.emplace("$(OutDir)", m_outDir);
+
+    //GetAdditionalStuffFromPropertySheets(m_outDir.c_str(), propertySheetNames, "OutDir");
+
+    m_intDir = get_xpath_nodes_inner_text(doc, xpathCtx, "/ms:Project/ms:PropertyGroup[@Condition=\"%s\"]/ms:IntDir", condition);
+    Tokenizer::StaticAssert(!m_intDir.empty(), "Intermediate directory could not be found");
+    Tokenizer::StaticAssert(ResolveMacros(m_intDir), "Not all macros in $(IntDir) could be resolved");
+    macros_.emplace("$(IntDir)", m_intDir);
+
+    //GetAdditionalStuffFromPropertySheets(m_intDir.c_str(), propertySheetNames, "IntDir");
+
+    auto projectFormat = "/ms:Project/ms:ImportGroup[@Condition = \"%s\" and @Label = \"PropertySheets\"]/ms:Import[not(@Label)]/@Project";
+    auto attributes = get_xpath_nodes_attributes(doc, xpathCtx, projectFormat, condition);
+    for (auto const& attribute : attributes)
     {
         if (propertySheetNames[0])
         {
             strcat(propertySheetNames, ";");
         }
-
-        strcat(propertySheetNames, (*iter).c_str());
+        strcat(propertySheetNames, attribute.c_str());
     }
     
-    expression = "/ms:Project/ms:PropertyGroup[@Condition = \"";
-    expression += condition;
-    expression += "\" and @Label = \"Configuration\"]/ms:ConfigurationType";
-    if (get_xpath_nodes_inner_text(doc, xpathCtx, expression) == "Application")
+    auto configTypeFormat = "/ms:Project/ms:PropertyGroup[@Condition = \"%s\" and @Label = \"Configuration\"]/ms:ConfigurationType";
+    if (get_xpath_nodes_inner_text(doc, xpathCtx, configTypeFormat, condition) == "Application")
     {
         m_bIsAnExecutable = true;
     }
     
-    m_ObjectFileDir[0] = '\0';
-    char objectFileDir[TOKENIZER_MAX_STRING_LENGTH] = "";
-    expression = "/ms:Project/ms:PropertyGroup/ms:IntDir[@Condition = \"";
-    expression += condition;
-    expression += "\"]";
-    strcpy(objectFileDir, get_xpath_nodes_inner_text(doc, xpathCtx, expression).c_str());
-
-    if(!objectFileDir[0])
-    {
-        GetAdditionalStuffFromPropertySheets(objectFileDir, propertySheetNames, "IntDir");
-    }
-
-    if(!objectFileDir[0])
-    {
-        expression = "/ms:Project/ms:PropertyGroup/ms:OutDir[@Condition = \"";
-        expression += condition;
-        expression += "\"]";
-        strcpy(objectFileDir, get_xpath_nodes_inner_text(doc, xpathCtx, expression).c_str());
-    }
-
-    if(!objectFileDir[0])
-    {
-        GetAdditionalStuffFromPropertySheets(objectFileDir, propertySheetNames, "OutDir");
-    }
-
-    if(objectFileDir[0])
-    {
-        static char const* sTempMacros[][2] =
-        {
-            {
-                "$(Configuration)",
-                    m_pCurConfiguration,
-            },
-            {
-                "$(PlatformName)",
-                    m_pCurTarget,
-                },
-                {
-                    NULL,
-                        NULL
-                }
-        };
-
-        strcpy(m_ObjectFileDir, objectFileDir);
-        ReplaceMacrosInPlace(m_ObjectFileDir, sTempMacros);
-        PutSlashAtEndOfString(m_ObjectFileDir);
-    }
-
-    Tokenizer::StaticAssert(m_ObjectFileDir[0] != 0, "Intermediate/Output directory could not be found. :(");
-
     AddProjectFiles(get_xpath_nodes_attributes(doc, xpathCtx, "/ms:Project/ms:ItemGroup/ms:ClInclude/@Include"));
     AddProjectFiles(get_xpath_nodes_attributes(doc, xpathCtx, "/ms:Project/ms:ItemGroup/ms:ClCompile/@Include"));
 
@@ -723,45 +756,14 @@ bool SourceParser::NeedToUpdateFile(char *pFileName, int iExtraData, bool bForce
 }
 void SourceParser::MakeAutoGenDirectory()
 {
-    char commandString[1024];
+    fs::path directory{ m_sourceDir };
+    directory.append("AutoGen");
+    fs::create_directories(directory);
 
-    sprintf(commandString, "mkdir \"%s\\AutoGen\" > NUL 2>&1", m_ProjectPath);
-
-    system(commandString);
-
-    sprintf(commandString, "mkdir \"%s\\..\\Common\\AutoGen\" > NUL 2>&1", m_ProjectPath);
-
-    system(commandString);
+    directory = m_commonDir;
+    directory.append("AutoGen");
+    fs::create_directories(directory);
 }
-
-
-bool SourceParser::DoMasterFilesExist()
-{
-    char fileName[MAX_PATH];
-    FileWrapper *pFile;
-
-    sprintf(fileName, "%s\\AutoGen\\%s", m_ProjectPath, m_AutoGenFile1Name);
-
-    pFile = fw_fopen(fileName, "rt");
-    if(!pFile)
-    {
-        return false;
-    }
-    fw_fclose(pFile);
-
-    sprintf(fileName, "%s\\AutoGen\\%s", m_ProjectPath, m_AutoGenFile2Name);
-
-    pFile = fw_fopen(fileName, "rt");
-    if(!pFile)
-    {
-        return false;
-    }
-    fw_fclose(pFile);
-
-    return true;
-}
-
-
 
 void SourceParser::DestroyLegacyMasterFiles(bool bForceBuildAll)
 {
@@ -776,29 +778,14 @@ void SourceParser::DestroyLegacyMasterFiles(bool bForceBuildAll)
     }
 }
 
-void SourceParser::CreateCleanBuildMarkerFile(void)
+void SourceParser::CreateCleanBuildMarkerFile()
 {
-    char fileName[MAX_PATH];
+    fs::path path{ m_intDir };
+    fs::create_directories(path);
 
-    char fullDirString[MAX_PATH];
-    char systemString[1024];
-
-    sprintf(fullDirString, "%s\\%s", m_ProjectPath, m_ObjectFileDir);
-
-    RemoveSuffixIfThere(fullDirString, "/");
-    RemoveSuffixIfThere(fullDirString, "\\");
-
-    sprintf(systemString, "md \"%s\"  > NUL 2>&1", fullDirString);
-
-    system(systemString);
-
-
-    sprintf(fileName, "%s\\THIS_FILE_CHECKS_FOR_CLEAN_BUILDS.obj", 
-        fullDirString);
-
-
-    FileWrapper *pFile = fw_fopen(fileName, "wt");
-    if (pFile)
+    path.append("THIS_FILE_CHECKS_FOR_CLEAN_BUILDS.obj");
+    FileWrapper* pFile = fw_fopen(path.string().c_str(), "wt");
+    if (pFile != nullptr)
     {
         fw_fprintf(pFile, "This file exists so that structparser will know when a clean build happens");
         fw_fclose(pFile);
@@ -807,36 +794,28 @@ void SourceParser::CreateCleanBuildMarkerFile(void)
 
 bool SourceParser::DidCleanBuildJustHappen()
 {
-    char fileName[MAX_PATH];
-
-    sprintf(fileName, "%s\\%s\\THIS_FILE_CHECKS_FOR_CLEAN_BUILDS.obj", 
-        m_ProjectPath, m_pFileListLoader->GetObjFileDirectory());
-
     HANDLE hFile;
-
-    hFile = CreateFileA(fileName, GENERIC_READ, FILE_SHARE_READ,
-        NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-
+    fs::path path{ m_intDir };
+    path.append("THIS_FILE_CHECKS_FOR_CLEAN_BUILDS.obj");
+    hFile = CreateFile(path.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
     if (hFile == INVALID_HANDLE_VALUE)
     {
         return true;;
     }
-
     CloseHandle(hFile);
-
     return false;
 }
 
 void SourceParser::CleanOutAllAutoGenFiles()
 {
     char tempString[256];
-    sprintf(tempString, "del /Q \"%s\\AutoGen\\*.*\" > NUL 2>&1", m_ProjectPath);
+    sprintf(tempString, "del /Q \"%s\\AutoGen\\*.*\" > NUL 2>&1", m_sourceDir.c_str());
     system(tempString);
 
-    sprintf(tempString, "del /Q \"%s\\wiki\\*.*\" > NUL 2>&1", m_ProjectPath);
+    sprintf(tempString, "del /Q \"%s\\wiki\\*.*\" > NUL 2>&1", m_sourceDir.c_str());
     system(tempString);
 
-    sprintf(tempString, "del /Q \"%s\\..\\Common\\AutoGen\\%s_*.*\" > NUL 2>&1", m_ProjectPath, m_ShortenedProjectFileName);
+    sprintf(tempString, "del /Q \"%s\\AutoGen\\%s_*.*\" > NUL 2>&1", m_commonDir.c_str(), m_shortenedProjectFileName.c_str());
     system(tempString);
 }
 
@@ -845,7 +824,7 @@ bool SourceParser::IsQuickExitPossible()
     HANDLE hFile;
     FILETIME fileTime;
 
-    hFile = CreateFileA(m_FullProjectFileName, GENERIC_READ, FILE_SHARE_READ,
+    hFile = CreateFile(m_projectPath.c_str(), GENERIC_READ, FILE_SHARE_READ,
         NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
     if (hFile == INVALID_HANDLE_VALUE)
@@ -862,9 +841,7 @@ bool SourceParser::IsQuickExitPossible()
 
     CloseHandle(hFile);
 
-
-
-    hFile = CreateFileA(m_SolutionPath, GENERIC_READ, FILE_SHARE_READ,
+    hFile = CreateFile(m_solutionPath.c_str(), GENERIC_READ, FILE_SHARE_READ,
         NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
     if (hFile == INVALID_HANDLE_VALUE)
@@ -904,56 +881,56 @@ bool SourceParser::IsQuickExitPossible()
     return true;
 }
 
-
-
-
-
-
-
-
-
-void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char *pCurTarget, char *pCurConfiguration, char *pCurVCDir, char *pSolutionPath, char *pExecutable)
+int SourceParser::ParseSource(
+    fs::path const& projectPath,
+    fs::path const& sourceDir,
+    fs::path const& commonDir,
+    std::string const& platform,
+    std::string const& configuration,
+    fs::path const& solutionPath)
 {
-    // remove trailing '\\' from project path
-    RemoveSuffixIfThere(pProjectPath, "\\");
-    RemoveSuffixIfThere(pProjectPath, "/");
+    m_projectPath = projectPath;
+    m_solutionPath = solutionPath;
+    m_sourceDir = sourceDir.string();
+    m_commonDir = commonDir.string();
 
-    sprintf(m_FullProjectFileName, "%s\\%s", pProjectPath, pProjectFileName);
-    strcpy(m_ProjectPath, pProjectPath);
-    strcpy(m_ShortenedProjectFileName,pProjectFileName);
-    strcpy(m_SolutionPath, pSolutionPath);
-    strcpy(m_Executable, pExecutable);
+    m_projectDir = projectPath.parent_path().string();
+    m_projectFileName = m_projectPath.filename().string();
+    m_shortenedProjectFileName = m_projectPath.filename().stem().string();
+
+    m_platform = platform;
+    m_configuration = configuration;
+    auto platformTarget = _strcmpi(m_platform.c_str(), "Win32") == 0 ? "x86" : m_platform.c_str();
+
+    // Set up the macros we know based in the args passed into the function
+    macros_.emplace("$(ProjectPath)", projectPath.string());
+    macros_.emplace("$(ProjectDir)", m_projectDir);
+    macros_.emplace("$(ProjectExt)", projectPath.extension().string());
+    macros_.emplace("$(ProjectFileName)", m_projectFileName);
+
+    macros_.emplace("$(PlatformTarget)", platformTarget);
+    macros_.emplace("$(PlatformName)", m_platform);
+    macros_.emplace("$(Platform)", m_platform);
+
+    macros_.emplace("$(Configuration)", m_configuration);
+
+    macros_.emplace("$(SolutionPath)", solutionPath.string());
 
 
-
-    m_pCurTarget = pCurTarget;
-    m_pCurConfiguration = pCurConfiguration;
-    m_pCurVCDir = pCurVCDir;
-
-    TruncateStringAtLastOccurrence(m_ShortenedProjectFileName, '.');
-
-    //if the project file name passed in has "_donotc heckin" stuck on the end of it, then it's a temporary
-    //project file generated by Conor's weird auto-build, and we should ignore the _donot checkin
-    RemoveSuffixIfThere(m_ShortenedProjectFileName, "_donot""checkin");
-
-
-    char listFileName[MAX_PATH];
-    char shortListFileName[MAX_PATH];
     bool bForceReadAllFiles = false; 
+    auto shortListFileName = Formatter<>{}.format("%s_%s", m_shortenedProjectFileName, m_configuration);
+    MakeStringAllAlphaNum(shortListFileName.data());
 
-    sprintf(shortListFileName, "%s_%s", m_ShortenedProjectFileName, m_pCurConfiguration);
-    MakeStringAllAlphaNum(shortListFileName);
+    fs::path listFileName{ m_sourceDir };
+    listFileName.append(Formatter<>{}.format("%s.SPFileList", shortListFileName));
 
+    sprintf(m_AutoGenFile1Name, "%s_AutoGen_1.c", m_shortenedProjectFileName.c_str());
+    sprintf(m_AutoGenFile2Name, "%s_AutoGen_2.cpp", m_shortenedProjectFileName.c_str());
+    sprintf(m_SpecialAutoRunFuncName, "_%s_AutoRun_SPECIALINTERNAL", m_shortenedProjectFileName.c_str());
 
-    sprintf(listFileName, "%s\\%s.SPFileList", pProjectPath, shortListFileName);
-    sprintf(m_AutoGenFile1Name, "%s_AutoGen_1.c", m_ShortenedProjectFileName);
-    sprintf(m_AutoGenFile2Name, "%s_AutoGen_2.cpp", m_ShortenedProjectFileName);
-    sprintf(m_SpecialAutoRunFuncName, "_%s_AutoRun_SPECIALINTERNAL", m_ShortenedProjectFileName);
+    TRACE("About to start parsing... project %s config %s\n", m_shortenedProjectFileName.c_str(), m_configuration.c_str());
 
-
-    TRACE("About to start parsing... project %s config %s\n", m_ShortenedProjectFileName, m_pCurConfiguration);
-
-    if (!m_pFileListLoader->LoadFileList(listFileName))
+    if (!m_pFileListLoader->LoadFileList(listFileName.string().c_str()))
     {
         TRACE("Couldn't load spfilelist file... doing full rebuild\n");
         bForceReadAllFiles = true;
@@ -962,16 +939,6 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
     {
         if (!bForceReadAllFiles)
         {
-            /*
-            // Autogen files no longer used
-            if (!DoMasterFilesExist())
-            {
-            TRACE("Master files don't exist... doing full rebuild\n");
-            bForceReadAllFiles = true;
-            }
-            else
-            */
-
             if (DidCleanBuildJustHappen())
             {
                 TRACE("Clean build happened... doing full rebuild\n");
@@ -981,18 +948,12 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
             {
                 if (IsQuickExitPossible())
                 {
-                    return;
+                    return 0;
                 }
-
                 TRACE("Not doing quick exit... something must have changed\n");
             }
         }
-
-
     }
-
-
-
 
     MakeAutoGenDirectory();
 
@@ -1000,15 +961,11 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
 
     CreateParsers();
 
-
     ProcessProjectFile();
 
     FindVariablesFileAndLoadVariables();
 
     CreateCleanBuildMarkerFile();
-
-
-
 
     bool bAtLeastOneFileUpdated = false;
 
@@ -1018,20 +975,16 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
         CleanOutAllAutoGenFiles();
     }
 
-
-
-
-
     int i;
 
     for (i=0; i < m_iNumSourceParsers; i++)
     {
         m_pSourceParsers[i]->SetParent(this, i);
-        m_pSourceParsers[i]->SetProjectPathAndName(pProjectPath, m_ShortenedProjectFileName);
+        m_pSourceParsers[i]->SetProjectPathAndName(m_sourceDir.c_str(), m_commonDir.c_str(), m_shortenedProjectFileName.c_str());
     }
 
 
-    if (!m_IdentifierDictionary.SetFileNameAndLoad(pProjectPath, m_ShortenedProjectFileName))
+    if (!m_IdentifierDictionary.SetFileNameAndLoad(m_sourceDir.c_str(), m_shortenedProjectFileName.c_str()))
     {
         TRACE("Couldn't load identifier dictionary... forcing read all files\n");
         bForceReadAllFiles = true;
@@ -1045,7 +998,6 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
             TRACE("Couldn't load stored data %d, forcing read all files\n", i);
             bForceReadAllFiles = true;
         }
-
     }
 
     if (MakeSpecialAutoRunFunction())
@@ -1072,10 +1024,6 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
     return;
     }*/
 
-
-
-
-
     if (bForceReadAllFiles)
     {
         ProcessAllFiles_ReadAll();
@@ -1094,7 +1042,7 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
 
     m_IdentifierDictionary.WriteOutFile();
 
-    m_pFileListWriter->OpenFile(listFileName, m_ObjectFileDir);
+    m_pFileListWriter->OpenFile(listFileName.string().c_str(), m_intDir.c_str());
 
     for (i = 0 ; i < m_iNumProjectFiles; i++)
     {
@@ -1108,6 +1056,8 @@ void SourceParser::ParseSource(char *pProjectPath, char *pProjectFileName, char 
     {
         DestroyLegacyMasterFiles(bForceReadAllFiles);
     }
+
+    return 0;
 }
 
 void SourceParser::ScanSourceFile(char *pSourceFile)
@@ -1254,9 +1204,6 @@ void PutThingsIntoCommandLine(char *pCommandLine, char *pInputString, char *pPre
     } while (1);
 }
 
-
-
-
 void SourceParser::NukeCObjFile(char *pFileName)
 {
     char fileNameWithoutExtension[MAX_PATH];
@@ -1264,12 +1211,9 @@ void SourceParser::NukeCObjFile(char *pFileName)
     TruncateStringAtLastOccurrence(fileNameWithoutExtension, '.');
 
     char buf[MAX_PATH];
-    _snprintf(buf, sizeof(buf), "%s%s.obj", m_ObjectFileDir, fileNameWithoutExtension);
+    _snprintf(buf, sizeof(buf), "%s%s.obj", m_intDir.c_str(), fileNameWithoutExtension);
     remove(buf);
 }
-
-
-
 
 void ReplaceMacroInPlace(char *pString, char const* pMacroToFind, char const* pReplaceString)
 {
@@ -1626,7 +1570,7 @@ void SourceParser::SetExtraDataFlagForFile(char *pFileName, int iFlag)
 
 bool SourceParser::MakeSpecialAutoRunFunction(void)
 {
-    if (StringIsInList(m_ShortenedProjectFileName, sProjectNamesToExclude))
+    if (StringIsInList(m_projectFileName.c_str(), sProjectNamesToExclude))
     {
         return false;
     }
@@ -1852,16 +1796,6 @@ void MergeSortCommands(SingleCommandStruct **ppList, int iListLen)
     *ppList = pMasterListHead;
 }
 
-
-
-
-
-
-
-
-
-
-
 void MasterWikiCommandCategory::SortCommands(void)
 {
     int iCount = 0;
@@ -2038,7 +1972,7 @@ void SourceParser::FindVariablesFileAndLoadVariables(void)
     char directoryToTry[MAX_PATH];
     char fileToTry[MAX_PATH];
 
-    strcpy(directoryToTry, m_ProjectPath);
+    strcpy(directoryToTry, m_projectDir.c_str());
     int iDirectoryStrLen = (int)strlen(directoryToTry);
 
     while (iDirectoryStrLen)

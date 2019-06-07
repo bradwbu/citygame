@@ -22,7 +22,7 @@ FileListWriter::~FileListWriter()
     }
 }
 
-void FileListWriter::OpenFile(char *pListFileName, char *pObjFileDirName)
+void FileListWriter::OpenFile(char const* pListFileName, char const* pObjFileDirName)
 {
     if (m_pOutFile)
     {

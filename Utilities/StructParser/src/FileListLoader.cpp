@@ -15,7 +15,7 @@ FileListLoader::~FileListLoader()
 {
 }
 
-bool FileListLoader::LoadFileList(char *pListFileName)
+bool FileListLoader::LoadFileList(char const* pListFileName)
 {
     Tokenizer tokenizer;
 

@@ -13,7 +13,7 @@ public:
     FileListLoader();
     ~FileListLoader();
 
-    bool LoadFileList(char *pListFileName);
+    bool LoadFileList(char const* pListFileName);
     
     FILETIME *GetMasterFileTime() { return &m_MasterFileTime; }
     bool IsFileInList(char *pFileName);

@@ -172,29 +172,31 @@ static char const* sMagicCommandReservedWords[] =
     NULL
 };
 
-void MagicCommandManager::SetProjectPathAndName(char const* pProjectPath, char const* pProjectName)
+void MagicCommandManager::SetProjectPathAndName(char const* srcPath, char const* commonPath, char const* projectName)
 {
-    strcpy(m_ProjectName, pProjectName);
+    strcpy(m_ProjectName, projectName);
 
-    sprintf(m_ShortMagicCommandFileName, "%s_commands_autogen", pProjectName);
-    sprintf(m_MagicCommandFileName, "%s\\AutoGen\\%s.c", pProjectPath, m_ShortMagicCommandFileName);
-    sprintf(m_TestClientFunctionsFileName, "%s\\AutoGen\\%s_CommandFuncs.c", pProjectPath, m_ShortMagicCommandFileName);
-    sprintf(m_TestClientFunctionsHeaderName, "%s\\AutoGen\\%s_CommandFuncs.h", pProjectPath, m_ShortMagicCommandFileName);
-    sprintf(m_RemoteFunctionsFileName, "%s\\..\\Common\\AutoGen\\%s_autogen_RemoteFuncs.c", pProjectPath, pProjectName);
-    sprintf(m_RemoteFunctionsHeaderName, "%s\\..\\Common\\AutoGen\\%s_autogen_RemoteFuncs.h", pProjectPath, pProjectName);
-    sprintf(m_SlowFunctionsFileName, "%s\\..\\Common\\AutoGen\\%s_autogen_SlowFuncs.c", pProjectPath, pProjectName);
-    sprintf(m_SlowFunctionsHeaderName, "%s\\..\\Common\\AutoGen\\%s_autogen_SlowFuncs.h", pProjectPath, pProjectName);
-    sprintf(m_QueuedFunctionsFileName, "%s\\AutoGen\\%s_autogen_QueuedFuncs.c", pProjectPath, pProjectName);
-    sprintf(m_QueuedFunctionsHeaderName, "%s\\AutoGen\\%s_autogen_QueuedFuncs.h", pProjectPath, pProjectName);
+    sprintf(m_ShortMagicCommandFileName, "%s_commands_autogen", projectName);
+    sprintf(m_MagicCommandFileName, "%s\\AutoGen\\%s.c", srcPath, m_ShortMagicCommandFileName);
+    sprintf(m_TestClientFunctionsFileName, "%s\\AutoGen\\%s_CommandFuncs.c", srcPath, m_ShortMagicCommandFileName);
+    sprintf(m_TestClientFunctionsHeaderName, "%s\\AutoGen\\%s_CommandFuncs.h", srcPath, m_ShortMagicCommandFileName);
 
-    sprintf(m_ServerWrappersFileName, "%s\\..\\Common\\AutoGen\\%s_autogen_ServerCmdWrappers.c", pProjectPath, pProjectName);
-    sprintf(m_ServerWrappersHeaderFileName, "%s\\..\\Common\\AutoGen\\%s_autogen_ServerCmdWrappers.h", pProjectPath, pProjectName);
+    sprintf(m_RemoteFunctionsFileName, "%s\\AutoGen\\%s_autogen_RemoteFuncs.c", commonPath, projectName);
+    sprintf(m_RemoteFunctionsHeaderName, "%s\\AutoGen\\%s_autogen_RemoteFuncs.h", commonPath, projectName);
+    sprintf(m_SlowFunctionsFileName, "%s\\AutoGen\\%s_autogen_SlowFuncs.c", commonPath, projectName);
+    sprintf(m_SlowFunctionsHeaderName, "%s\\AutoGen\\%s_autogen_SlowFuncs.h", commonPath, projectName);
+
+    sprintf(m_QueuedFunctionsFileName, "%s\\AutoGen\\%s_autogen_QueuedFuncs.c", srcPath, projectName);
+    sprintf(m_QueuedFunctionsHeaderName, "%s\\AutoGen\\%s_autogen_QueuedFuncs.h", srcPath, projectName);
+
+    sprintf(m_ServerWrappersFileName, "%s\\AutoGen\\%s_autogen_ServerCmdWrappers.c", commonPath, projectName);
+    sprintf(m_ServerWrappersHeaderFileName, "%s\\AutoGen\\%s_autogen_ServerCmdWrappers.h", commonPath, projectName);
     
-    sprintf(m_ClientWrappersFileName, "%s\\..\\Common\\AutoGen\\%s_autogen_ClientCmdWrappers.c", pProjectPath, pProjectName);
-    sprintf(m_ClientWrappersHeaderFileName, "%s\\..\\Common\\AutoGen\\%s_autogen_ClientCmdWrappers.h", pProjectPath, pProjectName);
+    sprintf(m_ClientWrappersFileName, "%s\\AutoGen\\%s_autogen_ClientCmdWrappers.c", commonPath, projectName);
+    sprintf(m_ClientWrappersHeaderFileName, "%s\\AutoGen\\%s_autogen_ClientCmdWrappers.h", commonPath, projectName);
 
-    sprintf(m_ClientToTestClientWrappersFileName, "%s\\AutoGen\\%s_autogen_TestClientCmds.c", pProjectPath, pProjectName);
-    sprintf(m_ClientToTestClientWrappersHeaderFileName, "%s\\AutoGen\\%s_autogen_TestClientCmds.h", pProjectPath, pProjectName);
+    sprintf(m_ClientToTestClientWrappersFileName, "%s\\AutoGen\\%s_autogen_TestClientCmds.c", srcPath, projectName);
+    sprintf(m_ClientToTestClientWrappersHeaderFileName, "%s\\AutoGen\\%s_autogen_TestClientCmds.h", srcPath, projectName);
 }
 
 bool MagicCommandManager::DoesFileNeedUpdating(char const* pFileName)
@@ -1077,10 +1079,7 @@ bool MagicCommandManager::WriteOutData(void)
         pCommandVar->bAlreadyWroteOutComment = false;
     }
 
-
     WriteOutRemoteCommands();
-
-
 
     FILE *pOutFile = fopen_nofail(m_MagicCommandFileName, "wt");
 

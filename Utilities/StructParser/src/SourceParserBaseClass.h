@@ -19,7 +19,7 @@ public:
     SourceParserBaseClass();
     virtual ~SourceParserBaseClass();
 
-    virtual void SetProjectPathAndName(char const* pProjectPath, char const* pProjectName) = 0;
+    virtual void SetProjectPathAndName(char const* srcPath, char const* commonPath, char const* projectName) = 0;
 
     virtual bool LoadStoredData(bool bForceReset) = 0;
 

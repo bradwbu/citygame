@@ -136,14 +136,14 @@ static char const* sAutoTransactionReservedWords[] =
     NULL
 };
 
-void AutoTransactionManager::SetProjectPathAndName(char const* pProjectPath, char const* pProjectName)
+void AutoTransactionManager::SetProjectPathAndName(char const* srcPath, char const* commonPath, char const* projectName)
 {
-    strcpy(m_ProjectName, pProjectName);
+    strcpy(m_ProjectName, projectName);
 
-    sprintf(m_ShortAutoTransactionFileName, "%s_autotransactions_autogen", pProjectName);
-    sprintf(m_AutoTransactionFileName, "%s\\AutoGen\\%s.c", pProjectPath, m_ShortAutoTransactionFileName);
-    sprintf(m_AutoTransactionWrapperHeaderFileName, "%s\\..\\Common\\AutoGen\\%s_wrappers.h", pProjectPath, m_ShortAutoTransactionFileName);
-    sprintf(m_AutoTransactionWrapperSourceFileName, "%s\\..\\Common\\AutoGen\\%s_wrappers.c", pProjectPath, m_ShortAutoTransactionFileName);
+    sprintf(m_ShortAutoTransactionFileName, "%s_autotransactions_autogen", projectName);
+    sprintf(m_AutoTransactionFileName, "%s\\AutoGen\\%s.c", srcPath, m_ShortAutoTransactionFileName);
+    sprintf(m_AutoTransactionWrapperHeaderFileName, "%s\\AutoGen\\%s_wrappers.h", commonPath, m_ShortAutoTransactionFileName);
+    sprintf(m_AutoTransactionWrapperSourceFileName, "%s\\AutoGen\\%s_wrappers.c", commonPath, m_ShortAutoTransactionFileName);
 
 
 }

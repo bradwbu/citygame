@@ -11,7 +11,7 @@ public:
     FileListWriter();
     ~FileListWriter();
 
-    void OpenFile(char *pListFileName, char *pObjFileDirName);
+    void OpenFile(char const* pListFileName, char const* pObjFileDirName);
     void AddFile(char *pFileName, int iExtraData, int iNumDependencies, int iDependencies[MAX_DEPENDENCIES_SINGLE_FILE]);
     void CloseFile();
 

@@ -4123,10 +4123,9 @@ bool StructParser::LoadStoredData(bool bForceReset)
 {
     return true;
 }
-void StructParser::SetProjectPathAndName(char const* pProjectPath, char const* pProjectName)
+void StructParser::SetProjectPathAndName(char const* srcPath, char const* commonPath, char const* projectName)
 {
 }
-
 
 void StructParser::TemplateFileNameFromSourceFileName(char* pTemplateName, char* pTemplateHeaderName, char const* pSourceName)
 {

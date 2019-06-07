@@ -35,7 +35,7 @@ void IdentifierDictionary::DeleteNode(IdentifierDictionaryNode **ppNode)
     *ppNode = pNext;
 }
 
-bool IdentifierDictionary::SetFileNameAndLoad(char *pProjPath, char *pProjFileName)
+bool IdentifierDictionary::SetFileNameAndLoad(char const* pProjPath, char const* pProjFileName)
 {
     Tokenizer tokenizer;
 
@@ -82,7 +82,7 @@ bool IdentifierDictionary::SetFileNameAndLoad(char *pProjPath, char *pProjFileNa
     return true;
 }
 
-void IdentifierDictionary::DeleteAllFromFile(char *pSourceFileName)
+void IdentifierDictionary::DeleteAllFromFile(char const* pSourceFileName)
 {
     IdentifierDictionaryNode **ppNode = &m_pFirst;
 

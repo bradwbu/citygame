@@ -64,10 +64,10 @@ static char const* sAutoTestReservedWords[] =
     NULL
 };
 
-void AutoTestManager::SetProjectPathAndName(char const* pProjectPath, char const* pProjectName)
+void AutoTestManager::SetProjectPathAndName(char const* srcPath, char const* commonPath, char const* projectName)
 {
-    strcpy(m_ProjectName, pProjectName);
-    sprintf(m_AutoTestFileName, "%s\\AutoGen\\%s_AutoTest.c", pProjectPath, pProjectName);
+    strcpy(m_ProjectName, projectName);
+    sprintf(m_AutoTestFileName, "%s\\AutoGen\\%s_AutoTest.c", srcPath, projectName);
 
 }
 

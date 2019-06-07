@@ -22,9 +22,9 @@ public:
     IdentifierDictionary();
     ~IdentifierDictionary();
 
-    bool SetFileNameAndLoad(char *pProjPath, char *pProjFileName);
+    bool SetFileNameAndLoad(char const* pProjPath, char const* pProjFileName);
 
-    void DeleteAllFromFile(char *pSourceFileName);
+    void DeleteAllFromFile(char const* pSourceFileName);
 
     void AddIdentifier(char const* pIdentifierName, char const* pSourceFileName, enumIdentifierType eType);
 

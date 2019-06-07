@@ -13,6 +13,9 @@
 
 #include <vector>
 #include <string>
+#include <map>
+#include <regex>
+#include <filesystem>
 
 #define MAX_BASE_SOURCE_PARSERS 8
 
@@ -33,13 +36,19 @@ public:
     SourceParser();
     ~SourceParser();
 
-    void ParseSource(char *pProjectPath, char *pProjectFileName, char *pCurTarget, char *pCurConfiguration, char *pCurVCDir, char *pSolutionPath,
-        char *pExecutable);
+    int ParseSource(
+        std::filesystem::path const& projectPath,
+        std::filesystem::path const& sourceDir,
+        std::filesystem::path const& commonDir,
+        std::string const& platform,
+        std::string const& configuration,
+        std::filesystem::path const& solutionPath
+    );
 
     void NukeCObjFile(char *pFileName);
 
-    char *GetShortProjectName() { return m_ShortenedProjectFileName; }
-    char *GetProjectPath() { return m_ProjectPath; }
+    char const* GetShortProjectName() { return m_projectFileName.c_str(); }
+    char const* GetProjectPath() { return m_projectDir.c_str(); }
     IdentifierDictionary *GetDictionary() { return &m_IdentifierDictionary; }
 
     void SetExtraDataFlagForFile(char *pFileName, int iFlag);
@@ -94,14 +103,14 @@ private:
 
     int m_iExtraDataPerFile[MAX_FILES_IN_PROJECT];
 
-    char m_FullProjectFileName[MAX_PATH];
+    std::filesystem::path m_projectPath;
+    std::string m_shortenedProjectFileName;
 
-    char m_Executable[MAX_PATH];
-
-    char m_ProjectPath[MAX_PATH];
-    char m_ShortenedProjectFileName[MAX_PATH];
-
-    char m_SolutionPath[MAX_PATH];
+    std::string m_sourceDir;
+    std::string m_commonDir;
+    std::string m_projectDir;
+    std::string m_projectFileName;
+    std::filesystem::path m_solutionPath;
 
     int m_iNumDependentLibraries;
     char m_DependentLibraryNames[MAX_DEPENDENT_LIBRARIES][MAX_PATH];
@@ -126,14 +135,16 @@ private:
     //---------------stuff used to do command-line compilation of auto-generated C files
 
     //stuff passed in on the command line
-    char *m_pCurTarget;
-    char *m_pCurConfiguration;
-    char *m_pCurVCDir;
+    std::string m_platform;
+    std::string m_configuration;
+
+    std::map<std::string, std::string, std::less<>> macros_;
 
     //stuff ripped out of vcproj file
     char m_AdditionalIncludeDirs[TOKENIZER_MAX_STRING_LENGTH];
     char m_PreprocessorDefines[TOKENIZER_MAX_STRING_LENGTH];
-    char m_ObjectFileDir[MAX_PATH];
+    std::string m_intDir;
+    std::string m_outDir;
 
     //stuff used to check whether we need to C file compiling
     bool m_bCleanBuildHappened;
@@ -142,7 +153,7 @@ private:
     SourceParserVar *m_pFirstVar;
 
 private:
-    void AddProjectFiles(const std::vector<std::string> &attributes);
+    void AddProjectFiles(std::vector<std::string> const& attributes);
     void ProcessProjectFile();
     bool NeedToUpdateFile(char *pFileName, int iExtraData,  bool bForceUpdateUnlessFileDoesntExist);
     void ScanSourceFile(char *pSourceFile);
@@ -164,7 +175,6 @@ private:
     void ProcessSolutionFile();
     void CheckForRequiredFiles(const char *pFileName);
     bool IsLibraryXBoxExcluded(char *pLibName);
-    bool DoMasterFilesExist();
     bool DidCleanBuildJustHappen();
     void CleanOutAllAutoGenFiles();
     bool IsQuickExitPossible();
@@ -176,6 +186,8 @@ private:
     void AddVariableValue(char *pVarName, char *pValue);
     void SetVariablesFromTokenizer(Tokenizer *pTokenizer, char *pStartingDirectory);
     void FindVariablesFileAndLoadVariables(void);
+
+    bool ResolveMacros(std::string& s);
 };
 
 

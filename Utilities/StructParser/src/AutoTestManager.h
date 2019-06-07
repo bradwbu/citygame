@@ -19,7 +19,7 @@ public:
     ~AutoTestManager();
 
 public:
-    virtual void SetProjectPathAndName(char const* pProjectPath, char const* pProjectName);
+    virtual void SetProjectPathAndName(char const* srcPath, char const* commonPath, char const* projectName);
     virtual bool LoadStoredData(bool bForceReset);
 
     virtual void ResetSourceFile(char const* pSourceFileName);

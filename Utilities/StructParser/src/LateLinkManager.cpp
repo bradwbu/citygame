@@ -47,11 +47,11 @@ static char const* sLateLinkReservedWords[] =
     NULL
 };
 
-void LateLinkManager::SetProjectPathAndName(char const* pProjectPath, char const* pProjectName)
+void LateLinkManager::SetProjectPathAndName(char const* srcPath, char const* commonPath, char const* projectName)
 {
-    strcpy(m_ProjectName, pProjectName);
+    strcpy(m_ProjectName, projectName);
 
-    sprintf(m_LateLinkFileName, "%s\\AutoGen\\%s_latelink_autogen.c", pProjectPath, pProjectName);
+    sprintf(m_LateLinkFileName, "%s\\AutoGen\\%s_latelink_autogen.c", srcPath, projectName);
 }
 
 bool LateLinkManager::DoesFileNeedUpdating(char const* pFileName)

@@ -42,9 +42,7 @@ FileWrapper *fw_fopen(const char *pFilename, const char *pMode)
             pOriginalContents[iBytesRead] = 0;
     
             fclose(pFile);
-    }
-
-
+        }
 
         FileWrapper *pWrapper = new FileWrapper;
         pWrapper->bWriting = true;

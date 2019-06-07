@@ -114,7 +114,7 @@ public:
 
     void SetExtraReservedWords(char const** ppWords) { m_ppExtraReservedWords = ppWords; }
 
-    bool LoadFromFile(char *pFileName);
+    bool LoadFromFile(char const* pFileName);
 
     void SetCSourceStyleStrings(bool bSet) { m_bCSourceStyleStrings = bSet; }
 

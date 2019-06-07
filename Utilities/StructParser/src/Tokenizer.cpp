@@ -132,7 +132,7 @@ void Tokenizer::LoadFromBuffer(char *pBuffer, int iSize, char const* pFileName, 
 
 }
 
-bool Tokenizer::LoadFromFile(char *pFileName)
+bool Tokenizer::LoadFromFile(char const* pFileName)
 {
     FILE *pInFile;
 

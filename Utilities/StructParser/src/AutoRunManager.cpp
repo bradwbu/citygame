@@ -54,14 +54,14 @@ static char const* sAutoRunReservedWords[] =
     nullptr
 };
 
-void AutoRunManager::SetProjectPathAndName(char const* pProjectPath, char const* pProjectName)
+void AutoRunManager::SetProjectPathAndName(char const* srcPath, char const* commonPath, char const* projectName)
 {
-    strcpy(m_ProjectName, pProjectName);
+    strcpy(m_ProjectName, projectName);
 
-    sprintf(m_ShortAutoRunFileName, "%s_autorun_autogen", pProjectName);
-    sprintf(m_AutoRunFileName, "%s\\AutoGen\\%s.cpp", pProjectPath, m_ShortAutoRunFileName);
+    sprintf(m_ShortAutoRunFileName, "%s_autorun_autogen", projectName);
+    sprintf(m_AutoRunFileName, "%s\\AutoGen\\%s.cpp", srcPath, m_ShortAutoRunFileName);
 
-    sprintf(m_AutoRunExtraFuncFileName, "%s\\AutoGen\\%s_autorun_extrafunc_autogen.c", pProjectPath, pProjectName);
+    sprintf(m_AutoRunExtraFuncFileName, "%s\\AutoGen\\%s_autorun_extrafunc_autogen.c", srcPath, projectName);
 
 }
 
@@ -383,12 +383,6 @@ bool AutoRunManager::WriteOutData(void)
 
     return true;
 }
-    
-
-
-
-
-
 
 void AutoRunManager::FoundMagicWord(char const* pSourceFileName, Tokenizer *pTokenizer, int iWhichMagicWord, char const* pMagicWordString)
 {
