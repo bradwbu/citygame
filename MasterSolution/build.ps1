@@ -70,5 +70,4 @@ Invoke-BuildAll "..\AuthServer\build\vs2019\AuthServer.sln" -Platform "x64"
 
 Invoke-Build "ArtTools.sln" -Configuration "Debug" -Platform "Win32"
 
-Invoke-Build "MasterSolution.sln" -Configuration "Opt Debug" -Platform "Win32"
-Invoke-Build "MasterSolution.sln" -Configuration "Release" -Platform "Win32"
+Invoke-BuildAll "MasterSolution.sln"
