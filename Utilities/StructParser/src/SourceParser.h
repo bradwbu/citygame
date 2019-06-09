@@ -13,8 +13,6 @@
 
 #include <vector>
 #include <string>
-#include <map>
-#include <regex>
 #include <filesystem>
 
 #define MAX_BASE_SOURCE_PARSERS 8
@@ -37,18 +35,20 @@ public:
     ~SourceParser();
 
     int ParseSource(
-        std::filesystem::path const& projectPath,
-        std::filesystem::path const& sourceDir,
+        std::filesystem::path const& prjPath,
+        std::filesystem::path const& srcDir,
         std::filesystem::path const& commonDir,
+        std::filesystem::path const& outDir,
+        std::filesystem::path const& intDir,
         std::string const& platform,
         std::string const& configuration,
-        std::filesystem::path const& solutionPath
+        std::filesystem::path const& slnPath
     );
 
     void NukeCObjFile(char *pFileName);
 
-    char const* GetShortProjectName() { return m_projectFileName.c_str(); }
-    char const* GetProjectPath() { return m_projectDir.c_str(); }
+    char const* GetShortProjectName() { return m_prjFileName.c_str(); }
+    char const* GetProjectPath() { return m_prjDir.c_str(); }
     IdentifierDictionary *GetDictionary() { return &m_IdentifierDictionary; }
 
     void SetExtraDataFlagForFile(char *pFileName, int iFlag);
@@ -103,14 +103,16 @@ private:
 
     int m_iExtraDataPerFile[MAX_FILES_IN_PROJECT];
 
-    std::filesystem::path m_projectPath;
-    std::string m_shortenedProjectFileName;
+    std::filesystem::path m_prjPath;
+    std::string m_shortenedPrjFileName;
 
-    std::string m_sourceDir;
+    std::string m_intDir;
+    std::string m_outDir;
+    std::string m_srcDir;
     std::string m_commonDir;
-    std::string m_projectDir;
-    std::string m_projectFileName;
-    std::filesystem::path m_solutionPath;
+    std::string m_prjDir;
+    std::string m_prjFileName;
+    std::filesystem::path m_slnPath;
 
     int m_iNumDependentLibraries;
     char m_DependentLibraryNames[MAX_DEPENDENT_LIBRARIES][MAX_PATH];
@@ -127,10 +129,8 @@ private:
 
     char m_SpecialAutoRunFuncName[MAX_PATH];
 
-    //whether the project we're working on is an executable vs. a libary
+    //whether the project we're working on is an executable vs. a library
     bool m_bIsAnExecutable;
-
-
 
     //---------------stuff used to do command-line compilation of auto-generated C files
 
@@ -138,13 +138,9 @@ private:
     std::string m_platform;
     std::string m_configuration;
 
-    std::map<std::string, std::string, std::less<>> macros_;
-
     //stuff ripped out of vcproj file
     char m_AdditionalIncludeDirs[TOKENIZER_MAX_STRING_LENGTH];
     char m_PreprocessorDefines[TOKENIZER_MAX_STRING_LENGTH];
-    std::string m_intDir;
-    std::string m_outDir;
 
     //stuff used to check whether we need to C file compiling
     bool m_bCleanBuildHappened;
@@ -186,8 +182,6 @@ private:
     void AddVariableValue(char *pVarName, char *pValue);
     void SetVariablesFromTokenizer(Tokenizer *pTokenizer, char *pStartingDirectory);
     void FindVariablesFileAndLoadVariables(void);
-
-    bool ResolveMacros(std::string& s);
 };
 
 

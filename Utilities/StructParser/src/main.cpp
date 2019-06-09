@@ -2,6 +2,8 @@
 #include "sourceparser.h"
 #include <cstdio>
 #include "strutils.h"
+#include <map>
+#include <regex>
 
 namespace fs = std::filesystem;
 
@@ -104,89 +106,144 @@ void ProcessOptionFile(void)
     }
 }
 
+class CommandLineParser
+{
+public:
+    CommandLineParser()
+    {
+        std::string cmdline{ ::GetCommandLineA() };
+        std::regex r{ R"((\w+)\s*=\s*(?:(?:\"(.+?)\")|(.+?))(?:;|$))" };
+
+        std::sregex_iterator const end;
+        for (std::sregex_iterator it(cmdline.begin(), cmdline.end(), r); it != end; ++it)
+        {
+            // Group 2 is quoted, group 3 is unquoted
+            auto kvit = args_.emplace(it->str(1), it->str((*it)[2].matched ? 2 : 3));
+            if (kvit.first->second.empty())
+            {
+                throw std::invalid_argument(kvit.first->first);
+            }
+        }
+    }
+
+    std::string const& get(char const* name) const
+    {
+        auto it = args_.find(name);
+        if (it == args_.end())
+        {
+            throw std::invalid_argument(name);
+        }
+        return it->second;
+    }
+    // Naming conventions are:
+    //   Path:  Full relative or absolute name of a file such as ..\..\my.vcxproj
+    //   Dir:   Relative or absolute location of  a directory in the file system
+    fs::path getAsPath(char const* name) const
+    {
+        return { get(name) };
+    }
+
+    fs::path getAsAbsolutePath(char const* name) const
+    {
+        return fs::absolute(get(name));
+    }
+
+    fs::path getAsValidatedAbsolutePath(char const* name) const
+    {
+        auto path = getAsAbsolutePath(name);
+        if (!fs::exists(path))
+        {
+            throw std::invalid_argument(name);
+        }
+        return path;
+    }
+
+    fs::path getAsDir(char const* name) const
+    {
+        auto val = get(name);
+        if (val[val.length() - 1] == '\\')
+        {
+            return { val.begin(), val.end() - 1 };
+        };
+        return { val };
+    }
+
+    fs::path getAsAbsoluteDir(char const* name) const
+    {
+        return fs::absolute(getAsDir(name));
+    }
+
+    fs::path getAsValidatedAbsoluteDir(char const* name) const
+    {
+        auto path = getAsAbsoluteDir(name);
+        if (!fs::exists(path))
+        {
+            throw std::invalid_argument(name);
+        }
+        return path;
+    }
+
+
+private:
+    CommandLineParser(CommandLineParser const& other) = delete;
+    CommandLineParser& operator = (CommandLineParser& other) = delete;
+
+    struct CaseLess
+    {
+        struct Compare
+        {
+            bool operator() (unsigned char const& lhs, unsigned char const& rhs) const
+            {
+                return std::tolower(lhs) < std::tolower(rhs);
+            }
+        };
+
+        bool operator() (std::string const& lhs, std::string const& rhs) const
+        {
+            return std::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end(), Compare());
+        }
+    };
+
+    std::map<std::string, std::string, CaseLess> args_;
+};
+
 int main(int argc, char* argv[])
 {
-    ProcessOptionFile();
-
-    char commandLine[2000];
-    commandLine[0] = 0;
-
-    for (int i=0; i < argc; ++i)
+    try
     {
-        sprintf(commandLine + strlen(commandLine), " %s", argv[i]);
-    }
+        ProcessOptionFile();
+        CommandLineParser cmlLineParser;
 
-    char *pSubStrings[20];
-    int iStringsFound = SubDivideStringAndRemoveWhiteSpace(pSubStrings, commandLine, 'X', 20);
+        auto prjPath = cmlLineParser.getAsValidatedAbsolutePath("PrjPath");
+        auto srcDir = cmlLineParser.getAsValidatedAbsoluteDir("SrcDir");
+        auto commonDir = cmlLineParser.getAsValidatedAbsoluteDir("CommonDir");
+        auto outDir = cmlLineParser.getAsAbsoluteDir("OutDir");
+        auto intDir = cmlLineParser.getAsAbsoluteDir("IntDir");
 
-    if (iStringsFound != 7)
-    {
-        printf("ERROR: Couldn't find required arguments for StructParser. Should be X $(ProjectPath) X $(ProjectDir)..\\..\\src\\ X $(ProjectDir)..\\..\\..\\..\\Common\\ X $(Platform) X $(Configuration) X $(SolutionPath)");
+        auto platform = cmlLineParser.get("Platform");
+        auto configuration = cmlLineParser.get("Configuration");
 
-        for (int i = 0; i < iStringsFound; i++)
-        {
-            printf("%d: %s\n", i, pSubStrings[i]);
-        }
-    
-        fflush(stdout);
-        Sleep(100);
-        return 1;
-    }
+        auto slnPath = cmlLineParser.getAsValidatedAbsolutePath("SlnPath");
 
-    for (int i = 0; i < iStringsFound; ++i)
-    {
-        printf("%s", pSubStrings[i]);
-
-        if (i < iStringsFound - 1)
-        {
-            printf(" X ");
-        }
+        auto sourceParser = std::make_unique<SourceParser>(); // SourceParser is over a MB big so don't allocate it on the stack
+        return sourceParser->ParseSource(prjPath, srcDir, commonDir, outDir, intDir, platform, configuration, slnPath);
     }
-    printf("\n");
-
-    // Full path of project file, project file must at least exist in the specified location
-    fs::path projectPath{ fs::absolute(pSubStrings[1]) };
-    if (!fs::exists(projectPath))
+    catch (std::invalid_argument const& e)
     {
-        printf("ERROR: Argument 1 (project path) is not valid");
-        return 1;
+        printf("ERROR: Argument '%s' not found or not valid\n", e.what());
+        printf("  A typical argument list from a custom build step looks like:\n"
+            "     PrjPath=$(ProjectPath);\n"
+            "     SrcDir=$(ProjectDir)..\\..\\src\\;\n"
+            "     CommonDir=$(ProjectDir)..\\..\\..\\Common\\;\n"
+            "     OutDir=$(OutDir);\n"
+            "     IntDir=$(IntDir);\n"
+            "     Platform=$(Platform);\n"
+            "     Configuration=$(Configuration);\n"
+            "     SlnPath=$(SolutionPath)\n");
     }
-    // Root of all source files in the project, must exist
-    fs::path sourceDir{ fs::absolute(RemoveTerminatingSeparator(pSubStrings[2])) };
-    if (!fs::exists(sourceDir))
+    catch (std::exception const& e)
     {
-        printf("ERROR: Argument 2 (source dir) is not valid");
-        return 1;
+        printf("ERROR: %s", e.what());
     }
-    // Root of all common source files in the code base, must exist
-    fs::path commonDir{ fs::absolute(RemoveTerminatingSeparator(pSubStrings[3])) };
-    if (!fs::exists(commonDir))
-    {
-        printf("ERROR: Argument 3 (common dir) is not valid");
-        return 1;
-    }
-    // Platform, we can only hope it is valid, at least we know it mist be longer than zero chars
-    std::string platform{ pSubStrings[4] };
-    if (platform.empty())
-    {
-        printf("ERROR: Argument 4 (platform) is not valid");
-        return 1;
-    }
-    // Configuration, we can only hope it is valid, at least we know it mist be longer than zero chars
-    std::string configuration{ pSubStrings[5] };
-    if (configuration.empty())
-    {
-        printf("ERROR: Argument 5 (configuration) is not valid");
-        return 1;
-    }
-    // Root of all common source files in the code base, must exist
-    fs::path solutionPath{ fs::absolute(pSubStrings[6]) };
-    if (!fs::exists(solutionPath))
-    {
-        printf("ERROR: Argument 6 (solution path) is not valid");
-        return 1;
-    }
-
-    auto sourceParser = std::make_unique<SourceParser>(); // SourceParser is over a MB big so don't allocate it on the stack
-    return sourceParser->ParseSource(projectPath, sourceDir, commonDir, platform, configuration, solutionPath);
+    return 1;
 }

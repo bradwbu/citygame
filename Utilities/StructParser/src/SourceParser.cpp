@@ -264,7 +264,7 @@ void SourceParser::ProcessSolutionFile()
     char *pProjectIDStrings[MAX_PROJECTS_ONE_SOLUTION];
     char *pProjectFullPaths[MAX_PROJECTS_ONE_SOLUTION];
 
-    bool bResult = tokenizer.LoadFromFile(m_solutionPath.string().c_str());
+    bool bResult = tokenizer.LoadFromFile(m_slnPath.string().c_str());
 
     bool bFoundOurProject = false;
 
@@ -296,7 +296,7 @@ void SourceParser::ProcessSolutionFile()
 
             tokenizer.AssertNextTokenTypeAndGet(&token, TOKEN_STRING, MAX_PATH, "Expected project name");
 
-            if (StringIsInList(token.sVal, sProjectNamesToExclude) && strcmp(token.sVal, m_projectFileName.c_str()) != 0)
+            if (StringIsInList(token.sVal, sProjectNamesToExclude) && strcmp(token.sVal, m_prjFileName.c_str()) != 0)
             {
                 //skip this project
             }
@@ -306,7 +306,7 @@ void SourceParser::ProcessSolutionFile()
                 pProjectNames[iNumProjects] = new char[token.iVal + 1];
                 strcpy(pProjectNames[iNumProjects], token.sVal);
 
-                if (strcmp(token.sVal, m_shortenedProjectFileName.c_str()) == 0)
+                if (strcmp(token.sVal, m_shortenedPrjFileName.c_str()) == 0)
                 {
                     bFoundOurProject = true;
                     tokenizer.SaveLocation();
@@ -592,30 +592,6 @@ static void GetAdditionalStuffFromPropertySheets(char* objectFileDir, char *pPro
     }
 }
 
-
-bool SourceParser::ResolveMacros(std::string& s)
-{
-
-    auto startMacro = s.find("$(");
-    if (startMacro == s.npos)
-    {
-        return true;
-    }
-    auto endMacro = s.find(")", startMacro + 2);
-    if (endMacro == s.npos)
-    {
-        return true;
-    }
-    auto length = endMacro - startMacro + 1;
-    auto it = macros_.find(std::string_view(s.data() + startMacro, length));
-    if (it == macros_.end())
-    {
-        return false;
-    }
-    s.replace(startMacro, length, it->second);
-    return ResolveMacros(s);
-}
-
 void SourceParser::AddProjectFiles(std::vector<std::string> const& attributes)
 {
     for (auto const& file : attributes)
@@ -625,7 +601,7 @@ void SourceParser::AddProjectFiles(std::vector<std::string> const& attributes)
         auto len = file.length();
         if ((len >= 3 && file[len - 2] == '.' && (file[len - 1] == 'h' || file[len - 1] == 'c')))
         {
-            fs::path path{ m_projectDir };
+            fs::path path{ m_prjDir };
             path.append(file);
 
             Tokenizer::StaticAssert(m_iNumProjectFiles < MAX_FILES_IN_PROJECT, "Too many files in project");
@@ -646,7 +622,7 @@ void SourceParser::ProcessProjectFile()
     xmlInitParser();
 
     /* Load XML document */
-    xmlDocPtr doc = xmlParseFile(m_projectPath.string().c_str());
+    xmlDocPtr doc = xmlParseFile(m_prjPath.string().c_str());
     Tokenizer::StaticAssert(doc != NULL, "Couldn't load doc.");
 
     /* Create xpath evaluation context */
@@ -654,19 +630,9 @@ void SourceParser::ProcessProjectFile()
     Tokenizer::StaticAssert(xpathCtx != NULL, "Couldn't load doc context.");
     Tokenizer::StaticAssert(register_namespaces(xpathCtx, BAD_CAST "ms=http://schemas.microsoft.com/developer/msbuild/2003"), "Couldn't register namespace.");
 
-    // First try to set up additional macros. The order is important here. For example, IntDir might contain $(OutDir).
     auto const condition = Formatter<>{}.format("'$(Configuration)|$(Platform)'=='%s|%s'", m_configuration, m_platform);
-    m_outDir = get_xpath_nodes_inner_text(doc, xpathCtx, "/ms:Project/ms:PropertyGroup[@Condition=\"%s\"]/ms:OutDir", condition);
-    Tokenizer::StaticAssert(!m_outDir.empty(), "Output directory could not be found");
-    Tokenizer::StaticAssert(ResolveMacros(m_outDir), "Not all macros in $(OutDir) could be resolved");
-    macros_.emplace("$(OutDir)", m_outDir);
 
     //GetAdditionalStuffFromPropertySheets(m_outDir.c_str(), propertySheetNames, "OutDir");
-
-    m_intDir = get_xpath_nodes_inner_text(doc, xpathCtx, "/ms:Project/ms:PropertyGroup[@Condition=\"%s\"]/ms:IntDir", condition);
-    Tokenizer::StaticAssert(!m_intDir.empty(), "Intermediate directory could not be found");
-    Tokenizer::StaticAssert(ResolveMacros(m_intDir), "Not all macros in $(IntDir) could be resolved");
-    macros_.emplace("$(IntDir)", m_intDir);
 
     //GetAdditionalStuffFromPropertySheets(m_intDir.c_str(), propertySheetNames, "IntDir");
 
@@ -697,10 +663,7 @@ void SourceParser::ProcessProjectFile()
 
 bool SourceParser::NeedToUpdateFile(char *pFileName, int iExtraData, bool bForceUpdateUnlessFileDoesntExist)
 {
-    HANDLE hFile;
-
-    hFile = CreateFileA(pFileName, GENERIC_READ, FILE_SHARE_READ,
-        NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    HANDLE hFile = CreateFileA(pFileName, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
     if (hFile == INVALID_HANDLE_VALUE)
     {
@@ -756,7 +719,7 @@ bool SourceParser::NeedToUpdateFile(char *pFileName, int iExtraData, bool bForce
 }
 void SourceParser::MakeAutoGenDirectory()
 {
-    fs::path directory{ m_sourceDir };
+    fs::path directory{ m_srcDir };
     directory.append("AutoGen");
     fs::create_directories(directory);
 
@@ -809,13 +772,13 @@ bool SourceParser::DidCleanBuildJustHappen()
 void SourceParser::CleanOutAllAutoGenFiles()
 {
     char tempString[256];
-    sprintf(tempString, "del /Q \"%s\\AutoGen\\*.*\" > NUL 2>&1", m_sourceDir.c_str());
+    sprintf(tempString, "del /Q \"%s\\AutoGen\\*.*\" > NUL 2>&1", m_srcDir.c_str());
     system(tempString);
 
-    sprintf(tempString, "del /Q \"%s\\wiki\\*.*\" > NUL 2>&1", m_sourceDir.c_str());
+    sprintf(tempString, "del /Q \"%s\\wiki\\*.*\" > NUL 2>&1", m_srcDir.c_str());
     system(tempString);
 
-    sprintf(tempString, "del /Q \"%s\\AutoGen\\%s_*.*\" > NUL 2>&1", m_commonDir.c_str(), m_shortenedProjectFileName.c_str());
+    sprintf(tempString, "del /Q \"%s\\AutoGen\\%s_*.*\" > NUL 2>&1", m_commonDir.c_str(), m_shortenedPrjFileName.c_str());
     system(tempString);
 }
 
@@ -824,7 +787,7 @@ bool SourceParser::IsQuickExitPossible()
     HANDLE hFile;
     FILETIME fileTime;
 
-    hFile = CreateFile(m_projectPath.c_str(), GENERIC_READ, FILE_SHARE_READ,
+    hFile = CreateFile(m_prjPath.c_str(), GENERIC_READ, FILE_SHARE_READ,
         NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
     if (hFile == INVALID_HANDLE_VALUE)
@@ -841,7 +804,7 @@ bool SourceParser::IsQuickExitPossible()
 
     CloseHandle(hFile);
 
-    hFile = CreateFile(m_solutionPath.c_str(), GENERIC_READ, FILE_SHARE_READ,
+    hFile = CreateFile(m_slnPath.c_str(), GENERIC_READ, FILE_SHARE_READ,
         NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
     if (hFile == INVALID_HANDLE_VALUE)
@@ -882,53 +845,41 @@ bool SourceParser::IsQuickExitPossible()
 }
 
 int SourceParser::ParseSource(
-    fs::path const& projectPath,
-    fs::path const& sourceDir,
-    fs::path const& commonDir,
+    std::filesystem::path const& prjPath,
+    std::filesystem::path const& srcDir,
+    std::filesystem::path const& commonDir,
+    std::filesystem::path const& outDir,
+    std::filesystem::path const& intDir,
     std::string const& platform,
     std::string const& configuration,
-    fs::path const& solutionPath)
+    std::filesystem::path const& slnPath
+    )
 {
-    m_projectPath = projectPath;
-    m_solutionPath = solutionPath;
-    m_sourceDir = sourceDir.string();
+    m_prjPath = prjPath;
+    m_slnPath = slnPath;
+    m_srcDir = srcDir.string();
     m_commonDir = commonDir.string();
 
-    m_projectDir = projectPath.parent_path().string();
-    m_projectFileName = m_projectPath.filename().string();
-    m_shortenedProjectFileName = m_projectPath.filename().stem().string();
-
+    m_outDir = outDir.string();
+    m_intDir = intDir.string();
+    m_prjDir = prjPath.parent_path().string();
+    m_prjFileName = m_prjPath.filename().string();
+    m_shortenedPrjFileName = m_prjPath.filename().stem().string();
     m_platform = platform;
     m_configuration = configuration;
-    auto platformTarget = _strcmpi(m_platform.c_str(), "Win32") == 0 ? "x86" : m_platform.c_str();
-
-    // Set up the macros we know based in the args passed into the function
-    macros_.emplace("$(ProjectPath)", projectPath.string());
-    macros_.emplace("$(ProjectDir)", m_projectDir);
-    macros_.emplace("$(ProjectExt)", projectPath.extension().string());
-    macros_.emplace("$(ProjectFileName)", m_projectFileName);
-
-    macros_.emplace("$(PlatformTarget)", platformTarget);
-    macros_.emplace("$(PlatformName)", m_platform);
-    macros_.emplace("$(Platform)", m_platform);
-
-    macros_.emplace("$(Configuration)", m_configuration);
-
-    macros_.emplace("$(SolutionPath)", solutionPath.string());
-
 
     bool bForceReadAllFiles = false; 
-    auto shortListFileName = Formatter<>{}.format("%s_%s", m_shortenedProjectFileName, m_configuration);
+    auto shortListFileName = Formatter<>{}.format("%s_%s", m_shortenedPrjFileName, m_configuration);
     MakeStringAllAlphaNum(shortListFileName.data());
 
-    fs::path listFileName{ m_sourceDir };
+    fs::path listFileName{ m_srcDir };
     listFileName.append(Formatter<>{}.format("%s.SPFileList", shortListFileName));
 
-    sprintf(m_AutoGenFile1Name, "%s_AutoGen_1.c", m_shortenedProjectFileName.c_str());
-    sprintf(m_AutoGenFile2Name, "%s_AutoGen_2.cpp", m_shortenedProjectFileName.c_str());
-    sprintf(m_SpecialAutoRunFuncName, "_%s_AutoRun_SPECIALINTERNAL", m_shortenedProjectFileName.c_str());
+    sprintf(m_AutoGenFile1Name, "%s_AutoGen_1.c", m_shortenedPrjFileName.c_str());
+    sprintf(m_AutoGenFile2Name, "%s_AutoGen_2.cpp", m_shortenedPrjFileName.c_str());
+    sprintf(m_SpecialAutoRunFuncName, "_%s_AutoRun_SPECIALINTERNAL", m_shortenedPrjFileName.c_str());
 
-    TRACE("About to start parsing... project %s config %s\n", m_shortenedProjectFileName.c_str(), m_configuration.c_str());
+    TRACE("About to start parsing... project %s config %s\n", m_shortenedPrjFileName.c_str(), m_configuration.c_str());
 
     if (!m_pFileListLoader->LoadFileList(listFileName.string().c_str()))
     {
@@ -980,11 +931,11 @@ int SourceParser::ParseSource(
     for (i=0; i < m_iNumSourceParsers; i++)
     {
         m_pSourceParsers[i]->SetParent(this, i);
-        m_pSourceParsers[i]->SetProjectPathAndName(m_sourceDir.c_str(), m_commonDir.c_str(), m_shortenedProjectFileName.c_str());
+        m_pSourceParsers[i]->SetProjectPathAndName(m_srcDir.c_str(), m_commonDir.c_str(), m_shortenedPrjFileName.c_str());
     }
 
 
-    if (!m_IdentifierDictionary.SetFileNameAndLoad(m_sourceDir.c_str(), m_shortenedProjectFileName.c_str()))
+    if (!m_IdentifierDictionary.SetFileNameAndLoad(m_srcDir.c_str(), m_shortenedPrjFileName.c_str()))
     {
         TRACE("Couldn't load identifier dictionary... forcing read all files\n");
         bForceReadAllFiles = true;
@@ -1570,7 +1521,7 @@ void SourceParser::SetExtraDataFlagForFile(char *pFileName, int iFlag)
 
 bool SourceParser::MakeSpecialAutoRunFunction(void)
 {
-    if (StringIsInList(m_projectFileName.c_str(), sProjectNamesToExclude))
+    if (StringIsInList(m_prjFileName.c_str(), sProjectNamesToExclude))
     {
         return false;
     }
@@ -1972,7 +1923,7 @@ void SourceParser::FindVariablesFileAndLoadVariables(void)
     char directoryToTry[MAX_PATH];
     char fileToTry[MAX_PATH];
 
-    strcpy(directoryToTry, m_projectDir.c_str());
+    strcpy(directoryToTry, m_prjDir.c_str());
     int iDirectoryStrLen = (int)strlen(directoryToTry);
 
     while (iDirectoryStrLen)
