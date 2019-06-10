@@ -438,24 +438,6 @@ typedef F32 Quat[4];
     #endif
 #endif
 
-// Optimized standard library and string functions
-int __ascii_strnicmp(const char * dst,const char * src,size_t count);
-char *opt_strupr(char * string);
-#define strnicmp(a, b, c) __ascii_strnicmp(a, b, c)
-#define strupr(a) opt_strupr(a)
-int __ascii_stricmp(const char * dst,const char * src);
-#define stricmp(a, b) __ascii_stricmp(a, b)
-#define __ascii_toupper(c)      ( (((c) >= 'a') && ((c) <= 'z')) ? ((c) - 'a' + 'A') : (c) )
-static INLINEDBG int toupper(int c) {return __ascii_toupper(c); }
-_CRTIMP extern const unsigned short *_pctype;
-//#define strnicmp(a, b, c) opt_strnicmp(a, b, c)
-//#define stricmp(a, b) opt_stricmp(a, b)
-
-#ifdef isalnum
-#    undef isalnum
-#endif
-#define isalnum(c) (_pctype[c] & (_ALPHA|_DIGIT))
-
 #define streq(a, b)    (!stricmp(a,b))
 
 int quick_sprintf(char *buffer, size_t buf_size, FORMAT format, ...);

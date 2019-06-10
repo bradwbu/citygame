@@ -1193,7 +1193,7 @@ LRESULT CALLBACK Assert(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
             // if we have an auto-response..
             if (g_autoResponse > 0)
             {
-                SendMessage(hDlg, WM_COMMAND, g_autoResponse, 0);
+                SendMessageA(hDlg, WM_COMMAND, g_autoResponse, 0);
                 EndDialog(hDlg, g_autoResponse);
                 return FALSE;
             }
@@ -1301,7 +1301,7 @@ LRESULT CALLBACK Assert(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
                 int response = g_listenThreadResponse-1;
                 g_listenThreadResponse = 0; // Clear it so they can send another response
                 Sleep(500); // Wait for the background thread to exit if necessary (otherwise a second assert dialog will not start up the thread)
-                SendMessage(hDlg, WM_COMMAND, MAKEWPARAM(response, 1), (LPARAM)NULL);
+                SendMessageA(hDlg, WM_COMMAND, MAKEWPARAM(response, 1), (LPARAM)NULL);
             }
         }
         break;

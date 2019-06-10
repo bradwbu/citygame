@@ -114,24 +114,16 @@ MemoryMonitor MemMonitor;
 
 static volatile int staticInsideHook = 0;
 
-// MS: These are copied from "C:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\crt\src\mtdll.h"
-
-#define _HEAP_LOCK 4            
-void __cdecl _lock(int);
-void __cdecl _unlock(int);
-
 void mmCRTHeapLock()
 {
     // Lock the CRT heap.
-
-    _lock(_HEAP_LOCK);
+    HeapLock((HANDLE)_get_heap_handle());
 }
 
 void mmCRTHeapUnlock()
 {
     // Unlock the CRT heap.
-
-    _unlock(_HEAP_LOCK);
+    HeapUnlock((HANDLE)_get_heap_handle());
 }
 
 /* Function mmGetModuleOperationStats()

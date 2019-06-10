@@ -327,7 +327,7 @@ int WasLaunchedInNTDebugger(void) {
 }
 
 void disableRtlHeapChecking(HANDLE heap) {
-    extern HANDLE _crtheap;
+    HANDLE h = (HANDLE)_get_heap_handle();
 #ifdef _WIN64
     int heapFlagOffset = 6;
 #else
@@ -344,7 +344,7 @@ void disableRtlHeapChecking(HANDLE heap) {
     // 0x7D030F60 when deciding whether or not to clear the memory with 0xbaadf00d,
     // so, we're clearing all of the bits that may cause the clearing to happen
     if (heap == NULL)
-        heap = _crtheap;
+        heap = h;
     if (WasLaunchedInNTDebugger()) {
         // This assert is basically because these 2 values are the only values I saw,
         // if there are any values for these flags, they might mean something special,

@@ -427,15 +427,10 @@ bool isConsoleOpen()
 #undef fclose
 static void fixStdio(int fh, DWORD std_handle)
 {
-    extern int __cdecl _free_osfhnd(int);
-    extern int __cdecl _set_osfhnd(int, intptr_t);
-
     intptr_t os_handle = (intptr_t)GetStdHandle(std_handle);
 
     if (_isatty(fh) && os_handle != _get_osfhandle(fh))
     {
-        devassert(_free_osfhnd(fh) == 0);
-        devassert(_set_osfhnd(fh, os_handle) == 0);
         switch (fh)
         {
         case 0:

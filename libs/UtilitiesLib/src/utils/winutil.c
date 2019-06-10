@@ -11,8 +11,9 @@ void winSetHInstance(HINSTANCE hInstance)
 
 HINSTANCE winGetHInstance(void)
 {
-    if (!g_hInstance) {
-        g_hInstance = GetModuleHandle(NULL);
+    if (!g_hInstance)
+    {
+        g_hInstance = GetModuleHandleA(NULL);
     }
     return g_hInstance;
 }
@@ -35,9 +36,6 @@ HINSTANCE winGetHInstance(void)
 #include "memlog.h"
 #include "RegistryReader.h"
 #include "osdependent.h"
-
-#pragma comment(lib, "Comdlg32.lib")
-
 
 static void resizeControl(HWND hDlgParent, HWND hDlg, int dx, int dy, int dw, int dh)
 {
@@ -74,7 +72,7 @@ static BOOL CALLBACK EnumChildProc(HWND hwndChild, LPARAM lParam)
         return TRUE;
     }
 
-    id = GetWindowLong(hwndChild, GWL_ID);
+    id = GetWindowLongA(hwndChild, GWL_ID);
 
     GetWindowRect(hwndChild, &rect);
     if (rect.left >= alignme.left) {
@@ -237,15 +235,6 @@ void OffsetWindow(HWND hDlg, HWND hWnd, int xdelta, int ydelta)
     MoveWindow(hWnd, rc.left, rc.top, rc.right-rc.left, rc.bottom-rc.top, FALSE);
 }
 
-
-
-
-
-
-
-
-
-
 // this is the error dialog resource description
 /* 'C' Style Array Dump created by HexToolbox - Hex editor - Copyright 2000-2001 Winsor Computing */
 unsigned char ErrorResource[] =
@@ -338,14 +327,14 @@ LRESULT CALLBACK ErrorDlg(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
             // optionally show who is at fault
             if (param->fault)
             {
-                LOGFONT lf;
-                memset(&lf, 0, sizeof(LOGFONT));       // zero out structure
+                LOGFONTA lf;
+                memset(&lf, 0, sizeof(LOGFONTA));       // zero out structure
                 lf.lfHeight = 20;                      // request a 12-pixel-height font
                 //strcpy(lf.lfFaceName, "Arial");        // request a face name "Arial"
                 lf.lfWeight = FW_BOLD;
-                bigfont = CreateFontIndirect(&lf);
+                bigfont = CreateFontIndirectA(&lf);
                 SetWindowTextA(GetDlgItem(hDlg, IDC_FAULTTEXT), param->fault);
-                SendDlgItemMessage(hDlg, IDC_FAULTTEXT, WM_SETFONT, (WPARAM)bigfont, 0);
+                SendDlgItemMessageA(hDlg, IDC_FAULTTEXT, WM_SETFONT, (WPARAM)bigfont, 0);
             }
             else
             {
@@ -465,7 +454,7 @@ void errorDialog(HWND hwnd, char *str, char* title, char* fault, int highlight) 
     params.err = str;
     params.fault = fault;
     params.highlight = highlight;
-    DialogBoxIndirectParam(winGetHInstance(), (LPDLGTEMPLATE)ErrorResource, hwnd, ErrorDlg, (LPARAM)&params);
+    DialogBoxIndirectParamA(winGetHInstance(), (LPDLGTEMPLATEA)ErrorResource, hwnd, ErrorDlg, (LPARAM)&params);
 }
 
 void msgAlert(HWND hwnd, char *str)
@@ -493,7 +482,7 @@ void msgAlert(HWND hwnd, char *str)
         ShowWindow(hwnd, SW_SHOW);
 
     params.err = str;
-    DialogBoxIndirectParam(winGetHInstance(), (LPDLGTEMPLATE)ErrorResource, hwnd, ErrorDlg, (LPARAM)&params);
+    DialogBoxIndirectParamA(winGetHInstance(), (LPDLGTEMPLATEA)ErrorResource, hwnd, ErrorDlg, (LPARAM)&params);
 }
 
 HICON getIconColoredLetter(char letter, U32 colorRGB)
@@ -593,8 +582,8 @@ void setWindowIconColoredLetter(HWND hwnd, char letter, U32 colorRGB)
     HICON hIcon = getIconColoredLetter(letter, colorRGB);
 
     if(hIcon){
-        SendMessage(hwnd, WM_SETICON, (WPARAM)ICON_SMALL, (LPARAM)hIcon);
-        SendMessage(hwnd, WM_SETICON, (WPARAM)ICON_BIG, (LPARAM)hIcon);
+        SendMessageA(hwnd, WM_SETICON, (WPARAM)ICON_SMALL, (LPARAM)hIcon);
+        SendMessageA(hwnd, WM_SETICON, (WPARAM)ICON_BIG, (LPARAM)hIcon);
 
         DeleteObject(hIcon);
         hIcon = NULL;
@@ -824,7 +813,7 @@ void winAddToPath(const char *path, int prefix)
         destroyRegReader(rr);
         {
             DWORD_PTR dw;
-            SendMessageTimeout(HWND_BROADCAST, WM_WININICHANGE, 0, (LPARAM)"Environment", SMTO_NORMAL, 5000, &dw);
+            SendMessageTimeoutA(HWND_BROADCAST, WM_WININICHANGE, 0, (LPARAM)"Environment", SMTO_NORMAL, 5000, &dw);
         }
     } else {
         destroyRegReader(rr);

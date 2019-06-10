@@ -299,8 +299,8 @@ size_t heapWalk(HANDLE hHeap, int silent, char *logfilename)
 
 void heapInfoPrint()
 {
-    extern HANDLE _crtheap;
-    heapWalk(_crtheap,1,0);
+    HANDLE h = (HANDLE)_get_heap_handle();
+    heapWalk(h, 1, 0);
 }
 
 void heapWalkLog(HANDLE heap)
@@ -312,7 +312,6 @@ void heapCompact(HANDLE heap)
     HeapCompact(heap, 0);
 }
 
-extern HANDLE _crtheap;
 #if PRIVATE_EARRAY_HEAP
 extern HANDLE g_earrayheap;
 #endif
@@ -328,7 +327,8 @@ void heapCompactAll(void)
 #endif
 
     _heapmin();
-    heapCompact(_crtheap);
+    HANDLE h = (HANDLE)_get_heap_handle();
+    heapCompact(h);
 #if PRIVATE_EARRAY_HEAP
     heapCompact(g_earrayheap);
 #endif
@@ -341,7 +341,8 @@ void heapCompactAll(void)
 
 void heapInfoLog()
 {
-    heapWalk(_crtheap,1,"c:\\heap_crt.log");
+    HANDLE h = (HANDLE)_get_heap_handle();
+    heapWalk(h, 1, "c:\\heap_crt.log");
 #if PRIVATE_EARRAY_HEAP
     heapWalk(g_earrayheap,1,"c:\\heap_earray.log");
 #endif
@@ -363,6 +364,7 @@ int heapValidate(HANDLE heap, DWORD flags, void *data)
 int heapValidateAll(void)
 {
     int ret=1;
+    HANDLE h = (HANDLE)_get_heap_handle();
 #define DOIT(func) \
     if (!(func)) {    \
         ret = 0;    \
@@ -370,7 +372,7 @@ int heapValidateAll(void)
         printf("Heap validation failed on %s\n", #func);\
     }
     DOIT(_CrtCheckMemory());
-    DOIT(heapValidate(_crtheap, 0, NULL));
+    DOIT(heapValidate(h, 0, NULL));
     DOIT(mpVerifyAllFreelists());
     DOIT(smallAllocCheckMemory());
     DOIT(heapValidate(GetProcessHeap(), 0, NULL));
