@@ -107,7 +107,10 @@ void setAssertShardTime(int shardTime);
     #endif
 
     #define assertmsgf(exp, msg, ...) do { if((exp)) { __nop(); } else { failmsgf(exp, msg, __VA_ARGS__); } } while(0)
-    #define assertmsg(exp, msg)    assertmsgf(exp, msg)
+    #define assertmsg(exp, msg)    assertmsgf(exp, msg) 
+    #if defined(assert)
+    #undef assert
+    #endif // undef assert
     #define assert(exp)    assertmsg(exp, 0)
 
     #define devassertmsg(exp, msg, ...) ((exp) || (assertIsDevelopmentMode() ? failmsgf(exp, msg, __VA_ARGS__) : (AssertErrorf(__FILE__, __LINE__, "devassert (%s:%d): %s; "msg, __FILE__, __LINE__, #exp, __VA_ARGS__),0)))

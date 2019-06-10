@@ -15,9 +15,10 @@
  *
  ***************************************************************************/
 
+#include "stdtypes.h"
 #include "textcrcjournal.h"
 #include "assert.h"
-#include "crypt.h"
+#include "network/crypt.h"
 #include "timing.h"
 #include "textparser.h"
 #include "estring.h"

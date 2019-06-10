@@ -193,7 +193,7 @@ void AutoTestManager::GetAtestFileName(char outName[MAX_PATH], char const* pInNa
         }
     }
 
-    sprintf(outName, "%s\\AutoGen%s_atest.c", m_pParent->GetProjectPath(), workName);
+    sprintf(outName, "%s\\AutoGen%s_atest.c", m_pParent->GetSoureDir(), workName);
 
 
 }

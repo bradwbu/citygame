@@ -47,8 +47,8 @@ public:
 
     void NukeCObjFile(char *pFileName);
 
-    char const* GetShortProjectName() { return m_prjFileName.c_str(); }
-    char const* GetProjectPath() { return m_prjDir.c_str(); }
+    char const* GetShortProjectName() { return m_shortenedPrjFileName.c_str(); }
+    char const* GetSoureDir() { return m_srcDir.c_str(); }
     IdentifierDictionary *GetDictionary() { return &m_IdentifierDictionary; }
 
     void SetExtraDataFlagForFile(char *pFileName, int iFlag);

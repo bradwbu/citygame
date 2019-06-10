@@ -4143,8 +4143,8 @@ void StructParser::TemplateFileNameFromSourceFileName(char* pTemplateName, char*
         }
     }
 
-    sprintf(pTemplateName, "%s\\AutoGen%s_ast.c", m_pParent->GetProjectPath(), workName);
-    sprintf(pTemplateHeaderName, "%s\\AutoGen%s_ast.h", m_pParent->GetProjectPath(), workName);
+    sprintf(pTemplateName, "%s\\AutoGen%s_ast.c", m_pParent->GetSoureDir(), workName);
+    sprintf(pTemplateHeaderName, "%s\\AutoGen%s_ast.h", m_pParent->GetSoureDir(), workName);
 }
 
 void StructParser::ResetSourceFile(char const* pSourceFileName)
@@ -4303,8 +4303,7 @@ void StructParser::DumpNonConstCopy(FILE *pFile, STRUCT_DEF *pStruct)
                     char simpleSourceFileName[MAX_PATH];
                     strcpy(simpleSourceFileName, GetFileNameWithoutDirectories(sourceFileName));
                     TruncateStringAtLastOccurrence(simpleSourceFileName, '.');
-                    fprintf(pFile, "#include \"AutoGen\\%s_h_ast.h\"\n",
-                        simpleSourceFileName);
+                    fprintf(pFile, "#include \"AutoGen\\%s_h_ast.h\"\n", simpleSourceFileName);
                 }
                 else
                 {

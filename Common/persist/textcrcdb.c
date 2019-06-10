@@ -4,6 +4,7 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 
+#include "stdtypes.h"
 #include "textcrcdb.h"
 #include "textparser.h"
 #include "assert.h"

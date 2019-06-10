@@ -1,3 +1,4 @@
+#include "stdtypes.h"
 #include "persist_internal.h"
 #include "persist_flat.h"
 #include "textparser.h"

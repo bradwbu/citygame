@@ -73,7 +73,7 @@ NCHEADER_BEGIN
 
 #define block_as_line(...)        do { __VA_ARGS__ } while(0)
 
-#define NCINLINE static INLINEDBG
+#define NCINLINE static __inline
 
 #ifndef OPTIONAL
 #define OPTIONAL

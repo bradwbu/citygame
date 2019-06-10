@@ -1,18 +1,20 @@
+
+#include "stdtypes.h"
 #include "log.h"
-#include "serverlib.h"
+#include "../include/serverlib/serverlib.h"
 #include "UtilsNew/meta.h"
-#include "ServerLib/serverlib_meta.h"
+#include "../../../Common/ServerLib/serverlib_meta.h"
 
 #include "SuperAssert.h"
 #include "timing.h"
 #include "error.h"
-#include "crypt.h"
-#include "netio.h"
+#include "network/crypt.h"
+#include "network/netio.h"
 #include "UtilsNew/Array.h"
 #include "UtilsNew/Str.h"
 #include "file.h"
-#include "StashTable.h"
-#include "persist.h"
+#include "components/StashTable.h"
+#include "../../../Common/persist/persist.h"
 
 #include "ConsoleDebug.h"
 #include "memcheck.h"
@@ -153,7 +155,7 @@ int main(int argc,char **argv)
 	assert(SetConsoleCtrlHandler((PHANDLER_ROUTINE)s_CtrlHandler, TRUE));
 
 	strcpy(g_serverlibstate.exe_name, argv[0]);
-	strcpy(g_serverlibstate.cmd_line, GetCommandLine());
+	strcpy(g_serverlibstate.cmd_line, GetCommandLineA());
 	g_serverlibstate.argc = argc;
 	g_serverlibstate.argv = argv;
 
@@ -186,13 +188,13 @@ int main(int argc,char **argv)
         char hn[128];
         HANDLE mx;
         sprintf(hn,"Global\\%s_mutex", g_serverlibconfig.name);
-        mx = CreateMutex(0,0,hn);
-        loadstart_printf("aquiring mutex %s...",hn);
+        mx = CreateMutexA(0,0,hn);
+        loadstart_printf("acquiring mutex %s...",hn);
         if(!mx)
             FatalErrorf("failed to allocate mutex %s",hn);
         else if(WAIT_TIMEOUT == WaitForSingleObject(mx,0))
         {
-            FatalErrorf("ERROR: couldn't aquire mutex %s two auction servers of this type running at same time.",hn);
+            FatalErrorf("ERROR: couldn't acquire mutex %s two auction servers of this type running at same time.",hn);
         }
         // CloseHandle(mx); - deliberately leak the handle, not released until exit.
         loadend_printf("done");

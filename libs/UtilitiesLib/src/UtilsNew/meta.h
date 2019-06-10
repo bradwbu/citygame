@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdint.h>
+
 #define    META(...)        // put this ahead of your function or global variable declaration
 #define        ACCESSLEVEL    // sets the accesslevel for user-initiated commands
 #define        COMMANDLINE    // create a command line parameter, use COMMANDLINE(name) to specify a name

@@ -6,12 +6,12 @@
 #include "stdtypes.h"
 #include "network\net_typedefs.h"
 #include "blowfish.h"
-#include "Queue.h"
-#include "ArrayOld.h"
-#include "SimpleSet.h"
-#include "MemoryPool.h"
+#include "components/Queue.h"
+#include "components/ArrayOld.h"
+#include "components/SimpleSet.h"
+#include "components/MemoryPool.h"
 #include "memcheck.h"
-#include "BitStream.h"
+#include "components/BitStream.h"
 
 C_DECLARATIONS_BEGIN
 

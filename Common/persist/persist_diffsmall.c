@@ -1,3 +1,4 @@
+#include "stdtypes.h"
 #include "persist_flat.h"
 #include "persist_diffsmall.h"
 #include "textparser.h"

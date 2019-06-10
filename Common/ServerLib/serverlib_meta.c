@@ -3,9 +3,10 @@
 // Generated: Fri Sep 11 22:56:21 2009
 // ============================================================
 
+#include "stdtypes.h"
 #include "serverlib_meta.h"
 
-#include "netio.h"
+#include "network/netio.h"
 
 // FIXME: thread-safety
 
