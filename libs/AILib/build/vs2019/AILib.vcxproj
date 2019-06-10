@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{22F8FAD4-3FEA-47CE-9F98-5212751C818B}</ProjectGuid>
+    <ProjectGuid>{EEDEF6DA-7BFC-4C6C-81DD-0950A7C47EF4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ServerLib</RootNamespace>
+    <RootNamespace>AILib</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -95,9 +95,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRTDBG_MAP_ALLOC=1;PROJECT_SERVERLIB;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;_CRTDBG_MAP_ALLOC=1;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\UtilitiesLib\src;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\src\utils;$(ProjectDir)..\..\..\UtilitiesLib\src\assert;$(ProjectDir)..\..\..\UtilitiesLib\src\components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\UtilitiesLib\src</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -114,9 +114,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRTDBG_MAP_ALLOC=1;PROJECT_SERVERLIB;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;_CRTDBG_MAP_ALLOC=1;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\UtilitiesLib\src;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\src\utils;$(ProjectDir)..\..\..\UtilitiesLib\src\assert;$(ProjectDir)..\..\..\UtilitiesLib\src\components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\UtilitiesLib\src</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -135,9 +135,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PROJECT_SERVERLIB;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\UtilitiesLib\src;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\src\utils;$(ProjectDir)..\..\..\UtilitiesLib\src\assert;$(ProjectDir)..\..\..\UtilitiesLib\src\components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\UtilitiesLib\src</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -158,9 +158,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PROJECT_SERVERLIB;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\UtilitiesLib\src;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\src\utils;$(ProjectDir)..\..\..\UtilitiesLib\src\assert;$(ProjectDir)..\..\..\UtilitiesLib\src\components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\UtilitiesLib\src</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -175,25 +175,22 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Common\persist\persist.c" />
-    <ClCompile Include="..\..\..\..\Common\persist\persist_diffbig.c" />
-    <ClCompile Include="..\..\..\..\Common\persist\persist_diffsmall.c" />
-    <ClCompile Include="..\..\..\..\Common\persist\persist_flat.c" />
-    <ClCompile Include="..\..\..\..\Common\persist\textcrcdb.c" />
-    <ClCompile Include="..\..\..\..\Common\persist\textcrcjournal.c" />
-    <ClCompile Include="..\..\..\..\Common\ServerLib\serverlib_meta.c" />
-    <ClCompile Include="..\..\src\serverlib_main.c" />
+    <ClInclude Include="..\..\include\ailib\aiBehaviorDebug.h" />
+    <ClInclude Include="..\..\include\ailib\aiBehaviorInterface.h" />
+    <ClInclude Include="..\..\include\ailib\aiBehaviorPublic.h" />
+    <ClInclude Include="..\..\include\ailib\aiExpression.h" />
+    <ClInclude Include="..\..\include\ailib\aiLib.h" />
+    <ClInclude Include="..\..\include\ailib\aiStruct.h" />
+    <ClInclude Include="..\..\src\aiBehaviorPrivate.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Common\persist\persist.h" />
-    <ClInclude Include="..\..\..\..\Common\persist\persist_diffbig.h" />
-    <ClInclude Include="..\..\..\..\Common\persist\persist_diffsmall.h" />
-    <ClInclude Include="..\..\..\..\Common\persist\persist_flat.h" />
-    <ClInclude Include="..\..\..\..\Common\persist\persist_internal.h" />
-    <ClInclude Include="..\..\..\..\Common\persist\textcrcdb.h" />
-    <ClInclude Include="..\..\..\..\Common\persist\textcrcjournal.h" />
-    <ClInclude Include="..\..\..\..\Common\ServerLib\serverlib_meta.h" />
-    <ClInclude Include="..\..\include\serverlib\serverlib.h" />
+    <ClCompile Include="..\..\src\aiBehaviorDebug.c" />
+    <ClCompile Include="..\..\src\aiBehaviorInterface.c" />
+    <ClCompile Include="..\..\src\aiBehaviorProcess.c" />
+    <ClCompile Include="..\..\src\aiBScript.c" />
+    <ClCompile Include="..\..\src\aiExpression.c" />
+    <ClCompile Include="..\..\src\aiLib.c" />
+    <ClCompile Include="..\..\src\aiMessages.c" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Utilities\StructParser\build\vs2019\StructParser.vcxproj">

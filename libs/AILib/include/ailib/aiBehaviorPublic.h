@@ -1,16 +1,16 @@
 #ifndef AIBEHAVIOR_H
 #define AIBEHAVIOR_H
 
-typedef struct AIVarsBase				AIVarsBase;
-typedef struct AIBehavior				AIBehavior;
-typedef struct AIBehaviorInfo			AIBehaviorInfo;
-typedef struct AIBehaviorFlag			AIBehaviorFlag;
-typedef struct AIBehaviorMod			AIBehaviorMod;
-typedef struct AIBTableEntry			AIBTableEntry;
-typedef struct AIPriorityManager		AIPriorityManager;
-typedef struct AIScript					AIScript;
-typedef struct Entity					Entity;
-typedef struct StructFunctionCall		StructFunctionCall;
+typedef struct AIVarsBase                AIVarsBase;
+typedef struct AIBehavior                AIBehavior;
+typedef struct AIBehaviorInfo            AIBehaviorInfo;
+typedef struct AIBehaviorFlag            AIBehaviorFlag;
+typedef struct AIBehaviorMod            AIBehaviorMod;
+typedef struct AIBTableEntry            AIBTableEntry;
+typedef struct AIPriorityManager        AIPriorityManager;
+typedef struct AIScript                    AIScript;
+typedef struct Entity                    Entity;
+typedef struct StructFunctionCall        StructFunctionCall;
 #define TokenizerFunctionCall StructFunctionCall
 
 // main external behavior functions

@@ -1,11 +1,11 @@
 #ifndef AIBEHAVIORDEBUG_H
 #define AIBEHAVIORDEBUG_H
 
-typedef struct AIBehavior		AIBehavior;
-typedef struct AIBehaviorMod	AIBehaviorMod;
-typedef struct AIBParsedString	AIBParsedString;
-typedef struct AIVarsBase		AIVarsBase;
-typedef struct Entity			Entity;
+typedef struct AIBehavior        AIBehavior;
+typedef struct AIBehaviorMod    AIBehaviorMod;
+typedef struct AIBParsedString    AIBParsedString;
+typedef struct AIVarsBase        AIVarsBase;
+typedef struct Entity            Entity;
 
 // debug functions
 char* aiBehaviorDebugPrint(Entity* e, AIVarsBase* aibase, int stripColors);
