@@ -4,8 +4,8 @@
 * Date       :  1997
 * Description:  C implementation of the Blowfish algorithm.
 */
-#include "blowfish.h"
-#include "endian.h"
+#include "utilitieslib/network/blowfish.h"
+#include "utilitieslib/utils/endian.h"
 
 #define N               16
 

@@ -1,7 +1,7 @@
-#include "hogutil.h"
-#include "mathutil.h"
-#include "genericlist.h"
-#include "MemoryPool.h"
+#include "utilitieslib/utils/hogutil.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/genericlist.h"
+#include "utilitieslib/components/MemoryPool.h"
 
 typedef struct HFSTFreeElement {
     HFSTFreeElement *next;

@@ -1,11 +1,11 @@
-#include "mathutil.h"
+#include "utilitieslib/utils/mathutil.h"
 #include <time.h> //for rand seed
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
 #ifdef FULLDEBUG
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 #endif
 
 U32 oldControlState;
@@ -1032,8 +1032,8 @@ F32        v1x,v1z,d,dist,da,tpx,tpz;
 
 
 
-#include "stdtypes.h"
-#include "fpmacros.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/fpmacros.h"
 #include <float.h>
 
 int randInt(int max)

@@ -10,7 +10,7 @@
 #ifndef NCUNITTEST_H
 #define NCUNITTEST_H
 
-#include "../ncstd.h"
+#include "utilitieslib/UtilsNew/ncstd.h"
 NCHEADER_BEGIN
 
 // @todo -AB: no unittest should leak memory. auto check :08/24/08

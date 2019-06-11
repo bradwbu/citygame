@@ -8,7 +8,7 @@
  *
  ***************************************************************************/
 
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 
 #ifdef UTILITIESLIB
 #    include "file.h"
@@ -16,11 +16,11 @@
 #    undef FILE
 #endif
 
-#include "ncstd.h"
-#include "ncHash.h"
+#include "utilitieslib/UtilsNew/ncstd.h"
+#include "utilitieslib/UtilsNew/ncHash.h"
 #pragma warning(push)
 #pragma warning(disable:6308)
-#include <google/dense_hash_map>
+#include "google_sparsehash/src/google/dense_hash_map"
 #pragma warning(pop)
 
 #pragma warning(disable:4312) // cast from int to ptr

@@ -4,16 +4,16 @@
 *     Confidential Property of Cryptic Studios
 ***************************************************************************/
 
-#include "stdtypes.h"
-#include "ListView.h" // for LV #defines
-#include "structNet.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/ListView.h" // for LV #defines
+#include "utilitieslib/utils/structNet.h"
 #include <stddef.h>   // for offsetof
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 #include <math.h> // fabs
 
-#include "netio.h"
-#include "textparser.h"
-#include "structinternals.h"
+#include "utilitieslib/network/netio.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/utils/structinternals.h"
 
 
 

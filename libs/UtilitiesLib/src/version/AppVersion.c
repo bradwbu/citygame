@@ -1,12 +1,12 @@
-#include "Version/AppVersion.h"
-#include "Version/AppRegCache.h"
-#include "sysutil.h"
-#include <assert.h>
-#include "utils.h"
-#include "file.h"
+#include "utilitieslib/version/AppVersion.h"
+#include "utilitieslib/version/AppRegCache.h"
+#include "utilitieslib/utils/sysutil.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/file.h"
 #include <string.h>
 #include <time.h>
-#include "../network/crypt.h"
+#include "utilitieslib/network/crypt.h"
 
 char app_client_name[128] = "Ouroboros.exe";
 

@@ -1,13 +1,13 @@
-#include "ArrayOld.h"
-#include "BitArray.h"
-#include "StashTable.h"
-#include "MemoryPool.h"
-#include "CommandFileParser.h"
-#include "file.h"
+#include "utilitieslib/components/ArrayOld.h"
+#include "utilitieslib/components/BitArray.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/utils/CommandFileParser.h"
+#include "utilitieslib/utils/file.h"
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 
 typedef struct nbdBitDefImp {
     const char* name;

@@ -3,12 +3,12 @@
 #include <string.h>
 #include <math.h>
 
-#include "stdtypes.h"
-#include "file.h"
-#include "error.h"
-#include "strings_opt.h"
-#include "utils.h"
-#include "tga.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/tga.h"
 
 enum
 {

@@ -1,9 +1,9 @@
-#include "datalist.h"
-#include "earray.h"
-#include "assert.h"
-#include "StringCache.h"
-#include "endian.h"
-#include "textparser.h"
+#include "utilitieslib/components/datalist.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/components/StringCache.h"
+#include "utilitieslib/utils/endian.h"
+#include "utilitieslib/utils/textparser.h"
 
 typedef enum DataListJournalOp {
     DLJ_INVALID,

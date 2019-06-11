@@ -1,10 +1,10 @@
 #define MEASURE_NETWORK_TRAFFIC_OPT_OUT
-#include "net_packet.h"
-#include "net_packetutil.h"
-#include "StashTable.h"
-#include "file.h"
-#include "net_structdefs.h"
-#include "timing.h"
+#include "utilitieslib/network/net_packet.h"
+#include "utilitieslib/network/net_packetutil.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/network/net_structdefs.h"
+#include "utilitieslib/utils/timing.h"
 
 
 typedef struct ProfileRecord {

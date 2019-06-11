@@ -1,18 +1,18 @@
-#include "network\net_linklist.h"
-#include "network\net_link.h"
-#include "network\net_socket.h"
-#include "network\netio_core.h"
-#include "network\net_masterlist.h"
-#include "network\net_structdefs.h"
-#include "network\netio_receive.h"
-#include "network\net_packet.h"
+#include "utilitieslib/network/net_linklist.h"
+#include "utilitieslib/network/net_link.h"
+#include "utilitieslib/network/net_socket.h"
+#include "utilitieslib/network/netio_core.h"
+#include "utilitieslib/network/net_masterlist.h"
+#include "utilitieslib/network/net_structdefs.h"
+#include "utilitieslib/network/netio_receive.h"
+#include "utilitieslib/network/net_packet.h"
 
 #include <stdio.h>
-#include "sock.h"
-#include "timing.h"
-#include "StashTable.h"
-#include <assert.h>
-#include "log.h"
+#include "utilitieslib/network/sock.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/log.h"
 
 #ifndef FINAL
 extern int isDevelopmentMode(void);

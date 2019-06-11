@@ -1,7 +1,7 @@
-#include "memcheck.h"
-#include "RingBuffer.h"
-#include "MemoryPool.h"
-#include "assert.h"
+#include "utilitieslib/utils/memcheck.h"
+#include "utilitieslib/components/RingBuffer.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/assert/assert.h"
 
 typedef struct RingBufferHeader {
     size_t len;

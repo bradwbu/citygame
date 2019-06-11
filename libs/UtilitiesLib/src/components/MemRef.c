@@ -1,6 +1,6 @@
-#include "MemRef.h"
-#include "assert.h"
-#include "wininclude.h"
+#include "utilitieslib/components/MemRef.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/wininclude.h"
 
 #define MEMREF_TAG 0xC0DF15CE
 

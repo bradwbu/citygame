@@ -1,10 +1,10 @@
-#include "MRUList.h"
-#include "RegistryReader.h"
-#include "stdtypes.h"
-#include "mathutil.h"
+#include "utilitieslib/components/MRUList.h"
+#include "utilitieslib/utils/RegistryReader.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/mathutil.h"
 #include <string.h>
 #include <stdio.h>
-#include "utils.h"
+#include "utilitieslib/utils/utils.h"
 
 #define MAX_MRU_STRING 1024
 

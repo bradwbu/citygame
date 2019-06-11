@@ -34,7 +34,7 @@
  */
 
 
-#include "pcube.h"
+#include "utilitieslib/components/TriCube/pcube.h"
 
 #ifndef __cplusplus
 #define inline
@@ -206,7 +206,7 @@ int fast_polygon_intersects_cube(int nverts, const real verts[][3],
         return quick_test;
 }
 
-#include "mathutil.h"
+#include "utilitieslib/utils/mathutil.h"
 
 int triCube(Vec3 cube_pos,F32 cube_size,Vec3 v1,Vec3 v2,Vec3 v3)
 {

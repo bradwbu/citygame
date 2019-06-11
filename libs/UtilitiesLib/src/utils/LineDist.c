@@ -1,5 +1,5 @@
-#include "LineDist.h"
-#include "mathutil.h"
+#include "utilitieslib/utils/LineDist.h"
+#include "utilitieslib/utils/mathutil.h"
 
 #define MAXDIST     10E20
 

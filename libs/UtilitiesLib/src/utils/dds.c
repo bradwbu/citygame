@@ -11,7 +11,7 @@
 #include <share.h>
 
 #ifdef _WIN32
-    #include "wininclude.h"
+    #include "utilitieslib/utils/wininclude.h"
     #include <io.h>
     #include <sys/types.h>
     #include <sys/stat.h>
@@ -22,11 +22,11 @@
     #include <dirent.h>
 #endif
 
-#include "utils.h"
-#include "endian.h"
-#include "stdtypes.h"
-#include "file.h"
-#include "dds.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/endian.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/dds.h"
 
 #define MATCH_FOURCC(_dword_,_fourcc_code_)                ( endianSwapU32(_dword_) == _fourcc_code_)
 #define MATCH_FOURCC_PTR(_dword_ptr_,_fourcc_code_)        MATCH_FOURCC(*((DWORD*)(_dword_ptr_)),_fourcc_code_)

@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "utils.h"
+#include "utilitieslib/utils/utils.h"
 //#include "Common.h"
 #include <io.h>
 #include <sys/types.h>
@@ -14,15 +14,15 @@
 #include <sys/stat.h>
 #include <direct.h>
 #include <errno.h>
-#include <assert.h>
-#include "file.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/file.h"
 #include <fcntl.h>
-#include <wininclude.h>
+#include "utilitieslib/utils/wininclude.h"
 #include <process.h>
-#include "strings_opt.h"
-#include "timing.h"
-#include "estring.h"
-#include "earray.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/components/estring.h"
+#include "utilitieslib/components/earray.h"
 
 char *forwardSlashes(char *path)
 {

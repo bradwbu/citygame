@@ -1,16 +1,16 @@
 
 #include <stdio.h>
-#include "assert.h"
+#include "utilitieslib/assert/assert.h"
 
-#include "network\net_socket.h"
-#include "network\net_link.h"
-#include "network\net_linklist.h"
+#include "utilitieslib/network/net_socket.h"
+#include "utilitieslib/network/net_link.h"
+#include "utilitieslib/network/net_linklist.h"
 
-#include "log.h"
-#include "timing.h"
-#include "MemoryPool.h"
-#include "error.h"
-#include "sock.h"
+#include "utilitieslib/utils/log.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/network/sock.h"
 
 int simpleSelect(FD_SET* readSet, FD_SET* writeSet, FD_SET* errorSet, F32 timeout){
     struct timeval interval;

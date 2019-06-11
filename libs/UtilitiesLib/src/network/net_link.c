@@ -1,26 +1,26 @@
-#include "network\net_link.h"
-#include "network\net_socket.h"
-#include "network\netio_core.h"
-#include "network\netio_send.h"
-#include "network\netio_receive.h"
-#include "network\net_packet.h"
-#include "network\net_linklist.h"    // This doesn't seem quite right.
-#include "network\crypt.h"
-#include "network\net_version.h"
-#include "network\net_masterlist.h"
-#include "netio.h"
-#include "Queue.h"
+#include "utilitieslib/network/net_link.h"
+#include "utilitieslib/network/net_socket.h"
+#include "utilitieslib/network/netio_core.h"
+#include "utilitieslib/network/netio_send.h"
+#include "utilitieslib/network/netio_receive.h"
+#include "utilitieslib/network/net_packet.h"
+#include "utilitieslib/network/net_linklist.h"    // This doesn't seem quite right.
+#include "utilitieslib/network/crypt.h"
+#include "utilitieslib/network/net_version.h"
+#include "utilitieslib/network/net_masterlist.h"
+#include "utilitieslib/network/netio.h"
+#include "utilitieslib/components/Queue.h"
 #include "zlib/zlib.h"
 
 #include <stdio.h>
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 
-#include "timing.h"
-#include "mathutil.h"
-#include "error.h"
-#include "sock.h"
-#include "log.h"
-#include "utils.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/network/sock.h"
+#include "utilitieslib/utils/log.h"
+#include "utilitieslib/utils/utils.h"
 
 #define NETLINK_RECEIVEQUEUE_INIT_SIZE    128
 #define NETLINK_RECEIVEQUEUE_MAX_SIZE    0        // Unlimited

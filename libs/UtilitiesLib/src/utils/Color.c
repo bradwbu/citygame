@@ -1,5 +1,5 @@
-#include "Color.h"
-#include "mathutil.h"
+#include "utilitieslib/utils/Color.h"
+#include "utilitieslib/utils/mathutil.h"
 
 Color ColorWhite = {0xFF, 0xFF, 0xFF, 0xFF};
 Color ColorBlack = {0, 0, 0, 0xFF};

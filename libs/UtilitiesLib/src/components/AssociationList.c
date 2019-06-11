@@ -1,6 +1,6 @@
 
-#include "AssociationList.h"
-#include "MemoryPool.h"
+#include "utilitieslib/components/AssociationList.h"
+#include "utilitieslib/components/MemoryPool.h"
 
 typedef struct AssociationList {
     void*                        listOwner;

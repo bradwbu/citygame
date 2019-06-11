@@ -1,5 +1,5 @@
-#include "net_masterlistref.h"
-#include "MemoryPool.h"
+#include "utilitieslib/network/net_masterlistref.h"
+#include "utilitieslib/components/MemoryPool.h"
 
 
 MP_DEFINE(NetMasterListElement);

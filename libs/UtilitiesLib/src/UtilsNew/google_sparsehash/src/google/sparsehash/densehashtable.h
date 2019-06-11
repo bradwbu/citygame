@@ -96,7 +96,7 @@
 // Hashtable class, used to implement the hashed associative containers
 // hash_set and hash_map.
 
-#include <google/sparsehash/sparseconfig.h>
+#include "sparseconfig.h"
 #include <assert.h>
 #include <stdlib.h>             // for abort()
 #include <algorithm>            // For swap(), eg
@@ -104,7 +104,7 @@
 #include <memory>               // For uninitialized_fill, uninitialized_copy
 #include <utility>              // for pair<>
 #include <iterator>             // for facts about iterator tags
-#include <google/type_traits.h> // for true_type, integral_constant, etc.
+#include "../type_traits.h" // for true_type, integral_constant, etc.
 
 _START_GOOGLE_NAMESPACE_
 

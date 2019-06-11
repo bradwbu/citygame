@@ -1,7 +1,7 @@
-#include "metadictionary.h"
-#include "StashTable.h"
-#include "memorypool.h"
-#include "error.h"
+#include "utilitieslib/components/metadictionary.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/components/memorypool.h"
+#include "utilitieslib/utils/error.h"
 
 #define STARTING_NUM_DICTIONARIES 64
 

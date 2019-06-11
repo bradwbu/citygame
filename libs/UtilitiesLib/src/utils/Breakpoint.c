@@ -1,11 +1,11 @@
 #ifndef _XBOX
 
-#include "Breakpoint.h"
+#include "utilitieslib/utils/Breakpoint.h"
 
 #include <stdio.h>
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 #include <stddef.h>
-#include "wininclude.h"
+#include "utilitieslib/utils/wininclude.h"
 
 
 

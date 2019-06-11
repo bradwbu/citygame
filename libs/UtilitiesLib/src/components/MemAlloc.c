@@ -1,19 +1,19 @@
 #define MEMALLOC_C
 #include <string.h>
-#include "utils.h"
-#include "file.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/file.h"
 #include <stdio.h>
 #include <limits.h>
-#include "wininclude.h"
-#include "mathutil.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/mathutil.h"
 #include <time.h>
-#include "assert.h"
-#include "error.h"
-#include "MemoryPool.h"
-#include "MemoryMonitor.h"
-#include "strings_opt.h"
-#include "stdtypes.h"
-#include "utils.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/utils/MemoryMonitor.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/utils.h"
 
 #ifdef ENABLE_LEAK_DETECTION
 #pragma comment(lib, "../3rdparty/gc-7.2alpha6/gc.lib")

@@ -6,10 +6,10 @@ management of this should be taken care of in SharedHeap.c.
 Modifications of original .c/.h files (available via ftp) are marked with 'hacked'.
 */
 
-#include "sharedmalloc.h"
+#include "utilitieslib/components/sharedmalloc.h"
 
-#include "wininclude.h"
-#include "strings_opt.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/strings_opt.h"
 #include <stdio.h>
 
 
@@ -1521,8 +1521,8 @@ static int dev_zero_fd = -1; /* Cached file descriptor for /dev/zero. */
 // hacked start ///////////////////////////////////////////////////////////////
 // replaces VirtualAlloc with allocateSharedPage
 
-#include "SharedMemory.h"
-#include "SharedHeap.h"
+#include "utilitieslib/components/SharedMemory.h"
+#include "utilitieslib/components/SharedHeap.h"
 
 static void* allocateSharedPage(size_t size) 
 {

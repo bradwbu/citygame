@@ -1,9 +1,9 @@
-#include "wininclude.h"
-#include "WorkerThread.h"
-#include "assert.h"
-#include "file.h"
-#include "Queue.h"
-#include "utils.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/components/WorkerThread.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/components/Queue.h"
+#include "utilitieslib/utils/utils.h"
 
 #define SAFETY_CHECKS_ON 0
 

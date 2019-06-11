@@ -1,9 +1,9 @@
 #ifdef _WIN32
 
-#include "cpu_count.h"
+#include "utilitieslib/utils/cpu_count.h"
 #include "excpt.h"
-#include "wininclude.h"
-#include "superassert.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/superassert.h"
 
 #if _MSC_VER < 1400 // don't have intrinsic
 void __cpuid(int CPUInfo[4], int param)

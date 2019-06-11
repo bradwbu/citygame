@@ -1,8 +1,8 @@
-#include "net_version.h"
-#include "net_packet.h"
-#include "net_link.h"
-#include "netio_core.h"
-#include "assert.h"
+#include "utilitieslib/network/net_version.h"
+#include "utilitieslib/network/net_packet.h"
+#include "utilitieslib/network/net_link.h"
+#include "utilitieslib/network/netio_core.h"
+#include "utilitieslib/assert/assert.h"
 
 
 #define MAX_NETWORK_VERSION 5

@@ -1,13 +1,13 @@
 #ifndef _XBOX
 
-#include "DirMonitor.h"
-#include "ArrayOld.h"
+#include "utilitieslib/utils/DirMonitor.h"
+#include "utilitieslib/components/ArrayOld.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <time.h>
-#include <assert.h>
-#include "MemoryPool.h"
-#include "utils.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/utils/utils.h"
 
 typedef struct{
     DirChangeInfo info;

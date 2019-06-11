@@ -1,6 +1,6 @@
-#include "SimpleSet.h"
-#include "MemoryPool.h"
-#include "stdtypes.h"
+#include "utilitieslib/components/SimpleSet.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/stdtypes.h"
 
 #include <stdlib.h>
 

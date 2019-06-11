@@ -1,7 +1,7 @@
 #ifndef _XBOX
 
-#include "RegistryReader.h"
-#include <wininclude.h>
+#include "utilitieslib/utils/RegistryReader.h"
+#include "utilitieslib/utils/wininclude.h"
 #include <stdlib.h>
 #include <stdio.h>
 

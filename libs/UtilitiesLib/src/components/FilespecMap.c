@@ -1,8 +1,8 @@
-#include "filespecmap.h"
-#include "earray.h"
-#include "utils.h"
-#include "assert.h"
-#include "strings_opt.h"
+#include "utilitieslib/components/filespecmap.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/strings_opt.h"
 
 typedef struct FilespecMapElement
 {

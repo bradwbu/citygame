@@ -1,12 +1,12 @@
-#include "SimpleParser.h"
+#include "utilitieslib/utils/SimpleParser.h"
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <assert.h>
-#include "utils.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/utils.h"
 
 /********************************************************************
- * Begin string parsing utilties
+ * Begin string parsing utilities
  *
  *
  */

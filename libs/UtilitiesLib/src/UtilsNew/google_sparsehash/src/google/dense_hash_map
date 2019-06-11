@@ -84,14 +84,14 @@
 #ifndef _DENSE_HASH_MAP_H_
 #define _DENSE_HASH_MAP_H_
 
-#include <google/sparsehash/sparseconfig.h>
+#include "sparsehash/sparseconfig.h"
 #include <stdio.h>                   // for FILE * in read()/write()
 #include <algorithm>                 // for the default template args
 #include <functional>                // for equal_to
 #include <memory>                    // for alloc<>
 #include <utility>                   // for pair<>
 #include <unordered_map> // HASH_FUN_H                  // defined in config.h
-#include <google/sparsehash/densehashtable.h>
+#include "sparsehash/densehashtable.h"
 
 
 _START_GOOGLE_NAMESPACE_

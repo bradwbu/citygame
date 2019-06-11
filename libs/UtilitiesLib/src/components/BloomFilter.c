@@ -1,11 +1,11 @@
-#include "BloomFilter.h"
+#include "utilitieslib/components/BloomFilter.h"
 
-#include "mathutil.h"
+#include "utilitieslib/utils/mathutil.h"
 #include <stdlib.h>
-#include "assert.h"
-#include "error.h"
-#include "HashFunctions.h"
-#include "BitArray.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/components/HashFunctions.h"
+#include "utilitieslib/components/BitArray.h"
 
 typedef struct BloomFilter
 {

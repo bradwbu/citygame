@@ -10,15 +10,15 @@
  *
  */
 
-#include "structTokenizer.h"
-#include "file.h"
-#include "error.h"
-#include "structInternals.h"
-#include "structDefines.h"
-#include "textparser.h"
-#include "strings_opt.h"
-#include "utils.h"
-#include "foldercache.h"
+#include "utilitieslib/utils/structTokenizer.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/structInternals.h"
+#include "utilitieslib/utils/structDefines.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/foldercache.h"
 
 // NOTE: in future, if more flexibility is required, we can
 // separate INCLUDE handling to a layer above tokenizer.

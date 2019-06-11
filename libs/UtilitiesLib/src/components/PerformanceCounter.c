@@ -1,12 +1,12 @@
 #ifndef _XBOX // xbox has no pdh stuff
-#include "wininclude.h"
+#include "utilitieslib/utils/wininclude.h"
 #include <PdhMsg.h>
 #include <conio.h>
 #include <stdio.h>
 #include <pdh.h>
-#include "assert.h"
-#include "earray.h"
-#include "error.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/utils/error.h"
 
 #pragma comment(lib,"pdh.lib")
 

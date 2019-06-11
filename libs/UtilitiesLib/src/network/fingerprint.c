@@ -1,9 +1,9 @@
-#include "fingerprint.h"
+#include "utilitieslib/network/fingerprint.h"
 #include <stdlib.h>
 #include <memory.h>
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 #include <stdio.h>
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 
 // Ripped from glib.
 // Visit http://www.geocities.com/primes_r_us/ and produce a new table

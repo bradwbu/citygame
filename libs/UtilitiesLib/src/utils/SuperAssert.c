@@ -2,19 +2,19 @@
  *    Ripped and modified version of assert.c found in the MS CRT lib.
  *    
  */
-#include "superassert.h"
-#include "file.h"
-#include "wininclude.h"
-#include "memlog.h"
-#include "utils.h"
-#include "error.h"
-#include "stackdump.h"
-#include "osdependent.h"
+#include "utilitieslib/utils/superassert.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/memlog.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/stackdump.h"
+#include "utilitieslib/utils/osdependent.h"
 #include "tchar.h"
 #include <tlhelp32.h>
 #include "CrashRpt.h"
-#include "netio.h"
-#include "log.h"
+#include "utilitieslib/network/netio.h"
+#include "utilitieslib/utils/log.h"
 
 extern char g_pigErrorBuffer[2048];    // piglib.c
 
@@ -631,26 +631,26 @@ void setAssertShardTime(int shardTime)
 }
 
 #ifndef DISABLE_ASSERTIONS
-#include "memcheck.h"
+#include "utilitieslib/utils/memcheck.h"
 #include <signal.h>
 #include <stdio.h>
 #include <process.h>
-#include "assert.h"
+#include "utilitieslib/assert/assert.h"
 #include "signal.h"
-#include "sock.h"
+#include "utilitieslib/network/sock.h"
 #include <time.h>
 #include <DbgHelp.h>
 #include "errorrep.h"
 #include <sys/stat.h>
 #include <io.h>
 #include <fcntl.h>
-#include "sysutil.h"
-#include "timing.h"
-#include "fileutil.h"
-#include "winutil.h"
-#include "strings_opt.h"
-#include "SharedHeap.h"
-#include "stdtypes.h"
+#include "utilitieslib/utils/sysutil.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/fileutil.h"
+#include "utilitieslib/utils/winutil.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/components/SharedHeap.h"
+#include "utilitieslib/stdtypes.h"
 #include <share.h>
 
 //Added this NULLPTR to fix ASSERT

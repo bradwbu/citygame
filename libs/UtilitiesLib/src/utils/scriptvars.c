@@ -1,20 +1,20 @@
 // scriptvars.c - provides a random variable system for use with story arc
 // scripts.  
 
-#include "scriptvars.h"
-#include "earray.h"
+#include "utilitieslib/utils/scriptvars.h"
+#include "utilitieslib/components/earray.h"
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "HashFunctions.h"
-#include "error.h"
-#include "strings_opt.h"
-#include "mathutil.h"
-#include "textparser.h"
-#include "HashFunctions.h"
-#include "MultiMessageStore.h"
-#include "utils.h"
-#include "EString.h"
+#include "utilitieslib/components/HashFunctions.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/components/HashFunctions.h"
+#include "utilitieslib/language/MultiMessageStore.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/components/EString.h"
 
 #define VARCMP stricmp // vars are case-insensitive
 

@@ -7,11 +7,11 @@
  *
  *
  ***************************************************************************/
-#include "stdtypes.h"
-#include "ncstd.h"
-#include "Stream.h"
-#include "ncHash.h"
-#include "Array.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/UtilsNew/ncstd.h"
+#include "utilitieslib/UtilsNew/Stream.h"
+#include "utilitieslib/UtilsNew/ncHash.h"
+#include "utilitieslib/UtilsNew/Array.h"
 
 void strm_write_int_dbg(char* *handle, int a DBG_PARMS)
 {

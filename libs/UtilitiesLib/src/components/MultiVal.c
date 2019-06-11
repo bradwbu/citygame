@@ -1,9 +1,9 @@
-#include "MultiVal.h"
+#include "utilitieslib/components/MultiVal.h"
 
-#include "earray.h"
-#include "EString.h"
-#include "MemoryPool.h"
-#include "mathutil.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/components/EString.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/utils/mathutil.h"
 
 
 // AUTO_RUN_ANON(memBudgetAddMapping(__FILE__, BUDGET_GameSystems););

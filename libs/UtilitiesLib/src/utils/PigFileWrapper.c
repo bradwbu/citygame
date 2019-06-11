@@ -4,16 +4,16 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 
-#include "PigFileWrapper.h"
+#include "utilitieslib/utils/PigFileWrapper.h"
 #include <string.h>
-#include "piglib.h"
-#include "assert.h"
-#include "utils.h"
-#include "mathutil.h"
+#include "utilitieslib/utils/piglib.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/mathutil.h"
 #define WIN32_LEAN_AND_MEAN
-#include "wininclude.h"
-#include "timing.h"
-#include "file.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/file.h"
 
 enum {
     PIG_FLAG_EOF = 1 << 0,

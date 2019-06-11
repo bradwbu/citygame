@@ -1,6 +1,6 @@
-#include "GenericPoly.h"
-#include "utils.h"
-#include "mathutil.h"
+#include "utilitieslib/components/GenericPoly.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/mathutil.h"
 
 //////////////////////////////////////////////////////////////////////////
 

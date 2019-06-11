@@ -1,7 +1,7 @@
-#include "SharedQueue.h"
+#include "utilitieslib/components/SharedQueue.h"
 #include <stdlib.h>
-#include <assert.h>
-#include "mathutil.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/mathutil.h"
 #include "memory.h"
 #include <stdio.h>
 

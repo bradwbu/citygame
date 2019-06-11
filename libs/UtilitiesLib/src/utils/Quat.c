@@ -1,6 +1,6 @@
 
-#include "Quat.h"
-#include "mathutil.h"
+#include "utilitieslib/utils/Quat.h"
+#include "utilitieslib/utils/mathutil.h"
 
 Quat     unitquat = { 0,0,0,-1 };
 

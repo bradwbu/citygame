@@ -1,8 +1,8 @@
 #ifndef _XBOX
 
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 #include <windows.h>
-#include "osdependent.h"
+#include "utilitieslib/utils/osdependent.h"
 
 int g_isUsingWin2korXP = -1;
 static int g_isUsingVistaOrLater = -1;

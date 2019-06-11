@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
-#include "assert.h"
-#include "MemoryPool.h"
-#include "stdtypes.h"
-#include "memcheck.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/memcheck.h"
 
 #define DEBUG_GENERIC_LIST
 #ifdef DEBUG_GENERIC_LIST

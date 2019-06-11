@@ -1,9 +1,9 @@
 #ifndef _XBOX
 
-#include "genericDialog.h"
+#include "utilitieslib/utils/genericDialog.h"
 #include "resource.h"
-#include "winutil.h"
-#include "utils.h"
+#include "utilitieslib/utils/winutil.h"
+#include "utilitieslib/utils/utils.h"
 #include "shlobj.h"
 
 //////////////////////////////////////////////////////////////////////

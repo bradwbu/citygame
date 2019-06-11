@@ -1,6 +1,6 @@
 
-#include "stdtypes.h"
-#include "ntapiext.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/UtilsNew/ntapiext.h"
 
 static HMODULE s_ntdll = INVALID_HANDLE_VALUE;
 

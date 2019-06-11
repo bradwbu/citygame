@@ -1,19 +1,19 @@
-#include "MemoryPool.h"
+#include "utilitieslib/components/MemoryPool.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <crtdbg.h>
-#include "ArrayOld.h"
-#include "MemoryMonitor.h"
-#include "Breakpoint.h"
-#include "timing.h"
-#include "assert.h"
-#include "earray.h"
-#include "strings_opt.h"
-#include "wininclude.h"
-#include "utils.h"
-#include "qsortG.h"
-#include "UtilsNew/lock.h"
+#include "utilitieslib/components/ArrayOld.h"
+#include "utilitieslib/utils/MemoryMonitor.h"
+#include "utilitieslib/utils/Breakpoint.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/qsortG.h"
+#include "utilitieslib/UtilsNew/lock.h"
 
 
 #ifdef _FULLDEBUG

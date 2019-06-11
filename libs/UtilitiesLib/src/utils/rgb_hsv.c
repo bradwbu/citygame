@@ -1,4 +1,4 @@
-#include "rgb_hsv.h"
+#include "utilitieslib/utils/rgb_hsv.h"
 
 #define RETURN_HWB(h, w, b, success) {HWB[0] = 60*(h); HWB[1] = w; HWB[2] = b; return success;} 
 #define RETURN_HSV(h, w, b, success) {HSV[0] = 60*(h); HSV[1] = w; HSV[2] = b; return success;} 

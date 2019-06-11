@@ -1,7 +1,7 @@
-#include "winutil.h"
-#include "file.h"
-#include "utils.h"
-#include "log.h"
+#include "utilitieslib/utils/winutil.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/log.h"
 
 static HINSTANCE g_hInstance;
 void winSetHInstance(HINSTANCE hInstance)
@@ -22,20 +22,20 @@ HINSTANCE winGetHInstance(void)
 #ifndef _XBOX
 #include <direct.h>
 #include "locale.h"
-#include "convertutf.h"
-#include "utils.h"
-#include "earray.h"
-#include "StringUtil.h"
-#include "sysutil.h"
-#include "error.h"
+#include "utilitieslib/utils/convertutf.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/utils/StringUtil.h"
+#include "utilitieslib/utils/sysutil.h"
+#include "utilitieslib/utils/error.h"
 #include <stdio.h>
-#include "assert.h"
-#include "timing.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/timing.h"
 #include <Tlhelp32.h>
-#include "strings_opt.h"
-#include "memlog.h"
-#include "RegistryReader.h"
-#include "osdependent.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/memlog.h"
+#include "utilitieslib/utils/RegistryReader.h"
+#include "utilitieslib/utils/osdependent.h"
 
 static void resizeControl(HWND hDlgParent, HWND hDlg, int dx, int dy, int dw, int dh)
 {
@@ -590,7 +590,7 @@ void setWindowIconColoredLetter(HWND hwnd, char letter, U32 colorRGB)
     }
 }
 
-#include "UtilsNew/Array.h"
+#include "utilitieslib/UtilsNew/Array.h"
 char* getIconColoredLetterBytes(int letter, U32 colorRGB)
 {
     // I admit this is horrendous on many levels

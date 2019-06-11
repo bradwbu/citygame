@@ -1,16 +1,16 @@
-#include "stdtypes.h"
-#include "error.h"
-#include "sock.h"
-#include "timing.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/network/sock.h"
+#include "utilitieslib/utils/timing.h"
 #include <string.h>
 #include <stdio.h>
-#include "SuperAssert.h"
-#include "utils.h"
-#include "endian.h"
-#include "strings_opt.h"
-#include "log.h"
+#include "utilitieslib/utils/SuperAssert.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/endian.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/log.h"
 #ifdef _WIN32
-#include <wininclude.h>
+#include "utilitieslib/utils/wininclude.h"
 #include <iphlpapi.h>
 #endif
 

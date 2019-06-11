@@ -10,11 +10,11 @@
  */
 #ifndef _XBOX
 
-#include "consoledebug.h"
-#include "stdtypes.h"
+#include "utilitieslib/utils/consoledebug.h"
+#include "utilitieslib/stdtypes.h"
 #include <stdio.h>
 #include <conio.h>
-#include "wininclude.h"
+#include "utilitieslib/utils/wininclude.h"
 
 void ConsoleDebugPause(void)
 {

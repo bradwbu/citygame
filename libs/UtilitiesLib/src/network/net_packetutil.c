@@ -1,14 +1,14 @@
 #define MEASURE_NETWORK_TRAFFIC_OPT_OUT
-#include "net_packetutil.h"
+#include "utilitieslib/network/net_packetutil.h"
 #include <stdio.h>
-#include "net_packet.h"
-#include "StringCache.h"
-#include "error.h"
-#include "timing.h"
-#include "mathutil.h"
-#include "StashTable.h"
-#include "estring.h"
-#include "utils.h"
+#include "utilitieslib/network/net_packet.h"
+#include "utilitieslib/components/StringCache.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/components/estring.h"
+#include "utilitieslib/utils/utils.h"
 
 extern int g_bAssertOnBitStreamError;
 

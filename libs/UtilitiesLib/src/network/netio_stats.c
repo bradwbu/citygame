@@ -1,11 +1,11 @@
-#include "netio_stats.h"
-#include "netio_core.h"
-#include "network\net_link.h"
-#include <assert.h>
+#include "utilitieslib/network/netio_stats.h"
+#include "utilitieslib/network/netio_core.h"
+#include "utilitieslib/network/net_link.h"
+#include "utilitieslib/assert/assert.h"
 #include <stdio.h>
 #include <time.h>
-#include "timing.h"
-#include "mathutil.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/mathutil.h"
 
 /**********************************************************************************************
  * Transfer rate tracking

@@ -8,14 +8,14 @@
  *
  */
 
-#include "stdtypes.h"
-#include "structInternals.h"
-#include "tokenStore.h"
-#include "superAssert.h"
-#include "earray.h"
-#include "utils.h"
-#include "error.h"
-#include "serialize.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/structInternals.h"
+#include "utilitieslib/utils/tokenStore.h"
+#include "utilitieslib/utils/superAssert.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/serialize.h"
 
 ////////////////////////////////////////////////// sanity checks
 void TestParseTable(ParseTable pti[])

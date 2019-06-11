@@ -9,15 +9,15 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "BitStream.h"
-#include "stdtypes.h"
+#include "utilitieslib/components/BitStream.h"
+#include "utilitieslib/stdtypes.h"
 #include "zlib/zlib.h"
-#include "error.h"
-#include "utils.h"
-#include "timing.h"
-#include "assert.h"
-#include "wininclude.h"
-#include "mathutil.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/mathutil.h"
 
 #define ROUND_BITS_UP(x) ((x + 7) & ~7)
 

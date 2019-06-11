@@ -1,7 +1,7 @@
-#include "crc32c.h"        
-#include "utils/endian.h"
-#include "utils/superassert.h"
-#include "utils/utils.h"
+#include "utilitieslib/network/crc32c.h"        
+#include "utilitieslib/utils/endian.h"
+#include "utilitieslib/utils/superassert.h"
+#include "utilitieslib/utils/utils.h"
 
 //#define COMPILER_SUPPORTS_SSE42
 

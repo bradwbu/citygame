@@ -1,8 +1,8 @@
-#include "wininclude.h"
-#include "StringUtil.h"
-#include "error.h"
-#include "assert.h"
-#include "stdtypes.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/StringUtil.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/stdtypes.h"
 
 
 #ifndef IS_SURROGATE_PAIR // in case windows headers are not recent

@@ -18,8 +18,8 @@
  *        3. Return false.
  */
 
-#include "pcube.h"
-#include "vec.h"
+#include "utilitieslib/components/TriCube/pcube.h"
+#include "utilitieslib/components/TriCube/vec.h"
 
 
 #define FOR(i,n) for ((i) = 0; (i) < (n); ++(i))

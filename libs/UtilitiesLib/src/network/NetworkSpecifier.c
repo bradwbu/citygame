@@ -1,8 +1,8 @@
-#include "NetworkSpecifier.h"
-#include "ArrayOld.h"
-#include "netio.h"
-#include "utils.h"
-#include <assert.h>
+#include "utilitieslib/network/NetworkSpecifier.h"
+#include "utilitieslib/components/ArrayOld.h"
+#include "utilitieslib/network/netio.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/assert/assert.h"
 
 NetworkSpecifier* createNetworkSpecifier(){
     return calloc(1, sizeof(NetworkSpecifier));

@@ -1,6 +1,6 @@
 
-#include "barrier.h"
-#include "profiler.h"
+#include "utilitieslib/UtilsNew/barrier.h"
+#include "utilitieslib/UtilsNew/profiler.h"
 
 #ifdef _CAP_PROFILING
 #error "Do not compile this file with /fastcap or /callcap"

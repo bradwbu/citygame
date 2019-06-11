@@ -1,22 +1,22 @@
-#include "network\netio_core.h"
-#include "network\net_structdefs.h"
-#include "network\net_packet.h"
-#include "network\netio_stats.h"
-#include "network\netio_send.h"
-#include "network\crypt.h"
-#include "network\net_link.h"
-#include "file.h"
-#include "net_packetutil.h"
-#include "endian.h"
+#include "utilitieslib/network/netio_core.h"
+#include "utilitieslib/network/net_structdefs.h"
+#include "utilitieslib/network/net_packet.h"
+#include "utilitieslib/network/netio_stats.h"
+#include "utilitieslib/network/netio_send.h"
+#include "utilitieslib/network/crypt.h"
+#include "utilitieslib/network/net_link.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/network/net_packetutil.h"
+#include "utilitieslib/utils/endian.h"
 
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 #include <stdio.h>
 
-#include "timing.h"
-#include "mathutil.h"
-#include "sock.h"
-#include "log.h"
-#include "utils.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/network/sock.h"
+#include "utilitieslib/utils/log.h"
+#include "utilitieslib/utils/utils.h"
 
 static int __cdecl cmpU32(U32* a,U32* b);
 static int mergeSibs(Array* sibs, Packet **pak_dst);

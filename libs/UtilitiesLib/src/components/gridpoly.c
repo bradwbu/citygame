@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "stdlib.h"
-#include "mathutil.h"
-#include "fpcube.h"
-#include "utils.h"
-#include "SuperAssert.h"
-#include "gridpoly.h"
-#include "GenericMesh.h"
-#include "file.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/TriCube/fpcube.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/SuperAssert.h"
+#include "utilitieslib/components/gridpoly.h"
+#include "utilitieslib/components/GenericMesh.h"
+#include "utilitieslib/utils/file.h"
 
 #define NUMCELLBITS            1
 #define NUMCELLS            2

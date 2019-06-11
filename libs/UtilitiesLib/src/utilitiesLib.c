@@ -1,9 +1,9 @@
-#include "utilitiesLib.h"
-#include "memcheck.h"
-#include "rand.h"
-#include "mathutil.h"
-#include "referencesystem.h"
-#include "wininclude.h"
+#include "utilitieslib/utilitiesLib.h"
+#include "utilitieslib/utils/memcheck.h"
+#include "utilitieslib/utils/rand.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/referencesystem.h"
+#include "utilitieslib/utils/wininclude.h"
 
 static bool bInit = false;
 int gBuildVersion = 0;

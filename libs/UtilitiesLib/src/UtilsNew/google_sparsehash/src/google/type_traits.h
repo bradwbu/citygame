@@ -43,7 +43,7 @@
 #ifndef BASE_TYPE_TRAITS_H__
 #define BASE_TYPE_TRAITS_H__
 
-#include <google/sparsehash/sparseconfig.h>
+#include "sparsehash/sparseconfig.h"
 #include <utility>                  // For pair
 
 _START_GOOGLE_NAMESPACE_

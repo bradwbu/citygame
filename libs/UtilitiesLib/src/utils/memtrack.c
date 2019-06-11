@@ -1,8 +1,8 @@
-#include "memtrack.h"
+#include "utilitieslib/utils/memtrack.h"
 
 #if MEMTRACK_BUILD
 
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 #include <crtdbg.h>
 #include <stdio.h>
 #include <time.h>

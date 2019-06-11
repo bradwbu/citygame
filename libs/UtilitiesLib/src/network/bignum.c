@@ -7,21 +7,21 @@
  *
  *
  ***************************************************************************/
-#include "bignum.h"
+#include "utilitieslib/network/bignum.h"
 
-#include "endian.h"
-#include "utils.h"
-#include "assert.h"
-#include "error.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
-#include "structNet.h"
-#include "netio_core.h"
-#include "net_linklist.h"
-#include "net_link.h"
-#include "log.h"
+#include "utilitieslib/utils/endian.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/utils/structNet.h"
+#include "utilitieslib/network/netio_core.h"
+#include "utilitieslib/network/net_linklist.h"
+#include "utilitieslib/network/net_link.h"
+#include "utilitieslib/utils/log.h"
 
 static void BigNum_DivMod(BigNum **numerator, BigNum *mod, BigNum **div /*optional*/);
 static void BigNum_ToString(char **res, BigNum *a);

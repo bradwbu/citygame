@@ -1,16 +1,16 @@
-#include "PigDir.h"
-#include "memcheck.h"
+#include "utilitieslib/utils/PigDir.h"
+#include "utilitieslib/utils/memcheck.h"
 #include <string.h>
-#include "MemoryPool.h"
-#include "file.h"
-#include "utils.h"
-#include "earray.h"
-#include "fileutil.h"
-#include "SharedMemory.h"
-#include "network/crypt.h"
-#include "memlog.h"
-#include "StashTable.h"
-#include "piglib_internal.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/utils/fileutil.h"
+#include "utilitieslib/components/SharedMemory.h"
+#include "utilitieslib/network/crypt.h"
+#include "utilitieslib/utils/memlog.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/utils/piglib_internal.h"
 
 #define PIG_FILE_SIZE (10*1024*1024)
 

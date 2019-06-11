@@ -1,21 +1,21 @@
-#include "network/net_masterlist.h"
-#include "network/net_masterlistref.h"
-#include "network/net_link.h"
-#include "network/net_linklist.h"
-#include "network/net_packet.h"
-#include "network/netio_receive.h"
-#include "network/net_socket.h"
-#include "network/netio_core.h"
-#include "network/sock.h"
-#include "utils.h"
-#include "file.h"
-#include "earray.h"
-#include "log.h"
+#include "utilitieslib/network/net_masterlist.h"
+#include "utilitieslib/network/net_masterlistref.h"
+#include "utilitieslib/network/net_link.h"
+#include "utilitieslib/network/net_linklist.h"
+#include "utilitieslib/network/net_packet.h"
+#include "utilitieslib/network/netio_receive.h"
+#include "utilitieslib/network/net_socket.h"
+#include "utilitieslib/network/netio_core.h"
+#include "utilitieslib/network/sock.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/utils/log.h"
 
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 #include <stdio.h>
 
-#include "timing.h"
+#include "utilitieslib/utils/timing.h"
 
 #define MAX_CONCURRENT_NETWORK_THREADS 1
 

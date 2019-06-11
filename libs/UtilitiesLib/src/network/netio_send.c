@@ -1,23 +1,23 @@
-#include "network\netio_send.h"
-#include "network\net_structdefs.h"
-#include "network\net_packet.h"
-#include "network\netio_stats.h"
-#include "network\netio_core.h"
-#include "network\net_socket.h"
-#include "network\net_link.h"
-#include "network\net_linklist.h"
-#include "network\crypt.h"
+#include "utilitieslib/network/netio_send.h"
+#include "utilitieslib/network/net_structdefs.h"
+#include "utilitieslib/network/net_packet.h"
+#include "utilitieslib/network/netio_stats.h"
+#include "utilitieslib/network/netio_core.h"
+#include "utilitieslib/network/net_socket.h"
+#include "utilitieslib/network/net_link.h"
+#include "utilitieslib/network/net_linklist.h"
+#include "utilitieslib/network/crypt.h"
 #include "zlib/zlib.h"
-#include "endian.h"
+#include "utilitieslib/utils/endian.h"
 
 #include <stdio.h>
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 
-#include "timing.h"
-#include "mathutil.h"
-#include "sock.h"
-#include "utils.h"
-#include "log.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/network/sock.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/log.h"
 #define UDPIP_OVERHEAD        28
 
 static int lnkBatchSendGenericErrorCheck(NetLink* link);

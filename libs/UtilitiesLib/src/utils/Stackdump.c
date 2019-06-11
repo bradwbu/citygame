@@ -1,8 +1,8 @@
 #include "stackwalk.h"
-#include "stackdump.h"
-#include "wininclude.h"
-#include "utils.h"
-#include "SuperAssert.h"
+#include "utilitieslib/utils/stackdump.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/SuperAssert.h"
 
 struct 
 {

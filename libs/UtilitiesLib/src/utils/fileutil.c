@@ -1,16 +1,16 @@
-#include "fileutil.h"
-#include "StashTable.h"
-#include "StringTable.h"
+#include "utilitieslib/utils/fileutil.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/components/StringTable.h"
 #include <string.h>
 #include <sys/stat.h>
-#include "FolderCache.h"
-#include "assert.h"
-#include "utils.h"
+#include "utilitieslib/utils/FolderCache.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/utils.h"
 #include <fcntl.h>
 #include <share.h>
 #include <direct.h>
-#include "wininclude.h"
-#include "timing.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/timing.h"
 
 void fileLoadDataDirs(int forceReload);
 

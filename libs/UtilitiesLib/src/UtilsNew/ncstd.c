@@ -8,8 +8,8 @@
  *
  ***************************************************************************/
 
-#include "memcheck.h"
-#include "ncstd.h"
+#include "utilitieslib/utils/memcheck.h"
+#include "utilitieslib/UtilsNew/ncstd.h"
 
 STATIC_ASSERT(sizeof(S32) == 4 && (S32)-1 == -1);
 

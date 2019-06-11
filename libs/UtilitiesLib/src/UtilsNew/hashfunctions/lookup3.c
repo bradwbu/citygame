@@ -46,8 +46,8 @@ on 1 byte), but shoehorning those bytes into integers efficiently is messy.
 #       define SELF_TEST 0
 #endif
 
-#include "stdtypes.h"
-#include "../ncstd.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/UtilsNew/ncstd.h"
 #include "../unittest/ncunittest.h"
 // #include "unittest/ncunittest.h"
 #include <stdio.h>      /* defines printf for tests */

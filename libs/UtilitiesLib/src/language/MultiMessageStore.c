@@ -1,13 +1,13 @@
-#include "MultiMessageStore.h"
-#include "utils.h"
-#include "AppLocale.h"
-#include "earray.h"
+#include "utilitieslib/language/MultiMessageStore.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/language/AppLocale.h"
+#include "utilitieslib/components/earray.h"
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
-#include "fileutil.h"
-#include "strings_opt.h"
-#include "error.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/fileutil.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/error.h"
 
 static void mmsAddMessages(MultiMessageStore* store, char* messageFilename, char* messageTypeFilename);
 static void mmsAddMessageDirectory(MultiMessageStore* store, char* dirname);

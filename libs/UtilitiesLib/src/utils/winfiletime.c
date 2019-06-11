@@ -13,7 +13,7 @@
  *
  * C code to be copied verbatim by xsubpp.
  */
-#include "wininclude.h"                 /* For the Win32 API stuff.         */
+#include "utilitieslib/utils/wininclude.h"  /* For the Win32 API stuff.         */
 
 #include <ctype.h>                      /* For isalpha() and tolower().     */
 #include <direct.h>                     /* For _getdrive().                 */
@@ -28,8 +28,8 @@
 
 #define WIN32_LEAN_AND_MEAN             /* Don't pull in too much crap when */
                                         /* including <windows.h> next.      */
-#include "timing.h"
-#include "stdtypes.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/stdtypes.h"
 
 
 #define _Debug() (0)

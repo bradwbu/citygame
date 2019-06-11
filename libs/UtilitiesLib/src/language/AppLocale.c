@@ -1,13 +1,13 @@
-#include "AppLocale.h"
-#include "utils.h"
+#include "utilitieslib/language/AppLocale.h"
+#include "utilitieslib/utils/utils.h"
 #include <string.h>
-#include "stdtypes.h"
-#include "RegistryReader.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/RegistryReader.h"
 #include <stdlib.h>
-#include "version/AppRegCache.h"
-#include "assert.h"
-#include "file.h" //for isdevelopmentmode()
-#include "error.h"
+#include "utilitieslib/version/AppRegCache.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/file.h" //for isdevelopmentmode()
+#include "utilitieslib/utils/error.h"
 
 struct {
     char *name;

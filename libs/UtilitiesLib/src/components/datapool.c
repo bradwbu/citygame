@@ -9,14 +9,14 @@
 *    Used heavily by the Pig system.
 *
 ***************************************************************************/
-#include "datapool.h"
+#include "utilitieslib/components/datapool.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "stdtypes.h"
-#include "SharedMemory.h"
-#include "assert.h"
-#include "StashTable.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/components/SharedMemory.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/components/StashTable.h"
 #include <limits.h>
 
 

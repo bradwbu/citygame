@@ -97,7 +97,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRTDBG_MAP_ALLOC=1;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\src\UtilsNew;$(ProjectDir)..\..\src\UtilsNew\google_sparsehash\src;$(ProjectDir)..\..\src\utils;$(ProjectDir)..\..\src\assert;$(ProjectDir)..\..\src\components;$(ProjectDir)..\..\src\components\TriCube;$(ProjectDir)..\..\src\language;$(ProjectDir)..\..\src\network;$(ProjectDir)..\..\src\version;$(ProjectDir)..\..\..\crashrpt\src;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\..\3rdparty\cryptopp-8.3\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\crashrpt\src;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\..\3rdparty\cryptopp-8.3\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996;4267</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -117,7 +117,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;_CRTDBG_MAP_ALLOC=1;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\src\UtilsNew;$(ProjectDir)..\..\src\UtilsNew\google_sparsehash\src;$(ProjectDir)..\..\src\utils;$(ProjectDir)..\..\src\assert;$(ProjectDir)..\..\src\components;$(ProjectDir)..\..\src\components\TriCube;$(ProjectDir)..\..\src\language;$(ProjectDir)..\..\src\network;$(ProjectDir)..\..\src\version;$(ProjectDir)..\..\..\crashrpt\src;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\..\3rdparty\cryptopp-8.3\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\crashrpt\src;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\..\3rdparty\cryptopp-8.3\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996;4267</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -139,7 +139,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\src\UtilsNew;$(ProjectDir)..\..\src\UtilsNew\google_sparsehash\src;$(ProjectDir)..\..\src\utils;$(ProjectDir)..\..\src\assert;$(ProjectDir)..\..\src\components;$(ProjectDir)..\..\src\components\TriCube;$(ProjectDir)..\..\src\language;$(ProjectDir)..\..\src\network;$(ProjectDir)..\..\src\version;$(ProjectDir)..\..\..\crashrpt\src;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\..\3rdparty\cryptopp-8.3\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\crashrpt\src;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\..\3rdparty\cryptopp-8.3\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996;4267</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -163,7 +163,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\src\UtilsNew;$(ProjectDir)..\..\src\UtilsNew\google_sparsehash\src;$(ProjectDir)..\..\src\utils;$(ProjectDir)..\..\src\assert;$(ProjectDir)..\..\src\components;$(ProjectDir)..\..\src\components\TriCube;$(ProjectDir)..\..\src\language;$(ProjectDir)..\..\src\network;$(ProjectDir)..\..\src\version;$(ProjectDir)..\..\..\crashrpt\src;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\..\3rdparty\cryptopp-8.3\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\crashrpt\src;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\..\3rdparty\cryptopp-8.3\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996;4267</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -179,195 +179,200 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\AppVersionDefines.h" />
-    <ClInclude Include="..\..\src\assert\assert.h" />
-    <ClInclude Include="..\..\src\components\ArrayOld.h" />
-    <ClInclude Include="..\..\src\components\AssociationList.h" />
-    <ClInclude Include="..\..\src\components\BinarySearchTree.h" />
-    <ClInclude Include="..\..\src\components\BitArray.h" />
-    <ClInclude Include="..\..\src\components\bitfield.h" />
-    <ClInclude Include="..\..\src\components\BitStream.h" />
-    <ClInclude Include="..\..\src\components\BloomFilter.h" />
-    <ClInclude Include="..\..\src\components\datalist.h" />
-    <ClInclude Include="..\..\src\components\datapool.h" />
-    <ClInclude Include="..\..\src\components\earray.h" />
-    <ClInclude Include="..\..\src\components\EString.h" />
-    <ClInclude Include="..\..\src\components\FilespecMap.h" />
-    <ClInclude Include="..\..\src\components\Frustum.h" />
-    <ClInclude Include="..\..\src\components\genericlist.h" />
-    <ClInclude Include="..\..\src\components\GenericMesh.h" />
-    <ClInclude Include="..\..\src\components\GenericPoly.h" />
-    <ClInclude Include="..\..\src\components\gridpoly.h" />
-    <ClInclude Include="..\..\src\components\HashFunctions.h" />
-    <ClInclude Include="..\..\src\components\HashTableStack.h" />
-    <ClInclude Include="..\..\src\components\mailbox.h" />
-    <ClInclude Include="..\..\src\components\MemoryBank.h" />
-    <ClInclude Include="..\..\src\components\MemoryPool.h" />
-    <ClInclude Include="..\..\src\components\MemRef.h" />
-    <ClInclude Include="..\..\src\components\MetaDictionary.h" />
-    <ClInclude Include="..\..\src\components\MRUList.h" />
-    <ClInclude Include="..\..\src\components\MultiVal.h" />
-    <ClInclude Include="..\..\src\components\NamedBitArray.h" />
-    <ClInclude Include="..\..\src\components\Octree.h" />
-    <ClInclude Include="..\..\src\components\PerformanceCounter.h" />
-    <ClInclude Include="..\..\src\components\Queue.h" />
-    <ClInclude Include="..\..\src\components\ReferenceList.h" />
-    <ClInclude Include="..\..\src\components\referencesystem.h" />
-    <ClInclude Include="..\..\src\components\ReferenceSystem_Internal.h" />
-    <ClInclude Include="..\..\src\components\RingBuffer.h" />
-    <ClInclude Include="..\..\src\components\SharedHeap.h" />
-    <ClInclude Include="..\..\src\components\sharedmalloc.h" />
-    <ClInclude Include="..\..\src\components\SharedMemory.h" />
-    <ClInclude Include="..\..\src\components\SharedQueue.h" />
-    <ClInclude Include="..\..\src\components\SimpleSet.h" />
-    <ClInclude Include="..\..\src\components\StashTable.h" />
-    <ClInclude Include="..\..\src\components\StringCache.h" />
-    <ClInclude Include="..\..\src\components\StringTable.h" />
-    <ClInclude Include="..\..\src\components\TriCube\fpcube.h" />
-    <ClInclude Include="..\..\src\components\TriCube\pcube.h" />
-    <ClInclude Include="..\..\src\components\WorkerThread.h" />
-    <ClInclude Include="..\..\src\language\AppLocale.h" />
-    <ClInclude Include="..\..\src\language\MessageStore.h" />
-    <ClInclude Include="..\..\src\language\MessageStoreUtil.h" />
-    <ClInclude Include="..\..\src\language\MultiMessageStore.h" />
-    <ClInclude Include="..\..\src\network\bignum.h" />
-    <ClInclude Include="..\..\src\network\bindiff.h" />
-    <ClInclude Include="..\..\src\network\blowfish.h" />
-    <ClInclude Include="..\..\src\network\crc32c.h" />
-    <ClInclude Include="..\..\src\network\crypt.h" />
-    <ClInclude Include="..\..\src\network\fingerprint.h" />
-    <ClInclude Include="..\..\src\network\ftpclient.h" />
-    <ClInclude Include="..\..\src\network\netcomp.h" />
-    <ClInclude Include="..\..\src\network\netio.h" />
-    <ClInclude Include="..\..\src\network\netio_core.h" />
-    <ClInclude Include="..\..\src\network\netio_receive.h" />
-    <ClInclude Include="..\..\src\network\netio_send.h" />
-    <ClInclude Include="..\..\src\network\netio_stats.h" />
-    <ClInclude Include="..\..\src\network\NetworkSpecifier.h" />
-    <ClInclude Include="..\..\src\network\net_link.h" />
-    <ClInclude Include="..\..\src\network\net_linklist.h" />
-    <ClInclude Include="..\..\src\network\net_masterlist.h" />
-    <ClInclude Include="..\..\src\network\net_masterlistref.h" />
-    <ClInclude Include="..\..\src\network\net_packet.h" />
-    <ClInclude Include="..\..\src\network\net_packetutil.h" />
-    <ClInclude Include="..\..\src\network\net_packet_common.h" />
-    <ClInclude Include="..\..\src\network\net_socket.h" />
-    <ClInclude Include="..\..\src\network\net_structdefs.h" />
-    <ClInclude Include="..\..\src\network\net_typedefs.h" />
-    <ClInclude Include="..\..\src\network\net_version.h" />
-    <ClInclude Include="..\..\src\network\rsa.h" />
-    <ClInclude Include="..\..\src\network\sock.h" />
-    <ClInclude Include="..\..\src\stdtypes.h" />
-    <ClInclude Include="..\..\src\utilitiesLib.h" />
-    <ClInclude Include="..\..\src\UtilsCXX\apcworkerpool.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\condition.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\criticalsection.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\futex.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\keyedcondition.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\list.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\listlist.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\lockingworkerpool.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\locklessworkerpool.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\nullworkerpool.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\ring.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\ringchain.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\semaphoreworkerpool.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\sleeplock.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\taskthread.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\threadedpoolallocator.hpp" />
-    <ClInclude Include="..\..\src\UtilsCXX\workerpoolbase.hpp" />
-    <ClInclude Include="..\..\src\UtilsNew\Array.h" />
-    <ClInclude Include="..\..\src\UtilsNew\barrier.h" />
-    <ClInclude Include="..\..\src\UtilsNew\Bits.h" />
-    <ClInclude Include="..\..\src\UtilsNew\lock.h" />
-    <ClInclude Include="..\..\src\UtilsNew\meta.h" />
-    <ClInclude Include="..\..\src\UtilsNew\ncHash.h" />
-    <ClInclude Include="..\..\src\UtilsNew\ncstd.h" />
-    <ClInclude Include="..\..\src\UtilsNew\ncutils.h" />
-    <ClInclude Include="..\..\src\UtilsNew\ntapiext.h" />
-    <ClInclude Include="..\..\src\UtilsNew\profiler.h" />
-    <ClInclude Include="..\..\src\UtilsNew\Str.h" />
-    <ClInclude Include="..\..\src\UtilsNew\Stream.h" />
-    <ClInclude Include="..\..\src\UtilsNew\timer.h" />
-    <ClInclude Include="..\..\src\utils\Breakpoint.h" />
-    <ClInclude Include="..\..\src\utils\Cbox.h" />
-    <ClInclude Include="..\..\src\utils\cmdoldparse.h" />
-    <ClInclude Include="..\..\src\utils\cmdoldparsetypes.h" />
-    <ClInclude Include="..\..\src\utils\Color.h" />
-    <ClInclude Include="..\..\src\utils\CommandFileParser.h" />
-    <ClInclude Include="..\..\src\utils\ConsoleDebug.h" />
-    <ClInclude Include="..\..\src\utils\contextQsort.h" />
-    <ClInclude Include="..\..\src\utils\ConvertUtf.h" />
-    <ClInclude Include="..\..\src\utils\cpu_count.h" />
-    <ClInclude Include="..\..\src\utils\dds.h" />
-    <ClInclude Include="..\..\src\utils\DebugState.h" />
-    <ClInclude Include="..\..\src\utils\DirMonitor.h" />
-    <ClInclude Include="..\..\src\utils\dobbs_hash.h" />
-    <ClInclude Include="..\..\src\utils\endian.h" />
-    <ClInclude Include="..\..\src\utils\error.h" />
-    <ClInclude Include="..\..\src\utils\eval.h" />
-    <ClInclude Include="..\..\src\utils\fastmath.h" />
-    <ClInclude Include="..\..\src\utils\file.h" />
-    <ClInclude Include="..\..\src\utils\fileutil.h" />
-    <ClInclude Include="..\..\src\utils\fileWatch.h" />
-    <ClInclude Include="..\..\src\utils\FolderCache.h" />
-    <ClInclude Include="..\..\src\utils\fpmacros.h" />
-    <ClInclude Include="..\..\src\utils\genericDialog.h" />
-    <ClInclude Include="..\..\src\utils\hoglib.h" />
-    <ClInclude Include="..\..\src\utils\hogutil.h" />
-    <ClInclude Include="..\..\src\utils\LineDist.h" />
-    <ClInclude Include="..\..\src\utils\ListView.h" />
-    <ClInclude Include="..\..\src\utils\log.h" />
-    <ClInclude Include="..\..\src\utils\mathn.h" />
-    <ClInclude Include="..\..\src\utils\mathn_internal.h" />
-    <ClInclude Include="..\..\src\utils\mathutil.h" />
-    <ClInclude Include="..\..\src\utils\memcheck.h" />
-    <ClInclude Include="..\..\src\utils\memlog.h" />
-    <ClInclude Include="..\..\src\utils\MemoryMonitor.h" />
-    <ClInclude Include="..\..\src\utils\memtrack.h" />
-    <ClInclude Include="..\..\src\utils\mutex.h" />
-    <ClInclude Include="..\..\src\utils\osdependent.h" />
-    <ClInclude Include="..\..\src\utils\PigDir.h" />
-    <ClInclude Include="..\..\src\utils\PigFileWrapper.h" />
-    <ClInclude Include="..\..\src\utils\piglib.h" />
-    <ClInclude Include="..\..\src\utils\piglib_internal.h" />
-    <ClInclude Include="..\..\src\utils\prefetch.h" />
-    <ClInclude Include="..\..\src\utils\process_util.h" />
-    <ClInclude Include="..\..\src\utils\qsortG.h" />
-    <ClInclude Include="..\..\src\utils\Quat.h" />
-    <ClInclude Include="..\..\src\utils\rand.h" />
-    <ClInclude Include="..\..\src\utils\RegistryReader.h" />
-    <ClInclude Include="..\..\src\utils\rgb_hsv.h" />
-    <ClInclude Include="..\..\src\utils\scriptvars.h" />
-    <ClInclude Include="..\..\src\utils\serialize.h" />
-    <ClInclude Include="..\..\src\utils\SimpleParser.h" />
-    <ClInclude Include="..\..\src\utils\ssemath.h" />
-    <ClInclude Include="..\..\src\utils\Stackdump.h" />
-    <ClInclude Include="..\..\src\utils\strings_opt.h" />
-    <ClInclude Include="..\..\src\utils\StringUtil.h" />
-    <ClInclude Include="..\..\src\utils\structDefines.h" />
-    <ClInclude Include="..\..\src\utils\structHist.h" />
-    <ClInclude Include="..\..\src\utils\structInternals.h" />
-    <ClInclude Include="..\..\src\utils\structNet.h" />
-    <ClInclude Include="..\..\src\utils\structoldnames.h" />
-    <ClInclude Include="..\..\src\utils\structTokenizer.h" />
-    <ClInclude Include="..\..\src\utils\SuperAssert.h" />
-    <ClInclude Include="..\..\src\utils\sysutil.h" />
-    <ClInclude Include="..\..\src\utils\textparser.h" />
-    <ClInclude Include="..\..\src\utils\textparserUtils.h" />
-    <ClInclude Include="..\..\src\utils\tga.h" />
-    <ClInclude Include="..\..\src\utils\threadedFileCopy.h" />
-    <ClInclude Include="..\..\src\utils\tiff.h" />
-    <ClInclude Include="..\..\src\utils\timing.h" />
-    <ClInclude Include="..\..\src\utils\tokenstore.h" />
-    <ClInclude Include="..\..\src\utils\UnitSpec.h" />
-    <ClInclude Include="..\..\src\utils\utils.h" />
-    <ClInclude Include="..\..\src\utils\winfiletime.h" />
-    <ClInclude Include="..\..\src\utils\wininclude.h" />
-    <ClInclude Include="..\..\src\utils\WinTabUtil.h" />
-    <ClInclude Include="..\..\src\utils\winutil.h" />
-    <ClInclude Include="..\..\src\version\AppRegCache.h" />
-    <ClInclude Include="..\..\src\version\AppVersion.h" />
+    <ClInclude Include="..\..\include\utilitieslib\AppVersionDefines.h" />
+    <ClInclude Include="..\..\include\utilitieslib\assert\assert.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\ArrayOld.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\AssociationList.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\BinarySearchTree.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\BitArray.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\bitfield.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\BitStream.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\BloomFilter.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\datalist.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\datapool.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\earray.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\EString.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\FilespecMap.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\Frustum.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\genericlist.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\GenericMesh.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\GenericPoly.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\gridpoly.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\HashFunctions.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\HashTableStack.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\mailbox.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\MemoryBank.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\MemoryPool.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\MemRef.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\MetaDictionary.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\MRUList.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\MultiVal.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\NamedBitArray.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\Octree.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\PerformanceCounter.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\Queue.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\ReferenceList.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\referencesystem.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\ReferenceSystem_Internal.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\RingBuffer.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\SharedHeap.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\sharedmalloc.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\SharedMemory.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\SharedQueue.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\SimpleSet.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\StashTable.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\StringCache.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\StringTable.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\TriCube\fpcube.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\TriCube\pcube.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\TriCube\vec.h" />
+    <ClInclude Include="..\..\include\utilitieslib\components\WorkerThread.h" />
+    <ClInclude Include="..\..\include\utilitieslib\language\AppLocale.h" />
+    <ClInclude Include="..\..\include\utilitieslib\language\MessageStore.h" />
+    <ClInclude Include="..\..\include\utilitieslib\language\MessageStoreUtil.h" />
+    <ClInclude Include="..\..\include\utilitieslib\language\MultiMessageStore.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\bignum.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\bindiff.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\blowfish.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\crc32c.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\crypt.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\fingerprint.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\ftpclient.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\netcomp.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\netio.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\netio_core.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\netio_receive.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\netio_send.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\netio_stats.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\NetworkSpecifier.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\net_link.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\net_linklist.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\net_masterlist.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\net_masterlistref.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\net_packet.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\net_packetutil.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\net_packet_common.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\net_socket.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\net_structdefs.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\net_typedefs.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\net_version.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\rsa.h" />
+    <ClInclude Include="..\..\include\utilitieslib\network\sock.h" />
+    <ClInclude Include="..\..\include\utilitieslib\stdtypes.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utilitiesLib.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\apcworkerpool.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\condition.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\criticalsection.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\futex.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\keyedcondition.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\list.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\listlist.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\lockingworkerpool.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\locklessworkerpool.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\nullworkerpool.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\ring.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\ringchain.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\semaphoreworkerpool.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\sleeplock.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\taskthread.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\threadedpoolallocator.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\workerpoolbase.hpp" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\Array.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\barrier.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\Bits.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\lock.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\meta.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\ncHash.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\ncstd.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\ncutils.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\ntapiext.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\profiler.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\Str.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\Stream.h" />
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\timer.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\Breakpoint.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\Cbox.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\cmdoldparse.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\cmdoldparsetypes.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\Color.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\CommandFileParser.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\ConsoleDebug.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\contextQsort.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\ConvertUtf.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\cpu_count.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\dds.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\DebugState.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\DirMonitor.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\dobbs_hash.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\endian.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\error.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\eval.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\fastmath.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\file.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\fileutil.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\fileWatch.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\FolderCache.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\fpmacros.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\genericDialog.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\hoglib.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\hogutil.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\LineDist.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\ListView.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\log.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\mathn.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\mathn_internal.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\mathutil.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\memcheck.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\memlog.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\MemoryMonitor.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\memtrack.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\mutex.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\osdependent.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\PigDir.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\PigFileWrapper.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\piglib.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\piglib_internal.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\prefetch.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\process_util.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\qsortG.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\Quat.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\rand.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\RegistryReader.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\rgb_hsv.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\scriptvars.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\serialize.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\SimpleParser.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\ssemath.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\Stackdump.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\strings_opt.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\StringUtil.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\structDefines.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\structHist.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\structInternals.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\structNet.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\structoldnames.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\structTokenizer.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\SuperAssert.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\sysutil.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\textparser.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\textparserUtils.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\tga.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\threadedFileCopy.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\tiff.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\timing.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\tokenstore.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\UnitSpec.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\utils.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\winfiletime.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\wininclude.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\WinTabUtil.h" />
+    <ClInclude Include="..\..\include\utilitieslib\utils\winutil.h" />
+    <ClInclude Include="..\..\include\utilitieslib\version\AppRegCache.h" />
+    <ClInclude Include="..\..\include\utilitieslib\version\AppVersion.h" />
+    <ClInclude Include="..\..\src\UtilsNew\google_sparsehash\src\google\sparsehash\densehashtable.h" />
+    <ClInclude Include="..\..\src\UtilsNew\google_sparsehash\src\google\sparsehash\sparseconfig.h" />
+    <ClInclude Include="..\..\src\UtilsNew\google_sparsehash\src\google\sparsehash\sparsehashtable.h" />
+    <ClInclude Include="..\..\src\UtilsNew\google_sparsehash\src\google\type_traits.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\components\ArrayOld.c" />
@@ -540,6 +545,9 @@
     <ProjectReference Include="..\..\..\..\Utilities\StructParser\build\vs2019\StructParser.vcxproj">
       <Project>{3d2903c7-c38e-43ef-8974-280d59da4a6d}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\UtilsNew\google_sparsehash\src\google\dense_hash_map" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -17,18 +17,18 @@
 #include "cryptlib/modes.h"
 #include "cryptlib/hex.h"
 #include "cryptlib/aes.h"
-#include "stdtypes.h"
-#include "timing.h"
-#include "superassert.h"
-#include "crypt.h"
-#include "utils/mathutil.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/superassert.h"
+#include "utilitieslib/network/crypt.h"
+#include "utilitieslib/utils/mathutil.h"
 
 using namespace CryptoPP;
 using namespace CryptoPP::Weak1;
 
 C_DECLARATIONS_BEGIN
 
-#include "endian.h"
+#include "utilitieslib/utils/endian.h"
 
 THREADSAFE_STATIC LC_RNG *rnd_gen = NULL;
 THREADSAFE_STATIC DH *dh = NULL;

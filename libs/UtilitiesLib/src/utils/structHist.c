@@ -1,15 +1,15 @@
-#include "StashTable.h"
-#include "structHist.h"
-#include "structNet.h"
-#include "assert.h"
-#include "file.h"
-#include "StringCache.h"
-#include "utils.h"
-#include "mathutil.h"
-#include "timing.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/utils/structHist.h"
+#include "utilitieslib/utils/structNet.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/components/StringCache.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/utils/timing.h"
 #include <string.h>
-#include "tokenstore.h"
-#include "textparserutils.h"
+#include "utilitieslib/utils/tokenstore.h"
+#include "utilitieslib/utils/textparserutils.h"
 
 //NOTE: THIS IS A UNION!
 typedef union StructHistElem

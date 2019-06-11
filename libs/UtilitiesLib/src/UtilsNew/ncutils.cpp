@@ -7,9 +7,9 @@
  *
  *
  ***************************************************************************/
-#include "stdtypes.h"
-#include "ncstd.h"
-#include "ncutils.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/UtilsNew/ncstd.h"
+#include "utilitieslib/UtilsNew/ncutils.h"
 #include <time.h>
 #include <process.h>
 

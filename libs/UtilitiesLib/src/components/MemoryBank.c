@@ -6,16 +6,16 @@
 //#pragma warning(disable:4047) // return type differs in lvl of indirection warning
 //#pragma warning(disable:4002) // too manay macro parameters warning
 
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <crtdbg.h>
-#include "MemoryPool.h"
-#include "MemoryBank.h"
-#include "ArrayOld.h"
-#include "Timing.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/components/MemoryBank.h"
+#include "utilitieslib/components/ArrayOld.h"
+#include "utilitieslib/utils/Timing.h"
 
 typedef struct MemoryLoanImp MemoryLoanImp;
 typedef struct MemoryBankElementImp MemoryBankElementImp;

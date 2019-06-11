@@ -1,8 +1,8 @@
-#include "GenericMesh.h"
-#include "mathutil.h"
-#include "SuperAssert.h"
-#include "Error.h"
-#include "memcheck.h"
+#include "utilitieslib/components/GenericMesh.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/utils/SuperAssert.h"
+#include "utilitieslib/utils/Error.h"
+#include "utilitieslib/utils/memcheck.h"
 
 #if 0
 #define CHECKHEAP     {assert(heapValidateAll());}

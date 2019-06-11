@@ -1,7 +1,7 @@
 #define MEASURE_NETWORK_TRAFFIC_OPT_OUT
-#include "mathutil.h"
-#include "netcomp.h"
-#include "network\netio.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/network/netcomp.h"
+#include "utilitieslib/network/netio.h"
 #include "zlib/zlib.h"
 #include <stdio.h>
 

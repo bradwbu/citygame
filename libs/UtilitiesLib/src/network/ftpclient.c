@@ -7,17 +7,17 @@
  *
  *
  ***************************************************************************/
-#include "ftpclient.h"
-#include "EString.h"
-#include "sock.h"
-#include "utils.h"
-#include "assert.h"
-#include "error.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
-#include "structNet.h"
+#include "utilitieslib/network/ftpclient.h"
+#include "utilitieslib/components/EString.h"
+#include "utilitieslib/network/sock.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/utils/structNet.h"
 
 MP_DEFINE(FtpClient);
 static FtpClient* FtpClient_Create( SOCKET s )

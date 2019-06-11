@@ -1,10 +1,10 @@
 #ifndef _XBOX
 
-#include "wintabutil.h"
-#include "earray.h"
-#include "strings_opt.h"
-#include "SuperAssert.h"
-#include "utils.h"
+#include "utilitieslib/utils/wintabutil.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/SuperAssert.h"
+#include "utilitieslib/utils/utils.h"
 #include <commctrl.h>
 
 

@@ -1,17 +1,17 @@
 #define MEASURE_NETWORK_TRAFFIC_OPT_OUT
-#include "network\net_packet.h"
-#include "network\net_version.h"
-#include "network\net_masterlist.h"
-#include "network\netio_core.h"
-#include "network\crypt.h"
-#include "network\sock.h"
+#include "utilitieslib/network/net_packet.h"
+#include "utilitieslib/network/net_version.h"
+#include "utilitieslib/network/net_masterlist.h"
+#include "utilitieslib/network/netio_core.h"
+#include "utilitieslib/network/crypt.h"
+#include "utilitieslib/network/sock.h"
 
-#include "MemoryPool.h"
-#include "MemoryBank.h"
-#include <assert.h>
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/components/MemoryBank.h"
+#include "utilitieslib/assert/assert.h"
 #include <stdio.h>
-#include <timing.h>
-#include "log.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/log.h"
 
 // Should packets include data type and length info?
 //    This variable can be set through pktSendDebugInfo().

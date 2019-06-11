@@ -12,21 +12,21 @@
  *
  */
 
-#include "stdtypes.h"
-#include "structinternals.h"
-#include "textparser.h"
-#include "earray.h"
-#include "tokenStore.h"
-#include "SuperAssert.h"
-#include "stdtypes.h"
-#include "error.h"
-#include "utils.h"
-#include "strings_opt.h"
-#include "sysutil.h"
-#include "mathutil.h"
-#include "stringcache.h"
-#include "sharedmemory.h"
-#include "referencesystem.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/structinternals.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/utils/tokenStore.h"
+#include "utilitieslib/utils/SuperAssert.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/sysutil.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/stringcache.h"
+#include "utilitieslib/components/sharedmemory.h"
+#include "utilitieslib/components/referencesystem.h"
 
 #ifdef ENABLE_LEAK_DETECTION
 static char *parser_temp_allocation_name(const char *name)

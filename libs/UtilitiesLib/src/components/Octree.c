@@ -2,16 +2,16 @@
 #include <string.h>
 #include "stdlib.h"
 
-#include "memcheck.h"
-#include "timing.h"
-#include "mathutil.h"
-#include "assert.h"
-#include "error.h"
-#include "fpmacros.h"
-#include "memorypool.h"
-#include "earray.h"
-#include "Frustum.h"
-#include "Octree.h"
+#include "utilitieslib/utils/memcheck.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/fpmacros.h"
+#include "utilitieslib/components/memorypool.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/components/Frustum.h"
+#include "utilitieslib/components/Octree.h"
 
 #define OCT_NUMCELLS            2
 #define OCT_NUMCELLBITS            1  // log2i(OCT_NUMCELLS)

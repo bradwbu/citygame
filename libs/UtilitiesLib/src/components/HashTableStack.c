@@ -21,9 +21,9 @@
  *    when a need for the feature shows up.
  */
 
-#include "HashTableStack.h"
-#include <assert.h>
-#include "StashTable.h"
+#include "utilitieslib/components/HashTableStack.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/components/StashTable.h"
 
 HashTableStack createHashTableStack(){
     return createArray();

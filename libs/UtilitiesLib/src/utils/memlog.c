@@ -1,11 +1,11 @@
-#include "memlog.h"
+#include "utilitieslib/utils/memlog.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "wininclude.h"
-#include "stdtypes.h"
-#include "utils.h"
-#include "timing.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/timing.h"
 
 MemLog g_genericlog = {0};
 

@@ -1,6 +1,6 @@
 // bitfield.c - functions to deal with integer arrays of bits
 
-#include "bitfield.h"
+#include "utilitieslib/components/bitfield.h"
 #include <string.h>
 
 #define BITS_PER_ITEM 32

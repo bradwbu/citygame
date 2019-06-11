@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Source Files\components">
       <UniqueIdentifier>{9d22cf3f-5edc-48b9-a973-c9b010321fc4}</UniqueIdentifier>
     </Filter>
@@ -33,604 +29,636 @@
     <Filter Include="Source Files\components\TriCube">
       <UniqueIdentifier>{1dd41631-4ff3-44ad-91b2-36131424a30f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\assert">
-      <UniqueIdentifier>{c54b7367-f1df-4aba-b816-f55484e413a7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\utils">
-      <UniqueIdentifier>{539495dc-f3db-44e7-9163-36d88a872578}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\components">
-      <UniqueIdentifier>{df0f7a6f-d047-4871-9758-1721998c389c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\language">
-      <UniqueIdentifier>{e23836f4-e057-4f6c-848d-bff32487f5d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\network">
-      <UniqueIdentifier>{5ecde12a-1271-482f-8a6c-6325b4a7f9f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\version">
-      <UniqueIdentifier>{d71fc40f-7b81-4ca2-9f2a-ac00fc0db3e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\UtilsNew">
-      <UniqueIdentifier>{51104d9a-e63d-447b-981d-08d2c1ac9798}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\UtilsCXX">
-      <UniqueIdentifier>{9aa4d2e6-683e-4339-8dba-d0c4c6a23d08}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\components\TriCube">
-      <UniqueIdentifier>{66566476-0c7c-42cd-b5b1-8626f574ab1f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\UtilsNew\hashfunctions">
       <UniqueIdentifier>{e9d96f08-9136-42ab-a01a-31d654d03041}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Public Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Public Header Files\assert">
+      <UniqueIdentifier>{c54b7367-f1df-4aba-b816-f55484e413a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Header Files\utils">
+      <UniqueIdentifier>{539495dc-f3db-44e7-9163-36d88a872578}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Header Files\components">
+      <UniqueIdentifier>{df0f7a6f-d047-4871-9758-1721998c389c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Header Files\components\TriCube">
+      <UniqueIdentifier>{66566476-0c7c-42cd-b5b1-8626f574ab1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Header Files\language">
+      <UniqueIdentifier>{e23836f4-e057-4f6c-848d-bff32487f5d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Header Files\network">
+      <UniqueIdentifier>{5ecde12a-1271-482f-8a6c-6325b4a7f9f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Header Files\version">
+      <UniqueIdentifier>{d71fc40f-7b81-4ca2-9f2a-ac00fc0db3e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Header Files\UtilsNew">
+      <UniqueIdentifier>{51104d9a-e63d-447b-981d-08d2c1ac9798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Header Files\UtilsCXX">
+      <UniqueIdentifier>{9aa4d2e6-683e-4339-8dba-d0c4c6a23d08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private Header Files">
+      <UniqueIdentifier>{24c69688-3d33-42dc-8c72-cf283129adf5}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Private Header Files\UtilsNew">
+      <UniqueIdentifier>{989f8d8a-2859-447a-910d-85061d6dac13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private Header Files\UtilsNew\google_sparsehash">
+      <UniqueIdentifier>{6356ba63-a448-464b-95d8-1e8ecddbdca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private Header Files\UtilsNew\google_sparsehash\sparsehash">
+      <UniqueIdentifier>{951d6b6d-8122-49e0-ae3c-e434ac713ead}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\assert\assert.h">
-      <Filter>Header Files\assert</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\assert\assert.h">
+      <Filter>Public Header Files\assert</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utilitiesLib.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utilitiesLib.h">
+      <Filter>Public Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\stdtypes.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\stdtypes.h">
+      <Filter>Public Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\cpu_count.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\cpu_count.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\TriCube\fpcube.h">
-      <Filter>Header Files\components\TriCube</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\TriCube\fpcube.h">
+      <Filter>Public Header Files\components\TriCube</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\TriCube\pcube.h">
-      <Filter>Header Files\components\TriCube</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\TriCube\pcube.h">
+      <Filter>Public Header Files\components\TriCube</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\ArrayOld.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\ArrayOld.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\AssociationList.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\AssociationList.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\BinarySearchTree.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\BinarySearchTree.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\BitArray.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\BitArray.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\bitfield.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\bitfield.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\BitStream.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\BitStream.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\BloomFilter.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\BloomFilter.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\datalist.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\datalist.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\datapool.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\datapool.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\earray.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\earray.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\EString.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\EString.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\FilespecMap.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\FilespecMap.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\Frustum.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\Frustum.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\genericlist.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\genericlist.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\GenericMesh.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\GenericMesh.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\GenericPoly.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\GenericPoly.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\gridpoly.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\gridpoly.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\HashFunctions.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\HashFunctions.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\HashTableStack.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\HashTableStack.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\mailbox.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\mailbox.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\MemoryBank.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\MemoryBank.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\MemoryPool.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\MemoryPool.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\MemRef.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\MemRef.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\MetaDictionary.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\MetaDictionary.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\MRUList.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\MRUList.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\MultiVal.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\MultiVal.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\NamedBitArray.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\NamedBitArray.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\Octree.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\Octree.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\PerformanceCounter.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\PerformanceCounter.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\Queue.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\Queue.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\ReferenceList.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\ReferenceList.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\referencesystem.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\referencesystem.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\ReferenceSystem_Internal.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\ReferenceSystem_Internal.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\RingBuffer.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\RingBuffer.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\SharedHeap.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\SharedHeap.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\sharedmalloc.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\sharedmalloc.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\SharedMemory.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\SharedMemory.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\SharedQueue.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\SharedQueue.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\SimpleSet.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\SimpleSet.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\StashTable.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\StashTable.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\StringCache.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\StringCache.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\StringTable.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\StringTable.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\components\WorkerThread.h">
-      <Filter>Header Files\components</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\components\WorkerThread.h">
+      <Filter>Public Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\language\MessageStoreUtil.h">
-      <Filter>Header Files\language</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\language\MessageStoreUtil.h">
+      <Filter>Public Header Files\language</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\language\MultiMessageStore.h">
-      <Filter>Header Files\language</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\language\MultiMessageStore.h">
+      <Filter>Public Header Files\language</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\language\AppLocale.h">
-      <Filter>Header Files\language</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\language\AppLocale.h">
+      <Filter>Public Header Files\language</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\language\MessageStore.h">
-      <Filter>Header Files\language</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\language\MessageStore.h">
+      <Filter>Public Header Files\language</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\rsa.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\rsa.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\NetworkSpecifier.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\NetworkSpecifier.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\netio_stats.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\netio_stats.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\netio_send.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\netio_send.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\netio_receive.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\netio_receive.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\netio_core.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\netio_core.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\netio.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\netio.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\netcomp.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\netcomp.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\net_version.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\net_version.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\net_typedefs.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\net_typedefs.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\net_structdefs.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\net_structdefs.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\net_socket.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\net_socket.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\net_packetutil.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\net_packetutil.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\net_packet_common.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\net_packet_common.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\net_packet.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\net_packet.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\net_masterlistref.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\net_masterlistref.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\net_masterlist.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\net_masterlist.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\net_linklist.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\net_linklist.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\net_link.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\net_link.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\ftpclient.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\ftpclient.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\fingerprint.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\fingerprint.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\crypt.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\crypt.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\crc32c.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\crc32c.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\blowfish.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\blowfish.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\bindiff.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\bindiff.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\bignum.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\bignum.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\network\sock.h">
-      <Filter>Header Files\network</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\network\sock.h">
+      <Filter>Public Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\cmdoldparse.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\cmdoldparse.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\cmdoldparsetypes.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\cmdoldparsetypes.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\Color.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\Color.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\CommandFileParser.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\CommandFileParser.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\ConsoleDebug.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\ConsoleDebug.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\contextQsort.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\contextQsort.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\ConvertUtf.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\ConvertUtf.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\dds.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\dds.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\DebugState.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\DebugState.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\DirMonitor.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\DirMonitor.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\dobbs_hash.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\dobbs_hash.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\endian.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\endian.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\error.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\error.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\eval.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\eval.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\fastmath.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\fastmath.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\file.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\file.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\fileutil.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\fileutil.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\fileWatch.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\fileWatch.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\FolderCache.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\FolderCache.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\fpmacros.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\fpmacros.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\genericDialog.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\genericDialog.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\hoglib.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\hoglib.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\hogutil.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\hogutil.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\LineDist.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\LineDist.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\ListView.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\ListView.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\log.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\log.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\mathn.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\mathn.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\mathn_internal.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\mathn_internal.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\mathutil.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\mathutil.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\memcheck.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\memcheck.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\memlog.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\memlog.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\MemoryMonitor.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\MemoryMonitor.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\memtrack.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\memtrack.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\mutex.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\mutex.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\osdependent.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\osdependent.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\PigDir.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\PigDir.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\PigFileWrapper.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\PigFileWrapper.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\piglib.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\piglib.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\piglib_internal.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\piglib_internal.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\prefetch.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\prefetch.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\process_util.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\process_util.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\qsortG.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\qsortG.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\Quat.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\Quat.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\rand.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\rand.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\RegistryReader.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\RegistryReader.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\rgb_hsv.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\rgb_hsv.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\scriptvars.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\scriptvars.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\serialize.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\serialize.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\SimpleParser.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\SimpleParser.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\ssemath.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\ssemath.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\Stackdump.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\Stackdump.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\strings_opt.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\strings_opt.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\StringUtil.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\StringUtil.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\structDefines.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\structDefines.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\structHist.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\structHist.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\structInternals.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\structInternals.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\structNet.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\structNet.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\structoldnames.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\structoldnames.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\structTokenizer.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\structTokenizer.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\SuperAssert.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\SuperAssert.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\sysutil.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\sysutil.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\textparser.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\textparser.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\textparserUtils.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\textparserUtils.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\tga.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\tga.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\threadedFileCopy.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\threadedFileCopy.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\tiff.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\tiff.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\timing.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\timing.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\tokenstore.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\tokenstore.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\UnitSpec.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\UnitSpec.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\utils.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\utils.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\winfiletime.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\winfiletime.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\wininclude.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\wininclude.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\WinTabUtil.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\WinTabUtil.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\winutil.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\winutil.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\Breakpoint.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\Breakpoint.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\utils\Cbox.h">
-      <Filter>Header Files\utils</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\utils\Cbox.h">
+      <Filter>Public Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\nullworkerpool.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\nullworkerpool.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\ring.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\ring.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\ringchain.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\ringchain.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\semaphoreworkerpool.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\semaphoreworkerpool.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\sleeplock.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\sleeplock.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\taskthread.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\taskthread.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\threadedpoolallocator.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\threadedpoolallocator.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\workerpoolbase.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\workerpoolbase.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\apcworkerpool.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\apcworkerpool.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\condition.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\condition.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\criticalsection.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\criticalsection.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\futex.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\futex.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\keyedcondition.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\keyedcondition.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\list.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\list.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\listlist.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\listlist.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\lockingworkerpool.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\lockingworkerpool.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsCXX\locklessworkerpool.hpp">
-      <Filter>Header Files\UtilsCXX</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsCXX\locklessworkerpool.hpp">
+      <Filter>Public Header Files\UtilsCXX</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\Bits.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\Bits.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\lock.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\lock.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\meta.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\meta.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\ncHash.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\ncHash.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\ncstd.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\ncstd.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\ncutils.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\ncutils.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\ntapiext.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\ntapiext.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\profiler.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\profiler.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\Str.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\Str.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\Stream.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\Stream.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\timer.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\timer.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\Array.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\Array.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\UtilsNew\barrier.h">
-      <Filter>Header Files\UtilsNew</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\UtilsNew\barrier.h">
+      <Filter>Public Header Files\UtilsNew</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\version\AppRegCache.h">
-      <Filter>Header Files\version</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\version\AppRegCache.h">
+      <Filter>Public Header Files\version</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\version\AppVersion.h">
-      <Filter>Header Files\version</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\version\AppVersion.h">
+      <Filter>Public Header Files\version</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\AppVersionDefines.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\include\utilitieslib\AppVersionDefines.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\utilitieslib\components\TriCube\vec.h">
+      <Filter>Public Header Files\components\TriCube</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\google_sparsehash\src\google\sparsehash\sparseconfig.h">
+      <Filter>Private Header Files\UtilsNew\google_sparsehash\sparsehash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\google_sparsehash\src\google\sparsehash\sparsehashtable.h">
+      <Filter>Private Header Files\UtilsNew\google_sparsehash\sparsehash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\google_sparsehash\src\google\sparsehash\densehashtable.h">
+      <Filter>Private Header Files\UtilsNew\google_sparsehash\sparsehash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UtilsNew\google_sparsehash\src\google\type_traits.h">
+      <Filter>Private Header Files\UtilsNew\google_sparsehash</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1129,5 +1157,10 @@
     <ClCompile Include="..\..\src\version\AppVersion.c">
       <Filter>Source Files\version</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\UtilsNew\google_sparsehash\src\google\dense_hash_map">
+      <Filter>Private Header Files\UtilsNew\google_sparsehash</Filter>
+    </None>
   </ItemGroup>
 </Project>

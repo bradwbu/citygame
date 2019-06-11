@@ -6,17 +6,17 @@
 //#pragma warning(disable:4028) // parameter differs from declaration
 //#pragma warning(disable:4047)
 
-#include "StringTable.h"
-#include "ArrayOld.h"
+#include "utilitieslib/components/StringTable.h"
+#include "utilitieslib/components/ArrayOld.h"
 #include <string.h>
-#include <assert.h>
-#include "stdtypes.h"
-#include "MemoryMonitor.h"
-#include "wininclude.h"
-#include "StashTable.h"
-#include "serialize.h"
-#include "mathutil.h"
-#include "SharedHeap.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/MemoryMonitor.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/utils/serialize.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/SharedHeap.h"
 
 #ifndef _MEMCHECK_H
 #include <malloc.h>

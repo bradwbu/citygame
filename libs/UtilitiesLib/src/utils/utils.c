@@ -1,11 +1,11 @@
 #include <stdio.h>
-#include "timing.h"
-#include "error.h"
-#include "EArray.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/components/EArray.h"
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "utils.h"
+#include "utilitieslib/utils/utils.h"
 //#include "Common.h"
 
 #include <share.h>
@@ -17,25 +17,25 @@
 #include <sys/stat.h>
 #include <direct.h>
 #include <errno.h>
-#include <assert.h>
-#include "fileutil.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/fileutil.h"
 #include <fcntl.h>
-#include <wininclude.h>
+#include "utilitieslib/utils/wininclude.h"
 #include <process.h>
 
 #ifndef _XBOX
     #include <ShlObj.h>
 #endif
 
-#include "mathutil.h"
-#include "EString.h"
-#include "StashTable.h"
-#include "netio.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/EString.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/network/netio.h"
 #include "zlib/zlib.h"
-#include "sysutil.h"
-#include "strings_opt.h"
-#include "osdependent.h"
-#include "log.h"
+#include "utilitieslib/utils/sysutil.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/osdependent.h"
+#include "utilitieslib/utils/log.h"
 
 #undef _beginthreadex
 

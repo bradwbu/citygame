@@ -1,12 +1,12 @@
-#include "StringCache.h"
-#include "StashTable.h"
-#include "SharedHeap.h"
-#include "earray.h"
-#include "assert.h"
-#include "utils.h"
-#include "file.h"
-#include "stdtypes.h"
-#include "wininclude.h"
+#include "utilitieslib/components/StringCache.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/components/SharedHeap.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/wininclude.h"
 
 typedef struct StringCache
 {

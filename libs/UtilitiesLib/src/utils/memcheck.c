@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "memcheck.h"
-#include "file.h"
-#include "stdtypes.h"
-#include "MemoryMonitor.h"
-#include "MemoryPool.h"
-#include "assert.h"
-#include "utils.h"
+#include "utilitieslib/utils/memcheck.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/MemoryMonitor.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/utils.h"
 
-#include "textparser.h"
-#include "earray.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/components/earray.h"
 
 //
 // set _CRTDBG_MAP_ALLOC=1
@@ -120,7 +120,7 @@ volatile int        a=1,b=0;
 
 #if _WIN32
 
-#include "wininclude.h"
+#include "utilitieslib/utils/wininclude.h"
 
 #ifdef _DEBUG
 #define  SET_CRT_DEBUG_FIELD(a)   _CrtSetDbgFlag((a) | _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG))

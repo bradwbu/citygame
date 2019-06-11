@@ -5,26 +5,26 @@
 * 
 ***************************************************************************/
 
-#include "FolderCache.h"
+#include "utilitieslib/utils/FolderCache.h"
 #include <string.h>
-#include "assert.h"
-#include "genericlist.h"
-#include "DirMonitor.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/components/genericlist.h"
+#include "utilitieslib/utils/DirMonitor.h"
 #include <sys/stat.h>
-#include "file.h"
-#include "utils.h"
-#include "fileutil.h"
-#include "strings_opt.h"
-#include "winfiletime.h"
-#include "EArray.h"
-#include "mathutil.h"
-#include "timing.h"
-#include "StringTable.h"
-#include "fileWatch.h"
-#include "StashTable.h"
-#include "StringCache.h"
-#include "fileWatch.h"
-#include "SharedMemory.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/fileutil.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/winfiletime.h"
+#include "utilitieslib/components/EArray.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/components/StringTable.h"
+#include "utilitieslib/utils/fileWatch.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/components/StringCache.h"
+#include "utilitieslib/utils/fileWatch.h"
+#include "utilitieslib/components/SharedMemory.h"
 
 void FolderCacheAddPig(FolderCache *fc, PigFile *pigfile, int virtual_location);
 

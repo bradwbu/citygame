@@ -7,15 +7,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "assert.h"
-#include "estring.h"
-#include "error.h"
-#include "earray.h"
-#include "StashTable.h"
-#include "mathutil.h"  // for rule30Float
-#include "timing.h"    // for timergetSecondsSince20000FromString
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/components/estring.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/utils/mathutil.h"  // for rule30Float
+#include "utilitieslib/utils/timing.h"    // for timergetSecondsSince20000FromString
 
-#include "eval.h"
+#include "utilitieslib/utils/eval.h"
 
 typedef enum CellType
 {

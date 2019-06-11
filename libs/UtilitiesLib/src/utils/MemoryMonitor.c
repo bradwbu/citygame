@@ -1,22 +1,22 @@
-#include "MemoryMonitor.h"
-#include <assert.h>
+#include "utilitieslib/utils/MemoryMonitor.h"
+#include "utilitieslib/assert/assert.h"
 #include <stdio.h>
-#include "StashTable.h"
+#include "utilitieslib/components/StashTable.h"
 #include <stdlib.h>
 #include <crtdbg.h>
-#include "earray.h"
+#include "utilitieslib/components/earray.h"
 #include <math.h>
 
 #include <string.h>
-#include <wininclude.h>
-#include "UnitSpec.h"
-#include "sysutil.h"
-#include "EString.h"
-#include "utils.h"
-#include "MemoryPool.h"
-#include "timing.h"
-#include "StringTable.h"
-#include "log.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/UnitSpec.h"
+#include "utilitieslib/utils/sysutil.h"
+#include "utilitieslib/components/EString.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/components/StringTable.h"
+#include "utilitieslib/utils/log.h"
 
 //-------------------------------------------------------------------------------------
 // Variable history tracking

@@ -1,14 +1,14 @@
-#include "ArrayOld.h"
+#include "utilitieslib/components/ArrayOld.h"
 
 #include <stdlib.h>
 #include <memory.h>
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 #include <string.h>
 //#include "Common.h"
 
-#include "MemoryPool.h"
+#include "utilitieslib/components/MemoryPool.h"
 
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 
 MP_DEFINE(Array);
 

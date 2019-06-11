@@ -1,12 +1,12 @@
 #include <process.h>
 #include <sys/stat.h>
-#include "fileWatch.h"
-#include "assert.h"
-#include "sysutil.h"
-#include "utils.h"
-#include "file.h"
-#include "strings_opt.h"
-#include "timing.h"
+#include "utilitieslib/utils/fileWatch.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/sysutil.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/timing.h"
 
 static struct {
     CRITICAL_SECTION    cs;

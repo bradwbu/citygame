@@ -3,27 +3,27 @@
 *     All Rights Reserved
 *     Confidential Property of Cryptic Studios
 ***************************************************************************/
-#include "piglib.h"
-#include "piglib_internal.h"
+#include "utilitieslib/utils/piglib.h"
+#include "utilitieslib/utils/piglib_internal.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
 #include <sys/stat.h>
-#include "utils.h"
-#include "assert.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/assert/assert.h"
 #define WIN32_LEAN_AND_MEAN
-#include "wininclude.h"
-#include "strings_opt.h"
-#include "SharedMemory.h"
-#include "error.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/components/SharedMemory.h"
+#include "utilitieslib/utils/error.h"
 #include "zlib/zlib.h"
-#include "network/crypt.h"
-#include "timing.h"
-#include "hoglib.h"
-#include "endian.h"
-#include "mathutil.h"
-#include "earray.h"
+#include "utilitieslib/network/crypt.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/hoglib.h"
+#include "utilitieslib/utils/endian.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/earray.h"
 
 int pig_debug=0;
 int pig_disabled=0;

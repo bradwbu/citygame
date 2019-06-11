@@ -3,9 +3,9 @@
  *     All Rights Reserved
  *     Confidential Property of NCSoft
  ***************************************************************************/
-#include "stdtypes.h"
-#include "Bits.h"
-#include "Array.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/UtilsNew/Bits.h"
+#include "utilitieslib/UtilsNew/Array.h"
 
 #define IDXBITS 5
 STATIC_ASSERT(sizeof(unsigned) == 4); // otherwise, we need to specify IDXBITS for the platform

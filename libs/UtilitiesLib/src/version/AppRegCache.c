@@ -1,19 +1,19 @@
 #ifndef _XBOX
 
-#include "AppRegCache.h"
-#include "wininclude.h"
-#include "RegistryReader.h"
-#include "stdtypes.h"
+#include "utilitieslib/version/AppRegCache.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/RegistryReader.h"
+#include "utilitieslib/stdtypes.h"
 #include <memory.h>
-#include "assert.h"
+#include "utilitieslib/assert/assert.h"
 #include <stdio.h>
-#include "strings_opt.h"
-#include "utils.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/utils.h"
 
-#define CRYPTIC_REG_KEY        "HKEY_CURRENT_USER\\SOFTWARE\\Cryptic"
-#define CUR_VER                "CurrentVersion"
+#define CRYPTIC_REG_KEY     "HKEY_CURRENT_USER\\SOFTWARE\\Cryptic"
+#define CUR_VER             "CurrentVersion"
 #define LAST_VER            "LastVersion"
-#define APPLIED_PATCH        "ApplyTarget"
+#define APPLIED_PATCH       "ApplyTarget"
 
 
 

@@ -1,6 +1,6 @@
-#include "ringchain.hpp"
-#include "threadedpoolallocator.hpp"
-#include "futex.hpp"
+#include "utilitieslib/UtilsCXX/ringchain.hpp"
+#include "utilitieslib/UtilsCXX/threadedpoolallocator.hpp"
+#include "utilitieslib/UtilsCXX/futex.hpp"
 
 #define RINGPOINTERS_PER_PAGE 512
 #define RINGPAGE_SIZE (sizeof(PointerRingPage) + RINGPOINTERS_PER_PAGE * sizeof(void*))

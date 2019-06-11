@@ -1,13 +1,13 @@
-#include "EString.h"
+#include "utilitieslib/components/EString.h"
 #include <stddef.h>
 #include <stdlib.h>
 #include <memory.h>
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
-#include "StringUtil.h"
-#include "mathutil.h"
+#include "utilitieslib/utils/StringUtil.h"
+#include "utilitieslib/utils/mathutil.h"
 #include "zlib/zlib.h"
 
 extern int quick_vscprintf(char *format,const char *args);

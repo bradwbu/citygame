@@ -1,7 +1,7 @@
-#include "MessageStoreUtil.h"
-#include "MessageStore.h"
-#include "EString.h"
-#include "mathutil.h"
+#include "utilitieslib/language/MessageStoreUtil.h"
+#include "utilitieslib/language/MessageStore.h"
+#include "utilitieslib/components/EString.h"
+#include "utilitieslib/utils/mathutil.h"
 
 MessageStore*            menuMessages;
 

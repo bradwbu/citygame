@@ -12,11 +12,11 @@
  *
  */
 
-#include "structDefines.h"
-#include "crypt.h"
-#include "stashtable.h"
-#include "error.h"
-#include "superassert.h"
+#include "utilitieslib/utils/structDefines.h"
+#include "utilitieslib/network/crypt.h"
+#include "utilitieslib/components/stashtable.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/superassert.h"
 
 // *********************************************************************************
 //  Dynamic defines

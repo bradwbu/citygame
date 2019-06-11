@@ -1,8 +1,8 @@
 #include "memory.h"
-#include "mailbox.h"
-#include "error.h"
-#include "utils.h"
-#include "timing.h"
+#include "utilitieslib/components/mailbox.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/timing.h"
 
 typedef struct MailboxMessage
 {

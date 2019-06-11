@@ -38,11 +38,11 @@
  *
  */
 
-#include <wininclude.h>
-#include "BitArray.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/components/BitArray.h"
 
 #include <stdlib.h>
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 #include <limits.h>
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))

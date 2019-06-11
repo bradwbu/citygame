@@ -1,5 +1,5 @@
-#include "stdtypes.h"
-#include "lock.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/UtilsNew/lock.h"
 
 void lazyLockInit(volatile LONG *initializing, volatile S32 *initialized, CRITICAL_SECTION *cs)
 {

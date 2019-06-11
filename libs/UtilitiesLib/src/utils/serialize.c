@@ -2,17 +2,17 @@
 // these functions allow for a simple binary format: hierarchical, self describing,
 // with traversal.  64 bytes overhead per struct
 
-#include "serialize.h"
+#include "utilitieslib/utils/serialize.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "string.h"
-#include "wininclude.h"
+#include "utilitieslib/utils/wininclude.h"
 #include <io.h>
 #include <sys/stat.h>
 
 
-#include "memcheck.h"
-#include "file.h"
+#include "utilitieslib/utils/memcheck.h"
+#include "utilitieslib/utils/file.h"
 
 ////////////////////////////////////////////// simple buffer files
 

@@ -1,17 +1,17 @@
 #ifndef _XBOX
 
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 
-#include "ListView.h"
-#include "StringUtil.h"
+#include "utilitieslib/utils/ListView.h"
+#include "utilitieslib/utils/StringUtil.h"
 #include <CommCtrl.h>
-#include <assert.h>
-#include "utils.h"
-#include "earray.h"
-#include "textparser.h"
-#include "mathutil.h"
-#include "file.h"
-#include "tokenstore.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/tokenstore.h"
 
 #pragma comment (lib, "comctl32.lib")
 

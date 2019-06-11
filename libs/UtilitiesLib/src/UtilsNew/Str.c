@@ -7,11 +7,11 @@
  *
  *
  ***************************************************************************/
-#include "stdtypes.h"
-#include "ncstd.h"
-#include "Array.h"
-#include "Str.h"
-#include "ncHash.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/UtilsNew/ncstd.h"
+#include "utilitieslib/UtilsNew/Array.h"
+#include "utilitieslib/UtilsNew/Str.h"
+#include "utilitieslib/UtilsNew/ncHash.h"
 
 #ifdef _DEBUG
 #  define CHECK_STR_SIZE(HSTR) Str_len(HSTR) // size checks automatically

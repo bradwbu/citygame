@@ -1,8 +1,9 @@
+#include "utilitieslib/stdtypes.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
-#include "tiff.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/tiff.h"
 
 #if (__STDC_VERSION__ >= 199901L) || __GNUC__
     #include <stdint.h>
@@ -18,7 +19,7 @@ typedef unsigned __int32 uint32_t;
     #define __attribute__(args)
     #define inline __inline
     #ifndef __cplusplus
-        #include <file.h>
+        #include "utilitieslib/utils/file.h"
     #endif
 #endif
 

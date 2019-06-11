@@ -1,7 +1,7 @@
-#include "rand.h"
-#include "mathutil.h"
-#include "utils.h"
-#include "Error.h"
+#include "utilitieslib/utils/rand.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/Error.h"
 
 static U32 uiGlobalLCGSeed = 0x8f8f8f8f;
 static U32 uiGlobalBLORNSeed = 0x8f8f8f8f;

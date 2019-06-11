@@ -14,19 +14,19 @@
 * track of where things are between different processes.
 * 
 /************************************************************************/
-#include "SharedMemory.h"
-#include "SharedHeap.h"
-#include "wininclude.h"
-#include "assert.h"
+#include "utilitieslib/components/SharedMemory.h"
+#include "utilitieslib/components/SharedHeap.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/assert/assert.h"
 #include <stdio.h>
 #include <conio.h>
-#include "MemoryMonitor.h"
-#include "strings_opt.h"
-#include "sysutil.h"
-#include "file.h"
-#include "osdependent.h"
-#include "error.h"
-#include "log.h"
+#include "utilitieslib/utils/MemoryMonitor.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/sysutil.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/osdependent.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/log.h"
 
 typedef enum SharedMemoryState {
     SMS_READY, // Has been filled in by another process or this process

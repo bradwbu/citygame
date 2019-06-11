@@ -1,8 +1,8 @@
-#include "endian.h"
-#include "textparser.h"
-#include "earray.h"
-#include "error.h"
-#include "structinternals.h"
+#include "utilitieslib/utils/endian.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/structinternals.h"
 
 EndianTest endian_test = {1};
 

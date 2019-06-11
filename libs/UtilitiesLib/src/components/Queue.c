@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <memory.h>
-#include <assert.h>
-#include "Queue.h"
-#include "mathutil.h"
-#include "MemoryPool.h"
+#include "utilitieslib/assert/assert.h"
+
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/components/Queue.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/MemoryPool.h"
 
 typedef struct QueueImp {
 // public

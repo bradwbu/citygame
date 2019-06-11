@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include "stdtypes.h"
-#include "mathutil.h"
-#include "utils.h"
-#include "assert.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/assert/assert.h"
 
 #undef sprintf_s
 #undef snprintf_s
@@ -164,8 +164,8 @@ int quick_vscprintf(char *format,const char *args)
     return _vscprintf(str, (char *)args);
 }
 
-#include "strings_opt.h"
-#include "timing.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/timing.h"
 char    zzz_dir2[50] = "zombiedir";
 char    *zzz_filep    = "zombiefile";
 

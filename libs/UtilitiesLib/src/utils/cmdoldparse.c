@@ -1,25 +1,25 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <assert.h>
-#include "stdtypes.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/stdtypes.h"
 //
-#include "network\netio.h"
-#include "netcomp.h"
-#include "error.h"
-#include "utils.h"
-#include "strings_opt.h"
-#include "file.h"
+#include "utilitieslib/network/netio.h"
+#include "utilitieslib/network/netcomp.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/file.h"
 //
-#include "language/MessageStore.h"
-#include "textparser.h"
-#include "StashTable.h"
+#include "utilitieslib/language/MessageStore.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/components/StashTable.h"
 //
-#include "language/MessageStoreUtil.h"
+#include "utilitieslib/language/MessageStoreUtil.h"
 //
-#include "earray.h"
-#include "DebugState.h"
-#include "cmdoldparse.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/utils/DebugState.h"
+#include "utilitieslib/utils/cmdoldparse.h"
 
 // These functions are for storing variables to the registry for use in debugging
 

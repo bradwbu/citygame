@@ -1,14 +1,14 @@
-#include "sysutil.h"
-#include "utils.h"
+#include "utilitieslib/utils/sysutil.h"
+#include "utilitieslib/utils/utils.h"
 #include <stdio.h>
 #include <process.h>
-#include <assert.h>
-#include "fileutil.h"
-#include "error.h"
-#include "fpmacros.h"
-#include "mathutil.h"
-#include "sock.h"
-#include "osdependent.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/fileutil.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/fpmacros.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/network/sock.h"
+#include "utilitieslib/utils/osdependent.h"
 
 #ifndef _XBOX
 #include "psapi.h"
@@ -720,7 +720,7 @@ void trickGoogleDesktopDll(int silent)
 #include "utils.h"
 #include <stdio.h>
 #include <process.h>
-#include <assert.h>
+#include "utilitieslib/assert/assert.h"
 #include "fileutil.h"
 #include "error.h"
 #include "fpmacros.h"

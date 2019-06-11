@@ -1,24 +1,24 @@
 #define TIMING_C
 
 #include <string.h>
-#include "stdtypes.h"
-#include "utils.h"
-#include "file.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/file.h"
 
 #if defined(_WIN32) || defined(_XBOX)
 #include <stdio.h>
 #include <limits.h>
-#include "wininclude.h"
+#include "utilitieslib/utils/wininclude.h"
 #include <sqltypes.h>
-#include "timing.h"
-#include "mathutil.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/mathutil.h"
 #include <time.h>
-#include "assert.h"
-#include "error.h"
-#include "MemoryPool.h"
-#include "strings_opt.h"
-#include "StashTable.h"
-#include "osdependent.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/utils/osdependent.h"
 
 
 #ifndef _XBOX

@@ -2,17 +2,17 @@
 #pragma warning(disable:4028) // parameter differs from declaration
 #pragma warning(disable:4047)
 
-#include "CommandFileParser.h"
-#include "ArrayOld.h"
-#include "MemoryPool.h"
-#include "utils.h"
+#include "utilitieslib/utils/CommandFileParser.h"
+#include "utilitieslib/components/ArrayOld.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/utils/utils.h"
 #include <string.h>
 //#include <stdio.h>
 //#include <stdlib.h>
-#include <assert.h>
-#include "SimpleParser.h"
-#include "file.h"
-#include "strings_opt.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/SimpleParser.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/strings_opt.h"
 
 /* Struture ParseContext
  *    Holds some state information so that some info can be retained

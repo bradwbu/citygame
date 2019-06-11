@@ -1,8 +1,8 @@
-#include "threadedpoolallocator.hpp"
-#include "barrier.h"
-#include "memorypool.h"
-#include "criticalsection.hpp"
-#include "futex.hpp"
+#include "utilitieslib/UtilsCXX/threadedpoolallocator.hpp"
+#include "utilitieslib/UtilsNew/barrier.h"
+#include "utilitieslib/components/memorypool.h"
+#include "utilitieslib/UtilsCXX/criticalsection.hpp"
+#include "utilitieslib/UtilsCXX/futex.hpp"
 
 ThreadedPoolAllocator::ThreadedPoolAllocator(unsigned structSize, bool zero, unsigned initialPoolSize, unsigned threadFreeListSize) :
     m_zero(zero), m_threadFreeLists(NULL), m_threadFreeListSize(threadFreeListSize)

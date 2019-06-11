@@ -1,17 +1,17 @@
-#include "stdtypes.h"
-#include "meta.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/UtilsNew/meta.h"
 
-#include "utils.h"
-#include "error.h"
-#include "netio.h"
-#include "EString.h"
-#include "StashTable.h"
-#include "UtilsNew/Array.h"
-#include "UtilsNew/Str.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/network/netio.h"
+#include "utilitieslib/components/EString.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/UtilsNew/Array.h"
+#include "utilitieslib/UtilsNew/Str.h"
 
-#include "cmdoldparse.h"
-#include "MessageStore.h"
-#include "MessageStoreUtil.h"
+#include "utilitieslib/utils/cmdoldparse.h"
+#include "utilitieslib/language/MessageStore.h"
+#include "utilitieslib/language/MessageStoreUtil.h"
 
 typedef void (*function_call)();
 

@@ -15,11 +15,11 @@
    #undef TYPE_T
    #undef TYPE_FUNC_PREFIX
  ***************************************************************************/
-#include "ncstd.h"
+#include "utilitieslib/UtilsNew/ncstd.h"
 #include "windows.h"
-#include "Array_def.h"
-#include "ncHash.h"
-#include "Array.h"
+#include "utilitieslib/UtilsNew/Array_def.h"
+#include "utilitieslib/UtilsNew/ncHash.h"
+#include "utilitieslib/UtilsNew/Array.h"
 
 #ifndef TYPE_T
 #error "TYPE_T not defined"

@@ -1,13 +1,13 @@
-#include "mutex.h"
-#include "SuperAssert.h"
-#include "timing.h"
-#include "utils.h"
-#include "strings_opt.h"
-#include "sysutil.h"
+#include "utilitieslib/utils/mutex.h"
+#include "utilitieslib/utils/SuperAssert.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/sysutil.h"
 #ifndef _XBOX
     #include <Tlhelp32.h>
 #endif
-#include "earray.h"
+#include "utilitieslib/components/earray.h"
 
 static HANDLE threadAgnosticMutex_handle=NULL;
 static DWORD threadAgnosticMutex_threadID;

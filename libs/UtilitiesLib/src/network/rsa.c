@@ -7,18 +7,18 @@
  *
  *
  ***************************************************************************/
-#include "rsa.h"
-#include "file.h"
-#include "bignum.h"
-#include "utils.h"
-#include "assert.h"
-#include "error.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
-#include "structNet.h"
-#include "log.h"
+#include "utilitieslib/network/rsa.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/network/bignum.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/utils/structNet.h"
+#include "utilitieslib/utils/log.h"
 
 // padding scheme for encryption
 typedef enum RsaPad

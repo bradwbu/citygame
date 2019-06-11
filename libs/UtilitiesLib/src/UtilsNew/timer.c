@@ -7,12 +7,12 @@
  *
  *
  ***************************************************************************/
-#include "stdtypes.h"
-#include "ncstd.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/UtilsNew/ncstd.h"
 #include "time.h"
 #include "windows.h"
-#include "timer.h"
-#include "ncHash.h"
+#include "utilitieslib/UtilsNew/timer.h"
+#include "utilitieslib/UtilsNew/ncHash.h"
 
 
 static S64 time_y2k()

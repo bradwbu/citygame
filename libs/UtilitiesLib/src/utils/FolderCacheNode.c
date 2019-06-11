@@ -4,14 +4,14 @@
 *     Confidential Property of Cryptic Studios
 * 
 ***************************************************************************/
-#include "FolderCache.h"
+#include "utilitieslib/utils/FolderCache.h"
 #include <string.h>
-#include "assert.h"
-#include "genericlist.h"
-#include "strings_opt.h"
-#include "MemoryPool.h"
-#include "StringCache.h"
-#include "StashTable.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/components/genericlist.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/components/StringCache.h"
+#include "utilitieslib/components/StashTable.h"
 
 extern int folder_cache_debug;
 

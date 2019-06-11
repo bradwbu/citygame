@@ -1,10 +1,10 @@
-#include "bindiff.h"
-#include <assert.h>
+#include "utilitieslib/network/bindiff.h"
+#include "utilitieslib/assert/assert.h"
 #include <stdio.h>
-#include "file.h"
-#include "mathutil.h"
-#include "utils.h"
-#include "stashtable.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/components/stashtable.h"
 #include <string.h>
 
 THREADSAFE_STATIC int insert_bytes,copy_bytes,insert_ops,copy_ops;

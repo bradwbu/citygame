@@ -1,5 +1,5 @@
-#include "textparser.h"
-#include "superassert.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/utils/superassert.h"
 
 void FindAutoStructBitField(char *pStruct, int iStructSize, TokenizerParseInfo *pTPI, int iBitHandle)
 {

@@ -3,22 +3,22 @@
 // MyStruct** earray; and access them like a normal pArray of pointers
 // NOTE - EArrays are now threadsafe
 
-#include "earray.h"
+#include "utilitieslib/components/earray.h"
 #include <string.h>
-#include "wininclude.h"
-#include <assert.h>
-#include "utils/mathutil.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/mathutil.h"
 
 #ifndef EXTERNAL_TEST
-#include "MemoryMonitor.h"
-#include "sysutil.h"
-#include "memcheck.h"
-#include "utils.h"
+#include "utilitieslib/utils/MemoryMonitor.h"
+#include "utilitieslib/utils/sysutil.h"
+#include "utilitieslib/utils/memcheck.h"
+#include "utilitieslib/utils/utils.h"
 #endif
 
-#include "strings_opt.h"
-#include "timing.h"
-#include "SharedMemory.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/components/SharedMemory.h"
 
 #if PRIVATE_EARRAY_HEAP
 static const char EARRAY_MEMMONITOR_NAME[] = "EArray";

@@ -38,12 +38,12 @@
 ------------------------------------------------------------------------ */
 
 
-#include "ConvertUTF.h"
+#include "utilitieslib/utils/ConvertUTF.h"
 #ifdef CVTUTF_DEBUG
 #include <stdio.h>
 #endif
 #include <string.h>
-#include "wininclude.h"
+#include "utilitieslib/utils/wininclude.h"
 
 static const int halfShift  = 10; /* used for shifting by 10 bits */
 

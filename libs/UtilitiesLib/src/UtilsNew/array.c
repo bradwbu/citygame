@@ -7,10 +7,10 @@
  *
  *
  ***************************************************************************/
-#include "stdtypes.h"
-#include "ncstd.h"
-#include "Array.h"
-#include "ncHash.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/UtilsNew/ncstd.h"
+#include "utilitieslib/UtilsNew/Array.h"
+#include "utilitieslib/UtilsNew/ncHash.h"
 
 
 #define TYPE_T void*
