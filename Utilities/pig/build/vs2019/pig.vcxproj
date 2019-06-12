@@ -105,7 +105,7 @@
       <AdditionalDependencies>Iphlpapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
+      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
       <Message>Running StructParser</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -124,7 +124,7 @@
       <AdditionalDependencies>Iphlpapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
+      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
       <Message>Running StructParser</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -147,7 +147,7 @@
       <AdditionalDependencies>Iphlpapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
+      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
       <Message>Running StructParser</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -170,7 +170,7 @@
       <AdditionalDependencies>Iphlpapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
+      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
       <Message>Running StructParser</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>

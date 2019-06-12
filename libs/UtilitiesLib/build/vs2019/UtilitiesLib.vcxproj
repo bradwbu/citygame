@@ -106,7 +106,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
+      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
       <Message>Running StructParser</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -126,7 +126,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
+      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
       <Message>Running StructParser</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -150,7 +150,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
+      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
       <Message>Running StructParser</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -174,7 +174,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
+      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
       <Message>Running StructParser</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>

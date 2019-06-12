@@ -39,6 +39,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AILib", "..\..\libs\AILib\b
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrashRpt", "..\..\libs\crashrpt\build\vs2019\CrashRpt.vcxproj", "{901A3427-F14F-48DD-AF61-0FCB47EBC879}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CubeMapGenLib", "..\..\3rdparty\libcubemapgen-1.4\build\vs2019\CubeMapGenLib.vcxproj", "{BEE2C47B-7A0A-4762-9259-D58A7C6B11A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -167,6 +169,14 @@ Global
 		{901A3427-F14F-48DD-AF61-0FCB47EBC879}.Release|x64.Build.0 = Release|x64
 		{901A3427-F14F-48DD-AF61-0FCB47EBC879}.Release|x86.ActiveCfg = Release|Win32
 		{901A3427-F14F-48DD-AF61-0FCB47EBC879}.Release|x86.Build.0 = Release|Win32
+		{BEE2C47B-7A0A-4762-9259-D58A7C6B11A9}.Debug|x64.ActiveCfg = Debug|x64
+		{BEE2C47B-7A0A-4762-9259-D58A7C6B11A9}.Debug|x64.Build.0 = Debug|x64
+		{BEE2C47B-7A0A-4762-9259-D58A7C6B11A9}.Debug|x86.ActiveCfg = Debug|Win32
+		{BEE2C47B-7A0A-4762-9259-D58A7C6B11A9}.Debug|x86.Build.0 = Debug|Win32
+		{BEE2C47B-7A0A-4762-9259-D58A7C6B11A9}.Release|x64.ActiveCfg = Release|x64
+		{BEE2C47B-7A0A-4762-9259-D58A7C6B11A9}.Release|x64.Build.0 = Release|x64
+		{BEE2C47B-7A0A-4762-9259-D58A7C6B11A9}.Release|x86.ActiveCfg = Release|Win32
+		{BEE2C47B-7A0A-4762-9259-D58A7C6B11A9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -186,6 +196,7 @@ Global
 		{22F8FAD4-3FEA-47CE-9F98-5212751C818B} = {97E3A09F-08F3-4967-A309-922DCBA3F112}
 		{EEDEF6DA-7BFC-4C6C-81DD-0950A7C47EF4} = {97E3A09F-08F3-4967-A309-922DCBA3F112}
 		{901A3427-F14F-48DD-AF61-0FCB47EBC879} = {97E3A09F-08F3-4967-A309-922DCBA3F112}
+		{BEE2C47B-7A0A-4762-9259-D58A7C6B11A9} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}

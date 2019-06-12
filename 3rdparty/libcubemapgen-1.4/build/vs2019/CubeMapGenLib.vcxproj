@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{22F8FAD4-3FEA-47CE-9F98-5212751C818B}</ProjectGuid>
+    <ProjectGuid>{BEE2C47B-7A0A-4762-9259-D58A7C6B11A9}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ServerLib</RootNamespace>
+    <RootNamespace>CubeMapGenLib</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -95,38 +95,30 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRTDBG_MAP_ALLOC=1;PROJECT_SERVERLIB;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\include;$(ProjectDir)..\..\..\UtilitiesLib\include\utilitieslib\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
-      <Message>Running StructParser</Message>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRTDBG_MAP_ALLOC=1;PROJECT_SERVERLIB;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\include;$(ProjectDir)..\..\..\UtilitiesLib\include\utilitieslib\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
-      <Message>Running StructParser</Message>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -135,9 +127,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PROJECT_SERVERLIB;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\include;$(ProjectDir)..\..\..\UtilitiesLib\include\utilitieslib\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -146,10 +138,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
-      <Message>Running StructParser</Message>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -158,9 +146,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>PROJECT_SERVERLIB;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\include;$(ProjectDir)..\..\..\UtilitiesLib\include\utilitieslib\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -169,36 +157,20 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\..\common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
-      <Message>Running StructParser</Message>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Common\persist\persist.c" />
-    <ClCompile Include="..\..\..\..\Common\persist\persist_diffbig.c" />
-    <ClCompile Include="..\..\..\..\Common\persist\persist_diffsmall.c" />
-    <ClCompile Include="..\..\..\..\Common\persist\persist_flat.c" />
-    <ClCompile Include="..\..\..\..\Common\persist\textcrcdb.c" />
-    <ClCompile Include="..\..\..\..\Common\persist\textcrcjournal.c" />
-    <ClCompile Include="..\..\..\..\Common\ServerLib\serverlib_meta.c" />
-    <ClCompile Include="..\..\src\serverlib_main.c" />
+    <ClCompile Include="..\..\src\CBBoxInt32.cpp" />
+    <ClCompile Include="..\..\src\CCubeMapProcessor.cpp" />
+    <ClCompile Include="..\..\src\CImageSurface.cpp" />
+    <ClCompile Include="..\..\src\ErrorMsg.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Common\persist\persist.h" />
-    <ClInclude Include="..\..\..\..\Common\persist\persist_diffbig.h" />
-    <ClInclude Include="..\..\..\..\Common\persist\persist_diffsmall.h" />
-    <ClInclude Include="..\..\..\..\Common\persist\persist_flat.h" />
-    <ClInclude Include="..\..\..\..\Common\persist\persist_internal.h" />
-    <ClInclude Include="..\..\..\..\Common\persist\textcrcdb.h" />
-    <ClInclude Include="..\..\..\..\Common\persist\textcrcjournal.h" />
-    <ClInclude Include="..\..\..\..\Common\ServerLib\serverlib_meta.h" />
-    <ClInclude Include="..\..\include\serverlib\serverlib.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Utilities\StructParser\build\vs2019\StructParser.vcxproj">
-      <Project>{3d2903c7-c38e-43ef-8974-280d59da4a6d}</Project>
-    </ProjectReference>
+    <ClInclude Include="..\..\include\libcubemapgen\CBBoxInt32.h" />
+    <ClInclude Include="..\..\include\libcubemapgen\CCubeMapProcessor.h" />
+    <ClInclude Include="..\..\include\libcubemapgen\CImageSurface.h" />
+    <ClInclude Include="..\..\include\libcubemapgen\ErrorMsg.h" />
+    <ClInclude Include="..\..\include\libcubemapgen\Types.h" />
+    <ClInclude Include="..\..\include\libcubemapgen\VectorMacros.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
