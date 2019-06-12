@@ -21,8 +21,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dbserver_test", "..\dbserve
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mapserver_test", "..\mapserver_test\mapserver_test.vcxproj", "{74241DF3-60F0-44DE-9575-7FA202C511B2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestClient_test", "..\TestClient_test\TestClient_test.vcxproj", "{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UtilitiesLib_test", "..\UtilitiesLib_test\UtilitiesLib_test.vcxproj", "{1268EAD5-20C7-4864-A3CA-FDE8A22ACBC4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A4B81847-B9B2-4766-A203-F28567E053CF} = {A4B81847-B9B2-4766-A203-F28567E053CF}
@@ -173,22 +171,6 @@ Global
 		{74241DF3-60F0-44DE-9575-7FA202C511B2}.TextClientDebug|Win32.ActiveCfg = Debug|Win32
 		{74241DF3-60F0-44DE-9575-7FA202C511B2}.TextClientDebug|Win32.Build.0 = Debug|Win32
 		{74241DF3-60F0-44DE-9575-7FA202C511B2}.TextClientDebug|x64.ActiveCfg = Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Beaconizer|Win32.ActiveCfg = Opt Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Beaconizer|x64.ActiveCfg = Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Debug|Win32.ActiveCfg = Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Debug|Win32.Build.0 = Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Debug|x64.ActiveCfg = Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Full Debug|Win32.ActiveCfg = Full Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Full Debug|Win32.Build.0 = Full Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Full Debug|x64.ActiveCfg = Full Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Opt Debug|Win32.ActiveCfg = Opt Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Opt Debug|Win32.Build.0 = Opt Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Opt Debug|x64.ActiveCfg = Opt Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Release|Win32.ActiveCfg = Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.Release|x64.ActiveCfg = Debug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.TextClientDebug|Win32.ActiveCfg = TextClientDebug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.TextClientDebug|Win32.Build.0 = TextClientDebug|Win32
-		{9C04ABE7-4BDE-4D98-B6D5-E7F2F4F3EBAA}.TextClientDebug|x64.ActiveCfg = TextClientDebug|Win32
 		{1268EAD5-20C7-4864-A3CA-FDE8A22ACBC4}.Beaconizer|Win32.ActiveCfg = Opt Debug|Win32
 		{1268EAD5-20C7-4864-A3CA-FDE8A22ACBC4}.Beaconizer|x64.ActiveCfg = Debug|x64
 		{1268EAD5-20C7-4864-A3CA-FDE8A22ACBC4}.Debug|Win32.ActiveCfg = Debug|Win32
