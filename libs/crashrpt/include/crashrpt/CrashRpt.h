@@ -48,7 +48,7 @@ CREXTERN
 LPVOID
 CREXPORT
 CrashRptInstall(
-	IN LPGETLOGFILE pfn OPTIONAL                // client crash callback
+    IN LPGETLOGFILE pfn OPTIONAL                // client crash callback
 );
 typedef LPVOID (CREXPORT *pfnCrashRptInstall)(IN LPGETLOGFILE pfn OPTIONAL);
 
@@ -71,7 +71,7 @@ CREXTERN
 void
 CREXPORT
 CrashRptUninstall(
-	IN LPVOID lpState                            // State from Install()
+    IN LPVOID lpState                            // State from Install()
 );
 typedef void (CREXPORT *pfnCrashRptUninstall)(IN LPVOID lpState);
 
@@ -95,9 +95,9 @@ CREXTERN
 void
 CREXPORT
 CrashRptAddFile(
-	IN LPVOID lpState,                           // State from Install()
-	IN LPCTSTR lpFile,                           // File name
-	IN LPCTSTR lpDesc                            // File desc
+    IN LPVOID lpState,                           // State from Install()
+    IN LPCTSTR lpFile,                           // File name
+    IN LPCTSTR lpDesc                            // File desc
 );
 typedef void (CREXPORT *pfnCrashRptAddFile)(IN LPVOID lpState, IN LPCTSTR lpFile, IN LPCTSTR lpDesc);
 
@@ -119,8 +119,8 @@ CREXTERN
 void 
 CREXPORT
 CrashRptGenerateErrorReport(
-	IN LPVOID lpState,
-	IN PEXCEPTION_POINTERS pExInfo
+    IN LPVOID lpState,
+    IN PEXCEPTION_POINTERS pExInfo
 );
 typedef void (CREXPORT *pfnCrashRptGenerateErrorReport)(IN LPVOID lpState, IN PEXCEPTION_POINTERS pExInfo);
 
@@ -128,35 +128,35 @@ CREXTERN
 int 
 CREXPORT
 CrashRptGenerateErrorReport2(
-							IN LPVOID lpState,
-							IN PEXCEPTION_POINTERS pExInfo,
-							IN const char *szAuth,
-							IN const char *szEntity,
-							IN const char *szShard,
-							IN const char *szShardTime,
-							IN const char* szVersion,
-							IN const char* szMessage,
-							IN const char* glReportFileName,
-							IN const char* launcherLogFileName
-							);
+                            IN LPVOID lpState,
+                            IN PEXCEPTION_POINTERS pExInfo,
+                            IN const char *szAuth,
+                            IN const char *szEntity,
+                            IN const char *szShard,
+                            IN const char *szShardTime,
+                            IN const char* szVersion,
+                            IN const char* szMessage,
+                            IN const char* glReportFileName,
+                            IN const char* launcherLogFileName
+                            );
 typedef int (CREXPORT *pfnCrashRptGenerateErrorReport2)(IN LPVOID lpState, IN PEXCEPTION_POINTERS pExInfo, IN const char *szAuth, IN const char *szEntity, IN const char *szShard, IN const char *szShardTime, IN const char* szVersion, IN const char* szMessage, IN const char* glReportFileName, IN const char* launcherLogFileName);
 
 CREXTERN 
 int 
 CREXPORT
 CrashRptGenerateErrorReport3(
-							 IN LPVOID lpState,
-							 IN PEXCEPTION_POINTERS pExInfo,
-							 IN const char *szAuth,
-							 IN const char *szEntity,
-							 IN const char *szShard,
-							 IN const char *szShardTime,
-							 IN const char* szVersion,
-							 IN const char* szMessage,
-							 IN const char* glReportFileName,
-							 IN const char* launcherLogFileName,
-							 IN DWORD dwThreadID
-							 );
+                             IN LPVOID lpState,
+                             IN PEXCEPTION_POINTERS pExInfo,
+                             IN const char *szAuth,
+                             IN const char *szEntity,
+                             IN const char *szShard,
+                             IN const char *szShardTime,
+                             IN const char* szVersion,
+                             IN const char* szMessage,
+                             IN const char* glReportFileName,
+                             IN const char* launcherLogFileName,
+                             IN DWORD dwThreadID
+                             );
 
 typedef int (CREXPORT *pfnCrashRptGenerateErrorReport3)(IN LPVOID lpState, IN PEXCEPTION_POINTERS pExInfo, IN const char *szAuth, IN const char *szEntity, IN const char *szShard, IN const char *szShardTime, IN const char* szVersion, IN const char* szMessage, IN const char* glReportFileName, IN const char* launcherLogFileName, DWORD dwThreadID);
 
@@ -164,7 +164,7 @@ CREXTERN
 void 
 CREXPORT
 CrashRptAbortErrorReport(
-	IN LPVOID lpState
+    IN LPVOID lpState
 );
 typedef void (CREXPORT *pfnCrashRptAbortErrorReport)(IN LPVOID lpState);
 
@@ -172,10 +172,10 @@ CREXTERN
 void 
 CREXPORT
 CrashRptSetFTPConduit(
-	IN LPVOID lpState,		// State from Install()
-	IN LPCTSTR hostname,    
-	IN LPCTSTR username,	
-	IN LPCTSTR password	
+    IN LPVOID lpState,        // State from Install()
+    IN LPCTSTR hostname,    
+    IN LPCTSTR username,    
+    IN LPCTSTR password    
 );
 typedef void (CREXPORT *pfnCrashRptSetFTPConduit)(IN LPVOID lpState, IN LPCTSTR hostname, IN LPCTSTR username, IN LPCTSTR password);
 

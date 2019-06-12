@@ -1355,23 +1355,8 @@ int mcmp(const void *a, const void *b, size_t size)
 void* loadCrashRptDll()
 {
     HMODULE hDll = 0;
-#ifdef _M_X64
-    LPCSTR dllName = "CrashRpt64.dll";
-#else
     LPCSTR dllName = "CrashRpt.dll";
-#endif
-
-    hDll = LoadLibraryA(dllName);
-    if (!hDll)
-    {
-#ifdef _M_X64
-        LPCSTR dllName = "../Src/CrashRpt/CrashRpt64.dll";
-#else
-        LPCSTR dllName = "../Src/CrashRpt/CrashRpt.dll";
-#endif
-        hDll = LoadLibraryA(dllName);
-    }
-    return hDll;
+    return LoadLibraryA(dllName);
 }
 
 char *printUnit_s(char *buf, size_t buf_size, S64 val)

@@ -37,6 +37,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerLib", "..\..\libs\Ser
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AILib", "..\..\libs\AILib\build\vs2019\AILib.vcxproj", "{EEDEF6DA-7BFC-4C6C-81DD-0950A7C47EF4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrashRpt", "..\..\libs\crashrpt\build\vs2019\CrashRpt.vcxproj", "{901A3427-F14F-48DD-AF61-0FCB47EBC879}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -157,6 +159,14 @@ Global
 		{EEDEF6DA-7BFC-4C6C-81DD-0950A7C47EF4}.Release|x64.Build.0 = Release|x64
 		{EEDEF6DA-7BFC-4C6C-81DD-0950A7C47EF4}.Release|x86.ActiveCfg = Release|Win32
 		{EEDEF6DA-7BFC-4C6C-81DD-0950A7C47EF4}.Release|x86.Build.0 = Release|Win32
+		{901A3427-F14F-48DD-AF61-0FCB47EBC879}.Debug|x64.ActiveCfg = Debug|x64
+		{901A3427-F14F-48DD-AF61-0FCB47EBC879}.Debug|x64.Build.0 = Debug|x64
+		{901A3427-F14F-48DD-AF61-0FCB47EBC879}.Debug|x86.ActiveCfg = Debug|Win32
+		{901A3427-F14F-48DD-AF61-0FCB47EBC879}.Debug|x86.Build.0 = Debug|Win32
+		{901A3427-F14F-48DD-AF61-0FCB47EBC879}.Release|x64.ActiveCfg = Release|x64
+		{901A3427-F14F-48DD-AF61-0FCB47EBC879}.Release|x64.Build.0 = Release|x64
+		{901A3427-F14F-48DD-AF61-0FCB47EBC879}.Release|x86.ActiveCfg = Release|Win32
+		{901A3427-F14F-48DD-AF61-0FCB47EBC879}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -175,6 +185,7 @@ Global
 		{C2301D0F-66DF-4E6F-9F4A-10F298CBBC50} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 		{22F8FAD4-3FEA-47CE-9F98-5212751C818B} = {97E3A09F-08F3-4967-A309-922DCBA3F112}
 		{EEDEF6DA-7BFC-4C6C-81DD-0950A7C47EF4} = {97E3A09F-08F3-4967-A309-922DCBA3F112}
+		{901A3427-F14F-48DD-AF61-0FCB47EBC879} = {97E3A09F-08F3-4967-A309-922DCBA3F112}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}

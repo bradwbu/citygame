@@ -12,7 +12,7 @@
 #include "utilitieslib/utils/osdependent.h"
 #include "tchar.h"
 #include <tlhelp32.h>
-#include "CrashRpt.h"
+#include <crashrpt/CrashRpt.h>
 #include "utilitieslib/network/netio.h"
 #include "utilitieslib/utils/log.h"
 

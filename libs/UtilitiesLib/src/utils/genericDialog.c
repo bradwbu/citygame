@@ -1,7 +1,6 @@
 #ifndef _XBOX
 
 #include "utilitieslib/utils/genericDialog.h"
-#include "resource.h"
 #include "utilitieslib/utils/winutil.h"
 #include "utilitieslib/utils/utils.h"
 #include "shlobj.h"
