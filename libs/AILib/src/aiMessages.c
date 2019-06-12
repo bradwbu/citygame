@@ -1,10 +1,10 @@
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 #include "../include/ailib/aiStruct.h"
 
-#include "components/earray.h"
-#include "components/MemoryPool.h"
-#include "components/stashtable.h"
-#include "components/StringCache.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/components/stashtable.h"
+#include "utilitieslib/components/StringCache.h"
 
 typedef struct AIMessage
 {

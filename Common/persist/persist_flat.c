@@ -1,14 +1,14 @@
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 #include "persist_internal.h"
 #include "persist_flat.h"
-#include "textparser.h"
-#include "assert.h"
-#include "earray.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/components/earray.h"
 #include "textcrcdb.h"
-#include "utils.h"
-#include "error.h"
-#include "file.h"
-#include "log.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/log.h"
 
 // GGFIXME: there are a lot of return values (for file operations and whatnot) that aren't checked
 // GGFIXME: s_parse_flat isn't thread safe
@@ -24,10 +24,10 @@ typedef struct TextCRCDb
 static ParseTable s_parse_flat[] =
 {
     // filled in below
-    { "ParseCRC",    TOK_INT(TextCRCDb, parse_crc, 0)                                        },
-    { "DataCRC",    TOK_INT(TextCRCDb, data_crc, 0)                                            },
-    { "LastKey",    TOK_INT(TextCRCDb, last_key, 0)                                            },
-    { ".",            TOK_INDIRECT|TOK_EARRAY|TOK_STRUCT_X, offsetof(TextCRCDb, structptrs)    },
+    { "ParseCRC",   TOK_INT(TextCRCDb, parse_crc, 0)                                        },
+    { "DataCRC",    TOK_INT(TextCRCDb, data_crc, 0)                                         },
+    { "LastKey",    TOK_INT(TextCRCDb, last_key, 0)                                         },
+    { ".",          TOK_INDIRECT|TOK_EARRAY|TOK_STRUCT_X, offsetof(TextCRCDb, structptrs)   },
     { "", 0 }
 };
 

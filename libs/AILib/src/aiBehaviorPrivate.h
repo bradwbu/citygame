@@ -3,8 +3,8 @@
 
 #include "../include/ailib/aiBehaviorInterface.h"
 #include "limits.h"
-#include "stdtypes.h"
-#include "components/StashTable.h"
+#include "utilitieslib/stdtypes.h"
+#include "utilitieslib/components/StashTable.h"
 
 typedef struct AnimBitList                AnimBitList;
 typedef struct AIBehavior                AIBehavior;

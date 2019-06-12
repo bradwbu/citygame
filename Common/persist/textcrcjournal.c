@@ -15,20 +15,20 @@
  *
  ***************************************************************************/
 
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 #include "textcrcjournal.h"
-#include "assert.h"
-#include "network/crypt.h"
-#include "timing.h"
-#include "textparser.h"
-#include "estring.h"
-#include "file.h"
-#include "utils.h"
-#include "error.h"
-#include "mathutil.h"
-#include "MemoryPool.h"
-#include "wininclude.h" // Sleep
-#include "log.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/network/crypt.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/components/estring.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/mathutil.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/utils/wininclude.h" // Sleep
+#include "utilitieslib/utils/log.h"
 
 #define TEXTCRCJOURNAL_VERSION 20070417
 typedef struct TextCRCJournalVersion

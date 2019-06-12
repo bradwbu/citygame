@@ -1,7 +1,7 @@
 #pragma once
 
 #include "persist.h"
-#include "StashTable.h" // StashKeyType
+#include "utilitieslib/components/StashTable.h" // StashKeyType
 
 typedef struct ParseTable ParseTable;
 typedef struct BackendInfo BackendInfo; // individually defined for each backend

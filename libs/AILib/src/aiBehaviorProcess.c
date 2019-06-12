@@ -1,15 +1,15 @@
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 #include "../include/ailib/aiStruct.h"
 #include "../include/ailib/aiBehaviorPublic.h"
 #include "aiBehaviorPrivate.h"
 #include "../include/ailib/aiBehaviorDebug.h"
 
-#include "components/earray.h"
-#include "components/EString.h"
-#include "components/StringCache.h"
-#include "utils/SuperAssert.h"
-#include "utils/textparser.h"
-#include "utils/timing.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/components/EString.h"
+#include "utilitieslib/components/StringCache.h"
+#include "utilitieslib/utils/SuperAssert.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/utils/timing.h"
 
 static void aiBehaviorOnFinish(Entity* e, AIVarsBase* aibase, AIBehavior*** behaviors, AIBehavior* behavior);
 static void aiBehaviorUnsetVars(Entity* e, AIVarsBase* aibase, AIBehavior*** behaviors, AIBehavior* behavior);

@@ -16,7 +16,7 @@
 #ifndef TEXTCRCJOURNAL_H
 #define TEXTCRCJOURNAL_H
 
-#include "file.h"
+#include "utilitieslib/utils/file.h"
 
 typedef struct ParseTable ParseTable;
 

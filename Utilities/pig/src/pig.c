@@ -3,46 +3,46 @@
 *     All Rights Reserved
 *     Confidential Property of Cryptic Studios
 ***************************************************************************/
-#include "assert/assert.h"
+#include "utilitieslib/assert/assert.h"
 #define WIN32_LEAN_AND_MEAN
 
-#include "FolderCache.h"
+#include "utilitieslib/utils/FolderCache.h"
 #include <windows.h>
-#include "piglib.h"
+#include "utilitieslib/utils/piglib.h"
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "file.h"
-#include "utils.h"
-#include "genericlist.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/components/genericlist.h"
 
-#include "timing.h"
+#include "utilitieslib/utils/timing.h"
 #include <direct.h>
 #include <sys/types.h>
 #include <sys/utime.h>
-#include "SharedMemory.h"
-#include "crypt.h"
+#include "utilitieslib/components/SharedMemory.h"
+#include "utilitieslib/network/crypt.h"
 #include "zlib/zlib.h"
-#include "winfiletime.h"
-#include "hoglib.h"
-#include "MemoryMonitor.h"
-#include "StashTable.h"
+#include "utilitieslib/utils/winfiletime.h"
+#include "utilitieslib/utils/hoglib.h"
+#include "utilitieslib/utils/MemoryMonitor.h"
+#include "utilitieslib/components/StashTable.h"
 #include "patchtest.h"
 #include "heavyTest.h"
-#include "mathutil.h"
+#include "utilitieslib/utils/mathutil.h"
 #include <sys/stat.h>
-#include "fileutil.h"
+#include "utilitieslib/utils/fileutil.h"
 //#include "fileutil2.h"
-#include "strings_opt.h"
-#include "StringCache.h"
-#include "threadedFileCopy.h"
-#include "ListView.h"
+#include "utilitieslib/utils/strings_opt.h"
+#include "utilitieslib/components/StringCache.h"
+#include "utilitieslib/utils/threadedFileCopy.h"
+#include "utilitieslib/utils/ListView.h"
 #include "resource.h"
-#include "winutil.h"
+#include "utilitieslib/utils/winutil.h"
 #include <CommCtrl.h>
-#include "log.h"
-#include "textparser.h"
+#include "utilitieslib/utils/log.h"
+#include "utilitieslib/utils/textparser.h"
 
 #define loadstart_printf if (verbose) loadstart_printf
 #define loadend_printf if (verbose) loadend_printf

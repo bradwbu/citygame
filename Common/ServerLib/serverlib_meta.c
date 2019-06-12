@@ -3,15 +3,15 @@
 // Generated: Fri Sep 11 22:56:21 2009
 // ============================================================
 
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 #include "serverlib_meta.h"
 
-#include "network/netio.h"
+#include "utilitieslib/network/netio.h"
 
 // FIXME: thread-safety
 
-#include "UtilsNew/Array.h"
-#include "UtilsNew/lock.h"
+#include "utilitieslib/UtilsNew/Array.h"
+#include "utilitieslib/UtilsNew/lock.h"
 
 #if PROJECT_SERVERLIB
 void serverlib_plMerge(const char *typeName);

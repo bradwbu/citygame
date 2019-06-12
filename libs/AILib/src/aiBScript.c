@@ -1,4 +1,4 @@
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 #include "../include/ailib/aiStruct.h"
 
 typedef struct AIBSTransition

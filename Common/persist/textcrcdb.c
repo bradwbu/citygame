@@ -4,18 +4,18 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 #include "textcrcdb.h"
-#include "textparser.h"
-#include "assert.h"
-#include "file.h"
-#include "EString.h"
-#include "error.h"
-#include "utils.h"
-#include "timing.h"
-#include "fileutil.h"
-#include "wininclude.h" // Sleep
-#include "log.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/components/EString.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/fileutil.h"
+#include "utilitieslib/utils/wininclude.h" // Sleep
+#include "utilitieslib/utils/log.h"
 
 // TODO: some of these should be fatal on failure
 

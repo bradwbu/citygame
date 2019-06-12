@@ -97,7 +97,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRTDBG_MAP_ALLOC=1;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src\utils;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src\network;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src\components;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_CRTDBG_MAP_ALLOC=1;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src\utils;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src\network;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src\components;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,7 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src\utils;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src\network;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src\components;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -160,7 +160,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src\utils;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src\network;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\src\components;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\..\3rdparty\zlib-1.2.11\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

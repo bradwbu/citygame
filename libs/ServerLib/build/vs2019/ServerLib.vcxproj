@@ -97,7 +97,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRTDBG_MAP_ALLOC=1;PROJECT_SERVERLIB;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\UtilitiesLib\src;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\src\utils;$(ProjectDir)..\..\..\UtilitiesLib\src\assert;$(ProjectDir)..\..\..\UtilitiesLib\src\components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\include;$(ProjectDir)..\..\..\UtilitiesLib\include\utilitieslib\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRTDBG_MAP_ALLOC=1;PROJECT_SERVERLIB;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\UtilitiesLib\src;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\src\utils;$(ProjectDir)..\..\..\UtilitiesLib\src\assert;$(ProjectDir)..\..\..\UtilitiesLib\src\components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\include;$(ProjectDir)..\..\..\UtilitiesLib\include\utilitieslib\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -137,7 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>PROJECT_SERVERLIB;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\UtilitiesLib\src;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\src\utils;$(ProjectDir)..\..\..\UtilitiesLib\src\assert;$(ProjectDir)..\..\..\UtilitiesLib\src\components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\include;$(ProjectDir)..\..\..\UtilitiesLib\include\utilitieslib\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -160,7 +160,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>PROJECT_SERVERLIB;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\UtilitiesLib\src;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\src\utils;$(ProjectDir)..\..\..\UtilitiesLib\src\assert;$(ProjectDir)..\..\..\UtilitiesLib\src\components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\Common\persist;$(ProjectDir)..\..\..\UtilitiesLib\include;$(ProjectDir)..\..\..\UtilitiesLib\include\utilitieslib\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>

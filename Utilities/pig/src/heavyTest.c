@@ -1,11 +1,11 @@
 #include "heavyTest.h"
-#include "hoglib.h"
-#include "piglib.h"
-#include "timing.h"
-#include "utils.h"
-#include "file.h"
-#include "StringCache.h"
-#include "mathutil.h"
+#include "utilitieslib/utils/hoglib.h"
+#include "utilitieslib/utils/piglib.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/components/StringCache.h"
+#include "utilitieslib/utils/mathutil.h"
 
 AUTO_RUN_FIRST;
 void initStringCache(void)

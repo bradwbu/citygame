@@ -1,26 +1,26 @@
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 #include "persist_internal.h"
 #include "persist_flat.h"
 #include "persist_diffbig.h"
 #include "persist_diffsmall.h"
 // #include "persist_sql.h"
 
-#include "wininclude.h"
-#include "assert.h"
-#include "earray.h"
-#include "StashTable.h"
-#include "textparser.h"
-#include "tokenstore.h"
-#include "utils.h"
-#include "error.h"
-#include "timing.h"
-#include "fileutil.h"
-#include "HashFunctions.h"
-#include "sysutil.h"
-#include "log.h"
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/assert/assert.h"
+#include "utilitieslib/components/earray.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/utils/textparser.h"
+#include "utilitieslib/utils/tokenstore.h"
+#include "utilitieslib/utils/utils.h"
+#include "utilitieslib/utils/error.h"
+#include "utilitieslib/utils/timing.h"
+#include "utilitieslib/utils/fileutil.h"
+#include "utilitieslib/components/HashFunctions.h"
+#include "utilitieslib/utils/sysutil.h"
+#include "utilitieslib/utils/log.h"
 
-#include "UtilsNew/Bits.h"
-#include "UtilsNew/Str.h"
+#include "utilitieslib/UtilsNew/Bits.h"
+#include "utilitieslib/UtilsNew/Str.h"
 
 typedef int(*persist_handler)(PersistInfo*);
 typedef int(*persist_merger)(PersistInfo*,int write);
@@ -1525,8 +1525,8 @@ int persist_Panic(void)
 }
 
 // HTTP Output /////////////////////////////////////////////////////////////////
-#include "UtilsNew/Str.h"
-#include "EString.h" // required for ParserWriteText
+#include "utilitieslib/UtilsNew/Str.h"
+#include "utilitieslib/components/EString.h" // required for ParserWriteText
 #include "textparserUtils.h"
 #define sendline(fmt, ...)    Str_catf(str, fmt"\n", __VA_ARGS__)
 #define rowclass            ((row++)&1)

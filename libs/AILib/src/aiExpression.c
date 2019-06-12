@@ -1,11 +1,11 @@
-#include "stdtypes.h"
+#include "utilitieslib/stdtypes.h"
 #include "../include/ailib/aiExpression.h"
 
-#include "utils/SuperAssert.h"
-#include "components//earray.h"
-#include "components/MemoryPool.h"
-#include "components/StringCache.h"
-#include "utils/structTokenizer.h"
+#include "utilitieslib/utils/SuperAssert.h"
+#include "utilitieslib/components//earray.h"
+#include "utilitieslib/components/MemoryPool.h"
+#include "utilitieslib/components/StringCache.h"
+#include "utilitieslib/utils/structTokenizer.h"
 
 #define IS_WHITESPACE(c) (c == ' ' || c == '\t' || c == '\n' || c =='\r')
 
