@@ -6,8 +6,8 @@
 #ifndef CHARACTER_INVENTORY_H
 #define CHARACTER_INVENTORY_H
 
-#include "stdtypes.h"
-#include "assert.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/assert/assert.h>
 
 // forward decls
 typedef struct StashTableImp *StashTable;

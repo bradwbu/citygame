@@ -65,7 +65,7 @@ class SemaphoreWorkerPool : public ThreadedWorkerPoolBase {
         }
     };
 
-    WorkerThread * m_workers;
+    WorkerThread* m_workers;
     unsigned m_nworkers;
 
     unsigned m_inFlight;

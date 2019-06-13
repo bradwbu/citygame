@@ -23,7 +23,7 @@
 // to get the ParseInfo structures needed to read in files.
 
 #include <stdlib.h>     // for offsetof
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 /***************************************************************************/
 /***************************************************************************/

@@ -66,7 +66,7 @@ typedef enum ClassesDiminish
 	kClassesDiminish_Outer,
 
 	kClassesDiminish_Count
-};
+} ClassesDiminish;
 /***************************************************************************/
 /***************************************************************************/
 

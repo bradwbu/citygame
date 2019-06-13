@@ -1,8 +1,8 @@
 #ifndef _KEYEDCONDITION_HPP
 #define _KEYEDCONDITION_HPP
 
-#include "criticalsection.hpp"
-#include "ntapiext.h"
+#include <utilitieslib/UtilsCXX/criticalsection.hpp>
+#include <utilitieslib/UtilsNew/ntapiext.h>
 
 class KeyedCondition {
     CriticalSection m_lock;

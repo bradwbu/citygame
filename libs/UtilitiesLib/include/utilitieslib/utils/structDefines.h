@@ -74,9 +74,9 @@ typedef struct StaticDefine {
 } StaticDefine;
 
 typedef struct StaticDefineInt {
-    char* key;
+    char const* key;
     intptr_t value;
-    char* display;
+    char const* display;
 } StaticDefineInt;
 
 // use these to start and end a list

@@ -1,7 +1,7 @@
 #ifndef _COMM_GAME_H
 #define _COMM_GAME_H
 
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 
 // mapserver to client
 typedef enum ServerCommCmd

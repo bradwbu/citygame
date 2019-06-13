@@ -11,9 +11,9 @@
 
 #include <stdlib.h>   // for offsetof
 
-#include "stdtypes.h"  // for bool
+#include <utilitieslib/stdtypes.h>  // for bool
 #include "EntityRef.h" // for EntityRef
-#include "Color.h"
+#include <utilitieslib/utils/Color.h>
 
 typedef struct Character Character;
 typedef struct Power Power;

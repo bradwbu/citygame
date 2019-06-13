@@ -6,7 +6,7 @@
 #ifndef SGRPSTATS_H
 #define SGRPSTATS_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "SgrpStatsCommon.h"
 
 typedef struct NetLink NetLink;

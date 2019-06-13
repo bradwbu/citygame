@@ -6,7 +6,7 @@
 #ifndef CHARACTER_BASE_H__
 #define CHARACTER_BASE_H__
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "RewardItemType.h"
 #include "classes.h"   // for kCategory_...
 #include "attribmod.h" // for AttribModList and PowerEvent

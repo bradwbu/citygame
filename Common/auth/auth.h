@@ -1,7 +1,7 @@
 #ifndef _AUTH_H
 #define _AUTH_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "authconn.h"
 
 // These values are duplicated in AuthServer/src/AuthServer/Config.h

@@ -32,6 +32,7 @@ ipch/
 /AuthServer/**/bin
 /Utilities/pig/bin
 /Utilities/StructParser/bin
+/dbserver/bin
 
 # Visual C++ debug database
 *.pdb

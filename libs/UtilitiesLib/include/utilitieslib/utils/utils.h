@@ -297,8 +297,8 @@ uintptr_t x_beginthreadex(void *security, unsigned stack_size,
                           unsigned ( __stdcall *start_address )( void * ),
                           void *arglist, unsigned initflag, unsigned *thrdaddr,
                           char* filename, int linenumber);
-#define _beginthreadex(security,stack,start,args,flags,ptid) x_beginthreadex(security,stack,start,args,flags,ptid,__FILE__,__LINE__)
-#define CreateThread(security,stack,start,args,flags,ptid) (HANDLE)x_beginthreadex(security,stack,start,args,flags,ptid,__FILE__,__LINE__)
+#define _beginthreadex(security,stack,start,args,flags,ptid) x_beginthreadex(security,stack,start,args,flags,ptid,(char*)__FILE__,__LINE__)
+#define CreateThread(security,stack,start,args,flags,ptid) (HANDLE)x_beginthreadex(security,stack,start,args,flags,ptid,(char*)__FILE__,__LINE__)
 
 void reverse_bytes(U8 *s,int len);
 

@@ -6,7 +6,7 @@
 #ifndef TEAMCOMMON_H
 #define TEAMCOMMON_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 #if SERVER
 #	include "storyarcinterface.h"

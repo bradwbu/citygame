@@ -6,8 +6,8 @@
 #ifndef REWARDITEMTYPE_H
 #define REWARDITEMTYPE_H
 
-#include "stdtypes.h"
-#include "utils.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/utils.h>
 
 //------------------------------------------------------------
 // types of rewards. note that Power rewards themselves 

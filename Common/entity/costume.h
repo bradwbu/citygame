@@ -6,8 +6,8 @@
 #ifndef COSTUME_H__
 #define COSTUME_H__
 
-#include "Color.h"
-#include "stdtypes.h"
+#include <utilitieslib/utils/Color.h>
+#include <utilitieslib/stdtypes.h>
 #include "character_base.h"
 
 typedef struct Packet Packet;
@@ -388,7 +388,7 @@ int costumeCorrectColors(Entity *e, Costume *costume, int **badColorList);
 //-------------------------------------------------------------------------------------
 // Costume definiton loading
 //-------------------------------------------------------------------------------------
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 extern TokenizerParseInfo ParseCostume[];
 extern TokenizerParseInfo ParseCostumePart[];
 extern TokenizerParseInfo ParseCostumePartDiff[];

@@ -522,7 +522,7 @@ StaticDefineInt ParseFormatUIOptions[] =
 };
 
 
-static void ParseInfoPushOption(ParseInfoColumn* elem, char* option, const char* param)
+static void ParseInfoPushOption(ParseInfoColumn* elem, char const* option, const char* param)
 {
     StructFunctionCall* call = ParserAllocStruct(sizeof(StructFunctionCall));
     call->function = StructAllocString(option);

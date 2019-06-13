@@ -6,7 +6,7 @@
 #ifndef SALVAGE_H__
 #define SALVAGE_H__ 
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "TokenizerUiWidget.h"
 
 typedef struct ParseLink ParseLink;

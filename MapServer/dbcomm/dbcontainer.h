@@ -2,8 +2,8 @@
 #define _DBCONTAINER_H
 
 #include <stdlib.h>
-#include "stdtypes.h"
-#include "net_typedefs.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/network/net_typedefs.h>
 
 typedef struct NetLink NetLink;
 typedef struct Packet Packet;

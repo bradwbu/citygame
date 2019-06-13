@@ -2,8 +2,8 @@
 #define ENTVARUPDATE_H__
 
 
-#include "stdtypes.h"
-#include "netio.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/network/netio.h>
 
 typedef struct Entity Entity;
 

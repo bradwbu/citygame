@@ -1,7 +1,7 @@
 #ifndef _DBCOMM_H
 #define _DBCOMM_H
 
-#include "network\netio.h"
+#include <utilitieslib/network/netio.h>
 #include "dbcontainer.h"
 
 //typedef U32		xcontainer_update_cb(ContainerInfo *ci,int type);
