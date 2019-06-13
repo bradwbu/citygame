@@ -2899,7 +2899,7 @@ int clientQueuedCount()
         return queueservercomm_getNWaiting();
     // TODO: The line below causes  fatal error C1001: An internal error has occurred in the compiler.
     // TODO: in release mode. This needs to be researched a bit more rather than just uncomment it.
-    assert(!server_cfg.queue_server);
+    //assert(!server_cfg.queue_server);
     return 0;
 }
 
