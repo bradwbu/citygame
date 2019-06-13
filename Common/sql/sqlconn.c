@@ -233,8 +233,8 @@ static bool sqlConnPrintError(SQLSMALLINT handle_type, SQLHANDLE handle, const c
 {
     SQLSMALLINT rec_num = 1;
     SQLINTEGER error;
-    SQLCHAR msg[SQL_MAX_MESSAGE_LENGTH];
-    SQLCHAR sql_state[SQL_SQLSTATE_SIZE + 1];
+    char msg[SQL_MAX_MESSAGE_LENGTH];
+    char sql_state[SQL_SQLSTATE_SIZE + 1];
     SQLSMALLINT msg_len;
     SQLRETURN ret;
 
@@ -529,7 +529,7 @@ INLINEDBG int sqlConnStmtExecDirect(HSTMT stmt, char *str, int str_len, SqlConn 
 
     for (;;) {
         U32 now;
-        char sql_state[SQL_SQLSTATE_SIZE+1];
+        char sql_state[SQL_SQLSTATE_SIZE + 1];
 
         if (utf8)
             ret = _sqlConnStmtExecDirectUtf8(stmt, str, str_len, conn);

@@ -531,9 +531,9 @@ bool CDBConn::EndTran(SQLSMALLINT compType)
 
 void CDBConn::Error(SQLSMALLINT handleType, SQLHANDLE handle, const char *command)
 {
-    SQLCHAR state[10];
+    unsigned char message[SQL_MAX_MESSAGE_LENGTH];
+    unsigned char state[SQL_SQLSTATE_SIZE + 1];
     SQLINTEGER native;
-    SQLCHAR message[256];
     SQLSMALLINT len;
     SQLRETURN r;
 
@@ -557,10 +557,10 @@ void CDBConn::Error(SQLSMALLINT handleType, SQLHANDLE handle, const char *comman
 
 void CDBConn::ErrorExceptInsert(SQLSMALLINT handleType, SQLHANDLE handle, const char *command)
 {
-    SQLCHAR state[10];
-    SQLINTEGER native;
-    SQLCHAR message[256];
     SQLSMALLINT len;
+    SQLINTEGER native;
+    unsigned char state[SQL_SQLSTATE_SIZE + 1];
+    unsigned char message[SQL_MAX_MESSAGE_LENGTH];
     if (SQLGetDiagRecA(handleType, handle, 1, state, &native, message, sizeof(message), &len) == SQL_SUCCESS) {
         if (strcmp((char*)state, "23000")) {
             if (command) {
