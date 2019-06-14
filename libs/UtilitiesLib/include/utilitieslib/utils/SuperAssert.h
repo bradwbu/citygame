@@ -151,6 +151,10 @@ void setAssertShardTime(int shardTime);
 
     #define assertmsgf(exp, msg, ...) do { (void)(exp); } while(0)
     #define assertmsg(exp, msg) do { (void)(exp); } while(0)
+
+    #if defined(assert)
+    #undef assert
+    #endif // undef assert
     #define assert(exp) do { (void)(exp); } while(0)
 
     #define devassertmsg(exp, msg, ...) (exp)

@@ -13,7 +13,7 @@
 #include "utilitieslib/utils/file.h"
 #include "utilitieslib/utils/osdependent.h"
 
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
     #define SHARED_HEAP_PARANOID_MODE
 #endif
 

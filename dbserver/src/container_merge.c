@@ -197,7 +197,7 @@ const char *lineValueToText(ContainerTemplate *tplt,LineList *list,LineTracker *
 
     if (line->is_str && line->str_idx == FAKE_STR_IDX)
     {
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
         assert(col->reserved_word); // This should only happen for for the ContainerId column
         assert(line->size == 0);
 #endif
@@ -206,7 +206,7 @@ const char *lineValueToText(ContainerTemplate *tplt,LineList *list,LineTracker *
     }
     else if (col->attr)
     {
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
         assert(!line->is_str);
         assert(line->size == 0);
 #endif
@@ -219,20 +219,20 @@ const char *lineValueToText(ContainerTemplate *tplt,LineList *list,LineTracker *
         xcase CFTYPE_INT:
         case CFTYPE_SHORT:
         case CFTYPE_BYTE:
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
             assert(!line->is_str);
             assert(line->size == 0);
 #endif
             sprintf(buf, "%d", line->ival);
         xcase CFTYPE_FLOAT:
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
             assert(!line->is_str);
             assert(line->size == 0);
 #endif
             safe_ftoa(line->fval,buf);
         xdefault:
             value = list->text + line->str_idx;
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
             assert(line->is_str);            
             assert(line->size == strlen(value));
 #endif

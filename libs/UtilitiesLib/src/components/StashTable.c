@@ -1259,7 +1259,7 @@ static bool stashAddValueInternal(StashTableImp* pTable, StashKey key, U32 uiKey
     }
     else
     {
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
         if (pTable->bInSharedHeap && ((pTable->eKeyType == StashKeyTypeStrings) || (pTable->eKeyType == StashKeyTypeAddress))) {
             assert(isSharedMemory(key.pKey));
         }

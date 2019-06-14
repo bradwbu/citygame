@@ -304,7 +304,7 @@ void sqlDeleteContainer(ContainerTemplate *tplt, int container_id)
 
 static void sqlFlushStatement(HSTMT stmt, char **estr, unsigned *bind, SqlConn conn)
 {
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
     assert(estrUTF8CharacterCount(estr));
 #endif
 
@@ -407,7 +407,7 @@ static void sqlContainerUpdateRows(ContainerTemplate *tplt, int *container_id, L
             switch(col->data_type)
             {
                 default:
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
                     assert(strlen(diff->text + line->str_idx) == line->size);
 #endif
                     bindInputParameter(stmt, (*bind)++, CFTYPE_ANSISTRING, diff->text + line->str_idx, &line->size);
@@ -418,7 +418,7 @@ static void sqlContainerUpdateRows(ContainerTemplate *tplt, int *container_id, L
                     sqlBindTemp * temp = malloc(sizeof(sqlBindTemp) + (line->size+1) * sizeof(wchar_t));
                     int wsize = MultiByteToWideChar(CP_UTF8, 0, diff->text + line->str_idx, (int)line->size, temp->wdata, (int)line->size + 1);
                     temp->wdata[wsize] = 0;
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
                     assert(UTF16GetLength(temp->wdata) == UTF8GetLength(diff->text + line->str_idx));
 #endif
                     temp->bytes = wsize * sizeof(wchar_t);
@@ -603,7 +603,7 @@ static bool addWStrToLine(LineList *list, LineTracker *line, wchar_t *ws, int ws
     if (!ws_len && !(ws_len = (int)wcslen(ws)))
         return 0;
 
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
     assert(ws_len == wcslen(ws));
 #endif
 
@@ -616,7 +616,7 @@ static bool addWStrToLine(LineList *list, LineTracker *line, wchar_t *ws, int ws
     line->size = WideCharToMultiByte(CP_UTF8, 0, ws, ws_len, base, worst_utf8_size, NULL, NULL);
     base[line->size] = 0;
 
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
     assert(UTF16GetLength(ws) == UTF8GetLength(base));
 #endif
 
@@ -633,7 +633,7 @@ static bool addStrToLine(LineList *list, LineTracker *line, char *s, int s_len)
     if (!s_len && !(s_len = (int)strlen(s)))
         return 0;
 
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
     assert(s_len == strlen(s));
 #endif
 
@@ -714,7 +714,7 @@ static int readRow(HSTMT stmt, ContainerTemplate *tplt, TableInfo *table, LineLi
         switch(field->data_type)
         {
             xcase CFTYPE_INT:
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
                 assert(results[col] == sizeof(int));
 #endif
                 if(!(line->ival = *(int *)data))
@@ -725,21 +725,21 @@ static int readRow(HSTMT stmt, ContainerTemplate *tplt, TableInfo *table, LineLi
                     continue;
 
             xcase CFTYPE_SHORT:
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
                 assert(results[col] == sizeof(short));
 #endif
                 if(!(line->ival = *(short *)data))
                     continue;
 
             xcase CFTYPE_BYTE:
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
                 assert(results[col] == sizeof(U8));
 #endif
                 if(!(line->ival = *(U8 *)data))
                     continue;
 
             xcase CFTYPE_FLOAT:
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
                 assert(results[col] == sizeof(float));
 #endif
                 if(!(line->fval = *(float *)data))
@@ -772,7 +772,7 @@ static int readRow(HSTMT stmt, ContainerTemplate *tplt, TableInfo *table, LineLi
                 char buf[128];
                 int buf_len;
 
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
                 assert(results[col] == sizeof(SQL_TIMESTAMP_STRUCT));
 #endif
 

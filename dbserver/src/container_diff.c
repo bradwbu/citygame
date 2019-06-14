@@ -153,7 +153,7 @@ char *containerDiff(const char *old,const char *curr)
 
         if (!found || strcmp(curr_line->value, old_line->value) != 0)
         {
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
             // This string indicates that the row exists, but has no data and should be skipped by valueNotNull
             assert(strcmp(curr_line->value, FAKE_ROW_PLACEHOLDER) != 0);
 #endif

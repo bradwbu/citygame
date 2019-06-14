@@ -47,7 +47,7 @@
 #undef _FVEC_H_INCLUDED
 #undef _IVEC_H_INCLUDED
 
-#if defined(_FULLDEBUG)
+#if defined(FULLDEBUG)
 #define INLINEDBG
 #elif defined(_DEBUG)
 #define INLINEDBG __forceinline
@@ -308,7 +308,7 @@ typedef ptrdiff_t ssize_t;
 
 void DebuggerPrint(const char * msg);
 
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
     #define TODO() do { static bool once=true; if(once) { __nop(); } else { DebuggerPrint(__FILE__ "(" STRINGIFY(__LINE__) "): TODO\n"); once=false; }} while(0,0)
 #else
     #define TODO() do {} while(0,0)

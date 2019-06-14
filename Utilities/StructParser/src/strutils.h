@@ -4,7 +4,7 @@
 #include <cstdio>
 
 // From "../../libs/UtilitiesLib/stdtypes.h"
-#if defined(_FULLDEBUG)
+#if defined(FULLDEBUG)
     #define INLINEDBG
 #elif defined(_DEBUG)
     #define INLINEDBG __forceinline

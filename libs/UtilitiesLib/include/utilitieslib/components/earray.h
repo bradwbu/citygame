@@ -253,7 +253,7 @@ int eafCompare(meafHandle *array1, meafHandle *array2);
 ////////////////////////////////////////////////////////// private
 
 #define EARRAY_FLAG_CUSTOMALLOC            (1 << 0)
-#define EARRAY_FLAG_SHAREDMEMORY        (1 << 1) // currently only set for _FULLDEBUG
+#define EARRAY_FLAG_SHAREDMEMORY        (1 << 1) // currently only set for FULLDEBUG
 
 // #define EARRAY_CRAZY_DEBUGGING 1
 

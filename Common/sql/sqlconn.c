@@ -588,7 +588,7 @@ INLINEDBG int sqlConnStmtExecDirectMany(HSTMT stmt, char *str, int str_len, SqlC
     if (next < 0)
         ret = next;
 
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
     // SQLMoreResults does not function properly if SQL_NEED_DATA was returned
     assert(next != SQL_NEED_DATA);
 #endif

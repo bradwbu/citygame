@@ -2319,7 +2319,7 @@ int reportException(unsigned int code, PEXCEPTION_POINTERS info)
 
     if ( dLastError )
     {
-        if (!FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, dLastError, 0, cWindowsErrorMessage, 1000, NULL))
+        if (!FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM, NULL, dLastError, 0, cWindowsErrorMessage, 1000, NULL))
             sprintf_s(SAFESTR(cWindowsErrorMessage), "Error code: %d\n", dLastError);
     }
 
@@ -2328,8 +2328,7 @@ int reportException(unsigned int code, PEXCEPTION_POINTERS info)
 
     if (IsUsingCider())
     {
-        MessageBox(NULL, assertbuf, "Assertion Failure",
-            MB_OK | MB_ICONEXCLAMATION);
+        MessageBoxA(NULL, assertbuf, "Assertion Failure", MB_OK | MB_ICONEXCLAMATION);
         return EXCEPTION_EXECUTE_HANDLER;
     }
 

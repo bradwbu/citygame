@@ -521,7 +521,7 @@ void eaCompressDbg(mEArrayHandle *dst, cccEArrayHandle *src, CustomMemoryAllocat
         memcpy(dst_array, src_array, len);
         dst_array->size = dst_array->count;
         dst_array->flags |= EARRAY_FLAG_CUSTOMALLOC;
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
         if (isSharedMemory(dst_array))
             dst_array->flags |= EARRAY_FLAG_SHAREDMEMORY;
 #endif

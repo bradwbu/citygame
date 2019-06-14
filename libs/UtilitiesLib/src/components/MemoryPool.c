@@ -16,7 +16,7 @@
 #include "utilitieslib/UtilsNew/lock.h"
 
 
-#ifdef _FULLDEBUG
+#ifdef FULLDEBUG
     #define MEMPOOL_DEBUG 1
 #else
     #define MEMPOOL_DEBUG 0
