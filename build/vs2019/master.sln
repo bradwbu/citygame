@@ -43,6 +43,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CubeMapGenLib", "..\..\3rdp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dbserver", "..\..\dbserver\build\vs2019\dbserver.vcxproj", "{39838F3A-30B1-427C-9AF2-E008AECA43B0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glew", "..\..\3rdparty\glew-2.1.0\build\vs2019\glew.vcxproj", "{06935686-B980-4030-867E-506CF0A3A0A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -187,6 +189,14 @@ Global
 		{39838F3A-30B1-427C-9AF2-E008AECA43B0}.Release|x64.Build.0 = Release|x64
 		{39838F3A-30B1-427C-9AF2-E008AECA43B0}.Release|x86.ActiveCfg = Release|Win32
 		{39838F3A-30B1-427C-9AF2-E008AECA43B0}.Release|x86.Build.0 = Release|Win32
+		{06935686-B980-4030-867E-506CF0A3A0A8}.Debug|x64.ActiveCfg = Debug|x64
+		{06935686-B980-4030-867E-506CF0A3A0A8}.Debug|x64.Build.0 = Debug|x64
+		{06935686-B980-4030-867E-506CF0A3A0A8}.Debug|x86.ActiveCfg = Debug|Win32
+		{06935686-B980-4030-867E-506CF0A3A0A8}.Debug|x86.Build.0 = Debug|Win32
+		{06935686-B980-4030-867E-506CF0A3A0A8}.Release|x64.ActiveCfg = Release|x64
+		{06935686-B980-4030-867E-506CF0A3A0A8}.Release|x64.Build.0 = Release|x64
+		{06935686-B980-4030-867E-506CF0A3A0A8}.Release|x86.ActiveCfg = Release|Win32
+		{06935686-B980-4030-867E-506CF0A3A0A8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -207,6 +217,7 @@ Global
 		{EEDEF6DA-7BFC-4C6C-81DD-0950A7C47EF4} = {97E3A09F-08F3-4967-A309-922DCBA3F112}
 		{901A3427-F14F-48DD-AF61-0FCB47EBC879} = {97E3A09F-08F3-4967-A309-922DCBA3F112}
 		{BEE2C47B-7A0A-4762-9259-D58A7C6B11A9} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
+		{06935686-B980-4030-867E-506CF0A3A0A8} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}
