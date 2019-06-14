@@ -10,7 +10,7 @@
 #include "clientcomm.h"
 #include "offline.h"
 #include "dbrelay.h"
-#include "xact.h"
+#include "auction/xact.h"
 #include "sql_fifo.h"
 #include <utilitieslib/components/estring.h>
 #include "servercfg.h"
@@ -23,7 +23,7 @@
 #include "container_sql.h"
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/network/net_structdefs.h>
-#include "Auction.h"
+#include "auction/Auction.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/error.h>
@@ -31,20 +31,20 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/MemoryPool.h>
 #include "namecache.h"
-#include "AccountCatalog.h"
+#include "account/AccountCatalog.h"
 
 #include <utilitieslib/utils/file.h> // isProductionMode()
 #include "auctionservercomm.h"
 #include "authcomm.h"
 #include "dbdispatch.h"
 #include "mapxfer.h"
-#include "gametypes.h"
+#include "entity/gametypes.h"
 #include <utilitieslib/components/StashTable.h>
 #include "account\AccountData.h"
 #include <utilitieslib/components/HashFunctions.h>
-#include "authUserData.h"
+#include "auth/authUserData.h"
 #include "container_tplt.h"
-#include "container_util.h"
+#include "container/container_util.h"
 #include "container_merge.h"
 #include "container_diff.h"
 #include "comm_game.h"

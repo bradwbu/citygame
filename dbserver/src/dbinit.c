@@ -22,7 +22,7 @@
 #include "dbmsg.h"
 #include <conio.h>
 #include <utilitieslib/utils/MemoryMonitor.h>
-#include "auth.h"
+#include "auth/auth.h"
 #include "authcomm.h"
 #include "clientcomm.h"
 #include <utilitieslib/utils/strings_opt.h>
@@ -71,7 +71,7 @@
 #include <utilitieslib/utils/log.h>
 #include <utilitieslib/utils/genericdialog.h>
 #include <utilitieslib/components/earray.h>
-#include "AccountCatalog.h"
+#include "account/AccountCatalog.h"
 #include "overloadProtection.h"
 
 #pragma comment(lib,"winmm.lib") // timeBeginPeriod

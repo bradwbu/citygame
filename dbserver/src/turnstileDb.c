@@ -17,7 +17,7 @@
 #include "servercfg.h"
 #include <utilitieslib/utils/StringUtil.h>
 #include "authcomm.h"
-#include "teamcommon.h"
+#include "entity/teamcommon.h"
 #include "accountservercomm.h"
 #include <utilitieslib/utils/timing.h>
 #include "turnstiledb.h"

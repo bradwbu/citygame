@@ -1,4 +1,4 @@
-#include "auth.h"
+#include "auth/auth.h"
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/mathutil.h>
@@ -12,11 +12,11 @@
 #include "dbinit.h"
 #include "queueservercomm.h"
 #include "sql_fifo.h"
-#include "authUserData.h"
+#include "auth/authUserData.h"
 #include "../Common/ClientLogin/clientcommlogin.h"
 #include "accountservercomm.h"
 #include "dbmsg.h"
-#include "entVarUpdate.h"
+#include "entity/entVarUpdate.h"
 #include "../../MapServer/container/containerbroadcast.h"
 #include <utilitieslib/utils/StringUtil.h> // binStrToHexStr
 #include <utilitieslib/utils/log.h>

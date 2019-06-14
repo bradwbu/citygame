@@ -1,7 +1,7 @@
 #ifndef _CONTAINERBROADCAST_H
 #define _CONTAINERBROADCAST_H
 
-#include "entVarUpdate.h"
+#include "entity/entVarUpdate.h"
 
 #define	DBMSG_CHAT_MSG							"ChatMsg:"
 #define	DBMSG_HERO_CHAT_MSG						"CoHChatMsg:"

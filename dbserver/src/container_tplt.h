@@ -1,7 +1,7 @@
 #ifndef _CONTAINER_TPLT_H
 #define _CONTAINER_TPLT_H
 
-#include "gametypes.h"
+#include "entity/gametypes.h"
 #include "container_sql.h"
 
 void tpltRegisterForeignKeyConstraint(char *table, char *key, char *foreign_table);

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "gametypes.h" // MAX_NAME_LEN
+#include "entity/gametypes.h" // MAX_NAME_LEN
 
 #define MISSIONSEARCH_MAX_VILLAINGROUPS        1000    //I need to know how many villain groups we have for search. "I hope we have less than 1000 villain groups"
 #define MISSIONSEARCH_AUTHORLEN                32

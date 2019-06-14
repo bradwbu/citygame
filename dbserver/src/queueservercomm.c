@@ -11,8 +11,8 @@
 #include "servercfg.h"
 #include "dbrelay.h"
 #include "dbdispatch.h"
-#include "entVarUpdate.h"
-#include "..\Common\ClientLogin\clientcommLogin.h"
+#include "entity/entVarUpdate.h"
+#include "ClientLogin/clientcommLogin.h"
 #include "clientcomm.h"
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/StringUtil.h>

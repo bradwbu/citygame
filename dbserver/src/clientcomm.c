@@ -19,7 +19,7 @@
 #include "waitingEntities.h"
 #include "clientcomm.h"
 #include <utilitieslib/network/crypt.h>
-#include "costume.h"
+#include "entity/costume.h"
 #include <utilitieslib/network/netcomp.h>
 #include "container_sql.h"
 #include "sql_fifo.h"
@@ -33,7 +33,7 @@
 #include <utilitieslib/components/earray.h>
 #include "dbcomm/staticMapInfo.h"
 #include <utilitieslib/stdtypes.h>
-#include "gametypes.h"
+#include "entity/gametypes.h"
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/components/estring.h>
 #include "dbrelay.h"

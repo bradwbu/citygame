@@ -6,7 +6,7 @@
 #ifndef TRAYCOMMON_H__
 #define TRAYCOMMON_H__
 
-#include "character_inventory.h"
+#include "entity/character_inventory.h"
 
 #define TRAY_WD					( 10 )
 #define TRAY_HT					( 1 )

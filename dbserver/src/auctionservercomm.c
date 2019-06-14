@@ -7,7 +7,7 @@
 #include "auctionservercomm.h"
 #include <utilitieslib/network/sock.h>
 #include "dbrelay.h"
-#include "xact.h"
+#include "auction/xact.h"
 #include "sql_fifo.h"
 #include <utilitieslib/components/estring.h>
 #include "servercfg.h"
@@ -20,7 +20,7 @@
 #include "container_sql.h"
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/network/net_structdefs.h>
-#include "Auction.h"
+#include "auction/Auction.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/error.h>

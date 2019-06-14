@@ -5,7 +5,7 @@
  */
 #include <stdio.h>
 #include "comm_backend.h"
-#include "SgrpStatsCommon.h"
+#include "entity/SgrpStatsCommon.h"
 #include <utilitieslib/network/netio.h>
 #include <utilitieslib/utils/structNet.h>
 #include <utilitieslib/utils/error.h>

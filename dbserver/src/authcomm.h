@@ -1,7 +1,7 @@
 #ifndef _AUTHCOMM_H
 #define _AUTHCOMM_H
 
-#include "auth.h"
+#include "auth/auth.h"
 
 int authValidLogin(U32 auth_id,U32 cookie,char *name,U8 user_data[AUTH_BYTES],U32 *loyalty,U32 *loyaltyLegacy,U32 *payStat);
 void authSendPlayOK(int auth_id, int one_time_pwd );

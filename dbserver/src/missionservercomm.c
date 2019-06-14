@@ -9,7 +9,7 @@
 #include "servercfg.h"
 #include "dbrelay.h"
 #include "dbdispatch.h"
-#include "entVarUpdate.h"
+#include "entity/entVarUpdate.h"
 
 #include "MissionServer/missionserver_meta.h"
 //#include "UtilsNew/meta.h"

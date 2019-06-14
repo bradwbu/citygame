@@ -11,7 +11,7 @@
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/components/StashTable.h>
-#include "gametypes.h"
+#include "entity/gametypes.h"
 #ifdef SERVER
     #include "cmdserver.h"
     #include "svr_base.h"

@@ -12,7 +12,7 @@
 #include <utilitieslib/utils/mathutil.h>
 #include "queueservercomm.h"
 #include "dbcomm/StaticMapInfo.h"
-#include "gametypes.h"
+#include "entity/gametypes.h"
 #include <utilitieslib/utils/log.h>
 #include "accountservercomm.h"
 #include "account\AccountData.h"

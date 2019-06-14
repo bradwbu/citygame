@@ -6,7 +6,7 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/textparser.h>
-#include "LoadDefCommon.h"
+#include "entity/LoadDefCommon.h"
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/network/net_structdefs.h>
 #include <utilitieslib/network/net_packet_common.h>

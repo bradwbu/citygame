@@ -263,9 +263,6 @@
     <ClInclude Include="..\..\..\Common\container\container_util.h">
       <Filter>Header Files\Common\container</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\launcher\performance.h">
-      <Filter>Header Files\launcher</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\MapServer\dbcomm\staticMapInfo.h">
       <Filter>Header Files\Mapserver\dbcomm</Filter>
     </ClInclude>
@@ -277,6 +274,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\Common\auction\Xact.h">
       <Filter>Header Files\Common\auction</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\launcher\src\performance.h">
+      <Filter>Header Files\launcher</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

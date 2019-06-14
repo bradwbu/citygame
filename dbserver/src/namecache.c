@@ -10,7 +10,7 @@
 #include "comm_backend.h"
 #include "container_sql.h"
 #include "sql_fifo.h"
-#include "gametypes.h"
+#include "entity/gametypes.h"
 #include <utilitieslib/utils/log.h>
 
 static StashTable db_id_hashes;

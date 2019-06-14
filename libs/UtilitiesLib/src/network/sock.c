@@ -9,9 +9,9 @@
 #include "utilitieslib/utils/endian.h"
 #include "utilitieslib/utils/strings_opt.h"
 #include "utilitieslib/utils/log.h"
+
 #ifdef _WIN32
 #include "utilitieslib/utils/wininclude.h"
-#include <iphlpapi.h>
 #endif
 
 void    sockSetAddr(struct sockaddr_in *addr,unsigned int ip,int port)

@@ -33,6 +33,7 @@ ipch/
 /Utilities/pig/bin
 /Utilities/StructParser/bin
 /dbserver/bin
+/launcher/bin
 
 # Visual C++ debug database
 *.pdb

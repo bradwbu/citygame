@@ -1,7 +1,7 @@
 #define SVRMONCOMM_PARSE_INFO_DEFS
 #include "svrmoncomm.h"
 #include "accountservercomm.h"
-#include "auction.h"
+#include "auction/auction.h"
 #include "auctionservercomm.h"
 #include <utilitieslib/utils/error.h>
 #include "comm_backend.h"
