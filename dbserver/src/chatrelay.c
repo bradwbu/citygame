@@ -2,7 +2,7 @@
 #include <utilitieslib/components/estring.h>
 #include "chatrelay.h"
 #include "comm_backend.h"
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/components/earray.h>
 #include "logserver.h"

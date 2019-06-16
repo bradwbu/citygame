@@ -13,7 +13,7 @@
 #include "auction/xact.h"
 #include "sql_fifo.h"
 #include <utilitieslib/components/estring.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include "dbinit.h"
 #include "container.h"
 #include "comm_backend.h"
@@ -34,7 +34,7 @@
 #include "account/AccountCatalog.h"
 
 #include <utilitieslib/utils/file.h> // isProductionMode()
-#include "auctionservercomm.h"
+#include "dbserver/auctionservercomm.h"
 #include "authcomm.h"
 #include "dbdispatch.h"
 #include "mapxfer.h"
@@ -49,7 +49,7 @@
 #include "container_diff.h"
 #include "comm_game.h"
 #include "turnstiledb.h"
-#include "turnstileservercommon.h"
+#include "turnstile/turnstileservercommon.h"
 #include "queueservercomm.h"
 #include <utilitieslib/utils/log.h>
 #include "account/accountdata.h"

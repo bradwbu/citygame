@@ -6,7 +6,7 @@
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/network/netcomp.h>
 #include <utilitieslib/utils/memlog.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 
 //----------------------------------------------------------------------------------
 // in-memory debug log

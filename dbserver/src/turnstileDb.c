@@ -14,14 +14,14 @@
 #include "dbinit.h"
 #include "dbrelay.h"
 #include <utilitieslib/utils/utils.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include <utilitieslib/utils/StringUtil.h>
 #include "authcomm.h"
 #include "entity/teamcommon.h"
 #include "accountservercomm.h"
 #include <utilitieslib/utils/timing.h>
 #include "turnstiledb.h"
-#include "turnstileservercommon.h"
+#include "turnstile/turnstileservercommon.h"
 #include <utilitieslib/utils/log.h>
 
 static NetLinkList turnstile_links = {0};

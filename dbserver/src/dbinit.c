@@ -1,6 +1,6 @@
 #include "dbinit.h"
 #include <utilitieslib/stdtypes.h>
-#include "auctionservercomm.h"
+#include "dbserver/auctionservercomm.h"
 #include "accountservercomm.h"
 #include "missionservercomm.h"
 #include <stdio.h>
@@ -13,7 +13,7 @@
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/timing.h>
 #include "dbdispatch.h"
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include "weeklyTFcfg.h"
 #include "status.h"
 #include "dbperf.h"

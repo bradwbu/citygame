@@ -10,7 +10,7 @@
 #include <utilitieslib/utils/utils.h>
 #include "comm_backend.h"
 #include "namecache.h"
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 
 #include "dbEventHistory.h"
 

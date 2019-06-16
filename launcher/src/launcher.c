@@ -12,7 +12,7 @@ connection plan:
  */
 
 #include <utilitieslib/network/netio.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include "comm_backend.h"
 #include "proclist.h"
 #include "monitor.h"

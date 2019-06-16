@@ -2,7 +2,7 @@
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/network/netio.h>
 #include <utilitieslib/utils/error.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include <utilitieslib/network/netio_core.h>
 #include "container.h"
 #include "comm_backend.h"

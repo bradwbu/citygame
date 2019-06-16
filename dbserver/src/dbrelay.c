@@ -3,7 +3,7 @@
 #include <utilitieslib/utils/error.h>
 #include "mapxfer.h"
 #include <utilitieslib/utils/utils.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include "container.h"
 #include "sql_fifo.h"
 #include "dblog.h"

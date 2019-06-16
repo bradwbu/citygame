@@ -3,7 +3,7 @@
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/network/netio.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include <stdio.h>
 #include <string.h>
 #include "mapxfer.h"

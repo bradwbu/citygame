@@ -11,7 +11,7 @@
 #include <utilitieslib/utils/stackdump.h>
 #include <utilitieslib/utils/strings_opt.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include "sql_fifo.h"
 #include "dbinit.h"
 #include <utilitieslib/utils/ConvertUTF.h>

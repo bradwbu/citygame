@@ -6,7 +6,7 @@
 #include <utilitieslib/utils/error.h>
 #include "authcomm.h"
 #include "container.h"
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include "mapxfer.h"
 #include <utilitieslib/Version/AppVersion.h>
 #include "dbdispatch.h"

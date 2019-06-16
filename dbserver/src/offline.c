@@ -9,7 +9,7 @@
 #include <zlib/zlib.h>
 #include "namecache.h"
 #include <utilitieslib/utils/error.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include <utilitieslib/utils/timing.h>
 #include "container_merge.h"
 #include <utilitieslib/components/estring.h>

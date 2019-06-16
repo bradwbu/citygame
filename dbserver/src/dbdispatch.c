@@ -11,7 +11,7 @@
 #include <utilitieslib/assert/assert.h>
 #include "doors.h"
 #include <utilitieslib/utils/utils.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include "weeklyTFcfg.h"
 #include "launchercomm.h"
 #include <utilitieslib/utils/file.h>

@@ -15,7 +15,7 @@
 #include <utilitieslib/utils/memlog.h>
 #include "chatrelay.h"
 #include <utilitieslib/components/estring.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include <utilitieslib/utils/log.h>
 #include "zeromqSocket.h"
 

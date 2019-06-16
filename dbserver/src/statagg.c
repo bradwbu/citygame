@@ -17,7 +17,7 @@
 #include "container_sql.h"
 #include "dbrelay.h"      // For SendToServers
 #include "clientcomm.h"   // For getAttribString
-#include "servercfg.h"    // server_cfg.no_stats
+#include "dbserver/servercfg.h"    // server_cfg.no_stats
 
 #define STAT_MAX_TOPS 10
 //#define DUMP_TOPS // Define to dump HTML of initial tops at startup

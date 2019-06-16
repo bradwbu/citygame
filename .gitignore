@@ -34,6 +34,7 @@ ipch/
 /Utilities/StructParser/bin
 /dbserver/bin
 /launcher/bin
+/TurnstileServer/bin
 
 # Visual C++ debug database
 *.pdb

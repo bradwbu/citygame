@@ -3,7 +3,7 @@
 #include <utilitieslib/utils/file.h>
 #include "statservercomm.h"
 #include "comm_backend.h"
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include <utilitieslib/network/netio.h>
 #include "container.h"
 #include <utilitieslib/utils/timing.h>

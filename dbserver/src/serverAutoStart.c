@@ -6,7 +6,7 @@
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/utils.h>
 #include "launchercomm.h"
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include "dbinit.h"
 #include <utilitieslib/utils/log.h>
 

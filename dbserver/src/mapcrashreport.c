@@ -1,5 +1,5 @@
 #include "mapcrashreport.h"
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include <utilitieslib/network/sock.h>
 #include <utilitieslib/stdtypes.h>
 #include "comm_backend.h"

@@ -47,6 +47,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glew", "..\..\3rdparty\glew
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "launcher", "..\..\launcher\build\vs2019\launcher.vcxproj", "{5001E187-BDAD-40C6-8BEE-4A22FD99F3DC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TurnstileServer", "..\..\TurnstileServer\build\vs2019\TurnstileServer.vcxproj", "{929964B8-60FC-44D3-9EDB-4549F95FD29F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -207,6 +209,14 @@ Global
 		{5001E187-BDAD-40C6-8BEE-4A22FD99F3DC}.Release|x64.Build.0 = Release|x64
 		{5001E187-BDAD-40C6-8BEE-4A22FD99F3DC}.Release|x86.ActiveCfg = Release|Win32
 		{5001E187-BDAD-40C6-8BEE-4A22FD99F3DC}.Release|x86.Build.0 = Release|Win32
+		{929964B8-60FC-44D3-9EDB-4549F95FD29F}.Debug|x64.ActiveCfg = Debug|x64
+		{929964B8-60FC-44D3-9EDB-4549F95FD29F}.Debug|x64.Build.0 = Debug|x64
+		{929964B8-60FC-44D3-9EDB-4549F95FD29F}.Debug|x86.ActiveCfg = Debug|Win32
+		{929964B8-60FC-44D3-9EDB-4549F95FD29F}.Debug|x86.Build.0 = Debug|Win32
+		{929964B8-60FC-44D3-9EDB-4549F95FD29F}.Release|x64.ActiveCfg = Release|x64
+		{929964B8-60FC-44D3-9EDB-4549F95FD29F}.Release|x64.Build.0 = Release|x64
+		{929964B8-60FC-44D3-9EDB-4549F95FD29F}.Release|x86.ActiveCfg = Release|Win32
+		{929964B8-60FC-44D3-9EDB-4549F95FD29F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

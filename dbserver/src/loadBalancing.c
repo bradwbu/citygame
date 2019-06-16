@@ -7,7 +7,7 @@
 #include <utilitieslib/utils/FolderCache.h>
 #include <utilitieslib/utils/tokenstore.h>
 #include <utilitieslib/utils/log.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 
 LoadBalanceConfig load_balance_config;
 

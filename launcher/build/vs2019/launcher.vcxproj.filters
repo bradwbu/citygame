@@ -9,11 +9,17 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Source Files\dbserver">
-      <UniqueIdentifier>{31ce36f8-12dd-4819-b4c9-083303642d0d}</UniqueIdentifier>
+    <Filter Include="Header Files\Common">
+      <UniqueIdentifier>{a38ca837-2cc7-4cba-affb-d65b372d2631}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\dbserver">
-      <UniqueIdentifier>{b31c8755-50b5-410d-9d14-d96b18b7bc84}</UniqueIdentifier>
+    <Filter Include="Header Files\Common\dbserver">
+      <UniqueIdentifier>{5435661e-6d8a-4698-abc2-b0a0e2986ae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{f3199d95-eef9-4c49-97c5-b5c00c877b0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\dbserver">
+      <UniqueIdentifier>{f3f9e0b7-033e-499c-9bc9-a71e5345ce03}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -29,8 +35,8 @@
     <ClCompile Include="..\..\src\launcher.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\dbserver\src\servercfg.c">
-      <Filter>Source Files\dbserver</Filter>
+    <ClCompile Include="..\..\..\Common\dbserver\servercfg.c">
+      <Filter>Source Files\Common\dbserver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -46,8 +52,8 @@
     <ClInclude Include="..\..\src\launcher_enum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\dbserver\src\servercfg.h">
-      <Filter>Header Files\dbserver</Filter>
+    <ClInclude Include="..\..\..\Common\dbserver\servercfg.h">
+      <Filter>Header Files\Common\dbserver</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

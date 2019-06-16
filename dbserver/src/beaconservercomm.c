@@ -5,7 +5,7 @@
 #include "dbinit.h"
 #include <utilitieslib/utils/timing.h>
 #include "svrmoncomm.h"
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include <utilitieslib/utils/log.h>
 
 // BeaconServer Comm ------------------------------------------------------------------------------

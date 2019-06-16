@@ -8,7 +8,7 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/timing.h>
 
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include "dbrelay.h"
 #include "dbdispatch.h"
 #include "entity/entVarUpdate.h"

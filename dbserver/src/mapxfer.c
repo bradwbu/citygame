@@ -3,7 +3,7 @@
 #include "launchercomm.h"
 #include "dbinit.h"
 #include <utilitieslib/utils/error.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include "dblog.h"
 #include <stdio.h>
 #include "waitingEntities.h"

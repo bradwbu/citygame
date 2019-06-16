@@ -78,6 +78,18 @@
     <Filter Include="Source Files\Mapserver\dbcomm">
       <UniqueIdentifier>{b92dcf3b-16d5-4e1e-8dc6-7793d6a71a6a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Common\dbserver">
+      <UniqueIdentifier>{6cc85eda-9ff4-47f8-8814-5ccfb4a2c8ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\dbserver">
+      <UniqueIdentifier>{1660ad4b-ac04-4b6d-b6c7-aab9eb05270d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\turnstile">
+      <UniqueIdentifier>{ee68474b-a084-4e4e-b759-8ab518c5054d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\turnstile">
+      <UniqueIdentifier>{4d326b78-e14b-426d-b7eb-7574b9ea3912}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\MapServer\entity\SgrpStats.h">
@@ -113,12 +125,6 @@
     <ClInclude Include="..\..\..\Common\MissionServer\missionserver_meta.h">
       <Filter>Header Files\Common\MissionServer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Common\TurnstileCommon.h">
-      <Filter>Header Files\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Common\TurnstileServerCommon.h">
-      <Filter>Header Files\Common</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\zeromqSocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -144,9 +150,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\sql_fifo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\servercfg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\serverAutoStart.h">
@@ -245,13 +248,7 @@
     <ClInclude Include="..\..\src\authcomm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\auctionservercomm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\arenacomm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\accountservercomm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\auction\Auction.h">
@@ -277,6 +274,21 @@
     </ClInclude>
     <ClInclude Include="..\..\..\launcher\src\performance.h">
       <Filter>Header Files\launcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\dbserver\servercfg.h">
+      <Filter>Header Files\Common\dbserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\turnstile\TurnstileCommon.h">
+      <Filter>Header Files\Common\turnstile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\turnstile\TurnstileServerCommon.h">
+      <Filter>Header Files\Common\turnstile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\dbserver\auctionservercomm.h">
+      <Filter>Header Files\Common\dbserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\accountservercomm.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -415,9 +427,6 @@
     <ClCompile Include="..\..\src\serverAutoStart.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\servercfg.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\sql_fifo.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -442,12 +451,6 @@
     <ClCompile Include="..\..\src\weeklyTFcfg.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Common\TurnstileCommon.c">
-      <Filter>Source Files\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Common\TurnstileServerCommon.c">
-      <Filter>Source Files\Common</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Common\MissionSearch.c">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
@@ -471,6 +474,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Common\auction\Xact.c">
       <Filter>Source Files\Common\auction</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\dbserver\servercfg.c">
+      <Filter>Source Files\Common\dbserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\turnstile\TurnstileCommon.c">
+      <Filter>Source Files\Common\turnstile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\turnstile\TurnstileServerCommon.c">
+      <Filter>Source Files\Common\turnstile</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

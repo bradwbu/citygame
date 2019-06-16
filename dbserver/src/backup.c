@@ -9,7 +9,7 @@
 #include "comm_backend.h"
 #include "dbdispatch.h"
 #include <utilitieslib/network/net_typedefs.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include "container_tplt_utils.h"
 #include "container_merge.h"
 #include <utilitieslib/utils/hoglib.h>

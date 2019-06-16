@@ -6,7 +6,7 @@
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/timing.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include "container_tplt_utils.h"
 #include "container_diff.h"
 #include "container_merge.h"

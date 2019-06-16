@@ -10,7 +10,7 @@
 #include <zlib/zlib.h>
 #include <utilitieslib/network/netcomp.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 
 U32 door_curr_tag;
 

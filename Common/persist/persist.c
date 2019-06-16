@@ -440,6 +440,7 @@ intptr_t persist_getKey(PersistInfo *info, void *structptr)
             assertmsg(0, "invalid key type");
             return 0;
     }
+    return 0;
 }
 
 intptr_t persist_dupKey(PersistInfo *info, void *structptr)
@@ -772,7 +773,7 @@ static void s_removeAndDestroy(PersistInfo *info, void *structptr)
 
 void persist_mergeDelete(PersistInfo *info, intptr_t key)
 {
-    void *structptr;
+    void* structptr = NULL;
     RowInfo row;
 
     switch(info->keytype)

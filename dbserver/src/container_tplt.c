@@ -4,7 +4,7 @@
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/error.h>
-#include "servercfg.h"
+#include "dbserver/servercfg.h"
 #include <utilitieslib/utils/timing.h>
 #include "container_tplt.h"
 #include "container_tplt_utils.h"

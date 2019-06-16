@@ -3,7 +3,7 @@
 #include <utilitieslib/network/net_linklist.h>
 #include "auth/auth.h"
 #ifdef DBSERVER
-#include "../../dbserver/src/servercfg.h"    //used for MAX_PLAYER_SLOTS
+#include "dbserver/servercfg.h"    //used for MAX_PLAYER_SLOTS
 #endif
 
 void initGameChecksum();

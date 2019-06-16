@@ -2,7 +2,7 @@
 #include "svrmoncomm.h"
 #include "accountservercomm.h"
 #include "auction/auction.h"
-#include "auctionservercomm.h"
+#include "dbserver/auctionservercomm.h"
 #include <utilitieslib/utils/error.h>
 #include "comm_backend.h"
 #include <stdio.h>
