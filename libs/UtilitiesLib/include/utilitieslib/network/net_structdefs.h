@@ -459,18 +459,18 @@ typedef struct NMSock{
 
 typedef struct Packet
 {
-    U32        UID;            // unique across all links. For debugging purposes only.
-    U32        id;                // unique across a single link.
+    U32        UID;                     // unique across all links. For debugging purposes only.
+    U32        id;                      // unique across a single link.
     U32        truncatedID;
     
     U32        reliable            : 1;
     U32        hasDebugInfo        : 1;
-    U32        inRetransmitQueue    : 1;
-    U32        inSendQueue            : 1; // For debugging only
+    U32        inRetransmitQueue   : 1;
+    U32        inSendQueue         : 1; // For debugging only
     U32        compress            : 1; // Packet should be compressed
-                                     // when sending (and the payload
-                                     // byteAligned). for UDP must be
-                                     // reliable and ordered too.
+                                        // when sending (and the payload
+                                        // byteAligned). for UDP must be
+                                        // reliable and ordered too.
     U32        ordered             : 1; // packets with this bit will be handled in order
     U32        ordered_id;
 

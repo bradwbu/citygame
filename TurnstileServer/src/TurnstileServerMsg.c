@@ -856,7 +856,8 @@ void turnstileServer_generateEventReady(QueueGroup *group, TurnstileMission *mis
     pktSendBits(pak, 32, instance->eventId);    // instanceID
     pktSendBits(pak, 32, mission->missionID);    // missionID
 
-    STATIC_INFUNC_ASSERT(sizeof(void *) == 4);    // If this trips, you're probably on a 64 bit machine, in
+    #pragma message("Needs more investigation") 
+    //STATIC_INFUNC_ASSERT(sizeof(void *) == 4);    // If this trips, you're probably on a 64 bit machine, in
                                                 // which case use of the instance address will need some work.
 
     if (playerIndex == -1)
@@ -905,7 +906,8 @@ void turnstileServer_generateEventReadyAccept(QueueGroup *group, MissionInstance
     // identify it.  As long as the instance never moves (which
     // it doesn't) and everyone else views this as an opaque
     // 32 bit value, we should be just fine.
-    STATIC_INFUNC_ASSERT(sizeof(void *) == 4);    // If this trips, you're probably on a 64 bit machine, in
+    #pragma message("Needs more investigation") 
+    //STATIC_INFUNC_ASSERT(sizeof(void *) == 4);    // If this trips, you're probably on a 64 bit machine, in
     // which case use of the instance address will need some work.
 
     // Otherwise it's a repeat transmission because we never saw an ack, just send to the player in question.
