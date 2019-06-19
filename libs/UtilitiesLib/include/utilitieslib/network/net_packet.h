@@ -48,15 +48,15 @@ void packetShutdown();
 
 void packetGetAllocationCounts(size_t* packetCount, size_t* bsCount);
 
-#define pktCreate()        pktCreateImp(__FILE__, __LINE__)
-#define pktFree(pak)    pktFreeImp(pak,__FILE__, __LINE__)
+#define pktCreate() pktCreateImp(__FILE__, __LINE__)
+#define pktFree(pak) pktFreeImp(pak,__FILE__, __LINE__)
 
 // Packet creation and destruction
-Packet* pktCreateImp    (char* fname, int line);
-void    pktDestroy        (Packet* pak);                // Same as pktFreeImp.  Used as callback only.
+Packet* pktCreateImp(char const* fname, int line);
+void pktDestroy(Packet* pak);                // Same as pktFreeImp.  Used as callback only.
 
 // 
-void    pktFreeImp        (Packet* pak, char* fname, int line);
+void    pktFreeImp(Packet* pak, char const* fname, int line);
 
 #include "net_packet_common.h"
 

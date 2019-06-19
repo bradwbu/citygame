@@ -103,9 +103,9 @@ int logShouldWrite( LogType type, LogLevel level);
 void printf_stderr(const char * msg, ...);
 void printv_stderr(const char * msg, va_list va);
 
-void log_f( LogType type, LogLevel level, int flags, char * msg, ...  );
-void log_va( LogType type, LogLevel level, int flags, char * msg, va_list );
-void log_msg( LogType type, LogLevel level, int flags, char * msg  );
+void log_f( LogType type, LogLevel level, int flags, char const* msg, ...  );
+void log_va( LogType type, LogLevel level, int flags, char const* msg, va_list );
+void log_msg( LogType type, LogLevel level, int flags, char const* msg  );
 
 
 // These macros cover all the old log lines that I'm pretty sure are stupid.  If we need them again we can set the log level high
@@ -121,7 +121,7 @@ void log_msg( LogType type, LogLevel level, int flags, char * msg  );
 #define LOG(type, level, flags, msg, ...) {if(logShouldWrite(type,level) || (flags&LOG_CONSOLE_ALWAYS)){ log_f( type, level, flags, msg, ##__VA_ARGS__ ); }}
 #define LOG_AP(type, level, flags, msg, ap) {if(logShouldWrite(type,level) || (flags&LOG_CONSOLE_ALWAYS)){ log_va( type, level, flags, msg, ap ); }}
 
-typedef void (*SendMsgToLogServerFunc)(LogType type, char * msg);
+typedef void (*SendMsgToLogServerFunc)(LogType type, char const* msg);
 void setSendMsgToLogServerFunc( SendMsgToLogServerFunc func );
 
 void logBackgroundWriterSetSleep(int sleep_ms);

@@ -35,6 +35,7 @@ ipch/
 /dbserver/bin
 /launcher/bin
 /TurnstileServer/bin
+/AccountServer/bin
 
 # Visual C++ debug database
 *.pdb

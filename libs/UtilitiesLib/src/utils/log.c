@@ -346,7 +346,7 @@ void printf_stderr(const char * msg, ...)
 
 // either write message locally or send to logserver for writing, do not call directly
 // use a macro that checks the log level
-void log_msg( LogType type, LogLevel level, int flags, char * msg  )
+void log_msg( LogType type, LogLevel level, int flags, char const* msg  )
 {
     char date_buf[100];
 
@@ -367,7 +367,7 @@ void log_msg( LogType type, LogLevel level, int flags, char * msg  )
         // storing the time so we can clean it up later, not storing the string key because I don't really care about collisions
         if( !stashIntAddInt(stLogOnce, hash, time, 0) ) 
         {
-            estrDestroy(&msg);
+            estrDestroy((char**)&msg);
             return;
         }
     }
@@ -396,7 +396,7 @@ void log_msg( LogType type, LogLevel level, int flags, char * msg  )
         sendMessageToLogServer(type, msg);
 }
 // all this does is gather arguments for log_msg do not call directly, use macro LOG
-void log_va( LogType type, LogLevel level, int flags, char * fmt, va_list ap  )
+void log_va( LogType type, LogLevel level, int flags, char const* fmt, va_list ap  )
 {
     char * str = estrTemp();
     int result = 0;
@@ -409,7 +409,7 @@ void log_va( LogType type, LogLevel level, int flags, char * fmt, va_list ap  )
 }
 
 // all this does is gather arguments for log_msg do not call directly, use macro LOG
-void log_f( LogType type, LogLevel level, int flags, char * fmt, ...  )
+void log_f( LogType type, LogLevel level, int flags, char const* fmt, ...  )
 {
     char * str = estrTemp();
     va_list ap;

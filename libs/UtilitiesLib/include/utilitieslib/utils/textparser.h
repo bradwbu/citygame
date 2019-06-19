@@ -311,7 +311,7 @@ typedef U32 StructFormatField;  // fine for 32 bits here
 //        ?color            U32                                        (may add this later)
 typedef struct ParseTable
 {
-    char* name;
+    char const* name;
     StructTypeField type;
     size_t storeoffset;
     intptr_t param;            // default to ints, but pointers must fit here
@@ -355,7 +355,7 @@ void    StructDestroy(ParseTable pti[], void* structptr);
 char*    StructAllocStringLenDbg(const char* string, int len, const char *file, int line);    // strdup()-esque
 #define StructReallocString(ppch, str)        StructReallocStringDbg(ppch, str, __FILE__, __LINE__)
 void    StructReallocStringDbg(char **ppch, const char *string, const char *file, int line);
-void    StructFreeString(char* string);        // release memory for a string
+void    StructFreeString(char const* string);        // release memory for a string
 void    StructFreeStringConst(const char* string);
 
 /////////////////////////////////////////////////// Struct utils

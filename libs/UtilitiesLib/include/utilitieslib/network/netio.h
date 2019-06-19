@@ -125,10 +125,10 @@ int packetCanUseEncryption(void);
 #define pktFree(pak)    pktFreeImp(pak,__FILE__, __LINE__)
 
 // Packet creation and destruction
-Packet* pktCreateImp    (char* fname, int line);
-void    pktDestroy        (Packet* pak);                // Same as pktFreeImp.  Used as callback only.
+Packet* pktCreateImp(char const* fname, int line);
+void    pktDestroy(Packet* pak);                // Same as pktFreeImp.  Used as callback only.
 
-void    pktFreeImp        (Packet* pak, char* fname, int line);
+void    pktFreeImp(Packet* pak, char const* fname, int line);
 
 Packet *pktCreateEx(NetLink *link,int cmd);
 

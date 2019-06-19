@@ -19,7 +19,7 @@
 #endif
 
 #if _CRTDBG_MAP_ALLOC
-#    define MEM_DBG_PARMS ,char *caller_fname,int line
+#    define MEM_DBG_PARMS ,char const* caller_fname,int line
 #    define MEM_DBG_PARMS_CALL ,caller_fname,line
 #    define MEM_DBG_PARMS_INIT ,__FILE__,__LINE__
 

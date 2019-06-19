@@ -94,7 +94,7 @@ static int dumpStatsProcessor(StashElement elem)
     return 1;
 }
 
-static void addStats(StashTable *ht, char *fn, int line, int default_num_bits, int bits, int is_zero, int is_small_neg, int log2val, int abslog2val)
+static void addStats(StashTable *ht, char const* fn, int line, int default_num_bits, int bits, int is_zero, int is_small_neg, int log2val, int abslog2val)
 {
     char key[MAX_PATH+20];
     ProfileRecord *pr;
@@ -306,7 +306,7 @@ static int getAbsLog2Val(U32 val)
     return min(count_bits((~val) + 1U), count_bits(val));
 }
 
-void profile_pktSendBits(char *file, int line, Packet *pak, int numbits, U32 val)
+void profile_pktSendBits(char const* file, int line, Packet *pak, int numbits, U32 val)
 {
     if (s_collectingNetStats)
     {
@@ -327,7 +327,7 @@ void profile_pktSendBits(char *file, int line, Packet *pak, int numbits, U32 val
     }
 }
 
-void profile_pktSendBitsPack(char *file, int line, Packet *pak, int minbits, U32 val)
+void profile_pktSendBitsPack(char const* file, int line, Packet *pak, int minbits, U32 val)
 {
     if (s_collectingNetStats)
     {
@@ -347,7 +347,7 @@ void profile_pktSendBitsPack(char *file, int line, Packet *pak, int minbits, U32
     }
 }
 
-void profile_pktSendString(char *file, int line, Packet *pak, const char *str)
+void profile_pktSendString(char const* file, int line, Packet *pak, const char *str)
 {
     if (s_collectingNetStats)
     {
@@ -367,7 +367,7 @@ void profile_pktSendString(char *file, int line, Packet *pak, const char *str)
     }
 }
 
-void profile_pktSendF32(char *file, int line, Packet *pak, F32 f)
+void profile_pktSendF32(char const* file, int line, Packet *pak, F32 f)
 {
     if (s_collectingNetStats)
     {
@@ -387,7 +387,7 @@ void profile_pktSendF32(char *file, int line, Packet *pak, F32 f)
     }
 }
 
-void profile_pktSendIfSetBits(char *file, int line, Packet *pak, int numbits, int val)
+void profile_pktSendIfSetBits(char const* file, int line, Packet *pak, int numbits, int val)
 {
     if (s_collectingNetStats)
     {
@@ -408,7 +408,7 @@ void profile_pktSendIfSetBits(char *file, int line, Packet *pak, int numbits, in
 
 }
 
-void profile_pktSendIfSetBitsPack(char *file, int line, Packet *pak,int minbits,int val)
+void profile_pktSendIfSetBitsPack(char const* file, int line, Packet *pak,int minbits,int val)
 {
     if (s_collectingNetStats)
     {
@@ -429,7 +429,7 @@ void profile_pktSendIfSetBitsPack(char *file, int line, Packet *pak,int minbits,
 
 }
 
-void profile_pktSetCompression(char *file, int line, Packet* pak, int compression)
+void profile_pktSetCompression(char const* file, int line, Packet* pak, int compression)
 {
     if (s_collectingNetStats)
     {
@@ -450,7 +450,7 @@ void profile_pktSetCompression(char *file, int line, Packet* pak, int compressio
 
 }
 
-void profile_pktSendBitsArray(char *file, int line, Packet *pak, int numbits, const void *data)
+void profile_pktSendBitsArray(char const* file, int line, Packet *pak, int numbits, const void *data)
 {
     if (s_collectingNetStats)
     {
@@ -471,7 +471,7 @@ void profile_pktSendBitsArray(char *file, int line, Packet *pak, int numbits, co
 
 }
 
-void profile_pktSendStringAligned(char *file, int line, Packet *pak, const char *str)
+void profile_pktSendStringAligned(char const* file, int line, Packet *pak, const char *str)
 {
     if (s_collectingNetStats)
     {
@@ -492,7 +492,7 @@ void profile_pktSendStringAligned(char *file, int line, Packet *pak, const char 
 
 }
 
-void profile_pktAlignBitsArray(char *file, int line, Packet *pak)
+void profile_pktAlignBitsArray(char const* file, int line, Packet *pak)
 {
     if (s_collectingNetStats)
     {
@@ -513,7 +513,7 @@ void profile_pktAlignBitsArray(char *file, int line, Packet *pak)
 
 }
 
-void profile_pktAppend(char *file, int line, Packet* pak, Packet* data)
+void profile_pktAppend(char const* file, int line, Packet* pak, Packet* data)
 {
     if (s_collectingNetStats)
     {
@@ -534,7 +534,7 @@ void profile_pktAppend(char *file, int line, Packet* pak, Packet* data)
 
 }
 
-void profile_pktAppendRemainder(char *file, int line, Packet* pak, Packet* data)
+void profile_pktAppendRemainder(char const* file, int line, Packet* pak, Packet* data)
 {
     if (s_collectingNetStats)
     {
@@ -555,7 +555,7 @@ void profile_pktAppendRemainder(char *file, int line, Packet* pak, Packet* data)
 
 }
 
-void profile_pktSendIfSetF32(char *file, int line, Packet *pak,float f)
+void profile_pktSendIfSetF32(char const* file, int line, Packet *pak,float f)
 {
     if (s_collectingNetStats)
     {
@@ -576,7 +576,7 @@ void profile_pktSendIfSetF32(char *file, int line, Packet *pak,float f)
 
 }
 
-void profile_pktSendBitsAuto(char *file, int line, Packet *pak, U32 val)
+void profile_pktSendBitsAuto(char const* file, int line, Packet *pak, U32 val)
 {
     if (s_collectingNetStats)
     {
@@ -597,7 +597,7 @@ void profile_pktSendBitsAuto(char *file, int line, Packet *pak, U32 val)
 
 }
 
-void profile_pktSendBitsAuto2(char *file, int line, Packet *pak, U64 val)
+void profile_pktSendBitsAuto2(char const* file, int line, Packet *pak, U64 val)
 {
     if (s_collectingNetStats)
     {
@@ -620,7 +620,7 @@ void profile_pktSendBitsAuto2(char *file, int line, Packet *pak, U64 val)
 
 }
 
-int profile_pktSendBit(char *file, int line, Packet *pak, int val)
+int profile_pktSendBit(char const* file, int line, Packet *pak, int val)
 {
     if (s_collectingNetStats)
     {
@@ -643,7 +643,7 @@ int profile_pktSendBit(char *file, int line, Packet *pak, int val)
 
 }
 
-void profile_pktSendZippedAlready(char *file, int line, Packet *pak, int numbytes, int zipbytes, void *zipdata)
+void profile_pktSendZippedAlready(char const* file, int line, Packet *pak, int numbytes, int zipbytes, void *zipdata)
 {
     if (s_collectingNetStats)
     {
@@ -664,7 +664,7 @@ void profile_pktSendZippedAlready(char *file, int line, Packet *pak, int numbyte
 
 }
 
-void profile_pktSendZipped(char *file, int line, Packet *pak, int numbytes, void *data)
+void profile_pktSendZipped(char const* file, int line, Packet *pak, int numbytes, void *data)
 {
     if (s_collectingNetStats)
     {
@@ -685,7 +685,7 @@ void profile_pktSendZipped(char *file, int line, Packet *pak, int numbytes, void
 
 }
 
-void profile_pktSendGetZipped(char *file, int line, Packet *pak_out, Packet *pak_in)
+void profile_pktSendGetZipped(char const* file, int line, Packet *pak_out, Packet *pak_in)
 {
     if (s_collectingNetStats)
     {
@@ -705,7 +705,7 @@ void profile_pktSendGetZipped(char *file, int line, Packet *pak_out, Packet *pak
 
 }
 
-int profile_pktSendGetBitsAuto(char *file, int line, Packet *pak_out, Packet *pak_in)
+int profile_pktSendGetBitsAuto(char const* file, int line, Packet *pak_out, Packet *pak_in)
 {
     if (s_collectingNetStats)
     {
@@ -727,7 +727,7 @@ int profile_pktSendGetBitsAuto(char *file, int line, Packet *pak_out, Packet *pa
 
 }
 
-long long profile_pktSendGetBitsAuto2(char *file, int line, Packet *pak_out, Packet *pak_in)
+long long profile_pktSendGetBitsAuto2(char const* file, int line, Packet *pak_out, Packet *pak_in)
 {
     if (s_collectingNetStats)
     {
@@ -750,7 +750,7 @@ long long profile_pktSendGetBitsAuto2(char *file, int line, Packet *pak_out, Pac
     }
 }
 
-const char *profile_pktSendGetStringAligned(char *file, int line, Packet *pak_out, Packet *pak_in)
+const char *profile_pktSendGetStringAligned(char const* file, int line, Packet *pak_out, Packet *pak_in)
 {
     if (s_collectingNetStats)
     {
@@ -772,7 +772,7 @@ const char *profile_pktSendGetStringAligned(char *file, int line, Packet *pak_ou
 
 }
 
-int profile_pktSendGetBitsPak(char *file, int line, Packet *pak_out, Packet *pak_in, int minbits)
+int profile_pktSendGetBitsPak(char const* file, int line, Packet *pak_out, Packet *pak_in, int minbits)
 {
     if (s_collectingNetStats)
     {
@@ -794,7 +794,7 @@ int profile_pktSendGetBitsPak(char *file, int line, Packet *pak_out, Packet *pak
 
 }
 
-void profile_pktSendGetBitsArray(char *file, int line, Packet *pak_out, Packet *pak_in, int numbits, void *data)
+void profile_pktSendGetBitsArray(char const* file, int line, Packet *pak_out, Packet *pak_in, int numbits, void *data)
 {
     if (s_collectingNetStats)
     {
@@ -814,7 +814,7 @@ void profile_pktSendGetBitsArray(char *file, int line, Packet *pak_out, Packet *
 
 }
 
-F32 profile_pktSendGetF32(char *file, int line, Packet *pak_out, Packet *pak_in)
+F32 profile_pktSendGetF32(char const* file, int line, Packet *pak_out, Packet *pak_in)
 {
     if (s_collectingNetStats)
     {
@@ -836,7 +836,7 @@ F32 profile_pktSendGetF32(char *file, int line, Packet *pak_out, Packet *pak_in)
 
 }
 
-const char *profile_pktSendGetStringNLength(char *file, int line, Packet *pak_out, Packet *pak_in)
+const char *profile_pktSendGetStringNLength(char const* file, int line, Packet *pak_out, Packet *pak_in)
 {
     if (s_collectingNetStats)
     {
@@ -858,7 +858,7 @@ const char *profile_pktSendGetStringNLength(char *file, int line, Packet *pak_ou
 
 }
 
-U32 profile_pktSendGetBits(char *file, int line, Packet *pak_out, Packet *pak_in, int numbits)
+U32 profile_pktSendGetBits(char const* file, int line, Packet *pak_out, Packet *pak_in, int numbits)
 {
     if (s_collectingNetStats)
     {
@@ -880,7 +880,7 @@ U32 profile_pktSendGetBits(char *file, int line, Packet *pak_out, Packet *pak_in
 
 }
 
-void profile_pktSendColor(char *file, int line, Packet *pak, Color clr)
+void profile_pktSendColor(char const* file, int line, Packet *pak, Color clr)
 {
     if (s_collectingNetStats)
     {
@@ -901,7 +901,7 @@ void profile_pktSendColor(char *file, int line, Packet *pak, Color clr)
 
 }
 
-void profile_pktSendVec3(char *file, int line, Packet *pak, const Vec3 vec)
+void profile_pktSendVec3(char const* file, int line, Packet *pak, const Vec3 vec)
 {
     if (s_collectingNetStats)
     {
@@ -922,7 +922,7 @@ void profile_pktSendVec3(char *file, int line, Packet *pak, const Vec3 vec)
 
 }
 
-void profile_pktSendMat4(char *file, int line, Packet *pak, const Mat4 mat)
+void profile_pktSendMat4(char const* file, int line, Packet *pak, const Mat4 mat)
 {
     if (s_collectingNetStats)
     {
@@ -943,7 +943,7 @@ void profile_pktSendMat4(char *file, int line, Packet *pak, const Mat4 mat)
 
 }
 
-void profile_pktSendVec4(char *file, int line, Packet *pak, const Vec4 vec)
+void profile_pktSendVec4(char const* file, int line, Packet *pak, const Vec4 vec)
 {
     if (s_collectingNetStats)
     {
@@ -964,7 +964,7 @@ void profile_pktSendVec4(char *file, int line, Packet *pak, const Vec4 vec)
 
 }
 
-void profile_pktSendF(char *file, int line, Packet *pak, int precision, F32 min, F32 max, F32 f)
+void profile_pktSendF(char const* file, int line, Packet *pak, int precision, F32 min, F32 max, F32 f)
 {
     if (s_collectingNetStats)
     {
@@ -985,7 +985,7 @@ void profile_pktSendF(char *file, int line, Packet *pak, int precision, F32 min,
 
 }
 
-void profile_pktSendIfSetString(char *file, int line, Packet *pak, const char *str)
+void profile_pktSendIfSetString(char const* file, int line, Packet *pak, const char *str)
 {
     if (s_collectingNetStats)
     {
@@ -1006,7 +1006,7 @@ void profile_pktSendIfSetString(char *file, int line, Packet *pak, const char *s
 
 }
 
-void profile_pktSendStringf(char *file, int line, Packet *pak, FORMAT fmt, ...)
+void profile_pktSendStringf(char const* file, int line, Packet *pak, FORMAT fmt, ...)
 {
     if (s_collectingNetStats)
     {
@@ -1034,7 +1034,7 @@ void profile_pktSendStringf(char *file, int line, Packet *pak, FORMAT fmt, ...)
 
 }
 
-void profile_pktSendStringfv(char *file, int line, Packet *pak, const char *fmt, va_list va)
+void profile_pktSendStringfv(char const* file, int line, Packet *pak, const char *fmt, va_list va)
 {
     if (s_collectingNetStats)
     {
@@ -1055,7 +1055,7 @@ void profile_pktSendStringfv(char *file, int line, Packet *pak, const char *fmt,
 
 }
 
-void profile_pktSendIndexedString(char *file, int line, Packet *pak, const char *str, cStashTable htStrings)
+void profile_pktSendIndexedString(char const* file, int line, Packet *pak, const char *str, cStashTable htStrings)
 {
     if (s_collectingNetStats)
     {
@@ -1076,7 +1076,7 @@ void profile_pktSendIndexedString(char *file, int line, Packet *pak, const char 
 
 }
 
-void profile_pktSendIndexedGeneric(char *file, int line, Packet *pak, int val, cStashTable ht)
+void profile_pktSendIndexedGeneric(char const* file, int line, Packet *pak, int val, cStashTable ht)
 {
     if (s_collectingNetStats)
     {
@@ -1097,7 +1097,7 @@ void profile_pktSendIndexedGeneric(char *file, int line, Packet *pak, int val, c
 
 }
 
-void profile_pktSendF32Comp(char *file, int line, Packet *pak, int val)
+void profile_pktSendF32Comp(char const* file, int line, Packet *pak, int val)
 {
     if (s_collectingNetStats)
     {
@@ -1118,7 +1118,7 @@ void profile_pktSendF32Comp(char *file, int line, Packet *pak, int val)
 
 }
 
-void profile_pktSendF32Deg(char *file, int line, Packet *pak, int val)
+void profile_pktSendF32Deg(char const* file, int line, Packet *pak, int val)
 {
     if (s_collectingNetStats)
     {
@@ -1138,7 +1138,7 @@ void profile_pktSendF32Deg(char *file, int line, Packet *pak, int val)
     }
 }
 
-void profile_sendMat4(char *file, int line, Packet *pak, Mat4 mat)
+void profile_sendMat4(char const* file, int line, Packet *pak, Mat4 mat)
 {
     if (s_collectingNetStats)
     {

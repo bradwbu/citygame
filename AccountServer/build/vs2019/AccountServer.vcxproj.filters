@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Playspan">
+      <UniqueIdentifier>{1dfef1b7-0c5c-4c06-86c4-7dd1d5f70a92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Playspan">
+      <UniqueIdentifier>{12e403cf-7514-471b-a496-159915191c33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sql">
+      <UniqueIdentifier>{5cda5413-ae62-40da-ba70-760fab992457}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sql">
+      <UniqueIdentifier>{331e0d02-5b28-439c-af6c-a9aabd9af2a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\account">
+      <UniqueIdentifier>{bfbdaf3c-cd1a-4613-96b8-0fc0138850fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\account">
+      <UniqueIdentifier>{a240d0e3-8390-466e-aa08-4e028affa8ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cmdparse">
+      <UniqueIdentifier>{5e9885c4-01fd-4e78-9297-b7be162bbf11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cmdparse">
+      <UniqueIdentifier>{09b447ab-42a2-4000-ac61-96ac9b5498ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\entity">
+      <UniqueIdentifier>{8a9650b2-8366-4451-a2af-4612c9a47dc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\entity">
+      <UniqueIdentifier>{a3088e9b-306d-4c3f-bb1a-33093f948298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\persist">
+      <UniqueIdentifier>{e533eab3-47df-4220-9919-02a8881f7ff1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\persist">
+      <UniqueIdentifier>{dee0d6b5-9c76-44e4-830e-90688f94c7fa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\request.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\request_certification.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\request_multi.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\request_rename.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\request_respec.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\request_shardxfer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\request_slot.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\transaction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\account_inventory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\account_loyaltyrewards.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\AccountCmds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\AccountDb.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\AccountServer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\AccountSql.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\Playspan\JSONParser.h">
+      <Filter>Header Files\Playspan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\sql\sqlconn.h">
+      <Filter>Header Files\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\sql\sqltask.h">
+      <Filter>Header Files\sql</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\account\AccountCatalog.h">
+      <Filter>Header Files\account</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\account\AccountData.h">
+      <Filter>Header Files\account</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\account\AccountTypes.h">
+      <Filter>Header Files\account</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\cmdparse\AppServerCmd.h">
+      <Filter>Header Files\cmdparse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\cmdparse\cmdaccountserver.h">
+      <Filter>Header Files\cmdparse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\cmdparse\cmdenum.h">
+      <Filter>Header Files\cmdparse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\gametypes.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\persist\textcrcdb.h">
+      <Filter>Header Files\persist</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\persist\textcrcjournal.h">
+      <Filter>Header Files\persist</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\AccountDb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AccountServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AccountSql.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\request.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\request_certification.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\request_multi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\request_rename.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\request_respec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\request_shardxfer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\request_slot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\transaction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\account_inventory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\account_loyaltyrewards.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\accountcmds.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\Playspan\JSONParser.cpp">
+      <Filter>Source Files\Playspan</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\sql\sqlconn.c">
+      <Filter>Source Files\sql</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\sql\sqltask.cpp">
+      <Filter>Source Files\sql</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\account\AccountCatalog.c">
+      <Filter>Source Files\account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\account\AccountData.c">
+      <Filter>Source Files\account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\account\AccountTypes.cpp">
+      <Filter>Source Files\account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\cmdparse\AppServerCmd.c">
+      <Filter>Source Files\cmdparse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\cmdparse\cmdaccountserver.c">
+      <Filter>Source Files\cmdparse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\LoadDefCommon.c">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\persist\textcrcdb.c">
+      <Filter>Source Files\persist</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\persist\textcrcjournal.c">
+      <Filter>Source Files\persist</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

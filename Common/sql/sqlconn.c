@@ -465,7 +465,7 @@ static void sqlConnTimerAddTime(SqlConn conn, float since_last)
 }
 
 #ifdef FULLDEBUG
-static void checkQuery(char * str, size_t str_len)
+static void checkQuery(char const* str, size_t str_len)
 {
     if (str_len == SQL_NTS)
         str_len = strlen(str);
@@ -475,7 +475,7 @@ static void checkQuery(char * str, size_t str_len)
 }
 #endif
 
-static SQLRETURN _sqlConnStmtExecDirectUtf8(HSTMT stmt, char *str, int str_len, SqlConn conn)
+static SQLRETURN _sqlConnStmtExecDirectUtf8(HSTMT stmt, char const* str, int str_len, SqlConn conn)
 {
     SQLRETURN ret;
     float since_last;
@@ -506,7 +506,7 @@ static SQLRETURN _sqlConnStmtExecDirectUtf8(HSTMT stmt, char *str, int str_len, 
 * @note You should always call @ref sqlExecDirectTimedUtf8 on if
 * the query supplies user created data. 
 */
-static SQLRETURN _sqlConnStmtExecDirectAscii(HSTMT stmt, char *str, int str_len, SqlConn conn)
+static SQLRETURN _sqlConnStmtExecDirectAscii(HSTMT stmt, char const* str, int str_len, SqlConn conn)
 {
     SQLRETURN ret;
     float since_last;
@@ -516,13 +516,13 @@ static SQLRETURN _sqlConnStmtExecDirectAscii(HSTMT stmt, char *str, int str_len,
 #endif
 
     since_last = timerElapsedAndStart(sql.timers[conn]);
-    ret = SQLExecDirectA(stmt, str, str_len);
+    ret = SQLExecDirectA(stmt, (char*)str, str_len);
     sqlConnTimerAddTime(conn, since_last);
 
     return ret;
 }
 
-INLINEDBG int sqlConnStmtExecDirect(HSTMT stmt, char *str, int str_len, SqlConn conn, bool utf8)
+INLINEDBG int sqlConnStmtExecDirect(HSTMT stmt, char const* str, int str_len, SqlConn conn, bool utf8)
 {
     SQLRETURN ret;
     U32 firstFailTime = 0;
@@ -576,7 +576,7 @@ INLINEDBG int sqlConnStmtExecDirect(HSTMT stmt, char *str, int str_len, SqlConn 
 * @note You should always call this command when you pass in 
 * more than one sql command at a time. 
 */
-INLINEDBG int sqlConnStmtExecDirectMany(HSTMT stmt, char *str, int str_len, SqlConn conn, bool utf8)
+INLINEDBG int sqlConnStmtExecDirectMany(HSTMT stmt, char const* str, int str_len, SqlConn conn, bool utf8)
 {
     SQLRETURN ret = SQL_SUCCESS;
     SQLRETURN next;
@@ -605,7 +605,7 @@ INLINEDBG int sqlConnStmtExecDirectMany(HSTMT stmt, char *str, int str_len, SqlC
     return ret;
 }
 
-int sqlConnStmtPrepare(HSTMT stmt, char *str, int str_len, SqlConn conn)
+int sqlConnStmtPrepare(HSTMT stmt, char const* str, int str_len, SqlConn conn)
 {
     SQLRETURN ret;
     float since_last;
@@ -615,7 +615,7 @@ int sqlConnStmtPrepare(HSTMT stmt, char *str, int str_len, SqlConn conn)
 #endif
 
     since_last = timerElapsedAndStart(sql.timers[conn]);
-    ret = SQLPrepareA(stmt, str, str_len);
+    ret = SQLPrepareA(stmt, (char*)str, str_len);
     sqlConnTimerAddTime(conn, since_last);
 
     if (ret != SQL_SUCCESS)
@@ -827,10 +827,10 @@ int sqlConnStmtBindParam(HSTMT stmt, int param, int paramtype, int ctype, int sq
     return ret;
 }
 
-int sqlConnStmtStartBindParamTableValued(HSTMT stmt, int param, int maxrows, wchar_t *tabletype, ssize_t *numrows) {
+int sqlConnStmtStartBindParamTableValued(HSTMT stmt, int param, int maxrows, wchar_t const* tabletype, ssize_t *numrows) {
     SQLRETURN ret;
     
-    ret = sqlConnStmtBindParam(stmt, param, SQL_PARAM_INPUT, SQL_C_DEFAULT, SQL_SS_TABLE, maxrows, 0, tabletype, tabletype ? SQL_NTS : 0, numrows);
+    ret = sqlConnStmtBindParam(stmt, param, SQL_PARAM_INPUT, SQL_C_DEFAULT, SQL_SS_TABLE, maxrows, 0, (void*)tabletype, tabletype ? SQL_NTS : 0, numrows);
 
     ret = SQLSetStmtAttr(stmt, SQL_SOPT_SS_PARAM_FOCUS, (SQLPOINTER)(uintptr_t)param, SQL_IS_UINTEGER);
     if (SQL_SHOW_ERROR(ret))

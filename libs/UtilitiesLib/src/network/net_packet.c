@@ -135,7 +135,7 @@ static int pak_count=0;
 static StashTable htPackets=0;
 #endif
 
-Packet* pktCreateImp(char* fname, int line){
+Packet* pktCreateImp(char const* fname, int line){
     Packet* pak;
     unsigned char* buffer;
 
@@ -186,7 +186,7 @@ Packet* pktCreateImp(char* fname, int line){
  *    will be allocated on the stack, and destroyed automatically.
  *
  */
-void pktFreeImp(Packet* pak, char* fname, int line){
+void pktFreeImp(Packet* pak, char const* fname, int line){
     if(!pak)
         return;
 

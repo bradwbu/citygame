@@ -223,9 +223,11 @@ int main(int argc,char **argv)
         if(configmenu)
         {
             ConsoleDebugMenu *newmenu = dynArrayAddStruct(&s_debugmenu, &count, &max_count);
-            Str_catf(&newmenu->helptext, "%s Commands:", g_serverlibconfig.name);
-            for(; configmenu->cmd || configmenu->helptext; configmenu++)
+            Str_catf((char**)&newmenu->helptext, "%s Commands:", g_serverlibconfig.name);
+            for (; configmenu->cmd || configmenu->helptext; configmenu++)
+            {
                 memcpy(dynArrayAddStruct(&s_debugmenu, &count, &max_count), configmenu, sizeof(*configmenu));
+            }
         }
         dynArrayAddStruct(&s_debugmenu, &count, &max_count); // terminator
     }

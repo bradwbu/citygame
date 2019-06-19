@@ -267,7 +267,7 @@ void sdFreeParseInfo(ParseTable* fieldDefs)
     {
         ParseTable* fd = &fieldDefs[i];
         if (fd->name!=invalidName && fd->name!=outOfSyncName)
-            free(fd->name);
+            free((void*)fd->name);
         if (TOK_GET_TYPE(fd->type) == TOK_STRUCT_X)
             sdFreeParseInfo((ParseTable*)fd->subtable);
     }
@@ -356,7 +356,7 @@ ParseTable *sdUnpackParseInfo(ParseTable *supported, Packet *pak, bool needExact
             if (!match && !needExactMatch) {
                 for (j=0; supported[j].name; j++) {
                     if (stricmp(supported[j].name, fd->name)==0) {
-                        free(fd->name);
+                        free((void*)fd->name);
                         fd->name = outOfSyncName;
                         fd->type = supported[j].type;
                         fd->param = supported[j].param;
@@ -377,7 +377,7 @@ ParseTable *sdUnpackParseInfo(ParseTable *supported, Packet *pak, bool needExact
             fd->storeoffset = match->storeoffset;
             fd->format = match->format;
         } else {
-            free(fd->name);
+            free((void*)fd->name);
             fd->name = invalidName;
         }
     }

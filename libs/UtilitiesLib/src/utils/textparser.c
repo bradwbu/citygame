@@ -768,7 +768,7 @@ char* StructAllocStringLenDbg(const char* string, int len, const char *file, int
 }
 
 // release memory for a string
-void StructFreeString(char* string)
+void StructFreeString(char const* string)
 {
     if (!string)
         return;
@@ -781,7 +781,7 @@ void StructFreeString(char* string)
     //assert(!isSharedMemory(string));
     HeapFree(g_stringheap, 0, string);
 #else
-    _free_dbg(string, _NORMAL_BLOCK);
+    _free_dbg((void*)string, _NORMAL_BLOCK);
 #endif
 }
 

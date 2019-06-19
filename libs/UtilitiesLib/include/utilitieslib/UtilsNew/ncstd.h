@@ -84,10 +84,8 @@ NCHEADER_BEGIN
 
 //#define OVERRIDE_MALLOC
 
-#define DBG_PARMS_MBR const char *caller_fname; \
-    int line
-#define DBG_PARMS_MBR_ASSIGN(P) (P)->caller_fname = caller_fname;   \
-    (P)->line = line
+#define DBG_PARMS_MBR const char *caller_fname; int line
+#define DBG_PARMS_MBR_ASSIGN(P) (P)->caller_fname = caller_fname; (P)->line = line
 #define DBG_PARMS , const char *caller_fname, int line
 #define DBG_PARMS_SOLO const char *caller_fname, int line
 #define DBG_PARMS_CALL , caller_fname, line
