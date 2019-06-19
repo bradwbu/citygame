@@ -660,7 +660,7 @@ void persist_mergeReplace(PersistInfo *info, void *structptr)
 
 static void* s_findStruct(PersistInfo *info, va_list key)
 {
-    void *structptr;
+    void *structptr = NULL;
     switch(info->keytype)
     {
         xcase KEY_VOID:

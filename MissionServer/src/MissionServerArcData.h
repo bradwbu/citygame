@@ -1,8 +1,8 @@
 #pragma once
 
-#define MISSIONSERVER_CLOSE_HOGGS	0	// slow, but won't keep file handles open
-#define MISSIONSERVER_LOADALL_HOGGS	1	// more load time, but faster loading if close_hoggs is set
-#define MISSIONSERVER_BACKUP_HOGGS	0	// slow
+#define MISSIONSERVER_CLOSE_HOGGS    0    // slow, but won't keep file handles open
+#define MISSIONSERVER_LOADALL_HOGGS    1    // more load time, but faster loading if close_hoggs is set
+#define MISSIONSERVER_BACKUP_HOGGS    0    // slow
 STATIC_ASSERT(MISSIONSERVER_CLOSE_HOGGS || !MISSIONSERVER_BACKUP_HOGGS);
 
 typedef struct MissionServerArc MissionServerArc;

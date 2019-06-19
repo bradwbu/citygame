@@ -9,41 +9,47 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Header Files\Playspan">
-      <UniqueIdentifier>{1dfef1b7-0c5c-4c06-86c4-7dd1d5f70a92}</UniqueIdentifier>
+    <Filter Include="Header Files\Common">
+      <UniqueIdentifier>{21025f3f-48fe-4167-b936-3981ab7c7cc9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Playspan">
-      <UniqueIdentifier>{12e403cf-7514-471b-a496-159915191c33}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\sql">
-      <UniqueIdentifier>{5cda5413-ae62-40da-ba70-760fab992457}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\sql">
-      <UniqueIdentifier>{331e0d02-5b28-439c-af6c-a9aabd9af2a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\account">
+    <Filter Include="Header Files\Common\account">
       <UniqueIdentifier>{bfbdaf3c-cd1a-4613-96b8-0fc0138850fe}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\account">
-      <UniqueIdentifier>{a240d0e3-8390-466e-aa08-4e028affa8ef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\cmdparse">
+    <Filter Include="Header Files\Common\cmdparse">
       <UniqueIdentifier>{5e9885c4-01fd-4e78-9297-b7be162bbf11}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\cmdparse">
-      <UniqueIdentifier>{09b447ab-42a2-4000-ac61-96ac9b5498ee}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\entity">
+    <Filter Include="Header Files\Common\entity">
       <UniqueIdentifier>{8a9650b2-8366-4451-a2af-4612c9a47dc5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\entity">
+    <Filter Include="Header Files\Common\persist">
+      <UniqueIdentifier>{dee0d6b5-9c76-44e4-830e-90688f94c7fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\Playspan">
+      <UniqueIdentifier>{1dfef1b7-0c5c-4c06-86c4-7dd1d5f70a92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\sql">
+      <UniqueIdentifier>{5cda5413-ae62-40da-ba70-760fab992457}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{f180cf06-aa65-4492-b79e-5fce184a33e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\account">
+      <UniqueIdentifier>{a240d0e3-8390-466e-aa08-4e028affa8ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\cmdparse">
+      <UniqueIdentifier>{09b447ab-42a2-4000-ac61-96ac9b5498ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\entity">
       <UniqueIdentifier>{a3088e9b-306d-4c3f-bb1a-33093f948298}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\persist">
+    <Filter Include="Source Files\Common\persist">
       <UniqueIdentifier>{e533eab3-47df-4220-9919-02a8881f7ff1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\persist">
-      <UniqueIdentifier>{dee0d6b5-9c76-44e4-830e-90688f94c7fa}</UniqueIdentifier>
+    <Filter Include="Source Files\Common\Playspan">
+      <UniqueIdentifier>{12e403cf-7514-471b-a496-159915191c33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\sql">
+      <UniqueIdentifier>{331e0d02-5b28-439c-af6c-a9aabd9af2a9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -90,40 +96,40 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\Playspan\JSONParser.h">
-      <Filter>Header Files\Playspan</Filter>
+      <Filter>Header Files\Common\Playspan</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\sql\sqlconn.h">
-      <Filter>Header Files\sql</Filter>
+      <Filter>Header Files\Common\sql</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\sql\sqltask.h">
-      <Filter>Header Files\sql</Filter>
+      <Filter>Header Files\Common\sql</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\account\AccountCatalog.h">
-      <Filter>Header Files\account</Filter>
+      <Filter>Header Files\Common\account</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\account\AccountData.h">
-      <Filter>Header Files\account</Filter>
+      <Filter>Header Files\Common\account</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\account\AccountTypes.h">
-      <Filter>Header Files\account</Filter>
+      <Filter>Header Files\Common\account</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\cmdparse\AppServerCmd.h">
-      <Filter>Header Files\cmdparse</Filter>
+      <Filter>Header Files\Common\cmdparse</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\cmdparse\cmdaccountserver.h">
-      <Filter>Header Files\cmdparse</Filter>
+      <Filter>Header Files\Common\cmdparse</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\cmdparse\cmdenum.h">
-      <Filter>Header Files\cmdparse</Filter>
+      <Filter>Header Files\Common\cmdparse</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\entity\gametypes.h">
-      <Filter>Header Files\entity</Filter>
+      <Filter>Header Files\Common\entity</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\persist\textcrcdb.h">
-      <Filter>Header Files\persist</Filter>
+      <Filter>Header Files\Common\persist</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\persist\textcrcjournal.h">
-      <Filter>Header Files\persist</Filter>
+      <Filter>Header Files\Common\persist</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -170,37 +176,37 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\Playspan\JSONParser.cpp">
-      <Filter>Source Files\Playspan</Filter>
+      <Filter>Source Files\Common\Playspan</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\sql\sqlconn.c">
-      <Filter>Source Files\sql</Filter>
+      <Filter>Source Files\Common\sql</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\sql\sqltask.cpp">
-      <Filter>Source Files\sql</Filter>
+      <Filter>Source Files\Common\sql</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\account\AccountCatalog.c">
-      <Filter>Source Files\account</Filter>
+      <Filter>Source Files\Common\account</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\account\AccountData.c">
-      <Filter>Source Files\account</Filter>
+      <Filter>Source Files\Common\account</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\account\AccountTypes.cpp">
-      <Filter>Source Files\account</Filter>
+      <Filter>Source Files\Common\account</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\cmdparse\AppServerCmd.c">
-      <Filter>Source Files\cmdparse</Filter>
+      <Filter>Source Files\Common\cmdparse</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\cmdparse\cmdaccountserver.c">
-      <Filter>Source Files\cmdparse</Filter>
+      <Filter>Source Files\Common\cmdparse</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\entity\LoadDefCommon.c">
-      <Filter>Source Files\entity</Filter>
+      <Filter>Source Files\Common\entity</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\persist\textcrcdb.c">
-      <Filter>Source Files\persist</Filter>
+      <Filter>Source Files\Common\persist</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\persist\textcrcjournal.c">
-      <Filter>Source Files\persist</Filter>
+      <Filter>Source Files\Common\persist</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

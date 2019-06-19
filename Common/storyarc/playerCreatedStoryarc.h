@@ -1,6 +1,6 @@
 #ifndef PLAYER_CREATED_STORYARC_H
 #define PLAYER_CREATED_STORYARC_H
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 #include "comm_backend.h"
 
 typedef struct cCostume cCostume;

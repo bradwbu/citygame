@@ -1,47 +1,47 @@
 #pragma once
 
-#include "MissionSearch.h"						// MissionSearchStatus
-#include "storyarc/playerCreatedStoryarc.h"		//max search types
-#include "mathutil.h"							//for MAX in MISSIONSEARCH_NUMVOTES_BUCKETS
+#include "mission/MissionSearch.h"                  // MissionSearchStatus
+#include "storyarc/playerCreatedStoryarc.h"         //max search types
+#include <utilitieslib/utils/mathutil.h>            //for MAX in MISSIONSEARCH_NUMVOTES_BUCKETS
 typedef struct MissionServerArc MissionServerArc;
 
 
 #define MISSIONSEARCH_NUMVOTES_BUCKETS (MAX(4, MISSIONHONORS_TYPES))
 #define MSSEARCH_MAX_SORTBUCKETS (MISSIONRATING_RATINGTYPES*MISSIONSEARCH_NUMVOTES_BUCKETS)
 //TODO: eventually we should switch to calculating this automatically.
-										/*MAX(MAX(\
-											MAX(kMorality_Count,AUTHREGION_COUNT),\
-											MAX(MISSIONRATING_RATINGTYPES, MISSIONHONORS_TYPES)),\
-										MAX(MISSIONBAN_TYPES, MISSIONSEARCH_MAPLENGTH_COUNT))) */
+    /*MAX(MAX(\
+        MAX(kMorality_Count,AUTHREGION_COUNT),\
+        MAX(MISSIONRATING_RATINGTYPES, MISSIONHONORS_TYPES)),\
+        MAX(MISSIONBAN_TYPES, MISSIONSEARCH_MAPLENGTH_COUNT))) */
 
 // this def is here so missionserver.c can easily register it with the persist layer
 typedef struct MissionServerSearchNode
 {
-	struct MissionServerSearchNode *backward;
-	struct MissionServerSearchNode *forward;
-	S64 size;
-	int cacheRefreshId;
-	__time64_t timestamp;
+    struct MissionServerSearchNode *backward;
+    struct MissionServerSearchNode *forward;
+    S64 size;
+    int cacheRefreshId;
+    __time64_t timestamp;
 } MissionServerSearchNode;
 
 AUTO_STRUCT AST_STARTTOK("") AST_ENDTOK("End");
 typedef struct MissionServerSearch
 {
-	char *str;				AST(PRIMARY_KEY STRUCTPARAM)
-	U32 *arcids;
-	U32 hits;
-	U32 nextid;				// next id to check
-	__time64_t timestamp;			// has the search been updated
+    char *str;                AST(PRIMARY_KEY STRUCTPARAM)
+    U32 *arcids;
+    U32 hits;
+    U32 nextid;                // next id to check
+    __time64_t timestamp;            // has the search been updated
 } MissionServerSearch;
 
 AUTO_STRUCT AST_STARTTOK("") AST_ENDTOK("End");
 typedef struct MissionServerQuotedSearch
 {
-	MissionServerSearchNode node;					NO_AST
-	char *str;				AST(PRIMARY_KEY STRUCTPARAM)
-	U32 *arcids;
-	U32 hits;
-	U32 nextid;				// next id to check
+    MissionServerSearchNode node;                    NO_AST
+    char *str;                AST(PRIMARY_KEY STRUCTPARAM)
+    U32 *arcids;
+    U32 hits;
+    U32 nextid;                // next id to check
 } MissionServerQuotedSearch;
 
 /*typedef MissionServerSearch MissionServerCSearch;*/
@@ -49,19 +49,19 @@ typedef struct MissionServerQuotedSearch
 AUTO_STRUCT AST_STARTTOK("") AST_ENDTOK("End");
 typedef struct MissionServerCSearch
 {
-	MissionServerSearchNode node;					NO_AST
-	char *str;				AST(PRIMARY_KEY STRUCTPARAM)
-	U32 *arcids;
-	U32 *arcidsBySort[MSSEARCH_MAX_SORTBUCKETS];	NO_AST
-	U32 hits;
-	U32 nextid;				// next id to check
-	MissionSearchParams params;
+    MissionServerSearchNode node;                    NO_AST
+    char *str;                AST(PRIMARY_KEY STRUCTPARAM)
+    U32 *arcids;
+    U32 *arcidsBySort[MSSEARCH_MAX_SORTBUCKETS];    NO_AST
+    U32 hits;
+    U32 nextid;                // next id to check
+    MissionSearchParams params;
 } MissionServerCSearch;
 
 //The most number of the same letter we want to track in a single word
 //10 is well above what we should care about.  4 repeats is uncommon for most letters.
 //however, the vowels do end up with a lot of repitions, and this is fairly cheap to track.
-//	pneumonoultramicroscopicsilicovolcanoconiosis (9 i's) is the longest word, and I don't
+//    pneumonoultramicroscopicsilicovolcanoconiosis (9 i's) is the longest word, and I don't
 //care much beyond that.  
 //Look out for arcs about the Massachusetts lake "Chargoggagoggmanchauggagoggchaubunagungamaugg" (15 g's).
 //http://en.wikipedia.org/wiki/English_words_with_uncommon_properties#Many_repeated_letters
@@ -80,17 +80,17 @@ typedef struct MissionServerCSearch
 //Most common three letter combinations - THE, AND, HAT, ENT, ION, FOR, TIO, HAS, TIS
 //Maybe these:
 //Most common two letter combinations that show up as reversals of themselves 
-//						- ER RE, ES SE, AN NA, ON NO, TI IT, EN NE, TO OT, ED DE
+//                        - ER RE, ES SE, AN NA, ON NO, TI IT, EN NE, TO OT, ED DE
 //http://www.prism.net/user/dcowley/analysub.html
 #define MAX_TRACKED_CHARSIZE 4
 
 //AUTO_STRUCT AST_STARTTOK("") AST_ENDTOK("End");
 typedef struct MissionServerTokenList
 {
-	char letter[MAX_TRACKED_CHARSIZE];				AST(PRIMARY_KEY STRUCTPARAM)
-	U32 *tokenids[MAX_TRACKED_LETTER_OCCURENCES][MAX_TRACKED_WORD_LENGTH];
-	U32 hits;
-	__time64_t timestamp;			// has the search been updated
+    char letter[MAX_TRACKED_CHARSIZE];                AST(PRIMARY_KEY STRUCTPARAM)
+    U32 *tokenids[MAX_TRACKED_LETTER_OCCURENCES][MAX_TRACKED_WORD_LENGTH];
+    U32 hits;
+    __time64_t timestamp;            // has the search been updated
 } MissionServerTokenList;
 
 #define MISSIONSERVER_TOKENLIST_IDS(list, occurences, wordLength) list.tokenids[MIN(occurences,MAX_TRACKED_LETTER_OCCURENCES-1)][MIN(wordLength, MAX_TRACKED_WORD_LENGTH-1)]
@@ -98,16 +98,16 @@ typedef struct MissionServerTokenList
 AUTO_STRUCT AST_STARTTOK("") AST_ENDTOK("End");
 typedef struct MissionServerSubstringSearch
 {
-	MissionServerSearchNode node;	NO_AST
-	char *substring;				AST(PRIMARY_KEY STRUCTPARAM)
-	U32 *arcIds;					NO_AST
-	int hits;
+    MissionServerSearchNode node;    NO_AST
+    char *substring;                AST(PRIMARY_KEY STRUCTPARAM)
+    U32 *arcIds;                    NO_AST
+    int hits;
 } MissionServerSubstringSearch;
 
 
 typedef enum MissionServerSearchArcAction {
-	MSSEARCHACT_DELETE = 0,
-	MSSEARCHACT_ADD,
+    MSSEARCHACT_DELETE = 0,
+    MSSEARCHACT_ADD,
 } MissionServerSearchArcAction;
 
 // MissionServerSearch does not manage arc dirtiness, but owns the arc status and rating fields

@@ -27,17 +27,8 @@ ipch/
 .vs/
 
 # New build layout
-/3rdparty/**/bin
-/libs/**/bin
-/AuthServer/**/bin
-/Utilities/pig/bin
-/Utilities/StructParser/bin
-/dbserver/bin
-/launcher/bin
-/TurnstileServer/bin
-/AccountServer/bin
-/AuctionServer/bin
-/QueueServer/bin
+bin/
+!/bin
 
 # Visual C++ debug database
 *.pdb

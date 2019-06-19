@@ -48,17 +48,8 @@
     <Filter Include="Source Files\Common\entity">
       <UniqueIdentifier>{ec03fce4-59a5-4d67-bab9-2d84852f7462}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Common\MissionServer">
-      <UniqueIdentifier>{0bf6d5f2-81c0-47f9-8a42-0ac707b25586}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Common\MissionServer">
-      <UniqueIdentifier>{41a4e408-70d1-4f01-ae2e-aae783efad1f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Common\auction">
       <UniqueIdentifier>{a79344b8-1e05-417e-afda-edd6477f3691}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\launcher">
-      <UniqueIdentifier>{6671f7a5-fcab-413b-8aa1-3b50c69751c5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Mapserver\dbcomm">
       <UniqueIdentifier>{9fbed04d-43cd-46c9-863e-16d53b064691}</UniqueIdentifier>
@@ -90,6 +81,15 @@
     <Filter Include="Source Files\Common\turnstile">
       <UniqueIdentifier>{4d326b78-e14b-426d-b7eb-7574b9ea3912}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Common\mission">
+      <UniqueIdentifier>{41a4e408-70d1-4f01-ae2e-aae783efad1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\mission">
+      <UniqueIdentifier>{0bf6d5f2-81c0-47f9-8a42-0ac707b25586}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Launcher">
+      <UniqueIdentifier>{6671f7a5-fcab-413b-8aa1-3b50c69751c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\MapServer\entity\SgrpStats.h">
@@ -118,12 +118,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\Common\entity\LoadDefCommon.h">
       <Filter>Header Files\Common\entity</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Common\MissionSearch.h">
-      <Filter>Header Files\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Common\MissionServer\missionserver_meta.h">
-      <Filter>Header Files\Common\MissionServer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\zeromqSocket.h">
       <Filter>Header Files</Filter>
@@ -273,7 +267,7 @@
       <Filter>Header Files\Common\auction</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\launcher\src\performance.h">
-      <Filter>Header Files\launcher</Filter>
+      <Filter>Header Files\Launcher</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\dbserver\servercfg.h">
       <Filter>Header Files\Common\dbserver</Filter>
@@ -289,6 +283,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\accountservercomm.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\mission\missionserver_meta.h">
+      <Filter>Header Files\Common\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\mission\MissionSearch.h">
+      <Filter>Header Files\Common\mission</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -312,9 +312,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Common\entity\LoadDefCommon.c">
       <Filter>Source Files\Common\entity</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Common\MissionServer\missionserver_meta.c">
-      <Filter>Source Files\Common\MissionServer</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\zeromqSocket.c">
       <Filter>Source Files</Filter>
@@ -451,9 +448,6 @@
     <ClCompile Include="..\..\src\weeklyTFcfg.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Common\MissionSearch.c">
-      <Filter>Source Files\Common</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Common\auction\Auction.c">
       <Filter>Source Files\Common\auction</Filter>
     </ClCompile>
@@ -483,6 +477,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Common\turnstile\TurnstileServerCommon.c">
       <Filter>Source Files\Common\turnstile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\mission\missionserver_meta.c">
+      <Filter>Source Files\Common\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\mission\MissionSearch.c">
+      <Filter>Source Files\Common\mission</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

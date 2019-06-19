@@ -197,8 +197,8 @@
     <ClInclude Include="..\..\..\Common\dbserver\servercfg.h" />
     <ClInclude Include="..\..\..\Common\entity\gametypes.h" />
     <ClInclude Include="..\..\..\Common\entity\LoadDefCommon.h" />
-    <ClInclude Include="..\..\..\Common\MissionSearch.h" />
-    <ClInclude Include="..\..\..\Common\MissionServer\missionserver_meta.h" />
+    <ClInclude Include="..\..\..\Common\mission\MissionSearch.h" />
+    <ClInclude Include="..\..\..\Common\mission\missionserver_meta.h" />
     <ClInclude Include="..\..\..\Common\sql\sqlconn.h" />
     <ClInclude Include="..\..\..\Common\sql\sqltask.h" />
     <ClInclude Include="..\..\..\Common\turnstile\TurnstileCommon.h" />
@@ -264,8 +264,8 @@
     <ClCompile Include="..\..\..\Common\container\container_util.c" />
     <ClCompile Include="..\..\..\Common\dbserver\servercfg.c" />
     <ClCompile Include="..\..\..\Common\entity\LoadDefCommon.c" />
-    <ClCompile Include="..\..\..\Common\MissionSearch.c" />
-    <ClCompile Include="..\..\..\Common\MissionServer\missionserver_meta.c" />
+    <ClCompile Include="..\..\..\Common\mission\MissionSearch.c" />
+    <ClCompile Include="..\..\..\Common\mission\missionserver_meta.c" />
     <ClCompile Include="..\..\..\Common\sql\sqlconn.c" />
     <ClCompile Include="..\..\..\Common\sql\sqltask.cpp" />
     <ClCompile Include="..\..\..\Common\turnstile\TurnstileCommon.c" />

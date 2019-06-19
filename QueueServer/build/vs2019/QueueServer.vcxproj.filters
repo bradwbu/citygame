@@ -9,16 +9,22 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Header Files\account">
+    <Filter Include="Header Files\Common">
+      <UniqueIdentifier>{945f1c96-97de-4a73-9c46-137ec01cc704}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\account">
       <UniqueIdentifier>{5a70eaad-b007-4d4f-bc4c-f3f1bc8f34e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\ClientLogin">
+    <Filter Include="Header Files\Common\ClientLogin">
       <UniqueIdentifier>{32f8a135-9fb5-4b5c-ae5b-4f2f8c1d455a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\account">
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{6586ddcf-f181-4e24-9f5b-5dad3b697264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\account">
       <UniqueIdentifier>{b0c3178d-34c9-4ae4-99cb-939660908c20}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\ClientLogin">
+    <Filter Include="Source Files\Common\ClientLogin">
       <UniqueIdentifier>{7a949f12-66dd-4b71-bacb-58921d68883d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -33,10 +39,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\account\AccountData.c">
-      <Filter>Source Files\account</Filter>
+      <Filter>Source Files\Common\account</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\ClientLogin\clientcommLogin.c">
-      <Filter>Source Files\ClientLogin</Filter>
+      <Filter>Source Files\Common\ClientLogin</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,10 +56,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\account\AccountData.h">
-      <Filter>Header Files\account</Filter>
+      <Filter>Header Files\Common\account</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Common\ClientLogin\clientcommLogin.h">
-      <Filter>Header Files\ClientLogin</Filter>
+      <Filter>Header Files\Common\ClientLogin</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,9 +11,9 @@
 #include "dbdispatch.h"
 #include "entity/entVarUpdate.h"
 
-#include "MissionServer/missionserver_meta.h"
+#include "mission/missionserver_meta.h"
 //#include "UtilsNew/meta.h"
-#include "MissionSearch.h"
+#include "mission/MissionSearch.h"
 #include <utilitieslib/utils/log.h>
 
 static NetLinkList s_missionlinks = {0};
