@@ -1,5 +1,5 @@
-#include "net_link.h"
-#include "..\common\ClientLogin\clientcommLogin.h"
+#include <utilitieslib/network/net_link.h>
+#include "ClientLogin/clientcommLogin.h"
 
 //client to db
 void clientPassLogin(Packet *pak_in, Packet *pak_out, GameClientLink *client, U32 ipAddress, U32 linkId);

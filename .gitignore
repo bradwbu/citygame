@@ -36,6 +36,8 @@ ipch/
 /launcher/bin
 /TurnstileServer/bin
 /AccountServer/bin
+/AuctionServer/bin
+/QueueServer/bin
 
 # Visual C++ debug database
 *.pdb
