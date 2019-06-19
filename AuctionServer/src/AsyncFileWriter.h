@@ -15,8 +15,8 @@
 #ifndef ASYNCFILEWRITER_H
 #define ASYNCFILEWRITER_H
 
-#include "stdtypes.h"
-#include "winutil.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/winutil.h>
 
 typedef struct GenericHashTableImp *GenericHashTable;
 typedef struct HashTableImp *HashTable;
@@ -26,17 +26,17 @@ typedef struct HashTableImp *HashTable;
 #pragma warning (push, 1) // C++ compilation
 typedef struct AsyncFileWriter
 {
-	char *buf;     // estring. accumulate data to write here. not written until 'Write' call made
+    char *buf;     // estring. accumulate data to write here. not written until 'Write' call made
 
-	// info
-	bool writing;
-	DWORD last_write;
-	DWORD total_written;
+    // info
+    bool writing;
+    DWORD last_write;
+    DWORD total_written;
 
-	// internals
-	HANDLE hfile;
-	char const * const output; // never touch this 
-	OVERLAPPED ol;
+    // internals
+    HANDLE hfile;
+    char const * const output; // never touch this 
+    OVERLAPPED ol;
 } AsyncFileWriter;
 #pragma warning (pop)
 

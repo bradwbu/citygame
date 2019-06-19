@@ -7,7 +7,7 @@
 #ifndef AUCTIONHISTORY_H
 #define AUCTIONHISTORY_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct AuctionInvItem AuctionInvItem;
 typedef struct AuctionInventory AuctionInventory;

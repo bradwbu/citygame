@@ -53,6 +53,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AccountServer", "..\..\Acco
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "yajl", "..\..\3rdparty\yajl-2.1.1\build\vs2019\yajl.vcxproj", "{A54F2941-F15E-40CC-94CC-AE551F95BA33}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AuctionServer", "..\..\AuctionServer\build\vs2019\AuctionServer.vcxproj", "{4A4F8863-90FF-4A13-9743-B26BDFA1CF97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -237,6 +239,14 @@ Global
 		{A54F2941-F15E-40CC-94CC-AE551F95BA33}.Release|x64.Build.0 = Release|x64
 		{A54F2941-F15E-40CC-94CC-AE551F95BA33}.Release|x86.ActiveCfg = Release|Win32
 		{A54F2941-F15E-40CC-94CC-AE551F95BA33}.Release|x86.Build.0 = Release|Win32
+		{4A4F8863-90FF-4A13-9743-B26BDFA1CF97}.Debug|x64.ActiveCfg = Debug|x64
+		{4A4F8863-90FF-4A13-9743-B26BDFA1CF97}.Debug|x64.Build.0 = Debug|x64
+		{4A4F8863-90FF-4A13-9743-B26BDFA1CF97}.Debug|x86.ActiveCfg = Debug|Win32
+		{4A4F8863-90FF-4A13-9743-B26BDFA1CF97}.Debug|x86.Build.0 = Debug|Win32
+		{4A4F8863-90FF-4A13-9743-B26BDFA1CF97}.Release|x64.ActiveCfg = Release|x64
+		{4A4F8863-90FF-4A13-9743-B26BDFA1CF97}.Release|x64.Build.0 = Release|x64
+		{4A4F8863-90FF-4A13-9743-B26BDFA1CF97}.Release|x86.ActiveCfg = Release|Win32
+		{4A4F8863-90FF-4A13-9743-B26BDFA1CF97}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

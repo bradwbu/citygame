@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{929964B8-60FC-44D3-9EDB-4549F95FD29F}</ProjectGuid>
+    <ProjectGuid>{4A4F8863-90FF-4A13-9743-B26BDFA1CF97}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>TurnstileServer</RootNamespace>
+    <RootNamespace>AuctionServer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -95,38 +95,32 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;_CRTDBG_MAP_ALLOC;FULLDEBUG;TURNSTILESERVER;PROJECT_TURNSTILESERVER;SECURE_STRINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;FULLDEBUG;_CRTDBG_MAP_ALLOC;AUCTIONSERVER;SECURE_STRINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\ServerLib\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\Common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
-      <Message>Running StructParser</Message>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;_CRTDBG_MAP_ALLOC;FULLDEBUG;TURNSTILESERVER;PROJECT_TURNSTILESERVER;SECURE_STRINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;FULLDEBUG;_CRTDBG_MAP_ALLOC;AUCTIONSERVER;SECURE_STRINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\ServerLib\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\Common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
-      <Message>Running StructParser</Message>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -135,9 +129,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;FINAL;TURNSTILESERVER;PROJECT_TURNSTILESERVER;SECURE_STRINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;FINAL;AUCTIONSERVER;SECURE_STRINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\ServerLib\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -146,10 +141,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\Common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
-      <Message>Running StructParser</Message>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -158,9 +149,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;FINAL;TURNSTILESERVER;PROJECT_TURNSTILESERVER;SECURE_STRINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;FINAL;AUCTIONSERVER;SECURE_STRINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\ServerLib\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -169,26 +161,49 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PreBuildEvent>
-      <Command>$(Projectdir)..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\Common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
-      <Message>Running StructParser</Message>
-    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Common\turnstile\TurnstileCommon.c" />
-    <ClCompile Include="..\..\..\Common\turnstile\TurnstileServerCommon.c" />
-    <ClCompile Include="..\..\src\TurnstileServer.c" />
-    <ClCompile Include="..\..\src\TurnstileServerEvent.c" />
-    <ClCompile Include="..\..\src\TurnstileServerGroup.c" />
-    <ClCompile Include="..\..\src\TurnstileServerMsg.c" />
+    <ClCompile Include="..\..\..\Common\auction\Auction.c" />
+    <ClCompile Include="..\..\..\Common\auction\Xact.c" />
+    <ClCompile Include="..\..\..\Common\cmdparse\AppServerCmd.c" />
+    <ClCompile Include="..\..\..\Common\cmdparse\cmdauction.c" />
+    <ClCompile Include="..\..\..\Common\persist\persist_sql.c" />
+    <ClCompile Include="..\..\..\Common\persist\textcrcdb.c" />
+    <ClCompile Include="..\..\..\Common\persist\textcrcjournal.c" />
+    <ClCompile Include="..\..\..\Common\sql\sqlconn.c" />
+    <ClCompile Include="..\..\..\Common\sql\sqltask.cpp" />
+    <ClCompile Include="..\..\src\AsyncFileWriter.c" />
+    <ClCompile Include="..\..\src\auctioncmds.c" />
+    <ClCompile Include="..\..\src\AuctionDb.c" />
+    <ClCompile Include="..\..\src\auctionfulfill.c" />
+    <ClCompile Include="..\..\src\auctionhistory.c" />
+    <ClCompile Include="..\..\src\AuctionServer.c" />
+    <ClCompile Include="..\..\src\AuctionSql.cpp" />
+    <ClCompile Include="..\..\src\BinHeap.c" />
+    <ClCompile Include="..\..\src\XactServer.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Common\turnstile\TurnstileCommon.h" />
-    <ClInclude Include="..\..\..\Common\turnstile\TurnstileServerCommon.h" />
-    <ClInclude Include="..\..\src\TurnstileServer.h" />
-    <ClInclude Include="..\..\src\TurnstileServerEvent.h" />
-    <ClInclude Include="..\..\src\TurnstileServerGroup.h" />
-    <ClInclude Include="..\..\src\TurnstileServerMsg.h" />
+    <ClInclude Include="..\..\..\Common\auction\Auction.h" />
+    <ClInclude Include="..\..\..\Common\auction\Xact.h" />
+    <ClInclude Include="..\..\..\Common\cmdparse\AppServerCmd.h" />
+    <ClInclude Include="..\..\..\Common\cmdparse\cmdauction.h" />
+    <ClInclude Include="..\..\..\Common\cmdparse\cmdenum.h" />
+    <ClInclude Include="..\..\..\Common\entity\gametypes.h" />
+    <ClInclude Include="..\..\..\Common\persist\persist_sql.h" />
+    <ClInclude Include="..\..\..\Common\persist\textcrcdb.h" />
+    <ClInclude Include="..\..\..\Common\persist\textcrcjournal.h" />
+    <ClInclude Include="..\..\..\Common\sql\sqlconn.h" />
+    <ClInclude Include="..\..\..\Common\sql\sqltask.h" />
+    <ClInclude Include="..\..\src\AsyncFileWriter.h" />
+    <ClInclude Include="..\..\src\auctioncmds.h" />
+    <ClInclude Include="..\..\src\AuctionDb.h" />
+    <ClInclude Include="..\..\src\auctionfulfill.h" />
+    <ClInclude Include="..\..\src\auctionhistory.h" />
+    <ClInclude Include="..\..\src\AuctionServer.h" />
+    <ClInclude Include="..\..\src\AuctionSql.h" />
+    <ClInclude Include="..\..\src\BinHeap.h" />
+    <ClInclude Include="..\..\src\XactServer.h" />
+    <ClInclude Include="..\..\src\XactServerInternal.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\3rdparty\cryptopp-8.3\build\vs2019\cryptopp.vcxproj">
@@ -196,9 +211,6 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\3rdparty\zlib-1.2.11\build\vs2019\zlib.vcxproj">
       <Project>{8426a8d3-2549-4523-b584-fcd81e89b7bc}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\libs\ServerLib\build\vs2019\ServerLib.vcxproj">
-      <Project>{22f8fad4-3fea-47ce-9f98-5212751c818b}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\..\libs\UtilitiesLib\build\vs2019\UtilitiesLib.vcxproj">
       <Project>{02b25697-0348-423c-8df3-e1bdf89bb43d}</Project>

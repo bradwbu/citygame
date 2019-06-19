@@ -7,8 +7,8 @@
 #ifndef AUCTIONSERVER_H
 #define AUCTIONSERVER_H
 
-#include "auction.h"
-#include "Xact.h"
+#include "auction/auction.h"
+#include "auction/Xact.h"
 
 #define AUC_NUM_TYPES 10000 // rough estimate of the actual
 
@@ -18,27 +18,27 @@ typedef struct NetLink NetLink;
 
 typedef struct AuctionServerCfg
 {
-	char **shardIps;
-	int iAutoSellPrice;				// Maximum we'll pay to selling players
-	int iAutoBuyPrice;				// Minimum we'll take from buying players
-	U32 iAutoFulfillTime;
+    char **shardIps;
+    int iAutoSellPrice;                // Maximum we'll pay to selling players
+    int iAutoBuyPrice;                // Minimum we'll take from buying players
+    U32 iAutoFulfillTime;
 
-	char sqlLogin[1024];
-	char sqlDbName[1024];
+    char sqlLogin[1024];
+    char sqlDbName[1024];
 } AuctionServerCfg;
 
 typedef struct AuctionServerState
 {
-	AuctionServerCfg cfg;
-	const char *server_name;
-	AuctionServerType type;
+    AuctionServerCfg cfg;
+    const char *server_name;
+    AuctionServerType type;
 
-	int quitting;
+    int quitting;
 
-	NetLink *shard_links;
-	U32 failed_shards;
-	int next_retry_shard;
-	U32 last_failed_time;
+    NetLink *shard_links;
+    U32 failed_shards;
+    int next_retry_shard;
+    U32 last_failed_time;
 } AuctionServerState;
  
 extern char g_exe_name[];

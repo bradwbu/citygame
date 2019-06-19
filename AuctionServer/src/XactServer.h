@@ -15,7 +15,7 @@
 #ifndef XACTSERVER_H
 #define XACTSERVER_H
 
-#include "xact.h"
+#include "auction/xact.h"
 
 #define XACTION_TIMEOUT 300 // 5 min
 
@@ -23,9 +23,9 @@
 // TODO: this enum doesn't mean anything anymore
 typedef enum XactServerMode
 {
-	XactServerMode_Normal,
-	XactServerMode_LogPlayback,
-	XactServerMode_Count	
+    XactServerMode_Normal,
+    XactServerMode_LogPlayback,
+    XactServerMode_Count    
 } XactServerMode;
 
 

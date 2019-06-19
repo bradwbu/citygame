@@ -12,19 +12,19 @@
  * Revision History:
  *
  ***************************************************************************/
-#ifndef AUCTIONCMDS_H
-#define AUCTIONCMDS_H
+#ifndef XACTSERVERINTERNAL_H
+#define XACTSERVERINTERNAL_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct GenericHashTableImp *GenericHashTable;
 typedef struct HashTableImp *HashTable;
-typedef struct AuctionEnt AuctionEnt;
-typedef struct Xaction Xaction;
 
-void AuctionServer_HandleSlashCmd(AuctionEnt *ent, int message_dbid, char *str);
+// @todo -AB: get rid of this :11/20/06
+typedef struct XactServer
+{
+    bool in_recovery;
+} XactServer;
+extern XactServer g_XactServer;
 
-// AuctionServer_HandleLoggedSlashCmd should only be called by XactServer.c
-// void AuctionServer_HandleLoggedSlashCmd(Xaction *xact, AuctionEnt *ent, char *str, XactServerMode svr_mode);
-
-#endif //AUCTIONCMDS_H
+#endif //XACTSERVERINTERNAL_H

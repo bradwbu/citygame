@@ -15,7 +15,7 @@
 #ifndef BINHEAP_H
 #define BINHEAP_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct GenericHashTableImp *GenericHashTable;
 typedef struct HashTableImp *HashTable;
@@ -24,8 +24,8 @@ typedef int (*BinHeapCmpFp)(void *lhs,void *rhs);
 
 typedef struct BinHeap
 {
-	BinHeapCmpFp cmp;
-	void **elts;
+    BinHeapCmpFp cmp;
+    void **elts;
 } BinHeap;
 
 BinHeap* binheap_Create( BinHeapCmpFp cmp);

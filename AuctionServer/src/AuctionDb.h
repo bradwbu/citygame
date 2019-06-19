@@ -7,7 +7,7 @@
 #ifndef AUCTIONDB_H
 #define AUCTIONDB_H
 
-#include "auction.h"
+#include "auction/auction.h"
 
 typedef struct NetLink NetLink;
 typedef struct StashTableImp *StashTable;
@@ -16,29 +16,29 @@ typedef struct ParseTable ParseTable;
 
 typedef struct AuctionShard
 {
-	char *name;
+    char *name;
 
-	// not persisted
-	NetLink **links;
-	int link_rotor;
-	bool data_ok;		// prevent cascading large data packets (currently just batch info)
-	U32 last_received;	// deadman's switch
+    // not persisted
+    NetLink **links;
+    int link_rotor;
+    bool data_ok;        // prevent cascading large data packets (currently just batch info)
+    U32 last_received;    // deadman's switch
 
-	StashTable entById;
-	AuctionEnt **ents;
+    StashTable entById;
+    AuctionEnt **ents;
 } AuctionShard;
 
 NetLink* AuctionShard_GetLink(AuctionShard *shard); // gets the next link, round robin. removes dead links.
 
 typedef struct AuctionEnt
 {
-	AuctionInventory inv;
-	int ident;
-	char *nameEnt;
-	int accesslevel;
-	AuctionShard *shard;
-	int iLastId;			// this needs to be persisted even if inv is empty, otherwise merges will make inv items' ids inconsistent
-	bool deleted;			// used to indicate deleted ents in the journal
+    AuctionInventory inv;
+    int ident;
+    char *nameEnt;
+    int accesslevel;
+    AuctionShard *shard;
+    int iLastId;            // this needs to be persisted even if inv is empty, otherwise merges will make inv items' ids inconsistent
+    bool deleted;            // used to indicate deleted ents in the journal
 } AuctionEnt;
 
 void AuctionEnt_ToStr(AuctionEnt *ent, char **hestr);
@@ -49,17 +49,17 @@ bool AuctionEnt_IsFakeAgent(AuctionEnt *ent);
 
 typedef struct AuctionDb
 {
-	AuctionShard **shards;
-	AuctionShard **shardsPlusFake;
+    AuctionShard **shards;
+    AuctionShard **shardsPlusFake;
 
-	AuctionEnt **ents;
+    AuctionEnt **ents;
 
-	// used to check consistency
-	U32 uShardsVer; // CRC of ParseTable
-	U32 uEntsVer;
+    // used to check consistency
+    U32 uShardsVer; // CRC of ParseTable
+    U32 uEntsVer;
 
-	// not persisted/parsed
-	StashTable shardByName;
+    // not persisted/parsed
+    StashTable shardByName;
 } AuctionDb;
 extern AuctionDb g_AuctionDb;
 extern ParseLink g_auction_shardsLink; 
@@ -81,11 +81,11 @@ bool auctionshard_AdjInv(AuctionShard *shard, int ident, char *name,int type, in
 // *********************************************************************************
 // AuctionDb SQL'ing
 // *********************************************************************************
-void AuctionEnt_SetInvSize(AuctionEnt *ent, int invSize);								// updates and SQLs
-void AuctionEnt_SetAccessLevel(AuctionEnt *ent, int accesslevel);						// updates and SQLs
-void AuctionEnt_ChangeShard(AuctionEnt *ent, AuctionShard *dst_shard, int dst_dbid);	// updates and SQLs
-AuctionInvItem* AuctionEnt_AddItem(AuctionEnt *ent, AuctionInvItem *item);				// clones item, SQLs
-void AuctionDb_DropEnt(AuctionEnt *ent);												// removes, logs, and SQLs
-void AuctionDb_EntInsertOrUpdate(AuctionEnt *ent);										// only SQLs
+void AuctionEnt_SetInvSize(AuctionEnt *ent, int invSize);                                // updates and SQLs
+void AuctionEnt_SetAccessLevel(AuctionEnt *ent, int accesslevel);                        // updates and SQLs
+void AuctionEnt_ChangeShard(AuctionEnt *ent, AuctionShard *dst_shard, int dst_dbid);    // updates and SQLs
+AuctionInvItem* AuctionEnt_AddItem(AuctionEnt *ent, AuctionInvItem *item);                // clones item, SQLs
+void AuctionDb_DropEnt(AuctionEnt *ent);                                                // removes, logs, and SQLs
+void AuctionDb_EntInsertOrUpdate(AuctionEnt *ent);                                        // only SQLs
 
 #endif //AUCTIONDB_H
