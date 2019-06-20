@@ -1,7 +1,7 @@
 #ifndef RELAY_ACTIONS_H
 #define RELAY_ACTIONS_H
 
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "relay_types.h"
 #include "kill_process.h"
 
