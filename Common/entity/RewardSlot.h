@@ -16,8 +16,8 @@ typedef struct Packet Packet;
 //----------------------------------------------------------
 typedef struct RewardSlot
 {
-	RewardItemType type;
-	char const *name;
+    RewardItemType type;
+    char const *name;
 } RewardSlot;
 
 static INLINEDBG bool rewardslot_Valid(RewardSlot const *s) {return s && s->name && rewarditemtype_Valid(s->type);} 

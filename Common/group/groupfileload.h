@@ -20,9 +20,9 @@ void groupLoadMakeAllMapImages(char * directory);
 GroupDef *groupDefFuture(const char *name);
 
 typedef enum GroupResetWhat {
-	RESET_TRICKS=1<<0,
-	RESET_BOUNDS=1<<2,
-	RESET_LODINFOS=1<<3,
+    RESET_TRICKS=1<<0,
+    RESET_BOUNDS=1<<2,
+    RESET_LODINFOS=1<<3,
 } GroupResetWhat;
 void groupResetAll(GroupResetWhat what);
 void groupResetOne(DefTracker *tracker, GroupResetWhat what);

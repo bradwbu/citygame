@@ -13,7 +13,7 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/timing.h>
-#include "../mapserver/player/stats_base.h" // Sorry about this
+#include "player/stats_base.h" // Sorry about this
 #include "container_sql.h"
 #include "dbrelay.h"      // For SendToServers
 #include "clientcomm.h"   // For getAttribString

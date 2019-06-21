@@ -17,7 +17,7 @@
 #include "accountservercomm.h"
 #include "dbmsg.h"
 #include "entity/entVarUpdate.h"
-#include "../../MapServer/container/containerbroadcast.h"
+#include "container/containerbroadcast.h"
 #include <utilitieslib/utils/StringUtil.h> // binStrToHexStr
 #include <utilitieslib/utils/log.h>
 

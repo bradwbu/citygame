@@ -85,7 +85,7 @@ static void setDefaultBeaconizerConfig()
 void serverCfgLoad()
 {
     FILE    *file = NULL;
-    char    buf[1000],*s,*s2,delim[] = "\n\r\t ",*args[50];
+    char    buf[1000],*s,*s2,delim[] = "\n\r\t",*args[50];
     int        count;
     char    realFilenameBuffer[MAX_PATH];
     char*    realFilename;

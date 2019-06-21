@@ -11,7 +11,7 @@
 typedef struct GenericHashTableImp *GenericHashTable;
 typedef struct HashTableImp *HashTable;
 typedef struct Character Character;
-typedef struct	Packet Packet;
+typedef struct    Packet Packet;
 typedef struct Entity Entity;
 typedef struct RoomDetail RoomDetail;
 typedef struct SalvageItem SalvageItem;
@@ -41,8 +41,8 @@ int roomdetail_AdjInspiration(RoomDetail *detail, char *nameInspiration, int amo
 int roomdetail_SetEnhancement(RoomDetail *detail, char *nameEnhancement, int iLevel, int iNumCombines, int amt);
 int roomdetail_AdjEnhancement(RoomDetail *detail, char *pathBasePower, int iLevel, int iNumCombines, int amount);
 
-int roomdetail_MaxCount( RoomDetail *detail);			// capacity of storage container
-int roomdetail_CurrentCount( RoomDetail *detail );		// current # of items in container
+int roomdetail_MaxCount( RoomDetail *detail);            // capacity of storage container
+int roomdetail_CurrentCount( RoomDetail *detail );        // current # of items in container
 bool roomdetail_CanDeleteStorage(RoomDetail *detail);
 
 // *********************************************************************************

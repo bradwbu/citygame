@@ -10,13 +10,13 @@
 typedef struct ImageServerParams
 {
     int x_res;
-	int y_res;
-	int bgcolor;
-	char bgtexture[256];
-	char outputname[MAX_PATH];
-	char caption[MAX_CAPTION];
-	int headshot;
-	int deleteCSV;
+    int y_res;
+    int bgcolor;
+    char bgtexture[256];
+    char outputname[MAX_PATH];
+    char caption[MAX_CAPTION];
+    int headshot;
+    int deleteCSV;
 } ImageServerParams;
 
 

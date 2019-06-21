@@ -15,8 +15,8 @@
 
 bool sgrpbaseentrypermission_Valid( int perm )
 {
-	int max = (1<<kSgrpBaseEntryPermission_Count) - 1;
-	return (perm >= 0 && perm <= max);
+    int max = (1<<kSgrpBaseEntryPermission_Count) - 1;
+    return (perm >= 0 && perm <= max);
 }
 
 //----------------------------------------
@@ -24,12 +24,12 @@ bool sgrpbaseentrypermission_Valid( int perm )
 //----------------------------------------
 char *sgrpbaseentrypermission_ToMenuMsg(SgrpBaseEntryPermission e )
 {
-	static char *s_strs[] = 
-		{
-			"SgBaseEntryPermissionNone",
-			"SgBaseEntryPermissionCoalition",
-			"SgBaseEntryPermissionLeaderTeammates",
-		};
-	STATIC_INFUNC_ASSERT( ARRAY_SIZE( s_strs ) == kSgrpBaseEntryPermission_Count );
-	return AINRANGE( e, s_strs ) ? s_strs[e] : NULL;
+    static char *s_strs[] = 
+        {
+            "SgBaseEntryPermissionNone",
+            "SgBaseEntryPermissionCoalition",
+            "SgBaseEntryPermissionLeaderTeammates",
+        };
+    STATIC_INFUNC_ASSERT( ARRAY_SIZE( s_strs ) == kSgrpBaseEntryPermission_Count );
+    return AINRANGE( e, s_strs ) ? s_strs[e] : NULL;
 }

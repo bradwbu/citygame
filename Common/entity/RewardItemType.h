@@ -26,18 +26,18 @@
 //----------------------------------------------------------
 typedef enum RewardItemType
 {
-	kRewardItemType_Power,
-	kRewardItemType_Salvage,
-	kRewardItemType_Concept,
-	kRewardItemType_Proficiency,
-	kRewardItemType_DetailRecipe,
-	kRewardItemType_Detail,
-	kRewardItemType_Token,
-	kRewardItemType_RewardTable,
-	kRewardItemType_RewardTokenCount,
-	kRewardItemType_IncarnatePoints,
-	kRewardItemType_AccountProduct,
-	kRewardItemType_Count
+    kRewardItemType_Power,
+    kRewardItemType_Salvage,
+    kRewardItemType_Concept,
+    kRewardItemType_Proficiency,
+    kRewardItemType_DetailRecipe,
+    kRewardItemType_Detail,
+    kRewardItemType_Token,
+    kRewardItemType_RewardTable,
+    kRewardItemType_RewardTokenCount,
+    kRewardItemType_IncarnatePoints,
+    kRewardItemType_AccountProduct,
+    kRewardItemType_Count
 } RewardItemType;
 static INLINEDBG bool rewarditemtype_Valid(RewardItemType t) {return INRANGE(t, kRewardItemType_Power, kRewardItemType_Count  );} 
 char *rewarditemtype_Str(RewardItemType t);

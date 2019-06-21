@@ -7,19 +7,19 @@ typedef struct AccountInventory AccountInventory;
 
 typedef enum CertificationStatus
 {
-	kCertStatus_None,
-	kCertStatus_GrantRequested,
-	kCertStatus_RefundRequested,
-	kCertStatus_ClaimRequested,
+    kCertStatus_None,
+    kCertStatus_GrantRequested,
+    kCertStatus_RefundRequested,
+    kCertStatus_ClaimRequested,
 } CertificationStatus;
 
 typedef struct CertificationRecord
 {
-	CertificationStatus status;
-	char *pchRecipe;
-	int claimed;
-	int deleted;
-	U32 timed_locked;
+    CertificationStatus status;
+    char *pchRecipe;
+    int claimed;
+    int deleted;
+    U32 timed_locked;
 } CertificationRecord;
 
 AccountInventory *AccountInventoryFindItem(Entity *pEnt, SkuId sku_id);

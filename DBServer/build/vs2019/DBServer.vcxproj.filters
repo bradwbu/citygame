@@ -92,9 +92,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\MapServer\entity\SgrpStats.h">
-      <Filter>Header Files\Mapserver\entity</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Common\sql\sqlconn.h">
       <Filter>Header Files\Common\sql</Filter>
     </ClInclude>
@@ -254,12 +251,6 @@
     <ClInclude Include="..\..\..\Common\container\container_util.h">
       <Filter>Header Files\Common\container</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\MapServer\dbcomm\staticMapInfo.h">
-      <Filter>Header Files\Mapserver\dbcomm</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Common\entity\gametypes.h">
-      <Filter>Header Files\Mapserver\entity</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\loadBalancing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -289,6 +280,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\Common\mission\MissionSearch.h">
       <Filter>Header Files\Common\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\MapServer\src\dbcomm\staticMapInfo.h">
+      <Filter>Header Files\Mapserver\dbcomm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\gametypes.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\MapServer\src\entity\SgrpStats.h">
+      <Filter>Header Files\Mapserver\entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -463,9 +463,6 @@
     <ClCompile Include="..\..\..\Common\container\containerEventHistory.c">
       <Filter>Source Files\Common\container</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\MapServer\dbcomm\staticMapInfo.c">
-      <Filter>Source Files\Mapserver\dbcomm</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Common\auction\Xact.c">
       <Filter>Source Files\Common\auction</Filter>
     </ClCompile>
@@ -483,6 +480,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Common\mission\MissionSearch.c">
       <Filter>Source Files\Common\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\MapServer\src\dbcomm\staticMapInfo.c">
+      <Filter>Source Files\Mapserver\dbcomm</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

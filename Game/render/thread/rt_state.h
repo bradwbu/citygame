@@ -1,7 +1,7 @@
 #ifndef _RENDERSTATE_H
 #define _RENDERSTATE_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 //#define MODEL_PERF_TIMERS // Timer for each model
 //#define MODEL_DRAW_TIMERS // Time the model drawing code

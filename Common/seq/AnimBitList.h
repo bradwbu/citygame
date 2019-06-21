@@ -8,9 +8,9 @@ typedef struct Entity Entity;
 typedef struct SeqType SeqType;
 
 typedef struct AnimBitList{
-	char* listName;
-	char** listContents;
-	char* fileName;
+    char* listName;
+    char** listContents;
+    char* fileName;
 }AnimBitList;
 
 void loadAnimLists(void);

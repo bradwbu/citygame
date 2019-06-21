@@ -9,9 +9,9 @@ typedef struct RoomTemplate RoomTemplate;
 
 typedef enum BaseSendType
 {
-	kBaseSend_Single,
-	kBaseSend_Room,
-	kBaseSend_Base,
+    kBaseSend_Single,
+    kBaseSend_Room,
+    kBaseSend_Base,
 }BaseSendType;
 
 void baseSendDetails(Packet *pak,BaseRoom *room,RoomDetail **details,int count,int reset);

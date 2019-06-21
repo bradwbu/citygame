@@ -203,6 +203,9 @@
     <ProjectReference Include="..\..\..\libs\UtilitiesLib\build\vs2019\UtilitiesLib.vcxproj">
       <Project>{02b25697-0348-423c-8df3-e1bdf89bb43d}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Utilities\StructParser\build\vs2019\StructParser.vcxproj">
+      <Project>{3d2903c7-c38e-43ef-8974-280d59da4a6d}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

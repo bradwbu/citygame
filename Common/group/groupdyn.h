@@ -7,7 +7,7 @@ typedef struct DefTracker DefTracker;
 
 typedef struct
 {
-	DefTracker	*tracker;
+    DefTracker    *tracker;
 } DynGroup;
 
 #define GRPDYN_HP_BITS 7
@@ -15,13 +15,13 @@ typedef struct
 
 typedef struct
 {
-	U8		hp : GRPDYN_HP_BITS;
-	U8		repair : GRPDYN_REPAIR_BITS;
+    U8        hp : GRPDYN_HP_BITS;
+    U8        repair : GRPDYN_REPAIR_BITS;
 } DynGroupStatus;
 
-extern DynGroup			*dyn_groups;
-extern int				dyn_group_count,dyn_group_max;
-extern DynGroupStatus	*dyn_group_status;
+extern DynGroup            *dyn_groups;
+extern int                dyn_group_count,dyn_group_max;
+extern DynGroupStatus    *dyn_group_status;
 
 int groupDynBytesFromCount(int x);
 void groupDynBuildBreakableList(void);

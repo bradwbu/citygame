@@ -16,6 +16,6 @@ void entWorldCollide(Entity* e, const Mat3 control_mat);
 void entWorldGetSurface(Entity *e,SurfaceParams *surf);
 SurfaceParams *entWorldGetSurfaceModifier(Entity *e);
 void entWorldApplySurfMods(SurfaceParams *surf_mod,SurfaceParams *surf);
-void entWorldApplyTextureOverrides( SurfaceParams *	surf, int lastSurfFlags );
+void entWorldApplyTextureOverrides( SurfaceParams *    surf, int lastSurfFlags );
 // End mkproto
 #endif

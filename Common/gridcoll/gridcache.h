@@ -7,10 +7,10 @@
 
 typedef struct
 {
-	Vec3	start,end;
-	F32		radius;
-	int		flags;
-	int		find_type;
+    Vec3    start,end;
+    F32        radius;
+    int        flags;
+    int        find_type;
 } CollParams;
 
 int gridSetCacheDisabled(int disabled);

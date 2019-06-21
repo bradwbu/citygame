@@ -5,9 +5,9 @@
 
 typedef enum 
 {
-	BADGESTATSTYPE_ENTITY,
-	BADGESTATSTYPE_SUPERGROUP,
-	BADGESTATSTYPE_MAXTYPES,
+    BADGESTATSTYPE_ENTITY,
+    BADGESTATSTYPE_SUPERGROUP,
+    BADGESTATSTYPE_MAXTYPES,
 } BadgeStatsType;
 
 char* badgestats_ColumnString(BadgeStatsType type, int idx);
