@@ -13,8 +13,8 @@
 #include "storyarcprivate.h"
 #include "reward.h"
 #include "staticmapinfo.h"
-#include "foldercache.h"
-#include "fileutil.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
 #include "svr_player.h" // for reloading tasksets
 #include "character_eval.h"
 

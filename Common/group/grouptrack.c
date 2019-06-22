@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include "group.h"
 #include "groupgrid.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include <memory.h>
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "string.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #ifdef CLIENT
 #include "edit_select.h"
 #include "model_cache.h"
@@ -17,7 +17,7 @@
 #include "basedraw.h"
 #endif
 #include "groupfileload.h"
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
 int tracker_count;
 

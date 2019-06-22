@@ -7,7 +7,7 @@
 #include "cmdauction.h"
 #include "AppServerCmd.h"
 #include <utilitieslib/utils/utils.h>
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/components/earray.h>

@@ -5,23 +5,23 @@
 */
 
 #include "modelReload.h"
-#include "fileutil.h"
-#include "FolderCache.h"
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/FolderCache.h>
 #include "anim.h"
-#include "utils.h"
-#include "assert.h"
-#include "earray.h"
-#include "memlog.h"
-#include "error.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/memlog.h>
+#include <utilitieslib/utils/error.h>
 #include "gridcache.h"
 #include "tricks.h"
 #include "groupfileload.h"
 #include "groupfilelib.h"
 #include <fcntl.h>
-#include "wininclude.h"
-#include "SharedMemory.h"
-#include "SharedHeap.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/wininclude.h>
+#include <utilitieslib/components/SharedMemory.h>
+#include <utilitieslib/components/SharedHeap.h>
+#include <utilitieslib/components/StashTable.h>
 #include "AutoLOD.h"
 
 #if CLIENT

@@ -3,8 +3,8 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "netio.h"
-#include "earray.h"
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/components/earray.h>
 
 #include "classes.h"
 #include "origins.h"

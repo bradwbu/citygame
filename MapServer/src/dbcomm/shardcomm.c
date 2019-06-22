@@ -1,19 +1,19 @@
 #include "shardcomm.h"
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "dbcomm.h"
 #include "entity.h"
 #include "svr_player.h"
 #include "svr_base.h"
 #include "comm_game.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "logcomm.h"
 #include "entPlayer.h"
 #include "shardcommtest.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "cmdserver.h"
 #include "sendToClient.h"
 #include "langServerUtil.h"
-#include "EString.h"
+#include <utilitieslib/components/estring.h>
 #include "chatdb.h"
 #include "svr_chat.h"
 #include "teamCommon.h"
@@ -26,11 +26,11 @@
 #include "character_level.h"
 #include "character_base.h"
 #include "origins.h"
-#include "EArray.h"
+#include <utilitieslib/components/earray.h>
 #include "dbnamecache.h"
 #include "comm_backend.h"
 #include "staticmapinfo.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "mathutil.h"
 #include "logcomm.h"
 static Packet    *aggregate_pak;

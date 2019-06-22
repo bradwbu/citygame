@@ -1,9 +1,9 @@
 #include "entity.h"
-#include "net_packetutil.h"
+#include <utilitieslib/network/net_packetutil.h>
 #include "svr_base.h"
 #include "character_base.h"
 #include "boost.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "powers.h"
 #include "entVarUpdate.h"
 #include "svr_chat.h"

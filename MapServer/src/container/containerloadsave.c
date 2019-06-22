@@ -3,7 +3,7 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include "auction.h"
 #include "crypt.h"
 #include "HashFunctions.h"
@@ -24,7 +24,7 @@
 #include "costume.h"    // for costume structures
 #include "gameData/BodyPart.h"
 #include "gameData/costume_data.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 #include "character_base.h"
 #include "character_db.h"
@@ -39,15 +39,15 @@
 #include "friendCommon.h"
 #include "containerEmail.h"
 #include "entPlayer.h"
-#include "bitfield.h"
+#include <utilitieslib/components/bitfield.h>
 
 #include "staticMapInfo.h"
 
 #include "keybinds.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "SgrpServer.h"
 #include "pl_stats_db.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "team.h"
 #include "teamup.h"
 #include "costume_db.h"
@@ -82,7 +82,7 @@
 #include "TaskforceParams.h"
 #include "attrib_description.h"
 #include "chatSettings.h"
-#include "AppLocale.h" //for locisUserSelectable and getCurrentLocale
+#include <utilitieslib/language/AppLocale.h> //for locisUserSelectable and getCurrentLocale
 #include "playerCreatedStoryarcServer.h"
 #include "statgroupstruct.h"
 #include "character_level.h"

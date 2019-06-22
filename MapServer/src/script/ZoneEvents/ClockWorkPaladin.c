@@ -8,7 +8,7 @@
 
 //Very temp debugging 
 #include "scriptengine.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 //End very temp debugging 
 
 static void showState( void )

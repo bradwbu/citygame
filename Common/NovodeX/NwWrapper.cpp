@@ -69,20 +69,20 @@ extern "C"{
     #include "motion.h"
 #endif
 
-    #include "stdtypes.h"
+    #include <utilitieslib/stdtypes.h>
 #ifdef NX_PERF_TIMING
-    #include "timing.h"
+    #include <utilitieslib/utils/timing.h>
 #endif
-    #include "mathutil.h"
+    #include <utilitieslib/utils/mathutil.h>
     #include "groupfileload.h"
     #include "groupnovodex.h"
     #include "group.h"
     #include "queue.h"
     #include "entity.h"
-    #include "strings_opt.h"
-    #include "StashTable.h"
+    #include <utilitieslib/utils/strings_opt.h>
+    #include <utilitieslib/components/StashTable.h>
     #include "cmdcommon.h"
-    #include "error.h"
+    #include <utilitieslib/utils/error.h>
     #undef fopen    // file.h does not work, so get rid of this...
 
     void drawLine3D(Vec3 p1, Vec3 p2, int argb);
@@ -90,7 +90,7 @@ extern "C"{
 
 }
 
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 // -------------------------------------------------------------------------------------------------------------------
 

@@ -21,8 +21,8 @@
 #include "missionMapCommon.h"
 #include "missiongeoCommon.h"
 
-#include "mathutil.h"
-#include "error.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/error.h>
 
 #if SERVER
 //#include "groupnetdb.h" // for attemptToCheckOut

@@ -1,13 +1,13 @@
 //// Code Set Bits
 #include "seqstate.h"
 #include "string.h"
-#include "textparser.h"
-#include "structdefines.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/structDefines.h>
 #include "time.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "TriggeredMove.h"
-#include "assert.h"
-#include "error.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/error.h>
 
 static StaticDefineInt statebit_flags[] = 
 {

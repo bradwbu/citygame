@@ -3,13 +3,13 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "utils.h"
-#include "file.h"
-#include "timing.h"
-#include "bitfield.h"
-#include "earray.h"
-#include "estring.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/components/bitfield.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/StashTable.h>
 
 #include "dbcomm.h"
 #include "dbquery.h"
@@ -31,7 +31,7 @@
 #include "attrib_names.h"
 #include "badges.h"
 #include "commonLangUtil.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 #include "characterInfo.h"
 
@@ -40,7 +40,7 @@
 #include "pl_stats_internal.h"
 #include "friendCommon.h"
 #include "supergroup.h"
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 #include "HashFunctions.h"
 
 #define BADGES

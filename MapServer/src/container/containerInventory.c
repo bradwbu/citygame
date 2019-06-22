@@ -4,25 +4,25 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 
-#include "assert.h"
-#include "earray.h"
-#include "estring.h"
-#include "MemoryPool.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/MemoryPool.h>
 #include "dbcontainer.h"
 #include "logcomm.h"
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "entity.h"
-#include "mathutil.h"
-#include "utils.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/StashTable.h>
 #include "character_base.h"
 #include "character_inventory.h"
 #include "containerInventory.h"
 #include "salvage.h"
 #include "concept.h"
 #include "cmdserver.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 
 #define MAX_INVITEMS_PER_ROW (900) // Upper limit is 1012 and subtract some room for ContainerId, SubId, ShardId, and ShardName columns
 #define CONCEPT_COLNAME_DEFIDANDAMT "ConceptDefIdAndAmount"

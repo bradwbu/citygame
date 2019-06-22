@@ -3,21 +3,21 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <malloc.h>
 #include <string.h>
 
-#include "error.h"
-#include "earray.h"
-#include "timing.h" // for timerSecondsSince2000
-#include "mathutil.h"
-#include "StashTable.h"
-#include "genericlist.h"
-#include "memorypool.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/timing.h> // for timerSecondsSince2000
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/genericlist.h>
+#include <utilitieslib/components/MemoryPool.h>
 
 #include "costume.h"
 #include "power_customization.h"
-#include "eval.h"
+#include <utilitieslib/utils/eval.h>
 #include "entity.h"
 #include "powers.h"
 #include "powerinfo.h"
@@ -25,28 +25,28 @@
 #include "character_level.h"
 #include "character_eval.h"
 #include "character_inventory.h"
-#include "StringCache.h"
-#include "textparser.h"
-#include "mininghelper.h"
+#include <utilitieslib/components/StringCache.h>
+#include <utilitieslib/utils/textparser.h>
+#include "gameData/mininghelper.h"
 #include "boostset.h"
-#include "log.h"
-#include "file.h"
-#include "SharedMemory.h"
-#include "estring.h"
+#include <utilitieslib/utils/log.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/SharedMemory.h>
+#include <utilitieslib/components/estring.h>
 
 #ifdef CLIENT
-#include "textureatlas.h"
-#include "wininclude.h"        // @todo temporary for NEEDS_REVIEW()/TODO()
-#include "uiTray.h"
-#include "player.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/utils/wininclude.h>        // @todo temporary for NEEDS_REVIEW()/TODO()
+#include "UI/uiTray.h"
+#include "player/player.h"
 #endif
 
 #ifdef SERVER
-#include "character_net_server.h"
-#include "logcomm.h"     // for dbLog() messages
+#include "entity/character_net_server.h"
+#include "dbcomm/logcomm.h"     // for dbLog() messages
 #include "dbghelper.h"
-#include "entai.h"     // For aiAdd/RemovePower
-#include "cmdservercsr.h"
+#include "ai/entai.h"     // For aiAdd/RemovePower
+#include "cmdparse/cmdservercsr.h"
 #include "character_combat_eval.h"
 #endif
 
@@ -1857,7 +1857,7 @@ PowerRef* powerRef_CreateFromIdxs(int iIdxBuild, int iIdxSet, int iIdxPow)
 void powerRef_Destroy(PowerRef* ppowRef)
 {
     // A spec of -1 is used as a sentinel, just ignore it.
-    if(ppowRef && ppowRef != (PowerRef *)0xffffffff)
+    if(ppowRef && ppowRef != (PowerRef*)(intptr_t)-1)
     {
         MP_FREE(PowerRef, ppowRef);
     }

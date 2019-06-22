@@ -13,7 +13,7 @@
 #include "scriptengine.h"
 #include "comm_game.h"
 #include "debugCommon.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "entity.h"
 
 Packet* sv_pak;

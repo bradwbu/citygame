@@ -3,14 +3,14 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 #include "logcomm.h"
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 #include "basestorage.h"
 #include <stdio.h>
 #include "svr_base.h"
 #include "entserver.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include "entai.h"
 #include "entVarUpdate.h"
 #include "dbquery.h"
@@ -29,7 +29,7 @@
 #include "svr_player.h"
 #include "dbcomm.h"
 #include "combat.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "HashFunctions.h"
 #include "pmotion.h"
 #include "playerState.h" // client-side file
@@ -72,11 +72,11 @@
 #include "task.h"
 #include "powerinfo.h"
 #include "gameData/store_net.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "TeamTask.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "friends.h"
-#include "strings_opt.h"
+#include <utilitieslib/utils/strings_opt.h>
 #include "beaconPath.h"
 #include "beaconPrivate.h"
 #include "gift.h"
@@ -118,7 +118,7 @@
 #include "AuctionClient.h"
 #include "Auction.h"
 #include "taskforce.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "playerCreatedStoryarc.h"
 #include "playerCreatedStoryarcServer.h"
 #include "sgraid_V2.h"

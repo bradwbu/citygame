@@ -5,17 +5,17 @@
  ***************************************************************************/
 #include <string.h>
 
-#include "error.h"
-#include "textparser.h"
-#include "AppLocale.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "earray.h"
-#include "character_base.h"
-#include "origins.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/language/AppLocale.h>
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include <utilitieslib/components/earray.h>
+#include "entity/character_base.h"
+#include "entity/origins.h"
 #include "titles.h"
-#include "utils.h"
-#include "file.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/file.h>
 #include "auth/authUserData.h"
 
 StaticDefineInt ParseGender[];

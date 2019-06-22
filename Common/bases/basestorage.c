@@ -4,36 +4,36 @@
  *     Confidential Property of Cryptic Studios
  *
  ***************************************************************************/
-#include "basestorage.h"
-#include "textparser.h"
-#include "network/net_packetutil.h"
-#include "network/net_packet.h"
-#include "salvage.h"
-#include "character_inventory.h"
-#include "utils.h"
-#include "assert.h"
-#include "error.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "estring.h"
-#include "MemoryPool.h"
+#include "bases/basestorage.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/network/net_packetutil.h>
+#include <utilitieslib/network/net_packet.h>
+#include "entity/salvage.h"
+#include "entity/character_inventory.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/MemoryPool.h>
 #include "bases.h"
 #include "basedata.h"
-#include "entity.h"
-#include "character_base.h"
-#include "Supergroup.h"
-#include "powers.h"
+#include "entity/entity.h"
+#include "entity/character_base.h"
+#include "entity/Supergroup.h"
+#include "entity/powers.h"
 #include "DetailRecipe.h"
 
 #if SERVER
 #include "basetogroup.h"
-#include "logcomm.h"
-#include "langServerUtil.h"
-#include "timing.h"
-#include "dbcomm.h"
-#include "sgraid.h"
-#include "raidmapserver.h"
-#include "SgrpServer.h"
+#include "dbcomm/logcomm.h"
+#include "language/langServerUtil.h"
+#include <utilitieslib/utils/timing.h>
+#include "dbcomm/dbcomm.h"
+#include "gameSys/sgraid.h"
+#include "gameSys/raidmapserver.h"
+#include "entity/SgrpServer.h"
 
 extern int world_modified;
 

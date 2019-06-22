@@ -3,29 +3,29 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <stdlib.h>
 #include <string.h>
-#include "wininclude.h"
-#include "stdtypes.h"
+#include <utilitieslib/utils/wininclude.h>
+#include <utilitieslib/stdtypes.h>
 
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 #include "origins.h"
 #include "powers.h"
 #include "boost.h"
 #include "character_base.h"
-#include "MemoryPool.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "boostset.h"
-#include "mathutil.h"
-#include "scriptvars.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/scriptvars.h>
 #include "Entity.h"
 #include "EntPlayer.h"
-#include "AccountData.h"
+#include "account/AccountData.h"
 
 #if CLIENT
-#include "DetailRecipe.h"
-#include "uiEnhancement.h"
+#include "bases/DetailRecipe.h"
+#include "UI/uiEnhancement.h"
 #endif
 
 SHARED_MEMORY float *g_pfBoostCombineChances;

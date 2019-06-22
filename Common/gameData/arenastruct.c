@@ -10,19 +10,19 @@
  */
 
 #include "arenastruct.h"
-#include "netio.h"
-#include "earray.h"
-#include "utils.h"
-#include "StringCache.h"
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/StringCache.h>
 #include "character_base.h"
 #include "comm_game.h"
-#include "textparser.h"
-#include "estring.h"
-#include "error.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/error.h>
 #include "entVarUpdate.h"
-#include "timing.h"
-#include "file.h"
-#include "log.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/log.h>
 
 typedef struct Character Character;
 

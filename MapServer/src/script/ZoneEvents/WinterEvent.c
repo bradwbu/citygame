@@ -10,7 +10,7 @@
 //1 group spawns every 30 seconds (changed from 1 minutes)
 //Max. 100 entities
 
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 
 #include "scriptutil.h"
 

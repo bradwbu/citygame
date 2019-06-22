@@ -1,8 +1,8 @@
 #ifndef _CAMERA_H
 #define _CAMERA_H
 
-#include "stdtypes.h"
-#include "mathutil.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
 
 #define	TICKS_FOR_COMBAT_CAM_TRANSITIONS	( 15 )
 

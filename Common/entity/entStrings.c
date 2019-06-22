@@ -1,10 +1,10 @@
 
 
 #include "entity.h"
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "entStrings.h"
-#include "utils.h"
-#include "MemoryPool.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/MemoryPool.h>
 
 char * breakHTMLtags( char * text )
 {

@@ -5,7 +5,7 @@
  ***************************************************************************/
 #include <stddef.h>
 
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
  
 #include "character_attribs.h"
 #include "attrib_names.h"
@@ -17,7 +17,7 @@ int g_offHealAttrib = -1;
  * dbg_AttribName
  *
  */
-char *dbg_AttribName(int offset, char *pchOrig)
+char const* dbg_AttribName(size_t offset, char const* pchOrig)
 {
     // This is a hack
     if(offset>=offsetof(CharacterAttributes, fDamageType)
@@ -58,7 +58,7 @@ char *dbg_AttribName(int offset, char *pchOrig)
  * AttribOffset
  *
  */
-int attrib_Offset(char *pch)
+int attrib_Offset(char const* pch)
 {
     int i, n;
     

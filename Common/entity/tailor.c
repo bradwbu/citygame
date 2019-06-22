@@ -1,13 +1,13 @@
 #include "costume.h"
 #include "power_customization.h"
-#include "net_packet.h"
+#include <utilitieslib/network/net_packet.h>
 #include "entPlayer.h"
 #include "entity.h"
 #include "character_inventory.h"
-#include "svr_chat.h"
-#include "langServerUtil.h"
-#include "badges_server.h"
-#include "logcomm.h"
+#include "gameComm/svr_chat.h"
+#include "language/langServerUtil.h"
+#include "player/badges_server.h"
+#include "dbcomm/logcomm.h"
 
 int processTailorCost(Packet *pak, Entity *e, int genderChange, Costume *costume, PowerCustomizationList *powerCustList)
 {

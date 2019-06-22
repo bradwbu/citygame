@@ -3,26 +3,26 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "Entity.h"
 #include "EntPlayer.h"
-#include "eval.h"
+#include <utilitieslib/utils/eval.h>
 #include "Supergroup.h"
 #include "RewardToken.h"
-#include "MemoryPool.h"
-#include "Earray.h"
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/earray.h>
 #include "teamup.h"
-#include "bitfield.h"
-#include "StashTable.h"
-#include "basedata.h"
+#include <utilitieslib/components/bitfield.h>
+#include <utilitieslib/components/StashTable.h>
+#include "bases/basedata.h"
 
 #if SERVER || STATSERVER
-#include "dbcomm.h"
-#include "storyinfo.h"
-#include "containerSupergroup.h"
+#include "dbcomm/dbcomm.h"
+#include "storyarc/storyinfo.h"
+#include "container/containerSupergroup.h"
 #endif
 
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 sgroupPermissionName sgroupPermissions[] =
 {    
@@ -348,7 +348,7 @@ void DestroyRecipeInvItem(RecipeInvItem *p)
 static RecipeInvItem *AddRecipeInvItem(Supergroup *supergroup, DetailRecipe const *pDetailRecipe, int iCount)
 {
     int i;
-    RecipeInvItem *pNew;
+    RecipeInvItem *pNew = NULL;
     int iSize = eaSize(&supergroup->invRecipes);
 
     for(i=0; i<iSize; i++)

@@ -3,22 +3,22 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "assert.h"
-#include "error.h"
-#include "utils.h"
-#include "file.h"
-#include "mathutil.h"
-#include "StashTable.h"
-#include "EArray.h"
-#include "EString.h"
-#include "textparser.h" // for TokenizerParseInfo
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/textparser.h> // for TokenizerParseInfo
 #include "character_inventory.h"
 #include "salvage.h"
-#include "basedata.h"
-#include "baseparse.h"
-#include "trayCommon.h"
-#include "SharedMemory.h"
-#include "SharedHeap.h"
+#include "bases/basedata.h"
+#include "bases/baseparse.h"
+#include "gameComm/trayCommon.h"
+#include <utilitieslib/components/SharedMemory.h>
+#include <utilitieslib/components/SharedHeap.h>
 #include "character_eval.h"
 
 // ------------------------------------------------------------
@@ -235,7 +235,7 @@ bool salvage_FinalProcess(TokenizerParseInfo pti[], SalvageDictionary *pdict, bo
         // --------------------
         // hash of names
 
-        for(j = strlen(salvage->pchName)-1; j >= 0; --j)
+        for(j = (int)strlen(salvage->pchName)-1; j >= 0; --j)
             if(!isalnum(salvage->pchName[j]) && salvage->pchName[j] != '_')
             {
                 Errorf("bad salvage name \"%s\", only alphanumerics and underscore are allowed",salvage->pchName);

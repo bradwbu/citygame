@@ -1,4 +1,4 @@
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <string.h>
 #include "group.h"
 #include "groupgrid.h"
@@ -6,8 +6,8 @@
 #include "groupfilelib.h"
 #include "groupfileload.h"
 #include "groupdbmodify.h"
-#include "mathutil.h"
-#include "error.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/error.h>
 
 extern int        world_modified;
 

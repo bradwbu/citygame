@@ -3,18 +3,18 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 #include "character_eval.h"
-#include "utils.h"
-#include "mathutil.h"
-#include "eval.h"
-#include "earray.h"
-#include "error.h"
-#include "estring.h"
-#include "net_packet.h"
-#include "net_packetutil.h"
-#include "bitfield.h"
-#include "timing.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/eval.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/network/net_packet.h>
+#include <utilitieslib/network/net_packetutil.h>
+#include <utilitieslib/components/bitfield.h>
+#include <utilitieslib/utils/timing.h>
 
 #include "pl_stats.h"
 #include "entity.h"
@@ -28,7 +28,7 @@
 #include "commonLangUtil.h"
 #include "auth/authUserData.h"
 #include "arenamap.h"
-#include "structDefines.h"
+#include <utilitieslib/utils/structDefines.h>
 
 #include "origins.h"
 #include "classes.h"
@@ -38,7 +38,7 @@
 #include "badges.h"
 #include "badges_server.h"
 
-#include "MessageStore.h"
+#include <utilitieslib/language/MessageStore.h>
 #include "TeamReward.h"
 #include "Team.h"
 #include "teamCommon.h"
@@ -47,9 +47,9 @@
 #include "badges_load.h"
 #include "SgrpBadges.h"
 #include "SgrpStats.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "cmdserver.h"
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 #include "plaque.h" // badge reward popups
 #include "comm_game.h"
 #include "pophelp.h"

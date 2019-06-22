@@ -5,11 +5,11 @@
 #include "sendToClient.h"
 #include "language/langServerUtil.h"
 #include "dbnamecache.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "dbcomm.h"
 #include "comm_backend.h"
 #include "svr_base.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 //------------------------------------------------------------------------------------
 // Cached Search Data ////////////////////////////////////////////////////////////////

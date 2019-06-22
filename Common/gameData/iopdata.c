@@ -1,21 +1,21 @@
 //////////// Get Item of Power Data ////////////////////////////////////////////////////////////////////////
 
-#include "StashTable.h"
-#include "earray.h"
-#include "error.h"
-#include "timing.h"
-#include "utils.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/utils.h>
 #include "sysutil.h"
-#include "foldercache.h"
+#include <utilitieslib/utils/FolderCache.h>
 #include "consoledebug.h"
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 #include "memorymonitor.h"
 #include "entvarupdate.h"        // for PKT_BITS_TO_REP_DB_ID
 #include "sock.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include <time.h>
 #include "iopdata.h"
-#include "textparser.h" 
+#include <utilitieslib/utils/textparser.h> 
 
 ItemOfPowerInfoList g_itemOfPowerInfoList;
 StashTable    itemOfPowerInfo_ht = 0;

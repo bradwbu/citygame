@@ -6,7 +6,7 @@
 #include "scriptutil.h"
 #include "entPlayer.h"
 #include "TeamReward.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 extern Entity ** ents;
 Entity* EntTeamInternal(TEAM team, int index, int* num);

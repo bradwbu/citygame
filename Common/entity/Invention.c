@@ -15,31 +15,31 @@
 
  ***************************************************************************/
 
-#include "wininclude.h"
-#include "utils.h"
-#include "mathutil.h"
-#include "MemoryPool.h"
-#include "earray.h"
-#include "net_packet.h"
+#include <utilitieslib/utils/wininclude.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/network/net_packet.h>
 #include "entity.h"
 #include "character_base.h"
 #include "character_inventory.h"
 #include "character_net.h"
 #include "Concept.h"
 #include "Invention.h"
-#include "DetailRecipe.h"
+#include "bases/DetailRecipe.h"
 #include "Boost.h"
 #include "Powers.h"
 
 #if SERVER 
-#include "logcomm.h"
+#include "dbcomm/logcomm.h"
 #include "reward.h"
 #endif
 
 #if CLIENT // SERVER
-#include "wdwbase.h"
-#include "uiNet.h"
-#include "uiWindows.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiNet.h"
+#include "UI/uiWindows.h"
 #endif // CLIENT
 
 

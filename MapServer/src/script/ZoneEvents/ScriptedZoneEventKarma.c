@@ -1,11 +1,11 @@
 #include "ScriptedZoneEventKarma.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "entity.h"
-#include "SuperAssert.h"
+#include <utilitieslib/utils/SuperAssert.h>
 #include "character_karma.h"
 #include "scriptengine.h"
 #include "scripthook/ScriptHookInternal.h"
-#include "messagestoreutil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "container/containerEventHistory.h"
 #include "EventHistory.h"
 #include "ScriptedZoneEvent.h"

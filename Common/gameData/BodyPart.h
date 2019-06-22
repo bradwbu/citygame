@@ -7,8 +7,8 @@
 #ifndef BODYPART_H
 #define BODYPART_H
 
-#include "bones.h"
-#include "costume.h"
+#include "seq/bones.h"
+#include "entity/costume.h"
 
 #define MAX_BODYPARTS MAX_COSTUME_PARTS
 

@@ -1,15 +1,15 @@
 #include "CustomVillainGroup.h"
 #include "costume.h"                        //    for custom critter costume
-#include "earray.h"                            //    for earrays
+#include <utilitieslib/components/earray.h>                            //    for earrays
 #include "PCC_Critter.h"                    //    for custom critters
-#include "VillainDef.h"                        //    for ev validation
-#include "MessageStoreUtil.h"                //    for textStd
-#include "playerCreatedStoryarcValidate.h"    //    for validating villains
+#include "gameComm/VillainDef.h"                        //    for ev validation
+#include <utilitieslib/language/MessageStoreUtil.h>                //    for textStd
+#include "storyarc/playerCreatedStoryarcValidate.h"    //    for validating villains
 #include "filter/validate_name.h"            //    for name validation
 #include "filter/profanity.h"
-#include "utils.h"
-#include "Npc.h"
-#include "EString.h"
+#include <utilitieslib/utils/utils.h>
+#include "gameComm/Npc.h"
+#include <utilitieslib/components/estring.h>
 
 CustomVG **g_CustomVillainGroups;
 

@@ -22,7 +22,7 @@
 #include "Scripthook\ScriptHookInternal.h"
 #include "entaiprivate.h"
 #include "character_tick.h"
-#include "Quat.h"
+#include <utilitieslib/utils/Quat.h>
 
 #define MAX_MID_POINTS 5
 #define MAX_POINTS (MAX_MID_POINTS+2)

@@ -3,7 +3,7 @@
 
 #include "scriptutil.h"
 #include "scriptengine.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "svr_chat.h"
 #include "holidayevent.h"
 

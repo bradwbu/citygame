@@ -3,7 +3,7 @@
 #include "../../../3rdparty/lua-5.1.5/src/lauxlib.h"
 
 #include "ScriptLuaCommon.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 void PushStringArray(lua_State *L, STRING *strings, int num)
 {

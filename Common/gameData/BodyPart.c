@@ -4,13 +4,13 @@
 *     Confidential Property of Cryptic Studios
 ***************************************************************************/
 #include "gameData\BodyPart.h"
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 #include "seq.h"
 #include <string.h>
-#include "error.h"
-#include "earray.h"
-#include "strings_opt.h"
-#include "assert.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/assert/assert.h>
 
 SHARED_MEMORY BodyPartList bodyPartList;
 

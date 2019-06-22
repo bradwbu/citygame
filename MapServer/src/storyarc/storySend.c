@@ -22,14 +22,14 @@
 #include "staticmapinfo.h"
 #include "supergroup.h"
 #include "cmdserver.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "missionteamup.h"
 #include "alignment_shift.h"
 #include "character_eval.h"
 #include "pnpcCommon.h"
 #include "character_combat.h"
 #include "character_level.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 
 // *********************************************************************************
 //  Update flags

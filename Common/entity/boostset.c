@@ -3,27 +3,27 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <stdlib.h>
 #include <string.h>
-#include "wininclude.h"
-#include "stdtypes.h"
-#include "error.h"
+#include <utilitieslib/utils/wininclude.h>
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/error.h>
 
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "powers.h"
 #include "boostset.h"
 #include "boost.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "character_base.h"
 #include "character_inventory.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "entity.h"
-#include "SharedMemory.h"
-#include "SharedHeap.h"
-#include "mathutil.h"
-#include "file.h"
-#include "AccountCatalog.h"
+#include <utilitieslib/components/SharedMemory.h>
+#include <utilitieslib/components/SharedHeap.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/file.h>
+#include "account/AccountCatalog.h"
 
 SHARED_MEMORY BoostSetDictionary g_BoostSetDict = { NULL, NULL, NULL, NULL, NULL };
 SHARED_MEMORY ConversionSets g_ConversionSets = { NULL };

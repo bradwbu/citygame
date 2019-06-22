@@ -6,8 +6,8 @@
 #include <string.h>
 #include <math.h>
 
-#include "earray.h"
-#include "StashTable.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/StashTable.h>
 
 #include "entity.h"
 #include "entPlayer.h"

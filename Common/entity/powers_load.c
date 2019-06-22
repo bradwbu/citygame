@@ -3,48 +3,48 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <float.h>
 #include <string.h>
 
-#include "file.h"  // for isDevelopmentMode
-#include "error.h"
-#include "earray.h"
-#include "mathutil.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/file.h>  // for isDevelopmentMode
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/StashTable.h>
 
 #include "powers.h"
 #include "attribmod.h"
 #include "boostset.h"
-#include "VillainDef.h"
+#include "gameComm/VillainDef.h"
 
 #include "character_eval.h"
 #include "character_combat_eval.h"
 #include "character_attribs.h"
 #include "character_inventory.h"
 #include "loaddefcommon.h"
-#include "SharedMemory.h"
-#include "fileutil.h"
-#include "FolderCache.h"
+#include <utilitieslib/components/SharedMemory.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/FolderCache.h>
 
-#include "MessageStore.h"
-#include "MessageStoreUtil.h"
-#include "textparser.h"
+#include <utilitieslib/language/MessageStore.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/textparser.h>
 
-#include "costume_data.h"
+#include "gameData/costume_data.h"
 
 #ifdef SERVER
 #include "dbghelper.h"
-#include "cmdserver.h"
-#include "langServerUtil.h"
+#include "cmdparse/cmdserver.h"
+#include "language/langServerUtil.h"
 
 #define XLATE localizedPrintf(0,
 #endif
 
 #ifdef CLIENT
-#include "cmdgame.h"
-#include "sprite_text.h"
-#include "fx.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/sprite/sprite_text.h"
+#include "graphics/FX/fx.h"
 
 #ifndef TEST_CLIENT
 extern void uiEnhancementAddHelpText(Boost *pBoost, BasePower *pBase, int iLevel, StuffBuff *pBuf);

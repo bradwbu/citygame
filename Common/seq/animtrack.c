@@ -1,20 +1,20 @@
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h> 
-#include "mathutil.h"
-#include "file.h"
-#include "fileutil.h"
-#include "error.h"
-#include "utils.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
 #include "animtrack.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 //#include "animtrackanimate.h"
-#include "strings_opt.h" //    For faster stricmp calls
-#include "assert.h"
+#include <utilitieslib/utils/strings_opt.h> //    For faster stricmp calls
+#include <utilitieslib/assert/assert.h>
 #include "cmdcommon.h"
-#include "SharedHeap.h"
-#include "timing.h"
+#include <utilitieslib/components/SharedHeap.h>
+#include <utilitieslib/utils/timing.h>
 
 AnimationEngine animEngine = {0};
 

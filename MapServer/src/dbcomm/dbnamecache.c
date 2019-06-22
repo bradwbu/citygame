@@ -1,7 +1,7 @@
 #include "dbnamecache.h"
-#include "StashTable.h"
-#include "utils.h"
-#include "timing.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
 #include "entity.h"
 #include "dbcomm.h"
 #include "comm_backend.h"

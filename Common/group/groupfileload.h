@@ -1,7 +1,7 @@
 #ifndef _GROUPFILELOAD_H
 #define _GROUPFILELOAD_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct GroupDef GroupDef;
 typedef struct GroupFile GroupFile;

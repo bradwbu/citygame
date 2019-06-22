@@ -2,7 +2,7 @@
 //
 // Shared values between the base script running in city zones and the scripts running in the winter event zones
 
-#include "timing.h"                    // for timerSecondsSince2000()
+#include <utilitieslib/utils/timing.h>                    // for timerSecondsSince2000()
 
 // Map Data Token name for the current target zone index
 #define        ZONE_TARGET_TOKEN            "HolidayEventZoneTarget"

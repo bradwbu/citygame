@@ -1,10 +1,11 @@
+#include <utilitieslib/stdtypes.h>
 #include "ragdoll.h"
-#include "netcomp.h"
-#include "mathutil.h"
-#include "gfxtree.h"
-#include "seq.h"
-#include "NwWrapper.h"
-#include "Quat.h"
+#include <utilitieslib/network/netcomp.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "seq/gfxtree.h"
+#include "seq/seq.h"
+#include "NovodeX/NwWrapper.h"
+#include <utilitieslib/utils/Quat.h>
 
 void compressOrDecompressRagdoll( Ragdoll* ragdoll, int** iQuatCompressed, bool bCompress, U32 uiTimeStamp)
 {

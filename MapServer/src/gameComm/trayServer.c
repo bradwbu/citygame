@@ -7,14 +7,14 @@
 
 #include "trayServer.h"
 #include "varutils.h"
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "trayCommon.h"
 #include "entity.h"
 #include "entPlayer.h"
 #include "powers.h"
 #include "character_base.h"
-#include "earray.h"
-#include "strings_opt.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/strings_opt.h>
 
 //-------------------------------------------------------------------------------------------------------------------
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

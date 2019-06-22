@@ -3,10 +3,10 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
 
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "entity.h"
 #include "entPlayer.h"
 #include "entGameActions.h"
@@ -19,14 +19,14 @@
 #include "classes.h"
 #include "origins.h"
 #include "powers.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "dbcomm.h"
 #include "motion.h"
 
 #include "character_db.h"
 #include "character_mods.h"
 #include "dbghelper.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "cmdserver.h"
 #include "svr_chat.h"
 #include "containerloadsave.h"
@@ -36,7 +36,7 @@
 #include "character_pet.h"
 #include "seq.h"
 #include "alignment_shift.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 #include "logcomm.h"
 
 #if (POWER_VAR_MAX_COUNT!=MAX_DB_POWER_VARS)

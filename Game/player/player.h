@@ -1,7 +1,7 @@
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 #define PUT_PLAYER_INTO_GAME  0
 #define PUT_PLAYER_INTO_SHELL 1

@@ -1,16 +1,16 @@
 #include "keybinds.h"
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "entity.h"
 #include "entPlayer.h"
-#include "textparser.h"
-#include "earray.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/earray.h>
 #include "input.h"
 #include "time.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "entVarUpdate.h"
 #include "language/langServerUtil.h"
 #include "sendToClient.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 
 //-------------------------------------------------------------------------------
 

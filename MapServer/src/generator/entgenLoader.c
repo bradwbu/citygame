@@ -7,16 +7,16 @@
 #include "SimpleParser.h"
 
 #include <string.h>
-#include <assert.h>
-#include "error.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/error.h>
 #include "missionMapInit.h"
 #include "storyarcinterface.h"
-#include "StashTable.h"
-#include "fileutil.h"
-#include "foldercache.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/FolderCache.h>
 #include "dbcomm.h"
 
-#include "strings_opt.h"
+#include <utilitieslib/utils/strings_opt.h>
 
 /**********************************************************************************
  * SpawnArea memory pools

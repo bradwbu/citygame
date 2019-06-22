@@ -5,7 +5,7 @@
 #include "ScriptLuaVar.h"
 #include "script.h"
 #include "ScriptLuaCommon.h"
-#include "SuperAssert.h"
+#include <utilitieslib/utils/SuperAssert.h>
 
 //STRING VarGet(VARIABLE var)
 static int l_VarGet (lua_State *L) {

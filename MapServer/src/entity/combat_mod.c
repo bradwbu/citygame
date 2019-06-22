@@ -3,7 +3,7 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 #include "combat_mod.h"
 #include "entity.h"

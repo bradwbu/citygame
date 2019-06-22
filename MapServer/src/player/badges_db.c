@@ -3,11 +3,11 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "earray.h"
-#include "stringcache.h"
-#include "estring.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/StringCache.h>
+#include <utilitieslib/components/estring.h>
 #include "teamCommon.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 
 #include "container/dbcontainerpack.h"
 #include "entplayer.h"
@@ -16,10 +16,10 @@
 #include "badges.h"
 #include "badges_server.h"
 #include "BadgeStats.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "badgestats_db.h"
 
-#include "structDefines.h"
+#include <utilitieslib/utils/structDefines.h>
 #include "VillainDef.h"
 
 // --------------------

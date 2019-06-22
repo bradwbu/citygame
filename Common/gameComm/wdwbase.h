@@ -7,7 +7,7 @@
 #ifndef WDWBASE_H__
 #define WDWBASE_H__
 
-#include "CBox.h"
+#include <utilitieslib/utils/Cbox.h>
 
 typedef enum WindowName
 {

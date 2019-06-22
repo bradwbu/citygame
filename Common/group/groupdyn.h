@@ -1,7 +1,7 @@
 #ifndef _GROUPDYN_H
 #define _GROUPDYN_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct DefTracker DefTracker;
 

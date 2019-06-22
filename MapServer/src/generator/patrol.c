@@ -9,17 +9,17 @@
  *
  */
 
-#include "memorypool.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "patrol.h"
-#include "textparser.h"
-#include "earray.h"
-#include "error.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/error.h>
 #include "group.h"
 #include "groupProperties.h"
 #include "groupnetsend.h"
-#include "utils.h"
-#include "mathutil.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/StashTable.h>
 
 StaticDefineInt ParsePatrolRouteType[] = 
 {

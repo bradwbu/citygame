@@ -5,7 +5,7 @@
 #include <utilitieslib/stdtypes.h>
 #include <float.h>
 #include "beacon.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/error.h>
 #include "beaconDebug.h"
 #include "entity/entityRef.h"

@@ -1,23 +1,23 @@
-#include "netio.h"
-#include "estring.h"
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/components/estring.h>
 #include "dbcomm.h"
 #include "dbcontainer.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "dbquery.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "staticMapInfo.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "comm_backend.h"
-#include "netcomp.h"
+#include <utilitieslib/network/netcomp.h>
 #include "classes.h"
 #include "origins.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "group.h"
 #include "auth/authUserData.h"
 #include "cmdserver.h"
 #include "entity.h"
 #include "team.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 
 
 StuffBuff query_buf;

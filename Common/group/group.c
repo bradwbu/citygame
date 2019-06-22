@@ -1,20 +1,20 @@
 #include "group.h"
 #include <stdlib.h>
 #include <string.h>
-#include "stdtypes.h"
-#include "error.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/error.h>
 #include "ctype.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include <stdio.h>
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "anim.h"
 #include "tricks.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "gfxtree.h"
 #include "grouptrack.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "groupProperties.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include "groupfilelib.h"
 #include "motion.h"
 #include "grid.h"
@@ -29,7 +29,7 @@
 #include "groupdynsend.h"
 #include "groupjournal.h"
 #endif
-#include "strings_opt.h"
+#include <utilitieslib/utils/strings_opt.h>
 #include "grouputil.h"
 #include "groupfileload.h"
 #include "bases.h"
@@ -45,10 +45,10 @@
 #include "baseedit.h"
 #include "sun.h"
 #endif
-#include "timing.h"
-#include "fileutil.h"
-#include "FolderCache.h"
-#include "estring.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/components/estring.h>
 
 GroupInfo            group_info,*group_ptr;
 static StashTable s_texNames;

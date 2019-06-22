@@ -11,7 +11,7 @@
 #endif
 
 #ifndef _STDTYPES_H
-#include "stdtypes.h" // for Vec3
+#include <utilitieslib/stdtypes.h> // for Vec3
 #endif
 
 typedef struct ClientLink ClientLink;

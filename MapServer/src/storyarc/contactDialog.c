@@ -14,7 +14,7 @@
 #include "character_level.h"
 #include "character_eval.h"
 #include "gameSys/dooranim.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "entPlayer.h"
 #include "gameData/store_net.h"
 #include "comm_game.h"
@@ -31,7 +31,7 @@
 #include "dbmapxfer.h"
 #include "cmdserver.h"
 #include "svr_chat.h"
-#include "StringCache.h"
+#include <utilitieslib/components/StringCache.h>
 #include "supergroup.h"
 #include "sgrpserver.h"
 #include "basesystems.h"

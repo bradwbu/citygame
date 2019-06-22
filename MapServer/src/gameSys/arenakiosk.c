@@ -8,9 +8,9 @@
  *
  */
 
-#include "stdtypes.h"
-#include "error.h"
-#include "earray.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/earray.h>
 #include "grouputil.h"
 #include "MultiMessageStore.h"
 #include "comm_game.h"
@@ -19,7 +19,7 @@
 #include "group.h"
 #include "groupProperties.h"
 #include "groupnetsend.h"
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 #include "dooranimcommon.h"
 #include "entplayer.h"
 #include "entVarUpdate.h"

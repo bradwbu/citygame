@@ -3,9 +3,9 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 #include "entity.h"
 #include "entPlayer.h"
@@ -14,20 +14,20 @@
 #include "character_base.h"
 #include "character_level.h"
 #include "powers.h"
-#include "mathutil.h"
-#include "AccountInventory.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "account/AccountInventory.h"
 
 #if SERVER
-#include "badges_server.h"
-#include "buddy_server.h"
-#include "dbcomm.h"    // for dbLog() messages
-#include "shardcomm.h"
+#include "player/badges_server.h"
+#include "entity/buddy_server.h"
+#include "dbcomm/dbcomm.h"    // for dbLog() messages
+#include "dbcomm/shardcomm.h"
 #include "entPlayer.h"
 #include "auth/authUserData.h"
 #include "power_system.h"
-#include "pophelp.h"
-#include "storyarcinterface.h"
-#include "logcomm.h"
+#include "player/pophelp.h"
+#include "storyarc/storyarcinterface.h"
+#include "dbcomm/logcomm.h"
 #endif
 
 // A spot for all the schedules.

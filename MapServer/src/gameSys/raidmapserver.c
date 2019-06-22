@@ -11,20 +11,20 @@
 
 #include "raidmapserver.h"
 #include "entity.h"
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "comm_backend.h"
 #include "comm_game.h"
 #include "arenamapserver.h"
 #include "entvarupdate.h"
 #include "svr_base.h"
-#include "net_packet.h"
+#include <utilitieslib/network/net_packet.h>
 #include "dbnamecache.h"
 #include "raidstruct.h"
 #include "dbcomm.h"
 #include "dbcontainer.h"
 #include "baseloadsave.h"
-#include "error.h"
-#include "earray.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/earray.h>
 #include "container/container_util.h"
 #include "containercallbacks.h"
 #include "entplayer.h"
@@ -38,7 +38,7 @@
 #include "svr_player.h"
 #include "basedata.h"
 #include "SgrpServer.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "bases.h"
 #include "sgraid_V2.h"
 #include "door.h"

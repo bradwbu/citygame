@@ -3,26 +3,26 @@
 #include "costume_data.h"
 #include "entity.h"
 #include "varutils.h"
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 #include "costume.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "player.h"
 #include "time.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "BodyPart.h"
-#include "SharedMemory.h"
+#include <utilitieslib/components/SharedMemory.h>
 #include "costume.h"
 #include "string.h"
 #include "entPlayer.h"
 #include "teamCommon.h"
 #include "Supergroup.h"
 #include "RewardToken.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "LoadDefCommon.h"
-#include "file.h" // isDevelopmentMode()
+#include <utilitieslib/utils/file.h> // isDevelopmentMode()
 #include "classes.h"
-#include "EString.h"
-#include "StringCache.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/StringCache.h>
 #include "AccountCatalog.h"
 
 #if CLIENT
@@ -33,13 +33,13 @@
     #include "uiSupercostume.h"
     #include "imageServer.h"
     #include "costume_client.h"
-    #include "FolderCache.h"
-    #include "fileutil.h"
+    #include <utilitieslib/utils/FolderCache.h>
+    #include <utilitieslib/utils/fileutil.h>
     #include "uiGame.h"
     #include "tricks.h"
-    #include "strings_opt.h"
+    #include <utilitieslib/utils/strings_opt.h>
     #include "entclient.h"
-    #include "utils.h"
+    #include <utilitieslib/utils/utils.h>
     #include "uiHybridMenu.h"
     #include "inventory_client.h"
 #elif SERVER

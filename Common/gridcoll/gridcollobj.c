@@ -1,9 +1,9 @@
 #include "group.h"
 #include "gridcoll.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "gridcache.h"
 #include "gridcollobj.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "tricks.h"
 #include "anim.h"
 #include "grouptrack.h"

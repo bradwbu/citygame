@@ -2,17 +2,17 @@
 #include "SgrpRewards.h"
 #include <limits.h>
 #include "entserver.h"
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "comm_game.h"
 #include "svr_base.h"
 #include "containerloadsave.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include "dbcontainer.h"
 #include "dbcomm.h"
 #include "dbmapxfer.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "varutils.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "motion.h"
 #include "clientEntityLink.h"
 #include "pmotion.h"
@@ -34,13 +34,13 @@
 #include "cmdcontrols.h"
 #include "TeamTask.h"
 #include "cmdserver.h"
-#include "cmdoldparse.h"
+#include <utilitieslib/utils/cmdoldparse.h>
 #include "logcomm.h"
 #include "shardcomm.h"
 #include "badges_server.h"
 #include "buddy_server.h"
 #include "arenamapserver.h"
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 #include "seqstate.h"
 #include "seq.h"
 #include "entity.h"
@@ -55,7 +55,7 @@
 #include "character_inventory.h"
 #include "endgameraid.h"
 #include "league.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 #include "svr_tick.h"
 
 

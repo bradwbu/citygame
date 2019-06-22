@@ -4,21 +4,21 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include <string.h>
-#include "assert.h"
-#include "StringUtil.h"
-#include "stdtypes.h"
-#include "earray.h"
-#include "utils.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/StringUtil.h>
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/utils.h>
 
 #ifndef CHATSERVER
 #include "titles.h"
 #include "profanity.h"
-#include "entVarUpdate.h"
-#include "AppLocale.h"
+#include "entity/entVarUpdate.h"
+#include <utilitieslib/language/AppLocale.h>
 #endif
 
 #if SERVER
-#include "reserved_names.h"
+#include "filter/reserved_names.h"
 #endif
 
 #include "validate_name.h"
@@ -178,8 +178,8 @@ ValidateNameResult ValidateName(const char *pchName, const char *pchAuth, bool b
 
         while(pchCur!=NULL)
         {
-            if(IsProfanity(pchCur, strlen(pchCur))
-                || IsProfanity(pchName+(pchCur-pchBuff), strlen(pchCur)))
+            if(IsProfanity(pchCur, (int)strlen(pchCur))
+                || IsProfanity(pchName+(pchCur-pchBuff), (int)strlen(pchCur)))
             {
                 return VNR_Profane;
             }
@@ -338,7 +338,7 @@ void stripNonAsciiChars( char * str )
 */
 int NonAsciiChars(const char * str )
 {
-    int i, len = strlen( str );
+    int i, len = (int)strlen( str );
 
     for( i = 0; i < len; i++ )
     {
@@ -392,7 +392,7 @@ int IsWhiteSpace(char c)
 
 int BeginsOrEndsWithWhiteSpace(char *str)
 {
-    int len = strlen(str);
+    int len = (int)strlen(str);
 
     if (len && (IsWhiteSpace(str[0]) || IsWhiteSpace(str[len-1])))
         return 1;

@@ -13,13 +13,13 @@
 #include "comm_backend.h"
 #include "comm_game.h"
 #include "dbcomm.h"
-#include "earray.h"
-#include "utils.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/utils.h>
 #include "cmdcommon.h"
 #include "svr_base.h"
 #include "sendToClient.h"
 #include "svr_player.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "entPlayer.h"
 #include "character_combat.h"
 #include "door.h"
@@ -29,7 +29,7 @@
 #include "arenamap.h"
 #include "origins.h"
 #include "classes.h"
-#include "StringCache.h"
+#include <utilitieslib/components/StringCache.h>
 #include "arenastruct.h"
 #include "svr_chat.h"
 #include "language/langServerUtil.h"
@@ -45,7 +45,7 @@
 #include "Reward.h"
 #include "badges_server.h"
 #include "entGameActions.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 
 #define ARENA_ALLOW_ENTRY_TIMEOUT    30
 

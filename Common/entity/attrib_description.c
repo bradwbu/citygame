@@ -1,25 +1,25 @@
 
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 #include "attrib_description.h"
 #include "attrib_names.h"
-#include "netio.h"
-#include "net_packetutil.h"
-#include "net_packet.h"
-#include "earray.h"
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/network/net_packetutil.h>
+#include <utilitieslib/network/net_packet.h>
+#include <utilitieslib/components/earray.h>
 #include "entity.h"
 #include "character_base.h"
 #include "powers.h"
-#include "StringCache.h"
+#include <utilitieslib/components/StringCache.h>
 #include "attribmod.h"
 #include "character_net.h"
-#include "Npc.h"
+#include "gameComm/Npc.h"
 #include "character_attribs.h"
 #include "character_level.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "entPlayer.h"
 #include "comm_game.h"
-#include "StashTable.h"
-#include "wdwbase.h"
+#include <utilitieslib/components/StashTable.h>
+#include "gameComm/wdwbase.h"
 
 extern TokenizerParseInfo ParseCharacterAspects[];
 
@@ -89,7 +89,7 @@ TokenizerParseInfo ParseAttribCategoryList[] =
 };
 
 
-char *getParseName(TokenizerParseInfo atpi[] , int offset)
+char const* getParseName(TokenizerParseInfo atpi[] , int offset)
 {
     int i = 0;
     while(atpi[i].name != NULL)
@@ -428,7 +428,7 @@ bool attribDescriptionPreprocess(TokenizerParseInfo *pti, void* structptr)
     int i,j;
     AttribDescription * pDesc;
 
-#define GET_MOD_OFFSET(mod) if(stricmp(pDesc->pchName,#mod)==0){ pDesc->offAttrib = offsetof(CharacterAttributes, f##mod); continue;}
+#define GET_MOD_OFFSET(mod) if(stricmp(pDesc->pchName,#mod)==0){ pDesc->offAttrib = (int)offsetof(CharacterAttributes, f##mod); continue;}
 
     for( i = eaSize(&g_AttribCategoryList.ppCategories)-1; i >= 0; i-- )
     {
@@ -546,10 +546,10 @@ int modGetBuffHash( const AttribModTemplate * t )
 
     if( offsetof(CharacterAttribSet, pattrMod) == t->offAspect )
     {
-        if(!stashIntFindPointer(stAttribDescription, t->offAttrib, &pDesc))
+        if(!stashIntFindPointer(stAttribDescription, (int)t->offAttrib, &pDesc))
             eType = kAttribType_Mod;
         else
-            return t->offAttrib;
+            return (int)t->offAttrib;
     }
     else if ( offsetof(CharacterAttribSet, pattrStrength) == t->offAspect )
         eType = kAttribType_Str;
@@ -558,17 +558,17 @@ int modGetBuffHash( const AttribModTemplate * t )
     else if ( offsetof(CharacterAttribSet, pattrMax) == t->offAspect )
         eType = kAttribType_Max;
 
-    if(!stashIntFindPointer(stAttribDescription, eType*sizeof(CharacterAttributes) + t->offAttrib, &pDesc))
+    if(!stashIntFindPointer(stAttribDescription, (int)(eType * sizeof(CharacterAttributes) + t->offAttrib), &pDesc))
         return -1;
     else
-        return eType*sizeof(CharacterAttributes) + t->offAttrib;
+        return (int)(eType * sizeof(CharacterAttributes) + t->offAttrib);
 }
 
 #if SERVER
 
-#include "svr_base.h"
-#include "entserver.h"
-#include "cmdserver.h"
+#include "svr/svr_base.h"
+#include "entity/entserver.h"
+#include "cmdparse/cmdserver.h"
 
 F32 attrib_GetVal( Character *pchar, AttribDescription *pDesc, int * buffOrDebuff ) // this will be slow
 {

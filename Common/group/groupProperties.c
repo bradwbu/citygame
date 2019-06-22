@@ -1,10 +1,10 @@
 #include "GroupProperties.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "network\netio.h"
-#include "MemoryPool.h"
-#include "EString.h"
-#include "utils.h"
-#include <assert.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
 
 /***************************************************
  * PropertyEnt Memory management

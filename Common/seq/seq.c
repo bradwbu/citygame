@@ -1,22 +1,22 @@
 #include "seq.h"
-#include "wininclude.h"  // JS: Can't find where this file includes <windows.h> so I'm just sticking this include here.
+#include <utilitieslib/utils/wininclude.h>  // JS: Can't find where this file includes <windows.h> so I'm just sticking this include here.
 #include <string.h>
 #include <time.h>
 #include "cmdcommon.h"
-#include "error.h"
-#include "utils.h"
-#include "assert.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
 #include "anim.h"
-#include "file.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/mathutil.h>
 
 #include "seqanimate.h"
 #include "seqsequence.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "groupfileload.h"
 #include "group.h"
 #include "StringTable.h"
-#include "StringCache.h"
+#include <utilitieslib/components/StringCache.h>
 #if SERVER
 #include "cmdserver.h"
 #include "seqskeleton.h"
@@ -39,9 +39,9 @@
 #include "fxlists.h"
 #include "fxcapes.h"
 #endif
-#include "fileutil.h"
-#include "timing.h"
-#include "strings_opt.h"
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/strings_opt.h>
 #include "gfxtree.h"
 #include "seqtype.h"
 #include "tex.h"
@@ -51,9 +51,9 @@
 #include "character_base.h"
 #include "motion.h"
 #include "fxinfo.h"
-#include "stashtable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "AnimBitList.h"
-#include "Quat.h"
+#include <utilitieslib/utils/Quat.h>
 
 #define NO_PARTICULAR_VOLUME 0
 #define SPLASH_SCALE_MIN 0

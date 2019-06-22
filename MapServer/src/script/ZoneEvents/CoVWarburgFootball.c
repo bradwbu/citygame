@@ -4,7 +4,7 @@
 // Used for testing new features of the script system
 
 #include "scriptutil.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 #define COV_WARBURG_LAUNCHB_IMAGES "sp_icon_code_full.tga"
 #define COV_WARBURG_LAUNCHC_IMAGES "sp_icon_code_fullC.tga"

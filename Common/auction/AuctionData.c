@@ -1,24 +1,24 @@
 #include "AuctionData.h"
 #include "Auction.h"
-#include "AccountCatalog.h"
-#include "EArray.h"
-#include "StashTable.h"
-#include "trayCommon.h"
-#include "salvage.h"
-#include "DetailRecipe.h"
-#include "powers.h"
-#include "boostset.h"
-#include "origins.h"
-#include "attrib_names.h"
-#include "MessageStoreUtil.h"
-#include "strings_opt.h"
-#include "StringCache.h"
-#include "EString.h"
-#include "mathutil.h"
-#include "character_eval.h"
+#include "account/AccountCatalog.h"
+#include <utilitieslib/components/EArray.h>
+#include <utilitieslib/components/StashTable.h>
+#include "gameComm/trayCommon.h"
+#include "entity/salvage.h"
+#include "bases/DetailRecipe.h"
+#include "entity/powers.h"
+#include "entity/boostset.h"
+#include "entity/origins.h"
+#include "entity/attrib_names.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/components/StringCache.h>
+#include <utilitieslib/components/EString.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "entity/character_eval.h"
 
 #if CLIENT
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #endif
 
 AuctionItemDict g_AuctionItemDict;

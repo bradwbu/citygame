@@ -3,43 +3,43 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "utils.h"
-#include "assert.h"
-#include "mathutil.h"
-#include "float.h"
-#include "earray.h"
-#include "error.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <float.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/error.h>
 
 #include "bases.h"
 #include "basedata.h"
 #include "basesystems.h"
 
 #if SERVER
-#include "aiBehaviorPublic.h"
-#include "containerSupergroup.h"
-#include "cmdserver.h"
-#include "entity.h"
-#include "entai.h"
-#include "entaiprivate.h"
-#include "EString.h"
-#include "powers.h" // For granting powers via aux items
-#include "character_base.h" // For granting powers via aux items
-#include "character_combat.h"
-#include "character_animfx.h"
-#include "svr_player.h"
-#include "team.h"
-#include "timing.h"
-#include "supergroup.h"
-#include "raidmapserver.h"
-#include "baseserverrecv.h"
+#include "ailib/aiBehaviorPublic.h"
+#include "container/containerSupergroup.h"
+#include "cmdparse/cmdserver.h"
+#include "entity/entity.h"
+#include "ai/entai.h"
+#include "ai/entaiprivate.h"
+#include <utilitieslib/components/EString.h>
+#include "entity/powers.h" // For granting powers via aux items
+#include "entity/character_base.h" // For granting powers via aux items
+#include "entity/character_combat.h"
+#include "entity/character_animfx.h"
+#include "svr/svr_player.h"
+#include "container/team.h"
+#include <utilitieslib/utils/timing.h>
+#include "entity/supergroup.h"
+#include "gameSys/raidmapserver.h"
+#include "bases/baseserverrecv.h"
 #include "basetogroup.h"
-#include "gridcache.h"
-#include "sgrpServer.h"
+#include "gridcoll/gridcache.h"
+#include "entity/sgrpServer.h"
 #include "baseupkeep.h"
-#include "sgraid.h"
-#include "svr_chat.h"
-#include "langServerUtil.h"
-#include "logcomm.h"
+#include "gamesys/sgraid.h"
+#include "gameComm/svr_chat.h"
+#include "language/langServerUtil.h"
+#include "dbcomm/logcomm.h"
 #elif CLIENT
 #endif
 
@@ -426,7 +426,6 @@ static void handleAuxBehaviorAttackVolumes(RoomDetail *detail, RoomDetail *aux, 
     Vec3 vecVolume;
 
     char *pchPrefix = "AttackVolumes(";//string(";
-    int iPrefixLen = strlen(pchPrefix);
 
     if (!detail->e)
         return;

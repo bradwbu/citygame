@@ -1,20 +1,20 @@
-#include "earray.h"
-#include "entity.h"
-#include "entPlayer.h"
+#include <utilitieslib/components/earray.h>
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
 #include "AccountCatalog.h"
 #include "AccountData.h"
 #include "AccountInventory.h"
-#include "net_packetutil.h"
-#include "EString.h"
-#include "utils/error.h"
-#include "utils/timing.h"
+#include <utilitieslib/network/net_packetutil.h>
+#include <utilitieslib/components/EString.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/timing.h>
 
 #if defined(SERVER)
 #include "comm_backend.h"
 #include "comm_game.h"
-#include "dbcomm.h"
-#include "timing.h"
-#include "svr_base.h"
+#include "dbcomm/dbcomm.h"
+#include <utilitieslib/utils/timing.h>
+#include "svr/svr_base.h"
 #endif
 
 #define CERTIFICATION_LOCK_TIMEOUT 300

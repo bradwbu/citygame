@@ -1,11 +1,11 @@
 
 
-#include "earray.h"
-#include "textparser.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/textparser.h>
 #include "missionMapCommon.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "playerCreatedStoryarcValidate.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #ifndef TEST_CLIENT
 #include "groupMetaMinimap.h"
 #endif

@@ -10,11 +10,11 @@
 *
  */
 
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "structoldnames.h"
-#include "textparser.h"
-#include "earray.h"
-#include "EString.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
 #include "group.h"
 #include "basedata.h"
 #include "bases.h"

@@ -1,15 +1,15 @@
 #include "chatSettings.h"
 #include "Entity.h"
 #include "EntPlayer.h"
-#include "utils.h"
-#include "netio.h"
-#include "MessageStore.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/language/MessageStore.h>
 #include "entVarUpdate.h"
-#include "mathutil.h"
-#include "bitfield.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/bitfield.h>
 #include "character_base.h"
 #if SERVER
-#include "automapServer.h"
+#include "gameComm/automapServer.h"
 #endif
 
 static void addCombatChannels( Entity *e );

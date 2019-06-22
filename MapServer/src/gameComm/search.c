@@ -8,13 +8,13 @@
 
 #include "svr_base.h"
 #include "staticMapInfo.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "comm_game.h"
 #include "langServerUtil.h"
 #include "SimpleParser.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "entVarUpdate.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "classes.h"
 #include "origins.h"
 #include "teamCommon.h"

@@ -1,10 +1,10 @@
 #ifndef _FXUTIL_H
 #define _FXUTIL_H
 
-#include "Color.h"
+#include <utilitieslib/utils/Color.h>
 #include "seq.h"
 #include "gfxtree.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 
 typedef struct ColorPair ColorPair;
 typedef struct ParticleSystemInfo ParticleSystemInfo;

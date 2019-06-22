@@ -1,18 +1,18 @@
 #include <string.h>
 
 #include "dbcontainerpack.h"
-#include "cmdoldparse.h"
-#include "timing.h"
-#include "utils.h"
+#include <utilitieslib/utils/cmdoldparse.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/utils.h>
 #include "float.h"
-#include "StringCache.h"
-#include <assert.h>
-#include "strings_opt.h"
-#include "earray.h"
-#include "gametypes.h"
+#include <utilitieslib/components/StringCache.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/components/earray.h>
+#include "entity/gametypes.h"
 #include "comm_backend.h"
-#include "EString.h"
-#include "StringUtil.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/StringUtil.h>
 #include <math.h>
 
 
@@ -232,7 +232,7 @@ void lineToStruct(char* mem, StructDesc* structDesc, char* table, char* field, c
                     }
                     xcase PACKTYPE_ATTR:
                     {
-                        int *iptr = getAddr(mem,structDesc,desc,idx);
+                        intptr_t* iptr = getAddr(mem,structDesc,desc,idx);
                         if (desc->int_from_str_func)
                             *iptr = desc->int_from_str_func(val);
                         else if (desc->int_from_ptr_and_str_func)
@@ -246,7 +246,7 @@ void lineToStruct(char* mem, StructDesc* structDesc, char* table, char* field, c
                             *iptr = desc->int_from_ptr_and_str_func(parent_mem,cptr-sub,val);
                         }
                         else
-                            *iptr = (int)allocAddString(val);
+                            *iptr = (intptr_t)allocAddString(val);
                     }
                     xcase PACKTYPE_STR_UTF8:
                     case PACKTYPE_STR_ASCII:
@@ -271,7 +271,7 @@ void lineToStruct(char* mem, StructDesc* structDesc, char* table, char* field, c
                     xcase PACKTYPE_LARGE_ESTRING_BINARY:
                     {
                         char **sptr = getAddr(mem,structDesc,desc,idx);
-                        int len = strlen(val);
+                        int len = (int)strlen(val);
                         estrSetLengthNoMemset(sptr, len);
                         unescapeDataToBuffer(*sptr, val, &len);
                         estrSetLengthNoMemset(sptr, len);
@@ -392,7 +392,7 @@ void structToLine(StuffBuff* sb, char* mem, char* table, StructDesc* structDesc,
             }
             xcase PACKTYPE_ATTR:
             {
-                int *iptr = getAddr(mem,structDesc,desc,idx);
+                intptr_t* iptr = getAddr(mem,structDesc,desc,idx);
                 if (iptr && *iptr)
                 {
                     const char *attr;
@@ -471,7 +471,7 @@ void structToLine(StuffBuff* sb, char* mem, char* table, StructDesc* structDesc,
                 {
                     addSingleStringToStuffBuff( sb, buf);
                     addSingleStringToStuffBuff( sb, " \"");
-                    addEscapedDataToStuffBuff(sb, *sptr, strlen(*sptr));
+                    addEscapedDataToStuffBuff(sb, *sptr, (int)strlen(*sptr));
                     addSingleStringToStuffBuff( sb, "\"\n");
                 }
             }

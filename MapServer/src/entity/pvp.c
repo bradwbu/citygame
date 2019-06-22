@@ -12,11 +12,11 @@
 #include "teamReward.h"
 #include "mathutil.h"
 #include "entgameactions.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "logcomm.h"
 #include "cmdserver.h"
-#include "StashTable.h"
-#include "timing.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/timing.h>
 #include "svr_player.h"
 #include "arenamap.h"
 #include "cmdcommon.h"

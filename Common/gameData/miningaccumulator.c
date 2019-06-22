@@ -1,12 +1,12 @@
 #include "miningaccumulator.h"
-#include "earray.h"
-#include "StashTable.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/StashTable.h>
 #include "comm_backend.h"
 #include "container/dbcontainerpack.h"
-#include "EString.h"
-#include "StringCache.h"
-#include "netio.h"
-#include "timing.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/StringCache.h>
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/utils/timing.h>
 
 
 #define MINEACC_STASH_DEF        128

@@ -8,14 +8,14 @@
 #include "scriptutil.h"
 #include "scriptengine.h"
 #include "mission.h"
-#include "eval.h"
-#include "timing.h"
+#include <utilitieslib/utils/eval.h>
+#include <utilitieslib/utils/timing.h>
 #include "svr_chat.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "character_eval.h"
-#include "stashtable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "malloc.h"
-#include "messagestoreutil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "scriptedzoneevent.h"
 #include "scripthook/ScriptHookInternal.h"
 #include "character_karma.h"
@@ -25,7 +25,7 @@
 #include "dbcomm.h"
 #include "character_inventory.h"
 #include "groupdbmodify.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 #include "turnstile.h"
 #include "pmotion.h"
 

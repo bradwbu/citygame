@@ -3,36 +3,36 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-
+#include <utilitieslib/stdtypes.h>
 #include "TaskforceParams.h"
-#include "SuperAssert.h"
+#include <utilitieslib/utils/SuperAssert.h>
 #include "teamCommon.h"
 #include "Entity.h"
-#include "eval.h"
+#include <utilitieslib/utils/eval.h>
 
 #if defined(SERVER)
-#include "team.h"
-#include "entGameActions.h"
-#include "timing.h"
-#include "badges_server.h"
-#include "dbcomm.h"
-#include "structDefines.h"
+#include "container/team.h"
+#include "entity/entGameActions.h"
+#include <utilitieslib/utils/timing.h>
+#include "player/badges_server.h"
+#include "dbcomm/dbcomm.h"
+#include <utilitieslib/utils/structDefines.h>
 #include "character_base.h"
 #include "powers.h"
 #include "powerInfo.h"
-#include "EArray.h"
-#include "character_combat.h"
-#include "taskforce.h"
-#include "dbcontainer.h"
-#include "containerbroadcast.h"
-#include "VillainDef.h"
-#include "entai.h"
-#include "textparser.h"
+#include <utilitieslib/components/earray.h>
+#include "entity/character_combat.h"
+#include "storyarc/taskforce.h"
+#include "dbcomm/dbcontainer.h"
+#include "container/containerbroadcast.h"
+#include "gamecomm/VillainDef.h"
+#include "ai/entai.h"
+#include <utilitieslib/utils/textparser.h>
 #include "LoadDefCommon.h"
-#include "storyarcprivate.h"
+#include "storyarc/storyarcprivate.h"
 #include "comm_game.h"
-#include "miningaccumulator.h"
-#include "logcomm.h"
+#include "gameData/miningaccumulator.h"
+#include "dbcomm/logcomm.h"
 #include "character_level.h"
 
 #define TIME_LIMIT_DEF_FILENAME        "defs/TFTimeLimits.def"
@@ -187,7 +187,7 @@ static void FixupTimeLimits(StoryArcTimeLimit* limit)
         }
         else
         {
-            limit_len = strlen(limit_leaf_name);
+            limit_len = (int)strlen(limit_leaf_name);
         }
 
         // Match filename to story arc pointer in list

@@ -1,16 +1,16 @@
 #include "dooranimcommon.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "assert.h"
-#include "motion.h"
-#include "ctri.h"
-#include "group.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include <utilitieslib/assert/assert.h>
+#include "entity/motion.h"
+#include "gridcoll/ctri.h"
+#include "group/group.h"
 
 #ifdef SERVER
-#include "svr_base.h"
-#include "entaivars.h"
+#include "svr/svr_base.h"
+#include "ai/entaivars.h"
 #endif
 
 

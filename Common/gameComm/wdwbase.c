@@ -3,12 +3,12 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "net_packet.h"
-#include "entVarUpdate.h"
+#include <utilitieslib/network/net_packet.h>
+#include "entity/entVarUpdate.h"
 #include "wdwbase.h"
-#include <assert.h>
-#include "error.h"
-#include "earray.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/earray.h>
 
 #if CLIENT
     #include "clientcomm.h"

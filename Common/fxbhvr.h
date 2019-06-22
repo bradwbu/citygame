@@ -1,7 +1,7 @@
 #ifndef _FXBHVR_H
 #define _FXBHVR_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "fxutil.h"
 #include "splat.h"
 #include "animtrackanimate.h"

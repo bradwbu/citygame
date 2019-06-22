@@ -3,10 +3,10 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <string.h>
 
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "classes.h"
 #include "origins.h"
 

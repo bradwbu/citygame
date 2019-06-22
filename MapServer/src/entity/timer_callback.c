@@ -6,7 +6,7 @@
 #include "entity.h"
 #include "cmdcommon.h"
 #include "timer_callback.h"
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 
 #define MAX_TIMERS     ( 100 )
 #define MAX_ALTER_WORK ( 100 )

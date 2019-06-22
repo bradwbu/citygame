@@ -1,5 +1,5 @@
 #include "RegistryReader.h"
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <stdio.h>
 #include "AppRegCache.h"
 

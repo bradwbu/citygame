@@ -4,10 +4,10 @@
 #include "megaGrid.h"
 #include "megaGridPrivate.h"
 
-#include "mathutil.h"
-#include "assert.h"
-#include "MemoryPool.h"
-#include "timing.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/utils/timing.h>
 
 #include "entity.h"
 #include "entserver.h"

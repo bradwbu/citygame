@@ -1,11 +1,11 @@
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include "gloophook.h"
 #include "entgen.h"
 #include "cmdserver.h"
 #include "missionMapInit.h"
 #include "HashFunctions.h"
 #include "entityref.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "entaiprivate.h"
 #include "entserver.h"
 #include "encounter.h"
@@ -18,7 +18,7 @@
 #include "seq.h"
 #include "entity.h"
 #include "cutScene.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "position.h"
 #include "scriptengine.h"
 #include "entai.h"

@@ -11,13 +11,13 @@
 #include "entity.h"
 #include "seq.h"
 #include "entPlayer.h"
-#include "textparser.h"
-#include "StashTable.h"
-#include "earray.h"
-#include "error.h"
-#include "mathutil.h"
-#include "EString.h"
-#include "utils.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/utils.h>
 #include "RewardToken.h"
 #include "../../3rdparty/zlibsrc/zlib.h"
 #include "character_eval.h"
@@ -25,12 +25,12 @@
 #ifndef TEST_CLIENT
 #include "profanity.h"
 #endif
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "imageCapture.h"
 #include "SimpleParser.h"
 #include "AnimBitList.h"
-#include "file.h"
-#include "AppLocale.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/language/AppLocale.h>
 #include "tokenstore.h"
 #include "AutoGen/playerCreatedStoryarcValidate_h_ast.h"
 #include "AutoGen/playerCreatedStoryarcValidate_h_ast.c"

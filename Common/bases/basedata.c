@@ -3,27 +3,27 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "textparser.h"
-#include "structdefines.h"
-#include "DetailRecipe.h"
-#include "character_inventory.h"
-#include "earray.h"
-#include "eString.h"
-#include "powers.h"
-#include "error.h"
-#include "StashTable.h"
-#include "group.h"
-#include "baseupkeep.h"
-#include "LoadDefCommon.h"
-#include "eval.h"
-#include "character_eval.h"
-#include "entity.h"
-#include "SharedHeap.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/structdefines.h>
+#include "bases/DetailRecipe.h"
+#include "entity/character_inventory.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/eString.h>
+#include "entity/powers.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/StashTable.h>
+#include "group/group.h"
+#include "bases/baseupkeep.h"
+#include "entity/LoadDefCommon.h"
+#include <utilitieslib/utils/eval.h>
+#include "entity/character_eval.h"
+#include "entity/entity.h"
+#include <utilitieslib/components/SharedHeap.h>
 
 #if SERVER
-#include "cmdserver.h"
+#include "cmdparse/cmdserver.h"
 #else
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 #endif
 
 #include "basedata.h"
@@ -444,7 +444,7 @@ static bool DetailDictPreprocess(TokenizerParseInfo pti[], DetailDict *pDetailDi
         Detail *pDetail = (Detail*)pDetailDict->ppDetails[j];
         if(pDetail->eSurface == -1)
         {
-            int l = strlen(pDetail->pchGroupName);
+            int l = (int)strlen(pDetail->pchGroupName);
 
             if(l>2 && pDetail->pchGroupName[l-2]=='_')
             {
@@ -891,9 +891,9 @@ static bool requirementsMet( const char** ppchReq, Entity * e )
 
     if( ppchReq && e )
     {
-        eval_StoreInt(eval, "Entity", (int)e);
+        eval_StoreInt(eval, "Entity", (int)(intptr_t)e);
         if(e->supergroup)
-            eval_StoreInt(eval, "Supergroup", (int)e->supergroup);
+            eval_StoreInt(eval, "Supergroup", (int)(intptr_t)e->supergroup);
         eval_ClearStack(eval);
 
         res = eval_Evaluate(eval, ppchReq);

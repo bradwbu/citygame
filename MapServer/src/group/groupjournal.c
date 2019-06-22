@@ -1,11 +1,11 @@
 #include "groupjournal.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "group.h"
-#include "SuperAssert.h"
+#include <utilitieslib/utils/SuperAssert.h>
 #include "groupgrid.h"
 #include "grouptrack.h"
-#include "timing.h"
-#include "utils.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/utils.h>
 
 static GroupDef* groupDefDupSimple(GroupDef *def)
 {

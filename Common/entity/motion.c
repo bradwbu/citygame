@@ -1,42 +1,42 @@
 #include <math.h>
 #include <string.h>
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "entity.h"
 #include "entPlayer.h"
-#include "gridcoll.h"
-#include "camera.h"
+#include "gridcoll/gridcoll.h"
+#include "graphics/camera.h"
 #include "varutils.h"
 #include "motion.h"
-#include "Position.h"
+#include "utils/Position.h"
 #include "entworldcoll.h"
 #include "character_base.h"
-#include "gridcache.h"
-#include "groupscene.h"
-#include "seqstate.h"
-#include "model.h"
-#include "seq.h"
+#include "gridcoll/gridcache.h"
+#include "group/groupscene.h"
+#include "seq/seqstate.h"
+#include "render/model.h"
+#include "seq/seq.h"
 #include "gametypes.h"
-#include "megaGrid.h"
-#include "anim.h"
-#include "group.h"
-#include "qsortG.h"
-#include "groupfileload.h"
-#include "Quat.h"
+#include "gridcoll/megaGrid.h"
+#include "seq/anim.h"
+#include "group/group.h"
+#include <utilitieslib/utils/qsortG.h>
+#include "group/groupfileload.h"
+#include <utilitieslib/utils/Quat.h>
 #include "character_target.h"
 
 #ifdef CLIENT
-    #include "font.h"
-    #include "entclient.h"
-    #include "baseedit.h"
-    #include "uiOptions.h"
-    #include "uiPet.h"
+    #include "graphics/font.h"
+    #include "entity/entclient.h"
+    #include "bases/baseedit.h"
+    #include "UI/uiOptions.h"
+    #include "UI/uiPet.h"
 #else
-    #include "character_combat.h"
-    #include "beaconConnection.h"
-    #include "entserver.h"
-    #include "cmdcontrols.h"
-    #include "pmotion.h"
-    #include "beaconpath.h"
+    #include "entity/character_combat.h"
+    #include "beacon/beaconConnection.h"
+    #include "entity/entserver.h"
+    #include "cmdparse/cmdcontrols.h"
+    #include "player/pmotion.h"
+    #include "beacon/beaconpath.h"
     #include "character_target.h"
 #endif
 
@@ -49,24 +49,24 @@
 GlobalMotionState global_motion_state;
 
 #if CLIENT
-    #include "player.h"
-    #include "entDebug.h"
-    #include "cmdgame.h"
-    #include "entDebug.h"
+    #include "player/player.h"
+    #include "entity/entDebug.h"
+    #include "cmdparse/cmdgame.h"
+    #include "entity/entDebug.h"
     #define MDBG 0
     #define SETB_MOTION(a, b) {if(!global_motion_state.doNotSetAnimBits) SETB(a, b);}
     #define CLRB_MOTION(a, b) {if(!global_motion_state.doNotSetAnimBits) CLRB(a, b);}
 #elif SERVER
-    #include "entGameActions.h"
-    #include "svr_base.h"
-    #include "entaiPrivate.h"
-    #include "entincludeserver.h"
-    #include "storyarcinterface.h"
+    #include "entity/entGameActions.h"
+    #include "svr/svr_base.h"
+    #include "ai/entaiPrivate.h"
+    #include "entity/entincludeserver.h"
+    #include "storyarc/storyarcinterface.h"
     #define SETB_MOTION(a, b) SETB(a, b)
     #define CLRB_MOTION(a, b) CLRB(a, b)
 #endif
 
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 MP_DEFINE(MotionState);
 
@@ -488,7 +488,7 @@ int checkEntColl(Entity *movingEnt, int doApplyBounce, const Mat3 control_mat)
         #if SERVER
             S32                pos_end;
             Vec3*            pos_pos;
-            Quat*        pos_qrot;
+            Quat*        pos_qrot = NULL;
             U32*            pos_time;
             S32                lo_idx;
             S32                hi_idx;

@@ -4,7 +4,7 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "containerloadsave.h"
 #include "container/dbcontainerpack.h"
 #include "costume_db.h"

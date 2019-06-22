@@ -1,15 +1,15 @@
-#include "wininclude.h"  // JS: Can't find where this file includes <windows.h> so I'm just sticking this include here.
+#include <utilitieslib/utils/wininclude.h>  // JS: Can't find where this file includes <windows.h> so I'm just sticking this include here.
 #include <string.h>
 #include <time.h>
 #include "seq.h"
 #include "cmdcommon.h"
-#include "memcheck.h"
-#include "error.h"
-#include "utils.h"
-#include "assert.h"
+#include <utilitieslib/utils/memcheck.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
 #include "anim.h"
-#include "file.h"
-#include "mathutil.h" 
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/mathutil.h> 
 #include "gfxtree.h"
 
 #include "animtrack.h"
@@ -21,7 +21,7 @@
 #include "seqregistration.h"
 #include "tricks.h"
 #include "entity.h"
-#include "Quat.h"
+#include <utilitieslib/utils/Quat.h>
 
 #ifdef CLIENT 
 #include "cmdgame.h"

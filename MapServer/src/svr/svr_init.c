@@ -1,6 +1,6 @@
 #include <conio.h>
 #include "storyarc.h"
-#include "stringutil.h"
+#include <utilitieslib/utils/StringUtil.h>
 #include "character_inventory.h"
 #include "SgrpBadges.h"
 #include <stdio.h>
@@ -9,22 +9,22 @@
 #include "sock.h"
 #include "network\netio.h"
 #include "net_socket.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "cmdserver.h"
 #include "gfxtree.h"
 #include "entity.h"
 #include "svr_base.h"
 #include "entsend.h"
-#include "netcomp.h"
+#include <utilitieslib/network/netcomp.h>
 #include "group.h"
 #include "groupfilesave.h"
 #include "grouputil.h"
 #include "entgen.h"
 #include "fpmacros.h"
-#include "error.h"
-#include "file.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/file.h>
 #include "dbcomm.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "debugUtils.h"
 #include "entscript.h"
 #include "entcon.h"
@@ -34,11 +34,11 @@
 #include "comm_backend.h"
 #include "dbcontainer.h"
 #include "groupnetdb.h"
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <crtdbg.h>
 #include <direct.h>
-#include "timing.h"
-#include "SuperAssert.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/SuperAssert.h>
 #include "initCommon.h"
 #include "containerloadsave.h"
 #include "containercallbacks.h"
@@ -52,16 +52,16 @@
 #include "storyarcInterface.h"
 #include "language/langServerUtil.h"
 #include "load_def.h" // for load_AllDefs
-#include "FolderCache.h"
-#include "textparser.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/textparser.h>
 #include "sysutil.h"        // for getExecutableName()
 #include "groupfilelib.h"
 #include "groupfileload.h"
-#include "strings_opt.h"
+#include <utilitieslib/utils/strings_opt.h>
 #include "NpcNames.h"
 #include "AppVersion.h"
 #include "serverError.h"
-#include "SharedMemory.h"
+#include <utilitieslib/components/SharedMemory.h>
 #include "profanity.h"
 #include "titles.h"
 #include "reserved_names.h"
@@ -74,7 +74,7 @@
 #include "gridcollperftest.h"
 #include "staticMapInfo.h"            // for staticMapInfosReload()
 #include "gridcache.h"
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 #include "DirMonitor.h"
 #include "characterTransfer.h"
 #include "characterInfo.h"
@@ -85,7 +85,7 @@
 #include "logcomm.h"
 #include "scriptengine.h"
 #include "characterRestore.h"
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 #include "tricks.h"
 #include "input.h"
 #include "modelReload.h"
@@ -102,8 +102,8 @@
 #include "Nwwrapper.h"
 #include "groupnovodex.h"
 #include "ragdoll.h"
-#include "SharedHeap.h"
-#include "StringCache.h"
+#include <utilitieslib/components/SharedHeap.h>
+#include <utilitieslib/components/StringCache.h>
 #include "taskpvp.h"
 #include "beaconClientServerPrivate.h"
 #include "Supergroup.h"
@@ -113,14 +113,14 @@
 #include "containerDump.h"
 #include "AnimBitList.h"
 #include "AppRegCache.h"
-#include "MessageStore.h"
+#include <utilitieslib/language/MessageStore.h>
 #include "TaskforceParams.h"
 #include "turnstile.h"
 #include "playerCreatedStoryarcValidate.h"
 #include "plaque.h"
 #include "reward.h"
 #include "inventory_server.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 #include "AccountCatalog.h"
 #include "dbmapxfer.h"
 #include <psapi.h> // for EmptyWorkingSet()

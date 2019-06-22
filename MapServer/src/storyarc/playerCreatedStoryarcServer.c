@@ -1,4 +1,4 @@
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 #include "logcomm.h"
 #include "playerCreatedStoryarc.h"
 #include "playerCreatedStoryarcServer.h"
@@ -7,11 +7,11 @@
 #include "entity.h"
 #include "teamCommon.h"
 #include "character_level.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "svr_chat.h"
 #include "dbcomm.h"
 #include "missionMapCommon.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "Reward.h"
 #include "cmdserver.h"
 #include "PCC_Critter.h"
@@ -26,14 +26,14 @@
 #include "comm_game.h"
 #include "MissionSearch.h"
 #include "comm_backend.h"
-#include "netcomp.h"
+#include <utilitieslib/network/netcomp.h>
 #include "crypt.h"
 #include "UtilsNew/meta.h"
 #include "MissionServer/missionserver_meta.h"
 #include "buddy_server.h"
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 #include "TeamReward.h"
-#include "net_packetutil.h"
+#include <utilitieslib/network/net_packetutil.h>
 #include "team.h"
 #include "missionServerMapTest.h"
 #include "validate_name.h"

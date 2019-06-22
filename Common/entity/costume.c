@@ -11,56 +11,56 @@
 #include "character_base.h"
 #include "character_level.h"    // for tailor_setCurrent
 #include "character_inventory.h"
-#include "net_packet.h"            // for pkt.. functions
+#include <utilitieslib/network/net_packet.h>            // for pkt.. functions
 #include "gameData/BodyPart.h"  // for BodyPart
 #include "gameData/costume_data.h"
-#include "textparser.h"
-#include "earray.h"
-#include "net_packetutil.h"
-#include <assert.h>
-#include "Color.h"
-#include "utils.h"
-#include "timing.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/network/net_packetutil.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/Color.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
 #include "entVarUpdate.h"
 #include "GameData/costume_data.h"
-#include "mathutil.h"
-#include "seq.h"
-#include "file.h"
-#include "StashTable.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "seq/seq.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "auth/authUserData.h"
 #include "powers.h"                // for PowerSet
-#include "utils.h"
-#include "StringCache.h"
-#include "Npc.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/StringCache.h>
+#include "gameComm/Npc.h"
 #include "character_net.h"
 #include "power_customization.h"
-#include "AccountData.h"
-#include "EString.h"
+#include "account/AccountData.h"
+#include <utilitieslib/components/estring.h>
 #include "character_level.h"
 
 #ifdef SERVER
-    #include "dbcomm.h"
+    #include "dbcomm/dbcomm.h"
     #include "entVarUpdate.h"
-    #include "svr_chat.h"
-    #include "langServerUtil.h"
-    #include "entGameActions.h"
-    #include "entserver.h"
-    #include "badges_server.h"
+    #include "gamecomm/svr_chat.h"
+    #include "language/langServerUtil.h"
+    #include "entity/entGameActions.h"
+    #include "entity/entserver.h"
+    #include "player/badges_server.h"
     #include "comm_game.h"
-    #include "chat_emote.h"
+    #include "cmdparse/chat_emote.h"
     #include "TeamReward.h"
-    #include "logcomm.h"
-    #include "AccountData.h"
+    #include "dbcomm/logcomm.h"
+    #include "account/AccountData.h"
 #elif CLIENT
-    #include "uiChat.h"
-    #include "sprite_text.h"
-    #include "costume_client.h"
-    #include "player.h"
-    #include "uiTailor.h"
-    #include "uiSuperCostume.h"
-    #include "dbclient.h"
-    #include "inventory_client.h"
+    #include "UI/uiChat.h"
+    #include "UI/sprite/sprite_text.h"
+    #include "entity/costume_client.h"
+    #include "player/player.h"
+    #include "UI/uiTailor.h"
+    #include "UI/uiSuperCostume.h"
+    #include "clientcomm/dbclient.h"
+    #include "player/inventory_client.h"
 #endif
 
 STATIC_ASSERT(sizeof(Costume) == sizeof(cCostume));
@@ -1848,7 +1848,7 @@ TokenizerParseInfo ParseCustomNPCCostume[] =
 BodyType GetBodyTypeForEntType(const char *pch)
 {
     int j;
-    int prefix_len = strcspn(pch,"_");
+    int prefix_len = (int)strcspn(pch,"_");
 
     for(j=0; j<getBodyTypeCount(); j++)
     {

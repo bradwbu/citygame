@@ -1,7 +1,7 @@
 #include "bones.h"
-#include "structDefines.h"
-#include "utils.h"
-#include "assert.h"
+#include <utilitieslib/utils/structDefines.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
 
 #include "AutoGen/bones_h_ast.c"
 

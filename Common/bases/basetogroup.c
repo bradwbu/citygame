@@ -1,32 +1,32 @@
-#include "mathutil.h"
-#include "group.h"
-#include "assert.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "group/group.h"
+#include <utilitieslib/assert/assert.h>
 #include "bases.h"
 #include "basetogroup.h"
-#include "MemoryPool.h"
-#include "utils.h"
-#include "groupgrid.h"
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/utils/utils.h>
+#include "group/groupgrid.h"
 #include "basefromgroup.h"
-#include "anim.h"
+#include "seq/anim.h"
 #include "basedata.h"
 #include "basesystems.h"
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 #include "basetrim.h"
-#include "gridcache.h"
-#include "grouptrack.h"
-#include "error.h"
-#include "pmotion.h"
+#include "gridcoll/gridcache.h"
+#include "group/grouptrack.h"
+#include <utilitieslib/utils/error.h>
+#include "player/pmotion.h"
 
 #if CLIENT
-#include "tex.h"
+#include "render/tex.h"
 #endif
 
 #if SERVER
-#include "entity.h"
-#include "entserver.h"
-#include "grouputil.h"
-#include "groupproperties.h"
-#include "sgraid_V2.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
+#include "group/grouputil.h"
+#include "group/groupproperties.h"
+#include "gamesys/sgraid_V2.h"
 #endif
 
 typedef struct

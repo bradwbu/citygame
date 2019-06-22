@@ -5,17 +5,17 @@
  ***************************************************************************/
 #include "sgrpstatsstruct.h"
 #include "badges.h"
-#include "utils.h"
-#include "assert.h"
-#include "error.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/StashTable.h>
 
 #include "sgrpstatsstruct.h"
 #include <stdio.h>
-#include "memorypool.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "container/dbcontainerpack.h"
 #include "comm_backend.h"
 #include "BadgeStats.h"

@@ -15,7 +15,7 @@
 #include "entity/concept.h"
 #include <string.h>
 #include <time.h>
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/stdtypes.h>
 #include <utilitieslib/utils/cmdoldparse.h>

@@ -9,15 +9,15 @@
  */
 
 #include "scriptengine.h"
-#include "memorypool.h"
-#include "error.h"
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/utils/error.h>
 #include "storyarcprivate.h"
 #include "dbcomm.h"
 #include "staticMapInfo.h"
 #include "mapgroup.h"
 #include "entity.h"
-#include "foldercache.h"
-#include "fileutil.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
 #include "logcomm.h"
 
 int    g_scriptCombatLevel = 0;

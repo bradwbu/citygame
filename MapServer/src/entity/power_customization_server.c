@@ -1,6 +1,6 @@
 #include "power_customization.h"
 #include "power_customization_server.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "entity.h"
 #include "Reward.h"
 #include "entPlayer.h"

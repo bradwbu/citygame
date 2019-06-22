@@ -3,23 +3,23 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "eval.h"
-#include "earray.h"
-#include "bitfield.h"
+#include <utilitieslib/utils/eval.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/bitfield.h>
 
 #include "entity.h"
 #include "entPlayer.h"    // for PlayerType
 #include "supergroup.h"
 
-#include "badges.h"
+#include "player/badges.h"
 #include "RewardToken.h"
-#include "basedata.h"
-#include "DetailRecipe.h"
+#include "bases/basedata.h"
+#include "bases/DetailRecipe.h"
 
 #include "supergroup_eval.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 
 
 //***************************************************************************

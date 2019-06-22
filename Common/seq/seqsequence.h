@@ -1,7 +1,7 @@
 #ifndef _SEQSEQUENCE_H
 #define _SEQSEQUENCE_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "seq.h"
 
 #ifdef CLIENT

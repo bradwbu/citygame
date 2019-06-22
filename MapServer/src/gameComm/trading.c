@@ -14,7 +14,7 @@
 #include "dbcomm.h"            // for dbPlayerIdFromName
 #include "comm_game.h"
 #include "parseClientInput.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "svr_chat.h"
 #include "svr_player.h"
 #include "dbghelper.h"
@@ -23,10 +23,10 @@
 #include "arenamap.h"
 #include "character_inventory.h"
 #include "character_target.h"
-#include "earray.h"
-#include "EString.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
 #include "auth/authUserData.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 #include "logcomm.h"
 //---------------------------------------------------------------------------------
 

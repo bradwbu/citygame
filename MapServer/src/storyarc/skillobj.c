@@ -3,13 +3,13 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "StashTable.h"
-#include "earray.h"
-#include "estring.h"
-#include "error.h"
-#include "utils.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
 
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 
 #include "skillobj.h"
 

@@ -1,6 +1,6 @@
 #include "container/dbcontainerpack.h"
 #include "character_level.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "dbcomm.h"
 #include "containerEmail.h"
 #include "entVarUpdate.h"
@@ -9,11 +9,11 @@
 #include "comm_game.h"
 #include "containerbroadcast.h"
 #include "svr_chat.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "dbnamecache.h"
 #include "entity.h"
 #include "comm_backend.h"
-#include "EString.h"
+#include <utilitieslib/components/estring.h>
 #include "language/langServerUtil.h"
 #include "entPlayer.h"
 #include "friends.h"

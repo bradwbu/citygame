@@ -1,23 +1,23 @@
 #include "Npc.h"        // For NPC structure defintion
 
-#include "earray.h"
-#include "error.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/error.h>
 
-#include "textparser.h"
-#include "costume.h"
+#include <utilitieslib/utils/textparser.h>
+#include "entity/costume.h"
 
 // For character stat assignment
-#include "Entity.h"
-#include "character_base.h"    // For character structure definition
-#include "classes.h"    // For character class initialization
-#include "origins.h"    // For character origin initialization
-#include "powers.h"        // For character power assignment
-#include "assert.h"
-#include "StashTable.h"
-#include "file.h"
-#include "fileutil.h"
-#include "FolderCache.h"
-#include "SharedMemory.h"
+#include "entity/Entity.h"
+#include "entity/character_base.h"    // For character structure definition
+#include "entity/classes.h"    // For character class initialization
+#include "entity/origins.h"    // For character origin initialization
+#include "entity/powers.h"        // For character power assignment
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/components/SharedMemory.h>
 #include <string.h>
 
 #if CLIENT
@@ -335,7 +335,7 @@ const cCostume* npcDefsGetCostume(int npcIndex, int costumeIndex)
 
 const NPCDef* npcFindByName(const char* name, int* index)
 {
-    int i = (int)stashFindPointerReturnPointerConst(npcDefList.npcHashes, name);
+    int i = (int)(intptr_t)stashFindPointerReturnPointerConst(npcDefList.npcHashes, name);
     if (index) 
         *index = i;
     if(npcDefList.npcDefs && i)

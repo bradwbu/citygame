@@ -4,13 +4,13 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include <string.h>
-#include "strings_opt.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/components/StashTable.h>
 
-#include "earray.h"
-#include "file.h"
-#include "utils.h"
-#include "AppLocale.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/language/AppLocale.h>
 #include "profanity.h"
 
 #include "entity.h"

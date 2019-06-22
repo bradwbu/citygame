@@ -28,14 +28,14 @@
 #include "Supergroup.h"
 #include "dbdoor.h"
 #include "badges_server.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "missionMapCommon.h"
 #include "storySend.h"
 #include "character_eval.h"
 #include "alignment_shift.h"
 #include "logcomm.h"
 #include "pnpcCommon.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "storyarc.h"
 #include "TeamReward.h"
 

@@ -1,22 +1,22 @@
 #include "seqskeleton.h"
-#include "stdtypes.h"
-#include "mathutil.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
 #include "anim.h"
 #include "seq.h"
 #include "entity.h"
 #include "costume.h"
 #include "tricks.h"
-#include "SuperAssert.h"
+#include <utilitieslib/utils/SuperAssert.h>
 #include "animtrackanimate.h"
-#include "earray.h"
-#include "file.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/file.h>
 #include "teamCommon.h"
 #include "Supergroup.h"
 #include "ragdoll.h"
-#include "strings_opt.h"
-#include "error.h"
-#include "MessageStoreUtil.h"
-#include "Quat.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/Quat.h>
 
 #ifdef CLIENT 
 #include "cmdgame.h"
@@ -33,7 +33,7 @@
 #include "cmdserver.h"
 #endif
 
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 #ifdef CLIENT
 static void animExtractBoneTranslations(GfxNode * gfx_node, Vec3 * BoneTranslationTotal)

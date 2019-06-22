@@ -3,7 +3,7 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 
 #include "entity.h"
 #include "entPlayer.h"

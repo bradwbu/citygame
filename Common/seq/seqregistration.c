@@ -1,6 +1,6 @@
 #include "seqregistration.h"
 
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "gfxtree.h"
 #include "seq.h"
 #include "gfx.h"
@@ -18,7 +18,7 @@
 #include "cmdgame.h"
 #endif
 
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 #ifdef CLIENT
 #    define FIX_ARM_REG game_state.fixArmReg

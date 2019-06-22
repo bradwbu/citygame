@@ -5,17 +5,17 @@
  ***************************************************************************/
 #include "cmdstatserver.h"
 #include "AppServerCmd.h"
-#include "utils.h"
-#include "assert.h"
-#include "error.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "estring.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
-#include "cmdoldparse.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/cmdoldparse.h>
 #include "cmdenum.h"
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 #include "comm_backend.h"
 
 #define TMP_STR {CMDSTR(g_appserver_cmd_state.strs[0])}

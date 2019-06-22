@@ -1,20 +1,20 @@
 #include "entworldcoll.h"
 #include <string.h>
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "entity.h"
-#include "gridcoll.h"
+#include "gridcoll/gridcoll.h"
 #include "varutils.h"
 #include "motion.h"
-#include "groupscene.h"
-#include "group.h"
-#include "utils.h"
-#include "timing.h"
+#include "group/groupscene.h"
+#include "group/group.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
 #ifdef SERVER
-#include "entGameActions.h"
-#include "entsend.h"
+#include "entity/entGameActions.h"
+#include "entity/entsend.h"
 #else
-#include "font.h"
-#include "entDebug.h"
+#include "graphics/font.h"
+#include "entity/entDebug.h"
 #endif
 #define DEFAULT_RADIUS 1.0f
 

@@ -1,7 +1,7 @@
 #ifndef CUSTOM_VILLAIN_GROUP_H__
 #define CUSTOM_VILLAIN_GROUP_H__
 
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 
 typedef struct Entity Entity;
 typedef struct PCC_Critter PCC_Critter;

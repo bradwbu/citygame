@@ -3,9 +3,9 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 #include "container/dbcontainerpack.h"
 #include "sendToClient.h" // conprintf
@@ -23,7 +23,7 @@
 #include "pl_stats_internal.h"
 
 #include "language/langServerUtil.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "mission.h"
 #include "badges_server.h"
 #include "character_level.h"

@@ -40,7 +40,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <math.h>
-#include "strings_opt.h"
+#include <utilitieslib/utils/strings_opt.h>
 
 #define EVAL_ERROR       (-1)
 #define EVAL_ERROR_RANGE (-2)

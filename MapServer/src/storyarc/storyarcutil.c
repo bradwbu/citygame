@@ -12,7 +12,7 @@
 #include "pnpc.h"
 #include "cmdserver.h"
 #include "MultiMessageStore.h"
-#include "MessageStore.h"
+#include <utilitieslib/language/MessageStore.h>
 #include "megaGrid.h"
 #include "position.h"
 #include "powers.h"
@@ -40,9 +40,9 @@
 #include "character_base.h"
 #include "origins.h"
 #include "teamcommon.h"
-#include "foldercache.h"
-#include "fileutil.h"
-#include "AppLocale.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/language/AppLocale.h>
 #include "commonLangUtil.h"
 #include "tokenstore.h"
 #include "aiBehaviorPublic.h"
@@ -50,7 +50,7 @@
 #include "pnpcCommon.h"
 #include "supergroup.h"
 #include "auth/authUserData.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 
 #define SCRIPTS_DIR_SUBSTR SCRIPTS_DIR "/"
 

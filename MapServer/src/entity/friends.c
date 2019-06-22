@@ -13,8 +13,8 @@
 #include "character_base.h"
 #include "origins.h"
 #include "classes.h"
-#include "utils.h"
-#include "StringCache.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/StringCache.h>
 #include "staticMapInfo.h"
 #include "entPlayer.h"
 #include "dbnamecache.h"

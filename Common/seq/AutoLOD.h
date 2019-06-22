@@ -1,7 +1,7 @@
 #ifndef _AUTOLOD_H_
 #define _AUTOLOD_H_
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 
 typedef struct ParseTable ParseTable;

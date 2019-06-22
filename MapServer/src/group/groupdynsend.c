@@ -2,14 +2,14 @@
 #include "group.h"
 #include "groupdyn.h"
 #include "groupdynsend.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "zlib.h"
-#include <assert.h>
-#include "error.h"
-#include "netio.h"
-#include "netcomp.h"
-#include "mathutil.h"
-#include "timing.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/network/netcomp.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/timing.h>
 
 static int    *net_modified_groups,net_modified_count,net_modified_max;
 static int    dyn_rescan_breakable;

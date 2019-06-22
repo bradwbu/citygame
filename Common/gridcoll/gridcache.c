@@ -1,10 +1,10 @@
 #include <string.h>
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "group.h"
 #include "grid.h"
 #include "gridcoll.h"
 #include "gridcache.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "HashFunctions.h"
 
 static int coll_cache_bits;

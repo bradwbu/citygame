@@ -3,28 +3,28 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <memory.h>
 #include <string.h>
 
-#include "textparser.h"
-#include "file.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/file.h>
 
-#include "seqstate.h"
-#include "seq.h"
-#include "earray.h"
-#include "SharedMemory.h"
-#include "error.h"
-#include "badges.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/SharedMemory.h>
+#include <utilitieslib/utils/error.h>
+#include "player/badges.h"
 #include "Concept.h"
 #include "salvage.h"
 #include "Proficiency.h"
-#include "DetailRecipe.h"
-#include "Auction.h"
-#include "AccountCatalog.h"
-#include "VillainDef.h"
-#include "StashTable.h"
-#include "pophelp.h"
+#include "bases/DetailRecipe.h"
+#include "auction/Auction.h"
+#include "account/AccountCatalog.h"
+#include "gameComm/VillainDef.h"
+#include <utilitieslib/components/StashTable.h>
+#include "player/pophelp.h"
 
 #define BOOST_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
 #include "boost.h"
@@ -34,16 +34,16 @@
 
 #if SERVER
 #define COMBAT_MOD_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
-#include "combat_mod.h"
-#include "cmdserver.h"
-#include "DayJob.h"
-#include "character_karma.h"
-#include "EndGameRaid.h"
+#include "entity/combat_mod.h"
+#include "cmdparse/cmdserver.h"
+#include "gamesys/DayJob.h"
+#include "entity/character_karma.h"
+#include "gamesys/EndGameRaid.h"
 #elif CLIENT
-#include "cmdgame.h"
-#include "uiTextLink.h"
-#include "arenastruct.h"
-#include "uiSupercostume.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiTextLink.h"
+#include "gameData/arenastruct.h"
+#include "UI/uiSupercostume.h"
 #endif
 
 #define CLASSES_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
@@ -67,33 +67,33 @@
 
 #if SERVER
 #define DAMAGEDECAY_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
-#include "entGameActions.h"
+#include "entity/entGameActions.h"
 #endif
 
 #if SERVER
 #define CHAT_EMOTE_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
-#include "chat_emote.h"
-#include "petarena.h"
-#include "contactdef.h"
-#include "incarnate_server.h"
+#include "cmdparse/chat_emote.h"
+#include "gameSys/petarena.h"
+#include "storyarc/contactdef.h"
+#include "entity/incarnate_server.h"
 #endif
 
 #include "load_def.h"
 #include "LoadDefCommon.h"
 #include "character_eval.h"
-#include "eval.h"
+#include <utilitieslib/utils/eval.h>
 #include "PCC_Critter.h"
 #if SERVER
 #include "character_combat_eval.h"
 #include "Reward.h"
-#include "NewFeatures.h"
+#include "gameComm/NewFeatures.h"
 #endif
 
 #include "attrib_description.h"
 #include "character_inventory.h"
-#include "EString.h"
-#include "basedata.h"
-#include "pnpcCommon.h"
+#include <utilitieslib/components/estring.h>
+#include "bases/basedata.h"
+#include "storyarc/pnpcCommon.h"
 
 DefineContext *g_pParsePowerDefines = NULL;
 STATIC_DEFINE_WRAPPER(ParsePowerDefines, g_pParsePowerDefines);
@@ -563,7 +563,7 @@ static void AddIncarnateMods(DefineContext *defines)
     {
         char ach[256];
         char val[256];
-        int len = MIN(strlen(g_IncarnateMods.incarnateExpList[i]->incarnateXPType), 255);
+        int len = MIN((int)strlen(g_IncarnateMods.incarnateExpList[i]->incarnateXPType), 255);
 
         // doesn't add the k in front on purpose, to support existing data
         strncpy(ach, g_IncarnateMods.incarnateExpList[i]->incarnateXPType, len + 1);

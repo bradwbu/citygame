@@ -5,7 +5,7 @@
 #define BIND_MAX 256
 
 #include "net_typedefs.h"
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct ServerKeyBind
 {

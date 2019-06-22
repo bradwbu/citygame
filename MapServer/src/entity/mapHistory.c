@@ -1,13 +1,13 @@
 #include "mapHistory.h"
 #include "entity.h"
 #include "entPlayer.h"
-#include "MemoryPool.h"
-#include "earray.h"
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/earray.h>
 #include "arenamap.h"
 #include "raidmapserver.h"
 #include "storyarcinterface.h"
 #include "dbcomm.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 
 MP_DEFINE(MapHistory);
 

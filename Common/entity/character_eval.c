@@ -3,24 +3,24 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
-#include "stashtable.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/components/StashTable.h>
 
-#include "eval.h"
-#include "earray.h"
-#include "timing.h"
-#include "mathutil.h"
-#include "bitfield.h"
-#include "Estring.h"
+#include <utilitieslib/utils/eval.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/bitfield.h>
+#include <utilitieslib/components/estring.h>
 
 #include "entity.h"
 #include "entplayer.h"
 #include "supergroup.h"
-#include "villainDef.h"
+#include "gameComm/villainDef.h"
 #include "costume.h"
-#include "npc.h"
+#include "gameComm/npc.h"
 
-#include "badges.h"
+#include "player/badges.h"
 #include "origins.h"
 #include "classes.h"
 #include "powers.h"
@@ -33,33 +33,33 @@
 #include "supergroup_eval.h"
 #include "character_level.h"
 #include "TaskforceParams.h"
-#include "AppLocale.h"
-#include "playerCreatedStoryarcValidate.h"
-#include "AccountInventory.h"
-#include "AccountData.h"
-#include "AccountCatalog.h"
-#include "commonLangUtil.h"
+#include <utilitieslib/language/AppLocale.h>
+#include "storyarc/playerCreatedStoryarcValidate.h"
+#include "account/AccountInventory.h"
+#include "account/AccountData.h"
+#include "account/AccountCatalog.h"
+#include "language/commonLangUtil.h"
 
 #if SERVER
-#include "character_combat.h"
-#include "cmdserver.h"
-#include "badges_server.h"
-#include "storyarcprivate.h"
-#include "SouvenirClue.h"
-#include "mapgroup.h"
+#include "entity/character_combat.h"
+#include "cmdparse/cmdserver.h"
+#include "player/badges_server.h"
+#include "storyarc/storyarcprivate.h"
+#include "storyarc/SouvenirClue.h"
+#include "container/mapgroup.h"
 #include "Reward.h"
-#include "mission.h"
-#include "arenamap.h"
-#include "sgraid.h"
-#include "group.h"
-#include "groupProperties.h"
-#include "staticMapInfo.h"
-#include "dbcomm.h"
-#include "scriptengine.h"
+#include "storyarc/mission.h"
+#include "gameSys/arenamap.h"
+#include "gameSys/sgraid.h"
+#include "group/group.h"
+#include "group/groupProperties.h"
+#include "dbcomm/staticMapInfo.h"
+#include "dbcomm/dbcomm.h"
+#include "script/scriptengine.h"
 #elif CLIENT
-#include "cmdgame.h"
-#include "costume_client.h"
-#include "player.h"
+#include "cmdparse/cmdgame.h"
+#include "entity/costume_client.h"
+#include "player/player.h"
 #endif
 
 EvalContext *s_pCharEval;
@@ -2657,7 +2657,7 @@ void chareval_Init(void)
 void chareval_JustEval(Character *p, const char * const *ppchExpr)
 {
     if (p && p->entParent)
-        eval_StoreInt(s_pCharEval, "Entity", (int)p->entParent);
+        eval_StoreInt(s_pCharEval, "Entity", (int)(intptr_t)p->entParent);
     else
         eval_ForgetInt(s_pCharEval, "Entity");
     eval_ForgetInt(s_pCharEval, "Task");
@@ -2685,10 +2685,10 @@ int chareval_Eval(Character *p, const char * const *ppchExpr, const char *dataFi
 static void chareval_JustEvalWithTask(Character *p, const char **ppchExpr, StoryTaskInfo *pTask)
 {
     if (p)
-        eval_StoreInt(s_pCharEval, "Entity", (int)p->entParent);
+        eval_StoreInt(s_pCharEval, "Entity", (int)(intptr_t)p->entParent);
     else
         eval_ForgetInt(s_pCharEval, "Entity");
-    eval_StoreInt(s_pCharEval, "Task", (int)pTask);
+    eval_StoreInt(s_pCharEval, "Task", (int)(intptr_t)pTask);
     eval_ClearStack(s_pCharEval);
 
     eval_Evaluate(s_pCharEval, ppchExpr);

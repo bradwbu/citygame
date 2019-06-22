@@ -1,11 +1,11 @@
 #include <string.h>
 #include <stdlib.h>
-#include "utils.h"
-#include "mathutil.h"
-#include "error.h"
-#include "file.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/file.h>
 #include "cmdcommon.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include "gfxtree.h"
 #include "camera.h" 
 #include "font.h"
@@ -13,7 +13,7 @@
 #include "model.h"
 #include "tricks.h"
 #include "anim.h"
-#include "MemoryPool.h"
+#include <utilitieslib/components/MemoryPool.h>
 
 #if CLOTH_HACK
 #include "clothnode.h"
@@ -162,10 +162,10 @@ void gfxTreeInitSkyTree()
 #endif
 
 #if 0 // fpe for test
-#include "fileutil.h"
+#include <utilitieslib/utils/fileutil.h>
 #include "model_cache.h"
 #include "tex.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 
 bool gbFoundZeroTangent, gbFoundZeroTangentInThisFile;
 int numZeroTangentFiles, numZeroTangentModels, numTotalModels, numTotalTextures, numTotalFiles, numMissingTextures;

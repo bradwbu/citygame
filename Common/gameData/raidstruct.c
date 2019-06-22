@@ -9,13 +9,13 @@
  */
 
 #include "raidstruct.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include <stdio.h>
 #include <time.h>
-#include "memorypool.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "container/dbcontainerpack.h"
 #include "comm_backend.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 
 char * stringFromGameState( eIoPGameState state )

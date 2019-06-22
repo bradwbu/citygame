@@ -17,7 +17,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdio.h>
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <sqlext.h>
 
 DatabaseProvider gDatabaseProvider = DBPROV_UNKNOWN;

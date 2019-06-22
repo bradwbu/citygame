@@ -3,23 +3,23 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "error.h"
-#include "textparser.h"
-#include "utils.h"
-#include "eval.h"
-#include "earray.h"
-#include "StashTable.h"
-#include "MessageStore.h"
-#include "bitfield.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/eval.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/language/MessageStore.h>
+#include <utilitieslib/components/bitfield.h>
 #include "entity.h"    
 #include "entplayer.h"
 #include "origins.h"
 #include "classes.h"
 #include "character_base.h"
 #include "badges.h"
-#include "MessageStore.h"
-#include "file.h"
-#include "mathutil.h"
+#include <utilitieslib/language/MessageStore.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/mathutil.h>
 #include "LoadDefCommon.h"
 #include "commonLangUtil.h"
 #include "Supergroup.h"

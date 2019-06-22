@@ -21,7 +21,7 @@
 #include "staticMapInfo.h"
 #include "team.h"
 #include "entity.h"
-#include "scriptvars.h"
+#include <utilitieslib/utils/scriptvars.h>
 #include "taskRandom.h"
 #include "reward.h"
 #include "supergroup.h"

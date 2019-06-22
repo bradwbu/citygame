@@ -3,33 +3,33 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 #include "entity.h"
 #include "entPlayer.h"
-#include "gridcoll.h"
+#include "gridcoll/gridcoll.h"
 #include "powers.h"
 #include "character_base.h"
 
 #if SERVER
 #include "character_combat_eval.h"
-#include "pmotion.h" // for entMode
-#include "cmdserver.h"
-#include "logcomm.h"
+#include "player/pmotion.h" // for entMode
+#include "cmdparse/cmdserver.h"
+#include "dbcomm/logcomm.h"
 #else
 #include "camera.h"
 #endif
 
 #include "teamup.h"
 #include "character_target.h"
-#include "groupscene.h"
-#include "mathutil.h"
+#include "group/groupscene.h"
+#include <utilitieslib/utils/mathutil.h>
 
-#include "cmdcommon.h"
-#include "timing.h"
-#include "pnpcCommon.h"
+#include "cmdparse/cmdcommon.h"
+#include <utilitieslib/utils/timing.h>
+#include "storyarc/pnpcCommon.h"
 
 // For each of the the target types, specify if the target is allowed to be
 // dead.
@@ -305,7 +305,9 @@ bool entity_TargetIsInVisionPhase(Entity *pSrc, Entity *pTarget)
     int combinedPhasesSrc = pSrc ? pSrc->bitfieldVisionPhases : 0;
     int combinedPhasesTarget = pTarget ? pTarget->bitfieldVisionPhases : 0;
     int combinedPhases;
-    Entity *pIterator, *pSrcOwner, *pTargetOwner;
+    Entity* pIterator = NULL;
+    Entity* pSrcOwner = NULL;
+    Entity* pTargetOwner = NULL;
 
     if (!pSrc || !pTarget)
     {

@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "entplayer.h"
 #include "pmotion.h"
-#include "memcheck.h"
+#include <utilitieslib/utils/memcheck.h>
 #include "motion.h"
 #include "font.h"
 #include "player.h"
@@ -12,17 +12,17 @@
 #include "cmdcommon.h"
 #include "group.h"
 #include "groupgrid.h"
-#include "utils.h"
-#include "error.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/error.h>
 #include "seqstate.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "seq.h"
 #include "position.h"
-#include "file.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/StashTable.h>
 #include "playerCreatedStoryarcValidate.h"
 #include "groupProperties.h"
-#include "estring.h"
+#include <utilitieslib/components/estring.h>
 
 #if CLIENT
     #include "cmdgame.h"

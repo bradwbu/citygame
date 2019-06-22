@@ -1,7 +1,7 @@
 #include "grid.h"
 #include "gridfind.h"
-#include "mathutil.h"
-#include "assert.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/assert/assert.h>
 
 #include "groupgrid.h" // FIXME!!!
 

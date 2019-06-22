@@ -2,10 +2,10 @@
 #include <string.h>
 #include "grid.h"
 #include "stdlib.h"
-#include "mathutil.h"
-#include "error.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/error.h>
 #include "fpmacros.h"
-#include "memorypool.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "groupgrid.h"
 #include "gfxtree.h"
 

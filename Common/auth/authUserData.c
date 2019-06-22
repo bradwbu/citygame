@@ -873,7 +873,7 @@ int authUserIsReactivationActive() {
 }
 
 #ifndef DBSERVER
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/file.h>
 
@@ -1719,16 +1719,16 @@ static char* strPrintAuthUserData(U32 *data, int base)
 }
 
 #ifdef SERVER
-#include "sendtoclient.h"
-#include "langServerUtil.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "clientEntityLink.h"
+#include "gamecomm/sendtoclient.h"
+#include "language/langServerUtil.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include "player/clientEntityLink.h"
 #define CON_PRINT_F(...) conPrintf(client,__VA_ARGS__)
 #define LOCALIZED_F(...) localizedPrintf(e,__VA_ARGS__)
 #else
 #include "uiConsole.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "dbclient.h"
 #define CON_PRINT_F(...) conPrintf(__VA_ARGS__)
 #define LOCALIZED_F(...) textStd(__VA_ARGS__)

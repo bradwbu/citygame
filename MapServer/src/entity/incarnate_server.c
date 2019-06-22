@@ -6,14 +6,14 @@
 #include "character_base.h"
 #include "character_combat.h"
 #include "team.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "svr_chat.h"
 #include "sendToClient.h"
 #include "dbcomm.h"
-#include "estring.h"
-#include "structDefines.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/structDefines.h>
 
 SHARED_MEMORY IncarnateMods g_IncarnateMods;
 

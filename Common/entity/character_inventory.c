@@ -3,52 +3,52 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "assert.h"
-#include "memlog.h"
-#include "utils.h"
-#include "mathutil.h"
-#include "error.h"
-#include "file.h"
-#include "earray.h"
-#include "estring.h"
-#include "StashTable.h"
-#include "textparser.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/memlog.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/textparser.h>
 #include "entity.h"
-#include "MemoryPool.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "character_base.h"
 #include "character_level.h"
 #include "character_inventory.h"
 #include "salvage.h"
 #include "concept.h"
 #include "powers.h"
-#include "basedata.h"
-#include "DetailRecipe.h"
-#include "StashTable.h"
+#include "bases/basedata.h"
+#include "bases/DetailRecipe.h"
+#include <utilitieslib/components/StashTable.h>
 #include "LoadDefCommon.h"
-#include "mininghelper.h"
+#include "gameData/mininghelper.h"
 #include "entPlayer.h"
-#include "log.h"
-#include "SharedHeap.h"
+#include <utilitieslib/utils/log.h>
+#include <utilitieslib/components/SharedHeap.h>
 
 #if SERVER
-#include "cmdserver.h"
-#include "containerInventory.h"
-#include "logcomm.h"
-#include "dbcontainer.h"
+#include "cmdparse/cmdserver.h"
+#include "container/containerInventory.h"
+#include "dbcomm/logcomm.h"
+#include "dbcomm/dbcontainer.h"
 #include "Reward.h"
 #include "entPlayer.h"
-#include "entGameActions.h"
-#include "svr_base.h"
+#include "entity/entGameActions.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
 
 #elif CLIENT
-#include "cmdgame.h"
-#include "uiRecipeInventory.h"
-#include "uiIncarnate.h"
-#include "uiOptions.h"
-#include "uiSalvage.h"
-#include "uiStoredSalvage.h"
-#include "uiTrade.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiRecipeInventory.h"
+#include "UI/uiIncarnate.h"
+#include "UI/uiOptions.h"
+#include "UI/uiSalvage.h"
+#include "UI/uiStoredSalvage.h"
+#include "UI/uiTrade.h"
 #endif
 
 // ------------------------------------------------------------

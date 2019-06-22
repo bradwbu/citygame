@@ -1,18 +1,18 @@
 #include "grouputil.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
-#include "utils.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/utils.h>
 #include "grouptrack.h"    // for trackerOpen
 #include "group.h"
 #include "ArrayOld.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "groupProperties.h"
 #include "tricks.h"
 #include "anim.h"
 #include "NwWrapper.h"
-#include "estring.h"
+#include <utilitieslib/components/estring.h>
 
 /***************************************************************************************************
  * Function groupProcessType + groupProcessTypeHelper

@@ -1,19 +1,19 @@
 #include "seqsequence.h"
-#include "wininclude.h"  // JS: Can't find where this file includes <windows.h> so I'm just sticking this include here.
+#include <utilitieslib/utils/wininclude.h>  // JS: Can't find where this file includes <windows.h> so I'm just sticking this include here.
 #include <string.h>
 #include <time.h>
 #include "seq.h"
 #include "cmdcommon.h"
-#include "error.h"
-#include "utils.h"
-#include "assert.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
 #include "anim.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "mathutil.h"
 #include "gfxtree.h"
 #include "seqstate.h"
 #include "entity.h"
-#include "strings_opt.h"
+#include <utilitieslib/utils/strings_opt.h>
 #include "seqload.h"
 #if SERVER
 #include "cmdserver.h"
@@ -32,11 +32,11 @@
 #include "comm_game.h"
 extern void BugReport(const char * desc, int mode);
 #endif
-#include "EArray.h"
+#include <utilitieslib/components/earray.h>
 #include "mailbox.h"
 #include "fxinfo.h"
-#include "StashTable.h"
-#include "SharedMemory.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/SharedMemory.h>
 #include "tricks.h" // GFXNODE_HIDE
 #include "prefetch.h"
 

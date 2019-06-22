@@ -16,7 +16,7 @@
 #include "scriptutil.h"
 
 #include "entity.h"
-#include "memorypool.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "encounterprivate.h"
 #include "storyarcprivate.h"
 

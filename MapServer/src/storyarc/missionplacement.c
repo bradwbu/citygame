@@ -14,7 +14,7 @@
 #include "storyarcprivate.h"
 #include "NpcServer.h"
 #include "entai.h"
-#include "StringCache.h"
+#include <utilitieslib/components/StringCache.h>
 #include "groupnetsend.h"
 #include "dbcomm.h"
 #include "entity.h"

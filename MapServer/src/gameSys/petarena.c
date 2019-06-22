@@ -14,9 +14,9 @@
 #include "comm_game.h"
 #include "svr_base.h"
 #include "svr_player.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "stdio.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "character_base.h"
 #include "character_combat.h"
 #include "character_tick.h"
@@ -29,7 +29,7 @@
 #include "powerinfo.h"
 #include "character_animfx.h"
 #include "playerState.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "parseClientInput.h"
 #include "seq.h"
 #include "entity.h"

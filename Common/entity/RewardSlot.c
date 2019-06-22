@@ -4,12 +4,12 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "RewardSlot.h"
-#include "MemoryPool.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "salvage.h"
 #include "concept.h"
 #include "proficiency.h"
-#include "net_packet.h"
-#include "textparser.h"
+#include <utilitieslib/network/net_packet.h>
+#include <utilitieslib/utils/textparser.h>
 
 //------------------------------------------------------------
 //  Create a rewardslot from the pool

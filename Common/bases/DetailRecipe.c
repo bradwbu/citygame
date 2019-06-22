@@ -4,60 +4,60 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "DetailRecipe.h"
-#include "textparser.h"
-#include "structdefines.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "eval.h"
-#include "Salvage.h"
-#include "powers.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/structdefines.h>
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include <utilitieslib/utils/eval.h>
+#include "entity/Salvage.h"
+#include "entity/powers.h"
 #include "basedata.h"
-#include "utils.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "MemoryPool.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/MemoryPool.h>
 #include "baseparse.h"
-#include "Supergroup.h"
-#include "Salvage.h"
-#include "character_base.h"
-#include "character_eval.h"
-#include "character_inventory.h"
-#include "LoadDefCommon.h"
-#include "error.h"
-#include "bases.h"
-#include "StashTable.h"
-#include "RewardToken.h"
-#include "Supergroup.h"
-#include "trayCommon.h"
-#include "MessageStoreUtil.h"
-#include "StringCache.h"
-#include "SharedHeap.h"
+#include "entity/Supergroup.h"
+#include "entity/Salvage.h"
+#include "entity/character_base.h"
+#include "entity/character_eval.h"
+#include "entity/character_inventory.h"
+#include "entity/LoadDefCommon.h"
+#include <utilitieslib/utils/error.h>
+#include "bases/bases.h"
+#include <utilitieslib/components/StashTable.h>
+#include "entity/RewardToken.h"
+#include "entity/Supergroup.h"
+#include "gameComm/trayCommon.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/components/StringCache.h>
+#include <utilitieslib/components/SharedHeap.h>
 
 #if SERVER
-#include "cmdserver.h"
+#include "cmdparse/cmdserver.h"
 #include "Reward.h"
-#include "dbcomm.h"
-#include "entGameActions.h"
-#include "task.h"
-#include "badges_server.h"
-#include "raidmapserver.h"
-#include "team.h"
-#include "SgrpServer.h"
-#include "mininghelper.h"
-#include "playerCreatedStoryarcServer.h"
-#include "incarnate_server.h"
-#include "powerinfo.h"
-#include "logcomm.h"
+#include "dbcomm/dbcomm.h"
+#include "entity/entGameActions.h"
+#include "storyarc/task.h"
+#include "player/badges_server.h"
+#include "gameSys/raidmapserver.h"
+#include "container/team.h"
+#include "entity/SgrpServer.h"
+#include "gameData/mininghelper.h"
+#include "storyarc/playerCreatedStoryarcServer.h"
+#include "entity/incarnate_server.h"
+#include "entity/powerinfo.h"
+#include "dbcomm/logcomm.h"
 #else
-#include "cmdgame.h"
-#include "uiAuction.h"
-#include "PowerInfo.h"
-#include "uiChat.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiAuction.h"
+#include "entity/PowerInfo.h"
+#include "UI/uiChat.h"
 #endif //SERVER
 
 #if CLIENT && !TEST_CLIENT
-#include "uiStore.h"
-#include "store.h"
+#include "UI/uiStore.h"
+#include "gameData/store.h"
 #endif
 
 // keep the DetailRecipe in sync

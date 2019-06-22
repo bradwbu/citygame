@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "grid.h"
 #include "ctri.h"
 #include "gridcoll.h"
@@ -7,11 +7,11 @@
 #include "group.h"
 #include <stdlib.h>
 #include "gridcache.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include "gridcollobj.h"
 #include "gridcollperftest.h"
-#include "error.h"
-#include "utils.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
 #include "groupgrid.h"
 #include "grouptrack.h"
 

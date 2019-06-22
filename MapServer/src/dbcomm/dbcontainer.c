@@ -1,12 +1,12 @@
 #include "dbcomm.h"
-#include "estring.h"
+#include <utilitieslib/components/estring.h>
 #include "dbcontainer.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "container_diff.h"
-#include <assert.h>
-#include "utils.h"
-#include "file.h"
-#include "StashTable.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/StashTable.h>
 #include "storyarcinterface.h"
 #include "containerbroadcast.h"
 #include "containercallbacks.h"
@@ -14,11 +14,11 @@
 #include "team.h"
 #include "raidmapserver.h"
 #include "endgameraid.h"
-#include "earray.h"
-#include "timing.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/timing.h>
 #include "container/container_util.h"
 #include "container/container_store.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 
 static int container_locking = 0; // don't overuse this, this is just to catch a bug
 int last_db_error_code;

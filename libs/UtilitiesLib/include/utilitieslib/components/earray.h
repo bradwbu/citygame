@@ -104,7 +104,7 @@ cccEArrayHandle eaFromPointerUnsafe(const void* ptr);    // convert temporarily,
 #define eaQSortConst(handle, comparator)    (eaSize(&(handle)) ? qsort((cpp_const_cast(void*)(cpponly_reinterpret_cast(const void*)(handle))), eaSize(&(handle)), sizeof((handle)[0]), (comparator)) : (void)0)
 #define eaQSortG(handle, comparator)        (eaSize(&(handle)) ? qsortG((cpponly_reinterpret_cast(void*)(handle)), eaSize(&(handle)), sizeof((handle)[0]), (comparator)) : (void)0)
 #define eaBSearch(handle, comparator, key)    (eaSize(&(handle)) ? bsearch(&(key), (cpponly_reinterpret_cast(void*)(handle)), eaSize(&(handle)), sizeof((handle)[0]), (comparator)) : NULL)
-#define eaBFind(handle, comparator, key)    (eaSize(&(handle)) ? bfind(&(key), (cpponly_reinterpret_cast(void*)(handle)), eaSize(&(handle)), sizeof((handle)[0]), (comparator)) : 0)
+#define eaBFind(handle, comparator, key)    (eaSize(&(handle)) ? (int)bfind(&(key), (cpponly_reinterpret_cast(void*)(handle)), eaSize(&(handle)), sizeof((handle)[0]), (comparator)) : 0)
 #define eaSortedInsert(handle, comparator, key)    eaInsert(handle, key, eaBFind(*(handle), comparator, key))
 int eaValidateHeap(void);
 

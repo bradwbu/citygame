@@ -1,7 +1,7 @@
 
 #include "megaGrid.h"
 #include "megaGridPrivate.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include "entity.h"
 #include "entserver.h"
 
@@ -104,7 +104,7 @@ void mgVerifyAllGrids(MegaGridNode* excludeNode){
 
 #if MEGA_GRID_DEBUG
 
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 
 static struct {
     S32 nodeCount;

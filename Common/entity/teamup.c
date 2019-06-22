@@ -1,22 +1,23 @@
+#include <utilitieslib/stdtypes.h>
 #include "teamup.h"
 #include "Supergroup.h"
 #include <memory.h>
-#include "MemoryPool.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "entity.h"
 #include "entPlayer.h"
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "teamCommon.h"
 #include "Supergroup.h"
 #include "rewardtoken.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "character_base.h"
 
 
 
 #ifdef SERVER
-#include "storyinfo.h"
-#include "storyarcprivate.h"
-#include "EString.h"
+#include "storyarc/storyinfo.h"
+#include "storyarc/storyarcprivate.h"
+#include <utilitieslib/components/estring.h>
 #include "entityRef.h"
 #endif
 

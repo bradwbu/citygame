@@ -1,16 +1,16 @@
 #include "fxbhvr.h"
 #include <string.h>
-#include "genericlist.h"
-#include "utils.h"
-#include "earray.h"
+#include <utilitieslib/components/genericlist.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/earray.h>
 #include "font.h"
 #include "time.h"
-#include "fileutil.h"
-#include "error.h"
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/error.h>
 #include "tricks.h"
-#include "textparser.h"
-#include "StashTable.h"
-#include "strings_opt.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/strings_opt.h>
 
 #ifdef CLIENT 
 #include "fx.h"

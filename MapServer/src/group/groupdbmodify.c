@@ -2,20 +2,20 @@
 #include "groupdbmodify.h"
 #include "groupdb_util.h"
 #include "groupnetdb.h"
-#include "mathutil.h"
-#include "utils.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/utils.h>
 #include <string.h>
 #include "groupfilelib.h"
 #include "dbcomm.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "anim.h"
 #include "groupgrid.h"
 #include "groupnetsend.h"
 #include "grouptrack.h"
 #include "grouputil.h"
 #include "groupjournal.h"
-#include "timing.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/components/StashTable.h>
 
 GroupDef *protect_parent;
 //I think this is only for checking out library pieces...

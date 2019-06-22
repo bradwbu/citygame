@@ -5,49 +5,49 @@
  ***************************************************************************/
 #include "VillainDef.h"
 #include "npc.h"        // For NPC structure defintion
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
-#include "textparser.h"
-#include "log.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/log.h>
 
 // For character stat assignment
 #if SERVER
-#include "dbcomm.h"
-#include "entserver.h"        // For svrChangeBody
-#include "character_combat.h" // For character_ActivateAllAutoPowers
-#include "entgen.h"        // For entCreateEx()
-#include "langServerUtil.h"    // For server-side message stores.
-#include "encounterPrivate.h"
-#include "mission.h"
-#include "animbitlist.h"
-#include "PCC_Critter.h"
-#include "CustomVillainGroup.h"
-#include "Supergroup.h"
-#include "power_customization.h"
-#include "logcomm.h"
-#include "scriptengine.h"
+#include "dbcomm/dbcomm.h"
+#include "entity/entserver.h"        // For svrChangeBody
+#include "entity/character_combat.h" // For character_ActivateAllAutoPowers
+#include "generator/entgen.h"        // For entCreateEx()
+#include "language/langServerUtil.h"    // For server-side message stores.
+#include "generator/encounterPrivate.h"
+#include "storyarc/mission.h"
+#include "seq/animbitlist.h"
+#include "entity/PCC_Critter.h"
+#include "entity/CustomVillainGroup.h"
+#include "entity/Supergroup.h"
+#include "entity/power_customization.h"
+#include "dbcomm/logcomm.h"
+#include "script/scriptengine.h"
 #endif
 
-#include "Entity.h"
-#include "character_base.h"   // For character structure definition
-#include "character_level.h"  // For character_Level
-#include "classes.h"    // For character class initialization
-#include "origins.h"    // For character origin initialization
-#include "powers.h"        // For character power assignment
-#include "costume.h"    // For structure Costume
-#include "commonLangUtil.h"
-#include "strings_opt.h"
-#include "AppVersion.h"
+#include "entity/Entity.h"
+#include "entity/character_base.h"   // For character structure definition
+#include "entity/character_level.h"  // For character_Level
+#include "entity/classes.h"    // For character class initialization
+#include "entity/origins.h"    // For character origin initialization
+#include "entity/powers.h"        // For character power assignment
+#include "entity/costume.h"    // For structure Costume
+#include "language/commonLangUtil.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/version/AppVersion.h>
 #include "comm_game.h"
-#include "fileutil.h"
-#include "FolderCache.h"
-#include "SharedMemory.h"
-#include "StashTable.h"
-#include "costume_data.h"
-#include "BodyPart.h"
-#include "SharedHeap.h"
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/components/SharedMemory.h>
+#include <utilitieslib/components/StashTable.h>
+#include "gameData/costume_data.h"
+#include "gameData/BodyPart.h"
+#include <utilitieslib/components/SharedHeap.h>
 
 
 //---------------------------------------------------------------------------------------------------------------

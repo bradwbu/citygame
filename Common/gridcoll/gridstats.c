@@ -2,7 +2,7 @@
 #include <string.h>
 #include "grid.h"
 #include "stdlib.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 
 static int depth_hist[100];
 static int count_hist[100];

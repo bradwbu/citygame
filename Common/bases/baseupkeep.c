@@ -4,18 +4,18 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "baseupkeep.h"
-#include "Supergroup.h"
-#include "utils.h"
-#include "assert.h"
-#include "error.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
-#include "textparser.h"
+#include "entity/Supergroup.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/textparser.h>
 
 #if SERVER || STATSERVER
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 #endif // SERVER || STATSERVER
 
 static TokenizerParseInfo ParseRentRange[] =

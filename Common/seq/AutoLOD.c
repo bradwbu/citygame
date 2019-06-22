@@ -1,13 +1,13 @@
-#include "stdtypes.h"
-#include "textparser.h"
-#include "earray.h"
-#include "utils.h"
-#include "file.h"
-#include "fileutil.h"
-#include "assert.h"
-#include "StashTable.h"
-#include "timing.h"
-#include "FolderCache.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/FolderCache.h>
 
 #include "AutoLOD.h"
 #include "anim.h"

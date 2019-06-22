@@ -2,7 +2,7 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <memory.h>
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <stdio.h>
 #include "beaconAStar.h"
 #include <utilitieslib/components/MemoryPool.h>

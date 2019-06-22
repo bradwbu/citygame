@@ -3,10 +3,10 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "stdtypes.h"
-#include "strings_opt.h"
-#include "EString.h"
-#include "error.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/error.h>
 
 #include "svr_base.h"
 #include "entserver.h"

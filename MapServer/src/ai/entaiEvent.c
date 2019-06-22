@@ -23,7 +23,7 @@
 
 extern TokenizerParseInfo ParseCharacterAttributes[];
 
-char *dbg_GetParseName(TokenizerParseInfo atpi[], int offset);
+char const* dbg_GetParseName(TokenizerParseInfo atpi[], int offset);
 
 // AIEvent ---------------------------------------------------------------------------
 

@@ -1,17 +1,17 @@
 #include <stdlib.h>
-#include <assert.h>
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <crtdbg.h>
 
 #include "entgen.h"
 #include "ArrayOld.h"
 #include "grouputil.h"
 #include "position.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 
 #include "HashTableStack.h"
 #include "gridcoll.h"
-#include "memorypool.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "entgenLoader.h"
 #include "missionMapInit.h"
 #include "cmdserver.h"
@@ -20,18 +20,18 @@
 #include "entai.h"
 #include "NpcServer.h"
 #include "villainDef.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "svr_player.h"
 #include "motion.h"
 #include "netfx.h"
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 
 // lf stuff
 #include "string.h"
 #include "combat.h"
 #include "entVarUpdate.h"
 #include "entserver.h"
-#include "StringCache.h"
+#include <utilitieslib/components/StringCache.h>
 #include "varutils.h"
 #include "seq.h"
 #include "entity.h"

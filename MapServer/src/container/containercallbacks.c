@@ -1,8 +1,8 @@
 #include "entserver.h"
 #include "comm_backend.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "varutils.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include "entVarUpdate.h"
 #include "comm_game.h"
 #include "entity.h"
@@ -13,7 +13,7 @@
 #include "svr_base.h"
 #include "dbcomm.h"
 #include "crypt.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "svr_base.h"
 #include "svr_player.h"
 #include "sendToClient.h"
@@ -21,7 +21,7 @@
 #include "character_net_server.h"
 #include "costume.h"        // Remove! Dep: bodyName()
 #include "team.h"
-#include "strings_opt.h"
+#include <utilitieslib/utils/strings_opt.h>
 #include "svr_player.h"
 #include "encounter.h"
 #include "storyarcinterface.h"
@@ -32,7 +32,7 @@
 #include "validate_name.h"
 #include "entGameActions.h"
 #include "playerState.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "npc.h"
 #include "cmdserver.h"
 #include "cmdservercsr.h"
@@ -65,7 +65,7 @@
 #include "league.h"
 #include "alignment_shift.h"
 #include "autoCommands.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 #include "logcomm.h"
 #include "turnstile.h"
 #include "auth\authUserData.h"

@@ -4,17 +4,17 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "sendToClient.h"
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 #include <stdio.h>
-#include "assert.h"
-#include "utils.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/utils.h>
 #include "svr_base.h"
 #include "entity.h"
 #include "entPlayer.h"
 #include "network\netio.h"
 #include "entserver.h"
 #include "varutils.h"
-#include "StringCache.h"
+#include <utilitieslib/components/StringCache.h>
 #include "entVarUpdate.h"
 #include "comm_backend.h"
 #include "dbdoor.h"
@@ -25,17 +25,17 @@
 #include "svr_chat.h"
 #include "arenamap.h"
 #include "cmdserver.h"
-#include "MessageStore.h"
-#include "EString.h"
+#include <utilitieslib/language/MessageStore.h>
+#include <utilitieslib/components/estring.h>
 #include "Npc.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "character_base.h"
 #include "cmdenum.h"
 #include "teamCommon.h"
 #include "character_target.h"
-#include "scriptvars.h"
+#include <utilitieslib/utils/scriptvars.h>
 #include "storyarcutil.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 static char *xlateConfirmText(Entity *e, int translateName, const char* messageID, ...);
 

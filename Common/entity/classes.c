@@ -3,15 +3,16 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <string.h>
 
 
-#include "error.h"
-#include "earray.h"
-#include "textparser.h"
-#include "StashTable.h"
-#include "SharedMemory.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/SharedMemory.h>
+#include <utilitieslib/utils/SuperAssert.h>
 
 #include "powers.h"
 #include "classes.h"

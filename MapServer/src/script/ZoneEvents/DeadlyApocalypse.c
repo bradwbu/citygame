@@ -5,11 +5,11 @@
 
 #include "scriptutil.h"
 #include "scriptengine.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "gridcoll.h"
 #include "svr_chat.h"
-#include "timing.h"
-#include <assert.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/assert/assert.h>
 
 // Relative probabilities of the four ranks when spawning critters.
 #define MINION_PROBABILITY            15

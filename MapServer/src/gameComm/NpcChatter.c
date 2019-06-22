@@ -4,14 +4,14 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include <string.h>
-#include "strings_opt.h"
-#include "FolderCache.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/components/StashTable.h>
 
-#include "earray.h"
-#include "file.h"
-#include "utils.h"
-#include "AppLocale.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/language/AppLocale.h>
 #include "profanity.h"
 #include "simpleparser.h"
 
@@ -23,13 +23,13 @@
 #include "svr_player.h"
 #include "langServerUtil.h"
 #include "cmdcommon.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "entGameActions.h"
 #include "storyarcinterface.h"
 #include "storyarcutil.h"
 #include "cmdserver.h"
-#include "scriptvars.h"
-#include "MessageStore.h"
+#include <utilitieslib/utils/scriptvars.h>
+#include <utilitieslib/language/MessageStore.h>
 #include "encounter.h"
 
 static char **s_NPCChatter;

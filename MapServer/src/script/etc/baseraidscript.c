@@ -4,7 +4,7 @@
 // Runs on supergroup bases during a raid - provides overall game control, and UI for the raid
 
 #include "scriptutil.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 #define DISRUPTER_PYLON_POWER "Auto Pets.Raid_Disruptor_Pylon_Create.Create"
 #define WRAPUP_LENGTH    1.0        // in minutes
@@ -173,10 +173,10 @@ void BaseRaidInit()
 #include "bases.h"
 #include "basesystems.h"
 #include "basedata.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "villaindef.h"
 #include "sgraid.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "entai.h"
 #include "entity.h"
 #include "entserver.h"

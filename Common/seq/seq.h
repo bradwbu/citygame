@@ -3,7 +3,7 @@
  
 #include "gfxtree.h"
 #ifdef CLIENT
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #endif
 
 #include "TriggeredMove.h"

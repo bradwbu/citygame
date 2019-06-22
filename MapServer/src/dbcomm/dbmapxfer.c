@@ -1,25 +1,25 @@
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include "dbcomm.h"
 #include "dbmapxfer.h"
 #include "entity.h"
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "svr_base.h"
-#include "net_packetutil.h"
+#include <utilitieslib/network/net_packetutil.h>
 
 #include "entPlayer.h"
 #include "containerloadsave.h" // packageEntAll()
 #include "AuctionClient.h" // ent_XactReqShardJump()
 #include "dbquery.h" // dbQueryGetFilter()
-#include "EString.h"
-#include "netcomp.h"
-#include "timing.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/network/netcomp.h>
+#include <utilitieslib/utils/timing.h>
 #include "crypt.h"
 
 #include "dbcontainer.h"
 #include "comm_game.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "grouputil.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "entserver.h"
 #include "svr_player.h"
 #include "entVarUpdate.h"
@@ -32,7 +32,7 @@
 #include "scriptengine.h"
 #include "pvp.h"
 #include "turnstileservercommon.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "logcomm.h"
 #include "LWC_common.h"
 

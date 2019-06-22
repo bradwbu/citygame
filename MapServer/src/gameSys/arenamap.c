@@ -9,15 +9,15 @@
  */
 
 #include "arenamapserver.h"
-#include "estring.h"
+#include <utilitieslib/components/estring.h>
 #include "arenamap.h"
 #include "dbcomm.h"
 #include "comm_game.h"
 #include "svr_base.h"
 #include "svr_player.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "stdio.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "character_base.h"
 #include "character_combat.h"
 #include "character_tick.h"
@@ -30,7 +30,7 @@
 #include "powerinfo.h"
 #include "character_animfx.h"
 #include "playerState.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "parseClientInput.h"
 #include "seq.h"
 #include "entity.h"
@@ -39,7 +39,7 @@
 #include "character_target.h"
 #include "petarena.h"
 #include "cmdserver.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 
 #define ARENAMAP_FINISH_TIME_NORMAL    300
 #define ARENAMAP_FINISH_TIME_MULTIROUND    60

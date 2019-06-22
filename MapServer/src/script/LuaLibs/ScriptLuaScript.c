@@ -6,7 +6,7 @@
 #include "script.h"
 #include "ScriptLuaCommon.h"
 #include "character_eval.h"
-#include "file.h"                // needed for isDevelopmentMode()
+#include <utilitieslib/utils/file.h>                // needed for isDevelopmentMode()
 #include "turnstile.h"
 #include "mission.h"            // needed for turnstileConfigDef somehow
 

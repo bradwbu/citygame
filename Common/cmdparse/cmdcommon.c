@@ -1,28 +1,28 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include "file.h"
-#include "stdtypes.h"
-#include "cmdoldparse.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/cmdoldparse.h>
 #include "cmdcommon.h"
-#include "MemoryPool.h"
-#include "assert.h"
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/assert/assert.h>
 #include "cmdcontrols.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "cmdcommon_enum.h"
-#include "motion.h"
-#include "utils.h"
-#include "MessageStore.h"
-#include "MessageStoreUtil.h"
-#include "strings_opt.h"
+#include "entity/motion.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/language/MessageStore.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/strings_opt.h>
 
 #if CLIENT
 #include "uiConsole.h"
 #include "sprite_text.h"
 #include "language/langClientUtil.h"
 #else
-#include "sendToClient.h"
-#include "cmdserver.h"
+#include "gameComm/sendToClient.h"
+#include "cmdparse/cmdserver.h"
 #include "language/langServerUtil.h"
 #endif
 

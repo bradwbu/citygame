@@ -4,7 +4,7 @@
 #include "character_base.h"
 #include "contact.h"
 #include "storyinfo.h"
-#include "EString.h"
+#include <utilitieslib/components/estring.h>
 
 #include "TeamReward.h"
 #include "RewardToken.h"

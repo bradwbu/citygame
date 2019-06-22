@@ -6,12 +6,12 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "stdtypes.h"
-#include "earray.h"
-#include "file.h"
-#include "fileutil.h"
-#include "StashTable.h"
-#include "AppLocale.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/language/AppLocale.h>
 #include "reserved_names.h"
 
 #ifndef CHATSERVER
@@ -21,7 +21,7 @@
 #include "contact.h"
 #include "pnpcCommon.h"
 #endif
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 
 static StashTable s_hashReservedNames;
 

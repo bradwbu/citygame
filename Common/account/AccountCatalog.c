@@ -24,19 +24,19 @@
 #endif
 
 #if defined(CLIENT) && !defined(TEST_CLIENT)
-#include "smf_main.h"
-#include "MessageStoreUtil.h"
+#include "formatter/smf_main.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #endif
 
 #if defined(SERVER)
-#include "entity.h"
-#include "EntPlayer.h"
-#include "badges.h"
-#include "RewardToken.h"
-#include "dbcomm.h"
-#include "costume.h"
-#include "costume_data.h"
-#include "badges_server.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "player/badges.h"
+#include "entity/RewardToken.h"
+#include "dbcomm/dbcomm.h"
+#include "entity/costume.h"
+#include "gameData/costume_data.h"
+#include "player/badges_server.h"
 #include <utilitieslib/utils/file.h>
 #endif
 

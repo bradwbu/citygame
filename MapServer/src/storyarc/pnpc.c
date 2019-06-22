@@ -39,7 +39,7 @@
 #include "entaivars.h"
 #include "aiBehaviorPublic.h"
 #include "pnpcCommon.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 StashTable g_localpnpcs = 0;        // list of entities, indexed by pnpc name
 int g_pnpccount = 0;

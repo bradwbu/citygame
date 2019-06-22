@@ -10,9 +10,9 @@
 #include "scriptengine.h"
 #include "gridcoll.h"
 #include "encounterprivate.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "holidayevent.h"
-#include "superassert.h"
+#include <utilitieslib/utils/SuperAssert.h>
 #include "dbcontainer.h"
 
 #define    LORD_WINTERS_TEAM                "LordWintersTeam"

@@ -1,6 +1,6 @@
 #include "Position.h"
 #include <stdlib.h>
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include "entity.h"
 
 

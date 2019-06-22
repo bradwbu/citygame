@@ -1,7 +1,7 @@
 #include "properties.h"
-#include "textparser.h"
-#include "earray.h"
-#include "assert.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/assert/assert.h>
 
 DefineIntList ParsePropertyTypeEnum[] =
 {

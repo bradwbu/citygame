@@ -5,18 +5,18 @@
 //
 //----------------------------------------------------------------
 
-#include "wininclude.h"
-#include "earray.h"
+#include <utilitieslib/utils/wininclude.h>
+#include <utilitieslib/components/earray.h>
 
 #include "trayCommon.h"
-#include "character_base.h"
-#include "powers.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "assert.h"
-#include "netio.h"
-#include "utils.h"
-#include "strings_opt.h"
+#include "entity/character_base.h"
+#include "entity/powers.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/strings_opt.h>
 #include "container/dbcontainerpack.h"
 
 // Use the tray iterator functions when you want to iterate over every item in all trays
@@ -750,8 +750,8 @@ InventoryType InventoryType_FromTrayItemType(TrayItemType type)
         return kInventoryType_Count;
 }
 
-#include "textparser.h"
-#include "EString.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/estring.h>
 
 StaticDefineInt parse_TrayItemTypeEnum[] =
 {

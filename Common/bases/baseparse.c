@@ -1,14 +1,14 @@
 #include "bases.h"
-#include "textparser.h"
-#include "file.h"
-#include "utils.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/utils.h>
 #include "baseparse.h"
-#include "EString.h"
-#include "EArray.h"
-#include "assert.h"
+#include <utilitieslib/components/EString.h>
+#include <utilitieslib/components/EArray.h>
+#include <utilitieslib/assert/assert.h>
 #include "basedata.h"
-#include "salvage.h"
-#include "boost.h"
+#include "entity/salvage.h"
+#include "entity/boost.h"
 
 ParseLink g_base_roomInfoLink = {
     (void***)&g_RoomTemplateDict.ppRooms,
@@ -270,7 +270,7 @@ void rebuildBaseFromStr( Base * base )
 }
 
 
-#include "group.h"
+#include "group/group.h"
 void baseReset(Base *base)
 {
     int        i;

@@ -2,22 +2,22 @@
 #include <float.h>
 #include <stdlib.h>
 #include <string.h>
-#include "stdtypes.h"
-#include "error.h"
-#include "mathutil.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/mathutil.h>
 #include "group.h"
 #include "grouptrack.h"
 #include "gridcoll.h"
 #include "anim.h"
-#include "assert.h"
-#include "utils.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/utils.h>
 #include "grouputil.h"
 #include "groupfileload.h"
 #include "gridfind.h"
 #include "bases.h"
 
 #if CLIENT
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "groupdraw.h"
 #include "vistraygrid.h"
 #endif

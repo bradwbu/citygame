@@ -3,7 +3,7 @@
 #include "comm_backend.h"
 #include "dbcomm.h"
 #include "scriptengine.h"
-#include "StringCache.h"
+#include <utilitieslib/components/StringCache.h>
 
 MapGroup    g_mapgroup;
 int            g_mapgroup_id;

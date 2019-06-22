@@ -2,7 +2,7 @@
 #include "Sgrpbasepermissions.h"
 #include "baseupkeep.h"
 
-#include "eval.h"
+#include <utilitieslib/utils/eval.h>
 #include "arenamapserver.h"
 #include "character_base.h"
 #include "character_eval.h"
@@ -18,7 +18,7 @@
 #include "dbcontainer.h"
 #include "dbnamecache.h"
 #include "dbquery.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "entity.h"
 #include "entPlayer.h"
 #include "langServerUtil.h"
@@ -32,10 +32,10 @@
 #include "svr_player.h"
 #include "team.h"
 #include "teamup.h"
-#include "timing.h"
-#include "utils.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/utils.h>
 #include "validate_name.h"
-#include "EString.h"
+#include <utilitieslib/components/estring.h>
 #include "bases.h"
 #include "baseparse.h"
 #include "basedata.h"
@@ -50,11 +50,11 @@
 #include "storyarcprivate.h"
 #include "raidmapserver.h"
 #include "baseloadsave.h"
-#include "memlog.h"
+#include <utilitieslib/utils/memlog.h>
 #include "baseserver.h"
 #include "beaconClientServerPrivate.h"
 #include "profanity.h"
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 #include "baselegal.h"
 
 #include "classes.h"

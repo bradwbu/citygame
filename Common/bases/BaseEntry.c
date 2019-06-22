@@ -4,15 +4,15 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "BaseEntry.h"
-#include "SgrpBasePermissions.h"
-#include "utils.h"
-#include "assert.h"
-#include "error.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
-#include "supergroup.h"
+#include "entity/SgrpBasePermissions.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/StashTable.h>
+#include "entity/supergroup.h"
 
 BaseAccess sgrp_BaseAccessFromSgrp(Supergroup *sg, SgrpBaseEntryPermission bep)
 {

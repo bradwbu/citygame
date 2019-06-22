@@ -12,8 +12,8 @@
  */
 
 #include "storyarc.h"
-#include "StringCache.h"
-#include "cmdoldparse.h"
+#include <utilitieslib/components/StringCache.h>
+#include <utilitieslib/utils/cmdoldparse.h>
 #include "storyarcprivate.h"
 #include "character_level.h"
 #include "character_eval.h"
@@ -29,11 +29,11 @@
 #include "supergroup.h"
 #include "sgrpserver.h"
 #include "svr_chat.h"
-#include "foldercache.h"
-#include "fileutil.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
 #include "cmdserver.h"
 #include "TaskForceParams.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "badges_server.h"
 #include "playerCreatedStoryarcServer.h"
 #include "pnpcCommon.h"

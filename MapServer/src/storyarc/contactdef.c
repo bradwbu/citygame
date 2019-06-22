@@ -17,8 +17,8 @@
 #include "badges_server.h"
 #include "entplayer.h"
 #include "entity.h"
-#include "foldercache.h"
-#include "fileutil.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
 #include "commonLangUtil.h"
 #include "pnpcCommon.h"
 #include "taskforce.h"
@@ -28,7 +28,7 @@
 #include "taskdef.h"
 #include "character_level.h"
 #include "svr_chat.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "svr_base.h"
 #include "comm_game.h"
 #include "dbcomm.h"

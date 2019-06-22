@@ -2,9 +2,9 @@
 #include "basetrim.h"
 #include "basetogroup.h"
 #include "basedata.h"
-#include "group.h"
-#include "utils.h"
-#include "mathutil.h"
+#include "group/group.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/mathutil.h>
 
 typedef struct
 {

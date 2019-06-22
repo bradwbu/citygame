@@ -1,13 +1,13 @@
 #include "incarnate.h"
-#include "badges.h"
+#include "player/badges.h"
 #include "entPlayer.h"
 #include "character_base.h"
-#include "earray.h"
-#include "MessageStoreUtil.h"
-#include "structDefines.h"
-#include "EString.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/structDefines.h>
+#include <utilitieslib/components/estring.h>
 #if SERVER
-#include "badges_server.h"
+#include "player/badges_server.h"
 #endif
 
 StaticDefineInt ParseIncarnateSlotNames[] = {

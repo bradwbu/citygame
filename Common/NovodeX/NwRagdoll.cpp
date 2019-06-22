@@ -25,17 +25,17 @@ extern "C"
     #include "ragdoll.h"
     #include "gfxtree.h"
     #include "seq.h"
-    #include "mathutil.h"
+    #include <utilitieslib/utils/mathutil.h>
     #include "queue.h"
     #include "entity.h"
     #include "renderprim.h"
     #include "motion.h"
     #include "groupnovodex.h"
     #include "costume.h"
-    #include "error.h"
-    #include "timing.h"
-    #include "earray.h"
-    #include "Quat.h"
+    #include <utilitieslib/utils/error.h>
+    #include <utilitieslib/utils/timing.h>
+    #include <utilitieslib/components/earray.h>
+    #include <utilitieslib/utils/Quat.h>
 }
 
 typedef enum ragGeom

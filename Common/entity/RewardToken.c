@@ -4,11 +4,11 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "RewardToken.h"
-#include "timing.h"
-#include "utils.h"
-#include "StringCache.h"
-#include "earray.h"
-#include "MemoryPool.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/StringCache.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/MemoryPool.h>
 #include "entity.h"
 #include "entPlayer.h"
 #include "Supergroup.h"

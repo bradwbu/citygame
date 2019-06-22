@@ -3,14 +3,14 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "error.h"
-#include "mathutil.h" // MAX
-#include "netio.h"
-#include "earray.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/mathutil.h> // MAX
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/components/earray.h>
 
 #include "powers.h"
-#include "assert.h"
-#include "utils.h" // INRANGE
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/utils.h> // INRANGE
 
 #include "character_base.h"
 #include "character_net.h"
@@ -18,20 +18,20 @@
 #include "character_inventory.h"
 
 #ifdef SERVER
-#include "cmdserver.h"
+#include "cmdparse/cmdserver.h"
 #include "Reward.h"
-#include "logcomm.h"
-#include "dbcomm.h"
-#include "turnstile.h"
+#include "dbcomm/logcomm.h"
+#include "dbcomm/dbcomm.h"
+#include "gameSys/turnstile.h"
 #elif CLIENT
-#include "uiRecipeInventory.h"
-#include "uiIncarnate.h"
-#include "uiTray.h"
+#include "UI/uiRecipeInventory.h"
+#include "UI/uiIncarnate.h"
+#include "UI/uiTray.h"
 #include "clientcomm.h"
 #include "comm_game.h"
 #endif
 #include "Entity.h"
-#include "villaindef.h"
+#include "gameComm/villaindef.h"
 #include "salvage.h"
 #include "concept.h"
 

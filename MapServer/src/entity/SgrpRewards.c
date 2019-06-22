@@ -4,19 +4,19 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "SgrpStats.h"
-#include "file.h"
-#include "utils.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/utils.h>
 #include "mathutil.h"
-#include "earray.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
-#include "assert.h"
-#include "MemoryPool.h"
-#include "netio.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/network/netio.h>
 #include "comm_backend.h"
 #include "SgrpBadges.h"
 #include "BadgeStats.h"
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 
 #include "entity.h"
 #include "entplayer.h"

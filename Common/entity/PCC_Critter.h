@@ -1,7 +1,7 @@
 #ifndef PCC_Critter_H__
 #define PCC_Critter_H__
 
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 #include "costume.h"
 
 typedef struct Entity Entity;
@@ -28,7 +28,7 @@ typedef struct PCC_Critter
 
 
 
-enum PCC_LOADERROR_CODES
+typedef enum PCC_LOADERROR_CODES
 {
     PCC_LE_VALID = 0,
     PCC_LE_NULL = 1,
@@ -55,7 +55,7 @@ enum PCC_LOADERROR_CODES
     PCC_LE_INVALID_DESC = 1 << 21,
     PCC_LE_INVALID_SELECTED_PRIMARY_POWERS = 1 << 22,
     PCC_LE_INVALID_SELECTED_SECONDARY_POWERS = 1 << 23,
-};
+} PCC_LOADERROR_CODES;
 typedef enum PCC_Rank
 {
     PCC_RANK_MINION,
@@ -74,7 +74,7 @@ typedef enum PCC_Difficulty
     PCC_DIFF_EXTREME,
     PCC_DIFF_CUSTOM = -1,
     PCC_DIFF_COUNT = 4,
-};
+} PCC_Difficulty;
 // Header for Player Created Critter Editor
 typedef enum pcc_MenuCategory
 {

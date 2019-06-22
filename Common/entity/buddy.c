@@ -3,10 +3,10 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <float.h>
 
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 
 #include "entity.h"
 #include "character_base.h"

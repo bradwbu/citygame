@@ -2,15 +2,15 @@
 #include <stdio.h>
 #include <process.h>
 #include <time.h>
-#include "utils.h"
-#include "EArray.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/earray.h>
 #include "sock.h"
 #include "network\netio.h"
 #include "net_socket.h"
 #include "entity.h"
 #include "dbquery.h"
-#include "timing.h"
-#include "file.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/file.h>
 
 
 static void columnPrintf(int columnWidth, char spacer, const char *str, ...)

@@ -12,8 +12,8 @@
 #include "containerArena.h"
 #include "dbcomm.h"
 #include "container/dbcontainerpack.h"
-#include "file.h"
-#include "earray.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/earray.h>
 #include "gametypes.h"
 #include "comm_backend.h"
 

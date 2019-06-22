@@ -2,21 +2,21 @@
 // encounter spawn points
 
 #include <time.h>
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <float.h>
 #include <StringCache.h>
 #include "encounter.h"
 #include "encounterprivate.h"
-#include "textparser.h"
-#include "scriptvars.h"
-#include "memcheck.h"
-#include "stdtypes.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/scriptvars.h>
+#include <utilitieslib/utils/memcheck.h>
+#include <utilitieslib/stdtypes.h>
 #include "ArrayOld.h"
 #include "group.h"
 #include "groupProperties.h"
 #include "grouputil.h"
-#include "mathutil.h"
-#include "utils.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/utils.h>
 #include "entity.h"
 #include "position.h"
 #include "entgenCommon.h"
@@ -33,8 +33,8 @@
 #include "svr_base.h"
 #include "sendtoclient.h"
 #include "gridcoll.h"
-#include "error.h"
-#include "earray.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/earray.h>
 #include "team.h"
 #include "villaindef.h"
 #include "character_base.h"
@@ -44,11 +44,11 @@
 #include "storyarcInterface.h"
 #include "storyarcprivate.h"
 #include "task.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "npcnames.h"
 #include "NpcServer.h"
-#include "SharedMemory.h"
-#include "MemoryPool.h"
+#include <utilitieslib/components/SharedMemory.h>
+#include <utilitieslib/components/MemoryPool.h>
 #include "pmotion.h"
 #include "reward.h"
 #include "dbghelper.h"
@@ -63,8 +63,8 @@
 #include "cmdserver.h"
 #include "gridfind.h"
 #include "StringTable.h"
-#include "FolderCache.h"
-#include "fileutil.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
 #include "groupgrid.h"
 #include "badges_server.h"
 #include "entaivars.h"
@@ -85,7 +85,7 @@
 int ScriptGetEncounter(EncounterGroup* group, Entity* player);
 static void EncounterActiveInfoDestroy(EncounterGroup* group);
 
-#include "strings_opt.h"
+#include <utilitieslib/utils/strings_opt.h>
 
 static Array        g_encountergroups    = {0, 0, 0};
 

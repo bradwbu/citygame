@@ -1,17 +1,18 @@
+#include <utilitieslib/stdtypes.h>
 #include "character_karma.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "character_base.h"
-#include "structDefines.h"
-#include "SuperAssert.h"
+#include <utilitieslib/utils/structDefines.h>
+#include <utilitieslib/utils/SuperAssert.h>
 #include "entity.h"
-#include "svr_base.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
-#include "EString.h"
+#include <utilitieslib/components/estring.h>
 #include "powers.h"
-#include "scriptedzoneeventkarma.h"
-#include "mathutil.h"
-#include "file.h"
-#include "SharedMemory.h"
+#include "script/ZoneEvents/scriptedzoneeventkarma.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/SharedMemory.h>
 
 StaticDefineInt CharacterKarmaReasonText [] =
 {

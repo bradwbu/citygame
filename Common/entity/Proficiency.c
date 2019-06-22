@@ -3,23 +3,23 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "assert.h"
-#include "utils.h"
-#include "file.h"
-#include "mathutil.h"
-#include "StashTable.h"
-#include "EArray.h"
-#include "EString.h"
-#include "textparser.h" // for TokenizerParseInfo
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/textparser.h> // for TokenizerParseInfo
 #include "Concept.h"
 #include "character_inventory.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 #include "origins.h"
 #include "powers.h"
 #include "boost.h"
 #include "character_base.h"
-#include "MemoryPool.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "Proficiency.h"
 
 // compile time checks.

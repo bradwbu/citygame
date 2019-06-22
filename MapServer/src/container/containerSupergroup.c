@@ -4,17 +4,17 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "containerSupergroup.h"
-#include "utils.h"
-#include "assert.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
-#include "textparser.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/textparser.h>
 #include "Entity.h"
 #include "Supergroup.h"
 #include "container/dbcontainerpack.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "rewardtoken.h"
 #include "Supergroup.h"
 #include "team.h"
@@ -25,7 +25,7 @@
 #include "taskdef.h"
 #include "DetailRecipe.h"
 #include "logcomm.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 
 #if SERVER || GAME
 #include "containerloadsave.h"

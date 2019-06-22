@@ -2,7 +2,7 @@
 #define _IMAGESERVER_H
 
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "costume.h"
 
 #define MAX_CAPTION 200

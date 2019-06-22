@@ -14,9 +14,9 @@
 #include "logcomm.h"
 #include "containerbroadcast.h"
 #include "staticMapInfo.h"
-#include "net_packet.h"
-#include "earray.h"
-#include "EString.h"
+#include <utilitieslib/network/net_packet.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
 #include "turnstile.h"
 #include "door.h"
 

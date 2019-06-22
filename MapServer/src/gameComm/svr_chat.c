@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "earray.h"
-#include "log.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/log.h>
 #include "logcomm.h"
 #include "entity.h"
 #include "entPlayer.h"
@@ -21,7 +21,7 @@
 #include "cmdchat.h"
 #include "character_animfx.h"
 #include "svr_player.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "shardcomm.h"
 #include "SgrpServer.h"
 #include "arenamap.h"
@@ -33,8 +33,8 @@
 #include "Supergroup.h"
 #include "costume.h"
 #include "comm_backend.h"
-#include "mathutil.h"
-#include "timing.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/timing.h>
 #include "staticMapInfo.h"
 #include "containerloadsave.h" // packagePetition
 #include "comm_game.h"

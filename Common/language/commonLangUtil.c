@@ -1,19 +1,19 @@
 
 #include "commonLangUtil.h"
 #include "ArrayOld.h"
-#include "MessageStore.h"
-#include "MessageStoreUtil.h"
-#include "AppLocale.h"
-#include "utils.h"
+#include <utilitieslib/language/MessageStore.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/utils/utils.h>
 #include "powers.h"
-#include "scriptvars.h"
+#include <utilitieslib/utils/scriptvars.h>
 #include "character_base.h"
 #include "character_level.h"
 #include "classes.h"
 
 #if CLIENT | SERVER
     #if CLIENT
-        #include "MessageStoreUtil.h"
+        #include <utilitieslib/language/MessageStoreUtil.h>
         #include "language/langClientUtil.h"
         #include "cmdgame.h"
     #elif SERVER
@@ -25,7 +25,7 @@
 
     #include "entity.h"
     #include "costume.h"
-    #include "estring.h"
+    #include <utilitieslib/components/estring.h>
     #include "entPlayer.h"
 
     StaticDefineInt ParseGender[] = {

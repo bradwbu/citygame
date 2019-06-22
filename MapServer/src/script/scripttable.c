@@ -9,9 +9,9 @@
  */
 
 #include "scripttable.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "stdio.h"
-#include "strings_opt.h"
+#include <utilitieslib/utils/strings_opt.h>
 
 #define MAX_SCRIPTS 200    // If we need more than this, it's time to re-revaluate what we're doing
 #define DECLARE(x)    void x(void);

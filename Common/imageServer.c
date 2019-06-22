@@ -1,18 +1,18 @@
-#include "wininclude.h"  // JS: Can't find where this file includes <windows.h> so I'm just sticking this include here.
-#include "utils.h"
-#include "earray.h"
+#include <utilitieslib/utils/wininclude.h>  // JS: Can't find where this file includes <windows.h> so I'm just sticking this include here.
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/earray.h>
 
 #ifdef CLIENT
 #include "cmdgame.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "player.h"
-#include "FolderCache.h"
-#include "fileutil.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
 #include "entClient.h"
 #include "costume_client.h"
 #include "tga.h"
 #include "seqgraphics.h"
-#include "FolderCache.h"
+#include <utilitieslib/utils/FolderCache.h>
 #include "tex.h"
 #include "textureatlas.h"
 #include "game.h"
@@ -24,12 +24,12 @@
 #include "imageServer.h"
 #include "seq.h"
 #include "entity.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "motion.h"
 #include "entity.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "BodyPart.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 
 #if CLIENT
 #include "cmdgame.h"

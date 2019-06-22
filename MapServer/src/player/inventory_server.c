@@ -6,19 +6,19 @@
 #include "character_base.h"
 #include "Auction.h"
 
-#include "assert.h"
-#include "utils.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/utils.h>
 #include "entPlayer.h"
 #include "entity.h"
 #include "entserver.h"
-#include "earray.h"
-#include "netio.h"
-#include "timing.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/utils/timing.h>
 #include "character_net.h"
 #include "inventory_server.h"
 #include "AccountData.h"
 #include "AccountCatalog.h"
-#include "cmdoldparse.h"
+#include <utilitieslib/utils/cmdoldparse.h>
 #include "cmdaccountserver.h"
 #include "cmdcommon_enum.h"
 

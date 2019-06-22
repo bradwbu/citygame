@@ -3,16 +3,16 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include "string.h"
 #include "time.h"
 
-#include "error.h"
-#include "earray.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/earray.h>
 #include "motion.h"
 
 // For the networking
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "entVarUpdate.h"
 #include "comm_game.h"
 

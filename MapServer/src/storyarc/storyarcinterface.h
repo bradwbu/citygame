@@ -16,7 +16,7 @@
 
 #include <utilitieslib/stdtypes.h>
 #include "entity/entityRef.h"
-//#include "scriptvars.h"
+//#include <utilitieslib/utils/scriptvars.h>
 #include "storyarc/storyarcCommon.h"
 #include "entity/power_system.h"   // for MAX_PLAYER_SECURITY_LEVEL
 

@@ -1,14 +1,14 @@
 #include "seqtype.h"
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 #include "seq.h"
-#include "utils.h"
-#include "StashTable.h"
-#include "earray.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/earray.h>
 #include "cmdcommon.h"
 #include "splat.h"
-#include "error.h"
-#include "file.h"
-#include "timing.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/timing.h>
 
 // All parser-used defaults must be integers
 #define SEQ_DEFAULT_VISSPHERERADIUS 5

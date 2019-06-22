@@ -1,10 +1,10 @@
 #include "characterTransfer.h"
 #include <stdio.h>
-#include "FolderCache.h"
-#include "wininclude.h"
-#include "fileutil.h"
-#include "utils.h"
-#include "timing.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/wininclude.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
 
 extern CharacterTransfer characterTransfer = { "C:\\characterTransfer", "mapserver.exe", "mapserver.exe" };
 

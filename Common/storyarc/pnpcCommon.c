@@ -4,12 +4,12 @@
 #include "comm_game.h"
 #include "Npc.h"
 #include "arrayold.h"
-#include "SharedMemory.h"
-#include "StashTable.h"
-#include "earray.h"
-#include "textparser.h"
-#include "error.h"
-#include "utils.h"
+#include <utilitieslib/components/SharedMemory.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
 #include "entity.h"
 #include "attribmod.h"
 

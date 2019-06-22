@@ -19,7 +19,7 @@
 #include "storyinfo.h"
 #include "contactdef.h"
 #include "scriptengine.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "mission.h"
 #include "team.h"
 #include "missiongeoCommon.h"

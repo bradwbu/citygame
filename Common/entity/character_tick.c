@@ -3,32 +3,32 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <stdio.h>
 #include <memory.h>
 
-#include "earray.h"
-#include "file.h"
-#include "logcomm.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/file.h>
+#include "dbcomm/logcomm.h"
 
-#include "entai.h"          // for AI_LOG
+#include "ai/entai.h"          // for AI_LOG
 #include "entVarUpdate.h"   // inexplicably for sendInfoBox
-#include "entgameActions.h" // for setFlying and dieNow
-#include "playerState.h"    // for STATE_SIMPLE. Client-side file
-#include "timing.h"         // for timerSecondsSince2000
+#include "entity/entgameActions.h" // for setFlying and dieNow
+#include "player/playerState.h"    // for STATE_SIMPLE. Client-side file
+#include <utilitieslib/utils/timing.h>         // for timerSecondsSince2000
 #include "entworldcoll.h"   // for entHeight
 #include "entity.h"
 #include "entplayer.h"
-#include "entserver.h"
-#include "svr_base.h"
-#include "camera.h"
+#include "entity/entserver.h"
+#include "svr/svr_base.h"
+#include "graphics/camera.h"
 #include "dbghelper.h"
-#include "dbcomm.h"
-#include "dbdoor.h"
-#include "dbmapxfer.h"
-#include "sendtoclient.h"
-#include "svr_player.h"
-#include "langserverutil.h"
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/dbdoor.h"
+#include "dbcomm/dbmapxfer.h"
+#include "gameComm/sendtoclient.h"
+#include "svr/svr_player.h"
+#include "language/langserverutil.h"
 #include "teamup.h"
 #include "motion.h"
 #include "door.h"
@@ -39,39 +39,39 @@
 #include "auth/authUserData.h"
 #include "character_base.h"
 #include "character_mods.h"
-#include "character_combat.h"
-#include "character_animfx.h"
+#include "entity/character_combat.h"
+#include "entity/character_animfx.h"
 #include "character_tick.h"
 #include "character_target.h"
-#include "character_pet.h"
+#include "entity/character_pet.h"
 #include "character_eval.h"    //    for target requires
-#include "buddy_server.h"    // For Buddy_Tick
-#include "encounter.h"
-#include "badges_server.h"
-#include "storyarcinterface.h"
-#include "missionobjective.h"
-#include "cmdcontrols.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "arenamap.h"
-#include "sgraid.h"
-#include "cmdserver.h"
-#include "staticMapInfo.h"
-#include "scriptengine.h"
-#include "ScriptedZoneEvent.h"
+#include "entity/buddy_server.h"    // For Buddy_Tick
+#include "generator/encounter.h"
+#include "player/badges_server.h"
+#include "storyarc/storyarcinterface.h"
+#include "storyarc/missionobjective.h"
+#include "cmdparse/cmdcontrols.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "gameSys/arenamap.h"
+#include "gamesys/sgraid.h"
+#include "cmdparse/cmdserver.h"
+#include "dbcomm/staticMapInfo.h"
+#include "script/scriptengine.h"
+#include "script/ZoneEvents/ScriptedZoneEvent.h"
 #include "teamCommon.h"
-#include "pophelp.h"
+#include "player/pophelp.h"
 #include "powers.h"
-#include "team.h"
-#include "cmdchat.h"
+#include "container/team.h"
+#include "cmdparse/cmdchat.h"
 
-#include "bases.h" // For updating the sticky state of unpowered details
-#include "basesystems.h"
+#include "bases/bases.h" // For updating the sticky state of unpowered details
+#include "bases/basesystems.h"
 
 #include "costume.h"
 #include "LWC_common.h"
 #include "comm_game.h"
-#include "aiBehaviorPublic.h"
+#include "ailib/aiBehaviorPublic.h"
 
 bool g_bAutoAssist = true;
 

@@ -3,9 +3,9 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 #include "aiBehaviorPublic.h"
 #include "entai.h"
@@ -28,7 +28,7 @@
 #include "encounter.h"
 #include "entity.h"
 #include "entPlayer.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "seq.h"
 #include "cmdserver.h"
 #include "seqstate.h"

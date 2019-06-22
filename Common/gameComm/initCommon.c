@@ -4,27 +4,27 @@
 //-------------------------------------------------------------------------------------------------
 
 
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "varutils.h"
 #include "fxinfo.h"
-#include "entVarUpdate.h"
-#include "timing.h"
+#include "entity/entVarUpdate.h"
+#include <utilitieslib/utils/timing.h>
 #include "gameData\BodyPart.h"    // for bpReadBodyPartFiles()
 #include "Npc.h"
 #include "VillainDef.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "fxinfo.h"
-#include "FolderCache.h"
-#include "fileutil.h"
-#include "seqtype.h"
-#include "cmdcommon.h"
-#include "AccountData.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
+#include "seq/seqtype.h"
+#include "cmdparse/cmdcommon.h"
+#include "account/AccountData.h"
 
 #if SERVER
     #include "Reward.h"
     #include "TeamReward.h"
-    #include "entGameActions.h"
-    #include "cmdserver.h"
+    #include "entity/entGameActions.h"
+    #include "cmdparse/cmdserver.h"
 #endif
 
 

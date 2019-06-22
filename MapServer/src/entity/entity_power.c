@@ -3,12 +3,12 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "netio.h"
-#include "netcomp.h"
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/network/netcomp.h>
 #include "entity.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "comm_game.h"
 #include "svr_base.h"
 
@@ -23,7 +23,7 @@
 #include "gridcoll.h"
 
 #include "entity_power.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 
 /**********************************************************************func*
  * entity_ActivatePowerReceive

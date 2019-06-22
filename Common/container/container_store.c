@@ -10,13 +10,13 @@
 
 #include "container_store.h"
 #include "dbcontainerpack.h"
-#include "StashTable.h"
-#include "file.h"
-#include "earray.h"
-#include "error.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/error.h>
 #include <limits.h>
-#include "network/net_packet.h"
-#include "log.h"
+#include <utilitieslib/network/net_packet.h>
+#include <utilitieslib/utils/log.h>
 
 // *********************************************************************************
 //  container store

@@ -1,8 +1,8 @@
-#include "mathutil.h"
-#include "bases.h"
-#include "group.h"
-#include "utils.h"
-#include "assert.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "bases/bases.h"
+#include "group/group.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
 
 #if 0
 void roomRescan(BaseRoom *room,Mat4 defmat,Vec3 roompos)

@@ -1,21 +1,21 @@
 #include <string.h>
 
 #include "container/dbcontainerpack.h"
-#include "cmdoldparse.h"
-#include "timing.h"
-#include "utils.h"
+#include <utilitieslib/utils/cmdoldparse.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/utils.h>
 #include "float.h"
-#include "StringCache.h"
-#include <assert.h>
-#include "strings_opt.h"
-#include "earray.h"
+#include <utilitieslib/components/StringCache.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/components/earray.h>
 #include "container/container_util.h"
 #include "dbcontainer.h"
 #include "containerloadsave.h"
 #include "comm_backend.h"
 #include "dbcomm.h"
-#include "file.h"
-#include "memcheck.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/memcheck.h>
 
 #define MAX_BUF 1000000
 #define DESC_STRUCTADDR(desc) ((LineDesc *)(desc->indirection[0].offset))

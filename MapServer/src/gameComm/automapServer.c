@@ -1,4 +1,4 @@
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "automapServer.h"
 #include "entPlayer.h"
 #include "dbcomm.h"

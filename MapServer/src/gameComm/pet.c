@@ -1,10 +1,10 @@
 
 
 #include "entity.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "powers.h"
-#include "EString.h"
-#include "netcomp.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/network/netcomp.h>
 #include "mathutil.h" 
 #include "svr_base.h"
 #include "svr_chat.h"
@@ -14,19 +14,19 @@
 #include "entserver.h"
 #include "entaivars.h"
 #include "villainDef.h"
-#include "MemoryPool.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "entVarUpdate.h"
 #include "storyarcutil.h"
 #include "entaiprivate.h"
 #include "validate_name.h"
-#include "net_packetutil.h"
+#include <utilitieslib/network/net_packetutil.h>
 #include "character_base.h"
 #include "langServerUtil.h"
 #include "character_target.h"
 #include "pet.h"
 #include "seqstate.h"
 #include "seq.h"
-#include "MessageStore.h"
+#include <utilitieslib/language/MessageStore.h>
 #include "aiBehaviorPublic.h"
 
 #define MAX_PET_NAMES_ON_PLAYER        100

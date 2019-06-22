@@ -1,15 +1,15 @@
 #include "bases.h"
 #include "baseparse.h"
 #include "basesend.h"
-#include "netio.h"
-#include "netcomp.h"
-#include "EArray.h"
-#include "EString.h"
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/network/netcomp.h>
+#include <utilitieslib/components/EArray.h>
+#include <utilitieslib/components/EString.h>
 #include "basedata.h"
-#include "bindiff.h"
-#include "netcomp.h"
-#include "utils.h"
-#include "crypt.h"
+#include <utilitieslib/network/bindiff.h>
+#include <utilitieslib/network/netcomp.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/network/crypt.h>
 
 static void sendRoomHeader(Packet *pak,BaseRoom *room,BaseNetCmd cmd,int idx)
 {

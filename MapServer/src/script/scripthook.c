@@ -46,7 +46,7 @@
 #include "badges_server.h"
 #include "group.h"
 #include "groupProperties.h"
-#include "cmdoldparse.h"
+#include <utilitieslib/utils/cmdoldparse.h>
 #include "position.h"
 #include "npcserver.h"
 #include "store_net.h"

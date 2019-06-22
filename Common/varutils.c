@@ -5,17 +5,17 @@
  ***************************************************************************/
 
 #include "varutils.h"
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "player.h"
 #include "entVarUpdate.h"
 #include "entStrings.h" // for mallocEntStrings
 #include "gameData/BodyPart.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "character_base.h"
 #include "Costume.h"
 #include "power_customization.h"
 #include "PowerInfo.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "wdwbase.h"
 #include "entStrings.h"
 #include "entPlayer.h"

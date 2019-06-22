@@ -1,56 +1,56 @@
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "bases.h"
-#include "group.h"
-#include "assert.h"
-#include "mathutil.h"
+#include "group/group.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/mathutil.h>
 #include "basedata.h"
 #include "basesystems.h"
-#include "textparser.h"
-#include "EString.h"
-#include "anim.h"
-#include "gridcoll.h"
-#include "groupfileload.h"
-#include "float.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/EString.h>
+#include "seq/anim.h"
+#include "gridcoll/gridcoll.h"
+#include "group/groupfileload.h"
+#include <float.h>
 #include "baselegal.h"
-#include "entity.h"
-#include "Supergroup.h"
-#include "entPlayer.h"
-#include "error.h"
+#include "entity/entity.h"
+#include "entity/Supergroup.h"
+#include "entity/entPlayer.h"
+#include <utilitieslib/utils/error.h>
 #include "baseparse.h"
 #include "baseraid.h"
-#include "boost.h"
+#include "entity/boost.h"
 
 #if SERVER
-#include "aiBehaviorPublic.h"
-#include "entity.h"
-#include "entserver.h"
-#include "entai.h"
-#include "entgen.h"
-#include "villainDef.h"
-#include "seq.h"
-#include "npc.h"
-#include "character_animfx.h"
-#include "baseserverrecv.h"
+#include "ailib/aiBehaviorPublic.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
+#include "ai/entai.h"
+#include "generator/entgen.h"
+#include "gameComm/villainDef.h"
+#include "seq/seq.h"
+#include "gameComm/npc.h"
+#include "entity/character_animfx.h"
+#include "bases/baseserverrecv.h"
 #include "baseparse.h"
-#include "baseserver.h"
-#include "dbdoor.h"
-#include "motion.h"
-#include "sgraid.h"
-#include "cmdserver.h"
-#include "log.h"
+#include "bases/baseserver.h"
+#include "dbcomm/dbdoor.h"
+#include "entity/motion.h"
+#include "gameSys/sgraid.h"
+#include "cmdparse/cmdserver.h"
+#include <utilitieslib/utils/log.h>
 
 extern int world_modified;
 
-#include "raidmapserver.h"
-#include "storyarcprivate.h"
+#include "gamesys/raidmapserver.h"
+#include "storyarc/storyarcprivate.h"
 
 #elif CLIENT
-#include "entclient.h"
-#include "cmdgame.h"
-#include "sprite_text.h"
+#include "entity/entclient.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/sprite/sprite_text.h"
 #endif
-#include "tricks.h"
-#include "MessageStoreUtil.h"
+#include "seq/tricks.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 #define addsome(x) ((x) > 0?((x)+0.01):(x)-0.01)
 #define subsome(x) ((x) > 0?((x)-0.01):(x)+0.01)

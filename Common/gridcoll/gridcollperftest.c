@@ -1,10 +1,10 @@
 #include "gridcoll.h"
 #include "gridcollperftest.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "cmdserver.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "gridcache.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "groupgrid.h"
 
 typedef struct
@@ -80,7 +80,7 @@ void coll_err(int pos_err)
 
 int glob_timer;
 
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 
 static U8 *dup_checker;

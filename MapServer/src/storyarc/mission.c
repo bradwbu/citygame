@@ -23,7 +23,7 @@
 #include "character_level.h"
 #include "arenamap.h"
 #include "entity.h"
-#include "eval.h"
+#include <utilitieslib/utils/eval.h>
 #include "sgraid.h"
 #include "raidmapserver.h"
 #include "supergroup.h"

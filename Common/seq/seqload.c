@@ -1,22 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "stdtypes.h"
-#include "utils.h"
-#include "file.h"
-#include "error.h"
-#include "assert.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/assert/assert.h>
 #include "animtrack.h"
-#include "earray.h"
-#include "textparser.h"
-#include "mathutil.h"
-#include "textparser.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/textparser.h>
 #include "seqstate.h"
 #include "seq.h"
-#include "genericlist.h"
+#include <utilitieslib/components/genericlist.h>
 #include "font.h"
 #include "time.h"
-#include "fileutil.h"
+#include <utilitieslib/utils/fileutil.h>
 #include "HashFunctions.h"
 #ifdef CLIENT
 #include "cmdgame.h"
@@ -27,12 +27,12 @@
 #endif
 #include "cmdcommon.h"
 #include "entity.h"
-#include "timing.h"
-#include "StashTable.h"
-#include "strings_opt.h"
-#include "StringCache.h"
-#include "SharedMemory.h"
-#include "SharedHeap.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/components/StringCache.h>
+#include <utilitieslib/components/SharedMemory.h>
+#include <utilitieslib/components/SharedHeap.h>
 
 #define DEFAULT_MOVE_INTERPOLATION_RATE 5
 #define DEFAULT_ANIMATION_SCALE 1.0

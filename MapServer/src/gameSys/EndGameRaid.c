@@ -8,7 +8,7 @@
  *
  */
 
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "dbcomm.h"
 #include "entity.h"
 #include "team.h"

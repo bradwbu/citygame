@@ -1,7 +1,7 @@
 #include "NewFeatures.h"
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 #include "LoadDefCommon.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "cmdserver.h"
 #include "gametypes.h"
 

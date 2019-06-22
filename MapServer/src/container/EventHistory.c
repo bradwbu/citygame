@@ -4,10 +4,10 @@
 #include "entity.h"
 #include "entPlayer.h"
 #include "character_base.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "container/containerEventHistory.h"
 #include "dbcomm.h"
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "sendToClient.h"
 
 #include "EventHistory.h"

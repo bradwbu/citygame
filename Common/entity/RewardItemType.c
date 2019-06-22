@@ -3,15 +3,14 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "assert.h"
-#include "DetailRecipe.h"
-#include "utils.h"
-#include "textparser.h"
+#include <utilitieslib/assert/assert.h>
+#include "bases/DetailRecipe.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/textparser.h>
 #include "RewardItemType.h"
 #include "Salvage.h"
 #include "Concept.h"
 #include "Proficiency.h"
-#include "DetailRecipe.h"
 
 StaticDefineInt RewardItemTypeEnum[] =
 {

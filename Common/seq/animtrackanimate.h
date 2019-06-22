@@ -1,10 +1,10 @@
 #ifndef _ANIMTRACKANIMATE_H
 #define _ANIMTRACKANIMATE_H
 
-#include "stdtypes.h"
-#include "mathutil.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
 #include "animtrack.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 
 
 // GetAnimation only struct.  Converted into a BoneAnimTrack

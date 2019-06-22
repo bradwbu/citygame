@@ -3,14 +3,14 @@
 // Runs an FFA SG base raid.
 
 #include "scriptutil.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "bases.h"
 #include "basesystems.h"
 #include "basedata.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "villaindef.h"
 #include "sgraid.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "entai.h"
 #include "entity.h"
 #include "entserver.h"

@@ -3,20 +3,20 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "SgrpBadges.h"
-#include "utils.h"
-#include "eval.h"
-#include "earray.h"
-#include "file.h"
-#include "assert.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/eval.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/assert/assert.h>
 
 #include "entplayer.h"
 
 #include "badges.h"
 #include "BadgeStats.h"
 #include "badges_server.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 
 StashTable g_hashBadgeStatUsage;
 StashTable g_hashBadgeStatNames;

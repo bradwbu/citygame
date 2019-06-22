@@ -12,49 +12,49 @@
  * Revision History:
  ***************************************************************************/
 #include "AuctionClient.h"
-#include "stringcache.h"
-#include "timing.h"
-#include "logcomm.h"
-#include "estring.h"
-#include "trayCommon.h"
+#include <utilitieslib/components/stringcache.h>
+#include <utilitieslib/utils/timing.h>
+#include "dbcomm/logcomm.h"
+#include <utilitieslib/components/estring.h>
+#include "gameComm/trayCommon.h"
 #include "xact.h"
-#include "character_base.h"
-#include "character_combat.h"
+#include "entity/character_base.h"
+#include "entity/character_combat.h"
 #include "auction.h"
 //#include "entclient.h"
-#include "entplayer.h"
-#include "entity.h"
-#include "svr_player.h"
+#include "entity/entplayer.h"
+#include "entity/entity.h"
+#include "svr/svr_player.h"
 #include "comm_backend.h"
-#include "utils.h"
-#include "assert.h"
-#include "error.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "MemoryPool.h"
-#include "powers.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include "entity/powers.h"
 #include "comm_game.h"
-#include "detailrecipe.h"
-#include "messagestoreutil.h"
-#include "character_net.h"
+#include "bases/detailrecipe.h"
+#include <utilitieslib/language/messagestoreutil.h>
+#include "entity/character_net.h"
 #include "AuctionData.h"
-#include "bitfield.h"
-#include "netcomp.h"
-#include "entGameActions.h"
+#include <utilitieslib/components/bitfield.h>
+#include <utilitieslib/network/netcomp.h>
+#include "entity/entGameActions.h"
 
-#include "svr_base.h" // START_PACKET and END_PACKET
-#include "sendToClient.h" // conPrintf
-#include "entserver.h" // entFromDbId
-#include "langServerUtil.h"
+#include "svr/svr_base.h" // START_PACKET and END_PACKET
+#include "gameComm/sendToClient.h" // conPrintf
+#include "entity/entserver.h" // entFromDbId
+#include "language/langServerUtil.h"
 #include "plaque.h" // piggy-backing on the plaque stuff for general purpose server to client dialog boxes
-#include "svr_chat.h" // chatSendToPlayer
-#include "mission.h"
+#include "gameComm/svr_chat.h" // chatSendToPlayer
+#include "storyarc/mission.h"
 
-#include "dbcontainer.h"
-#include "dbmapxfer.h"
+#include "dbcomm/dbcontainer.h"
+#include "dbcomm/dbmapxfer.h"
 
-#include "mininghelper.h"
-#include "badges_server.h"
+#include "gameData/mininghelper.h"
+#include "player/badges_server.h"
 
 static XactCmd **s_shardjumpers = NULL;
 

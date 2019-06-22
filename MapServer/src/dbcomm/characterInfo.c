@@ -3,14 +3,14 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "ConsoleDebug.h"
-#include "eString.h"
-#include "FolderCache.h"
-#include "fileutil.h"
-#include "utils.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/StashTable.h>
 
 #include "dbcomm.h"
 
@@ -19,7 +19,7 @@
 #include "imageServer.h"
 #include "entPlayer.h"
 #include "comm_backend.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 #define strdupa(str) strcpy(_alloca(strlen(str)+1), str);
 #define INDEX_FILE_COMMENT "# SafeName,Shard,Name,CharacterID,PlayerType,Origin,Archetype,Level,SupergroupID,SuperGroupName,LastActiveTimeSecs,LastActive,URL,PageUpdateTimeSecs,PageUpdateTime,Deleted,XPEarned,Influence,Healing,PvEVictories,PvEDefeats,PvPVictories,PvPDefeats,PvPReputation,BadgesEarned,HoursPlayed,Friends\n"

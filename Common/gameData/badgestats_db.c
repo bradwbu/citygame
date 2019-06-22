@@ -1,6 +1,6 @@
-#include "utils.h"
-#include "fileutil.h"
-#include "EString.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/components/estring.h>
 #include "badges.h"
 #include "badgestats_db.h"
 #include "container/dbcontainerpack.h"

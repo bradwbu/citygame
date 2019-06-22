@@ -1,8 +1,8 @@
 #include "script.h"
 #include "scriptengine.h"
 #include "scriptutil.h"
-#include "fileutil.h"
-#include "timing.h"
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/timing.h>
 
 #include "../../3rdparty/lua-5.1.5/src/lua.h"
 #include "../../3rdparty/lua-5.1.5/src/lualib.h"

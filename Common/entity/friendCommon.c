@@ -1,6 +1,6 @@
 #include "friendCommon.h"
-#include "stdtypes.h"
-#include "memcheck.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/memcheck.h>
 
 void friendDestroy(Friend *f)
 {

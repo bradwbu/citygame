@@ -3,12 +3,12 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "earray.h"
-#include "StashTable.h"
-#include "textparser.h"
-#include "utils.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/utils.h>
 
 #include "staticMapInfo.h"
 #include "villainDef.h"

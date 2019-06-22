@@ -1,7 +1,7 @@
 
-#include "SuperAssert.h"
-#include "utils.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/SuperAssert.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/mathutil.h>
 #include "zowieCommon.h"
 
 Zowie **g_Zowies = NULL;

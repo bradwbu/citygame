@@ -1,4 +1,4 @@
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 #include <stdio.h>
 #include "network\netio.h"
 #include "svr_base.h"
@@ -7,21 +7,21 @@
 #include "entVarUpdate.h"
 #include "comm_game.h"
 
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include "varutils.h"
 #include "pmotion.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "language/langServerUtil.h"    // for svrMenuMessages
 #include "npc.h"
 #include "playerState.h" // client-side file. I'm going to hell for this.
 #include "character_base.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "timer_callback.h"
 #include "Reward.h"
 #include "TeamReward.h"
-#include "error.h"
-#include "utils.h"
-#include "timing.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
 
 #include "character_base.h"
 #include "character_combat.h"

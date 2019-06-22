@@ -1,14 +1,14 @@
 #include "groupscene.h"
 #include <string.h>
-#include "textparser.h"
-#include "earray.h"
-#include "assert.h"
-#include "FolderCache.h"
-#include "utils.h"
-#include "fileutil.h"
-#include "file.h"
-#include "error.h"
-#include "timing.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/timing.h>
 #include "group.h"
 
 #if CLIENT

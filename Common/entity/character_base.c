@@ -3,15 +3,15 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <memory.h>
 #include <string.h>
 #include <ctype.h>
 
-#include "utils.h"
-#include "earray.h"
-#include "EString.h"
-#include "genericlist.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/genericlist.h>
 
 #include "entity.h"
 #include "classes.h"
@@ -23,49 +23,49 @@
 #include "character_eval.h"
 #include "powerinfo.h"
 #include "powers.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "entPlayer.h"
 #include "auth/authUserData.h"
 #include "motion.h"
-#include "trayCommon.h"
-#include "MemoryPool.h"
+#include "gameComm/trayCommon.h"
+#include <utilitieslib/components/MemoryPool.h>
 #include "Proficiency.h"
 #include "Concept.h"
-#include "DetailRecipe.h"
-#include "mininghelper.h"
+#include "bases/DetailRecipe.h"
+#include "gameData/mininghelper.h"
 #include "boostset.h"
-#include "scriptvars.h"
-#include "MessageStore.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/utils/scriptvars.h>
+#include <utilitieslib/language/MessageStore.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "costume.h"
-#include "mathutil.h"
-#include "Auction.h"
-#include "file.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "auction/Auction.h"
+#include <utilitieslib/utils/file.h>
 #include "PCC_Critter.h"
 #include "incarnate.h"
 
 #if SERVER
-#include "EntGameActions.h"
-#include "character_pet.h"
-#include "character_combat.h"
-#include "character_animfx.h"
-#include "buddy_server.h"
-#include "character_tick.h"
-#include "logcomm.h"
-#include "dbcomm.h"
+#include "entity/EntGameActions.h"
+#include "entity/character_pet.h"
+#include "entity/character_combat.h"
+#include "entity/character_animfx.h"
+#include "entity/buddy_server.h"
+#include "entity/character_tick.h"
+#include "dbcomm/logcomm.h"
+#include "dbcomm/dbcomm.h"
 #include "DbgHelper.h"
-#include "estring.h"
-#include "file.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/file.h>
 #include "comm_game.h"
 #include "language/langServerUtil.h"
-#include "missionobjective.h"
-#include "staticMapInfo.h"
+#include "storyarc/missionobjective.h"
+#include "dbcomm/staticMapInfo.h"
 #include "character_karma.h"
-#include "NpcServer.h"
-#include "staticMapInfo.h"
-#include "turnstile.h"
-#include "incarnate_server.h"
-#include "basedata.h"
+#include "gameComm/NpcServer.h"
+#include "dbcomm/staticMapInfo.h"
+#include "gamesys/turnstile.h"
+#include "entity/incarnate_server.h"
+#include "bases/basedata.h"
 
 char *g_estrDestroyedCritters = NULL;
 char *g_estrDestroyedPlayers = NULL;
@@ -85,7 +85,7 @@ char * g_smallInspirations[] = { "Luck", "Sturdy", "Insight", "Catch_a_Breath", 
 char * g_mediumInspirations[] = { "Good_Luck", "Rugged", "Keen_Insight", "Take_a_Breather", "Dramatic_Improvement", "Focused_Rage", "Emerge", "Bounce_Back", 0 };
 char * g_largeInspirations[] = { "Phenomenal_Luck", "Robust", "Uncanny_Insight", "Second_Wind", "Resurgence", "Righteous_Rage", "Escape", "Restoration", 0 };
 
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 #define CODEOBJ_USED_INSPIRATION "CODEOBJ_USED_INSPIRATION"
 
@@ -957,7 +957,7 @@ Power *character_BuyPowerEx(Character *p, PowerSet *pset, const BasePower *ppowB
     int set;
     int i;
     int n;
-    Power *ppow;
+    Power* ppow = NULL;
     int iCnt = 0;
 
     if(p==NULL) 

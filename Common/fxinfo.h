@@ -1,9 +1,9 @@
 #ifndef _FXINFO_H
 #define _FXINFO_H
 
-#include "stdtypes.h"
-#include "seq.h"
-#include "textparser.h"
+#include <utilitieslib/stdtypes.h>
+#include "seq/seq.h"
+#include <utilitieslib/utils/textparser.h>
 
 #if CLIENT
 #include "NwWrapper.h"

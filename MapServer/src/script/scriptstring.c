@@ -13,13 +13,13 @@
  */
 
 #include "script.h"
-#include "scriptvars.h"
+#include <utilitieslib/utils/scriptvars.h>
 #include "scriptengine.h"
-#include "earray.h"
-#include "mathutil.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/mathutil.h>
 #include "limits.h"
 #include "contact.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "storyarcutil.h"
 #include "hashFunctions.h"
 

@@ -23,8 +23,8 @@
 #include "TeamReward.h"
 #include "comm_game.h"
 #include "character_tick.h"
-#include "foldercache.h"
-#include "fileutil.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
 
 // *********************************************************************************
 //  Load and parse mission defs

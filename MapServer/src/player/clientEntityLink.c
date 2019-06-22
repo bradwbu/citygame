@@ -1,6 +1,6 @@
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 #include <stdio.h>
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include "entserver.h"
 #include "clientEntityLink.h"
 #include "entVarUpdate.h"

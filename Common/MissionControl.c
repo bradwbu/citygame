@@ -3,17 +3,17 @@
 #include "MissionControl.h"
 #include "group.h"
 #include "groupproperties.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "grouptrack.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "renderprim.h"
 #include "camera.h"
 #include "cmdgame.h"
-#include "Color.h"
+#include <utilitieslib/utils/Color.h>
 #include "edit_cmd.h"
-#include "cmdoldparse.h"
-#include "utils.h"
-#include "netcomp.h"
+#include <utilitieslib/utils/cmdoldparse.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/network/netcomp.h>
 
 int MissionControlOn;
 extern GroupInfo group_info;
@@ -514,7 +514,7 @@ void MissionControlHandleResponse(Packet * pak) {
 #include "staticMapInfo.h"
 #include "dbcomm.h"
 #include "ArrayOld.h"
-#include "netcomp.h"
+#include <utilitieslib/network/netcomp.h>
 #include "beacon.h"
 #include "beaconprivate.h"
 

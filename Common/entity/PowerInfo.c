@@ -3,11 +3,11 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "earray.h"
-#include "netio.h"
-#include "timing.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/utils/timing.h>
 
 #include "comm_game.h"
 
@@ -18,17 +18,17 @@
 #include "PowerInfo.h"
 
 #if CLIENT
-#include "uiInspiration.h"
-#include "DetailRecipe.h"
-#include "uiRecipeInventory.h"
-#include "uiIncarnate.h"
-#include "uiTray.h"
-#include "player.h"
-#include "entity.h"
-#include "EntPlayer.h"
+#include "UI/uiInspiration.h"
+#include "bases/DetailRecipe.h"
+#include "UI/uiRecipeInventory.h"
+#include "UI/uiIncarnate.h"
+#include "UI/uiTray.h"
+#include "player/player.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
 #endif
 #if SERVER
-#include "character_combat.h"
+#include "entity/character_combat.h"
 #endif
 
 #define ACTIVE_STATUS_QUEUED_MASK 2
@@ -332,8 +332,8 @@ void powerInfo_Receive(PowerInfo* info, Packet* pak)
 #include "entity.h"
 #include "powers.h"
 #ifdef SERVER
-#include "character_net_server.h"
-#include "svr_base.h"
+#include "entity/character_net_server.h"
+#include "svr/svr_base.h"
 
 void powerInfo_UpdateFullRechargeStatus(Character *p)
 {

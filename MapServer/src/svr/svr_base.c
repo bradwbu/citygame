@@ -1,12 +1,12 @@
 #include "svr_base.h"
-#include "timing.h"
-#include "utils.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/utils.h>
 #include "comm_game.h"
-#include "earray.h"
-#include "StashTable.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/StashTable.h>
 #include "entity.h"
 #include "process_util.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 #include "dbcomm.h"
 #include "mission.h"        // for g_activemission, @todo should probably relocate svrLogPerf
 

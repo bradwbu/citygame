@@ -6,9 +6,9 @@
 #include "storyarcutil.h"
 #include "scriptengine.h"
 #include "entPlayer.h"
-#include "strings_opt.h"
+#include <utilitieslib/utils/strings_opt.h>
 #include "svr_player.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 typedef struct ScriptUICollection
 {

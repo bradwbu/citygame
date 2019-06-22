@@ -8,12 +8,12 @@
  *
  */
 
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 #include "svr_base.h"
 #include "comm_game.h"
 #include "comm_backend.h"
 #include "dbcomm.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "character_eval.h"
 #include "entity.h"
 #include "team.h"
@@ -23,7 +23,7 @@
 #include "dooranim.h"
 #include "dbmapxfer.h"
 #include "staticmapinfo.h"
-#include "messagestoreutil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "teamcommon.h"
 #include "turnstile.h"
 #include "turnstileservercommon.h"
@@ -31,7 +31,7 @@
 #include "cmdserver.h"
 #include "reward.h"
 #include "LWC_common.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 #include "containerbroadcast.h"
 #include "mapgroup.h"
 

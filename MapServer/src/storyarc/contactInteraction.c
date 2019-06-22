@@ -40,7 +40,7 @@
 #include "cmdServer.h"
 #include "character_inventory.h"
 #include "taskforce.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "staticMapInfo.h"
 #include "door.h"
 #include "character_eval.h"

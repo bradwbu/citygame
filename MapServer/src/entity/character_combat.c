@@ -3,11 +3,11 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <float.h>
 #include "logcomm.h"
-#include "earray.h"
-#include "error.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/error.h>
 #include "entai.h"
 #include "entaiLog.h"
 #include "entity.h"
@@ -15,7 +15,7 @@
 #include "sendToClient.h" // inexplicably for sendInfoBox
 #include "entGameActions.h" // for entAlive
 #include "gridfind.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "motion.h"
 #include "npc.h"
 #include "dbcomm.h"
@@ -52,11 +52,11 @@
 #include "gridcoll.h"
 #include "gridcache.h"
 
-#include "eval.h"
-#include "timing.h"
+#include <utilitieslib/utils/eval.h>
+#include <utilitieslib/utils/timing.h>
 #include "trading.h"
-#include "Quat.h"
-#include "AppLocale.h"
+#include <utilitieslib/utils/Quat.h>
+#include <utilitieslib/language/AppLocale.h>
 #include "turnstile.h"
 #include "scripthook/ScriptHookInternal.h"
 

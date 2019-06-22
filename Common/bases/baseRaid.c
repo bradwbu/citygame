@@ -4,11 +4,11 @@
  *     Confidential Property of NCsoft
  ***************************************************************************/
 
-#include "group.h"
+#include "group/group.h"
 #include "bases.h"
-#include "earray.h"
-#include "entity.h"
-#include "character_target.h"
+#include <utilitieslib/components/earray.h>
+#include "entity/entity.h"
+#include "entity/character_target.h"
 
 RaidMapData g_sgRaidMapData;
 int g_sgRaidSGIDs[MAX_SGS_IN_RAID];

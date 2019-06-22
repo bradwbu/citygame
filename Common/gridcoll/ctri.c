@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "ctri.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "tritri_isectline.h"
 
 

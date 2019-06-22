@@ -4,26 +4,26 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include <stddef.h> // for offsetof
-#include "stashtable.h"
-#include <assert.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "earray.h"
-#include "entai.h" // for AI_LOG
-#include "utils.h"
-#include "timing.h"
-#include "mathutil.h"
+#include <utilitieslib/components/earray.h>
+#include "ai/entai.h" // for AI_LOG
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/mathutil.h>
 
 #include "classes.h"
 #include "powers.h"
 #include "boostset.h"
 #include "character_base.h"
 #include "character_level.h"
-#include "character_combat.h"
+#include "entity/character_combat.h"
 
 #include "attribmod.h"
-#include "combat_mod.h"
+#include "entity/combat_mod.h"
 #include "character_mods.h"
-#include "character_animfx.h"
+#include "entity/character_animfx.h"
 #include "entity.h"
 
 void SubtractFromMaxAbsorbMods(Character *p, float amount)

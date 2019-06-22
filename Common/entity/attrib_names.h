@@ -67,8 +67,8 @@ extern int g_offHealAttrib;
 /***************************************************************************/
 /***************************************************************************/
 
-char *dbg_AttribName(int offset, char *pchOrig);
-int attrib_Offset(char *pch);
+char const* dbg_AttribName(size_t offset, char const* pchOrig);
+int attrib_Offset(char const* pch);
 
 /***************************************************************************/
 /***************************************************************************/

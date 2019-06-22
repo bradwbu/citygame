@@ -4,7 +4,7 @@
 
 #include <utilitieslib/utils/wininclude.h>
 #include <float.h>
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <string.h>
 #include <time.h>
 #include <limits.h>

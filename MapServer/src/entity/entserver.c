@@ -2,10 +2,10 @@
 #include "entity.h"
 #include "motion.h"
 #include "cmdcommon.h"
-#include "netcomp.h"
-#include "assert.h"
+#include <utilitieslib/network/netcomp.h>
+#include <utilitieslib/assert/assert.h>
 #include "seq.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "cmdserver.h"
 #include "groupnetdb.h"
 //#include "entaiprivate.h"
@@ -13,7 +13,7 @@
 #include "varutils.h"
 #include "svr_base.h"
 #include "sendToClient.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "groupnetsend.h"
 #include "dbcomm.h"
 #include "dbcontainer.h"
@@ -43,7 +43,7 @@
 #include "logcomm.h"
 #include "storyarcutil.h"
 #include "entgen.h"
-#include "net_packetutil.h"
+#include <utilitieslib/network/net_packetutil.h>
 #include "encounter.h"
 #include "trayCommon.h"
 #include "seqstate.h"
@@ -58,7 +58,7 @@
 #include "seqanimate.h"
 #include "seqskeleton.h"
 #include "seqregistration.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "bases.h"
 #include "container_diff.h"
 #include "comm_backend.h"
@@ -67,7 +67,7 @@
 #include "storyarcprivate.h"
 #include "sgraid.h"
 #include "HashFunctions.h"
-#include "Quat.h"
+#include <utilitieslib/utils/Quat.h>
 #include "playerCreatedStoryArcServer.h"
 #include "contact.h"
 #include "character_pet.h"

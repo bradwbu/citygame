@@ -1,27 +1,27 @@
 #include "power_customization.h"
 #include "entity.h"
-#include "player.h"
-#include "net_packet.h"            // for pkt.. functions
+#include "player/player.h"
+#include <utilitieslib/network/net_packet.h>            // for pkt.. functions
 #include "entPlayer.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "powers.h"
-#include "EString.h"
+#include <utilitieslib/components/estring.h>
 #include "classes.h"
 #include "character_base.h"
-#include "costume_data.h"
-#include "Color.h"
+#include "gameData/costume_data.h"
+#include <utilitieslib/utils/Color.h>
 #include "costume.h"
 #include "LoadDefCommon.h"
-#include "netcomp.h"
-#include "StashTable.h"
-#include "FolderCache.h"
+#include <utilitieslib/network/netcomp.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/FolderCache.h>
 #include "character_eval.h"
 #if CLIENT
-#include "power_customization_client.h"
+#include "entity/power_customization_client.h"
 #elif SERVER
-#include "power_customization_server.h"
+#include "entity/power_customization_server.h"
 #include "reward.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #endif
 
 TokenizerParseInfo ParsePowerCustomization[] = 

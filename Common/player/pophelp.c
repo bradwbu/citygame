@@ -1,14 +1,14 @@
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 #include "entPlayer.h"
 #include "player.h"
 #include "character_base.h"
 #include "entity.h"
 #include "entVarUpdate.h"
 
-#include "textparser.h"
-#include "earray.h"
-#include "MessageStoreUtil.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/components/StashTable.h>
 #include "pophelp.h"
 #include "clienterror.h"
 #include "LoadDefCommon.h"

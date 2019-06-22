@@ -28,7 +28,7 @@
 #include "character_target.h"
 #include "character_tick.h"
 #include "entity.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "group.h"
 #include "groupProperties.h"
 

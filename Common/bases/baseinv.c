@@ -3,11 +3,11 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "earray.h"
-#include "MemoryPool.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/MemoryPool.h>
 
-#include "bases.h"
-#include "basedata.h"
+#include "bases/bases.h"
+#include "bases/basedata.h"
 
 RoomDetail **g_ppDetailInv;
 

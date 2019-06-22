@@ -6,7 +6,7 @@
 #ifndef INVENTION_H
 #define INVENTION_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 
 typedef struct Character Character;

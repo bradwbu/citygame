@@ -8,7 +8,7 @@
 #include "svr_player.h"
 #include "storyarcprivate.h"
 #include "teamup.h"
-#include "memlog.h"
+#include <utilitieslib/utils/memlog.h>
 #include "staticMapInfo.h"
 #include "buddy_server.h"
 #include "shardcomm.h"

@@ -1,15 +1,15 @@
 #include "shardcommtest.h"
 #include "shardcomm.h"
-#include "earray.h"
-#include "stdtypes.h"
-#include "utils.h"
-#include "assert.h"
-#include "error.h"
-#include "timing.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/timing.h>
 #include "comm_backend.h"
 #include "svr_base.h"
 #include "comm_game.h"
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #include "entity.h"
 
 // from shardcomm.c

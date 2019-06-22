@@ -4,10 +4,10 @@
 #include "groupfilelib.h"
 #include "groupjournal.h"
 #include "network\netio.h"
-#include "mathutil.h"
-#include "error.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/error.h>
 #include "groupnetsend.h"
-#include "netcomp.h"
+#include <utilitieslib/network/netcomp.h>
 #include "groupitems.h"
 #include "grouptrack.h"
 #include "beacon.h"
@@ -20,7 +20,7 @@
 #include "comm_game.h"
 #include "groupdb_util.h"
 #include "groupdbmodify.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "groupdyn.h"
 #include "dbdoor.h"
 #include "locationTask.h"    // for VisitLocationLoad()
@@ -38,7 +38,7 @@
 #include "entity.h"
 #include "group.h"
 #include "groupProperties.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
 #include "bases.h"
 #include "basedata.h"
 #include "baseparse.h"

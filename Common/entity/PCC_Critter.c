@@ -2,21 +2,21 @@
 
 
 #include "character_base.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 #include "powers.h"
-#include "bodyPart.h"
+#include "gameData/bodyPart.h"
 #include "costume.h"
 #include "entity.h"
-#include "player.h"
-#include "EString.h"
+#include "player/player.h"
+#include <utilitieslib/components/estring.h>
 #include "varutils.h"                //    playerVarAlloc
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "origins.h"                //    for origins pointer
 #include "entPlayer.h"                //    costume ent player pointer
 #include "filter/profanity.h"
 #include "filter/validate_name.h"
-#include "playerCreatedStoryarcValidate.h"
-#include "VillainDef.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
+#include "gameComm/VillainDef.h"
 
 extern SHARED_MEMORY PowerDictionary g_PowerDictionary;
 

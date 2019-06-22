@@ -3,66 +3,66 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <stdlib.h>
 #include <float.h>
 
-#include "earray.h"
-#include "timing.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/timing.h>
 
 #include "entity.h"
 #include "entplayer.h"
 #include "entworldcoll.h" // for entHeight
-#include "entai.h"
+#include "ai/entai.h"
 #include "EntityRef.h"
-#include "genericlist.h"
-#include "textparser.h"
-#include "entGameActions.h" // for serveDamage
-#include "sendToClient.h"   // inexplicably for sendInfoBox
-#include "npc.h"
-#include "dbcomm.h"
+#include <utilitieslib/components/genericlist.h>
+#include <utilitieslib/utils/textparser.h>
+#include "entity/entGameActions.h" // for serveDamage
+#include "gamecomm/sendToClient.h"   // inexplicably for sendInfoBox
+#include "gameComm/npc.h"
+#include "dbcomm/dbcomm.h"
 #include "dbghelper.h"
-#include "pl_stats.h" // for stat_...
-#include "cmdcommon.h"
+#include "player/pl_stats.h" // for stat_...
+#include "cmdparse/cmdcommon.h"
 #include "entVarUpdate.h" // for COMBAT_UPDATE_INTERVAL
-#include "badges_server.h"
-#include "langServerUtil.h"
+#include "player/badges_server.h"
+#include "language/langServerUtil.h"
 #include "reward.h" // for rewardFindDefAndApplyToEnt
 
 #include "classes.h"
 #include "powers.h"
 #include "character_base.h"
 #include "character_level.h"
-#include "character_animfx.h"
-#include "character_combat.h"
-#include "character_pet.h"
+#include "entity/character_animfx.h"
+#include "entity/character_combat.h"
+#include "entity/character_pet.h"
 #include "character_karma.h"
 #include "character_target.h"
 #include "character_combat_eval.h"
 #include "character_mods.h"
-#include "combat_mod.h"
+#include "entity/combat_mod.h"
 #include "PowerInfo.h"
 #include "attrib_names.h"
-#include "pmotion.h"
+#include "player/pmotion.h"
 #include "teamCommon.h"
 #include "powers.h"
 
 #include "attribmod.h"
-#include "mission.h"
+#include "storyarc/mission.h"
 
-#include "eval.h"
-#include "automapServer.h"
-#include "pnpcCommon.h" // for g_visionPhaseNames
-#include "seq.h"
+#include <utilitieslib/utils/eval.h>
+#include "gameComm/automapServer.h"
+#include "storyarc/pnpcCommon.h" // for g_visionPhaseNames
+#include "seq/seq.h"
 
 #ifdef SERVER
-#include "cmdserver.h"
-#include "log.h"
-#include "ScriptedZoneEvent.h"
+#include "cmdparse/cmdserver.h"
+#include <utilitieslib/utils/log.h>
+#include "script/ZoneEvents/ScriptedZoneEvent.h"
 #include "character_eval.h"
-#include "aiBehaviorPublic.h"
+#include "ailib/aiBehaviorPublic.h"
 #include "TeamReward.h"
-#include "scripthook/ScriptHookCallbacks.h"
+#include "script/scripthook/ScriptHookCallbacks.h"
 #endif 
 
 MP_DEFINE(AttribMod);
@@ -84,7 +84,7 @@ TokenizerParseInfo ParseCharacterAspects[] =
 };
 
 extern TokenizerParseInfo ParseCharacterAttributes[];
-char *dbg_GetParseName(TokenizerParseInfo atpi[] , int offset)
+char const* dbg_GetParseName(TokenizerParseInfo atpi[] , int offset)
 {
     int i = 0;
     while(atpi[i].name != NULL)
@@ -1317,7 +1317,7 @@ void HandleSpecialAttrib(AttribMod *pmod, Character *pchar, float f, bool *pbDis
         case kSpecialAttrib_HoverBoard:
         case kSpecialAttrib_MagicCarpet:
         case kSpecialAttrib_ParkourRun:
-            setSpecialMovement(pchar->entParent, pmod->ptemplate->offAttrib, true);
+            setSpecialMovement(pchar->entParent, (int)pmod->ptemplate->offAttrib, true);
             break;
 
         case kSpecialAttrib_Avoid:
@@ -1405,7 +1405,7 @@ void HandleSpecialAttrib(AttribMod *pmod, Character *pchar, float f, bool *pbDis
 
         case kSpecialAttrib_GrantPower:
             {
-                const BasePower *ppowBase;
+                const BasePower* ppowBase = NULL;
                 if(pmod->ptemplate->pchReward)
                     ppowBase = powerdict_GetBasePowerByFullName(&g_PowerDictionary, pmod->ptemplate->pchReward);
                 else
@@ -1849,7 +1849,7 @@ AttribMod *modlist_BlameDefenseMod(AttribModList *plist, float fPercentile, int 
         pmod!=NULL;
         pmod = modlist_GetNextMod(&iter))
     {
-        int offAttrib = pmod->ptemplate->offAttrib;
+        int offAttrib = (int)pmod->ptemplate->offAttrib;
         if(pmod->fMagnitude>0.0f
             && (offAttrib==offsetof(CharacterAttributes, fDefense) || offAttrib==iType)
             && IS_MODIFIER(pmod->ptemplate->offAspect))
@@ -1895,8 +1895,8 @@ static void NotifyAI(AttribMod *pmod, Character *pchar, float f, float fRate)
         params.notifyType = AI_EVENT_NOTIFY_POWER_SUCCEEDED;
         params.source = erGetEnt(pmod->erSource);
         params.target = pchar->entParent;
-        params.powerSucceeded.offAttrib = pmod->ptemplate->offAttrib;
-        params.powerSucceeded.offAspect = pmod->ptemplate->offAspect;
+        params.powerSucceeded.offAttrib = (S32)pmod->ptemplate->offAttrib;
+        params.powerSucceeded.offAspect = (S32)pmod->ptemplate->offAspect;
         params.powerSucceeded.ppowBase = ppowBase;
         params.powerSucceeded.uiInvokeID = pmod->uiInvokeID;
         params.powerSucceeded.revealSource = ppowBase->eAIReport==kAIReport_Always || ppowBase->eAIReport==kAIReport_HitOnly;
@@ -2753,7 +2753,7 @@ void mod_Cancel(AttribMod *pmod, Character *pchar)
         case kSpecialAttrib_HoverBoard:
         case kSpecialAttrib_MagicCarpet:
         case kSpecialAttrib_ParkourRun:
-            setSpecialMovement(pchar->entParent, pmod->ptemplate->offAttrib, false);
+            setSpecialMovement(pchar->entParent, (int)pmod->ptemplate->offAttrib, false);
             break;
 
         case offsetof(CharacterAttributes, fTaunt):
@@ -2797,8 +2797,8 @@ void mod_Cancel(AttribMod *pmod, Character *pchar)
                 params.notifyType = AI_EVENT_NOTIFY_POWER_ENDED;
                 params.source = erGetEnt(pmod->erSource);
                 params.target = pchar->entParent;
-                params.powerEnded.offAttrib = pmod->ptemplate->offAttrib;
-                params.powerEnded.offAspect = pmod->ptemplate->offAspect;
+                params.powerEnded.offAttrib = (S32)pmod->ptemplate->offAttrib;
+                params.powerEnded.offAspect = (S32)pmod->ptemplate->offAspect;
                 params.powerEnded.ppowBase = pmod->ptemplate->ppowBase;
                 params.powerEnded.uiInvokeID = pmod->uiInvokeID;
                 if(params.source)

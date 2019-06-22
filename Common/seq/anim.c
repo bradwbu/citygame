@@ -1,15 +1,15 @@
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h> 
-#include "assert.h"
-#include "mathutil.h"
-#include "file.h"
-#include "error.h"
-#include "utils.h"
-#include "earray.h"
-#include "SharedHeap.h"
-#include "textparser.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/SharedHeap.h>
+#include <utilitieslib/utils/textparser.h>
 #ifndef GETVRML
 #include "NwWrapper.h"
 #endif
@@ -20,10 +20,10 @@
 #endif
 #include "anim.h"
 #include "ctri.h"
-#include "genericlist.h"
-#include "StashTable.h"
+#include <utilitieslib/components/genericlist.h>
+#include <utilitieslib/components/StashTable.h>
 #include "zlib.h"
-#include "memcheck.h"
+#include <utilitieslib/utils/memcheck.h>
 #include "tex.h"
 #include "tricks.h"
 #include "AutoLOD.h"
@@ -39,8 +39,8 @@
 #include "groupfilelib.h"
 #endif
 
-#include "strings_opt.h"
-#include "timing.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/utils/timing.h>
 
 #ifdef SERVER 
 #include "cmdserver.h"

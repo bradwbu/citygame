@@ -1,9 +1,9 @@
 #include <float.h>
 
-#include "eval.h"
-#include "earray.h"
-#include "estring.h"
-#include "timing.h"
+#include <utilitieslib/utils/eval.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/timing.h>
 #include "mathutil.h"
 
 #include "entity.h"
@@ -18,7 +18,7 @@
 #include "character_combat_eval.h"
 #include "powers.h"
 
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 
 EvalContext *s_pCombatEval;
 

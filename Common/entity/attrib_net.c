@@ -4,7 +4,7 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include <stddef.h>   // for offsetof
-#include "textparser.h"
+#include <utilitieslib/utils/textparser.h>
 #include "character_attribs.h"
 #include "character_base.h"
 #include "attrib_net.h"

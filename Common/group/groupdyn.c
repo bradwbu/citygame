@@ -1,10 +1,10 @@
 #include "groupdyn.h"
 #include "group.h"
 #include "grouputil.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "grouptrack.h"
-#include <assert.h>
-#include "mathutil.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/mathutil.h>
 #include "groupfileload.h"
 
 DynGroup        *dyn_groups;

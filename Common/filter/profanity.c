@@ -6,14 +6,15 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "file.h"
-#include "StashTable.h"
-#include "AppLocale.h"
-#include "utils.h"
-#include "earray.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/earray.h>
 
 #if SERVER
-#include "reserved_names.h"
+#include "filter/reserved_names.h"
 #endif
 
 static StashTable s_hashFilth;
@@ -128,7 +129,7 @@ char* IsCopyright(const char *pch)
  */
 char * IsAnyWordProfane(const char *pch)
 {
-    int l = strlen(pch);
+    int l = (int)strlen(pch);
     static char * pchReturn;
     char *pchCur;
     char *pchBuff = _alloca(l + 1);
@@ -139,7 +140,7 @@ char * IsAnyWordProfane(const char *pch)
     pchCur=strtok_s(pchBuff, "-_?.,! \n\t", &context);
     while(pchCur!=NULL)
     {
-        if(IsProfanity(pchCur, strlen(pchCur)))
+        if(IsProfanity(pchCur, (int)strlen(pchCur)))
         {
             SAFE_FREE(pchReturn)
             pchReturn = strdup(pchCur);
@@ -157,7 +158,7 @@ char * IsAnyWordProfane(const char *pch)
 */
 char * IsAnyWordProfaneOrCopyright(const char *pch)
 {
-    int l = strlen(pch);
+    int l = (int)strlen(pch);
     static char *pchReturn;
     char *pchCur;
     char *pchBuff = _alloca(l + 1);
@@ -173,7 +174,7 @@ char * IsAnyWordProfaneOrCopyright(const char *pch)
     pchCur=strtok_s(pchBuff, "-_?.,! ", &context);
     while(pchCur!=NULL)
     {
-        if(IsProfanity(pchCur, strlen(pchCur)))
+        if(IsProfanity(pchCur, (int)strlen(pchCur)))
         {
             SAFE_FREE(pchReturn)
             pchReturn = strdup(pchCur);
@@ -194,12 +195,12 @@ int ReplaceAnyWordProfane(char *pch)
 
     while( start && *start )
     {
-        int len = strcspn(start, "<>-_?.,! \n\t");
+        int len = (int)strcspn(start, "<>-_?.,! \n\t");
         char * token = _alloca(len+1);
 
         strncpy_s( token, len+1, start, len );
 
-        if(IsProfanity(token, strlen(token)))
+        if(IsProfanity(token, (int)strlen(token)))
         {
             int i;
             for( i = 0; i < (int)len; i++ )
@@ -261,7 +262,7 @@ void LoadProfanity(void)
         s = strtok_s(s, " \t\r\n", &context);
         if(s && strncmp(s, "//", 2)!=0)
         {
-            xorA5(s, s, strlen(s));
+            xorA5(s, s, (int)strlen(s));
             stashAddPointer(s_hashFilth, s, NULL, false);
         }
     }

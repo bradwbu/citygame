@@ -1,6 +1,6 @@
 #include "storyarc/storyarcCommon.h"
-#include "structDefines.h"
-#include "superassert.h"
+#include <utilitieslib/utils/structDefines.h>
+#include <utilitieslib/utils/SuperAssert.h>
 #include "malloc.h"
 
 // approximate room placement

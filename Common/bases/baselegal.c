@@ -2,12 +2,12 @@
 #include "bases.h"
 #include "basedata.h"
 #include "baselegal.h"
-#include "earray.h"
-#include "mathutil.h"
-#include "textparser.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/textparser.h>
 
 #if SERVER
-    #include "baseserver.h"
+    #include "bases/baseserver.h"
 #endif
 
 typedef struct FillState
@@ -559,7 +559,7 @@ void baseToDetailBlocks(Base *base)
     }
 }
 
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 
 typedef struct
 {
@@ -1237,7 +1237,7 @@ static void initRoom(BaseRoom *room,FillState *state)
 }
 
 
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 void testbaselegal()
 {
     BaseRoom        room;

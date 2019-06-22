@@ -3,11 +3,11 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
-#include "timing.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/timing.h>
 
-#include "error.h"
-#include "earray.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/earray.h>
 
 #include "entity.h"
 #include "entsend.h"       // for entSetTriggeredMove, entAddFxm, entDelFxByName
@@ -29,7 +29,7 @@
 #include "entServer.h"
 #include "costume.h"
 
-#include "StringCache.h"      // for stringToReference
+#include <utilitieslib/components/StringCache.h>      // for stringToReference
 #include "seq.h"
 
 /**********************************************************************func*
