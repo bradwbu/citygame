@@ -1,11 +1,11 @@
 
 #include "entaiPrivate.h"
-#include "seq.h"
-#include "entity.h"
-#include "timing.h"
-#include "cmdserver.h"
-#include "entaiLog.h"
-#include "entai.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include <utilitieslib/utils/timing.h>
+#include "cmdparse/cmdserver.h"
+#include "ai/entaiLog.h"
+#include "ai/entai.h"
 
 // The main AI functions for each entity type.  These are mainly just wrappers so I can put performance
 // monitoring code around the whole function.

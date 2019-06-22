@@ -6,22 +6,22 @@
 //#include <limits.h>
 //#include <F32.h>
 
-#include "beaconPrivate.h"
-#include "assert.h"
-#include "beacon.h"
-#include "ArrayOld.h"
-#include "error.h"
-#include "gridcoll.h"
-#include "beaconConnection.h"
-#include "strings_opt.h"
-#include "beaconFile.h"
-#include "group.h"
-#include "groupscene.h"
-#include "entity.h"
-#include "entserver.h"
-#include "anim.h"
-#include "timing.h"
-#include "StashTable.h"
+#include "beacon/beaconPrivate.h"
+#include <utilitieslib/assert/assert.h>
+#include "beacon/beacon.h"
+#include <utilitieslib/components/ArrayOld.h>
+#include <utilitieslib/utils/error.h>
+#include "gridcoll/gridcoll.h"
+#include "beacon/beaconConnection.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include "beacon/beaconFile.h"
+#include "group/group.h"
+#include "group/groupscene.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
+#include "seq/anim.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/components/StashTable.h>
 
 StashTable namedSpatialMarkers;
 

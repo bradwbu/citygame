@@ -1,44 +1,41 @@
 #include <stdlib.h>
-#include "basestorage.h"
-#include "Salvage.h"
-#include "powers.h"
-#include "mathutil.h"
-#include "bases.h"
-#include "baseserverrecv.h"
-#include "netio.h"
-#include "entity.h"
-#include "netcomp.h"
-#include "basetogroup.h"
-#include "earray.h"
-#include "basedata.h"
-#include "baseparse.h"
-#include "EString.h"
-#include "textparser.h"
-#include "baseparse.h"
-#include "bindiff.h"
-#include "basesend.h"
-#include "group.h"
-#include "groupscene.h"
-#include "baseserver.h"
-#include "baselegal.h"
-#include "logcomm.h"
-#include "entPlayer.h"
-#include "dbdoor.h"
-#include "dbcomm.h"
-#include "raidmapserver.h"
-#include "SgrpServer.h"
-#include "baseparse.h"
-#include "character_inventory.h"
-#include "gridcache.h"
-#include "baseloadsave.h"
-#include "supergroup.h"
-#include "team.h"
-#include "sendtoclient.h"
-#include "utils.h"
-#include "cmdserver.h"
-#include "dbdoor.h"
-#include "langServerUtil.h"
-#include "logcomm.h"
+#include "bases/basestorage.h"
+#include "entity/Salvage.h"
+#include "entity/powers.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "bases/bases.h"
+#include "bases/baseserverrecv.h"
+#include <utilitieslib/network/netio.h>
+#include "entity/entity.h"
+#include <utilitieslib/network/netcomp.h>
+#include "bases/basetogroup.h"
+#include <utilitieslib/components/earray.h>
+#include "bases/basedata.h"
+#include "bases/baseparse.h"
+#include <utilitieslib/components/EString.h>
+#include <utilitieslib/utils/textparser.h>
+#include "bases/baseparse.h"
+#include <utilitieslib/network/bindiff.h>
+#include "bases/basesend.h"
+#include "group/group.h"
+#include "group/groupscene.h"
+#include "bases/baseserver.h"
+#include "bases/baselegal.h"
+#include "dbcomm/logcomm.h"
+#include "entity/entPlayer.h"
+#include "dbcomm/dbdoor.h"
+#include "dbcomm/dbcomm.h"
+#include "gameSys/raidmapserver.h"
+#include "entity/SgrpServer.h"
+#include "entity/character_inventory.h"
+#include "gridcoll/gridcache.h"
+#include "container/baseloadsave.h"
+#include "entity/supergroup.h"
+#include "container/team.h"
+#include "gameComm/sendtoclient.h"
+#include <utilitieslib/utils/utils.h>
+#include "cmdparse/cmdserver.h"
+#include "language/langServerUtil.h"
 
 extern int world_modified;
 
@@ -1011,9 +1008,9 @@ int baseReceiveEdit(Packet *pak,Entity *e)
     }
     xcase BASENET_ROOMHEIGHT:
     {
-        int            idx;
-        BaseRoom    *room;
-        F32            height[2];
+        int idx;
+        BaseRoom* room = NULL;
+        F32 height[2];
 
         int type = pktGetBitsPack(pak,1);
         if(type!=kBaseSend_Base)

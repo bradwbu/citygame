@@ -1,26 +1,27 @@
-#include "aiBehaviorInterface.h"
+#include <utilitieslib/stdtypes.h>
+#include "ailib/aiBehaviorInterface.h"
 #include "entaiBehaviorStruct.h"
 #include "entaiBehaviorCoh.h"
 
-#include "arenamap.h"
-#include "beaconPath.h"
-#include "beaconPrivate.h"
-#include "character_base.h"
-#include "cmdcommon.h"
-#include "cmdserver.h"
-#include "earray.h"
+#include "gameSys/arenamap.h"
+#include "beacon/beaconPath.h"
+#include "beacon/beaconPrivate.h"
+#include "entity/character_base.h"
+#include "cmdparse/cmdcommon.h"
+#include "cmdparse/cmdserver.h"
+#include <utilitieslib/components/earray.h>
 #include "entaiCritterPrivate.h"
 #include "entaiLog.h"
 #include "entaiprivate.h"
-#include "entGameActions.h"
-#include "entity.h"
-#include "EString.h"
-#include "mathutil.h"
-#include "pet.h"
-#include "seq.h"
-#include "seqstate.h"
-#include "textparser.h"
-#include "character_animfx.h"
+#include "entity/entGameActions.h"
+#include "entity/entity.h"
+#include <utilitieslib/components/EString.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "gameComm/pet.h"
+#include "seq/seq.h"
+#include "seq/seqstate.h"
+#include <utilitieslib/utils/textparser.h>
+#include "entity/character_animfx.h"
 
 #include <stdio.h>
 
@@ -123,7 +124,7 @@ int aiBFPetString(Entity* e, AIVarsBase* aibase, AIBehavior* behavior, Tokenizer
     {
         if(!stricmp("Attack", cmdStr))
         {
-            AIProxEntStatus* status;
+            AIProxEntStatus* status = NULL;
             Entity* target;
 
             if(eaSize(&param->params) != 1)

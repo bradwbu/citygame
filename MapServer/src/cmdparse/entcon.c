@@ -9,47 +9,47 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <limits.h>
-#include "CommandFileParser.h"
-#include "SimpleParser.h"
+#include <utilitieslib/utils/CommandFileParser.h>
+#include <utilitieslib/utils/SimpleParser.h>
 #include "missionMapInit.h"
 #include "comm_game.h"
-#include "entVarUpdate.h"
-#include "beacon.h"
-#include "svr_base.h"
-#include "entserver.h"
-#include "beaconDebug.h"
-#include "beaconPath.h"
-#include "entaiPrivate.h"
-#include "entaiPriority.h"
-#include "sendToClient.h"
-#include "villainDef.h"
-#include "clientEntityLink.h"
-#include "seq.h"
-#include "entgen.h"
-#include "NpcServer.h"
-#include "Npc.h"
-#include "EString.h"
-#include "motion.h"
-#include "character_attribs.h"
-#include "entity.h"
-#include "powers.h"
-#include "character_combat.h"
-#include "character_pet.h"
-#include "utils.h"
+#include "entity/entVarUpdate.h"
+#include "beacon/beacon.h"
+#include "svr/svr_base.h"
+#include "entity/entserver.h"
+#include "beacon/beaconDebug.h"
+#include "beacon/beaconPath.h"
+#include "ai/entaiPrivate.h"
+#include "ai/entaiPriority.h"
+#include "gameComm/sendToClient.h"
+#include "gameComm/villainDef.h"
+#include "player/clientEntityLink.h"
+#include "seq/seq.h"
+#include "generator/entgen.h"
+#include "gameComm/NpcServer.h"
+#include "gameComm/Npc.h"
+#include <utilitieslib/components/EString.h>
+#include "entity/motion.h"
+#include "entity/character_attribs.h"
+#include "entity/entity.h"
+#include "entity/powers.h"
+#include "entity/character_combat.h"
+#include "entity/character_pet.h"
+#include <utilitieslib/utils/utils.h>
 #include "cmdserver.h"
-#include "entaiLog.h"
-#include "entai.h"
-#include "earray.h"
-#include "entplayer.h"
-#include "entGameActions.h"
-#include "NwWrapper.h"
-#include "storyarcutil.h"
-#include "ragdoll.h"
-#include "error.h"
-#include "seqstate.h"
-#include "StashTable.h"
-#include "foldercache.h"
-#include "aiBehaviorPublic.h"
+#include "ai/entaiLog.h"
+#include "ai/entai.h"
+#include <utilitieslib/components/earray.h>
+#include "entity/entplayer.h"
+#include "entity/entGameActions.h"
+#include "NovodeX/NwWrapper.h"
+#include "storyarc/storyarcutil.h"
+#include "entity/ragdoll.h"
+#include <utilitieslib/utils/error.h>
+#include "seq/seqstate.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/foldercache.h>
+#include "ailib/aiBehaviorPublic.h"
 
 static StashTable commandTable = 0;
 static ClientLink* cur_client = NULL;
@@ -87,7 +87,7 @@ void entControl(ClientLink* client, const char* commandParam){
     char* token;
     char delim;
     int entID;
-    Entity* e;
+    Entity* e = NULL;
     CommandHandler handler;
     EntType entType = 0;
 
@@ -462,7 +462,7 @@ static int entconGetPowerAttributeFromName(int* offsetOut){
 
     for(; table->name; table++){
         if(!stricmp(table->name, tempString)){
-            *offsetOut = table->storeoffset;
+            *offsetOut = (int)table->storeoffset;
             return 1;
         }
     }
@@ -1221,7 +1221,7 @@ static void entconSetPlayerMorphLevel(Entity* e, char* params)
 {
     if (params[0])
     {
-        clientLinkSetDebugVar(cur_client, "MorphLevel", (void *) atoi(params));
+        clientLinkSetDebugVar(cur_client, "MorphLevel", (void*)atoll(params));
     }
 }
 
@@ -1229,7 +1229,7 @@ static void entconSetPlayerEnhanceLevel(Entity* e, char* params)
 {
     if (params[0])
     {
-        clientLinkSetDebugVar(cur_client, "EnhanceLevel", (void *) atoi(params));
+        clientLinkSetDebugVar(cur_client, "EnhanceLevel", (void*)atoll(params));
     }
 }
 

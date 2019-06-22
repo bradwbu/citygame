@@ -1,7 +1,7 @@
 #ifndef _CLIENTENTITYLINK_H
 #define    _CLIENTENTITYLINK_H
 
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 
 typedef struct Entity Entity;
 typedef struct ClientLink ClientLink;

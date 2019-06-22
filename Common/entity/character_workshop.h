@@ -6,7 +6,7 @@
 #ifndef CHARACTER_WORKSHOP_H
 #define CHARACTER_WORKSHOP_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct Character Character;
 typedef struct RecipeItem RecipeItem; 

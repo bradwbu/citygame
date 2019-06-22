@@ -2,10 +2,10 @@
 #define _CHAT_DB_H
 
 
-#include "stdtypes.h"
-#include "netio.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/network/netio.h>
 #ifdef CHATSERVER
-#	include "loadsave.h"
+#include "loadsave.h"
 #endif
 #include "chatdefs.h"
 

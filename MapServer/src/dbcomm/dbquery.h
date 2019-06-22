@@ -1,7 +1,7 @@
 #ifndef _DBQUERY_H
 #define _DBQUERY_H
 
-#include "gametypes.h"
+#include "entity/gametypes.h"
 
 typedef struct
 {

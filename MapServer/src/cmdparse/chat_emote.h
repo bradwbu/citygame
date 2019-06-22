@@ -7,8 +7,8 @@
 #define CHAT_EMOTE_H__
 
 
-#include "stdtypes.h"
-#include "textparser.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/textparser.h>
 
 typedef struct Entity Entity;
 

@@ -1,11 +1,11 @@
 
 #include "entaiprivate.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "character_base.h"
-#include "earray.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/character_base.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/StashTable.h>
 
 // AIProxEntStatus ---------------------------------------------------------------------------
 

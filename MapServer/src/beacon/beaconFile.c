@@ -4,29 +4,29 @@
 #include "beaconPrivate.h"
 #include "beaconConnection.h"
 #include "beaconPath.h"
-#include "utils.h"
-#include "group.h"
-#include "groupnetsend.h"
-#include "entserver.h"
-#include "entVarUpdate.h"
-#include "EString.h"
-#include "strings_opt.h"
-#include "beaconGenerate.h"
-#include "crypt.h"
-#include "groupscene.h"
-#include "earray.h"
-#include "fileutil.h"
-#include "dbcomm.h"
-#include "groupnetdb.h"
-#include "gridcache.h"
-#include "cmdserver.h"
-#include "model.h"
-#include "anim.h"
-#include "timing.h"
-#include "tricks.h"
-#include "raidmapserver.h"
-#include "entai.h"
-#include "log.h"
+#include <utilitieslib/utils/utils.h>
+#include "group/group.h"
+#include "group/groupnetsend.h"
+#include "entity/entserver.h"
+#include "entity/entVarUpdate.h"
+#include <utilitieslib/components/EString.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include "beacon/beaconGenerate.h"
+#include <utilitieslib/network/crypt.h>
+#include "group/groupscene.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/fileutil.h>
+#include "dbcomm/dbcomm.h"
+#include "group/groupnetdb.h"
+#include "gridcoll/gridcache.h"
+#include "cmdparse/cmdserver.h"
+#include "render/model.h"
+#include "seq/anim.h"
+#include <utilitieslib/utils/timing.h>
+#include "seq/tricks.h"
+#include "gameSys/raidmapserver.h"
+#include "ai/entai.h"
+#include <utilitieslib/utils/log.h>
 // ------------ Beacon file format history ------------------------------------------------------------------
 // Version 0: [*** UNSUPPORTED ***]
 //   - ???
@@ -77,7 +77,7 @@ static struct {
 #define FWRITE(x) beaconWriter.callback(&x, sizeof(x))
 #define FWRITE_U32(x) {fwriteCompressedU32(x);}
 #define FWRITE_U8(x) {U8 i__ = (x);FWRITE(i__);}
-#define FWRITE_CHECK(x) if(beaconWriter.useFileCheck) beaconWriter.callback(x,strlen(x))
+#define FWRITE_CHECK(x) if(beaconWriter.useFileCheck) beaconWriter.callback(x,(U32)strlen(x))
 
 static void fwriteCompressedU32(U32 i){
     //fwrite(&i, sizeof(i), 1, f);
@@ -532,10 +532,10 @@ static void writeBeaconFileToFile(const void* data, U32 size){
 static S32 writeBeaconFile(char* fileName, S32 writeCheck, S32 doCheckoutCheckin){
     S32 i = 0;
 
-    // Check out the beacon file for modificaiton
+    // Check out the beacon file for modification
 
     if(!doCheckoutCheckin){
-        DeleteFile(fileName);
+        DeleteFileA(fileName);
     }
     
     // Make sure the directories all exist.
@@ -702,7 +702,7 @@ static void displayFailure(const char* fileName, S32 fileLine, const char* place
 S32 freadCheck(const char* name, const char* fileName, S32 fileLine){
     char temp[1000];
     
-    if(!beaconReader.callback(temp, strlen(name))){
+    if(!beaconReader.callback(temp, (U32)strlen(name))){
         sprintf(temp, "CHECK: %s", name);
         FREAD_FAIL(temp);
     }

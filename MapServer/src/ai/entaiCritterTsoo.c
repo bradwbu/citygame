@@ -1,12 +1,12 @@
 #include "entaiCritterPrivate.h"
 #include "entaiPrivate.h"
 #include "entaiCritterPrivate.h"
-#include "beaconPrivate.h"
-#include "entserver.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "powers.h"
-#include "character_base.h"
+#include "beacon/beaconPrivate.h"
+#include "entity/entserver.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/powers.h"
+#include "entity/character_base.h"
 
 void aiCritterDoTsooMinion(Entity* e, AIVars* ai)
 {

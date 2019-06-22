@@ -5,15 +5,15 @@
 #include "beaconAStar.h"
 #include "beaconFile.h"
 #include "comm_game.h"
-#include "cmdserver.h"
-#include "svr_base.h"
-#include "simpleparser.h"
-#include "entgenCommon.h"
-#include "entserver.h"
-#include "entai.h"
-#include "sendToClient.h"
-#include "entity.h"
-#include "earray.h"
+#include "cmdparse/cmdserver.h"
+#include "svr/svr_base.h"
+#include <utilitieslib/utils/simpleparser.h>
+#include "generator/entgenCommon.h"
+#include "entity/entserver.h"
+#include "ai/entai.h"
+#include "gameComm/sendToClient.h"
+#include "entity/entity.h"
+#include <utilitieslib/components/earray.h>
 
 #define HILITE(x,y,z,color) if(0){                \
     pktSendBitsPack(pak, 2, 0);                    \

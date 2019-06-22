@@ -34,7 +34,7 @@
 #ifdef __cplusplus
     extern "C" {
 #endif // __cplusplus
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct GroupDef GroupDef;
 

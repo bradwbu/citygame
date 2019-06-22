@@ -1,8 +1,8 @@
 #ifndef _GRID_H
 #define _GRID_H
 
-#include "stdtypes.h"
-#include "memorypool.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/memorypool.h>
 
 
 #define NUMCELLS 2

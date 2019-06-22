@@ -1,27 +1,27 @@
 #include "entaiPrivate.h"
 #include "entaiCritterPrivate.h"
-#include "beaconPath.h"
-#include "beaconPrivate.h"
-#include "motion.h"
-#include "VillainDef.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "entity.h"
-#include "megaGrid.h"
-#include "cmdcommon.h"
-#include "powers.h"
-#include "character_base.h"
-#include "cmdserver.h"
-#include "aiBehaviorPublic.h"
+#include "beacon/beaconPath.h"
+#include "beacon/beaconPrivate.h"
+#include "entity/motion.h"
+#include "gameComm/VillainDef.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "gridcoll/megaGrid.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/powers.h"
+#include "entity/character_base.h"
+#include "cmdparse/cmdserver.h"
+#include "ailib/aiBehaviorPublic.h"
 #include "entaiBehaviorCoh.h"
 #include "entaiLog.h"
 #include "entai.h"
-#include "timing.h"
-#include "entityRef.h"
-#include "character_combat.h"
-#include "entGameActions.h"
-#include "entaiScript.h"
-#include "character_target.h"
+#include <utilitieslib/utils/timing.h>
+#include "entity/entityRef.h"
+#include "entity/character_combat.h"
+#include "entity/entGameActions.h"
+#include "ai/entaiScript.h"
+#include "entity/character_target.h"
 
 static float randomFloat(float min, float max)
 {
@@ -1584,7 +1584,8 @@ static void aiCritterDoSwitchTargets(Entity* e, AIVars* ai)
     else if(ABS_TIME_SINCE(ai->brain.switchTargets.lastTargetSwitch) >
         SEC_TO_ABS(ai->brain.switchTargets.baseTime) && !(rand() % 4))
     {
-        AIProxEntStatus *status, *bestStatus;
+        AIProxEntStatus* status;
+        AIProxEntStatus* bestStatus = NULL;
         Entity* bestTarget = NULL;
         F32 maxDanger = -FLT_MAX;
 

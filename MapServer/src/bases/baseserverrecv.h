@@ -1,7 +1,7 @@
 #ifndef BASESERVERRECV_H
 #define BASESERVERRECV_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct Packet Packet;
 typedef struct Entity Entity;

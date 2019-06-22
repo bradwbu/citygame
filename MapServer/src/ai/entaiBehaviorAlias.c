@@ -1,20 +1,21 @@
+#include <utilitieslib/stdtypes.h>
 #include "entaiBehaviorAlias.h"
-#include "aiBehaviorInterface.h"
-#include "aiBehaviorPublic.h"
+#include "ailib/aiBehaviorInterface.h"
+#include "ailib/aiBehaviorPublic.h"
 
-#include "cmdserver.h"
-#include "earray.h"
-#include "entai.h"
-#include "entity.h"
-#include "entserver.h"
-#include "error.h"
-#include "file.h"
-#include "fileutil.h"
-#include "FolderCache.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
-#include "VillainDef.h"
-#include "SharedMemory.h"
+#include "cmdparse/cmdserver.h"
+#include <utilitieslib/components/earray.h>
+#include "ai/entai.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/StashTable.h>
+#include "gameComm/VillainDef.h"
+#include <utilitieslib/components/SharedMemory.h>
 
 typedef struct AIBehaviorAlias{
     char* aliasStr;

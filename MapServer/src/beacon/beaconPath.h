@@ -2,7 +2,7 @@
 #ifndef BEACONPATH_H
 #define BEACONPATH_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct AStarSearchData    AStarSearchData;
 typedef struct Beacon            Beacon;

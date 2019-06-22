@@ -1,10 +1,11 @@
-#include "aiBehaviorPublic.h"
-#include "character_base.h"
-#include "character_pet.h"
-#include "entaiLog.h"
-#include "entaiprivate.h"
-#include "entity.h"
-#include "scriptengine.h"
+#include <utilitieslib/stdtypes.h>
+#include "ailib/aiBehaviorPublic.h"
+#include "entity/character_base.h"
+#include "entity/character_pet.h"
+#include "ai/entaiLog.h"
+#include "ai/entaiprivate.h"
+#include "entity/entity.h"
+#include "script/scriptengine.h"
 
 void aiScriptSetGang(Entity * agent, int iGangID)
 {

@@ -6,7 +6,7 @@
 #ifndef BADGESTATS_H
 #define BADGESTATS_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct StashTableImp *StashTable;
 typedef const struct StashTableImp *cStashTable;

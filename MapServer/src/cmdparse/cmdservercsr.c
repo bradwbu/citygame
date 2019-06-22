@@ -3,55 +3,55 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "earray.h"
-#include "utils.h"
-#include "EString.h"
-#include "timing.h"
-#include "strings_opt.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/EString.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/strings_opt.h>
 
-#include "dbcontainer.h"
-#include "dbcomm.h"
-#include "cmdserver.h"
-#include "clientEntityLink.h"
-#include "sendToClient.h"
-#include "entserver.h"
-#include "svr_base.h"
-#include "svr_player.h"
-#include "svr_chat.h"
-#include "entgen.h"
-#include "dbquery.h"
-#include "powers.h"
-#include "origins.h"
-#include "character_base.h"
-#include "character_level.h"
-#include "buddy_server.h"
-#include "task.h"
-#include "team.h"
-#include "entPlayer.h"
+#include "dbcomm/dbcontainer.h"
+#include "dbcomm/dbcomm.h"
+#include "cmdparse/cmdserver.h"
+#include "player/clientEntityLink.h"
+#include "gamecomm/sendToClient.h"
+#include "entity/entserver.h"
+#include "svr/svr_base.h"
+#include "svr/svr_player.h"
+#include "gameComm/svr_chat.h"
+#include "generator/entgen.h"
+#include "dbcomm/dbquery.h"
+#include "entity/powers.h"
+#include "entity/origins.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "entity/buddy_server.h"
+#include "storyarc/task.h"
+#include "container/team.h"
+#include "entity/entPlayer.h"
 #include "gameData/store.h"
-#include "storyarcprivate.h"
-#include "containerloadsave.h"
-#include "badges.h"
-#include "badges_server.h"
+#include "storyarc/storyarcprivate.h"
+#include "container/containerloadsave.h"
+#include "player/badges.h"
+#include "player/badges_server.h"
 #include "dbghelper.h"
-#include "shardcomm.h"
-#include "svr_chat.h"
-#include "trayCommon.h"
-#include "SgrpServer.h"
-#include "containercallbacks.h"
-#include "cmdservercsr.h"
-#include "dbnamecache.h"
-#include "entity.h"
-#include "pvp.h"
-#include "PowerInfo.h"
-#include "character_level.h"
-#include "raidstruct.h"
-#include "costume.h"
+#include "dbcomm/shardcomm.h"
+#include "gameComm/svr_chat.h"
+#include "gameComm/trayCommon.h"
+#include "entity/SgrpServer.h"
+#include "container/containercallbacks.h"
+#include "cmdparse/cmdservercsr.h"
+#include "dbcomm/dbnamecache.h"
+#include "entity/entity.h"
+#include "entity/pvp.h"
+#include "entity/PowerInfo.h"
+#include "entity/character_level.h"
+#include "gameData/raidstruct.h"
+#include "entity/costume.h"
 #include "comm_game.h"
-#include "character_net.h"
-#include "boostset.h"
-#include "character_combat.h"
-#include "logcomm.h"
+#include "entity/character_net.h"
+#include "entity/boostset.h"
+#include "entity/character_combat.h"
+#include "dbcomm/logcomm.h"
 #include "MARTY.h"
 
 static void findEntOrRelayInternal(ClientLink *admin,int db_id,char *orig_cmd,int force,int *result)
@@ -1022,7 +1022,7 @@ char * csrPlayerInfo(char ** estr, ClientLink * client, char *player_name, int d
 // debug only (used in Visual Studio command window)
 static int strlenwrap(char * s)
 {
-    return strlen(s);
+    return (int)strlen(s);
 }
 
 
@@ -1343,7 +1343,7 @@ void csrPowersReset(ClientLink *client, const char *pchPrimary, const char *pchF
     const char *pchFirstFound = NULL;
     const BasePowerSet *psetPrimary;
     const BasePowerSet *psetSecondary;
-    const BasePower *ppowFirst;
+    const BasePower *ppowFirst = NULL;
     PowerSet *pset;
 
     int iset;
@@ -2430,7 +2430,7 @@ void csrNextCritterById( ClientLink *client, int id )
 
 void csrNextCritterByName( ClientLink *client, char *name )
 {
-    Entity *e;
+    Entity* e = NULL;
 
     static int last_id = 1;
     bool bFound = 0;
@@ -2468,7 +2468,7 @@ void csrAuthKick( ClientLink *client, char *player_name )
 
 void csrNextArchVillain( ClientLink *client )
 {
-    Entity *e;
+    Entity* e = NULL;
 
     static int last_id = 1;
     bool bFound = 0;

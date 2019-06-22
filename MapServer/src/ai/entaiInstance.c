@@ -1,54 +1,55 @@
 
-#include "aiBehaviorPublic.h"
-#include "aiBehaviorInterface.h" // for AIVarsBase allocation
-#include "AnimBitList.h"
-#include "beaconPath.h"
-#include "character_animfx.h"
-#include "character_base.h"
-#include "character_target.h"
-#include "character_pet.h"
-#include "cmdcommon.h"
-#include "cmdserver.h"
+#include <utilitieslib/stdtypes.h>
+#include "ailib/aiBehaviorPublic.h"
+#include "ailib/aiBehaviorInterface.h" // for AIVarsBase allocation
+#include "seq/AnimBitList.h"
+#include "beacon/beaconPath.h"
+#include "entity/character_animfx.h"
+#include "entity/character_base.h"
+#include "entity/character_target.h"
+#include "entity/character_pet.h"
+#include "cmdparse/cmdcommon.h"
+#include "cmdparse/cmdserver.h"
 #include "entai.h"
 #include "entaiBehaviorCoh.h"
 #include "entaiCritterPrivate.h"
 #include "entaiLog.h"
 #include "entaiPrivate.h"
 #include "entaiPriority.h"
-#include "entGameActions.h"
-#include "entgen.h"
-#include "entity.h"
-#include "entserver.h"
-#include "error.h"
-#include "StringCache.h"
-#include "motion.h"
-#include "seq.h"
-#include "svr_tick.h"
-#include "timing.h"
-#include "cmdserver.h"
-#include "StringCache.h"
-#include "entai.h"
-#include "entaiLog.h"
-#include "earray.h"
-#include "VillainDef.h"
+#include "entity/entGameActions.h"
+#include "generator/entgen.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/StringCache.h>
+#include "entity/motion.h"
+#include "seq/seq.h"
+#include "svr/svr_tick.h"
+#include <utilitieslib/utils/timing.h>
+#include "cmdparse/cmdserver.h"
+#include <utilitieslib/components/StringCache.h>
+#include "ai/entai.h"
+#include "ai/entaiLog.h"
+#include <utilitieslib/components/earray.h>
+#include "gameComm/VillainDef.h"
 #include "entaiBehaviorAlias.h"
-#include "StashTable.h"
-#include "entPlayer.h"
-#include "mission.h"
-#include "playerCreatedStoryarcServer.h"
-#include "character_combat.h"
-#include "alignment_shift.h"
+#include <utilitieslib/components/StashTable.h>
+#include "entity/entPlayer.h"
+#include "storyarc/mission.h"
+#include "storyarc/playerCreatedStoryarcServer.h"
+#include "entity/character_combat.h"
+#include "entity/alignment_shift.h"
 
-#include "dbcomm.h"
-#include "staticMapInfo.h"
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/staticMapInfo.h"
 
 static const char* aiGetConfig(Entity* e, AIVars* ai);
 
 int AI_POWERGROUP_BASIC_ATTACK;
-int    AI_POWERGROUP_FLY_EFFECT;
-int    AI_POWERGROUP_RESURRECT;
-int    AI_POWERGROUP_BUFF;
-int    AI_POWERGROUP_DEBUFF;
+int AI_POWERGROUP_FLY_EFFECT;
+int AI_POWERGROUP_RESURRECT;
+int AI_POWERGROUP_BUFF;
+int AI_POWERGROUP_DEBUFF;
 int AI_POWERGROUP_ROOT;
 int AI_POWERGROUP_VICTOR; // Used when a critter is the victor in combat (defeats an opponent)
 int AI_POWERGROUP_POSTDEATH; // Used when a critter is the defeated in combat (must be a castable after death power!)

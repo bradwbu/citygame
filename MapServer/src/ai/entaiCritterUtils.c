@@ -1,13 +1,13 @@
 
 #include "entaiPrivate.h"
-#include "beaconPath.h"
-#include "beaconPrivate.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "character_base.h"
-#include "cmdserver.h"
-#include "entaiLog.h"
-#include "entserver.h"
+#include "beacon/beaconPath.h"
+#include "beacon/beaconPrivate.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/character_base.h"
+#include "cmdparse/cmdserver.h"
+#include "ai/entaiLog.h"
+#include "entity/entserver.h"
 
 void aiCritterUpdateAttackTargetVisibility(Entity* e, AIVars* ai){
     F32 distSQR;

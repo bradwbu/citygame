@@ -1,21 +1,22 @@
 
+#include <utilitieslib/stdtypes.h>
 #include "entai.h"
 #include "entaiLog.h"
 #include "entaiPrivate.h"
 
-#include "beaconConnection.h"
-#include "beaconPath.h"
-#include "beaconPrivate.h"
-#include "cmdcommon.h"
-#include "cmdserver.h"
-#include "dbcomm.h"
-#include "dbdoor.h"
-#include "entity.h"
-#include "gridcoll.h"
-#include "group.h"
-#include "grouputil.h"
-#include "motion.h"
-#include "timing.h"
+#include "beacon/beaconConnection.h"
+#include "beacon/beaconPath.h"
+#include "beacon/beaconPrivate.h"
+#include "cmdparse/cmdcommon.h"
+#include "cmdparse/cmdserver.h"
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/dbdoor.h"
+#include "entity/entity.h"
+#include "gridcoll/gridcoll.h"
+#include "group/group.h"
+#include "group/grouputil.h"
+#include "entity/motion.h"
+#include <utilitieslib/utils/timing.h>
 
 #define MIL (1000000)
 

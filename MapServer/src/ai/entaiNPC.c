@@ -1,27 +1,28 @@
 
-#include "aiBehaviorPublic.h"
-#include "entaiPrivate.h"
-#include "beaconPath.h"
-#include "entaiPriority.h"
-#include "encounter.h"
-#include "entserver.h"
-#include "beaconPrivate.h"
-#include "beaconConnection.h"
-#include "motion.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "entity.h"
-#include "megagrid.h"
-#include "cmdcommon.h"
-#include "character_base.h"
-#include "cmdserver.h"
-#include "entaiLog.h"
-#include "entai.h"
-#include "timing.h"
-#include "staticMapInfo.h"
-#include "dbcomm.h"
-#include "float.h"
-#include "entaiBehaviorCoh.h"
+#include <utilitieslib/stdtypes.h>
+#include "ailib/aiBehaviorPublic.h"
+#include "ai/entaiPrivate.h"
+#include "beacon/beaconPath.h"
+#include "ai/entaiPriority.h"
+#include "generator/encounter.h"
+#include "entity/entserver.h"
+#include "beacon/beaconPrivate.h"
+#include "beacon/beaconConnection.h"
+#include "entity/motion.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "gridcoll/megagrid.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/character_base.h"
+#include "cmdparse/cmdserver.h"
+#include "ai/entaiLog.h"
+#include "ai/entai.h"
+#include <utilitieslib/utils/timing.h>
+#include "dbcomm/staticMapInfo.h"
+#include "dbcomm/dbcomm.h"
+#include <float.h>
+#include "ai/entaiBehaviorCoh.h"
 
 U32 aiNPCGetActivityDataSize(){
     U32 size = 0;
@@ -418,7 +419,7 @@ void aiActivityThankHero(Entity* e, AIVars* ai){
                     entCount = mgGetNodesInRange(0, ENTPOS(e), entArray, 0);
 
                     for(i = 0; i < entCount; i++){
-                        int idx = (int)entArray[i];
+                        int idx = (int)(intptr_t)entArray[i];
 
                         if(ENTTYPE_BY_ID(idx) == ENTTYPE_DOOR){
                             door = validEntFromId(idx);
@@ -455,7 +456,7 @@ void aiActivityThankHero(Entity* e, AIVars* ai){
 
                     if(!doorCount){
                         for(i = 0; i < entCount; i++){
-                            int idx = (int)entArray[i];
+                            int idx = (int)(intptr_t)entArray[i];
 
                             if(idx && ENTTYPE_BY_ID(idx) == ENTTYPE_DOOR){
                                 door = validEntFromId(idx);

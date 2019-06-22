@@ -14,8 +14,8 @@
 #ifndef SCRIPTHOOKINTERNAL_H
 #define SCRIPTHOOKINTERNAL_H
 
-#include "missiongeoCommon.h"
-#include "position.h"
+#include "storyarc/missiongeoCommon.h"
+#include "utils/position.h"
 
 #define SCRIPTMARKER_NAMELEN    50
 typedef struct ScriptMarker

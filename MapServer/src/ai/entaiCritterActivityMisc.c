@@ -1,18 +1,18 @@
 
 #include "entaiPrivate.h"
 #include "entaiCritterPrivate.h"
-#include "../gamesys/dooranim.h"
-#include "beaconPath.h"
-#include "entserver.h"
-#include "dbdoor.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "entity.h"
-#include "megaGrid.h"
-#include "cmdcommon.h"
-#include "character_base.h"
-#include "mathutil.h"
-#include "position.h"
+#include "gameSys/dooranim.h"
+#include "beacon/beaconPath.h"
+#include "entity/entserver.h"
+#include "dbcomm/dbdoor.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "gridcoll/megaGrid.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/character_base.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "utils/position.h"
 
 void aiCritterActivityDoAnim(Entity* e, AIVars* ai){
     aiDiscardFollowTarget(e, "Doing anim.", false);

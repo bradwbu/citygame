@@ -1,7 +1,7 @@
 #ifndef _ENTWORLDCOLL_H
 #define _ENTWORLDCOLL_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 extern int coll_is_player;
 extern int landed_on_ground;

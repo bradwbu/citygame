@@ -4,7 +4,7 @@
 
 #include "gameData/store.h"
 #ifdef SERVER
-#include "scriptengine.h"
+#include "script/scriptengine.h"
 #endif
 
 typedef struct PNPCDef

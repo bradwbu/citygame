@@ -1,36 +1,36 @@
 
 #include "beaconPrivate.h"
-#include "cmdCommon.h"
-#include "beaconConnection.h"
-#include "entserver.h"
-#include "entgen.h"
-#include "group.h"
-#include "groupnetsend.h"
-#include "cmdserver.h"
-#include "gridcoll.h"
-#include "motion.h"
-#include "entGameActions.h"
-#include "utils.h"
-#include "entai.h"
-#include "grouptrack.h"
-#include "estring.h"
-#include "groupfilelib.h"
-#include "strings_opt.h"
-#include "groupscene.h"
-#include "beaconGenerate.h"
-#include "earray.h"
-#include "dbcomm.h"
-#include "entaiprivate.h"
-#include "beaconPath.h"
-#include "dbdoor.h"
-#include "seq.h"
-#include "entity.h"
-#include "anim.h"
-#include "file.h"
-#include "timing.h"
-#include "svr_player.h"
+#include "cmdparse/cmdCommon.h"
+#include "beacon/beaconConnection.h"
+#include "entity/entserver.h"
+#include "generator/entgen.h"
+#include "group/group.h"
+#include "group/groupnetsend.h"
+#include "cmdparse/cmdserver.h"
+#include "gridcoll/gridcoll.h"
+#include "entity/motion.h"
+#include "entity/entGameActions.h"
+#include <utilitieslib/utils/utils.h>
+#include "ai/entai.h"
+#include "group/grouptrack.h"
+#include <utilitieslib/components/estring.h>
+#include "group/groupfilelib.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include "group/groupscene.h"
+#include "beacon/beaconGenerate.h"
+#include <utilitieslib/components/earray.h>
+#include "dbcomm/dbcomm.h"
+#include "ai/entaiprivate.h"
+#include "beacon/beaconPath.h"
+#include "dbcomm/dbdoor.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "seq/anim.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/timing.h>
+#include "svr/svr_player.h"
 #include "comm_game.h"
-#include "svr_base.h"
+#include "svr/svr_base.h"
 
 // Memory pools.
 
@@ -73,7 +73,7 @@ void destroyBeaconConnection(BeaconConnection* conn){
 }
 
 U32 getAllocatedBeaconConnectionCount(void){
-    return mpGetAllocatedCount(MP_NAME(BeaconConnection));
+    return (U32)mpGetAllocatedCount(MP_NAME(BeaconConnection));
 }
 
 // BeaconBlockConnection
@@ -1110,10 +1110,10 @@ static int beaconHasGroundConnectionToBeacon(Beacon* source, Beacon* target, int
         int mid = (hi + lo) / 2;
         Beacon* midBeacon = conns[mid]->destBeacon;
         
-        if((int)target > (int)midBeacon){
+        if((ptrdiff_t)target > (ptrdiff_t)midBeacon){
             lo = mid + 1;
         }
-        else if((int)target < (int)midBeacon){
+        else if((ptrdiff_t)target < (ptrdiff_t)midBeacon){
             hi = mid - 1;
         }
         else{
@@ -1137,10 +1137,10 @@ static int beaconHasRaisedConnection(Beacon* source, BeaconConnection* targetCon
         int mid = (hi + lo) / 2;
         BeaconConnection* midConn = conns[mid];
         
-        if((int)targetConn > (int)midConn){
+        if((ptrdiff_t)targetConn > (ptrdiff_t)midConn){
             lo = mid + 1;
         }
-        else if((int)targetConn < (int)midConn){
+        else if((ptrdiff_t)targetConn < (ptrdiff_t)midConn){
             hi = mid - 1;
         }
         else{
@@ -1419,10 +1419,10 @@ static BeaconBlockConnection* findBlockConnection(Array* connsArray, BeaconBlock
         int mid = (hi + lo) / 2;
         BeaconBlock* midBlock = conns[mid]->destBlock;
         
-        if((int)destBlock > (int)midBlock){
+        if((ptrdiff_t)destBlock > (ptrdiff_t)midBlock){
             lo = mid + 1;
         }
-        else if((int)destBlock < (int)midBlock){
+        else if((ptrdiff_t)destBlock < (ptrdiff_t)midBlock){
             hi = mid - 1;
         }
         else{

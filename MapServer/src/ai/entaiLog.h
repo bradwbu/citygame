@@ -2,8 +2,8 @@
 #ifndef ENTAILOG_H
 #define ENTAILOG_H
 
-#include "stdtypes.h"
-#include "cmdserver.h"    // needed for server_state
+#include <utilitieslib/stdtypes.h>
+#include "cmdparse/cmdserver.h"    // needed for server_state
 
 typedef struct Entity Entity;
 

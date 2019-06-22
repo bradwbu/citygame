@@ -1,8 +1,8 @@
 #ifndef ANIMLIST_H
 #define ANIMLIST_H
 
-#include "stdtypes.h"
-#include "StashTable.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/StashTable.h>
 
 typedef struct Entity Entity;
 typedef struct SeqType SeqType;

@@ -1,25 +1,25 @@
 
 #include "entaiprivate.h"
 #include <stddef.h>
-#include "encounter.h"
-#include "textparser.h"
-#include "motion.h"
-#include "svr_base.h"
-#include "cmdcontrols.h"
-#include "storyarcutil.h"
-#include "entity.h"
-#include "megaGrid.h"
-#include "powers.h"
-#include "character_combat.h"
-#include "character_base.h"
-#include "timing.h"
-#include "cmdserver.h"
-#include "mathutil.h"
-#include "position.h"
-#include "entaiLog.h"
-#include "entai.h"
-#include "earray.h"
-#include "scriptvars.h"
+#include "generator/encounter.h"
+#include <utilitieslib/utils/textparser.h>
+#include "entity/motion.h"
+#include "svr/svr_base.h"
+#include "cmdparse/cmdcontrols.h"
+#include "storyarc/storyarcutil.h"
+#include "entity/entity.h"
+#include "gridcoll/megaGrid.h"
+#include "entity/powers.h"
+#include "entity/character_combat.h"
+#include "entity/character_base.h"
+#include <utilitieslib/utils/timing.h>
+#include "cmdparse/cmdserver.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "utils/position.h"
+#include "ai/entaiLog.h"
+#include "ai/entai.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/scriptvars.h>
 
 extern TokenizerParseInfo ParseCharacterAttributes[];
 

@@ -7,7 +7,7 @@
 #define BOOSTSET_H__
 
 #include <stdlib.h>     // for offsetof
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct BasePower BasePower;
 typedef struct Power Power;

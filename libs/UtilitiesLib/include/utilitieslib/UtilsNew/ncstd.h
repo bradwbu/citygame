@@ -36,7 +36,7 @@
 #   endif
 #   define WIN32_LEAN_AND_MEAN
 #   ifndef _WIN32_WINNT   // this enables newer win32 functionality e.g. IsDebuggerPresent
-#      define _WIN32_WINNT 0x0400 // XP
+#      define _WIN32_WINNT 0x0601 // Windows 7 and up
 #   endif
 #   include <winsock2.h>
 #   include <sal.h> // for source annotations

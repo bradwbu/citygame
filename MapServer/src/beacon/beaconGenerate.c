@@ -4,12 +4,12 @@
 #include "beaconConnection.h"
 #include "beaconClientServerPrivate.h"
 #include "comm_game.h"
-#include "cmdserver.h"
-#include "svr_base.h"
-#include "utils.h"
-#include "crypt.h"
-#include "anim.h"
-#include "timing.h"
+#include "cmdparse/cmdserver.h"
+#include "svr/svr_base.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/network/crypt.h>
+#include "seq/anim.h"
+#include <utilitieslib/utils/timing.h>
 
 #define SEND_LINE(x1,y1,z1,x2,y2,z2,color){        \
     if(pak){                                    \
@@ -2716,7 +2716,7 @@ static void sendLinesToClient(){
                                 
                                     printf(".");
                                     
-                                    if((S32)columnArea < (S32)columnArea->sides[j].area){
+                                    if((ptrdiff_t)columnArea < (ptrdiff_t)columnArea->sides[j].area){
                                         SEND_LINE(    x + 0.5, columnArea->y_min + 0.1, z + 0.5,
                                                     x + 0.5 + dir_offsets[j][0], columnArea->sides[j].area->y_min + 0.1, z + 0.5 + dir_offsets[j][1],
                                                     color2);//(columnArea->flatArea->color & 0xffffff));

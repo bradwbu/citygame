@@ -1,13 +1,13 @@
 
 #include "beaconClientServerPrivate.h"
 #include "beaconServerPrivate.h"
-#include "baseserver.h"
+#include "bases/baseserver.h"
 #include "comm_backend.h"
-#include "StashTable.h"
-#include "winutil.h"
-#include "missionMapCommon.h"
-#include "log.h"
-#include "seqstate.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/winutil.h>
+#include "storyarc/missionMapCommon.h"
+#include <utilitieslib/utils/log.h>
+#include "seq/seqstate.h"
 
 #define BEACON_SERVER_PROTOCOL_VERSION    (2)
 #define BEACON_MASTER_SERVER_ICON_COLOR    (0xffff00)
@@ -2176,7 +2176,7 @@ static void beaconServerDeleteMapLogFile(const char* dir){
     
     beaconServerGetBeaconLogFile(fileName, dir, NULL);
     
-    DeleteFile(fileName);
+    DeleteFileA(fileName);
 }
 
 static FILE* beaconServerGetMapLogFileHandle(const char* dir){
@@ -2427,7 +2427,7 @@ static void beaconServerLoadMapListFile(char* fileName, S32 addToQueue){
     beaconPrintf(COLOR_YELLOW, "%s\n", addToQueue ? fileName : getFileName(fileName));
 
     while(fgets(buffer, ARRAY_SIZE(buffer) - 1, f)){
-        S32 len = strlen(buffer);
+        S32 len = (S32)strlen(buffer);
         char* tokens[2];
         S32 token_count = 0;
 
@@ -2868,7 +2868,7 @@ static void beaconServerInstall(void){
         return;
     }
 
-    hMutex = CreateMutex(NULL, 0, "Global\\CrypticBeaconServerInstall");
+    hMutex = CreateMutexA(NULL, 0, "Global\\CrypticBeaconServerInstall");
 
     assert(hMutex);
 
@@ -2991,7 +2991,7 @@ static void beaconServerStartup(BeaconizerType beaconizerType,
         !strnicmp(beaconGetExeFileName(), "c:/src/", 7) &&
         strEndsWith(beaconGetExeFileName(), "/mapserver.exe"))
     {
-        S32 result = MessageBox(NULL,
+        S32 result = MessageBoxA(NULL,
                                 "Add beaconizer to symstore?",
                                 "Look at me!",
                                 MB_YESNO | MB_SYSTEMMODAL | MB_ICONWARNING);
@@ -3006,7 +3006,7 @@ static void beaconServerStartup(BeaconizerType beaconizerType,
             
             getDirectoryName(fileName);
             strcat(fileName, "/BeaconServer.exe");
-            if(!CopyFile(beaconGetExeFileName(), fileName, FALSE)){
+            if(!CopyFileA(beaconGetExeFileName(), fileName, FALSE)){
                 beaconPrintf(COLOR_RED, "ERROR: Can't create file: %s\n", fileName);
             }else{
                 beaconServerAddToSymStore(fileName);
@@ -3016,7 +3016,7 @@ static void beaconServerStartup(BeaconizerType beaconizerType,
 
             getDirectoryName(fileName);
             strcat(fileName, "/BeaconClient.exe");
-            if(!CopyFile(beaconGetExeFileName(), fileName, FALSE)){
+            if(!CopyFileA(beaconGetExeFileName(), fileName, FALSE)){
                 beaconPrintf(COLOR_RED, "ERROR: Can't create file: %s\n", fileName);
             }else{
                 beaconServerAddToSymStore(fileName);
@@ -3030,7 +3030,7 @@ static void beaconServerStartup(BeaconizerType beaconizerType,
             
             getDirectoryName(fileName);
             strcat(fileName, "/BeaconServer.pdb");
-            if(!CopyFile(pdbFileName, fileName, FALSE)){
+            if(!CopyFileA(pdbFileName, fileName, FALSE)){
                 beaconPrintf(COLOR_RED, "ERROR: Can't create file: %s\n", fileName);
             }else{
                 beaconServerAddToSymStore(fileName);
@@ -3040,7 +3040,7 @@ static void beaconServerStartup(BeaconizerType beaconizerType,
 
             getDirectoryName(fileName);
             strcat(fileName, "/BeaconClient.pdb");
-            if(!CopyFile(pdbFileName, fileName, FALSE)){
+            if(!CopyFileA(pdbFileName, fileName, FALSE)){
                 beaconPrintf(COLOR_RED, "ERROR: Can't create file: %s\n", fileName);
             }else{
                 beaconServerAddToSymStore(fileName);
@@ -4400,7 +4400,7 @@ static void displayBlockInfo(void){
 
         beaconConsolePrintf(COLOR_GREEN, "%s", buffer);
 
-        for(i = strlen(buffer); i % 10 && x + i <= bp_blocks.grid_max_xyz[0]; i++){
+        for(i = (S32)strlen(buffer); i % 10 && x + i <= bp_blocks.grid_max_xyz[0]; i++){
             beaconConsolePrintfDim(COLOR_RED|COLOR_GREEN|COLOR_BLUE, i % 5 ? "." : "|");
         }
     }
@@ -4576,7 +4576,7 @@ UINT_PTR CALLBACK getFileNameDialogHook(HWND hdlg, UINT uiMsg, WPARAM wParam, LP
 S32 getFileNameDialog(char* fileMask, char* fileNameParam, char*** multiSelectArray){
     char            tempDir[2000];
     char            fileName[20000];
-    OPENFILENAME    theFileInfo;
+    OPENFILENAMEA    theFileInfo;
     S32                ret;
 
     _getcwd(tempDir, 2000);
@@ -4604,7 +4604,7 @@ S32 getFileNameDialog(char* fileMask, char* fileNameParam, char*** multiSelectAr
     theFileInfo.lpstrDefExt = NULL;
     theFileInfo.lpfnHook = getFileNameDialogHook;
 
-    ret = GetOpenFileName(&theFileInfo);
+    ret = GetOpenFileNameA(&theFileInfo);
 
     if(!ret && (GetLastError() || CommDlgExtendedError())){
         printf("GetOpenFileName Error: %d, %d (", GetLastError(), CommDlgExtendedError());
@@ -4875,7 +4875,7 @@ static void beaconServerMapListMenu(void){
                 char buffer[1000];
                 STR_COMBINE_SS(buffer, beaconServerGetDataPath(), "\\server\\maps\\beaconprocess\\");
                 printf("Opening map list directory\n\n");
-                ShellExecute(NULL, "explore", buffer, "", "", SW_SHOW);
+                ShellExecuteA(NULL, "explore", buffer, "", "", SW_SHOW);
             }
 
             xcase '3':{

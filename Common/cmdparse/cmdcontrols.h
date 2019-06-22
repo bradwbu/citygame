@@ -2,7 +2,7 @@
 #define _CMDCONTROLS_H
 
 #include "cmdcommon.h"
-#include "motion.h"
+#include "entity/motion.h"
 
 typedef struct ControlStateChange    ControlStateChange;
 typedef struct ServerControlState    ServerControlState;

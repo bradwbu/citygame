@@ -1,6 +1,6 @@
 
 #include "entaiPrivate.h"
-#include "entity.h"
+#include "entity/entity.h"
 
 void aiSetMessageHandler(Entity* e, AIMessageHandler handler){
     if(e && ENTAI(e)){    

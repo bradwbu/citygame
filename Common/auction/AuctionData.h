@@ -1,8 +1,8 @@
 #ifndef AUCTIONDATA_H
 #define AUCTIONDATA_H
 
-#include "StashTable.h"
-#include "trayCommon.h"
+#include <utilitieslib/components/StashTable.h>
+#include "gameComm/trayCommon.h"
 #include "Auction.h"
 
 void auctiondata_Init(void);

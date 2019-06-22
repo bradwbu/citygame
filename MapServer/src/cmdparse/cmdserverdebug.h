@@ -1,7 +1,7 @@
 #ifndef _CMDSERVERDEBUG_H
 #define _CMDSERVERDEBUG_H
 
-#include "entity_enum.h"
+#include "entity/entity_enum.h"
 
 typedef enum GotoNextTypes {
     FINDTYPE_SPAWN    = ENTTYPE_COUNT,

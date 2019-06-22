@@ -1,8 +1,8 @@
 #ifndef _MODEL_H
 #define _MODEL_H
 
-#include "stdtypes.h"
-#include "rt_state.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/thread/rt_state.h"
 
 typedef struct TrickNode TrickNode;
 typedef struct TexBind TexBind;

@@ -7,7 +7,7 @@
 #define SGRPSTATS_H
 
 #include <utilitieslib/stdtypes.h>
-#include "SgrpStatsCommon.h"
+#include "entity/SgrpStatsCommon.h"
 
 typedef struct NetLink NetLink;
 typedef struct Packet Packet;

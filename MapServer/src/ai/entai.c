@@ -1,30 +1,31 @@
 
+#include <utilitieslib/stdtypes.h>
 #include "entaiBehaviorCoh.h"
 #include "entaiprivate.h"
-#include "groupnetsend.h"
-#include "entserver.h"
-#include "beacon.h"
-#include "beaconPath.h"
-#include "beaconPrivate.h"
-#include "encounter.h"
-#include "motion.h"
-#include "character_base.h"
-#include "character_target.h"
-#include "storyarcinterface.h"
-#include "entgen.h"
-#include "seq.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "character_combat.h"
-#include "character_animfx.h"
-#include "gridcoll.h"
-#include "cmdserver.h"
-#include "entaiLog.h"
-#include "StringCache.h"
-#include "VillainDef.h"
-#include "earray.h"
-#include "timing.h"
-#include "rand.h"
+#include "group/groupnetsend.h"
+#include "entity/entserver.h"
+#include "beacon/beacon.h"
+#include "beacon/beaconPath.h"
+#include "beacon/beaconPrivate.h"
+#include "generator/encounter.h"
+#include "entity/motion.h"
+#include "entity/character_base.h"
+#include "entity/character_target.h"
+#include "storyarc/storyarcinterface.h"
+#include "generator/entgen.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/character_combat.h"
+#include "entity/character_animfx.h"
+#include "gridcoll/gridcoll.h"
+#include "cmdparse/cmdserver.h"
+#include "ai/entaiLog.h"
+#include <utilitieslib/components/StringCache.h>
+#include "gameComm/VillainDef.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/rand.h>
 
 AIState ai_state;
 
@@ -837,7 +838,7 @@ int aiPowerTargetAllowed(Entity* e, AIPowerInfo* info, Entity* target, bool buff
         if (eaSize(&info->allowedTargets))
         {
             int i;
-            const char* targetType;
+            const char* targetType = NULL;
 
             if(target->villainDef)
                 targetType = allocFindString(target->villainDef->name);
@@ -1066,7 +1067,7 @@ int aiPointInViewCone(const Mat4 mat, const Vec3 pos, F32 maxCosine){
     return cosBetween > maxCosine;
 }
 
-#include "seqstate.h" // GGFIXME: this probably belongs somewhere else
+#include "seq/seqstate.h" // GGFIXME: this probably belongs somewhere else
 
 void aiTurnBodyByPYR(Entity* e, AIVars* ai, Vec3 pyr)
 {

@@ -1,17 +1,18 @@
 
-#include "aiBehaviorInterface.h"
+#include <utilitieslib/stdtypes.h>
+#include "ailib/aiBehaviorInterface.h"
 #include "entaiPrivate.h"
 #include "entaiPriority.h"
 #include "door.h"
-#include "dbdoor.h"
-#include "dooranimcommon.h"
-#include "storyarcinterface.h"
-#include "entserver.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "group.h"
+#include "dbcomm/dbdoor.h"
+#include "gameComm/dooranimcommon.h"
+#include "storyarc/storyarcinterface.h"
+#include "entity/entserver.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "group/group.h"
 
 #define DOOR_OPENDISTANCE    SERVER_INTERACT_DISTANCE + 1 // hold a walkthrough door open if entities are in this distance
 

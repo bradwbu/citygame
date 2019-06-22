@@ -5,11 +5,11 @@
 #include <assert.h>
 #include <stdio.h>
 #include "beaconAStar.h"
-#include "MemoryPool.h"
-#include "stdTypes.h"
-#include "dbcomm.h"
-#include "utils.h"
-#include "timing.h"
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/stdTypes.h>
+#include "dbcomm/dbcomm.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
 
 #define ASTAR_ASSERTS 0
 
@@ -286,7 +286,7 @@ void AStarSearch(AStarSearchData* searchData, NavSearchFunctions* functions){
     void* targetNode = searchData->targetNode;
     AStarInfo* curInfo;
     AStarInfo* sourceInfo;
-    AStarInfo* bestInfo;
+    AStarInfo* bestInfo = NULL;
     int bestCostToDest;
     int curCost;
     int i;

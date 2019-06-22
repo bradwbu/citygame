@@ -1,7 +1,7 @@
 
 #include "beaconClientServerPrivate.h"
 #include "beaconServerPrivate.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 
 #define    BEACON_CACHE_FILE_VERSION        (0)
 
@@ -486,7 +486,7 @@ static void destroyBeaconProcessQueueNode(BeaconProcessQueueNode* node){
         
         beaconServerGetPendingFileName(node, fileName);
         
-        DeleteFile(fileName);
+        DeleteFileA(fileName);
         
         // Free all my member variables.
         
@@ -609,7 +609,7 @@ static void beaconServerMakeUniqueFileName(    char** outStr,
     
     if(!beaconIsProductionMode() && dbServerIP){
         sprintf(buffer, "%s_", dbServerIP);
-        estrInsert(outStr, 0, buffer, strlen(buffer));
+        estrInsert(outStr, 0, buffer, (int)strlen(buffer));
     }
 }
 

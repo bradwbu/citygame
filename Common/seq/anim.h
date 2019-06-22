@@ -1,18 +1,18 @@
 #ifndef _ANIM_H
 #define _ANIM_H
 
-#include "stdtypes.h"
-#include "gridpoly.h"
-#include "ctri.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/gridpoly.h>
+#include "gridcoll/ctri.h"
 #ifdef GETANIMATION
 #define TexLoadHow int
 #else
-#include "texEnums.h"
+#include "render/texEnums.h"
 #endif
-#include "rt_state.h"
-#include "GenericMesh.h"
-#include "rt_model_cache.h"
-#include "bones.h"
+#include "render/thread/rt_state.h"
+#include <utilitieslib/components/GenericMesh.h>
+#include "render/thread/rt_model_cache.h"
+#include "seq/bones.h"
 
 #define MAX_OBJBONES 15 //mm
 #define MAX_SUBOBJS 10 //mm

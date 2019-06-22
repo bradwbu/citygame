@@ -1,7 +1,8 @@
 #ifndef _BASESEND_H
 #define _BASESEND_H
 
-#include "Color.h"
+#include <utilitieslib/utils/Color.h>
+
 typedef struct Packet Packet;
 typedef struct RoomDetail RoomDetail;
 typedef struct BaseRoom BaseRoom;

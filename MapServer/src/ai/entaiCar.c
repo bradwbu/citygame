@@ -1,12 +1,12 @@
 
 #include "entaiPrivate.h"
-#include "beaconPrivate.h"
-#include "motion.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "cmdserver.h"
+#include "beacon/beaconPrivate.h"
+#include "entity/motion.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "cmdparse/cmdserver.h"
 
 static int beaconScoreCar(Entity* e, Beacon* b){
     AIVars* ai = ENTAI(e);

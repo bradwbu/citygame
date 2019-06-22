@@ -1,11 +1,11 @@
 #ifndef ENTAIBEHAVIORSTRUCT_H
 #define ENTAIBEHAVIORSTRUCT_H
 
-#include "stdtypes.h"
-#include "entityRef.h"
+#include <utilitieslib/stdtypes.h>
+#include "entity/entityRef.h"
 #include "entaivars.h"    // for AIActivity enum
-#include "petCommon.h"
-#include "scriptconstants.h"
+#include "gameComm/petCommon.h"
+#include "script/scriptconstants.h"
 
 typedef struct AIBehavior                AIBehavior;
 typedef struct AIBParsedString            AIBParsedString;

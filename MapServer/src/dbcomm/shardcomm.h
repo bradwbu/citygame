@@ -1,7 +1,7 @@
 #ifndef _SHARDCOMM_H
 #define _SHARDCOMM_H
 
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 
 typedef struct Entity Entity;
 typedef struct ClientLink ClientLink;

@@ -1,7 +1,7 @@
 #ifndef _GRIDCOLL_H
 #define _GRIDCOLL_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "ctri.h"
 #include "grid.h"
 

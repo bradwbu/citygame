@@ -4,14 +4,14 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "chat_emote.h"
-#include "Entity.h"
-#include "EntityRef.h"
+#include "entity/Entity.h"
+#include "entity/EntityRef.h"
 #include "TeamReward.h"
-#include "badges_server.h"
+#include "player/badges_server.h"
 #include "language/langServerUtil.h"
-#include "character_eval.h"
-#include "svr_chat.h"
-#include "eval.h"
+#include "entity/character_eval.h"
+#include "gameComm/svr_chat.h"
+#include <utilitieslib/utils/eval.h>
 
 SHARED_MEMORY EmoteAnims g_EmoteAnims;
 

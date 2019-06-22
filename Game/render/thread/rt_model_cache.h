@@ -4,7 +4,7 @@
 #define VBOS_USE	 1	//initialize this object as using VBOs
 #define VBOS_DONTUSE 2	//This model is being used for something besides straight drawing, don't set VBOs ( stencil shodow objects in particular )
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct Model Model;
 

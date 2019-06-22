@@ -1,15 +1,15 @@
 
 #include "entaiPrivate.h"
 #include "entaiCritterPrivate.h"
-#include "beaconPath.h"
-#include "beaconPrivate.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "cmdserver.h"
-#include "entaiLog.h"
-#include "entai.h"
-#include "entaiScript.h"
-#include "entaiBehaviorCoh.h"
+#include "beacon/beaconPath.h"
+#include "beacon/beaconPrivate.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "cmdparse/cmdserver.h"
+#include "ai/entaiLog.h"
+#include "ai/entai.h"
+#include "ai/entaiScript.h"
+#include "ai/entaiBehaviorCoh.h"
 
 // static Entity* simplePathEnt;
 // static int simplePathMaxDistanceSQR;

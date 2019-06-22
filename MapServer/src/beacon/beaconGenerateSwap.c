@@ -1,10 +1,10 @@
 
 #include "beaconPrivate.h"
 #include "beaconGenerate.h"
-#include "strings_opt.h"
-#include "utils.h"
-#include "groupnetsend.h"
-#include "file.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/utils/utils.h>
+#include "group/groupnetsend.h"
+#include <utilitieslib/utils/file.h>
 
 typedef struct BeaconDiskSwapBlockGrid {
     BeaconDiskSwapBlock*    blocks[201][201];
@@ -60,7 +60,7 @@ BeaconDiskSwapBlock* beaconGetDiskSwapBlockByGrid(int x, int z){
 BeaconDiskSwapBlock* beaconGetDiskSwapBlock(int x, int z, int create){
     BeaconDiskSwapBlock* block = NULL;
     StashElement element;
-    const char* hashName;
+    const char* hashName = NULL;
     int gridx;
     int gridz;
     

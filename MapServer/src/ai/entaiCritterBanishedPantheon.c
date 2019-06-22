@@ -1,13 +1,13 @@
 #include "entaiCritterPrivate.h"
 #include "entaiPrivate.h"
 #include "entaiCritterPrivate.h"
-#include "beaconPath.h"
-#include "motion.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "character_base.h"
-#include "mathutil.h"
-#include "position.h"
+#include "beacon/beaconPath.h"
+#include "entity/motion.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/character_base.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "utils/position.h"
 
 // Banished Pantheon Minions
 void aiCritterDoBanishedPantheon(Entity* e, AIVars* ai){

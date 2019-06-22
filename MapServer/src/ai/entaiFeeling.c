@@ -1,8 +1,8 @@
 
 #include "entaiprivate.h"
-#include "cmdcommon.h"
-#include "cmdserver.h"
-#include "entaiLog.h"
+#include "cmdparse/cmdcommon.h"
+#include "cmdparse/cmdserver.h"
+#include "ai/entaiLog.h"
 
 
 const char* aiFeelingName[AI_FEELING_COUNT] = {

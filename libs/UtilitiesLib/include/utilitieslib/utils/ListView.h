@@ -2,7 +2,7 @@
 
 #pragma once
 #ifndef _WIN32_WINNT
-#define _WIN32_WINNT 0x0500
+#define _WIN32_WINNT 0x0601 // Windows 7 and up
 #endif
 #include <winsock2.h>
 #include <windows.h>

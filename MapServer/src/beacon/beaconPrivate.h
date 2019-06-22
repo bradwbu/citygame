@@ -2,14 +2,14 @@
 #ifndef BEACONPRIVATE_H
 #define BEACONPRIVATE_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include <float.h>
 #include "beacon.h"
 #include "assert.h"
-#include "error.h"
+#include <utilitieslib/utils/error.h>
 #include "beaconDebug.h"
-#include "entityRef.h"
-#include "StashTable.h"
+#include "entity/entityRef.h"
+#include <utilitieslib/components/StashTable.h>
 
 #define BEACON_GALAXY_GROUP_JUMP_INCREMENT    5
 #define BEACON_GALAXY_GROUP_COUNT            20

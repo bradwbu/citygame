@@ -11,7 +11,7 @@
 #ifndef ENDGAMERAID_H
 #define ENDGAMERAID_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct EndGameRaidKickMods
 {

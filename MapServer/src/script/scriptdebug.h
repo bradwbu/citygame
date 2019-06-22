@@ -11,7 +11,7 @@
 #ifndef SCRIPTDEBUG_H
 #define SCRIPTDEBUG_H
 
-#include "svr_base.h"
+#include "svr/svr_base.h"
 
 void ScriptSendDebugInfo(ClientLink* client, int debugFlags, int debugSelect);
 void ScriptDebugSetServer(ClientLink* client, int on, int scriptId);

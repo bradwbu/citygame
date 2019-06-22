@@ -1,7 +1,7 @@
 #ifndef ENTAIBEHAVIORCOH_H
 #define ENTAIBEHAVIORCOH_H
 
-#include "aiBehaviorInterface.h"
+#include "ailib/aiBehaviorInterface.h"
 
 typedef struct AIBehavior            AIBehavior;
 typedef struct AIPriorityManager    AIPriorityManager;

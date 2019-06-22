@@ -1,18 +1,18 @@
 #include "entaiCritterPrivate.h"
 #include "entaiPrivate.h"
 #include "entaiCritterPrivate.h"
-#include "beaconPath.h"
-#include "entGameActions.h"
-#include "VillainDef.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "powers.h"
-#include "character_base.h"
-#include "earray.h"
-#include "cmdserver.h"
-#include "mathutil.h"
-#include "position.h"
-#include "entaiLog.h"
+#include "beacon/beaconPath.h"
+#include "entity/entGameActions.h"
+#include "gameComm/VillainDef.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/powers.h"
+#include "entity/character_base.h"
+#include <utilitieslib/components/earray.h>
+#include "cmdparse/cmdserver.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "utils/position.h"
+#include "ai/entaiLog.h"
 
 void aiCritterDoDevouringEarthMinion(Entity* e, AIVars* ai)
 {

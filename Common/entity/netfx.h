@@ -2,8 +2,8 @@
 #ifndef NETFX_H
 #define NETFX_H
 
-#include "stdtypes.h"
-#include "Color.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/Color.h>
 
 //2 bits
 typedef enum {

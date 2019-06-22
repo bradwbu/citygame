@@ -1,24 +1,25 @@
 
-#include "aiBehaviorInterface.h"    // for the teambase creating and destroying
-#include "aiBehaviorPublic.h"
-#include "cmdserver.h"
-#include "entaiPrivate.h"
-#include "entaiLog.h"
-#include "error.h"
-#include "motion.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "entity.h"
-#include "dooranim.h"
-#include "cmdcommon.h"
-#include "powers.h"
-#include "character_base.h"
-#include "character_combat.h"
-#include "timing.h"
-#include "MemoryPool.h"
-#include "position.h"
-#include "StashTable.h"
-#include "VillainDef.h"
+#include <utilitieslib/stdtypes.h>
+#include "ailib/aiBehaviorInterface.h"    // for the teambase creating and destroying
+#include "ailib/aiBehaviorPublic.h"
+#include "cmdparse/cmdserver.h"
+#include "ai/entaiPrivate.h"
+#include "ai/entaiLog.h"
+#include <utilitieslib/utils/error.h>
+#include "entity/motion.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "gameSys/dooranim.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/powers.h"
+#include "entity/character_base.h"
+#include "entity/character_combat.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include "utils/position.h"
+#include <utilitieslib/components/StashTable.h>
+#include "gameComm/VillainDef.h"
 
 MP_DEFINE(AITeam);
 StashTable aiTeamTable;

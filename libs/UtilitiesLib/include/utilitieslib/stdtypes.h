@@ -137,9 +137,9 @@ C_DECLARATIONS_BEGIN
 
 #ifndef _WIN32_WINNT
 #    if defined(CLIENT) || defined(UTILITIESLIB)
-#        define _WIN32_WINNT 0x0500 // This was 0x499 to work around old Platform SDK bugs, but is now back to normal because that broke newer SDKs
+#        define _WIN32_WINNT 0x0601 // Windows 7 and up
 #    else
-#        define _WIN32_WINNT 0x0501 // Windows XP and up
+#        define _WIN32_WINNT 0x0601 // Windows 7 and up
 #    endif
 #else
 #error("_WIN32_WINNT is already defined");

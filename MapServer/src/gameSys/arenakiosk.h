@@ -11,7 +11,7 @@
 #ifndef ARENAKIOSK_H
 #define ARENAKIOSK_H
 
-#include "arenastruct.h"
+#include "gameData/arenastruct.h"
 
 typedef struct Entity Entity;
 typedef struct Packet Packet;

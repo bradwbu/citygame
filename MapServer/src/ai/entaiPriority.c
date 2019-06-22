@@ -1,12 +1,13 @@
 
-#include "aiBehaviorPublic.h"
-#include "beacon.h"
-#include "beaconpath.h"
-#include "character_base.h"
-#include "cmdserver.h"
-#include "dooranim.h"
-#include "encounter.h"
-#include "encounterPrivate.h"
+#include <utilitieslib/stdtypes.h>
+#include "ailib/aiBehaviorPublic.h"
+#include "beacon/beacon.h"
+#include "beacon/beaconpath.h"
+#include "entity/character_base.h"
+#include "cmdparse/cmdserver.h"
+#include "gameSys/dooranim.h"
+#include "generator/encounter.h"
+#include "generator/encounterPrivate.h"
 #include "entai.h"
 #include "entaiBehaviorCoh.h"
 #include "entaiBehaviorStruct.h"
@@ -15,18 +16,18 @@
 #include "entaiPrivate.h"
 #include "entaiPriority.h"
 #include "entaiPriorityPrivate.h"
-#include "entity.h"
-#include "entserver.h"
-#include "error.h"
-#include "StringCache.h"        // for stringToReference
-#include "motion.h"
-#include "netfx.h"
-#include "powers.h"
-#include "seq.h"
-#include "seqstate.h"
-#include "textParser.h"
-#include "utils.h"
-#include "timing.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/StringCache.h>        // for stringToReference
+#include "entity/motion.h"
+#include "entity/netfx.h"
+#include "entity/powers.h"
+#include "seq/seq.h"
+#include "seq/seqstate.h"
+#include <utilitieslib/utils/textParser.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
 
 static TokenizerParseInfo parseAction[] = {
     { "{",                    TOK_START,        0                                        },

@@ -1,14 +1,14 @@
 
 #include "entaiPrivate.h"
-#include "seq.h"
-#include "entity.h"
-#include "megaGrid.h"
-#include "cmdcommon.h"
-#include "cmdserver.h"
-#include "mathutil.h"
-#include "position.h"
-#include "entai.h"
-#include "entaiLog.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "gridcoll/megaGrid.h"
+#include "cmdparse/cmdcommon.h"
+#include "cmdparse/cmdserver.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "utils/position.h"
+#include "ai/entai.h"
+#include "ai/entaiLog.h"
 
 void aiPlayer(Entity* e, AIVars* ai){
 //    AIProxEntStatus* status;

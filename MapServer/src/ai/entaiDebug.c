@@ -1,54 +1,55 @@
 
+#include <utilitieslib/stdtypes.h>
 #include "entaiPrivate.h"
 #include "entaiPriorityPrivate.h"
 #include "entaiPriority.h"
 #include "entaiScript.h"
 #include "entaiBehaviorCoh.h"
-#include "aiStruct.h"
-#include "aiBehaviorDebug.h"
-#include "entai.h"
-#include "entaiLog.h"
+#include "ailib/aiStruct.h"
+#include "ailib/aiBehaviorDebug.h"
+#include "ai/entai.h"
+#include "ai/entaiLog.h"
 
-#include "beaconPath.h"
-#include "beaconPrivate.h"
-#include "beaconDebug.h"
-#include "beaconConnection.h"
+#include "beacon/beaconPath.h"
+#include "beacon/beaconPrivate.h"
+#include "beacon/beaconDebug.h"
+#include "beacon/beaconConnection.h"
 
-#include "AnimBitList.h"
-#include "entserver.h"
-#include "entplayer.h"
-#include "clientEntityLink.h"
-#include "encounterPrivate.h"
-#include "character_base.h"
-#include "powers.h"
-#include "classes.h"
-#include "origins.h"
-#include "npc.h"
-#include "svr_player.h"
-#include "motion.h"
-#include "VillainDef.h"
-#include "entcon.h"
-#include "dbcomm.h"
-#include "staticMapInfo.h"
-#include "langServerUtil.h"
-#include "cmdcontrols.h"
-#include "debugCommon.h"
-#include "entgen.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "entity.h"
-#include "utils.h"
+#include "seq/AnimBitList.h"
+#include "entity/entserver.h"
+#include "entity/entplayer.h"
+#include "player/clientEntityLink.h"
+#include "generator/encounterPrivate.h"
+#include "entity/character_base.h"
+#include "entity/powers.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
+#include "gameComm/npc.h"
+#include "svr/svr_player.h"
+#include "entity/motion.h"
+#include "gameComm/VillainDef.h"
+#include "cmdparse/entcon.h"
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/staticMapInfo.h"
+#include "language/langServerUtil.h"
+#include "cmdparse/cmdcontrols.h"
+#include "gameComm/debugCommon.h"
+#include "generator/entgen.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include <utilitieslib/utils/utils.h>
 #include "comm_game.h"
-#include "cmdserver.h"
-#include "storyarcprivate.h"
-#include "NwWrapper.h"
+#include "cmdparse/cmdserver.h"
+#include "storyarc/storyarcprivate.h"
+#include "NovodeX/NwWrapper.h"
 #include "clicktosourceflags.h"
-#include "group.h"
-#include "boostset.h"
-#include "DetailRecipe.h"
-#include "MessageStoreUtil.h"
-#include "missionMapCommon.h"
-#include "incarnate.h"
+#include "group/group.h"
+#include "entity/boostset.h"
+#include "bases/DetailRecipe.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "storyarc/missionMapCommon.h"
+#include "entity/incarnate.h"
 
 typedef struct EntSendLine
 {
@@ -122,7 +123,7 @@ void aiEntSendAddText(Vec3 pos, const char* textString, int flags){
                                             &ent_send_texts.maxCount);
     int len;
 
-    len = strlen(textString);
+    len = (int)strlen(textString);
 
     copyVec3(pos, text->pos);
     strncpy(text->text, textString, min(len, ARRAY_SIZE(text->text) - 1) + 1);
@@ -1972,8 +1973,8 @@ void aiGetEntDebugInfo(Entity* e, ClientLink* client, Packet* pak){
                             {
                                 PRINT(curPos, "^3%s.%s^0 from ^7%s^0", t->ppowBase->pchName, t->pchName, "(auto)");
                                 PRINT(curPos, "   changes ^8%s.%s^0\n",
-                                    dbg_GetParseName(ParseCharacterAspects, pmod->ptemplate->offAspect),
-                                    dbg_GetParseName(ParseCharacterAttributes, pmod->ptemplate->offAttrib));
+                                    dbg_GetParseName(ParseCharacterAspects, (int)pmod->ptemplate->offAspect),
+                                    dbg_GetParseName(ParseCharacterAttributes, (int)pmod->ptemplate->offAttrib));
                             }
                         }
                         else
@@ -1990,8 +1991,8 @@ void aiGetEntDebugInfo(Entity* e, ClientLink* client, Packet* pak){
                             PRINT(curPos, "^3%s.%s^0 from ^7%s^0\n", t->ppowBase->pchName, t->pchName, pchSrc);
 
                             PRINT(curPos, "^t15t \t^8%s.%s^0^t47t \tTime:^t25t \t^4%6.2f^0\n",
-                                dbg_GetParseName(ParseCharacterAspects, pmod->ptemplate->offAspect),
-                                dbg_GetParseName(ParseCharacterAttributes, pmod->ptemplate->offAttrib),
+                                dbg_GetParseName(ParseCharacterAspects, (int)pmod->ptemplate->offAspect),
+                                dbg_GetParseName(ParseCharacterAttributes, (int)pmod->ptemplate->offAttrib),
                                 pmod->fTimer);
 
                             if (pmod->ptemplate->offAttrib == kSpecialAttrib_SetMode)
@@ -2128,7 +2129,7 @@ void aiGetEntDebugInfo(Entity* e, ClientLink* client, Packet* pak){
 
         //PRINT(curPos, "\n");
 
-        for(i = end = strlen(log) - 1; i >= -1; i--){
+        for(i = end = (int)strlen(log) - 1; i >= -1; i--){
             if(i == -1 || log[i] == '\n'){
                 char temp = log[end];
                 log[end] = '\0';
@@ -3368,13 +3369,13 @@ void aiDebugSendEntDebugMenu(ClientLink* client)
                     BEGIN_GROUP("Visible Data", 0)
                         BEGIN_GROUP("Combat", 0)
                             CREATE_COMMAND("Combat",        ENTDEBUGINFO_COMBAT);
-                            i = (int)clientLinkGetDebugVar(client, "Combat.Stats");
+                            i = (int)(intptr_t)clientLinkGetDebugVar(client, "Combat.Stats");
                             NEW_ITEM(    i ? "^1DISABLE ^dCombat Stats" : "^2ENABLE ^dCombat Stats",
                                         i ? "setdebugvar Combat.Stats 0" : "setdebugvar Combat.Stats 1");
-                            i = (int)clientLinkGetDebugVar(client, "Combat.Mods");
+                            i = (int)(intptr_t)clientLinkGetDebugVar(client, "Combat.Mods");
                             NEW_ITEM(    i ? "^1DISABLE ^dCombat Mods" : "^2ENABLE ^dCombat Mods",
                                         i ? "setdebugvar Combat.Mods 0" : "setdebugvar Combat.Mods 1");
-                            i = (int)clientLinkGetDebugVar(client, "Combat.Attribs");
+                            i = (int)(intptr_t)clientLinkGetDebugVar(client, "Combat.Attribs");
                             NEW_ITEM(    i ? "^1DISABLE ^dCombat Attribs" : "^2ENABLE ^dCombat Attribs",
                                         i ? "setdebugvar Combat.Attribs 0" : "setdebugvar Combat.Attribs 1");
                         END_GROUP()
@@ -3387,10 +3388,10 @@ void aiDebugSendEntDebugMenu(ClientLink* client)
                         CREATE_COMMAND("Event History",        ENTDEBUGINFO_EVENT_HISTORY);
                         CREATE_COMMAND("Feeling Info",        ENTDEBUGINFO_FEELING_INFO);
                         CREATE_COMMAND("AI Stuff",            ENTDEBUGINFO_AI_STUFF);
-                        i = (int)clientLinkGetDebugVar(client, "Ai.Behavior");
+                        i = (int)(intptr_t)clientLinkGetDebugVar(client, "Ai.Behavior");
                         NEW_ITEM(    i ? "^1DISABLE ^dBehavior" : "^2ENABLE ^dBehavior",
                             i ? "setdebugvar Ai.Behavior 0" : "setdebugvar Ai.Behavior 1");
-                        i = (int)clientLinkGetDebugVar(client, "Ai.Behavior.History");
+                        i = (int)(intptr_t)clientLinkGetDebugVar(client, "Ai.Behavior.History");
                         NEW_ITEM(    i ? "^1DISABLE ^dBehavior History" : "^2ENABLE ^dBehavior History",
                             i ? "setdebugvar Ai.Behavior.History 0" : "setdebugvar Ai.Behavior.History 1");
                         CREATE_COMMAND("Team Info",            ENTDEBUGINFO_TEAM_INFO);
@@ -3792,7 +3793,7 @@ void aiDebugSendEntDebugMenu(ClientLink* client)
                             char descbuffer[256];
                             if (clientLinkGetDebugVar(client, "EnhanceLevel"))
                             {
-                                level = (int) clientLinkGetDebugVar(client, "EnhanceLevel");
+                                level = (int)(intptr_t)clientLinkGetDebugVar(client, "EnhanceLevel");
                             }
 
                             sprintf(buffer, "boosts_setlevel %d", level );
@@ -3842,7 +3843,7 @@ void aiDebugSendEntDebugMenu(ClientLink* client)
                                     int level = client->entity->pchar->iCombatLevel + 1;
                                     if (clientLinkGetDebugVar(client, "EnhanceLevel"))
                                     {
-                                        level = (int) clientLinkGetDebugVar(client, "EnhanceLevel");
+                                        level = (int)(intptr_t)clientLinkGetDebugVar(client, "EnhanceLevel");
                                     }
 
                                     sprintf(buffer, "boost generic_%s generic_%s %d", Types[i], Types[i], level );
@@ -3902,7 +3903,7 @@ void aiDebugSendEntDebugMenu(ClientLink* client)
                         int level = client->entity->pchar->iCombatLevel + 1;
                         if (clientLinkGetDebugVar(client, "EnhanceLevel"))
                         {
-                            level = (int) clientLinkGetDebugVar(client, "EnhanceLevel");
+                            level = (int)(intptr_t)clientLinkGetDebugVar(client, "EnhanceLevel");
                         }
 
                         for (i = 0; i < NumTypes; i++) 
@@ -3921,7 +3922,7 @@ void aiDebugSendEntDebugMenu(ClientLink* client)
 
                         if (clientLinkGetDebugVar(client, "EnhanceLevel"))
                         {
-                            level = (int) clientLinkGetDebugVar(client, "EnhanceLevel");
+                            level = (int)(intptr_t)clientLinkGetDebugVar(client, "EnhanceLevel");
                         }
 
                         if(!(client->debugMenuFlags & DEBUGMENUFLAGS_IOSORT))
@@ -4220,12 +4221,12 @@ void aiDebugSendEntDebugMenu(ClientLink* client)
                                     for(j=0; j<charcount; j++)
                                     {
                                         char *s = files[j];
-                                        int len = strlen(s);
+                                        int len = (int)strlen(s);
                                         if(strcmp(&s[len-4],".txt"))
                                             continue;
                                         sprintf(buffer, "playermorph common %s null 0",files[j]);
                                         s = strrchr(s,'/')+1;
-                                        len = strlen(s);
+                                        len = (int)strlen(s);
                                         s[len-4] = '\0';
                                         NEW_ITEM(s, buffer);
                                         free(files[j]);
@@ -4700,7 +4701,7 @@ void aiDebugSendEntDebugMenu(ClientLink* client)
                                     BEGIN_GROUP(buffer, 0)
 
                                     sprintf(buffer2, "PacketLog.ShowAllPacketsOut.%d", db_id);
-                                    showAllPackets = (int)clientLinkGetDebugVar(client, buffer2);
+                                    showAllPackets = (int)(intptr_t)clientLinkGetDebugVar(client, buffer2);
                                     sprintf(buffer, "setdebugvar %s %d", buffer2, !showAllPackets);
                                     NEW_ITEM(showAllPackets ?
                                                 "^1DISABLE ^dShowing All Packets" :
@@ -4835,7 +4836,7 @@ void aiDebugSendEntDebugMenu(ClientLink* client)
                                     BEGIN_GROUP(buffer, 0)
                                     
                                     sprintf(buffer2, "PacketLog.ShowAllPacketsIn.%d", db_id);
-                                    showAllPackets = (int)clientLinkGetDebugVar(client, buffer2);
+                                    showAllPackets = (int)(intptr_t)clientLinkGetDebugVar(client, buffer2);
                                     sprintf(buffer, "setdebugvar %s %d", buffer2, !showAllPackets);
                                     NEW_ITEM(    showAllPackets ?
                                                     "^1DISABLE ^dShowing All Packets" :
@@ -4953,7 +4954,7 @@ void aiDebugSendEntDebugMenu(ClientLink* client)
                                     BEGIN_GROUP(buffer, 0)
 
                                     sprintf(buffer2, "PacketLog.ShowPacketsOutRaw.%d", db_id);
-                                    showAllPackets = (int)clientLinkGetDebugVar(client, buffer2);
+                                    showAllPackets = (int)(intptr_t)clientLinkGetDebugVar(client, buffer2);
                                     sprintf(buffer, "setdebugvar %s %d", buffer2, !showAllPackets);
                                     NEW_ITEM(showAllPackets ?
                                                 "^1DISABLE ^dShowing Packets" :

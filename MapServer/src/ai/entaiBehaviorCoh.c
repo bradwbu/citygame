@@ -1,20 +1,21 @@
+#include <utilitieslib/stdtypes.h>
 #include "entaiBehaviorCoh.h"
-#include "aiBehaviorPublic.h"
-#include "aiBehaviorInterface.h"
-#include "aiStruct.h"
-#include "entaiBehaviorStruct.h"
+#include "ailib/aiBehaviorPublic.h"
+#include "ailib/aiBehaviorInterface.h"
+#include "ailib/aiStruct.h"
+#include "ai/entaiBehaviorStruct.h"
 
-#include "AnimBitList.h"
-#include "basesystems.h"
-#include "beacon.h"
-#include "beaconPath.h"
-#include "beaconPrivate.h"
-#include "character_base.h"
-#include "dbdoor.h"
-#include "dooranim.h"
-#include "earray.h"
-#include "encounter.h"
-#include "encounterPrivate.h"
+#include "seq/AnimBitList.h"
+#include "bases/basesystems.h"
+#include "beacon/beacon.h"
+#include "beacon/beaconPath.h"
+#include "beacon/beaconPrivate.h"
+#include "entity/character_base.h"
+#include "dbcomm/dbdoor.h"
+#include "gameSys/dooranim.h"
+#include <utilitieslib/components/earray.h>
+#include "generator/encounter.h"
+#include "generator/encounterPrivate.h"
 #include "entai.h"
 #include "entaiCritterPrivate.h"
 #include "entaiLog.h"
@@ -23,33 +24,33 @@
 #include "entaiPriority.h"
 #include "entaiPriorityPrivate.h"
 #include "entaiScript.h"
-#include "entity.h"
-#include "entserver.h"
-#include "entGameActions.h"
-#include "error.h"
-#include "group.h"
-#include "langServerUtil.h"
-#include "mathutil.h"
-#include "megaGrid.h"
-#include "motion.h"
-#include "netfx.h"
-#include "pmotion.h"
-#include "powers.h"
-#include "scriptengine.h"
-#include "seq.h"
-#include "seqstate.h"
-#include "StringCache.h"
-#include "storyarcutil.h"
-#include "SuperAssert.h"
-#include "textparser.h"
-#include "VillainDef.h"
-#include "character_combat.h"
-#include "character_tick.h"
-#include "scripthook/ScriptHookEntityTeam.h"
-#include "scripthook/ScriptHookInternal.h"
-#include "scripthook/ScriptHookMission.h"
-#include "character_animfx.h" // temporary for ExitStance
-#include "commonLangUtil.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
+#include "entity/entGameActions.h"
+#include <utilitieslib/utils/error.h>
+#include "group/group.h"
+#include "language/langServerUtil.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "gridcoll/megaGrid.h"
+#include "entity/motion.h"
+#include "entity/netfx.h"
+#include "player/pmotion.h"
+#include "entity/powers.h"
+#include "script/scriptengine.h"
+#include "seq/seq.h"
+#include "seq/seqstate.h"
+#include <utilitieslib/components/StringCache.h>
+#include "storyarc/storyarcutil.h"
+#include <utilitieslib/utils/SuperAssert.h>
+#include <utilitieslib/utils/textparser.h>
+#include "gameComm/VillainDef.h"
+#include "entity/character_combat.h"
+#include "entity/character_tick.h"
+#include "script/scripthook/ScriptHookEntityTeam.h"
+#include "script/scripthook/ScriptHookInternal.h"
+#include "script/scripthook/ScriptHookMission.h"
+#include "entity/character_animfx.h" // temporary for ExitStance
+#include "language/commonLangUtil.h"
 
 typedef struct AIBehaviorInfo AIBehaviorInfo;
 
@@ -1492,7 +1493,7 @@ int aiBFAttackVolumesFlag(Entity* e, AIVarsBase* aibase, AIBehavior* behavior, A
             AIBDAttackableVolume *v;
             EntityRef* perMe;
 
-            lentok = (endtok) ? endtok - fronttok : strlen(fronttok);
+            lentok = (endtok) ? (int)(endtok - fronttok) : (int)strlen(fronttok);
 
             volumename = malloc(lentok+1);
             strncpy(volumename,fronttok,lentok);
@@ -1574,7 +1575,7 @@ void aiBFAttackVolumesRun(Entity* e, AIVarsBase* aibase, AIBehavior*** behaviors
             // Look through all nearby entities
             for (i = 0; i < n; i++)
             {
-                int proxID = (int)entArray[i];
+                int proxID = (int)(intptr_t)entArray[i];
                 Entity* proxEnt = entities[proxID];
 
                 F32 entDist = distance3Squared(myPos, ENTPOS_BY_ID(proxID));
@@ -2034,7 +2035,7 @@ void aiBFDisappearInStandardDoorRun(Entity* e, AIVarsBase* aibase, AIBehavior***
                 entCount = mgGetNodesInRange(0, ENTPOS(e), entArray, 0);
 
                 for(i = 0; i < entCount; i++){
-                    int idx = (int)entArray[i];
+                    int idx = (int)(intptr_t)entArray[i];
 
                     if(ENTTYPE_BY_ID(idx) == ENTTYPE_DOOR){
                         door = validEntFromId(idx);
@@ -2077,7 +2078,7 @@ void aiBFDisappearInStandardDoorRun(Entity* e, AIVarsBase* aibase, AIBehavior***
 
                 if(!doorCount){
                     for(i = 0; i < entCount; i++){
-                        int idx = (int)entArray[i];
+                        int idx = (int)(intptr_t)entArray[i];
 
                         if(idx && ENTTYPE_BY_ID(idx) == ENTTYPE_DOOR){
                             door = validEntFromId(idx);
@@ -3273,7 +3274,8 @@ void aiBFPatrolUnset(Entity* e, AIVarsBase* aibase, AIBehavior* behavior)
 void aiBFPatrolRiktiDropshipRun(Entity* e, AIVarsBase* aibase, AIBehavior*** behaviors, AIBehavior* behavior)
 {
     AIVars* ai = ENTAI(e);
-    AIProxEntStatus *status, *bestStatus;
+    AIProxEntStatus* status; 
+    AIProxEntStatus* bestStatus = NULL;
     Entity* bestTarget = NULL;
     F32 maxDanger = -FLT_MAX;
     AIPowerInfo* info = aiCritterFindPowerByName( ai, "Energy_Burst" );
@@ -3987,12 +3989,12 @@ int aiBFRunThroughDoorString(Entity* e, AIVarsBase* aibase, AIBehavior* behavior
 
     if(!stricmp(param->function, "DoorIn"))
     {
-        mydata->doorIn = (DoorEntry*)atoi(param->params[0]->function);
+        mydata->doorIn = (DoorEntry*)(intptr_t)atoll(param->params[0]->function);
         return 1;
     }
     if(!stricmp(param->function, "DoorOut"))
     {
-        mydata->doorOut = (DoorEntry*)atoi(param->params[0]->function);
+        mydata->doorOut = (DoorEntry*)(intptr_t)atoll(param->params[0]->function);
         return 1;
     }
     if(!stricmp(param->function, "Leader"))

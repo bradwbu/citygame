@@ -1,12 +1,12 @@
 
 #include "beaconClientServerPrivate.h"
 #include "beaconPrivate.h"
-#include "entity.h"
-#include "bases.h"
-#include "basedata.h"
-#include "StashTable.h"
-#include "fileWatch.h"
-#include "log.h"
+#include "entity/entity.h"
+#include "bases/bases.h"
+#include "bases/basedata.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/fileWatch.h>
+#include <utilitieslib/utils/log.h>
 
 // Client-To-Server Messages.
 
@@ -391,12 +391,12 @@ void beaconTestCollision(){
 }
 
 U8* beaconFileAlloc(const char* fileName, U32* fileSize){
-    HANDLE h = CreateFile(fileName, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, 0);
+    HANDLE h = CreateFileA(fileName, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, 0);
     DWORD size;
     U8* data;
     DWORD outSize;
     
-    h = CreateFile(fileName, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, 0);
+    h = CreateFileA(fileName, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, 0);
     if(h == INVALID_HANDLE_VALUE){
         printf("Can't open file to read: %d\n", GetLastError());
         return NULL;
@@ -595,7 +595,7 @@ S32 beaconCreateNewExe(const char* path, U8* data, U32 size){
     for(i = 0;; i++){
         S32 error;
         
-        h = CreateFile(path, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
+        h = CreateFileA(path, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
         
         if(h != INVALID_HANDLE_VALUE){
             break;
@@ -654,7 +654,7 @@ S32 beaconDeleteOldExes(const char* exeName, S32* attemptCount){
             sprintf(buffer, "c:/beaconizer/%s/%s", info.name, exeName);
             beaconPrintf(COLOR_RED, "Deleting: %s\n", buffer);
             
-            if(!DeleteFile(buffer)){
+            if(!DeleteFileA(buffer)){
                 beaconPrintf(COLOR_YELLOW, "  FAILED!!!\n");
             }else{
                 beaconPrintf(COLOR_GREEN, "  DONE!!!\n");
@@ -666,7 +666,7 @@ S32 beaconDeleteOldExes(const char* exeName, S32* attemptCount){
             sprintf(buffer, "c:/beaconizer/%s", info.name);
             beaconPrintf(COLOR_RED, "Deleting: %s\n", buffer);
 
-            if(!RemoveDirectory(buffer)){
+            if(!RemoveDirectoryA(buffer)){
                 beaconPrintf(COLOR_YELLOW, "  FAILED!!!\n");
             }else{
                 beaconPrintf(COLOR_GREEN, "  DONE!!!\n");
@@ -691,7 +691,7 @@ S32 beaconDeleteOldExes(const char* exeName, S32* attemptCount){
                 sprintf(buffer, "c:/beaconizer/%s", info.name);
                 beaconPrintf(COLOR_RED, "Deleting: %s\n", buffer);
                 
-                if(!DeleteFile(buffer)){
+                if(!DeleteFileA(buffer)){
                     beaconPrintf(COLOR_YELLOW, "  FAILED!!!\n");
                 }else{
                     beaconPrintf(COLOR_GREEN, "  DONE!!!\n");
@@ -742,7 +742,7 @@ S32 beaconStartNewExe(    const char* exeName,
             
     sprintf(mutexName, "Global\\CrypticMutex%s", getFileName((char*)exeName));
 
-    hMutex = CreateMutex(NULL, FALSE, mutexName);
+    hMutex = CreateMutexA(NULL, FALSE, mutexName);
 
     printf("Creating new exe (%d bytes): %s\n", size, buffer);
     
@@ -763,7 +763,7 @@ S32 beaconStartNewExe(    const char* exeName,
         beaconClientReleaseSentryMutex();
     }
         
-    if((S32)ShellExecute(NULL, "open", buffer, cmdLineParams, "", hideNewWindow ? SW_HIDE : SW_SHOW) <= 32){
+    if((intptr_t)ShellExecuteA(NULL, "open", buffer, cmdLineParams, "", hideNewWindow ? SW_HIDE : SW_SHOW) <= 32){
         if(hMutex){
             printf("Releasing mutex.\n");
             beaconReleaseAndCloseMutex(&hMutex);
@@ -910,14 +910,14 @@ void* beaconMemAlloc(const char* module, U32 size){
     U32* mem = calloc(size + 2 * sizeof(*mem), 1);
     
     mem[0] = size;
-    mem[1] = (U32)beaconUpdateMemory(module, 1, size);
+    mem[1] = (uintptr_t)beaconUpdateMemory(module, 1, size);
 
     return mem + 2;
 }
 
 void beaconMemFree(void** memVoid){
     if(*memVoid){
-        U32* mem = *memVoid;
+        uintptr_t* mem = *memVoid;
         BeaconMemoryModule* bmm = (BeaconMemoryModule*)*--mem;
         
         assert(bmm && bmm->self == bmm);
@@ -931,7 +931,7 @@ void beaconMemFree(void** memVoid){
 }
 
 char* beaconStrdup(const char* str){
-    char* mem = beaconMemAlloc("strdup", strlen(str) + 1);
+    char* mem = beaconMemAlloc("strdup", (U32)strlen(str) + 1);
     
     strcpy(mem, str);
     
@@ -1070,7 +1070,7 @@ static S32 beaconGetGroupIndex(GroupDef* def){
         stashFindElement(defNameHashTable, def->name, &element);
     }
     if(element)
-        ret = (S32)stashElementGetPointer(element);
+        ret = (S32)(intptr_t)stashElementGetPointer(element);
     return ret;
 }
 
@@ -1698,7 +1698,7 @@ void beaconMapDataPacketFromMapData(BeaconMapDataPacket** mapDataIn, S32 forceLa
     }
     
     if(entityCollisionCount){
-        forEachDetailEntity(sendDetailEntities, pak, (void*)forceLargeModelData);
+        forEachDetailEntity(sendDetailEntities, pak, (void*)(intptr_t)forceLargeModelData);
     }
 
     // Tack on the initial beacon list.
@@ -2506,8 +2506,8 @@ void beaconMapDataPacketWriteFile(    BeaconMapDataPacket* mapData,
     
     // Write the unique storage name.
     
-    FWRITE_U32(strlen(uniqueStorageName));
-    FWRITE_SIZE(uniqueStorageName, strlen(uniqueStorageName));
+    FWRITE_U32((U32)strlen(uniqueStorageName));
+    FWRITE_SIZE(uniqueStorageName, (U32)strlen(uniqueStorageName));
     
     // Write the timestamp.
     

@@ -1,9 +1,9 @@
 
 #include "entaiprivate.h"
-#include "cmdcommon.h"
-#include "cmdserver.h"
+#include "cmdparse/cmdcommon.h"
+#include "cmdparse/cmdserver.h"
 #include "entaiLog.h"
-#include "earray.h"
+#include <utilitieslib/components/earray.h>
 
 
 // AIPowerInfo ----------------------------------------------------
@@ -140,8 +140,8 @@ void aiRemoveAllAvoidInstances(Entity* e, AIVars* ai){
 }
 
 //TO DO I'm not sure where this should live
-#include "entity.h"
-#include "powers.h"
+#include "entity/entity.h"
+#include "entity/powers.h"
 AIPowerInfo * aiFindAIPowerInfoByPowerName( Entity * e, const char * powerName )
 {
     AIPowerInfo * powerInfo = 0;

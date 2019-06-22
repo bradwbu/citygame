@@ -1,18 +1,18 @@
 #include "autoCommands.h"
 
-#include "dbcontainer.h"
+#include "dbcomm/dbcontainer.h"
 #include "container/dbcontainerpack.h"
-#include "earray.h"
-#include "MemoryPool.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/MemoryPool.h>
 #include "comm_backend.h"
-#include "dbcomm.h"
-#include "entVarUpdate.h"
-#include "mathUtil.h"
-#include "entity.h"
-#include "timing.h"
-#include "cmdserver.h"
-#include "strings_opt.h"
-#include "sendToClient.h"
+#include "dbcomm/dbcomm.h"
+#include "entity/entVarUpdate.h"
+#include <utilitieslib/utils/mathUtil.h>
+#include "entity/entity.h"
+#include <utilitieslib/utils/timing.h>
+#include "cmdparse/cmdserver.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include "gameComm/sendToClient.h"
 
 AutoCommand **g_autoCommands = 0;
 #define MAX_AUTO_COMMAND_COUNT 100

@@ -69,10 +69,7 @@
 */
 
 #ifndef _WIN32_WINNT
-#define _WIN32_WINNT 0x0501     // Windows XP
-#endif
-#ifndef _WIN32_WINDOWS
-#define _WIN32_WINDOWS 0x0410   // Windows 98
+#define _WIN32_WINNT 0x0601 // Windows 7 and up
 #endif
 
 #pragma warning( push )

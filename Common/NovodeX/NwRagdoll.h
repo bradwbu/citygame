@@ -6,22 +6,13 @@
 extern "C" {
 #endif // __cplusplus
 
-#include "mathutil.h"
-#include "ragdoll.h"
-
-
-
-
+#include <utilitieslib/utils/mathutil.h>
+#include "entity/ragdoll.h"
 
 #if RAGDOLL
 
 typedef struct Entity Entity;
 typedef struct Ragdoll Ragdoll;
-
-
-
-
-
 
 void  nwDeleteRagdoll(Ragdoll* parentRagdoll);
 #ifdef CLIENT
@@ -33,17 +24,9 @@ void processRagdollDeletionQueues();
 void nwCreateRagdollQueues();
 void nwDeleteRagdollQueues();
 
-
-
-
 void drawRagdollSkeleton( GfxNode* rootNode, Mat4 parentMat, SeqInst* seq  );
 
-
-
 void nwSetRagdollFromQuaternions( Ragdoll* ragdoll, Quat qRoot );
-
-
-
 
 #endif // RAGDOLL
 

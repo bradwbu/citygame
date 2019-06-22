@@ -2,33 +2,33 @@
 #include "entaiprivate.h"
 #include "entaiCritterPrivate.h"
 #include "entaiPriority.h"
-#include "beaconPath.h"
-#include "entserver.h"
-#include "motion.h"
-#include "encounterPrivate.h"
-#include "dbcomm.h"
+#include "beacon/beaconPath.h"
+#include "entity/entserver.h"
+#include "entity/motion.h"
+#include "generator/encounterPrivate.h"
+#include "dbcomm/dbcomm.h"
 #include "entaiPriorityPrivate.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "entity.h"
-#include "dooranim.h"
-#include "megaGrid.h"
-#include "powers.h"
-#include "character_base.h"
-#include "character_combat.h"
-#include "beacon.h"
-#include "cmdserver.h"
-#include "aiBehaviorPublic.h"
-#include "entaiBehaviorCoh.h"
-#include "entaiLog.h"
-#include "entai.h"
-#include "ctri.h"
-#include "timing.h"
-#include "VillainDef.h"
-#include "Quat.h"
-#include "scriptengine.h"
-#include "character_target.h"
-#include "entworldcoll.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "gamesys/dooranim.h"
+#include "gridcoll/megaGrid.h"
+#include "entity/powers.h"
+#include "entity/character_base.h"
+#include "entity/character_combat.h"
+#include "beacon/beacon.h"
+#include "cmdparse/cmdserver.h"
+#include "ailib/aiBehaviorPublic.h"
+#include "ai/entaiBehaviorCoh.h"
+#include "ai/entaiLog.h"
+#include "ai/entai.h"
+#include "gridcoll/ctri.h"
+#include <utilitieslib/utils/timing.h>
+#include "gameComm/VillainDef.h"
+#include <utilitieslib/utils/Quat.h>
+#include "script/scriptengine.h"
+#include "entity/character_target.h"
+#include "entity/entworldcoll.h"
 
 #define MAX_DIST_LOOK_FOR_ENCOUNTER        15.0
 #define AI_CRITTER_AGGRO_CAP            17    // number of critters that will aggro you at any one time
@@ -465,7 +465,7 @@ static void aiCritterFindTarget(Entity* e,
     int alertHelpers = 0;
     int doNotChangeAttackTarget = ai->doNotChangeAttackTarget || ai->relentless;
     Entity* attackTarget = ai->attackTarget.entity;
-    Entity* discardEntity;
+    Entity* discardEntity = NULL;
     int myLevel = pchar->bIgnoreCombatMods ? (MAX_PLAYER_SECURITY_LEVEL+4) : pchar->iCombatLevel;
 
     // If I'm on a wire path, don't attempt to join other AI teams
@@ -984,8 +984,8 @@ static void aiCritterFindTarget(Entity* e,
                     if(aiTarget->attackerList.count >= AI_CRITTER_AGGRO_CAP)
                     {
                         AIAttackerInfo* attackerInfo;
-                        Entity* leastAggro;
-                        AIProxEntStatus* leastAggroStatus;
+                        Entity* leastAggro = NULL;
+                        AIProxEntStatus* leastAggroStatus = NULL;
                         EntityAggroLevel lowestAggroLevel = AGGRO_LEVEL_MAX, entityAggroLevel, myAggroLevel;
 
                         myAggroLevel = getEntityAggro(e, status);
@@ -1316,7 +1316,7 @@ void aiCritterCheckProximity(Entity* e, int findTarget){
     // Do appropriate things with each entity in range.
 
     for(i = 0, entCount = 0; i < j; i++){
-        int proxID = (int)entArray[i];
+        int proxID = (int)(intptr_t)entArray[i];
         Entity* proxEnt = entities[proxID];
         AIVars* aiProx;
         float distSQR = distance3Squared(ENTPOS_BY_ID(proxID), ENTPOS(e));

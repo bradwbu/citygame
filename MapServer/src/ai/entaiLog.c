@@ -1,11 +1,11 @@
 
 #include "entaiPrivate.h"
-#include "npc.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "utils.h"
-#include "timing.h"
-#include "mathutil.h"
+#include "gameComm/npc.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/mathutil.h>
 
 int aiLogCurFlagBit = 0;
 
@@ -30,13 +30,14 @@ static void aiLogLine(Entity* e, char* txt){
     AIVars* ai = ENTAI(e);
     int addLen;
     char* pos;
-    int logLen = ai->log ? strlen(ai->log->text) : 0;
+    int logLen = ai->log ? (int)strlen(ai->log->text) : 0;
     char buffer[AI_LOG_LENGTH + 1];
     char* log;
     
     log = ai->log->text;
     
-    if(!logLen || log[logLen - 1] == '\n'){
+    if(!logLen || log[logLen - 1] == '\n')
+    {
         __int64 curTime = timerCpuTicks64();
         addLen = sprintf(    buffer,
                             "^%d%3.3d^0(^4%1.2f^0)(^2%d^0) : %s",

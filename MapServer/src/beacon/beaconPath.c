@@ -5,20 +5,20 @@
 #include "beaconPath.h"
 #include "beaconConnection.h"
 #include "beaconAStar.h"
-#include "gridcoll.h"
-#include "cmdserver.h"
-#include "entaivars.h"
+#include "gridcoll/gridcoll.h"
+#include "cmdparse/cmdserver.h"
+#include "ai/entaivars.h"
 #include "comm_game.h"
-#include "svr_base.h"
-#include "utils.h"
-#include "entaiprivate.h"
-#include "dbdoor.h"
-#include "entity.h"
-#include "EString.h"
-#include "logcomm.h"
-#include "file.h"
-#include "earray.h"
-#include "rand.h"
+#include "svr/svr_base.h"
+#include <utilitieslib/utils/utils.h>
+#include "ai/entaiprivate.h"
+#include "dbcomm/dbdoor.h"
+#include "entity/entity.h"
+#include <utilitieslib/components/EString.h>
+#include "dbcomm/logcomm.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/rand.h>
 
 #define DIST_TO_COST_SCALE (128)
 #define MINHEIGHT (0)
@@ -422,7 +422,7 @@ static void beaconSearchOutputPath(    AStarSearchData* data,
         NavPathWaypoint*    wp;
         Beacon*                beacon;
         BeaconConnection*    connToMe;
-        Beacon*                parentBeacon;
+        Beacon*                parentBeacon = NULL;
         F32                 bottom_y;
         F32                 top_y;
         F32                 beacon_y;
@@ -1969,7 +1969,7 @@ static int beaconPathFindSimpleHelper(NavSearch* search, Beacon* src, BeaconScor
     int bestScore;
     BeaconConnection* conn;
     BeaconConnection* bestConn;
-    Beacon* dst;
+    Beacon* dst = NULL;
     Beacon* best = NULL;
     
     src->searchInstance = beacon_state.beaconSearchInstance;

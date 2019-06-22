@@ -1,11 +1,13 @@
 
+#include <utilitieslib/stdtypes.h>
 #include "beaconClientServerPrivate.h"
 #include "comm_backend.h"
-#include "winutil.h"
+#include <utilitieslib/utils/winutil.h>
 #include <time.h>
-#include "StashTable.h"
-#include "log.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/log.h>
 
+#undef GetEnvironmentStrings
 #define PRODUCTION_BEACON_CLIENTS 3
 
 static char* beaconClientExeName = "BeaconClient.exe";
@@ -733,14 +735,14 @@ static void createNewSentryClient(void){
                             
     ZeroStruct(client);
     
-    client->hPipe = CreateNamedPipe("\\\\.\\pipe\\CrypticBeaconClientPipe", 
-                                    PIPE_ACCESS_DUPLEX,
-                                    PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_NOWAIT,
-                                    PIPE_UNLIMITED_INSTANCES,
-                                    10000,
-                                    10000,
-                                    0,
-                                    NULL);
+    client->hPipe = CreateNamedPipeA("\\\\.\\pipe\\CrypticBeaconClientPipe", 
+                                     PIPE_ACCESS_DUPLEX,
+                                     PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_NOWAIT,
+                                     PIPE_UNLIMITED_INSTANCES,
+                                     10000,
+                                     10000,
+                                     0,
+                                     NULL);
                             
     if(client->hPipe == INVALID_HANDLE_VALUE){
         printf("Failed to create pipe!\n");
@@ -764,7 +766,7 @@ static S32 writeDataToPipe(HANDLE hPipe, const char* data, S32 length){
     if(WriteFile(hPipe, data, length, &bytesWritten, 0)){
         return 1;
     }else{
-        printf("pipe write failed: h=%d, error=%d\n", (S32)hPipe, GetLastError());
+        printf("pipe write failed: h=0x%p, error=%d\n", hPipe, GetLastError());
         
         if(hPipe == beacon_client.hPipeToSentry){
             beaconClientClosePipeToSentry();
@@ -775,7 +777,7 @@ static S32 writeDataToPipe(HANDLE hPipe, const char* data, S32 length){
 }
 
 static S32 writeStringToPipe(HANDLE hPipe, const char* text){
-    return writeDataToPipe(hPipe, text, strlen(text));
+    return writeDataToPipe(hPipe, text, (S32)strlen(text));
 }
 
 static S32 printfPipe(HANDLE hPipe, const char* format, ...){
@@ -867,7 +869,7 @@ static void beaconClientParseSentryClientCmd(BeaconSentryClientData* client, cha
 
 static void beaconClientOpenPipeToSentry(void){
     if(!beacon_client.hPipeToSentry){
-        beacon_client.hPipeToSentry = CreateFile("\\\\.\\pipe\\CrypticBeaconClientPipe", GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, 0);
+        beacon_client.hPipeToSentry = CreateFileA("\\\\.\\pipe\\CrypticBeaconClientPipe", GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, 0);
 
         if(beacon_client.hPipeToSentry != INVALID_HANDLE_VALUE){
             printf("Connected to sentry with pipe: %d\n", beacon_client.hPipeToSentry);
@@ -895,7 +897,7 @@ void beaconClientReleaseSentryMutex(void){
 }
 
 static S32 beaconClientAcquireSentryMutex(void){
-    beacon_client.hMutexSentry = CreateMutex(NULL, 0, "Global\\CrypticBeaconClientSentry");
+    beacon_client.hMutexSentry = CreateMutexA(NULL, 0, "Global\\CrypticBeaconClientSentry");
 
     assert(beacon_client.hMutexSentry);
     
@@ -957,7 +959,7 @@ static void beaconClientCheckForSentry(void){
     }
     
     if(!hMutex){
-        hMutex = CreateMutex(NULL, 0, "Global\\CrypticBeaconClientSentryCheck");
+        hMutex = CreateMutexA(NULL, 0, "Global\\CrypticBeaconClientSentryCheck");
     }
 
     assert(hMutex);
@@ -1307,13 +1309,13 @@ static void beaconClientPrintSentryClients(void){
         
         printf("%-12d%-12s%-12d%-1s\n", client->processID, timeString, client->myServerID, client->serverUID);
         
-        GetNamedPipeHandleState(beacon_client.sentryClients.clients[i].hPipe,
-                                &state,
-                                &curInstances,
-                                &maxCollectionCount,
-                                &collectDataTimeout,
-                                userName,
-                                ARRAY_SIZE(userName));
+        GetNamedPipeHandleStateA(beacon_client.sentryClients.clients[i].hPipe,
+                                 &state,
+                                 &curInstances,
+                                 &maxCollectionCount,
+                                 &collectDataTimeout,
+                                 userName,
+                                 ARRAY_SIZE(userName));
                                 
         if(0)printf(    "%d, %d, %d, %d, %d, %s\n",
                 beacon_client.sentryClients.clients[i].hPipe,
@@ -1358,7 +1360,7 @@ static void beaconClientRunRadiosityClient(void){
     
     printf("%s: Running radiosity client: %s\n", timeString, commandText);
     
-    ShellExecute(NULL, "open", commandText, "", "", SW_NORMAL);
+    ShellExecuteA(NULL, "open", commandText, "", "", SW_NORMAL);
     
     printf("Done running radiosity client.\n");
 }
@@ -1376,7 +1378,7 @@ static void setEnvironmentVar(StashTable st, const char* name, const char* value
         if(    !stricmp(name, "path") &&
             concatPath)
         {
-            S32 oldLen = strlen(oldValue);
+            S32 oldLen = (S32)strlen(oldValue);
             
             memmove(value + oldLen + 1, value, strlen(value) + 1);
             
@@ -1388,7 +1390,7 @@ static void setEnvironmentVar(StashTable st, const char* name, const char* value
         free(oldValue);
     }
 
-    ExpandEnvironmentStrings(value, value2, sizeof(value2));
+    ExpandEnvironmentStringsA(value, value2, sizeof(value2));
 
     stashAddPointer(st, name, strdup(value2), true);
 
@@ -1456,7 +1458,7 @@ static void* getDefaultEnvironment(void){
         }
     }
     
-    FreeEnvironmentStrings(curEnv);
+    FreeEnvironmentStringsA(curEnv);
     
     // Now copy over with the default environment.
     
@@ -1468,7 +1470,7 @@ static void* getDefaultEnvironment(void){
         
         //printf("%s\n", line);
         
-        newLine = dynArrayAddStructs(&buffer, &bufferLen, &bufferMaxLen, strlen(line) + 1);
+        newLine = dynArrayAddStructs(&buffer, &bufferLen, &bufferMaxLen, (int)strlen(line) + 1);
         
         memmove(newLine, line, strlen(line) + 1);
     }
@@ -1844,9 +1846,9 @@ static void beaconClientProcessMsgExecuteCommand(Packet* pak){
     printf("Running command from server: %s\n", commandText);
     
     if(0){
-        ShellExecute(NULL, "open", commandText, "", "", showWindowType);
+        ShellExecuteA(NULL, "open", commandText, "", "", showWindowType);
     }else{
-        STARTUPINFO si = {0};
+        STARTUPINFOA si = {0};
         PROCESS_INFORMATION pi;
         BOOL ret;
         
@@ -1854,7 +1856,7 @@ static void beaconClientProcessMsgExecuteCommand(Packet* pak){
         si.dwFlags |= STARTF_USESHOWWINDOW;
         si.wShowWindow = showWindowType;
         
-        ret = CreateProcess(NULL,
+        ret = CreateProcessA(NULL,
                             commandText,
                             NULL,
                             NULL,
@@ -1956,7 +1958,7 @@ char* beaconGetExeFileName(void){
     
     if(!fileName){
         fileName = beaconMemAlloc("fileName", 1000);
-        GetModuleFileName(NULL, fileName, 999);
+        GetModuleFileNameA(NULL, fileName, 999);
         forwardSlashes(fileName);
     }
     return fileName;
@@ -2075,7 +2077,7 @@ static void beaconClientInstall(void){
         return;
     }
     
-    hMutex = CreateMutex(NULL, 0, "Global\\CrypticBeaconClientInstall");
+    hMutex = CreateMutexA(NULL, 0, "Global\\CrypticBeaconClientInstall");
     
     assert(hMutex);
     

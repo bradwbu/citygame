@@ -2,8 +2,8 @@
 #ifndef BEACONASTAR_H
 #define BEACONASTAR_H
 
-#include "ArrayOld.h"
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/ArrayOld.h>
 
 //-------------------------------------------------------------------
 // AStarInfo

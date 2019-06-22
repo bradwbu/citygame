@@ -1,7 +1,7 @@
 #ifndef _GROUPFILELIB_H
 #define _GROUPFILELIB_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct GroupDef GroupDef;
 typedef struct GroupBounds GroupBounds;

@@ -1,10 +1,10 @@
 #ifndef _TRICKS_H
 #define _TRICKS_H
 
-#include "stdtypes.h"
-#include "rt_state.h"
-#include "texEnums.h"
-#include "earray.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/thread/rt_state.h"
+#include "render/texEnums.h"
+#include <utilitieslib/components/earray.h>
 
 typedef struct StAnim StAnim;
 
