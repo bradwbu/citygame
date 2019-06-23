@@ -4,8 +4,8 @@
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/components/earray.h>
-#include "cmdcommon.h"
-#include "splat.h"
+#include "cmdparse/cmdcommon.h"
+#include "graphics/splat.h"
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/timing.h>

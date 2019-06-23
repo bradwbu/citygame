@@ -513,7 +513,7 @@ void MissionControlHandleResponse(Packet * pak) {
 #include "comm_game.h"
 #include "staticMapInfo.h"
 #include "dbcomm.h"
-#include "ArrayOld.h"
+#include <utilitieslib/components/ArrayOld.h>
 #include <utilitieslib/network/netcomp.h>
 #include "beacon.h"
 #include "beaconprivate.h"

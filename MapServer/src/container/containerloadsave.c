@@ -4,103 +4,103 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include <utilitieslib/assert/assert.h>
-#include "auction.h"
-#include "crypt.h"
-#include "HashFunctions.h"
-#include "Concept.h"
+#include "auction/auction.h"
+#include <utilitieslib/network/crypt.h>
+#include <utilitieslib/components/HashFunctions.h>
+#include "entity/Concept.h"
 #include "container/dbcontainerpack.h"
-#include "entity.h"
+#include "entity/entity.h"
 #include "varutils.h"
 #include "containerloadsave.h"
-#include "dbcontainer.h"
-#include "dbcomm.h"
-#include "sendToClient.h"
-#include "parseClientInput.h"
-#include "entVarUpdate.h"
+#include "dbcomm/dbcontainer.h"
+#include "dbcomm/dbcomm.h"
+#include "gameComm/sendToClient.h"
+#include "player/parseClientInput.h"
+#include "entity/entVarUpdate.h"
 #include "comm_game.h"
 #include "map.h"
-#include "trayServer.h"
-#include "wdwbase.h"
-#include "costume.h"    // for costume structures
+#include "gameComm/trayServer.h"
+#include "gameComm/wdwbase.h"
+#include "entity/costume.h"    // for costume structures
 #include "gameData/BodyPart.h"
 #include "gameData/costume_data.h"
 #include <utilitieslib/components/earray.h>
 
-#include "character_base.h"
-#include "character_db.h"
-#include "classes.h"
-#include "origins.h"
-#include "powers.h"
-#include "contact.h"
-#include "storyarcprivate.h"
-#include "task.h"
-#include "dbdoor.h"
-#include "friends.h"
-#include "friendCommon.h"
+#include "entity/character_base.h"
+#include "entity/character_db.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
+#include "entity/powers.h"
+#include "storyarc/contact.h"
+#include "storyarc/storyarcprivate.h"
+#include "storyarc/task.h"
+#include "dbcomm/dbdoor.h"
+#include "entity/friends.h"
+#include "entity/friendCommon.h"
 #include "containerEmail.h"
-#include "entPlayer.h"
+#include "entity/entPlayer.h"
 #include <utilitieslib/components/bitfield.h>
 
-#include "staticMapInfo.h"
+#include "dbcomm/staticMapInfo.h"
 
-#include "keybinds.h"
+#include "entity/keybinds.h"
 #include <utilitieslib/utils/error.h>
-#include "SgrpServer.h"
-#include "pl_stats_db.h"
+#include "entity/SgrpServer.h"
+#include "player/pl_stats_db.h"
 #include <utilitieslib/utils/timing.h>
 #include "team.h"
-#include "teamup.h"
-#include "costume_db.h"
-#include "badges_server.h"
-#include "SgrpBadges.h"
-#include "BadgeStats.h"
+#include "entity/teamup.h"
+#include "entity/costume_db.h"
+#include "player/badges_server.h"
+#include "entity/SgrpBadges.h"
+#include "player/BadgeStats.h"
 #include "mapgroup.h"
-#include "cmdservercsr.h"
+#include "cmdparse/cmdservercsr.h"
 #include "reward.h"
 #include "containerArena.h"
-#include "arenamap.h"
-#include "trayCommon.h"
+#include "gameSys/arenamap.h"
+#include "gameComm/trayCommon.h"
 #include "containerInventory.h"
-#include "character_inventory.h"
-#include "character_combat.h"
-#include "Proficiency.h"
-#include "svr_player.h"
-#include "pvp.h"
-#include "cmdserver.h"
-#include "attribmod.h"
-#include "Supergroup.h"
+#include "entity/character_inventory.h"
+#include "entity/character_combat.h"
+#include "entity/Proficiency.h"
+#include "svr/svr_player.h"
+#include "entity/pvp.h"
+#include "cmdparse/cmdserver.h"
+#include "entity/attribmod.h"
+#include "entity/Supergroup.h"
 #include "containerSupergroup.h"
-#include "RewardToken.h"
-#include "pet.h"
-#include "basedata.h"
+#include "entity/RewardToken.h"
+#include "gameComm/pet.h"
+#include "bases/basedata.h"
 #include "container/container_store.h"
-#include "raidstruct.h"
-#include "sgrpstatsstruct.h"
-#include "DetailRecipe.h"
-#include "mapHistory.h"
-#include "miningaccumulator.h"
-#include "TaskforceParams.h"
-#include "attrib_description.h"
-#include "chatSettings.h"
+#include "gameData/raidstruct.h"
+#include "gameData/sgrpstatsstruct.h"
+#include "bases/DetailRecipe.h"
+#include "entity/mapHistory.h"
+#include "gameData/miningaccumulator.h"
+#include "entity/TaskforceParams.h"
+#include "entity/attrib_description.h"
+#include "entity/chatSettings.h"
 #include <utilitieslib/language/AppLocale.h> //for locisUserSelectable and getCurrentLocale
-#include "playerCreatedStoryarcServer.h"
-#include "statgroupstruct.h"
-#include "character_level.h"
-#include "badges.h"
+#include "storyarc/playerCreatedStoryarcServer.h"
+#include "gameData/statgroupstruct.h"
+#include "entity/character_level.h"
+#include "player/badges.h"
 #include "baseloadsave.h"
-#include "sgraid.h"
-#include "power_customization.h"
-#include "pophelp.h"
-#include "alignment_shift.h"
+#include "gameSys/sgraid.h"
+#include "entity/power_customization.h"
+#include "player/pophelp.h"
+#include "entity/alignment_shift.h"
 #include "auth/authUserData.h"
-#include "dbmapxfer.h"
+#include "dbcomm/dbmapxfer.h"
 #include "container/containerEventHistory.h"
-#include "autoCommands.h"
-#include "AccountInventory.h"
-#include "logcomm.h"
+#include "cmdparse/autoCommands.h"
+#include "account/AccountInventory.h"
+#include "dbcomm/logcomm.h"
 #include "MARTY.h"
 #include "zowie.h"
-#include "automapServer.h"
+#include "gameComm/automapServer.h"
 #define MAX_BUF 16384
 
 extern DBPowers s_dbpows;
@@ -2416,46 +2416,46 @@ LineDesc ent_line_desc[] =
     // Continue to add all Subs below
 
     // Type Sub must go last
-    { PACKTYPE_SUB,        1,                            "Ents2",            (int)ent2_desc,                    },
-    { PACKTYPE_EARRAY,    (int)trayobj_Create,        "Tray",                (int)tray_desc,                    },
-    { PACKTYPE_SUB,        MAX_FRIENDS,                "Friends",            (int)friend_list_desc,            },
-    { PACKTYPE_SUB,        MAX_WINDOW_COUNT,            "Windows",            (int)window_desc,                },
-    { PACKTYPE_SUB,        BIND_MAX,                    "KeyBinds",            (int)&keybind_desc,                },
-    { PACKTYPE_SUB,        MAX_COSTUME_PARTS,            "SuperCostumeParts",(int)&super_costume_part_desc,    },
-    { PACKTYPE_EARRAY,    (int)visitedMap_Create,        "VisitedMaps",        (int)visited_maps_desc,        },
-    { PACKTYPE_SUB,        NUM_FAME_STRINGS,            "FameStrings",        (int)famestring_list_desc,        },
-    { PACKTYPE_SUB,        MAX_CHAT_WINDOWS,            "ChatWindows",        (int)chat_settings_window_desc    },
-    { PACKTYPE_SUB,        MAX_CHAT_TABS,                "ChatTabs",            (int)chat_settings_tab_desc        },
-    { PACKTYPE_SUB,        MAX_CHAT_CHANNELS,            "ChatChannels",        (int)chat_settings_channel_desc },
-    { PACKTYPE_SUB,        MAX_DEFEAT_RECORDS,            "DefeatRecord",        (int)defeat_list_desc },
-    { PACKTYPE_EARRAY, (int)rewardtoken_Create,        "RewardTokens",        (int)player_reward_token_desc            },
-    { PACKTYPE_EARRAY, (int)rewardtoken_Create,        "RewardTokensActive",(int)active_player_reward_token_desc            },
+    { PACKTYPE_SUB,        1,                            "Ents2",            (intptr_t)ent2_desc,                    },
+    { PACKTYPE_EARRAY,    (intptr_t)trayobj_Create,        "Tray",                (intptr_t)tray_desc,                    },
+    { PACKTYPE_SUB,        MAX_FRIENDS,                "Friends",            (intptr_t)friend_list_desc,            },
+    { PACKTYPE_SUB,        MAX_WINDOW_COUNT,            "Windows",            (intptr_t)window_desc,                },
+    { PACKTYPE_SUB,        BIND_MAX,                    "KeyBinds",            (intptr_t)&keybind_desc,                },
+    { PACKTYPE_SUB,        MAX_COSTUME_PARTS,            "SuperCostumeParts",(intptr_t)&super_costume_part_desc,    },
+    { PACKTYPE_EARRAY,    (intptr_t)visitedMap_Create,        "VisitedMaps",        (intptr_t)visited_maps_desc,        },
+    { PACKTYPE_SUB,        NUM_FAME_STRINGS,            "FameStrings",        (intptr_t)famestring_list_desc,        },
+    { PACKTYPE_SUB,        MAX_CHAT_WINDOWS,            "ChatWindows",        (intptr_t)chat_settings_window_desc    },
+    { PACKTYPE_SUB,        MAX_CHAT_TABS,                "ChatTabs",            (intptr_t)chat_settings_tab_desc        },
+    { PACKTYPE_SUB,        MAX_CHAT_CHANNELS,            "ChatChannels",        (intptr_t)chat_settings_channel_desc },
+    { PACKTYPE_SUB,        MAX_DEFEAT_RECORDS,            "DefeatRecord",        (intptr_t)defeat_list_desc },
+    { PACKTYPE_EARRAY, (intptr_t)rewardtoken_Create,        "RewardTokens",        (intptr_t)player_reward_token_desc            },
+    { PACKTYPE_EARRAY, (intptr_t)rewardtoken_Create,        "RewardTokensActive",(intptr_t)active_player_reward_token_desc            },
 
     // Story arc stuff
-    { PACKTYPE_SUB, CONTACTS_PER_PLAYER,        "Contacts",            (int)contact_desc        },
-    { PACKTYPE_SUB,    STORYARCS_PER_PLAYER,        "StoryArcs",        (int)storyarc_desc        },
+    { PACKTYPE_SUB, CONTACTS_PER_PLAYER,        "Contacts",            (intptr_t)contact_desc        },
+    { PACKTYPE_SUB,    STORYARCS_PER_PLAYER,        "StoryArcs",        (intptr_t)storyarc_desc        },
 //    { PACKTYPE_EARRAY, (int)StoryClueInfoCreate, "StoryClues",        (int)storyclue_desc        },
 // StoryClueInfo is currently unused and deprecated, but if we resurrect it, it should go here
-    { PACKTYPE_SUB,    TASKS_PER_PLAYER,            "Tasks",            (int)task_desc            },
-    { PACKTYPE_SUB, SOUVENIRCLUES_PER_PLAYER,    "SouvenirClues",    (int)souvenirClue_desc    },
-    { PACKTYPE_SUB, 1,                            "NewspaperHistory",    (int)newspaper_history_desc    },
+    { PACKTYPE_SUB,    TASKS_PER_PLAYER,            "Tasks",            (intptr_t)task_desc            },
+    { PACKTYPE_SUB, SOUVENIRCLUES_PER_PLAYER,    "SouvenirClues",    (intptr_t)souvenirClue_desc    },
+    { PACKTYPE_SUB, 1,                            "NewspaperHistory",    (intptr_t)newspaper_history_desc    },
 
-    { PACKTYPE_EARRAY, (int)petname_Create,                "PetNames",            (int)petname_desc        },
-    { PACKTYPE_EARRAY, (int)mapHistoryCreate,            "MapHistory",        (int)maphistory_desc    },
-    { PACKTYPE_EARRAY, (int)detailinventoryitem_Create,    "InvBaseDetail",    (int)invbasedetail_desc    },
+    { PACKTYPE_EARRAY, (intptr_t)petname_Create,                "PetNames",            (intptr_t)petname_desc        },
+    { PACKTYPE_EARRAY, (intptr_t)mapHistoryCreate,            "MapHistory",        (intptr_t)maphistory_desc    },
+    { PACKTYPE_EARRAY, (intptr_t)detailinventoryitem_Create,    "InvBaseDetail",    (intptr_t)invbasedetail_desc    },
 
-    { PACKTYPE_SUB, MAX_COMBAT_STATS,            "CombatMonitorStat",(int)combatMonitorStat_desc    },
-    { PACKTYPE_SUB, BADGE_ENT_RECENT_BADGES,    "RecentBadge",        (int)recentBadge_desc    },
-    { PACKTYPE_SUB, MAX_BADGE_MONITOR_ENTRIES,    "BadgeMonitor",        (int)badgeMonitor_desc    },
+    { PACKTYPE_SUB, MAX_COMBAT_STATS,            "CombatMonitorStat",(intptr_t)combatMonitorStat_desc    },
+    { PACKTYPE_SUB, BADGE_ENT_RECENT_BADGES,    "RecentBadge",        (intptr_t)recentBadge_desc    },
+    { PACKTYPE_SUB, MAX_BADGE_MONITOR_ENTRIES,    "BadgeMonitor",        (intptr_t)badgeMonitor_desc    },
 
-    { PACKTYPE_SUB,        MAX_IGNORES,            "Ignore",            (int)ignore_list_desc,            },
-    { PACKTYPE_SUB,        MAX_GMAIL,                "GmailClaims",        (int)&gmail_claim_state_desc },
-    { PACKTYPE_SUB,        1,                        "GmailPending",        (int)gmail_pending_desc },
-    { PACKTYPE_SUB,        MAX_REWARD_TABLES,        "QueuedRewardTables",    (int)&queued_reward_desc },
-    { PACKTYPE_SUB,        MARTY_ExperienceTypeCount,    "MARTYTracks",    (int)&marty_reward_track_desc },
-    { PACKTYPE_EARRAY, (int)certificationRecord_Create,    "CertificationHistory",    (int)certificationhistory_desc    },
-    { PACKTYPE_EARRAY, (int)orderId_Create,        "CompletedOrders",    (int)completed_order_desc    },
-    { PACKTYPE_EARRAY, (int)orderId_Create,        "PendingOrders",    (int)pending_order_desc        },
+    { PACKTYPE_SUB,        MAX_IGNORES,            "Ignore",            (intptr_t)ignore_list_desc,            },
+    { PACKTYPE_SUB,        MAX_GMAIL,                "GmailClaims",        (intptr_t)&gmail_claim_state_desc },
+    { PACKTYPE_SUB,        1,                        "GmailPending",        (intptr_t)gmail_pending_desc },
+    { PACKTYPE_SUB,        MAX_REWARD_TABLES,        "QueuedRewardTables",    (intptr_t)&queued_reward_desc },
+    { PACKTYPE_SUB,        MARTY_ExperienceTypeCount,    "MARTYTracks",    (intptr_t)&marty_reward_track_desc },
+    { PACKTYPE_EARRAY, (intptr_t)certificationRecord_Create,    "CertificationHistory",    (intptr_t)certificationhistory_desc    },
+    { PACKTYPE_EARRAY, (intptr_t)orderId_Create,        "CompletedOrders",    (intptr_t)completed_order_desc    },
+    { PACKTYPE_EARRAY, (intptr_t)orderId_Create,        "PendingOrders",    (intptr_t)pending_order_desc        },
     { 0 },
 };
 
@@ -2780,10 +2780,10 @@ LineDesc powers_line_desc[] =
 {
     // Don't change the order or insert anything in here without checking
     // the packageEntPowers function, which evilly modifies it.
-    { PACKTYPE_SUB, MAX_POWERS,             "Powers",       (int)power_desc     }, // don't change the order
-    { PACKTYPE_SUB, MAX_DB_BOOSTS,       "Boosts",       (int)boost_desc     }, // don't change the order
-    { PACKTYPE_SUB, MAX_DB_INSPIRATIONS, "Inspirations", (int)insp_desc      }, // don't change the order
-    { PACKTYPE_SUB, MAX_DB_ATTRIB_MODS,  "AttribMods",   (int)attribmod_desc }, // don't change the order
+    { PACKTYPE_SUB, MAX_POWERS,             "Powers",       (intptr_t)power_desc     }, // don't change the order
+    { PACKTYPE_SUB, MAX_DB_BOOSTS,       "Boosts",       (intptr_t)boost_desc     }, // don't change the order
+    { PACKTYPE_SUB, MAX_DB_INSPIRATIONS, "Inspirations", (intptr_t)insp_desc      }, // don't change the order
+    { PACKTYPE_SUB, MAX_DB_ATTRIB_MODS,  "AttribMods",   (intptr_t)attribmod_desc }, // don't change the order
     { 0 },
 };
 
@@ -3004,7 +3004,7 @@ LineDesc shardaccount_line_desc[] =
     {{ PACKTYPE_INT, SIZE_INT32, "ShowPremiumSlotLockNag", OFFSET(ShardAccount, inventorySize) },
         "Whether or not the player could need to have VIP -> Premium slot locking explained"},
 
-    {{ PACKTYPE_EARRAY,    (int)rewardtoken_Create,            "AccountInventory",            (int)account_inventory_desc        },
+    {{ PACKTYPE_EARRAY,    (intptr_t)rewardtoken_Create,            "AccountInventory",            (intptr_t)account_inventory_desc        },
         "Account inventory items"},
 
     { 0 },
@@ -4949,7 +4949,7 @@ LineDesc teamup_line_desc[] =
     {{ PACKTYPE_INT,            SIZE_INT32,                            "MaximumPlayerCount",    OFFSET(Teamup, maximumPlayerCount)        },
         "The biggest this Teamup's member count has ever been."},
 
-    {{ PACKTYPE_EARRAY,            (int)rewardtoken_Create,            "TeamupRewardTokensActive",            (intptr_t)team_active_player_reward_token_desc        },
+    {{ PACKTYPE_EARRAY,            (intptr_t)rewardtoken_Create,            "TeamupRewardTokensActive",            (intptr_t)team_active_player_reward_token_desc        },
         "reward tokens the active player of this team has"},
 
     { PACKTYPE_SUB,            1,                                    "TeamupTask",    (intptr_t)team_task_desc                                },
@@ -5936,7 +5936,7 @@ void morphCharacter(ClientLink* client, Entity *e, char *at, char *pri_power, ch
         }
 
         sprintf(fname, "n:/nobackup/resource/characters/%s/%s%s/%d.txt", at, pri_power, sec_power,
-            (int) clientLinkGetDebugVar(client, "MorphLevel"));
+            (int)(intptr_t)clientLinkGetDebugVar(client, "MorphLevel"));
     }
     morphCharacterFile(client, e, fname);
 }

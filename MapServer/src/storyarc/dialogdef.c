@@ -12,7 +12,7 @@
 #include "entity.h"
 #include "storyarcprivate.h"
 #include "dialogdef.h"
-#include "hashfunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 #include "character_eval.h"
 #include "character_level.h"
 #include "contactCommon.h"

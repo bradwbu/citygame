@@ -12,7 +12,7 @@ typedef struct Entity Entity;
 typedef struct Supergroup Supergroup;
 typedef struct SpecialDetail SpecialDetail;
 typedef struct Detail Detail;
-typedef int TaskHandle;
+typedef intptr_t TaskHandle;
 
 
 #define SG_PRESTIGE_BONUS_MEMBER_COUNT (15)

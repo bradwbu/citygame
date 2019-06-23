@@ -1,7 +1,7 @@
 #ifndef _GFX_H
 #define _GFX_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct BasicTexture BasicTexture;
 typedef struct ViewportInfo ViewportInfo;

@@ -88,7 +88,7 @@ typedef enum TexOptScrollType
 
 TexLayerIndex blendIndexToTexLayerIndex(BlendIndex bi);
 BlendIndex texLayerIndexToBlendIndex(TexLayerIndex tli);
-char * blendIndexToName(BlendIndex bi);
+char const* blendIndexToName(BlendIndex bi);
 
 typedef struct TexOpt TexOpt;
 

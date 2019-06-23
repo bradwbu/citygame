@@ -1,9 +1,9 @@
 #include <utilitieslib/language/AppLocale.h>
-#include "entPlayer.h"
-#include "player.h"
-#include "character_base.h"
-#include "entity.h"
-#include "entVarUpdate.h"
+#include "entity/entPlayer.h"
+#include "player/player.h"
+#include "entity/character_base.h"
+#include "entity/entity.h"
+#include "entity/entVarUpdate.h"
 
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/components/earray.h>
@@ -11,9 +11,9 @@
 #include <utilitieslib/components/StashTable.h>
 #include "pophelp.h"
 #include "clienterror.h"
-#include "LoadDefCommon.h"
+#include "entity/LoadDefCommon.h"
 #ifdef SERVER
-#include "svr_base.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
 #endif
 

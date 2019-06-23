@@ -1,36 +1,36 @@
 #include "container/dbcontainerpack.h"
-#include "character_level.h"
+#include "entity/character_level.h"
 #include <utilitieslib/utils/timing.h>
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 #include "containerEmail.h"
-#include "entVarUpdate.h"
-#include "svr_player.h"
-#include "svr_base.h"
+#include "entity/entVarUpdate.h"
+#include "svr/svr_player.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
 #include "containerbroadcast.h"
-#include "svr_chat.h"
+#include "gameComm/svr_chat.h"
 #include <utilitieslib/components/StashTable.h>
-#include "dbnamecache.h"
-#include "entity.h"
+#include "dbcomm/dbnamecache.h"
+#include "entity/entity.h"
 #include "comm_backend.h"
 #include <utilitieslib/components/estring.h>
 #include "language/langServerUtil.h"
-#include "entPlayer.h"
-#include "friends.h"
-#include "SgrpServer.h"
-#include "Script.h"
-#include "AccountInventory.h"
-#include "trayCommon.h"
-#include "DetailRecipe.h"
-#include "salvage.h"
-#include "AuctionData.h"
-#include "powers.h"
-#include "character_base.h"
-#include "character_combat.h"
-#include "shardcomm.h"
+#include "entity/entPlayer.h"
+#include "entity/friends.h"
+#include "entity/SgrpServer.h"
+#include "script/Script.h"
+#include "account/AccountInventory.h"
+#include "gameComm/trayCommon.h"
+#include "bases/DetailRecipe.h"
+#include "entity/salvage.h"
+#include "auction/AuctionData.h"
+#include "entity/powers.h"
+#include "entity/character_base.h"
+#include "entity/character_combat.h"
+#include "dbcomm/shardcomm.h"
 #include "plaque.h"
-#include "arenamap.h"
-#include "logcomm.h"
+#include "gameSys/arenamap.h"
+#include "dbcomm/logcomm.h"
 
 struct EmailInfo
 {
@@ -300,7 +300,7 @@ char *emailSendToNames(int sender_id, int auth_id,char *subject,char *message,ch
                 const char * str = getHandleFromString(args[i]);
                 if( e && e->pl && str ) 
                 {
-                    int strlength = strlen(str);
+                    int strlength = (int)strlen(str);
                     if (strlength > MAX_PLAYERNAME)    //    in chatClient, it loses the e-mail if it is longer than MAX_PLAYERNAME
                     {
                         return localizedPrintf(e,"EmailRecipientTooLongError");

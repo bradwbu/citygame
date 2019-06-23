@@ -8,20 +8,20 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/components/MemoryPool.h>
-#include "dbcontainer.h"
-#include "logcomm.h"
+#include "dbcomm/dbcontainer.h"
+#include "dbcomm/logcomm.h"
 
 #include <utilitieslib/stdtypes.h>
-#include "entity.h"
+#include "entity/entity.h"
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/components/StashTable.h>
-#include "character_base.h"
-#include "character_inventory.h"
+#include "entity/character_base.h"
+#include "entity/character_inventory.h"
 #include "containerInventory.h"
-#include "salvage.h"
-#include "concept.h"
-#include "cmdserver.h"
+#include "entity/salvage.h"
+#include "entity/concept.h"
+#include "cmdparse/cmdserver.h"
 #include <utilitieslib/components/StashTable.h>
 
 #define MAX_INVITEMS_PER_ROW (900) // Upper limit is 1012 and subtract some room for ContainerId, SubId, ShardId, and ShardName columns
@@ -387,7 +387,7 @@ InventoryType inventory_typeFromTable(char *table)
         int i;
         strcpy(tableStem,table);
 
-        for(i = strlen(table) - 1; i >= 0; --i)
+        for(i = (int)strlen(table) - 1; i >= 0; --i)
         {
             if(tableStem[i] >= '0' && tableStem[i] <= '9')
             {
@@ -403,7 +403,7 @@ InventoryType inventory_typeFromTable(char *table)
     }
     if (res)
     {
-        return (int)stashElementGetPointer(res);        
+        return (int)(intptr_t)stashElementGetPointer(res);        
     }
     else if( 0 == stricmp(tableStem,"InvRecipeInvention")) // special hack for dual inventory
     {

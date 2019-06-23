@@ -104,8 +104,8 @@ LineDesc ScheduledBaseRaid_line_desc[] =
     {{ PACKTYPE_INT,            SIZE_INT32,            "ForfeitChecked",    OFFSET(ScheduledBaseRaid, forfeit_checked)    },
         "1 if the raid has already been checked for player forfeit"},
 
-    { PACKTYPE_SUB,    BASERAID_MAX_PARTICIPANTS,    "AttackerParticipants",    (int)attacker_participant_desc,                },
-    { PACKTYPE_SUB,    BASERAID_MAX_PARTICIPANTS,    "DefenderParticipants",    (int)defender_participant_desc,                },
+    { PACKTYPE_SUB,    BASERAID_MAX_PARTICIPANTS,    "AttackerParticipants",    (intptr_t)attacker_participant_desc,                },
+    { PACKTYPE_SUB,    BASERAID_MAX_PARTICIPANTS,    "DefenderParticipants",    (intptr_t)defender_participant_desc,                },
     { 0 },
 };
 
@@ -177,7 +177,7 @@ static int reverseTimeSort(const ScheduledBaseRaid** left, const ScheduledBaseRa
 }
 static void sortRaids(ScheduledBaseRaid* raid, U32 raidid)
 {
-    int loc = bfind(&raid, g_sortedraids, eaSize(&g_sortedraids), sizeof(ScheduledBaseRaid*), reverseTimeSort);
+    int loc = (int)bfind(&raid, g_sortedraids, eaSize(&g_sortedraids), sizeof(ScheduledBaseRaid*), reverseTimeSort);
     eaInsert(&g_sortedraids, raid, loc);
 }
 

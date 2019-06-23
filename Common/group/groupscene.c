@@ -1,3 +1,4 @@
+#include <utilitieslib/stdtypes.h>
 #include "groupscene.h"
 #include <string.h>
 #include <utilitieslib/utils/textparser.h>

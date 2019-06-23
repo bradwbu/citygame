@@ -4,7 +4,7 @@
 #include <crtdbg.h>
 
 #include "entgen.h"
-#include "ArrayOld.h"
+#include <utilitieslib/components/ArrayOld.h>
 #include "grouputil.h"
 #include "position.h"
 #include <utilitieslib/components/StashTable.h>

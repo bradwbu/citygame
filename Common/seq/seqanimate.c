@@ -2,7 +2,7 @@
 #include <string.h>
 #include <time.h>
 #include "seq.h"
-#include "cmdcommon.h"
+#include "cmdparse/cmdcommon.h"
 #include <utilitieslib/utils/memcheck.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
@@ -14,13 +14,13 @@
 
 #include "animtrack.h"
 #include "animtrackanimate.h"
-#include "font.h"
-#include "gridcoll.h"
-#include "gfx.h" //for debug info
-#include "player.h" //for debug info
+#include "graphics/font.h"
+#include "gridcoll/gridcoll.h"
+#include "graphics/gfx.h" //for debug info
+#include "player/player.h" //for debug info
 #include "seqregistration.h"
 #include "tricks.h"
-#include "entity.h"
+#include "entity/entity.h"
 #include <utilitieslib/utils/Quat.h>
 
 #ifdef CLIENT 
@@ -555,7 +555,7 @@ static int countNonHidChildren(GfxNode * pNode, int seqHandle)
 }
 
 //Another debug only function
-#include "player.h"
+#include "player/player.h"
 #ifdef CLIENT
 #include "entclient.h"
 void printBonesAnimated( SeqInst * seq, GfxNode * node )

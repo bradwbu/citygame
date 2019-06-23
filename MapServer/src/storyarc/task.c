@@ -29,7 +29,7 @@
 #include "raidmapserver.h"
 #include "svr_chat.h"
 #include "AppVersion.h"
-#include "StringTable.h"
+#include <utilitieslib/components/StringTable.h>
 #include "sgraid.h"
 #include "basesystems.h"
 #include "door.h"
@@ -38,7 +38,7 @@
 #include "badges_server.h"
 #include "containerbroadcast.h"
 #include "contactInteraction.h"
-#include "hashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 #include "teamReward.h"
 #include "cmdServer.h"
 #include "storyarc.h"

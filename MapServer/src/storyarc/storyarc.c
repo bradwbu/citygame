@@ -496,16 +496,16 @@ int StoryArcTotalTasks(void)
 // *********************************************************************************
 
 // story arc handles are negative and 1 based
-static INLINEDBG int StoryArcHandleTransform(int x){ return (-x - 1); }
+static INLINEDBG intptr_t StoryArcHandleTransform(int x){ return (-x - 1); }
 
-static INLINEDBG int StoryArcInvalidIndex(int index){ return (index < 0 || index >= eaSize(&g_storyarclist.storyarcs));}
+static INLINEDBG intptr_t StoryArcInvalidIndex(int index){ return (index < 0 || index >= eaSize(&g_storyarclist.storyarcs));}
 
 int StoryArcNumDefinitions()
 {
     return eaSize(&g_storyarclist.storyarcs);
 }
 
-int StoryArcContextFromFileName(const char* filename)
+intptr_t StoryArcContextFromFileName(const char* filename)
 {
     char buf[MAX_PATH];
     int i, n;
@@ -606,7 +606,7 @@ int StoryArcCountTasks(const StoryTaskHandle *sahandle)
     return retval;
 }
 
-const char* StoryArcFileName(int i)
+const char* StoryArcFileName(intptr_t i)
 {
     // TODO: Deal with player created filenames?
     const StoryArc* def = StoryArcDefinition(tempStoryTaskHandle(i,0,0,0));

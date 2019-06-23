@@ -6,12 +6,12 @@
 #include <utilitieslib/utils/utils.h>
 #include "grouptrack.h"    // for trackerOpen
 #include "group.h"
-#include "ArrayOld.h"
+#include <utilitieslib/components/ArrayOld.h>
 #include <utilitieslib/components/StashTable.h>
 #include "groupProperties.h"
-#include "tricks.h"
-#include "anim.h"
-#include "NwWrapper.h"
+#include "seq/tricks.h"
+#include "seq/anim.h"
+#include "NovodeX/NwWrapper.h"
 #include <utilitieslib/components/estring.h>
 
 /***************************************************************************************************
@@ -170,8 +170,8 @@ void groupProcessDefExContinue(GroupDefTraverser* traverser, GroupDefProcessorEx
     int            i;
     GroupEnt*    ent;
     Mat4        curMat;
-    void*        origVContext;
-    void*        curVContext;
+    void*        origVContext = NULL;
+    void*        curVContext = NULL;
     GroupDef*    curDef;
     GroupEnt*    origEnt=traverser->ent;
     int            UID;

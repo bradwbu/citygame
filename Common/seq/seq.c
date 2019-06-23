@@ -1,8 +1,9 @@
+#include <utilitieslib/stdtypes.h>
 #include "seq.h"
 #include <utilitieslib/utils/wininclude.h>  // JS: Can't find where this file includes <windows.h> so I'm just sticking this include here.
 #include <string.h>
 #include <time.h>
-#include "cmdcommon.h"
+#include "cmdparse/cmdcommon.h"
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>
@@ -13,12 +14,12 @@
 #include "seqanimate.h"
 #include "seqsequence.h"
 #include <utilitieslib/components/earray.h>
-#include "groupfileload.h"
-#include "group.h"
-#include "StringTable.h"
+#include "group/groupfileload.h"
+#include "group/group.h"
+#include <utilitieslib/components/StringTable.h>
 #include <utilitieslib/components/StringCache.h>
 #if SERVER
-#include "cmdserver.h"
+#include "cmdparse/cmdserver.h"
 #include "seqskeleton.h"
 #endif
 #if CLIENT
@@ -44,12 +45,12 @@
 #include <utilitieslib/utils/strings_opt.h>
 #include "gfxtree.h"
 #include "seqtype.h"
-#include "tex.h"
+#include "render/tex.h"
 #include "seqstate.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "character_base.h"
-#include "motion.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include "entity/character_base.h"
+#include "entity/motion.h"
 #include "fxinfo.h"
 #include <utilitieslib/components/StashTable.h>
 #include "AnimBitList.h"

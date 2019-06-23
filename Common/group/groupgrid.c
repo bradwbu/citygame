@@ -7,14 +7,14 @@
 #include <utilitieslib/utils/mathutil.h>
 #include "group.h"
 #include "grouptrack.h"
-#include "gridcoll.h"
-#include "anim.h"
+#include "gridcoll/gridcoll.h"
+#include "seq/anim.h"
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/utils.h>
 #include "grouputil.h"
 #include "groupfileload.h"
-#include "gridfind.h"
-#include "bases.h"
+#include "gridcoll/gridfind.h"
+#include "bases/bases.h"
 
 #if CLIENT
 #include <utilitieslib/utils/timing.h>

@@ -8,17 +8,17 @@
 #include <utilitieslib/utils/strings_opt.h>
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/utils/FolderCache.h>
-#include "../edit/Menu.h"
+#include "edit/Menu.h"
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/components/earray.h>
 #include "groupfileload.h"
-#include "serialize.h"
+#include <utilitieslib/utils/serialize.h>
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "crypt.h"
-#include "bases.h"
-#include "LoadDefCommon.h"
-#include "structinternals.h"
+#include <utilitieslib/network/crypt.h>
+#include "bases/bases.h"
+#include "entity/LoadDefCommon.h"
+#include <utilitieslib/utils/structinternals.h>
 
 typedef struct GroupLibNameEntry
 {
@@ -257,7 +257,7 @@ void objectLibraryAddFullName(char *_fname,int is_rootname)
     if (!s)
         s=fname;
     if (*s=='/') s++;
-    len = strlen(s);
+    len = (int)strlen(s);
     strcat(fname, "/");
     strncat(fname, s, len);
     strcpy(s+len+1+len, ".geo");
@@ -420,7 +420,7 @@ static FileScanAction populateFileList(char* dir, struct _finddata32_t* data)
     int len,underscore;
 
     underscore = data->name[0] == '_';
-    len = strlen(data->name);
+    len = (int)strlen(data->name);
     if (( (len > 4 && !stricmp(".txt", data->name+len-4)) || (len > 10 && stricmp(".rootnames",data->name+len-10)==0)) && !underscore)
     {
         sprintf(buffer, "%s/%s", dir, data->name);
@@ -536,7 +536,7 @@ int objectLibraryLoadShared(int production, int force_rebuild)
         // Load data
         myret = UpdateObjectLibraryBin(production, force_rebuild);
         // Copy to shared memory
-        size = ParserGetStructMemoryUsage(GroupNamesSaveInfo, &group_names, sizeof(group_names));
+        size = (unsigned long)ParserGetStructMemoryUsage(GroupNamesSaveInfo, &group_names, sizeof(group_names));
         sharedMemorySetSize(shared_memory, size);
         pTemp = ParserCompressStruct(GroupNamesSaveInfo, &group_names, sizeof(group_names), NULL, sharedMemoryAlloc, shared_memory);
         sharedMemoryUnlock(shared_memory);
@@ -648,7 +648,7 @@ void objectLibraryProcessNameChanges(const char *_fname, char **obj_names)
     // Search group_name_hashes, remove any  with same idx and not in obj_names
     stashGetIterator(group_name_hashes, &it);
     while(0 != (stashGetNextElement(&it, &element))) {
-        int libname_idx = (int)stashElementGetPointer(element);
+        int libname_idx = (int)(intptr_t)stashElementGetPointer(element);
         GroupLibNameEntry *gn = group_names.group_libnames[libname_idx];
         if (!gn->is_rootname)
             continue;
@@ -790,8 +790,8 @@ static int objectLibraryLoadBoundsFileInternal(const char *groupfile_name,U32 ch
     for(j=-1,i=0;i<eaSize(&lib_desc.entries);i++)
     {
         entry = lib_desc.entries[i];
-        cryptAdler32Update((void*)entry->min,sizeof(GroupBounds));
-        cryptAdler32Update((void*)entry->name,strlen(entry->name));
+        cryptAdler32Update((void*)entry->min, (int)sizeof(GroupBounds));
+        cryptAdler32Update((void*)entry->name, (int)strlen(entry->name));
 
         if (file)
         {
@@ -866,8 +866,8 @@ void objectLibraryWriteBoundsFileIfDifferent(GroupFile *file)
         def = file->defs[i];
         if (!groupIsPublic(def))
             continue;
-        cryptAdler32Update((void*)def->min,sizeof(GroupBounds));
-        cryptAdler32Update((void*)def->name,strlen(def->name));
+        cryptAdler32Update((void*)def->min, (int)sizeof(GroupBounds));
+        cryptAdler32Update((void*)def->name, (int)strlen(def->name));
     }
     file->bounds_checksum = cryptAdler32Final();
     if (!objectLibraryLoadBoundsFile(file->fullname,file->bounds_checksum))

@@ -1,7 +1,7 @@
 #ifndef _TEXTUREATLAS_H
 #define _TEXTUREATLAS_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct PBuffer PBuffer;
 typedef struct BasicTexture BasicTexture;

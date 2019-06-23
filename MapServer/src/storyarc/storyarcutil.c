@@ -44,7 +44,7 @@
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/language/AppLocale.h>
 #include "commonLangUtil.h"
-#include "tokenstore.h"
+#include <utilitieslib/utils/tokenstore.h>
 #include "aiBehaviorPublic.h"
 #include "animBitList.h"
 #include "pnpcCommon.h"

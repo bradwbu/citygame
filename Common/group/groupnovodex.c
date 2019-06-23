@@ -1,22 +1,22 @@
 #include "groupnovodex.h"
 #include "group.h"
-#include "NwWrapper.h"
-#include "anim.h"
-#include "tricks.h"
+#include "NovodeX/NwWrapper.h"
+#include "seq/anim.h"
+#include "seq/tricks.h"
 #include <utilitieslib/components/MemoryPool.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "gridcoll.h"
+#include "gridcoll/gridcoll.h"
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/strings_opt.h>
-#include "gridfind.h"
+#include "gridcoll/gridfind.h"
 #include <utilitieslib/utils/timing.h>
 #include "grouptrack.h"
 #include "groupfileload.h"
 #include "grouputil.h"
-#include "entity.h"
-#include "gridcache.h"
-#include "NwRagdoll.h"
+#include "entity/entity.h"
+#include "gridcoll/gridcache.h"
+#include "NovodeX/NwRagdoll.h"
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/Quat.h>
 
@@ -25,8 +25,8 @@
 #include "gfxLoadScreens.h"
 #endif
 #ifdef SERVER 
-#include "svr_player.h"
-#include "entai.h"
+#include "svr/svr_player.h"
+#include "ai/entai.h"
 #endif
 
 #if NOVODEX

@@ -21,7 +21,7 @@
 #include "contact.h"
 #include <utilitieslib/language/MessageStoreUtil.h>
 #include "storyarcutil.h"
-#include "hashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 
 Entity* EntTeamInternal(TEAM team, int index, int* num);
 

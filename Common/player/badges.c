@@ -11,18 +11,18 @@
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/language/MessageStore.h>
 #include <utilitieslib/components/bitfield.h>
-#include "entity.h"    
-#include "entplayer.h"
-#include "origins.h"
-#include "classes.h"
-#include "character_base.h"
+#include "entity/entity.h"    
+#include "entity/entplayer.h"
+#include "entity/origins.h"
+#include "entity/classes.h"
+#include "entity/character_base.h"
 #include "badges.h"
 #include <utilitieslib/language/MessageStore.h>
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "LoadDefCommon.h"
-#include "commonLangUtil.h"
-#include "Supergroup.h"
+#include "entity/LoadDefCommon.h"
+#include "language/commonLangUtil.h"
+#include "entity/Supergroup.h"
 
 #if SERVER || STATSERVER
 #include "Reward.h"

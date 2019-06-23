@@ -3,9 +3,9 @@
 #ifndef COSTUME_DB_H
 #define COSTUME_DB_H
 
-#include "power_customization.h"
-#include "costume.h"
-#include "entPlayer.h"
+#include "entity/power_customization.h"
+#include "entity/costume.h"
+#include "entity/entPlayer.h"
 
 typedef struct DBCostume
 {

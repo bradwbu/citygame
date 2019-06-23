@@ -1,7 +1,7 @@
 #include "Position.h"
 #include <stdlib.h>
 #include <utilitieslib/assert/assert.h>
-#include "entity.h"
+#include "entity/entity.h"
 
 
 /* Function posFindNearest
@@ -10,7 +10,7 @@
  */
 Beacon* posFindNearest(Array* searchlist, const Mat4 ref){
     int i;
-    int target = -1;                // index of currenlty selected target
+    int target = -1;                // index of currently selected target
     float targetDistance = -1;        // distance of currently selected target
     float curDistance;                // distance of entity currently under examination
     

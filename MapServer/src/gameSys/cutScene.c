@@ -6,8 +6,8 @@
 #include "parseClientInput.h"
 #include "svr_player.h"
 #include <utilitieslib/utils/error.h>
-#include "sysutil.h"
-#include "sock.h"
+#include <utilitieslib/utils/sysutil.h>
+#include <utilitieslib/network/sock.h>
 #include "dbcomm.h"
 #include "sendToClient.h"
 #include <utilitieslib/assert/assert.h>
@@ -26,7 +26,7 @@
 #include "network/net_version.h"
 #include "entPlayer.h"
 #include "entsend.h"
-#include "MemoryMonitor.h"
+#include <utilitieslib/utils/memorymonitor.h>
 #include "character_level.h"
 #include "character_animfx.h"
 #include "scriptengine.h"

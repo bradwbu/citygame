@@ -5,13 +5,13 @@
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/utils.h>
-#include "sysutil.h"
+#include <utilitieslib/utils/sysutil.h>
 #include <utilitieslib/utils/FolderCache.h>
-#include "consoledebug.h"
+#include <utilitieslib/utils/consoledebug.h>
 #include <utilitieslib/language/AppLocale.h>
-#include "memorymonitor.h"
-#include "entvarupdate.h"        // for PKT_BITS_TO_REP_DB_ID
-#include "sock.h"
+#include <utilitieslib/utils/memorymonitor.h>
+#include "entity/entvarupdate.h"        // for PKT_BITS_TO_REP_DB_ID
+#include <utilitieslib/network/sock.h>
 #include <utilitieslib/utils/mathutil.h>
 #include <time.h>
 #include "iopdata.h"

@@ -22,7 +22,7 @@
 #include "entity.h"
 #include "entPlayer.h"
 #include "langServerUtil.h"
-#include "MemoryMonitor.h"
+#include <utilitieslib/utils/memorymonitor.h>
 #include "MultiMessageStore.h"
 #include "sendToClient.h"
 #include "staticMapInfo.h"

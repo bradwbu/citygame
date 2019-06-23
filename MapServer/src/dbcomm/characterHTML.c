@@ -41,7 +41,7 @@
 #include "friendCommon.h"
 #include "supergroup.h"
 #include <utilitieslib/language/AppLocale.h>
-#include "HashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 
 #define BADGES
 #define UPDATE2

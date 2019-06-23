@@ -4,19 +4,19 @@
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/file.h>
-#include "cmdcommon.h"
+#include "cmdparse/cmdcommon.h"
 #include <utilitieslib/assert/assert.h>
 #include "gfxtree.h"
-#include "camera.h" 
-#include "font.h"
+#include "graphics/camera.h" 
+#include "graphics/font.h"
 #include "gfxtree.h"
-#include "model.h"
+#include "render/model.h"
 #include "tricks.h"
 #include "anim.h"
 #include <utilitieslib/components/MemoryPool.h>
 
 #if CLOTH_HACK
-#include "clothnode.h"
+#include "graphics/clothnode.h"
 #endif
 
 #if CLIENT
@@ -62,7 +62,7 @@ void gfxTreeFindWorldSpaceMat(Mat4 result, GfxNode * node)
         return;
     }
     copyMat4(node->mat, result);     
-    while(node->parent && node->parent != ( GfxNode * )0xfafafafa )    //latter part is lf hack, approved by Mr. Woomer.  DEBUG!!
+    while(node->parent && node->parent != ( GfxNode*)(intptr_t)0xfafafafafafafafa)    // latter part is lf hack, approved by Mr. Woomer.  DEBUG!!
     {
         copyMat4(result, old_result); 
         mulMat4(node->parent->mat, old_result, result);
@@ -358,11 +358,11 @@ static GfxNode * gfxTreeAttachNode(GfxNode * parent, GfxNode * curr, GfxNode ** 
         if( parent->child )
         {
             node = parent->child;
-            assert( node != (GfxNode*)0xfafafafa && node->unique_id != 0xfafafafa );
+            assert( node != (GfxNode*)(uintptr_t)0xfafafafafafafafa && node->unique_id != 0xfafafafa );
 
             while(node->next) //why? it's inefficient, why can't youngest bro be parent's child, not eldest... (would need to swithc a few things around in gfxtree for that to work
             {
-                assert( node->next != (GfxNode*)0xfafafafa && node->next->unique_id != 0xfafafafa );
+                assert( node->next != (GfxNode*)(uintptr_t)0xfafafafafafafafa && node->next->unique_id != 0xfafafafa );
                 node = node->next;
             }
             assert(node && ! node->next);
@@ -400,7 +400,7 @@ static GfxNode * gfxTreeAttachNode(GfxNode * parent, GfxNode * curr, GfxNode ** 
         node = curr;
         while(node->next)
         {
-            assert( node->next != (GfxNode*)0xfafafafa && node->next->unique_id != 0xfafafafa );
+            assert( node->next != (GfxNode*)(uintptr_t)0xfafafafafafafafa && node->next->unique_id != 0xfafafafa );
             node = node->next;
         }
         *tail = node;
@@ -759,7 +759,7 @@ static void gfxTreeRelinkSuspendedRecur(GfxNode * node, int seqHandle)
 {    
     for( ; node ; node = node->next)
     {
-        assert(    (int)node != 0xfafafafa && (int)node->model != 0xfafafafa && (int)node->unique_id != 0xfafafafa);
+        assert((uintptr_t)node != (uintptr_t)0xfafafafafafafafa && (uintptr_t)node->model != (uintptr_t)0xfafafafafafafafa && (int)node->unique_id != 0xfafafafa);
 
         if(node->seqHandle == seqHandle)
         {

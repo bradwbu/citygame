@@ -2,8 +2,8 @@
 #include "megaGrid.h"
 #include "megaGridPrivate.h"
 #include <utilitieslib/assert/assert.h>
-#include "entity.h"
-#include "entserver.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
 
 static void mgVerifyGridCell(MegaGridCell* cell){
     MegaGridCellEntryArray* entries;

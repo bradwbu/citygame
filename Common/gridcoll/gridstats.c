@@ -3,6 +3,7 @@
 #include "grid.h"
 #include "stdlib.h"
 #include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/memcheck.h>
 
 static int depth_hist[100];
 static int count_hist[100];

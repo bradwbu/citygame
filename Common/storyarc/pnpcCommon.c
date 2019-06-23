@@ -1,20 +1,20 @@
 
-
+#include <utilitieslib/stdtypes.h>
 #include "pnpcCommon.h"
 #include "comm_game.h"
-#include "Npc.h"
-#include "arrayold.h"
+#include "gameComm/Npc.h"
+#include <utilitieslib/components/ArrayOld.h>
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
-#include "entity.h"
-#include "attribmod.h"
+#include "entity/entity.h"
+#include "entity/attribmod.h"
 
 #if SERVER
-    #include "pnpc.h"
+    #include "storyarc/pnpc.h"
 #endif
 
 #define DEFAULT_SHOUT_FREQUENCY        5

@@ -3,14 +3,14 @@
 #include "playerCreatedStoryarc.h"
 #include "playerCreatedStoryarcValidate.h"
 
-#include "PCC_Critter.h"
-#include "CustomVillainGroup.h"
+#include "entity/PCC_Critter.h"
+#include "entity/CustomVillainGroup.h"
 #include "pnpcCommon.h"
-#include "Npc.h"
+#include "gameComm/Npc.h"
 #include "missionMapCommon.h"
-#include "entity.h"
-#include "seq.h"
-#include "entPlayer.h"
+#include "entity/entity.h"
+#include "seq/seq.h"
+#include "entity/entPlayer.h"
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/components/earray.h>
@@ -18,20 +18,20 @@
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/utils/utils.h>
-#include "RewardToken.h"
-#include "../../3rdparty/zlibsrc/zlib.h"
-#include "character_eval.h"
+#include "entity/RewardToken.h"
+#include <zlib/zlib.h>
+#include "entity/character_eval.h"
 
 #ifndef TEST_CLIENT
-#include "profanity.h"
+#include "filter/profanity.h"
 #endif
 #include <utilitieslib/language/MessageStoreUtil.h>
-#include "imageCapture.h"
-#include "SimpleParser.h"
-#include "AnimBitList.h"
+#include "graphics/imageCapture.h"
+#include <utilitieslib/utils/SimpleParser.h>
+#include "seq/AnimBitList.h"
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/language/AppLocale.h>
-#include "tokenstore.h"
+#include <utilitieslib/utils/tokenstore.h>
 #include "AutoGen/playerCreatedStoryarcValidate_h_ast.h"
 #include "AutoGen/playerCreatedStoryarcValidate_h_ast.c"
 #include "LWC_Common.h"
@@ -968,7 +968,7 @@ int playerCreatedStoryArc_isValidVillain( const char * pchVillainGroup, const ch
             for (i = 1; i < VDF_COUNT; i = i << 1)
             {
                 const char *flagName = StaticDefineIntRevLookup(ParseVillainDoppelFlags, i);
-                int stringlen = strlen(flagName);
+                int stringlen = (int)strlen(flagName);
                 if (strnicmp(doppelFlags, flagName, stringlen) == 0)
                 {
                     doppelFlags += stringlen;
@@ -1270,7 +1270,7 @@ int playerCreatedStoryArc_isValidCVG( CompressedCVG *cvg, PlayerCreatedStoryArc 
         *error = retVal;
     return (retVal == CVG_LE_VALID);
 }
-static void playerCreatedStoryArc_AddError( char ** estr, char * pchError, char * pchName )
+static void playerCreatedStoryArc_AddError(char** estr, char const* pchError, char const* pchName)
 {
 #if CLIENT
     if( !estr )
@@ -3028,7 +3028,7 @@ PlayerCreatedStoryarcValidation playerCreatedStoryarc_GetValid( PlayerCreatedSto
     if( !src )
         src = playerCreatedStoryArc_ToString(pArc);
 
-    size = strlen(src);
+    size = (int)strlen(src);
     zipped_size = size*1.0125+12;
     zip_data = malloc(zipped_size);
     if( Z_OK != compress2(zip_data,&zipped_size,src,size,5) || zipped_size >= MAX_ARC_FILESIZE )

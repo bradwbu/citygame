@@ -1,15 +1,15 @@
+#include <utilitieslib/stdtypes.h>
 #include "seqregistration.h"
-
 #include <utilitieslib/utils/mathutil.h>
 #include "gfxtree.h"
 #include "seq.h"
-#include "gfx.h"
-#include "gfxDebug.h"
-#include "font.h"
+#include "graphics/gfx.h"
+#include "graphics/gfxDebug.h"
+#include "graphics/font.h"
 #include <float.h>
-#include "gridcoll.h"
-#include "player.h"
-#include "entity.h"
+#include "gridcoll/gridcoll.h"
+#include "player/player.h"
+#include "entity/entity.h"
 
 #ifdef CLIENT
 #include "fxutil.h"

@@ -9,24 +9,24 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/StashTable.h>
 
-#include "entity.h"
-#include "entPlayer.h"
-#include "character_base.h"
-#include "DetailRecipe.h"
-#include "character_inventory.h"
-#include "powers.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include "entity/character_base.h"
+#include "bases/DetailRecipe.h"
+#include "entity/character_inventory.h"
+#include "entity/powers.h"
 
 #include "store.h"
 #include "store_data.h"
 #include "auth/authUserData.h"
 
 #ifdef SERVER
-#include "dbcomm.h"    // for dblog() messages
+#include "dbcomm/dbcomm.h"    // for dblog() messages
 #include "dbghelper.h"
-#include "character_combat.h"
-#include "character_net_server.h"
-#include "badges_server.h"
-#include "logcomm.h"
+#include "entity/character_combat.h"
+#include "entity/character_net_server.h"
+#include "player/badges_server.h"
+#include "dbcomm/logcomm.h"
 #endif
 
 typedef struct StoreIter
@@ -63,7 +63,7 @@ const StoreItem *store_FindItem(const BasePower *ppow, int iLevel)
 {
 //    return (StoreItem *)gHashFindValue(g_StoreHashes.hashItemsByPower, ITEM_HASH_FROM_POWER(ppow, iLevel));
     StoreItem* pResult = NULL;
-    if ( stashIntFindPointer(g_StoreHashes.hashItemsByPower, (int)ITEM_HASH_FROM_POWER(ppow, iLevel), &pResult) )
+    if ( stashIntFindPointer(g_StoreHashes.hashItemsByPower, (int)(intptr_t)ITEM_HASH_FROM_POWER(ppow, iLevel), &pResult) )
         return pResult;
     return NULL;
 }
@@ -837,10 +837,10 @@ bool multistore_BuyRecipe(const MultiStore *pstore, int iCntValid, Character *p,
 }
 
 #ifdef SERVER
-#include "entserver.h"
-#include "svr_base.h"
+#include "entity/entserver.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
-#include "storyarcprivate.h"
+#include "storyarc/storyarcprivate.h"
 
 /**********************************************************************func*
  * store_Tick

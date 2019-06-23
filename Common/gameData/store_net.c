@@ -5,16 +5,16 @@
  ***************************************************************************/
 #include <utilitieslib/network/netio.h>
 
-#include "entity.h"
-#include "entPlayer.h"
-#include "powers.h"
-#include "storyarcprivate.h"
-#include "pnpc.h"
-#include "entVarUpdate.h"
-#include "entServer.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include "entity/powers.h"
+#include "storyarc/storyarcprivate.h"
+#include "storyarc/pnpc.h"
+#include "entity/entVarUpdate.h"
+#include "entity/entServer.h"
 #include "comm_game.h"
-#include "contact.h"
-#include "pnpcCommon.h"
+#include "storyarc/contact.h"
+#include "storyarc/pnpcCommon.h"
 #include "store.h"
 
 /**********************************************************************func*

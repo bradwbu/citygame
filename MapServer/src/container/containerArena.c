@@ -10,11 +10,11 @@
 
 
 #include "containerArena.h"
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 #include "container/dbcontainerpack.h"
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/components/earray.h>
-#include "gametypes.h"
+#include "entity/gametypes.h"
 #include "comm_backend.h"
 
 // *********************************************************************************
@@ -328,10 +328,10 @@ LineDesc arenaevent_line_desc[] =
         "the type of tournament that this event is"},
 
 
-    {{ PACKTYPE_EARRAY, (int)ArenaParticipantCreate,                "Participants",    (int)participant_desc                },
+    {{ PACKTYPE_EARRAY, (intptr_t)ArenaParticipantCreate,                "Participants",    (intptr_t)participant_desc                },
         "subtable of the participants in this event"},
 
-    {{ PACKTYPE_EARRAY, (int)ArenaSeatingCreate,                    "Seating",        (int)seating_desc                    },
+    {{ PACKTYPE_EARRAY, (intptr_t)ArenaSeatingCreate,                    "Seating",        (intptr_t)seating_desc                    },
         "subtable of seatings used"},
 
 

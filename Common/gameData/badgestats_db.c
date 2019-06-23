@@ -1,7 +1,7 @@
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/components/estring.h>
-#include "badges.h"
+#include "player/badges.h"
 #include "badgestats_db.h"
 #include "container/dbcontainerpack.h"
 
@@ -11,7 +11,7 @@
 #ifndef SERVER
 #define SERVER
 #endif
-#include "entplayer.h"
+#include "entity/entplayer.h"
 
 typedef struct badgestat_column_desc
 {
@@ -87,8 +87,8 @@ void badgestats_Subtable(BadgeStatsType type, StuffBuff *psb)
 
 int badgestats_GetIndex(BadgeStatsType type, char *table, char *field)
 {
-    int len_table_desc = strlen(s_column_desc[type].table); // Store these instead of calculating?
-    int len_field_desc = strlen(s_column_desc[type].column_prefix);
+    int len_table_desc = (int)strlen(s_column_desc[type].table); // Store these instead of calculating?
+    int len_field_desc = (int)strlen(s_column_desc[type].column_prefix);
 
     if(!strnicmp(table,s_column_desc[type].table,len_table_desc) &&
        !strnicmp(field,s_column_desc[type].column_prefix,len_field_desc))

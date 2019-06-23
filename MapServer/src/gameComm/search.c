@@ -11,7 +11,7 @@
 #include <utilitieslib/components/earray.h>
 #include "comm_game.h"
 #include "langServerUtil.h"
-#include "SimpleParser.h"
+#include <utilitieslib/utils/SimpleParser.h>
 #include <utilitieslib/utils/utils.h>
 #include "entVarUpdate.h"
 #include <utilitieslib/utils/mathutil.h>

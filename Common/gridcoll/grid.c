@@ -4,10 +4,10 @@
 #include "stdlib.h"
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/utils/error.h>
-#include "fpmacros.h"
+#include <utilitieslib/utils/fpmacros.h>
 #include <utilitieslib/components/MemoryPool.h>
-#include "groupgrid.h"
-#include "gfxtree.h"
+#include "group/groupgrid.h"
+#include "seq/gfxtree.h"
 
 static int cell_count,children_count;    // just for perf testing
 
@@ -224,7 +224,7 @@ static void gridInsert(GridInsertState *state,GridCell *cell,Vec3 pos,F32 cell_s
             cell->entries = ents;
             mptr = findEntry(cell->entries,0);
         }
-        *mptr = (U32)state->node;
+        *mptr = (U32)(uintptr_t)state->node;
         if (state->idx_list)
         {
             mmptr = findListIdx(state->idx_list,0);
@@ -323,7 +323,7 @@ int gridAdd(Grid *grid,void *node,Vec3 min,Vec3 max,int nodetype,GridIdxList **g
     state.fit_size = fit_size;
     copyVec3(min,state.min);
     copyVec3(size,state.size);
-    state.node = (void *)((U32)node | nodetype);
+    state.node = (void *)((uintptr_t)node | nodetype);
     state.idx_list = 0;
     if (grids_used)
         state.idx_list = gridAllocIdxList(grid);

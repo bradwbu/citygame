@@ -1,11 +1,11 @@
 #include "gridcoll.h"
 #include "gridcollperftest.h"
 #include <utilitieslib/utils/mathutil.h>
-#include "cmdserver.h"
+#include "cmdparse/cmdserver.h"
 #include <utilitieslib/utils/utils.h>
 #include "gridcache.h"
 #include <utilitieslib/utils/file.h>
-#include "groupgrid.h"
+#include "group/groupgrid.h"
 
 typedef struct
 {

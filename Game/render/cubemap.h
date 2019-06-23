@@ -1,8 +1,8 @@
 #ifndef _CUBEMAP_H
 #define _CUBEMAP_H
 
-#include "stdtypes.h"
-#include "viewport.h"
+#include <utilitieslib/stdtypes.h>
+#include "graphics/viewport.h"
 #include "tex.h"
 
 #define NUM_CUBEMAP_FACES	6

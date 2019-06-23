@@ -31,13 +31,13 @@ void StoryHandleSet(StoryTaskHandle *sahandle, int context, int subhandle, int c
 void StoryHandleCopy(StoryTaskHandle *dst, StoryTaskHandle *src);
 
 ContactHandle StoryArcGetCurrentBroker(Entity* player, StoryInfo* info);
-int StoryArcContextFromFileName(const char* filename);
+intptr_t StoryArcContextFromFileName(const char* filename);
 StoryTaskHandle StoryArcGetHandle(const char* filename);
 StoryTaskHandle StoryArcGetHandleLoose(const char* filename);
 int ContactReferencesStoryArc(StoryContactInfo* contactInfo, StoryTaskHandle *sahandle);
 const StoryArc* StoryArcDefinition(const StoryTaskHandle *sahandle);
 int StoryArcCountTasks(const StoryTaskHandle *sahandle);
-const char* StoryArcFileName(int i);
+const char* StoryArcFileName(intptr_t i);
 StoryTask* StoryArcTaskDefinition(const StoryTaskHandle *sahandle);
 TaskSubHandle StoryArcGetTaskSubHandle(StoryTaskHandle *sahandle, StoryTask* taskdef);
 int StoryArcForceGetTask(ClientLink* client, char* logicalname, char* episodename);

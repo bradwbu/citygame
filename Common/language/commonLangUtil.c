@@ -1,15 +1,15 @@
 
 #include "commonLangUtil.h"
-#include "ArrayOld.h"
+#include <utilitieslib/components/ArrayOld.h>
 #include <utilitieslib/language/MessageStore.h>
 #include <utilitieslib/language/MessageStoreUtil.h>
 #include <utilitieslib/language/AppLocale.h>
 #include <utilitieslib/utils/utils.h>
-#include "powers.h"
+#include "entity/powers.h"
 #include <utilitieslib/utils/scriptvars.h>
-#include "character_base.h"
-#include "character_level.h"
-#include "classes.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "entity/classes.h"
 
 #if CLIENT | SERVER
     #if CLIENT
@@ -18,15 +18,15 @@
         #include "cmdgame.h"
     #elif SERVER
         #include "language/langServerUtil.h"
-        #include "dbnamecache.h"
-        #include "storyarcprivate.h"
-        #include "cmdserver.h"
+        #include "dbcomm/dbnamecache.h"
+        #include "storyarc/storyarcprivate.h"
+        #include "cmdparse/cmdserver.h"
     #endif
 
-    #include "entity.h"
-    #include "costume.h"
+    #include "entity/entity.h"
+    #include "entity/costume.h"
     #include <utilitieslib/components/estring.h>
-    #include "entPlayer.h"
+    #include "entity/entPlayer.h"
 
     StaticDefineInt ParseGender[] = {
         DEFINE_INT
@@ -284,7 +284,7 @@ static int formatHandlerD(MessageStoreFormatHandlerParams* params){
         Gender        nameGender = GENDER_MALE;
         int            playerType = kPlayerType_Hero;
         int            playerSubType = ENT_ALIGNMENT_TYPE_HERO;
-        const char* name = dbPlayerMessageVarsFromId((int)params->param, &gender, &nameGender, &playerType, &playerSubType);
+        const char* name = dbPlayerMessageVarsFromId((int)(intptr_t)params->param, &gender, &nameGender, &playerType, &playerSubType);
         
         data->gender = gender;
         data->nameGender = nameGender;

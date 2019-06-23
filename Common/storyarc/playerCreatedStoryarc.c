@@ -5,16 +5,16 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/network/netcomp.h>
-#include "VillainDef.h"    //for villain enum
-#include "PCC_Critter.h"
-#include "CustomVillainGroup.h"
+#include "gameComm/VillainDef.h"    //for villain enum
+#include "entity/PCC_Critter.h"
+#include "entity/CustomVillainGroup.h"
 #include <utilitieslib/components/StashTable.h>
 #include "pnpcCommon.h"
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/components/bitfield.h>
-#include "Npc.h"
-#include "VillainDef.h"
+#include "gameComm/Npc.h"
+#include "gameComm/VillainDef.h"
 
 
 #ifdef SERVER
@@ -504,7 +504,7 @@ void playerCreatedStoryArc_Destroy(PlayerCreatedStoryArc *pArc)
         StructDestroy(ParsePlayerStoryArc, pArc);
 }
 
-#include "MissionSearch.h"
+#include "mission/MissionSearch.h"
 
 void playerCreatedStoryArc_FillSearchHeader(PlayerCreatedStoryArc *arc, MissionSearchHeader *header, char *author)
 {

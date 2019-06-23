@@ -16,7 +16,7 @@
 #include <utilitieslib/components/earray.h>
 #include <time.h>
 #include <utilitieslib/utils/timing.h>
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 #include <utilitieslib/utils/log.h>
 
 #define SCHEDULE_MIN_TIME_BEFORE_START        120        // we won't schedule an event within this many seconds of when it should go

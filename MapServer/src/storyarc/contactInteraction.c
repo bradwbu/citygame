@@ -44,7 +44,7 @@
 #include "staticMapInfo.h"
 #include "door.h"
 #include "character_eval.h"
-#include "HashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 #include "cutScene.h"
 #include "character_target.h"
 #include "contactDialog.h"

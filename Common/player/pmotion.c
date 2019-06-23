@@ -1,27 +1,27 @@
-#include "cmdcommon.h"
-#include "entity.h"
-#include "entplayer.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/entity.h"
+#include "entity/entplayer.h"
 #include "pmotion.h"
 #include <utilitieslib/utils/memcheck.h>
-#include "motion.h"
-#include "font.h"
-#include "player.h"
-#include "character_base.h"
-#include "cmdcontrols.h"
-#include "grouputil.h"
-#include "cmdcommon.h"
-#include "group.h"
-#include "groupgrid.h"
+#include "entity/motion.h"
+#include "graphics/font.h"
+#include "player/player.h"
+#include "entity/character_base.h"
+#include "cmdparse/cmdcontrols.h"
+#include "group/grouputil.h"
+#include "cmdparse/cmdcommon.h"
+#include "group/group.h"
+#include "group/groupgrid.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/error.h>
-#include "seqstate.h"
+#include "seq/seqstate.h"
 #include <utilitieslib/utils/mathutil.h>
-#include "seq.h"
-#include "position.h"
+#include "seq/seq.h"
+#include <utils/position.h>
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/components/StashTable.h>
-#include "playerCreatedStoryarcValidate.h"
-#include "groupProperties.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
+#include "group/groupProperties.h"
 #include <utilitieslib/components/estring.h>
 
 #if CLIENT
@@ -33,20 +33,20 @@
 #endif
 
 #if SERVER
-    #include "cmdserver.h"
-    #include "svr_base.h"
+    #include "cmdparse/cmdserver.h"
+    #include "svr/svr_base.h"
     #include "comm_game.h"
     #include "door.h"
-    #include "entGameActions.h"
-    #include "entai.h"
-    #include "badges_server.h"
-    #include "arenamapserver.h"
-    #include "encounter.h"
-    #include "entserver.h"
-    #include "basesystems.h"
-    #include "scriptengine.h"
-    #include "task.h"
-    #include "powers.h"
+    #include "entity/entGameActions.h"
+    #include "ai/entai.h"
+    #include "player/badges_server.h"
+    #include "gameSys/arenamapserver.h"
+    #include "generator/encounter.h"
+    #include "entity/entserver.h"
+    #include "bases/basesystems.h"
+    #include "script/scriptengine.h"
+    #include "storyarc/task.h"
+    #include "entity/powers.h"
 #endif
 
 GlobalPlayerMotionState global_pmotion_state;
@@ -541,10 +541,10 @@ F32 pmotionGetMaxJumpHeight(Entity* e, ControlState* controls)
     return STANDARD_JUMP_HEIGHT * controls->server_state->jump_height;
 }
 
-#include "gridcoll.h"
-#include "gridcollobj.h"
+#include "gridcoll/gridcoll.h"
+#include "gridcoll/gridcollobj.h"
 #if SERVER
-#include "entVarUpdate.h"
+#include "entity/entVarUpdate.h"
 #endif
 
 int pmotionGetNeighborhoodPropertiesInternal(DefTracker *neighborhood,char **namep,char **musicp, int *villainMinp, int *villainMaxp, int *minTeamp, int *maxTeamp)
@@ -795,7 +795,7 @@ void pmotionIJustExitedAVolume(Entity* e, Volume* volume)
     {
         
         if(ENTTYPE(e)==ENTTYPE_PLAYER && volume->volumePropertiesTracker &&
-            volume->volumePropertiesTracker->def != (GroupDef*)0xdddddddd)
+            volume->volumePropertiesTracker->def != (GroupDef*)(uintptr_t)0xdddddddddddddddd)
 // bringing back the hack because pmotionVolumeTrackersInvalidate() was not sufficient
         {
             char *name = groupDefFindPropertyValue(volume->volumePropertiesTracker->def, "NamedVolume");

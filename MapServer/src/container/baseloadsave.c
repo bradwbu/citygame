@@ -1,17 +1,17 @@
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 #include <utilitieslib/network/netio.h>
 #include <utilitieslib/utils/utils.h>
 #include "comm_backend.h"
 #include <utilitieslib/components/estring.h>
-#include "groupfilesave.h"
+#include "group/groupfilesave.h"
 #include <utilitieslib/utils/timing.h>
-#include "cmdserver.h"
+#include "cmdparse/cmdserver.h"
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/timing.h>
 #include "container/dbcontainerpack.h"
 #if !DBQUERY
-#include "bases.h"
-#include "baseparse.h"
+#include "bases/bases.h"
+#include "bases/baseparse.h"
 #endif
 
 typedef struct DBBase {

@@ -1,6 +1,6 @@
 #include "statgroupstruct.h"
 #include "container/dbcontainerpack.h"
-#include "teamCommon.h"
+#include "entity/teamCommon.h"
 
 LineDesc levelingpact_line_desc[] =
 {
@@ -121,9 +121,9 @@ LineDesc league_line_desc[] =
 
     {{ PACKTYPE_INT,    SIZE_INT32,    "version",                OFFSET(League, revision) },        
                 "The league revision. When members get added/quit too fast, the db can lag behind the statserver" },
-    { PACKTYPE_SUB, MAX_LEAGUE_MEMBERS,    "TeamLeaderIds",        (int)league_teamleaders_desc        },
+    { PACKTYPE_SUB, MAX_LEAGUE_MEMBERS,    "TeamLeaderIds",        (intptr_t)league_teamleaders_desc        },
 
-    { PACKTYPE_SUB, MAX_LEAGUE_MEMBERS,    "TeamLockStatus",        (int)league_teamlock_desc        },
+    { PACKTYPE_SUB, MAX_LEAGUE_MEMBERS,    "TeamLockStatus",        (intptr_t)league_teamlock_desc        },
 
     { 0 },
 };

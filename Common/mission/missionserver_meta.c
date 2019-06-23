@@ -1472,7 +1472,7 @@ void missionserver_setGuestBio(int arcid, char *author, char *bio, char *image)
 
 #if SERVER
 #include "comm_backend.h"
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 
 void missionserver_setLiveConfig(char *var, char *val)
 {

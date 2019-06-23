@@ -13,10 +13,10 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/memlog.h>
 #include <utilitieslib/utils/error.h>
-#include "gridcache.h"
+#include "gridcoll/gridcache.h"
 #include "tricks.h"
-#include "groupfileload.h"
-#include "groupfilelib.h"
+#include "group/groupfileload.h"
+#include "group/groupfilelib.h"
 #include <fcntl.h>
 #include <utilitieslib/utils/wininclude.h>
 #include <utilitieslib/components/SharedMemory.h>
@@ -33,7 +33,7 @@
 #endif
 
 #ifdef SERVER 
-#include "cmdserver.h"
+#include "cmdparse/cmdserver.h"
 #endif
 
 MemLog modelReloadLog = {0}; 
@@ -266,7 +266,7 @@ void reloadGeoLoadData(GeoLoadData *gld)
     }
 }
 #ifdef SERVER
-#include "groupnetdb.h"
+#include "group/groupnetdb.h"
 #endif
 static int reloadGeoLoadDatas(char *relpath)
 {
@@ -462,7 +462,7 @@ int isGetVrmlRunning(void)
 {
     DWORD result;
     HANDLE hMutex;
-    hMutex = CreateMutex(NULL, 0, "Global\\CrypticGetVrml");
+    hMutex = CreateMutexA(NULL, 0, "Global\\CrypticGetVrml");
     result = WaitForSingleObject(hMutex, 0);
     if (!(result == WAIT_OBJECT_0 || result == WAIT_ABANDONED))
     {

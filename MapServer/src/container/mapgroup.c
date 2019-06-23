@@ -1,8 +1,8 @@
 #include "mapgroup.h"
 #include "container/dbcontainerpack.h"
 #include "comm_backend.h"
-#include "dbcomm.h"
-#include "scriptengine.h"
+#include "dbcomm/dbcomm.h"
+#include "script/scriptengine.h"
 #include <utilitieslib/components/StringCache.h>
 
 MapGroup    g_mapgroup;
@@ -45,7 +45,7 @@ LineDesc mapgroup_line_desc[] =
         "TODO"},
     {{ PACKTYPE_INT,            SIZE_INT32,                            "EventSignalTS",    OFFSET(MapGroup, eventSignalTS)                    },
         "TODO"},
-    { PACKTYPE_EARRAY,            (int)createMapDataToken,            "MapDataTokens",    (intptr_t) mapdata_token_desc                        },
+    { PACKTYPE_EARRAY,            (intptr_t)createMapDataToken,            "MapDataTokens",    (intptr_t) mapdata_token_desc                        },
     { 0 },
 };
 

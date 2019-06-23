@@ -11,20 +11,19 @@
 #include <utilitieslib/components/MemoryPool.h>
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/textparser.h>
-#include "Entity.h"
-#include "Supergroup.h"
+#include "entity/Entity.h"
+#include "entity/Supergroup.h"
 #include "container/dbcontainerpack.h"
 #include <utilitieslib/utils/file.h>
-#include "rewardtoken.h"
-#include "Supergroup.h"
+#include "entity/rewardtoken.h"
 #include "team.h"
-#include "basedata.h"
-#include "SgrpServer.h"
-#include "dbdoor.h"
-#include "storyarcprivate.h"
-#include "taskdef.h"
-#include "DetailRecipe.h"
-#include "logcomm.h"
+#include "bases/basedata.h"
+#include "entity/SgrpServer.h"
+#include "dbcomm/dbdoor.h"
+#include "storyarc/storyarcprivate.h"
+#include "storyarc/taskdef.h"
+#include "bases/DetailRecipe.h"
+#include "dbcomm/logcomm.h"
 #include <utilitieslib/utils/error.h>
 
 #if SERVER || GAME
@@ -547,16 +546,16 @@ LineDesc supergroup_line_desc[] =
     {{ PACKTYPE_SUB,    MAX_SUPERGROUP_ALLIES,                "SuperGroupAllies",            (intptr_t)sg_ally_struct_desc            },
         "allies of this supergroup"},
 
-    {{ PACKTYPE_EARRAY, (int)rewardtoken_Create,            "SgrpRewardTokens",            (intptr_t)sgroup_reward_token_desc        },
+    {{ PACKTYPE_EARRAY, (intptr_t)rewardtoken_Create,            "SgrpRewardTokens",            (intptr_t)sgroup_reward_token_desc        },
         "reward tokens this supergroup has"},
 
-    {{ PACKTYPE_EARRAY, (int)createSupergroupMemberInfo,    "SgrpMembers",                (intptr_t)sgroup_member_desc                },
+    {{ PACKTYPE_EARRAY, (intptr_t)createSupergroupMemberInfo,    "SgrpMembers",                (intptr_t)sgroup_member_desc                },
         "list of members and their ranks"},
 
-    {{ PACKTYPE_EARRAY, (int)CreateSpecialDetail,        "SpecialDetails",            (intptr_t)sgroup_special_detail_desc        },
+    {{ PACKTYPE_EARRAY, (intptr_t)CreateSpecialDetail,        "SpecialDetails",            (intptr_t)sgroup_special_detail_desc        },
         "list of special details (base details that we need to know outside of the base"},
 
-    {{ PACKTYPE_EARRAY, (int)CreateRecipeInvItem,        "Recipes",                    (intptr_t)sgroup_recipe_desc                },
+    {{ PACKTYPE_EARRAY, (intptr_t)CreateRecipeInvItem,        "Recipes",                    (intptr_t)sgroup_recipe_desc                },
         "number of supergroup recipes (unused)"},
 
     {{ PACKTYPE_SUB, NUM_SG_RANKS,                        "SgrpCustomRanks",            (intptr_t)sgroup_rank_desc                },

@@ -11,7 +11,7 @@
 #include <utilitieslib/utils/scriptvars.h>
 #include <utilitieslib/utils/memcheck.h>
 #include <utilitieslib/stdtypes.h>
-#include "ArrayOld.h"
+#include <utilitieslib/components/ArrayOld.h>
 #include "group.h"
 #include "groupProperties.h"
 #include "grouputil.h"
@@ -62,7 +62,7 @@
 #include "cutScene.h"
 #include "cmdserver.h"
 #include "gridfind.h"
-#include "StringTable.h"
+#include <utilitieslib/components/StringTable.h>
 #include <utilitieslib/utils/FolderCache.h>
 #include <utilitieslib/utils/fileutil.h>
 #include "groupgrid.h"

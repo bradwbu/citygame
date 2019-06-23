@@ -6,7 +6,6 @@
 #define NO_TEXT_PARSER 1
 #include "NwRagdoll.h"
 
-
 #include "NxActor.h"
 #include "NxPhysicsSDK.h"
 #include "NxMaterial.h"
@@ -21,17 +20,17 @@
 
 extern "C"
 {
-    #include "anim.h"
-    #include "ragdoll.h"
-    #include "gfxtree.h"
-    #include "seq.h"
+    #include "seq/anim.h"
+    #include "entity/ragdoll.h"
+    #include "seq/gfxtree.h"
+    #include "seq/seq.h"
     #include <utilitieslib/utils/mathutil.h>
-    #include "queue.h"
-    #include "entity.h"
-    #include "renderprim.h"
-    #include "motion.h"
-    #include "groupnovodex.h"
-    #include "costume.h"
+    #include <utilitieslib/components/queue.h>
+    #include "entity/entity.h"
+    #include "render/renderprim.h"
+    #include "entity/motion.h"
+    #include "group/groupnovodex.h"
+    #include "entity/costume.h"
     #include <utilitieslib/utils/error.h>
     #include <utilitieslib/utils/timing.h>
     #include <utilitieslib/components/earray.h>

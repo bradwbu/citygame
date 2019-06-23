@@ -15,9 +15,9 @@
 #include <utilitieslib/assert/assert.h>
 #include "entity/teamcommon.h"
 #include "turnstileservercommon.h"
-#include "math.h"
+#include <math.h>
 #if SERVER
-#include "character_eval.h"
+#include "entity/character_eval.h"
 #endif
 
 static StaticDefineInt parse_TUT_MissionType[] =

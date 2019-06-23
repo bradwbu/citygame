@@ -8,7 +8,7 @@
 
 #include <utilitieslib/stdtypes.h>
 #include "container/container_store.h"
-#include "supergroup.h"
+#include "entity/supergroup.h"
 
 typedef struct StashTableImp *StashTable;
 typedef const struct StashTableImp *cStashTable;

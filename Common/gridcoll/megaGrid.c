@@ -9,8 +9,8 @@
 #include <utilitieslib/components/MemoryPool.h>
 #include <utilitieslib/utils/timing.h>
 
-#include "entity.h"
-#include "entserver.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
 
 MegaGrid megaGrid[4];
 

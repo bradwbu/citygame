@@ -10,11 +10,11 @@
  *
  */
 
-#include "grouputil.h"
+#include "group/grouputil.h"
 
-#include "entity.h"
-#include "group.h"
-#include "groupProperties.h"
+#include "entity/entity.h"
+#include "group/group.h"
+#include "group/groupProperties.h"
 
 #include "comm_game.h"
 #include "missionMapCommon.h"
@@ -26,9 +26,9 @@
 
 #if SERVER
 //#include "groupnetdb.h" // for attemptToCheckOut
-#include "missionspec.h"
+#include "storyarc/missionspec.h"
 //#include "svr_base.h"
-#include "groupnetdb.h"
+#include "group/groupnetdb.h"
 //#include "groupnetsend.h"
 //#include "dbcomm.h"
 //#include "mission.h"
@@ -508,7 +508,7 @@ int MarkerLoader(GroupDefTraverser* traverser)
         while (1)
         {
             // look for key markers first
-            int keymarker = (int)cur->key;
+            int keymarker = (int)(intptr_t)cur->key;
             if (keymarker == DM_END)
                 break; // failed lookup
             else if (keymarker == DM_INT)
@@ -522,12 +522,12 @@ int MarkerLoader(GroupDefTraverser* traverser)
                 if (roomProp)
                 {
                     g_curroom = RoomGetInfo(traverser->mat[3]);
-                    g_grouptype = (int)cur->value;
+                    g_grouptype = (int)(intptr_t)cur->value;
                     g_customName = roomProp->value_str;
                     if( g_customName && g_customName[0] == '0' ) //string NULL is not customname
                         g_customName = 0;
 
-                    if ((int)cur->value == LOCATION_LEGACY)
+                    if ((int)(intptr_t)cur->value == LOCATION_LEGACY)
                     {
                         //printf("Ignoring legacy item set under %s", traverser->def->name);
                     }
@@ -1080,7 +1080,7 @@ void MissionDebugCheckMapStats(ClientLink *client, Entity *player, int sendpopup
     strcpy(buf, strstr(world_name,"_R_") + 3);        //_R_caves30_12345.txt becomes
     (*strrchr(buf,'_')) = 0;                        //caves30
 
-    i = strlen(buf) - 1;
+    i = (int)strlen(buf) - 1;
     while (i >= 0 && buf[i] >= '0' || buf[i] <= '9') 
     {
         i--;

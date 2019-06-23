@@ -1,12 +1,12 @@
-#include "group.h"
+#include "group/group.h"
 #include "gridcoll.h"
 #include <utilitieslib/utils/mathutil.h>
 #include "gridcache.h"
 #include "gridcollobj.h"
 #include <utilitieslib/utils/utils.h>
-#include "tricks.h"
-#include "anim.h"
-#include "grouptrack.h"
+#include "seq/tricks.h"
+#include "seq/anim.h"
+#include "group/grouptrack.h"
 
 int dump_grid_coll_info;
 

@@ -1,5 +1,5 @@
-#include "stdtypes.h"
-#include "rt_state.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/thread/rt_state.h"
 
 typedef struct GPolySet GPolySet;
 

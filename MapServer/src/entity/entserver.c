@@ -66,7 +66,7 @@
 #include "auth/authUserData.h"
 #include "storyarcprivate.h"
 #include "sgraid.h"
-#include "HashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 #include <utilitieslib/utils/Quat.h>
 #include "playerCreatedStoryArcServer.h"
 #include "contact.h"

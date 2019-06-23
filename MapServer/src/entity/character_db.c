@@ -48,7 +48,7 @@
  * CharacterClassToAttr
  *
  */
-const char *CharacterClassToAttr(int num)
+const char *CharacterClassToAttr(intptr_t num)
 {
     const CharacterClass *pclass = (const CharacterClass *)num;
     return pclass->pchName;
@@ -58,10 +58,10 @@ const char *CharacterClassToAttr(int num)
  * AttrToCharacterClass
  *
  */
-int AttrToCharacterClass(const char *pch)
+intptr_t AttrToCharacterClass(const char *pch)
 {
-    int iRet = (int)classes_GetPtrFromName(&g_CharacterClasses, pch);
-    if(!iRet) iRet = (int)classes_GetPtrFromName(&g_VillainClasses, pch);
+    intptr_t iRet = (intptr_t)classes_GetPtrFromName(&g_CharacterClasses, pch);
+    if(!iRet) iRet = (intptr_t)classes_GetPtrFromName(&g_VillainClasses, pch);
 
     return iRet;
 }
@@ -70,7 +70,7 @@ int AttrToCharacterClass(const char *pch)
  * *CharacterOriginToAttr
  *
  */
-const char *CharacterOriginToAttr(int num)
+const char *CharacterOriginToAttr(intptr_t num)
 {
     const CharacterOrigin *porigin = (const CharacterOrigin *)num;
     return porigin->pchName;
@@ -80,10 +80,10 @@ const char *CharacterOriginToAttr(int num)
  * AttrToCharacterOrigins
  *
  */
-int AttrToCharacterOrigin(const char *pch)
+intptr_t AttrToCharacterOrigin(const char *pch)
 {
-    int iRet = (int)origins_GetPtrFromName(&g_CharacterOrigins, pch);
-    if(!iRet) iRet = (int)origins_GetPtrFromName(&g_VillainOrigins, pch);
+    intptr_t iRet = (intptr_t)origins_GetPtrFromName(&g_CharacterOrigins, pch);
+    if(!iRet) iRet = (intptr_t)origins_GetPtrFromName(&g_VillainOrigins, pch);
 
     return iRet;
 }

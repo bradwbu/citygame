@@ -2,18 +2,18 @@
 #include "groupMetaMinimap.h"
 #endif
 #include <utilitieslib/components/earray.h>
-#include "..\Common\storyarc\missiongeoCommon.h"
-#include "anim.h"
+#include "storyarc/missiongeoCommon.h"
+#include "seq/anim.h"
 #include <utilitieslib/utils/utils.h>
 #include "group.h"
 #include "grouputil.h"
 #include "groupfileload.h"
 #include <utilitieslib/utils/mathutil.h>
 #include "groupProperties.h"
-#include "bases.h"
+#include "bases/bases.h"
 #include <utilitieslib/utils/error.h>
 #if SERVER
-#include "encounter.h"
+#include "generator/encounter.h"
 #endif
 
 ///////////////////////////////////////////////////////////////////////////

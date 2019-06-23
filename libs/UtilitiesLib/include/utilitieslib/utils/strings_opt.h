@@ -28,8 +28,8 @@ char *stripUnderscores(const char *src); // Returns a non-threadsafe static buff
 // Efficient string concatination routines
 #define STR_COMBINE_BEGIN_S(dest, bufferSize) \
 { \
-    register char *c=dest; \
-    register const char *s=0; \
+    char *c=dest; \
+    const char *s=0; \
     char* bufStart= dest; \
     size_t bufSize = bufferSize;
 #define STR_COMBINE_BEGIN(dest) STR_COMBINE_BEGIN_S(dest, ARRAY_SIZE_CHECKED(dest))

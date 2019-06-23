@@ -14,19 +14,19 @@
 #include "seqstate.h"
 #include "seq.h"
 #include <utilitieslib/components/genericlist.h>
-#include "font.h"
+#include "graphics/font.h"
 #include "time.h"
 #include <utilitieslib/utils/fileutil.h>
-#include "HashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 #ifdef CLIENT
 #include "cmdgame.h"
 #include "fx.h"
 #include "clothnode.h"
 #else
-#include "cmdserver.h"
+#include "cmdparse/cmdserver.h"
 #endif
-#include "cmdcommon.h"
-#include "entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/entity.h"
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/strings_opt.h>
@@ -858,7 +858,7 @@ static void seqInitializePreLoad(SeqInfo * seqInfo)
             irqCnt = eaSize( &move->interruptsStr );
             for( j = 0 ; j < irqCnt ; j++ )
             {
-                irqVal = (int)stashFindPointerReturnPointer( irqName_ht, move->interruptsStr[j] );
+                irqVal = (int)(intptr_t)stashFindPointerReturnPointer( irqName_ht, move->interruptsStr[j] );
                 if( !irqVal )
                 {
                     irqVal = totalIrqStrings++;
@@ -880,14 +880,14 @@ static void seqInitializePreLoad(SeqInfo * seqInfo)
             int memberCnt, memberVal; 
             SeqMove *move = cpp_const_cast(SeqMove*)(seqInfo->moves[i]);
 
-            memberVal = (int)stashFindPointerReturnPointer( irqName_ht, move->name );
+            memberVal = (int)(intptr_t)stashFindPointerReturnPointer( irqName_ht, move->name );
             if( memberVal ) //If no other move says it interrupts this move specifically, ignore
                 SETB( move->raw.memberBitArray, memberVal );
 
             memberCnt = eaSize( &move->memberStr );
             for( j = 0 ; j < memberCnt ; j++ )
             {
-                memberVal = (int)stashFindPointerReturnPointer( irqName_ht, move->memberStr[j] );
+                memberVal = (int)(intptr_t)stashFindPointerReturnPointer( irqName_ht, move->memberStr[j] );
                 if( memberVal ) //If no other move refers to this group, ignore it (maybe tell Steve, it really shouldn't be here)
                     SETB( move->raw.memberBitArray, memberVal );
             }

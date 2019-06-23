@@ -4,6 +4,22 @@
 #ifndef _PREFETCH_H
 #define _PREFETCH_H
 
+#if defined(_M_X64)
+
+#include <intrin.h>
+
+__forceinline void Prefetch(const void* mem)
+{
+    _mm_prefetch(mem, _MM_HINT_T0);
+}
+
+__forceinline void PrefetchNTA(const void* mem)
+{
+    _mm_prefetch(mem, _MM_HINT_NTA);
+}
+
+#else
+
 // NOTE: These are for X86 only
 
 // Normal prefetch.  On P4, should fetch 128bytes
@@ -23,6 +39,6 @@ __forceinline void PrefetchNTA(const void * mem)
     __asm prefetchnta [ecx];
 }
 
-
+#endif
 #endif // _PREFETCH_H
 

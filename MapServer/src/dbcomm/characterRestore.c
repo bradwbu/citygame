@@ -4,7 +4,7 @@
 #include <time.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/components/earray.h>
-#include "sock.h"
+#include <utilitieslib/network/sock.h>
 #include "network\netio.h"
 #include "net_socket.h"
 #include "entity.h"

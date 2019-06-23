@@ -11,7 +11,7 @@
 #ifndef _CONTAINERARENA_H
 #define _CONTAINERARENA_H
 
-#include "arenastruct.h"
+#include "gameData/arenastruct.h"
 
 char *arenaEventTemplate();
 char *arenaEventSchema();

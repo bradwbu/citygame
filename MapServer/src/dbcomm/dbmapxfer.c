@@ -13,7 +13,7 @@
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/network/netcomp.h>
 #include <utilitieslib/utils/timing.h>
-#include "crypt.h"
+#include <utilitieslib/network/crypt.h>
 
 #include "dbcontainer.h"
 #include "comm_game.h"

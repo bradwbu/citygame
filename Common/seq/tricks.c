@@ -13,14 +13,14 @@
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/utils/FolderCache.h>
 #include <utilitieslib/utils/timing.h>
-#include "groupfileload.h"
+#include "group/groupfileload.h"
 #include "seqstate.h"
 #include "anim.h"
-#include "rt_state.h"
-#include "rendercgfx.h"
-#include "AutoLOD.h"
-#include "cubemap.h"
-#include "components/StringCache.h"
+#include "render/thread/rt_state.h"
+#include "render/rendercgfx.h"
+#include "seq/AutoLOD.h"
+#include "render/cubemap.h"
+#include <utilitieslib/components/StringCache.h>
 
 #if CLIENT
 #include "tex.h"
@@ -34,7 +34,7 @@
 #endif
 
 #ifdef SERVER
-#include "cmdserver.h"
+#include "cmdparse/cmdserver.h"
 #endif
 
 typedef struct TexOptList
@@ -492,7 +492,7 @@ TexOptFlags texOptFlagsFromName(const char *cName, TexOptFlags origFlags)
     return flags;
 }
 
-char * blendIndexToName(BlendIndex bi)
+char const* blendIndexToName(BlendIndex bi)
 {
     int i;
     for (i=0; i<ARRAY_SIZE(parse_tex_opt); i++) {

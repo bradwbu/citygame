@@ -119,7 +119,7 @@ void groupRename( void *rename_void, const char *oldName, char *newName, int typ
         //In record that you saw it and what you did with it
         { //This means most of the time, the name just points to itself
             char * s;
-            s = dynArrayAdd( &rename->newnames, 1, &rename->count, &rename->max_count, strlen(newName) + 1 );
+            s = dynArrayAdd( &rename->newnames, 1, &rename->count, &rename->max_count, (int)strlen(newName) + 1 );
             strcpy( s, newName );
             stashAddInt( rename->hashes, oldName, s - rename->newnames ,false);
         }
@@ -129,8 +129,8 @@ void groupRename( void *rename_void, const char *oldName, char *newName, int typ
 }
 
 #if SERVER
-#include "cmdserver.h"
-#include "groupdbmodify.h"
+#include "cmdparse/cmdserver.h"
+#include "group/groupdbmodify.h"
 #endif
 
 static int groupPruneDefsSub(int prune_libs)

@@ -1,9 +1,9 @@
 #ifndef _VIEWPORT_H
 #define _VIEWPORT_H
 
-#include "stdtypes.h"
-#include "rt_pbuffer.h"		// for PBuffer
-#include "rt_queue.h"		// for ClearScreenFlags
+#include <utilitieslib/stdtypes.h>
+#include "render/thread/rt_pbuffer.h"		// for PBuffer
+#include "render/thread/rt_queue.h"		// for ClearScreenFlags
 //#include "gfxSettings.h"	// for OptionRenderScale
 
 typedef struct AtlasTex AtlasTex;

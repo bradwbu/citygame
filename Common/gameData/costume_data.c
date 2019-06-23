@@ -1,29 +1,28 @@
 
-#include "character_base.h"
+#include "entity/character_base.h"
 #include "costume_data.h"
-#include "entity.h"
+#include "entity/entity.h"
 #include "varutils.h"
 #include <utilitieslib/utils/textparser.h>
-#include "costume.h"
+#include "entity/costume.h"
 #include <utilitieslib/components/earray.h>
-#include "player.h"
+#include "player/player.h"
 #include "time.h"
 #include <utilitieslib/utils/error.h>
 #include "BodyPart.h"
 #include <utilitieslib/components/SharedMemory.h>
-#include "costume.h"
 #include "string.h"
-#include "entPlayer.h"
-#include "teamCommon.h"
-#include "Supergroup.h"
-#include "RewardToken.h"
+#include "entity/entPlayer.h"
+#include "entity/teamCommon.h"
+#include "entity/Supergroup.h"
+#include "entity/RewardToken.h"
 #include <utilitieslib/components/StashTable.h>
-#include "LoadDefCommon.h"
+#include "entity/LoadDefCommon.h"
 #include <utilitieslib/utils/file.h> // isDevelopmentMode()
-#include "classes.h"
+#include "entity/classes.h"
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/components/StringCache.h>
-#include "AccountCatalog.h"
+#include "account/AccountCatalog.h"
 
 #if CLIENT
     #include "cmdgame.h"
@@ -44,7 +43,7 @@
     #include "inventory_client.h"
 #elif SERVER
     #include "Reward.h"
-    #include "cmdserver.h"
+    #include "cmdparse/cmdserver.h"
 #endif
 
 // Tailor Parsing definitions

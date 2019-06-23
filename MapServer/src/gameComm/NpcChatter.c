@@ -13,7 +13,7 @@
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/language/AppLocale.h>
 #include "profanity.h"
-#include "simpleparser.h"
+#include <utilitieslib/utils/SimpleParser.h>
 
 #include "entity.h"
 #include "entPlayer.h"

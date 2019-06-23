@@ -14,12 +14,12 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/components/StringCache.h>
-#include "character_base.h"
+#include "entity/character_base.h"
 #include "comm_game.h"
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/utils/error.h>
-#include "entVarUpdate.h"
+#include "entity/entVarUpdate.h"
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/log.h>

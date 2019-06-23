@@ -29,7 +29,7 @@
 #include "character_level.h"
 #include "character_net_server.h"
 #include "dialogdef.h"
-#include "hashfunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 #include "character_eval.h"
 #include "reward.h"
 #include "logcomm.h"

@@ -1,6 +1,6 @@
 #include "GroupProperties.h"
 #include <utilitieslib/components/StashTable.h>
-#include "network\netio.h"
+#include <utilitieslib/network/netio.h>
 #include <utilitieslib/components/MemoryPool.h>
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/utils/utils.h>
@@ -239,7 +239,7 @@ static int getStringLength(char* format, ...){
     vsprintf(buffer, format, va);
     va_end(va);
 
-    return strlen(buffer);
+    return (int)strlen(buffer);
 }
 
 static int groupPropertiesAsStringByteCountHelper(StashElement element){

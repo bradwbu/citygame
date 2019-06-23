@@ -12,7 +12,7 @@
 #include "AutoLOD.h"
 #include "anim.h"
 #include "tricks.h"
-#include "groupfileload.h"
+#include "group/groupfileload.h"
 
 #if CLIENT
 #include "clientError.h"
@@ -489,7 +489,7 @@ ModelLODInfo *lodinfoFromObjectName(ModelLODInfo *default_lod_info, char *modeln
     TrickInfo *trick = 0;
     int lod_fromtrick = 0;
     int is_tray = 0, automatic_ok = 0;
-    int no_lod = is_legacy;
+    intptr_t no_lod = is_legacy;
     ModelLODInfo *lod_info = 0;
     F32 lod_far = 0, lod_farfade = 0, lod_near = 0, lod_nearfade = 0, shadow_dist = 0;
     char buf[1024], *s;
@@ -569,7 +569,7 @@ ModelLODInfo *lodinfoFromObjectName(ModelLODInfo *default_lod_info, char *modeln
         s = strrchr(basename,'.'); 
         if (s)
             *s = 0;
-        no_lod = (int)strstri(basename, "_cape");
+        no_lod = (intptr_t)strstri(basename, "_cape");
     }
 
     automatic_ok = !no_lod && !is_tray && lod_near==0 && !lod_fromtrick;

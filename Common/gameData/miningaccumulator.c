@@ -1,3 +1,4 @@
+#include <utilitieslib/stdtypes.h>
 #include "miningaccumulator.h"
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/StashTable.h>

@@ -18,7 +18,7 @@
 #include "storyarcinterface.h"
 #include <utilitieslib/components/estring.h>
 #include "svr_player.h"
-#include "sock.h"
+#include <utilitieslib/network/sock.h>
 #include <utilitieslib/network/netcomp.h>
 #include <utilitieslib/utils/strings_opt.h>
 #include "cmdserver.h"
@@ -34,7 +34,7 @@
 #include "baseloadsave.h"
 #include "group.h"
 #include <utilitieslib/utils/memlog.h>
-#include "RegistryReader.h"
+#include <utilitieslib/utils/RegistryReader.h>
 #include "dbbackup.h"
 #include <utilitieslib/components/estring.h>
 #include "containerEmail.h"
@@ -43,7 +43,7 @@
 #include "auth/authUserData.h"
 #include "character_base.h"
 #include "AppVersion.h"
-#include "sysutil.h"
+#include <utilitieslib/utils/sysutil.h>
 #include "eventHistory.h"
 #include "character_workshop.h"
 #include "character_combat.h"

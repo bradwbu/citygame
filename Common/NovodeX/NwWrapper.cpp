@@ -2,6 +2,7 @@
 // NOVODEX SDK C WRAPPER
 // -------------------------------------------------------------------------------------------------------------------
 #include "NwWrapper.h"
+#include <utilitieslib/utils/SuperAssert.h>
 #if NOVODEX
 
 #define NX_PERF_TIMING 1
@@ -65,8 +66,8 @@ extern "C"{
 #endif
 
 #ifdef SERVER
-    #include "entai.h"
-    #include "motion.h"
+    #include "ai/entai.h"
+    #include "entity/motion.h"
 #endif
 
     #include <utilitieslib/stdtypes.h>
@@ -74,14 +75,14 @@ extern "C"{
     #include <utilitieslib/utils/timing.h>
 #endif
     #include <utilitieslib/utils/mathutil.h>
-    #include "groupfileload.h"
-    #include "groupnovodex.h"
-    #include "group.h"
-    #include "queue.h"
-    #include "entity.h"
+    #include "group/groupfileload.h"
+    #include "group/groupnovodex.h"
+    #include "group/group.h"
+    #include <utilitieslib/components/queue.h>
+    #include "entity/entity.h"
     #include <utilitieslib/utils/strings_opt.h>
     #include <utilitieslib/components/StashTable.h>
-    #include "cmdcommon.h"
+    #include "cmdparse/cmdcommon.h"
     #include <utilitieslib/utils/error.h>
     #undef fopen    // file.h does not work, so get rid of this...
 
@@ -2954,7 +2955,7 @@ static void nwDestroyActorFunctionQueues( )
 // -------------------------------------------------------------------------------------------------------------------
 static void nwInternalSetActorMat4(NxActorGuid guidActor, U32 pMatPtrInU32Form )
 {
-    NxMat34* pMat = (NxMat34*)pMatPtrInU32Form;
+    NxMat34* pMat = (NxMat34*)(uintptr_t)pMatPtrInU32Form;
     NxActor* pActor = getActorFromGuid(guidActor);
     if (pActor)
     {
@@ -2977,7 +2978,7 @@ void  nwSetActorMat4(NxActorGuid guidActor , float* mat4)
         pAFQObject->guidActor = guidActor;
         pAFQObject->pFunc = nwInternalSetActorMat4;
 
-        pAFQObject->paramOne = (U32)pNxMat;
+        pAFQObject->paramOne = (U32)(uintptr_t)pNxMat;
 
         nwEnqueueActorFunctionOneParam(pAFQObject);
     }
@@ -2985,7 +2986,7 @@ void  nwSetActorMat4(NxActorGuid guidActor , float* mat4)
     {
         NxMat34 tempMat;
         nwSetNxMat34FromMat4(tempMat, (Vec3*)mat4);
-        nwInternalSetActorMat4(guidActor, (U32)(&tempMat));
+        nwInternalSetActorMat4(guidActor, (U32)(uintptr_t)(&tempMat));
     }
 
 }

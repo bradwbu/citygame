@@ -11,9 +11,9 @@
  * "Portions Copyright (C) Eric Lengyel, 2001"
  */
 
-#include "mathutil.h"
-#include "stdtypes.h"
-#include "gridcoll.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "gridcoll/gridcoll.h"
 #include "animtrackanimate.h"
 
 typedef struct GfxNode GfxNode;

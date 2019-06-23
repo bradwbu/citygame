@@ -4,7 +4,7 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "sgrpstatsstruct.h"
-#include "badges.h"
+#include "player/badges.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/error.h>
@@ -18,7 +18,7 @@
 #include <utilitieslib/components/MemoryPool.h>
 #include "container/dbcontainerpack.h"
 #include "comm_backend.h"
-#include "BadgeStats.h"
+#include "player/BadgeStats.h"
 #include "badgestats_db.h"
 
 #define MAX_BUF 16384

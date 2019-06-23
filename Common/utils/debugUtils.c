@@ -1,7 +1,7 @@
-#include "RegistryReader.h"
+#include <utilitieslib/utils/RegistryReader.h>
 #include <utilitieslib/assert/assert.h>
 #include <stdio.h>
-#include "AppRegCache.h"
+#include <utilitieslib/version/AppRegCache.h>
 
 RegReader reader = 0;
 

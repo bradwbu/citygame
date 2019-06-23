@@ -4,12 +4,12 @@
  * Contains functions used in acquiring and saving 2D images
  * of objects in the CoH world.
  */
-#include "seq.h"
-#include "stdtypes.h"
-#include "npc.h"
-#include "seqskeleton.h"
+#include <utilitieslib/stdtypes.h>
+#include "seq/seq.h"
+#include "gameComm/npc.h"
+#include "seq/seqskeleton.h"
 #include "textureatlas.h"
-#include "pbuffer.h"
+#include "render/pbuffer.h"
 
 typedef struct MMPinPData
 {

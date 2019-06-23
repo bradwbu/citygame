@@ -27,7 +27,7 @@
 #include "cmdserver.h"
 #include "svr_player.h"
 #include "taskforce.h"
-#include "HashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 #include "pnpcCommon.h"
 #include "logcomm.h"
 #include "pophelp.h"

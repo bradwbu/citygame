@@ -4,7 +4,7 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include <utilitieslib/utils/timing.h>
-#include "ConsoleDebug.h"
+#include <utilitieslib/utils/consoledebug.h>
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/utils/FolderCache.h>
 #include <utilitieslib/utils/fileutil.h>
@@ -31,7 +31,7 @@
 int GenCharacterByName(char *pchName, FILE *fp, bool bUseCaption, bool showBanned, bool forceCostumeRefresh);
 int GenCharacter(int dbid, FILE *fp, bool bUseCaption, bool showBanned);
 
-#include "crypt.h"
+#include <utilitieslib/network/crypt.h>
 
 #define CRC_DATA(x) cryptAdler32Update((void *)&(x), sizeof(x))
 #define CRC_STRING(x) if ((x) && *(x)) cryptAdler32Update((const U8 *)(x), (int)(strlen(x)))

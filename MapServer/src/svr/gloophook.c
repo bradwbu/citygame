@@ -3,7 +3,7 @@
 #include "entgen.h"
 #include "cmdserver.h"
 #include "missionMapInit.h"
-#include "HashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 #include "entityref.h"
 #include <utilitieslib/utils/timing.h>
 #include "entaiprivate.h"

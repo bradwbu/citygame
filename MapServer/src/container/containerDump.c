@@ -10,10 +10,10 @@
 #include <utilitieslib/utils/strings_opt.h>
 #include <utilitieslib/components/earray.h>
 #include "container/container_util.h"
-#include "dbcontainer.h"
+#include "dbcomm/dbcontainer.h"
 #include "containerloadsave.h"
 #include "comm_backend.h"
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/memcheck.h>
 
@@ -268,7 +268,7 @@ int processDump(char *fnamein, char *fnameout)
                 int list_id,con_id;
                 char conid[512], *tempnum;
                 clearStuffBuff(&sb);                
-                strncpyt(conid, line+strlen("CONID"),strlen(line) - strlen("CONID") + 1);
+                strncpyt(conid, line + strlen("CONID"), (int)(strlen(line) - strlen("CONID") + 1));
                 tempnum = strstr(conid,":");
                 *tempnum = '\0';
                 list_id = atoi(conid);

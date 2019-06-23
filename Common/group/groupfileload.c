@@ -7,27 +7,27 @@
 #include <utilitieslib/utils/utils.h>
 #include "groupfileloadutil.h"
 #include <utilitieslib/utils/fileutil.h>
-#include "gridcoll.h"
+#include "gridcoll/gridcoll.h"
 #include "groupfilelib.h"
 #include <utilitieslib/components/earray.h>
 #include "grouputil.h"
 #include "grouptrack.h"
-#include "tricks.h"
+#include "seq/tricks.h"
 #include <utilitieslib/utils/timing.h>
-#include "gridcache.h"
+#include "gridcoll/gridcache.h"
 #include "groupgrid.h"
 #include "groupdyn.h"
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/utils/FolderCache.h>
-#include "anim.h"
+#include "seq/anim.h"
 #include <float.h>
-#include "NwWrapper.h"
+#include "NovodeX/NwWrapper.h"
 #include <utilitieslib/utils/strings_opt.h>
-#include "gridfind.h"
+#include "gridcoll/gridfind.h"
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/components/StashTable.h>
-#include "AutoLOD.h"
-#include "structinternals.h"
+#include "seq/AutoLOD.h"
+#include <utilitieslib/utils/structinternals.h>
 
 
 
@@ -45,10 +45,10 @@
 
 #ifdef SERVER
 #define SERVER_OR_GAMESTATE server_state
-#include "cmdserver.h"  //Temp
-#include "groupdb_util.h"
+#include "cmdparse/cmdserver.h"  //Temp
+#include "group/groupdb_util.h"
 #include "groupfilesave.h"
-#include "missiongeoCommon.h"
+#include "storyarc/missiongeoCommon.h"
 #endif
 
 
@@ -982,8 +982,8 @@ static void addFlags(DefLoad *defload,GroupDef *def)
 }
 
 #if SERVER
-#include "cmdserver.h"
-#include "groupdbmodify.h"
+#include "cmdparse/cmdserver.h"
+#include "group/groupdbmodify.h"
 #endif
 
 GroupDef *groupDefFuture(const char *name)
@@ -1705,7 +1705,7 @@ static GroupFile *groupLoadInternal(const char *fname, BinForceType reprocessBin
     //Major Hack while I figure out how to handle the editing of Individual layers
     if(!librootname && layer)
     {
-        group_info.grp_idcnt += ( strlen(fname)*strlen(fname) );
+        group_info.grp_idcnt += (U32)((strlen(fname) * strlen(fname)));
         if( strstriConst( fname, "Geometry" ) )
             group_info.grp_idcnt += 20101; //Make sure the range is outside the possible range of toher people editting the map
     }
@@ -1942,7 +1942,7 @@ static FileScanAction makeObjLibBin(char* dir, struct _finddata32_t* data)
         htProcessed = stashTableCreateWithStringKeys(256, StashDeepCopyKeys);
     }
 
-    len = strlen(data->name);
+    len = (int)strlen(data->name);
     if(!strstr(dir, "/_") && !(data->name[0] == '_'))
     {
         if (strEndsWith(data->name, ".txt") || strEndsWith(data->name, ".rootnames"))
@@ -1973,7 +1973,7 @@ static FileScanAction makeMapStat(char* dir, struct _finddata32_t* data)
     int            len;
     char        fname[1000],*s;
 
-    len = strlen(data->name);
+    len = (int)strlen(data->name);
     if(!strstr(dir, "/_") && !(data->name[0] == '_'))
     {
         if (strEndsWith(data->name, ".txt") && !strstri(data->name, "_layer_") && !strstri(data->name, "city name guide") && !strstri(data->name, "in this dir") )
@@ -2004,7 +2004,7 @@ static FileScanAction makeMapBin(char* dir, struct _finddata32_t* data)
         htProcessed = stashTableCreateWithStringKeys(256, StashDeepCopyKeys);
     }
 
-    len = strlen(data->name);
+    len = (int)strlen(data->name);
     if(!strstr(dir, "/_") && !(data->name[0] == '_'))
     {
         if (strEndsWith(data->name, ".txt") && !strstri(data->name, "_layer_") && !strstri(data->name, "city name guide") && !strstri(data->name, "in this dir") )
@@ -2056,7 +2056,7 @@ static FileScanAction removeOldBin(char* dir, struct _finddata32_t* data)
         htProcessed = stashTableCreateWithStringKeys(256, StashDeepCopyKeys);
     }
 
-    len = strlen(data->name);
+    len = (int)strlen(data->name);
     if(!strstr(dir, "/_") && !(data->name[0] == '_'))
     {
         if(strEndsWith(data->name, ".bin"))

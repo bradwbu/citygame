@@ -4,7 +4,7 @@
 
 #include "group.h"
 #include "GroupProperties.h"
-#include "SimpleParser.h"
+#include <utilitieslib/utils/SimpleParser.h>
 
 #include <string.h>
 #include <utilitieslib/assert/assert.h>

@@ -1,3 +1,4 @@
+#include <utilitieslib/stdtypes.h>
 #include "bones.h"
 #include <utilitieslib/utils/structDefines.h>
 #include <utilitieslib/utils/utils.h>

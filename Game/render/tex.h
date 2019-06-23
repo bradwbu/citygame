@@ -1,9 +1,9 @@
 #ifndef _TEX_H
 #define _TEX_H 
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include <stdio.h>
-#include "rt_state.h"
+#include "render/thread/rt_state.h"
 #include "texEnums.h"
 
 

@@ -7,7 +7,7 @@
 #include "playerCreatedStoryarcValidate.h"
 #include <utilitieslib/utils/mathutil.h>
 #ifndef TEST_CLIENT
-#include "groupMetaMinimap.h"
+#include "group/groupMetaMinimap.h"
 #endif
 
 // *********************************************************************************

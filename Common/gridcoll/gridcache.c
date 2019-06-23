@@ -1,11 +1,12 @@
 #include <string.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "group.h"
+#include "group/group.h"
 #include "grid.h"
 #include "gridcoll.h"
 #include "gridcache.h"
 #include <utilitieslib/components/StashTable.h>
-#include "HashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
+#include <utilitieslib/utils/memcheck.h>
 
 static int coll_cache_bits;
 #define COLL_CACHE_SIZE (size_t)(1 << coll_cache_bits)

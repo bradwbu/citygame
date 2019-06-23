@@ -28,8 +28,8 @@
 // StoryTask handles are either a valid ContactHandle or a StoryArcHandle.
 // Use isStoryarcHandle or IS_CONTACT_HANDLE to determine which.
 // The TaskSubHandle is required to fully identify a task.
-typedef int ContactHandle;
-typedef int TaskHandle;        // really either a ContactHandle or a StoryArcHandle
+typedef intptr_t ContactHandle;
+typedef intptr_t TaskHandle;        // really either a ContactHandle or a StoryArcHandle
 typedef int TaskSubHandle;
 typedef int ClueSubHandle;
 typedef int MissionHandle;

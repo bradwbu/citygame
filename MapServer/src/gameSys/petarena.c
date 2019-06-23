@@ -44,7 +44,7 @@
 #include "badges_server.h"
 #include "entaiprivate.h"
 #include "powers.h"
-#include "HashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 
 #define MAX_PETS 20 //Corresponds to the number of "PetBattlePetX" in RewardTokens.reward, if you change, remember to rebuild templates 
 #define PETREWARDSTRING "PetBattlePet"

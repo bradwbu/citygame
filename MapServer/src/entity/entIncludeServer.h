@@ -230,7 +230,7 @@
     typedef ScriptClosure**                    ScriptClosureList;
     typedef struct ScriptUIEntInfo            ScriptUIEntInfo;
 
-    typedef int ContactHandle;
+    typedef intptr_t ContactHandle;
     typedef int MapTransferType;
 
     typedef enum MapXferStep

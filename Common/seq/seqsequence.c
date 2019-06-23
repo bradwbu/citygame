@@ -3,22 +3,22 @@
 #include <string.h>
 #include <time.h>
 #include "seq.h"
-#include "cmdcommon.h"
+#include "cmdparse/cmdcommon.h"
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>
 #include "anim.h"
 #include <utilitieslib/utils/file.h>
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "gfxtree.h"
 #include "seqstate.h"
-#include "entity.h"
+#include "entity/entity.h"
 #include <utilitieslib/utils/strings_opt.h>
 #include "seqload.h"
 #if SERVER
-#include "cmdserver.h"
-#include "entsend.h" //Debug: Just so showstate will work
-#include "entserver.h" //Debug: Just so showstate will work
+#include "cmdparse/cmdserver.h"
+#include "entity/entsend.h" //Debug: Just so showstate will work
+#include "entity/entserver.h" //Debug: Just so showstate will work
 #endif
 #if CLIENT
 #include "camera.h"
@@ -33,12 +33,12 @@
 extern void BugReport(const char * desc, int mode);
 #endif
 #include <utilitieslib/components/earray.h>
-#include "mailbox.h"
+#include <utilitieslib/components/mailbox.h>
 #include "fxinfo.h"
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/components/SharedMemory.h>
 #include "tricks.h" // GFXNODE_HIDE
-#include "prefetch.h"
+#include <utilitieslib/utils/prefetch.h>
 
 int     uniform_random_number = 0;
 int        uniform_random_number_updated = 0;

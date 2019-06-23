@@ -1,9 +1,9 @@
 #ifndef _RENDERLOOP_H
 #define _RENDERLOOP_H
 
-#include "stdtypes.h"
-#include "WorkerThread.h"
-#include "failtext.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/WorkerThread.h>
+#include "graphics/failtext.h"
 
 extern WorkerThread *render_thread;
 

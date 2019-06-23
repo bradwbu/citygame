@@ -11,7 +11,7 @@
 #include <utilitieslib/components/SharedHeap.h>
 #include <utilitieslib/utils/textparser.h>
 #ifndef GETVRML
-#include "NwWrapper.h"
+#include "NovodeX/NwWrapper.h"
 #endif
 #ifdef CLIENT
 #include "model.h"
@@ -19,12 +19,12 @@
 #include "renderprim.h"
 #endif
 #include "anim.h"
-#include "ctri.h"
+#include "gridcoll/ctri.h"
 #include <utilitieslib/components/genericlist.h>
 #include <utilitieslib/components/StashTable.h>
-#include "zlib.h"
+#include <zlib/zlib.h>
 #include <utilitieslib/utils/memcheck.h>
-#include "tex.h"
+#include "render/tex.h"
 #include "tricks.h"
 #include "AutoLOD.h"
 
@@ -43,9 +43,9 @@
 #include <utilitieslib/utils/timing.h>
 
 #ifdef SERVER 
-#include "cmdserver.h"
-#include "groupfilelib.h"
-#include "dbcomm.h"
+#include "cmdparse/cmdserver.h"
+#include "group/groupfilelib.h"
+#include "dbcomm/dbcomm.h"
 #endif
 
 StashTable    glds_ht = 0;
@@ -158,7 +158,7 @@ Model * modelFind( const char *name, const char * filename, int load_type, int u
                 header = &gld->modelheader;
 
                 s = strstr(name,"__"); //hack off trick file suffix
-                len    = s ? s - name : strlen(name); 
+                len = s ? (int)(s - name) : (int)strlen(name); 
 
                 #if 1
                 {
@@ -282,8 +282,8 @@ int uncompressDeltas(void *dst,U8 *src,int stride,int count,PackType pack_type)
 }
 
 
-#define IDX2PTR(idx,base) ((void *)((U32)idx + (U32)base))
-#define PTR2IDX(ptr,base) ((void *)((U32)ptr - (U32)base))
+#define IDX2PTR(idx,base) ((void *)((uintptr_t)idx + (uintptr_t)base))
+#define PTR2IDX(ptr,base) ((void *)((uintptr_t)ptr - (uintptr_t)base))
 
 
 PolyCell *polyCellUnpack(Model* model,PolyCell *cell,void *base_offset)
@@ -343,7 +343,7 @@ PolyCell *polyCellPack(Model* model, PolyCell *cell, void *base_offset, PolyCell
         dest_base_offset = dest;
     }
     
-    assert((U32)PTR2IDX(dest, dest_base_offset) + sizeof(*dest) <= model->pack.grid.unpacksize);
+    assert((U32)(uintptr_t)PTR2IDX(dest, dest_base_offset) + sizeof(*dest) <= model->pack.grid.unpacksize);
         
     *dest = *cell;
     
@@ -371,7 +371,7 @@ PolyCell *polyCellPack(Model* model, PolyCell *cell, void *base_offset, PolyCell
     {
         dest->tri_idxs = PTR2IDX(cell->tri_idxs,base_offset);
         
-        assert((U32)dest->tri_idxs + sizeof(cell->tri_idxs[0]) * cell->tri_count <= model->pack.grid.unpacksize);
+        assert((U32)(uintptr_t)dest->tri_idxs + sizeof(cell->tri_idxs[0]) * cell->tri_count <= model->pack.grid.unpacksize);
         
         if(dest != cell)
         {
@@ -495,7 +495,7 @@ void geoUnpack(PackData *pack,void *data,char *modelname,char *filename)
 
 #ifndef GETVRMLxx
 
-#include "gridcoll.h"
+#include "gridcoll/gridcoll.h"
 
 int ctri_total;
 
@@ -1124,7 +1124,7 @@ static void unpatchPackPtr(PackData *pack,int offset)
 
 static void restoreStubOffsets(GeoLoadData* gld)
 {
-    U32 base_offset = (U32)(gld->geo_data);
+    U32 base_offset = (U32)(uintptr_t)(gld->geo_data);
     int j;
 
     for( j=0 ; j < gld->modelheader.model_count ; j++ )
@@ -1144,9 +1144,9 @@ static void restoreStubOffsets(GeoLoadData* gld)
         if (gld->file_format_version >= 8)
             unpatchPackPtr(&model->pack.reflection_quads,base_offset);
         if (model->api)
-            model->api            = (void *) ((U32)model->api - base_offset);
+            model->api            = (void *)((uintptr_t)model->api - base_offset);
         if(model->boneinfo)
-            model->boneinfo        = (void *) ((U32)model->boneinfo - base_offset);
+            model->boneinfo        = (void *)((uintptr_t)model->boneinfo - base_offset);
     }
 }
 
@@ -1169,8 +1169,8 @@ void geoLoadData(GeoLoadData* gld)
 
     gld->geo_data = mem = malloc(gld->datasize);
     fread(mem, 1, gld->datasize, gld->file);
-    assert((U32)gld->headersize < (U32)mem);
-    base_offset = (U32)mem;
+    assert((U32)gld->headersize < (uintptr_t)mem);
+    base_offset = (U32)(uintptr_t)mem;
 
     for( j=0 ; j < gld->modelheader.model_count ; j++ )
     {
@@ -1190,10 +1190,10 @@ void geoLoadData(GeoLoadData* gld)
             patchPackPtr(&model->pack.reflection_quads,base_offset);
 
         if (model->api)
-            model->api            = (void *) (base_offset + (U32)model->api);
+            model->api            = (void *)(base_offset + (uintptr_t)model->api);
         if(model->boneinfo)
         {
-            model->boneinfo    = (void *) (base_offset + (U32)model->boneinfo);
+            model->boneinfo    = (void *) (base_offset + (uintptr_t)model->boneinfo);
             model->boneinfo->weights    = 0;
             model->boneinfo->matidxs    = 0;
         }
@@ -1268,13 +1268,13 @@ static int readModel(Model *dst, char *data, int version_num, U8 *objname_base, 
             assert(!src->trick);
             COPY(vert_count);
             COPY(tri_count);
-            dst->tex_idx = (TexID*)(texidx_base + (int)src->tex_idx);
+            dst->tex_idx = (TexID*)(texidx_base + (uintptr_t)src->tex_idx);
 
             COPY(grid);
             assert(!src->ctris);
             assert(!src->tags);
 
-            dst->name = objname_base + (int)src->name;
+            dst->name = objname_base + (uintptr_t)src->name;
             COPY(api);
             assert(!src->extra);    // Portals
             copyVec3(src->scale, dst->scale);
@@ -1310,10 +1310,10 @@ static int readModel(Model *dst, char *data, int version_num, U8 *objname_base, 
                 COPY(reflection_quad_count, 4);
             }
             COPY(tex_idx, 4);
-            dst->tex_idx = (TexID*)(texidx_base + (int)dst->tex_idx);
+            dst->tex_idx = (TexID*)(texidx_base + (intptr_t)dst->tex_idx);
             COPY(grid, sizeof(PolyGrid));
             COPY(name, 4);
-            dst->name = objname_base + (int)dst->name;
+            dst->name = objname_base + (intptr_t)dst->name;
             COPY(api, 4);
             COPY2(scale, sizeof(Vec3));
             COPY2(min, sizeof(Vec3));
@@ -1524,7 +1524,7 @@ static ModelLODInfo *unpackLODInfo(char *data, int memsize, int model_count, int
                 COPY(lod->lod_nearfade, sizeof(float));
 
                 lod->lod_modelname = ParserAllocString(data + bytes_read);
-                bytes_read += strlen(lod->lod_modelname) + 1;
+                bytes_read += (int)strlen(lod->lod_modelname) + 1;
                 if (!lod->lod_modelname[0])
                 {
                     ParserFreeString(lod->lod_modelname);
@@ -1532,7 +1532,7 @@ static ModelLODInfo *unpackLODInfo(char *data, int memsize, int model_count, int
                 }
 
                 lod->lod_filename = ParserAllocString(data + bytes_read);
-                bytes_read += strlen(lod->lod_filename) + 1;
+                bytes_read += (int)strlen(lod->lod_filename) + 1;
                 if (!lod->lod_filename[0])
                 {
                     ParserFreeString(lod->lod_filename);
@@ -1717,7 +1717,7 @@ static GeoLoadData *geoLoadStubs(FILE * file, GeoLoadData * gld,GeoUseType type)
                 aps += readModel(model, aps, version_num, (U8*)objnames, (U8*)texidx_offset);
 
                 model->gld = gld;
-                model->namelen = strlen(model->name);
+                model->namelen = (int)strlen(model->name);
                 trick = strstr(model->name, "__");
                 model->namelen_notrick = trick ? trick - model->name : model->namelen;
                 model->filename = gld->name;

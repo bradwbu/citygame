@@ -6,8 +6,8 @@
 #ifndef CHARACTER_DB_H__
 #define CHARACTER_DB_H__
 
-#include "boost.h"
-#include "character_base.h"
+#include "entity/boost.h"
+#include "entity/character_base.h"
 
 #define MAX_DB_BOOSTS ((MAX_POWERS*6)+10)
     // The maximum number of boosts a player can have. Not used in the
@@ -136,10 +136,10 @@ typedef enum DB_RestoreAttrib_Types
 bool unpackEntPowers(Entity *e, DBPowers *pdbpows, DB_RestoreAttrib_Types eRestoreAttrib, char *pchLogPrefix);
 void packageEntPowers(Entity *e, StuffBuff *psb, StructDesc *desc);
 
-const char *CharacterClassToAttr(int num);
-int AttrToCharacterClass(const char *pch);
-const char *CharacterOriginToAttr(int num);
-int AttrToCharacterOrigin(const char *pch);
+const char *CharacterClassToAttr(intptr_t num);
+intptr_t AttrToCharacterClass(const char *pch);
+const char *CharacterOriginToAttr(intptr_t num);
+intptr_t AttrToCharacterOrigin(const char *pch);
 
 
 #endif /* #ifndef CHARACTER_DB_H__ */

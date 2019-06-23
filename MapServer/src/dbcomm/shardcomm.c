@@ -17,7 +17,7 @@
 #include "chatdb.h"
 #include "svr_chat.h"
 #include "teamCommon.h"
-#include "HashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 #include "containerEmail.h"
 #include "arenamap.h"
 #include "plaque.h"

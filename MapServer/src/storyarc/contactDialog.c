@@ -41,7 +41,7 @@
 #include "playerCreatedStoryarcServer.h"
 #include "pnpcCommon.h"
 #include "MissionServer/missionserver_meta.h"
-#include "HashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 #include "dbcomm.h"
 
 // *********************************************************************************

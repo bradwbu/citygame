@@ -1,7 +1,7 @@
 #ifndef _CLOTHNODE_H
 #define _CLOTHNODE_H
 
-#include "model.h"
+#include "render/model.h"
 #include "gfxtree.h"
 
 typedef enum ClothType {

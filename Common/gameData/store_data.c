@@ -12,8 +12,8 @@
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/assert/assert.h>
 
-#include "npc.h" // for PowerNameRef
-#include "powers.h"
+#include "gameComm/npc.h" // for PowerNameRef
+#include "entity/powers.h"
 
 #include "store.h"
 #include "store_data.h"
@@ -220,7 +220,7 @@ static void StoreHashesWork(void)
     for(i=0; i<iCnt; i++)
     {
         // Index the item by power pointer
-        stashIntAddPointerConst(g_StoreHashes.hashItemsByPower,(int)ITEM_HASH_FROM_ITEM(g_Items.ppItems[i]),g_Items.ppItems[i], false);
+        stashIntAddPointerConst(g_StoreHashes.hashItemsByPower,(int)(intptr_t)ITEM_HASH_FROM_ITEM(g_Items.ppItems[i]),g_Items.ppItems[i], false);
     }
 
     iCnt = eaSize(&g_Stores.ppStores);
@@ -503,7 +503,7 @@ static void ShareStructure(char *pchName, TokenizerParseInfo *ptpi,
 
         // Load data and copy to shared memory
         // Copy to shared memory
-        size = ParserGetStructMemoryUsage(ptpi, pvSrc, iSizeSrc);
+        size = (unsigned long)ParserGetStructMemoryUsage(ptpi, pvSrc, iSizeSrc);
         sharedMemorySetSize(shared_memory, size);
         pTemp = ParserCompressStruct(ptpi, pvSrc, iSizeSrc, NULL, sharedMemoryAlloc, shared_memory);
         ParserDestroyStruct(ptpi, pvSrc);

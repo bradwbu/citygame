@@ -30,7 +30,7 @@
 #include "dbcomm.h"
 #include "combat.h"
 #include <utilitieslib/utils/error.h>
-#include "HashFunctions.h"
+#include <utilitieslib/components/HashFunctions.h>
 #include "pmotion.h"
 #include "playerState.h" // client-side file
 #include "entity.h"

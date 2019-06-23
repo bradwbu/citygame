@@ -3,8 +3,8 @@
 #include "grid.h"
 #include "ctri.h"
 #include "gridcoll.h"
-#include "anim.h"
-#include "group.h"
+#include "seq/anim.h"
+#include "group/group.h"
 #include <stdlib.h>
 #include "gridcache.h"
 #include <utilitieslib/assert/assert.h>
@@ -12,8 +12,8 @@
 #include "gridcollperftest.h"
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
-#include "groupgrid.h"
-#include "grouptrack.h"
+#include "group/groupgrid.h"
+#include "group/grouptrack.h"
 
 DefTracker **curr_obj_list;
 int        curr_obj_count,curr_obj_max,obj_nocache_count;
@@ -188,7 +188,7 @@ static int checkGridCellObjs(GridCell *cell,CollInfo *coll)
                 t = (U32)ents->entries[i];
                 if (!t)
                     continue;
-                node = (void *)(t & ~1);
+                node = (void*)(uintptr_t)(t & ~1);
                 tracker = node;
 
                 if (!(coll->flags & COLL_NOTTRACKERS))

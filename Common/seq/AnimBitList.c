@@ -109,12 +109,12 @@ char* alGetVariable(char* name, char* varStr)
 {
     AnimBitList* list;
     int i;
-    int varLen = strlen(varStr);
+    int varLen = (int)strlen(varStr);
 
     if( !name || !varStr || !AnimListHashes )
         return NULL;
 
-    varLen = strlen(varStr);
+    varLen = (int)strlen(varStr);
 
     stashFindPointer(AnimListHashes, name, &list);
 
@@ -132,8 +132,8 @@ char* alGetVariable(char* name, char* varStr)
     return NULL;
 }
 
-#include "entity.h"
-#include "seq.h"
+#include "entity/entity.h"
+#include "seq/seq.h"
 
 //This is different than AnimLists -- just being var replacement and no Bits, but it's not bad here.
 char * entTypeVarReplacement( char * varName, const SeqType * type )

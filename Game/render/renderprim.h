@@ -1,8 +1,8 @@
 #ifndef _RENDERPRIM_H
 #define _RENDERPRIM_H
 
-#include "stdtypes.h"
-#include "rt_queue.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/thread/rt_queue.h"
 
 int drawEnablePrimQueue(int on);
 

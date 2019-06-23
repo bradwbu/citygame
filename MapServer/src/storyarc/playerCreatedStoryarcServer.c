@@ -27,7 +27,7 @@
 #include "MissionSearch.h"
 #include "comm_backend.h"
 #include <utilitieslib/network/netcomp.h>
-#include "crypt.h"
+#include <utilitieslib/network/crypt.h>
 #include "UtilsNew/meta.h"
 #include "MissionServer/missionserver_meta.h"
 #include "buddy_server.h"

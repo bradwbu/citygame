@@ -1,18 +1,18 @@
-#include "seqskeleton.h"
 #include <utilitieslib/stdtypes.h>
+#include "seqskeleton.h"
 #include <utilitieslib/utils/mathutil.h>
 #include "anim.h"
 #include "seq.h"
-#include "entity.h"
-#include "costume.h"
-#include "tricks.h"
+#include "entity/entity.h"
+#include "entity/costume.h"
+#include "seq/tricks.h"
 #include <utilitieslib/utils/SuperAssert.h>
 #include "animtrackanimate.h"
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/file.h>
-#include "teamCommon.h"
-#include "Supergroup.h"
-#include "ragdoll.h"
+#include "entity/teamCommon.h"
+#include "entity/Supergroup.h"
+#include "entity/ragdoll.h"
 #include <utilitieslib/utils/strings_opt.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/language/MessageStoreUtil.h>
@@ -30,7 +30,7 @@
 #endif
 
 #ifdef SERVER
-#include "cmdserver.h"
+#include "cmdparse/cmdserver.h"
 #endif
 
 #include <utilitieslib/utils/timing.h>

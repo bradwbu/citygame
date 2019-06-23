@@ -1,4 +1,4 @@
-#include "anim.h"
+#include "seq/anim.h"
 #include <string.h>
 #include <stdio.h>
 #include <utilitieslib/utils/mathutil.h>
@@ -12,16 +12,16 @@
 #include "time.h"
 #include <float.h>
 #include <utilitieslib/components/estring.h>
-#include "bases.h"
-#include "baseparse.h"
+#include "bases/bases.h"
+#include "bases/baseparse.h"
 #include <utilitieslib/components/StashTable.h>
 #include "grouputil.h"
 
 #ifdef SERVER
-#include "groupnetdb.h"
-#include "groupdb_util.h"
-#include "dbcomm.h"
-#include "cmdserver.h"
+#include "group/groupnetdb.h"
+#include "group/groupdb_util.h"
+#include "dbcomm/dbcomm.h"
+#include "cmdparse/cmdserver.h"
 #endif
 
 int ignoreLayerWriting;

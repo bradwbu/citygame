@@ -1,14 +1,14 @@
 #include "containerloadsave.h"
-#include "dbcontainer.h"
+#include "dbcomm/dbcontainer.h"
 #include "comm_backend.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "character_base.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include "entity/character_base.h"
 #include <utilitieslib/utils/timing.h>
 #include "container/containerEventHistory.h"
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 #include <utilitieslib/network/netio.h>
-#include "sendToClient.h"
+#include "gameComm/sendToClient.h"
 
 #include "EventHistory.h"
 

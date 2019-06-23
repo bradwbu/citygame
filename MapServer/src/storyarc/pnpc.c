@@ -19,7 +19,7 @@
 #include "Npc.h"
 #include "dbdoor.h"
 #include "entgenCommon.h"
-#include "ArrayOld.h"
+#include <utilitieslib/components/ArrayOld.h>
 #include "dbcomm.h"
 #include "NpcServer.h"
 #include "entai.h"

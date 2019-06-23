@@ -3,9 +3,10 @@
 *     All Rights Reserved
 *     Confidential Property of Cryptic Studios
 ***************************************************************************/
-#include "gameData\BodyPart.h"
+#include <utilitieslib/stdtypes.h>
+#include "gameData/BodyPart.h"
 #include <utilitieslib/utils/textparser.h>
-#include "seq.h"
+#include "seq/seq.h"
 #include <string.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/components/earray.h>

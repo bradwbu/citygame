@@ -7,32 +7,32 @@
 #include <utilitieslib/utils/mathutil.h>
 #include <stdio.h>
 #include <utilitieslib/utils/file.h>
-#include "anim.h"
-#include "tricks.h"
+#include "seq/anim.h"
+#include "seq/tricks.h"
 #include <utilitieslib/utils/utils.h>
-#include "gfxtree.h"
+#include "seq/gfxtree.h"
 #include "grouptrack.h"
 #include <utilitieslib/components/StashTable.h>
 #include "groupProperties.h"
 #include <utilitieslib/assert/assert.h>
 #include "groupfilelib.h"
-#include "motion.h"
-#include "grid.h"
+#include "entity/motion.h"
+#include "gridcoll/grid.h"
 #include "groupgrid.h"
-#include "crypt.h"
+#include <utilitieslib/network/crypt.h>
 #include "groupdyn.h"
-#include "NwWrapper.h"
+#include "Novodex/NwWrapper.h"
 #include "groupnovodex.h"
 #if SERVER
-#include "groupjournal.h"
-#include "groupdbmodify.h"
-#include "groupdynsend.h"
-#include "groupjournal.h"
+#include "group/groupjournal.h"
+#include "group/groupdbmodify.h"
+#include "group/groupdynsend.h"
+#include "group/groupjournal.h"
 #endif
 #include <utilitieslib/utils/strings_opt.h>
 #include "grouputil.h"
 #include "groupfileload.h"
-#include "bases.h"
+#include "bases/bases.h"
 #if CLIENT
 #include "cmdgame.h"
 #include "edit_select.h"
@@ -55,7 +55,7 @@ static StashTable s_texNames;
 
 char *lastslash(char *s)
 {
-    int        i = strlen(s);
+    int i = (int)strlen(s);
 
     for(;i>=0;i--)
     {
@@ -205,7 +205,7 @@ int isFxTypeName(const char *name)
 
     if (!name)
         return 0;
-    len = strlen(name);
+    len = (int)strlen(name);
     if (len >= 3 && stricmp(name + len - 3,".fx")==0)
         return 1;
     return 0;
@@ -1175,7 +1175,7 @@ static char *getTexName(const char *fileName)
     static char *ext = ".texture";
     static int ext_len = 8; // strlen(ext);
     static char texName[MAX_PATH];
-    int len = strlen(fileName);
+    int len = (int)strlen(fileName);
     int i;
 
     if (len<ext_len || strnicmp(fileName + len - ext_len, ext, ext_len)!=0) // not a .texture file
@@ -1398,17 +1398,17 @@ char * firstCharAfterPrefix( char * name, char * prefix )
 
     //If the string starts with the prefix, find the end
     if( 0 == stricmp( name, prefix ) )
-        return (char*)((int)name + strlen(prefix));
+        return name + strlen(prefix);
 
     //If the string is a path, look for '/prefix'. (Other parts of the group code do it this way)
     sprintf( pathedPrefix, "/%s", prefix ); 
     s = strstri( name, pathedPrefix );
     if( s )
-        return (char*)((int)s + strlen(pathedPrefix) );
+        return s + strlen(pathedPrefix);
 
     //if not a path, just compare to the front
     if( !s && 0 == strnicmp( name, prefix, strlen( prefix ) ) )
-        return (char*)((int)name + strlen(prefix) );
+        return name + strlen(prefix);
 
     return 0;
 }
@@ -1610,7 +1610,7 @@ void groupInit()
 }
 
 #if SERVER
-#include "cmdserver.h"
+#include "cmdparse/cmdserver.h"
 #endif
 
 void groupLoadLibs()
@@ -2331,7 +2331,7 @@ U32 groupInfoCrcDefs()
             GroupDef    *def = file->defs[i];
 
             if (def && def->in_use && def->name)
-                cryptAdler32Update(def->name, strlen(def->name));
+                cryptAdler32Update(def->name, (int)strlen(def->name));
             else if (def)
                 cryptAdler32Update("NAMELESS", 8);
         }
@@ -2342,7 +2342,7 @@ U32 groupInfoCrcDefs()
 static void cryptAdler32UpdateString(const char *str)
 {
     if (str)
-        cryptAdler32Update(str, strlen(str));
+        cryptAdler32Update(str, (int)strlen(str));
 }
 
 U32 groupInfoCrcRefs()

@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <process.h>
 #include <time.h>
-#include "sock.h"
+#include <utilitieslib/network/sock.h>
 #include "network\netio.h"
 #include "net_socket.h"
 #include <utilitieslib/utils/timing.h>
@@ -20,7 +20,7 @@
 #include "groupfilesave.h"
 #include "grouputil.h"
 #include "entgen.h"
-#include "fpmacros.h"
+#include <utilitieslib/utils/fpmacros.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/file.h>
 #include "dbcomm.h"
@@ -42,7 +42,7 @@
 #include "initCommon.h"
 #include "containerloadsave.h"
 #include "containercallbacks.h"
-#include "sock.h"
+#include <utilitieslib/network/sock.h>
 #include "signal.h"
 #include "svr_base.h"
 #include "svr_player.h"
@@ -54,7 +54,7 @@
 #include "load_def.h" // for load_AllDefs
 #include <utilitieslib/utils/FolderCache.h>
 #include <utilitieslib/utils/textparser.h>
-#include "sysutil.h"        // for getExecutableName()
+#include <utilitieslib/utils/sysutil.h>        // for getExecutableName()
 #include "groupfilelib.h"
 #include "groupfileload.h"
 #include <utilitieslib/utils/strings_opt.h>
@@ -112,7 +112,7 @@
 #include "powers.h"
 #include "containerDump.h"
 #include "AnimBitList.h"
-#include "AppRegCache.h"
+#include <utilitieslib/version/AppRegCache.h>
 #include <utilitieslib/language/MessageStore.h>
 #include "TaskforceParams.h"
 #include "turnstile.h"
