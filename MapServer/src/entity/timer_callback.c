@@ -3,8 +3,8 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "entity.h"
-#include "cmdcommon.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
 #include "timer_callback.h"
 #include <utilitieslib/utils/wininclude.h>
 

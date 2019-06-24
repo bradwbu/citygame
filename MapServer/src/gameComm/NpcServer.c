@@ -9,28 +9,28 @@
 
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/components/earray.h>
-#include "motion.h"
+#include "entity/motion.h"
 
 // For the networking
 #include <utilitieslib/network/netio.h>
-#include "entVarUpdate.h"
+#include "entity/entVarUpdate.h"
 #include "comm_game.h"
 
-#include "entGameActions.h"
+#include "entity/entGameActions.h"
 #include "NpcServer.h"
 #include "NpcNames.h"
-#include "Npc.h"        // For NPCDef structure
-#include "costume.h"    // For Costume structure
-#include "entgen.h"     // For entCreateEx().  JS: Why the heck is that function in entgen?
+#include "gamecomm/Npc.h"        // For NPCDef structure
+#include "entity/costume.h"    // For Costume structure
+#include "generator/entgen.h"     // For entCreateEx().  JS: Why the heck is that function in entgen?
 
 // For character stat assignment
-#include "character_base.h"   // For character structure definition
-#include "character_combat.h" // For character_ActivateAllAutoPowers
-#include "classes.h"          // For character class initialization
-#include "origins.h"          // For character origin initialization
-#include "powers.h"           // For character power assignment
-#include "seq.h"
-#include "entity.h"
+#include "entity/character_base.h"   // For character structure definition
+#include "entity/character_combat.h" // For character_ActivateAllAutoPowers
+#include "entity/classes.h"          // For character class initialization
+#include "entity/origins.h"          // For character origin initialization
+#include "entity/powers.h"           // For character power assignment
+#include "seq/seq.h"
+#include "entity/entity.h"
 
 /**********************************************************************func*
  * npcAddPower

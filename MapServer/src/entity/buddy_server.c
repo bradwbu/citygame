@@ -5,36 +5,36 @@
  ***************************************************************************/
 #include <utilitieslib/assert/assert.h>
 
-#include "entity.h"
-#include "character_base.h"
-#include "character_level.h"
+#include "entity/entity.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
 #include "character_combat.h"
 #include "character_pet.h"
 
-#include "sendToClient.h"   // inexplicably for sendInfoBox
-#include "dbcomm.h"
-#include "svr_base.h"
-#include "svr_chat.h"
-#include "svr_player.h"
+#include "gameComm/sendToClient.h"   // inexplicably for sendInfoBox
+#include "dbcomm/dbcomm.h"
+#include "svr/svr_base.h"
+#include "gameComm/svr_chat.h"
+#include "svr/svr_player.h"
 #include "comm_game.h"
-#include "langServerUtil.h"
+#include "language/langServerUtil.h"
 
-#include "team.h"
-#include "entPlayer.h"
-#include "taskforce.h"
-#include "storyarcprivate.h"
-#include "cmdserver.h"
-#include "entity.h"
-#include "badges_server.h"
+#include "container/team.h"
+#include "entity/entPlayer.h"
+#include "storyarc/taskforce.h"
+#include "storyarc/storyarcprivate.h"
+#include "cmdparse/cmdserver.h"
+#include "entity/entity.h"
+#include "player/badges_server.h"
 
-#include "buddy.h"
+#include "entity/buddy.h"
 #include "buddy_server.h"
 
-#include "arenamap.h"
-#include "dbnamecache.h"
-#include "scriptengine.h"
-#include "sgraid.h"
-#include "power_system.h"
+#include "gameSys/arenamap.h"
+#include "dbcomm/dbnamecache.h"
+#include "script/scriptengine.h"
+#include "gameSys/sgraid.h"
+#include "entity/power_system.h"
 
 
 /**********************************************************************func*

@@ -14,7 +14,7 @@
 #include "structdefines.h" // TODO - remove later
 #include "structtokenizer.h" // TODO - remove later
 #include "textparserutils.h" // TODO - remove later
-#include "structoldnames.h" // backwards compatibility
+#include <utilitieslib/utils/structoldnames.h> // backwards compatibility
 
 C_DECLARATIONS_BEGIN
 

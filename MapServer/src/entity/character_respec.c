@@ -6,31 +6,31 @@
 #include <utilitieslib/network/netio.h>
 #include <utilitieslib/components/earray.h>
 
-#include "classes.h"
-#include "origins.h"
-#include "character_base.h"
-#include "character_level.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
 #include "character_combat.h"
-#include "powers.h"
-#include "character_net.h"
+#include "entity/powers.h"
+#include "entity/character_net.h"
 #include "character_net_server.h"
-#include "entity.h" // Just to get at e->auth_name for printing cheater info.  Better solution is to make a cheaterLog function that takes an entity
-#include "contact.h" // For contact stuff
-#include "storyarcprivate.h" // For contact stuff
-#include "storyarcinterface.h"
-#include "PowerInfo.h"    // for character respec
-#include "dbcomm.h"  // for logging
+#include "entity/entity.h" // Just to get at e->auth_name for printing cheater info.  Better solution is to make a cheaterLog function that takes an entity
+#include "storyarc/contact.h" // For contact stuff
+#include "storyarc/storyarcprivate.h" // For contact stuff
+#include "storyarc/storyarcinterface.h"
+#include "entity/PowerInfo.h"    // for character respec
+#include "dbcomm/dbcomm.h"  // for logging
 #include "dbghelper.h" // for logging
 #include "comm_game.h"
-#include "entPlayer.h"
+#include "entity/entPlayer.h"
 #include "Reward.h"
-#include "svr_player.h"
-#include "costume.h" // for respecs that change powersets
+#include "svr/svr_player.h"
+#include "entity/costume.h" // for respecs that change powersets
 #include "varutils.h"
 
 #include "TeamReward.h"
-#include "badges_server.h"
-#include "logcomm.h"
+#include "player/badges_server.h"
+#include "dbcomm/logcomm.h"
 
 #define MAX_BOOST_SLOTS 150
 

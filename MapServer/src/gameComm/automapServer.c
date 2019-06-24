@@ -1,12 +1,12 @@
 #include <utilitieslib/components/earray.h>
 #include "automapServer.h"
-#include "entPlayer.h"
-#include "dbcomm.h"
-#include "svr_base.h"
+#include "entity/entPlayer.h"
+#include "dbcomm/dbcomm.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
-#include "staticMapInfo.h"
-#include "entity.h"
-#include "teamCommon.h"
+#include "dbcomm/staticMapInfo.h"
+#include "entity/entity.h"
+#include "entity/teamCommon.h"
 
 static U32    mission_vis_bits[(1024*1024+31)/32];
 static int mission_highest_bit;

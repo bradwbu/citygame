@@ -5,15 +5,15 @@
  ***************************************************************************/
 
 #include <utilitieslib/components/earray.h>
-#include "containerloadsave.h"
+#include "container/containerloadsave.h"
 #include "container/dbcontainerpack.h"
 #include "costume_db.h"
 #include "auth/authUserData.h"
-#include "character_level.h"
-#include "character_base.h"
-#include "entity.h"
+#include "entity/character_level.h"
+#include "entity/character_base.h"
+#include "entity/entity.h"
 #include "gameData/BodyPart.h"
-#include "powers.h"
+#include "entity/powers.h"
 
 void packageCostumes( Entity * e, StuffBuff *psb, StructDesc *desc)
 {

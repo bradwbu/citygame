@@ -5,9 +5,9 @@
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/network/sock.h>
-#include "network\netio.h"
-#include "net_socket.h"
-#include "entity.h"
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/network/net_socket.h>
+#include "entity/entity.h"
 #include "dbquery.h"
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/file.h>
@@ -253,7 +253,7 @@ static void crRestoreCharacter(DeletionHeader *header)
     printf("\n\n\n\n");
 
     printf("Enter the IP address of the destination DBServer (none to cancel): ");
-    gets(inputLine);
+    gets_s(inputLine, sizeof(inputLine));
 
     if (inputLine[0] == 0)
         return;
@@ -320,7 +320,7 @@ static void crHandleFindResults(DeletionHeader **results)
 
         printf("\n\nX. Exit\nP. Previous Page\nN. Next Page\n");
         printf("\n\nEnter selection: ");
-        gets(inputLine);
+        gets_s(inputLine, sizeof(inputLine));
 
         if (stricmp(inputLine, "p")==0)
         {
@@ -406,7 +406,7 @@ static DeletionLog *crOpenDeletionLog()
     consoleSetColor(COLOR_RED|COLOR_GREEN|COLOR_BLUE|COLOR_BRIGHT, 0);
 //    printf("---- Open ----------------------------------------------\n");
     printf("\n\nEnter deletion log filename (none to cancel): ");
-    gets(inputLine);
+    gets_s(inputLine, sizeof(inputLine));
     if (inputLine[0] == 0)
         return NULL;
 
@@ -425,7 +425,7 @@ static void crFindByAccount(DeletionLog *log)
     consoleSetColor(COLOR_RED|COLOR_GREEN|COLOR_BLUE|COLOR_BRIGHT, 0);
 //    printf("---- Find ----------------------------------------------\n");
     printf("\n\nEnter full or partial auth name (none to cancel): ");
-    gets(inputLine);
+    gets_s(inputLine, sizeof(inputLine));
     if (inputLine[0] == 0)
         return;
 
@@ -455,7 +455,7 @@ static void crFindByCharacter(DeletionLog *log)
     consoleSetColor(COLOR_RED|COLOR_GREEN|COLOR_BLUE|COLOR_BRIGHT, 0);
 //    printf("---- Find ----------------------------------------------\n");
     printf("\n\nEnter full or partial character name (none to cancel): ");
-    gets(inputLine);
+    gets_s(inputLine, sizeof(inputLine));
     if (inputLine[0] == 0)
         return;
 
@@ -485,7 +485,7 @@ static void crFindByIP(DeletionLog *log)
     consoleSetColor(COLOR_RED|COLOR_GREEN|COLOR_BLUE|COLOR_BRIGHT, 0);
 //    printf("---- Find ----------------------------------------------\n");
     printf("\n\nEnter full or partial ip address (none to cancel): ");
-    gets(inputLine);
+    gets_s(inputLine, sizeof(inputLine));
     if (inputLine[0] == 0)
         return;
 
@@ -527,37 +527,37 @@ static void crFindByDate(DeletionLog *log)
 //    printf("---- Find ----------------------------------------------\n");
 
     printf("\n\nEnter min year: ");
-    a.tm_year = atoi(gets(inputLine)) - 1900;
+    a.tm_year = atoi(gets_s(inputLine, sizeof(inputLine))) - 1900;
     
     printf("\nEnter min month: ");
-    a.tm_mon = myClamp(atoi(gets(inputLine)) - 1, 0, 11);
+    a.tm_mon = myClamp(atoi(gets_s(inputLine, sizeof(inputLine))) - 1, 0, 11);
     
     printf("\nEnter min day: ");
-    a.tm_mday = myClamp(atoi(gets(inputLine)), 1, 31);
+    a.tm_mday = myClamp(atoi(gets_s(inputLine, sizeof(inputLine))), 1, 31);
     
     printf("\nEnter min hour: ");
-    a.tm_hour = myClamp(atoi(gets(inputLine)), 0, 23);
+    a.tm_hour = myClamp(atoi(gets_s(inputLine, sizeof(inputLine))), 0, 23);
     
     printf("\nEnter min minute: ");
-    a.tm_min = myClamp(atoi(gets(inputLine)), 0, 59);
+    a.tm_min = myClamp(atoi(gets_s(inputLine, sizeof(inputLine))), 0, 59);
     
     a.tm_sec = 0;
     
 
     printf("\n\nEnter max year: ");
-    b.tm_year = atoi(gets(inputLine)) - 1900;
+    b.tm_year = atoi(gets_s(inputLine, sizeof(inputLine))) - 1900;
     
     printf("\nEnter max month: ");
-    b.tm_mon = myClamp(atoi(gets(inputLine)) - 1, 0, 11);
+    b.tm_mon = myClamp(atoi(gets_s(inputLine, sizeof(inputLine))) - 1, 0, 11);
     
     printf("\nEnter max day: ");
-    b.tm_mday = myClamp(atoi(gets(inputLine)), 1, 31);
+    b.tm_mday = myClamp(atoi(gets_s(inputLine, sizeof(inputLine))), 1, 31);
     
     printf("\nEnter max hour: ");
-    b.tm_hour = myClamp(atoi(gets(inputLine)), 0, 23);
+    b.tm_hour = myClamp(atoi(gets_s(inputLine, sizeof(inputLine))), 0, 23);
     
     printf("\nEnter max minute: ");
-    b.tm_min = myClamp(atoi(gets(inputLine)), 0, 59);
+    b.tm_min = myClamp(atoi(gets_s(inputLine, sizeof(inputLine))), 0, 59);
     
     b.tm_sec = 59;
 
@@ -625,7 +625,7 @@ void characterRestore()
         columnPrintf(80, '-', "");
 
         printf("\n\n\nEnter Selection: ");
-        selection = atoi(gets(inputLine));
+        selection = atoi(gets_s(inputLine, sizeof(inputLine)));
 
         switch (selection)
         {

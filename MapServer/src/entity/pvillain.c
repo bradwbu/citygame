@@ -5,13 +5,13 @@
  ***************************************************************************/
 #include <utilitieslib/components/earray.h>
 
-#include "Entity.h"
-#include "VillainDef.h"
-#include "character_base.h"
-#include "powers.h"
-#include "PowerInfo.h"
-#include "entserver.h"
-#include "entPlayer.h"
+#include "entity/Entity.h"
+#include "gameComm/VillainDef.h"
+#include "entity/character_base.h"
+#include "entity/powers.h"
+#include "entity/PowerInfo.h"
+#include "entity/entserver.h"
+#include "entity/entPlayer.h"
 
 /**********************************************************************func*
  * BecomeVillain

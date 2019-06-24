@@ -3,10 +3,11 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
+#include <utilitieslib/stdtypes.h>
 #include "SgrpStats.h"
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/utils.h>
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/MemoryPool.h>
 #include <utilitieslib/components/StashTable.h>
@@ -15,16 +16,16 @@
 #include <utilitieslib/network/netio.h>
 #include "comm_backend.h"
 #include "SgrpBadges.h"
-#include "BadgeStats.h"
+#include "player/BadgeStats.h"
 #include <utilitieslib/utils/textparser.h>
 
-#include "entity.h"
-#include "entplayer.h"
+#include "entity/entity.h"
+#include "entity/entplayer.h"
 #include "SgrpServer.h"
-#include "Supergroup.h"
-#include "character_base.h"
-#include "dbcomm.h"
-#include "logcomm.h"
+#include "entity/Supergroup.h"
+#include "entity/character_base.h"
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/logcomm.h"
 
 //----------------------------------------
 //  info about a queued reward

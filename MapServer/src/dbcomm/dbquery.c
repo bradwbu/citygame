@@ -9,14 +9,14 @@
 #include <utilitieslib/utils/file.h>
 #include "comm_backend.h"
 #include <utilitieslib/network/netcomp.h>
-#include "classes.h"
-#include "origins.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
 #include <utilitieslib/components/earray.h>
-#include "group.h"
+#include "group/group.h"
 #include "auth/authUserData.h"
-#include "cmdserver.h"
-#include "entity.h"
-#include "team.h"
+#include "cmdparse/cmdserver.h"
+#include "entity/entity.h"
+#include "container/team.h"
 #include <utilitieslib/utils/log.h>
 
 
@@ -84,7 +84,7 @@ int dbQueryGetContainerIDForName(int type, char *db_id)
     return iRet;
 }
 
-#include "baseloadsave.h"
+#include "container/baseloadsave.h"
 static int dbQueryPrintContainers(Packet *pak,int cmd,NetLink *link)
 {
     int                i;
@@ -254,7 +254,9 @@ char *dbQuery(char *query_cmd)
 {
     int        i,map_id=0,map_xfer=0,get_status=0,set_container=0,get_container=0,list_id,container_id,find_element=0;
     Packet    *pak;
-    char    *argv[100],*element,*value;
+    char* argv[100];
+    char* element = NULL;
+    char* value = NULL;
     int        argc;
     int timeout = 100000000;
     char *set_container_fn = NULL;

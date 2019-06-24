@@ -14,32 +14,32 @@
 #include "dbcomm.h"
 #include "dbquery.h"
 #include "varutils.h"
-#include "containerloadsave.h"
-#include "langServerUtil.h"
-#include "svr_player.h"
+#include "container/containerloadsave.h"
+#include "language/langServerUtil.h"
+#include "svr/svr_player.h"
 
-#include "entity.h"
-#include "entPlayer.h"
-#include "character_base.h"
-#include "classes.h"
-#include "origins.h"
-#include "powers.h"
-#include "boostset.h"
-#include "costume.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include "entity/character_base.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
+#include "entity/powers.h"
+#include "entity/boostset.h"
+#include "entity/costume.h"
 #include "kiosk.h"
-#include "villainDef.h"
-#include "attrib_names.h"
-#include "badges.h"
-#include "commonLangUtil.h"
+#include "gameComm/villainDef.h"
+#include "entity/attrib_names.h"
+#include "player/badges.h"
+#include "language/commonLangUtil.h"
 #include <utilitieslib/language/MessageStoreUtil.h>
 
 #include "characterInfo.h"
 
 #include "imageServer.h"
 #include "comm_backend.h"
-#include "pl_stats_internal.h"
-#include "friendCommon.h"
-#include "supergroup.h"
+#include "player/pl_stats_internal.h"
+#include "entity/friendCommon.h"
+#include "entity/supergroup.h"
 #include <utilitieslib/language/AppLocale.h>
 #include <utilitieslib/components/HashFunctions.h>
 
@@ -566,7 +566,7 @@ int GetShardIdFromName(char *shardName)
     {
         // Compress the hashed string range so we can tell it apart from
         // ordinary values.
-        ret = 100 + abs(burtlehash3(shardName, strlen(shardName), DEFAULT_HASH_SEED) % 200000000);
+        ret = 100 + abs(burtlehash3(shardName, (ub4)strlen(shardName), DEFAULT_HASH_SEED) % 200000000);
     }
 
     return ret;
@@ -1228,7 +1228,7 @@ static void EnhancementXML(Entity *e, char **pestrHeroXML, Boost *boost, int lev
             // an origin, get frame sprite
             if(num < iSizeOrigins)
             {
-                char *frameName;
+                char *frameName = NULL;
                 const char *origin = g_CharacterOrigins.ppOrigins[num]->pchName;
 
                 if(stricmp(origin, "Magic") == 0)

@@ -9,28 +9,28 @@
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/components/earray.h>
 
-#include "entity.h"
+#include "entity/entity.h"
 #include "entsend.h"       // for entSetTriggeredMove, entAddFxm, entDelFxByName
-#include "camera.h"        // for camLookAt
-#include "seqstate.h"      // for SeqStateNames
-#include "powers.h"
-#include "netfx.h"
+#include "graphics/camera.h"        // for camLookAt
+#include "seq/seqstate.h"      // for SeqStateNames
+#include "entity/powers.h"
+#include "entity/netfx.h"
 
-#include "character_base.h"
+#include "entity/character_base.h"
 #include "character_animfx.h"
 #include "character_combat.h"
-#include "character_target.h"
+#include "entity/character_target.h"
 #include "entity_power.h"
 
-#include "svr_base.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
-#include "npc.h"
-#include "entPlayer.h"
+#include "gameComm/npc.h"
+#include "entity/entPlayer.h"
 #include "entServer.h"
-#include "costume.h"
+#include "entity/costume.h"
 
 #include <utilitieslib/components/StringCache.h>      // for stringToReference
-#include "seq.h"
+#include "seq/seq.h"
 
 /**********************************************************************func*
  * character_StanceIsSame

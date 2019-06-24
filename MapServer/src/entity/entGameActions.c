@@ -1,20 +1,20 @@
 #include <utilitieslib/utils/wininclude.h>
 #include <stdio.h>
-#include "network\netio.h"
-#include "svr_base.h"
+#include <utilitieslib/network/netio.h>
+#include "svr/svr_base.h"
 #include "entGameActions.h"
-#include "sendToClient.h"
-#include "entVarUpdate.h"
+#include "gameComm/sendToClient.h"
+#include "entity/entVarUpdate.h"
 #include "comm_game.h"
 
 #include <utilitieslib/assert/assert.h>
 #include "varutils.h"
-#include "pmotion.h"
+#include "player/pmotion.h"
 #include <utilitieslib/utils/error.h>
 #include "language/langServerUtil.h"    // for svrMenuMessages
-#include "npc.h"
-#include "playerState.h" // client-side file. I'm going to hell for this.
-#include "character_base.h"
+#include "gameComm/npc.h"
+#include "player/playerState.h" // client-side file. I'm going to hell for this.
+#include "entity/character_base.h"
 #include <utilitieslib/components/earray.h>
 #include "timer_callback.h"
 #include "Reward.h"
@@ -23,67 +23,67 @@
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/timing.h>
 
-#include "character_base.h"
+#include "entity/character_base.h"
 #include "character_combat.h"
 #include "character_animfx.h"
 #include "character_pet.h"
-#include "character_level.h"
-#include "character_mods.h"
-#include "attribmod.h"
-#include "powers.h"
-#include "villainDef.h"
+#include "entity/character_level.h"
+#include "entity/character_mods.h"
+#include "entity/attribmod.h"
+#include "entity/powers.h"
+#include "gameComm/villainDef.h"
 #include "entserver.h"
-#include "team.h"            // for teamGetIdFromEnt()
-#include "character_level.h"
-#include "storyarcInterface.h"
-#include "entai.h"
-#include "entaiprivate.h"
+#include "container/team.h"            // for teamGetIdFromEnt()
+#include "entity/character_level.h"
+#include "storyarc/storyarcInterface.h"
+#include "ai/entai.h"
+#include "ai/entaiprivate.h"
 
-#include "storyarcinterface.h"
-#include "pl_stats.h" // for stat_...
+#include "storyarc/storyarcinterface.h"
+#include "player/pl_stats.h" // for stat_...
 
-#include "dbcomm.h" // for db_log()
+#include "dbcomm/dbcomm.h" // for db_log()
 #include "dbghelper.h"
 
-#include "megaGrid.h"
-#include "beacon.h"
-#include "beaconPrivate.h"
-#include "cmdcontrols.h"
+#include "gridcoll/megaGrid.h"
+#include "beacon/beacon.h"
+#include "beacon/beaconPrivate.h"
+#include "cmdparse/cmdcontrols.h"
 
-#include "badges_server.h"
+#include "player/badges_server.h"
 
-#include "groupscene.h"
-#include "encounter.h"
+#include "group/groupscene.h"
+#include "generator/encounter.h"
 
-#include "arenamap.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "entity.h"
-#include "scriptengine.h"
+#include "gameSys/arenamap.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "script/scriptengine.h"
 
-#include "seqskeleton.h"
-#include "seqanimate.h"
-#include "nwragdoll.h"
-#include "NwWrapper.h"
-#include "Supergroup.h"
+#include "seq/seqskeleton.h"
+#include "seq/seqanimate.h"
+#include "NovodeX/nwragdoll.h"
+#include "NovodeX/NwWrapper.h"
+#include "entity/Supergroup.h"
 
 #include "pvp.h"
-#include "character_target.h"
-#include "basedata.h"
-#include "sgraid.h"
-#include "bases.h"
-#include "sgraid_V2.h"
+#include "entity/character_target.h"
+#include "bases/basedata.h"
+#include "gameSys/sgraid.h"
+#include "bases/bases.h"
+#include "gameSys/sgraid_V2.h"
 
 #include "auth/authUserData.h"
-#include "entPlayer.h"
-#include "petarena.h"
-#include "staticMapInfo.h"
+#include "entity/entPlayer.h"
+#include "gameSys/petarena.h"
+#include "dbcomm/staticMapInfo.h"
 
-#include "TaskforceParams.h"
-#include "mission.h"
-#include "logcomm.h"
-#include "character_tick.h"
-#include "cmdserver.h"
+#include "entity/TaskforceParams.h"
+#include "storyarc/mission.h"
+#include "dbcomm/logcomm.h"
+#include "entity/character_tick.h"
+#include "cmdparse/cmdserver.h"
 // #define REPORT_HIGHEST_DAMAGER // Define if we should print out who did the most damage to a villain
 
 #define MIN_TELEPORT_DISTANCE    10

@@ -11,21 +11,21 @@
 #include <utilitieslib/stdtypes.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/components/earray.h>
-#include "grouputil.h"
-#include "MultiMessageStore.h"
+#include "group/grouputil.h"
+#include <utilitieslib/language/MultiMessageStore.h>
 #include "comm_game.h"
-#include "svr_base.h"
-#include "entity.h"
-#include "group.h"
-#include "groupProperties.h"
-#include "groupnetsend.h"
+#include "svr/svr_base.h"
+#include "entity/entity.h"
+#include "group/group.h"
+#include "group/groupProperties.h"
+#include "group/groupnetsend.h"
 #include <utilitieslib/utils/textparser.h>
-#include "dooranimcommon.h"
-#include "entplayer.h"
-#include "entVarUpdate.h"
+#include "gamecomm/dooranimcommon.h"
+#include "entity/entplayer.h"
+#include "entity/entVarUpdate.h"
 #include "arenakiosk.h"
 #include "arenamapserver.h"
-#include "mapgroup.h"
+#include "container/mapgroup.h"
 
 StaticDefineInt ParseKioskType[] =
 {

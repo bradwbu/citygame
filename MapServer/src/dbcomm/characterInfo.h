@@ -6,7 +6,7 @@
 #ifndef CHARACTERINFO_H__
 #define CHARACTERINFO_H__
 
-#include "entPlayer.h"
+#include "entity/entPlayer.h"
 
 #define XML_VERSION_STRING "1.20080111.0"
 

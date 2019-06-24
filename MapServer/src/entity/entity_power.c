@@ -7,20 +7,20 @@
 
 #include <utilitieslib/network/netio.h>
 #include <utilitieslib/network/netcomp.h>
-#include "entity.h"
+#include "entity/entity.h"
 #include <utilitieslib/components/earray.h>
 #include "comm_game.h"
-#include "svr_base.h"
+#include "svr/svr_base.h"
 
-#include "powers.h"
-#include "character_base.h"
-#include "character_mods.h"
+#include "entity/powers.h"
+#include "entity/character_base.h"
+#include "entity/character_mods.h"
 #include "character_combat.h"
 #include "character_animfx.h"
-#include "character_net.h"
-#include "character_target.h"
+#include "entity/character_net.h"
+#include "entity/character_target.h"
 
-#include "gridcoll.h"
+#include "gridcoll/gridcoll.h"
 
 #include "entity_power.h"
 #include <utilitieslib/utils/mathutil.h>
@@ -28,7 +28,7 @@
 /**********************************************************************func*
  * entity_ActivatePowerReceive
  *
- * Returns false if there was a data validation problem, true othwerwise.
+ * Returns false if there was a data validation problem, true otherwise.
  *
  * Send function in Game\entity\entity_power_client.c
  *    (entity_ActivatePowerSend)

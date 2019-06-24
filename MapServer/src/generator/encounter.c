@@ -56,7 +56,7 @@
 #include "TeamReward.h"
 #include "svr_player.h"
 #include "staticMapInfo.h"
-#include "AppVersion.h"
+#include <utilitieslib/version/AppVersion.h>
 #include "entaiPriority.h"
 #include "seq.h"
 #include "cutScene.h"

@@ -5,42 +5,42 @@
  */
 
 #include "gamesys/dooranim.h"
-#include "dooranimcommon.h"
-#include "svr_base.h"
-#include "entity.h"
-#include "entplayer.h"
-#include "svr_player.h"
-#include "dbdoor.h"
-#include "sendtoclient.h"
+#include "gameComm/dooranimcommon.h"
+#include "svr/svr_base.h"
+#include "entity/entity.h"
+#include "entity/entplayer.h"
+#include "svr/svr_player.h"
+#include "dbcomm/dbdoor.h"
+#include "gameComm/sendtoclient.h"
 #include "comm_game.h"
-#include "entai.h"
-#include "breakpoint.h"
-#include "dbcomm.h"
-#include "dbmapxfer.h"
-#include "parseClientInput.h"
+#include "ai/entai.h"
+#include <utilitieslib/utils/breakpoint.h>
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/dbmapxfer.h"
+#include "player/parseClientInput.h"
 #include <utilitieslib/components/earray.h>
-#include "gridcoll.h"
+#include "gridcoll/gridcoll.h"
 #include <utilitieslib/utils/error.h>
-#include "megaGrid.h"
-#include "entaivars.h"
-#include "storyarcinterface.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "gridfind.h"
-#include "group.h"
-#include "groupProperties.h"
+#include "gridcoll/megaGrid.h"
+#include "ai/entaivars.h"
+#include "storyarc/storyarcinterface.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "gridcoll/gridfind.h"
+#include "group/group.h"
+#include "group/groupProperties.h"
 #include <utilitieslib/utils/utils.h>
-#include "teamCommon.h"
-#include "baseserver.h"
-#include "raidstruct.h"
-#include "mapHistory.h"
+#include "entity/teamCommon.h"
+#include "bases/baseserver.h"
+#include "gameData/raidstruct.h"
+#include "entity/mapHistory.h"
 #include "door.h"
-#include "storyarcutil.h"
+#include "storyarc/storyarcutil.h"
 #include <utilitieslib/components/StashTable.h>
-#include "taskforce.h"
-#include "character_pet.h"
+#include "storyarc/taskforce.h"
+#include "entity/character_pet.h"
 #include "LWC_common.h"
-#include "langServerUtil.h"
+#include "language/langServerUtil.h"
 
 #define MAX_DOORANIM_BEACON_DIST        15.0    // dist for everything to and from EnterMe/EmergeFromMe
 
@@ -522,8 +522,9 @@ void DoorAnimDoMovement(Entity* player, DoorAnimState* anim, int map_id, char* m
         {
             Vec3 pos;
             Mat4 newMat;
+            int unsued = 0;
 
-            sscanf(spawnTarget+6, "%f:%f:%f:%d", &pos[0], &pos[1], &pos[2]);
+            sscanf(spawnTarget+6, "%f:%f:%f:%d", &pos[0], &pos[1], &pos[2], &unsued);
             copyMat4(ENTMAT(player), newMat); // dooranim will reset back to here
             copyVec3(pos, newMat[3]);
 

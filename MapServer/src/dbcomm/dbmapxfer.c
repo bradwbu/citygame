@@ -1,14 +1,14 @@
 #include <utilitieslib/assert/assert.h>
 #include "dbcomm.h"
 #include "dbmapxfer.h"
-#include "entity.h"
+#include "entity/entity.h"
 #include <utilitieslib/network/netio.h>
-#include "svr_base.h"
+#include "svr/svr_base.h"
 #include <utilitieslib/network/net_packetutil.h>
 
-#include "entPlayer.h"
-#include "containerloadsave.h" // packageEntAll()
-#include "AuctionClient.h" // ent_XactReqShardJump()
+#include "entity/entPlayer.h"
+#include "container/containerloadsave.h" // packageEntAll()
+#include "auction/AuctionClient.h" // ent_XactReqShardJump()
 #include "dbquery.h" // dbQueryGetFilter()
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/network/netcomp.h>
@@ -18,20 +18,20 @@
 #include "dbcontainer.h"
 #include "comm_game.h"
 #include <utilitieslib/utils/utils.h>
-#include "grouputil.h"
+#include "group/grouputil.h"
 #include <utilitieslib/utils/error.h>
-#include "entserver.h"
-#include "svr_player.h"
-#include "entVarUpdate.h"
+#include "entity/entserver.h"
+#include "svr/svr_player.h"
+#include "entity/entVarUpdate.h"
 #include "gamesys/dooranim.h"
-#include "sendToClient.h"
-#include "langServerUtil.h"
-#include "storyarcinterface.h"
-#include "team.h"
-#include "arenamap.h"
-#include "scriptengine.h"
-#include "pvp.h"
-#include "turnstileservercommon.h"
+#include "gameComm/sendToClient.h"
+#include "language/langServerUtil.h"
+#include "storyarc/storyarcinterface.h"
+#include "container/team.h"
+#include "gameSys/arenamap.h"
+#include "script/scriptengine.h"
+#include "entity/pvp.h"
+#include "turnstile/turnstileservercommon.h"
 #include <utilitieslib/utils/file.h>
 #include "logcomm.h"
 #include "LWC_common.h"

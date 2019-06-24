@@ -6,12 +6,12 @@
 #include <utilitieslib/components/earray.h>
 
 #include "combat_mod.h"
-#include "entity.h"
-#include "character_base.h"
+#include "entity/entity.h"
+#include "entity/character_base.h"
 #include "character_pet.h"
-#include "character_target.h"
-#include "character_level.h"
-#include "teamCommon.h"
+#include "entity/character_target.h"
+#include "entity/character_level.h"
+#include "entity/teamCommon.h"
 
 
 SHARED_MEMORY CombatModsTable g_CombatModsPlayer;

@@ -15,11 +15,11 @@
 #include "reserved_names.h"
 
 #ifndef CHATSERVER
-#include "storyarcutil.h"
-#include "storyarcprivate.h"
-#include "pnpc.h"
-#include "contact.h"
-#include "pnpcCommon.h"
+#include "storyarc/storyarcutil.h"
+#include "storyarc/storyarcprivate.h"
+#include "storyarc/pnpc.h"
+#include "storyarc/contact.h"
+#include "storyarc/pnpcCommon.h"
 #endif
 #include <utilitieslib/utils/utils.h>
 
@@ -194,7 +194,7 @@ void LoadReservedNames(void)
     int len;
     int i;
     int locale;
-    const char *s;
+    const char *s = NULL;
     char pchPath[MAX_PATH];
 
     if(!s_hashReservedNames)

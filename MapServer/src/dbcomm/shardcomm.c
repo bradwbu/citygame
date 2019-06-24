@@ -1,37 +1,37 @@
 #include "shardcomm.h"
 #include <utilitieslib/network/netio.h>
 #include "dbcomm.h"
-#include "entity.h"
-#include "svr_player.h"
-#include "svr_base.h"
+#include "entity/entity.h"
+#include "svr/svr_player.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
 #include <utilitieslib/utils/utils.h>
 #include "logcomm.h"
-#include "entPlayer.h"
+#include "entity/entPlayer.h"
 #include "shardcommtest.h"
 #include <utilitieslib/utils/timing.h>
-#include "cmdserver.h"
-#include "sendToClient.h"
-#include "langServerUtil.h"
+#include "cmdparse/cmdserver.h"
+#include "gameComm/sendToClient.h"
+#include "language/langServerUtil.h"
 #include <utilitieslib/components/estring.h>
 #include "chatdb.h"
-#include "svr_chat.h"
-#include "teamCommon.h"
+#include "gameComm/svr_chat.h"
+#include "entity/teamCommon.h"
 #include <utilitieslib/components/HashFunctions.h>
-#include "containerEmail.h"
-#include "arenamap.h"
+#include "container/containerEmail.h"
+#include "gameSys/arenamap.h"
 #include "plaque.h"
 
 // for status message
-#include "character_level.h"
-#include "character_base.h"
-#include "origins.h"
+#include "entity/character_level.h"
+#include "entity/character_base.h"
+#include "entity/origins.h"
 #include <utilitieslib/components/earray.h>
 #include "dbnamecache.h"
 #include "comm_backend.h"
 #include "staticmapinfo.h"
 #include <utilitieslib/language/MessageStoreUtil.h>
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "logcomm.h"
 static Packet    *aggregate_pak;
 

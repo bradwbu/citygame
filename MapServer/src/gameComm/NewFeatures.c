@@ -1,9 +1,10 @@
+#include <utilitieslib/stdtypes.h>
 #include "NewFeatures.h"
 #include <utilitieslib/utils/textparser.h>
-#include "LoadDefCommon.h"
+#include "entity/LoadDefCommon.h"
 #include <utilitieslib/components/earray.h>
-#include "cmdserver.h"
-#include "gametypes.h"
+#include "cmdparse/cmdserver.h"
+#include "entity/gametypes.h"
 
 SHARED_MEMORY NewFeatureList g_NewFeatureList;
 

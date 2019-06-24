@@ -1,26 +1,26 @@
 
 
-#include "entity.h"
-#include "entPlayer.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
 
-#include "dbquery.h"
-#include "dbnamecache.h"
+#include "dbcomm/dbquery.h"
+#include "dbcomm/dbnamecache.h"
 
-#include "svr_base.h"
-#include "staticMapInfo.h"
+#include "svr/svr_base.h"
+#include "dbcomm/staticMapInfo.h"
 #include <utilitieslib/components/earray.h>
 #include "comm_game.h"
-#include "langServerUtil.h"
+#include "language/langServerUtil.h"
 #include <utilitieslib/utils/SimpleParser.h>
 #include <utilitieslib/utils/utils.h>
-#include "entVarUpdate.h"
+#include "entity/entVarUpdate.h"
 #include <utilitieslib/utils/mathutil.h>
-#include "classes.h"
-#include "origins.h"
-#include "teamCommon.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
+#include "entity/teamCommon.h"
 #include "auth/authUserData.h"
-#include "cmdserver.h"
-#include "character_base.h"
+#include "cmdparse/cmdserver.h"
+#include "entity/character_base.h"
 
 typedef struct Search
 {

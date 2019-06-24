@@ -1,33 +1,33 @@
 
 
-#include "entity.h"
+#include "entity/entity.h"
 #include <utilitieslib/components/earray.h>
-#include "powers.h"
+#include "entity/powers.h"
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/network/netcomp.h>
-#include "mathutil.h" 
-#include "svr_base.h"
-#include "svr_chat.h"
-#include "petCommon.h"
+#include <utilitieslib/utils/mathutil.h> 
+#include "svr/svr_base.h"
+#include "gameComm/svr_chat.h"
+#include "gamecomm/petCommon.h"
 #include "comm_game.h"
-#include "entPlayer.h"
-#include "entserver.h"
-#include "entaivars.h"
-#include "villainDef.h"
+#include "entity/entPlayer.h"
+#include "entity/entserver.h"
+#include "ai/entaivars.h"
+#include "gamecomm/villainDef.h"
 #include <utilitieslib/components/MemoryPool.h>
-#include "entVarUpdate.h"
-#include "storyarcutil.h"
-#include "entaiprivate.h"
-#include "validate_name.h"
+#include "entity/entVarUpdate.h"
+#include "storyarc/storyarcutil.h"
+#include "ai/entaiprivate.h"
+#include "filter/validate_name.h"
 #include <utilitieslib/network/net_packetutil.h>
-#include "character_base.h"
-#include "langServerUtil.h"
-#include "character_target.h"
+#include "entity/character_base.h"
+#include "language/langServerUtil.h"
+#include "entity/character_target.h"
 #include "pet.h"
-#include "seqstate.h"
-#include "seq.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
 #include <utilitieslib/language/MessageStore.h>
-#include "aiBehaviorPublic.h"
+#include "ailib/aiBehaviorPublic.h"
 
 #define MAX_PET_NAMES_ON_PLAYER        100
 

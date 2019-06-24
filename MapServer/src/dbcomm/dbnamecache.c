@@ -2,7 +2,7 @@
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/timing.h>
-#include "entity.h"
+#include "entity/entity.h"
 #include "dbcomm.h"
 #include "comm_backend.h"
 

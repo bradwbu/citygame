@@ -1,6 +1,6 @@
 #include "logcomm.h"
-#include "cmdserver.h"
-#include "net_masterlist.h"
+#include "cmdparse/cmdserver.h"
+#include <utilitieslib/network/net_masterlist.h>
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/network/netio.h>
 #include "comm_backend.h"
@@ -9,20 +9,20 @@
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/strings_opt.h>
 #include "dbcomm.h"
-#include "entity.h"
-#include "character_base.h"
+#include "entity/entity.h"
+#include "entity/character_base.h"
 #include "dbghelper.h"
 #include <utilitieslib/network/netcomp.h>
 #include "shardcomm.h"
 #include "shardcommtest.h"
 #include <utilitieslib/utils/log.h>
-#include "Supergroup.h"
-#include "AppVersion.h"
-#include "incarnate.h"
+#include "entity/Supergroup.h"
+#include <utilitieslib/version/AppVersion.h>
+#include "entity/incarnate.h"
 
 #if SERVER
 #include "dbnamecache.h"
-#include "character_level.h"
+#include "entity/character_level.h"
 #endif
 
 static char *db_log_msgs = NULL;
@@ -252,7 +252,7 @@ int Logserver_NetPacketCallback(Packet *pak, int cmd, NetLink *link)
     return 0; // nothing handled
 }
 
-static void logserverLogCallback( LogType type, char * msg );
+static void logserverLogCallback( LogType type, char const* msg );
 int logNetInit()
 {
     getAutoDbName(db_state.log_server);
@@ -399,7 +399,7 @@ void log_sg( char * name, int id, LogLevel level, int flags, char * fmt, ...  )
 
 
 // DO NOT CALL DIRECTLY (this is invoked by log_f)
-static void logserverLogCallback( LogType type, char * msg )
+static void logserverLogCallback( LogType type, char const* msg )
 {
     int len;
     NamedLogMsg *log = &s_logs_by_type[type];

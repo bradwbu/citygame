@@ -1,9 +1,9 @@
-#include "power_customization.h"
+#include "entity/power_customization.h"
 #include "power_customization_server.h"
 #include <utilitieslib/components/StashTable.h>
-#include "entity.h"
+#include "entity/entity.h"
 #include "Reward.h"
-#include "entPlayer.h"
+#include "entity/entPlayer.h"
 #include "entGameActions.h"
 
 extern StashTable powerCustReward_HashTable;

@@ -7,26 +7,26 @@
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/utils/structDefines.h>
 #include <utilitieslib/utils/eval.h>
-#include "powers.h"
+#include "entity/powers.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/MemoryPool.h>
-#include "LoadDefCommon.h"
+#include "entity/LoadDefCommon.h"
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/components/StashTable.h>
-#include "cmdserver.h"
-#include "entity.h"
-#include "group.h"
-#include "grouputil.h"
+#include "cmdparse/cmdserver.h"
+#include "entity/entity.h"
+#include "group/group.h"
+#include "group/grouputil.h"
 #include <utilitieslib/utils/timing.h>
-#include "badges_server.h"
-#include "character_base.h"
-#include "character_eval.h"
-#include "character_inventory.h"
-#include "character_level.h"
+#include "player/badges_server.h"
+#include "entity/character_base.h"
+#include "entity/character_eval.h"
+#include "entity/character_inventory.h"
+#include "entity/character_level.h"
 #include "TeamReward.h"
-#include "pophelp.h"
+#include "player/pophelp.h"
 
 StaticDefineInt DayJobPowerTypeParseEnum[] =
 {

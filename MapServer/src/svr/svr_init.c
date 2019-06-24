@@ -8,7 +8,7 @@
 #include <time.h>
 #include <utilitieslib/network/sock.h>
 #include "network\netio.h"
-#include "net_socket.h"
+#include <utilitieslib/network/net_socket.h>
 #include <utilitieslib/utils/timing.h>
 #include "cmdserver.h"
 #include "gfxtree.h"
@@ -59,7 +59,7 @@
 #include "groupfileload.h"
 #include <utilitieslib/utils/strings_opt.h>
 #include "NpcNames.h"
-#include "AppVersion.h"
+#include <utilitieslib/version/AppVersion.h>
 #include "serverError.h"
 #include <utilitieslib/components/SharedMemory.h>
 #include "profanity.h"

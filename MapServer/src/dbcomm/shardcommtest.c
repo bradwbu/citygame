@@ -7,10 +7,10 @@
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/timing.h>
 #include "comm_backend.h"
-#include "svr_base.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
 #include <utilitieslib/utils/timing.h>
-#include "entity.h"
+#include "entity/entity.h"
 
 // from shardcomm.c
 int checkSpecialCommand(Entity *e,char *str,U32 repeat);
@@ -283,7 +283,7 @@ void shardCommTestInit()
 }
 
 
-static enum ChannelSize_Type
+enum ChannelSize_Type
 {
     Small = 0,    // 5-10 users
     Medium, // 40-60 users

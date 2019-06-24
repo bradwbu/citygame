@@ -1,22 +1,22 @@
 #include <float.h>
-
+#include <utilitieslib/stdtypes.h>
 #include <utilitieslib/utils/eval.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/utils/timing.h>
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 
-#include "entity.h"
-#include "entplayer.h"
-#include "villainDef.h"
+#include "entity/entity.h"
+#include "entity/entplayer.h"
+#include "gamecomm/villainDef.h"
 
-#include "origins.h"
-#include "classes.h"
-#include "character_base.h"
-#include "character_eval.h"
-#include "character_target.h"
+#include "entity/origins.h"
+#include "entity/classes.h"
+#include "entity/character_base.h"
+#include "entity/character_eval.h"
+#include "entity/character_target.h"
 #include "character_combat_eval.h"
-#include "powers.h"
+#include "entity/powers.h"
 
 #include <utilitieslib/assert/assert.h>
 

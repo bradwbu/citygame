@@ -28,7 +28,7 @@
  *			windows messages.  This is neccessary to allow both ascii and unicode input.
  *	
  */
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 
 #ifndef _INPUT_H

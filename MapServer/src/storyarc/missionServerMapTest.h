@@ -1,6 +1,6 @@
 #ifndef MISSIONSERVERMAPTEST_H
 #define MISSIONSERVERMAPTEST_H
-#include "playerCreatedStoryarc.h"
+#include "storyarc/playerCreatedStoryarc.h"
 
 //the following are used for verifying/updating the missionserver database.
 typedef struct MissionserverMapInvalidationRecord

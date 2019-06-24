@@ -9,31 +9,31 @@
  */
 
 #include <utilitieslib/network/netio.h>
-#include "svr_base.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
 #include "comm_backend.h"
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 #include <utilitieslib/components/earray.h>
-#include "character_eval.h"
-#include "entity.h"
-#include "team.h"
-#include "league.h"
-#include "teamup.h"
+#include "entity/character_eval.h"
+#include "entity/entity.h"
+#include "container/team.h"
+#include "container/league.h"
+#include "entity/teamup.h"
 #include "endgameraid.h"
 #include "dooranim.h"
-#include "dbmapxfer.h"
-#include "staticmapinfo.h"
+#include "dbcomm/dbmapxfer.h"
+#include "dbcomm/staticmapinfo.h"
 #include <utilitieslib/language/MessageStoreUtil.h>
-#include "teamcommon.h"
+#include "entity/teamcommon.h"
 #include "turnstile.h"
-#include "turnstileservercommon.h"
-#include "character_animfx.h"
-#include "cmdserver.h"
+#include "turnstile/turnstileservercommon.h"
+#include "entity/character_animfx.h"
+#include "cmdparse/cmdserver.h"
 #include "reward.h"
 #include "LWC_common.h"
 #include <utilitieslib/utils/log.h>
-#include "containerbroadcast.h"
-#include "mapgroup.h"
+#include "container/containerbroadcast.h"
+#include "container/mapgroup.h"
 
 // Init the mapserver portion of the system.  Load the def file, and complain loudly if something went wrong,
 // then generate the localised names.

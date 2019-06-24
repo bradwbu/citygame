@@ -1,14 +1,14 @@
 
 #include "dbbackup.h"
-#include "net_structdefs.h"
-#include "entity.h"
-#include "sendToClient.h"
+#include <utilitieslib/network/net_structdefs.h>
+#include "entity/entity.h"
+#include "gameComm/sendToClient.h"
 #include "language/langServerUtil.h"
 #include "dbnamecache.h"
 #include <utilitieslib/components/earray.h>
 #include "dbcomm.h"
 #include "comm_backend.h"
-#include "svr_base.h"
+#include "svr/svr_base.h"
 #include <utilitieslib/utils/timing.h>
 
 //------------------------------------------------------------------------------------

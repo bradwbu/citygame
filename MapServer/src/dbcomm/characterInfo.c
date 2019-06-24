@@ -17,7 +17,7 @@
 #include "characterInfo.h"
 
 #include "imageServer.h"
-#include "entPlayer.h"
+#include "entity/entPlayer.h"
 #include "comm_backend.h"
 #include <utilitieslib/components/earray.h>
 
@@ -461,7 +461,7 @@ static void saveExistInfoCache(void)
                 {
                     if (rename(cacheDBTemp, cacheDB) == 0)
                     {
-                        if (!DeleteFile(cacheDBOld))
+                        if (!DeleteFileA(cacheDBOld))
                         {
                             filelog_printf(g_CharacterInfoSettings.achLogFileName,
                                 "Could not delete old existence cache '%s'\n",
@@ -508,9 +508,8 @@ static void saveExistInfoCache(void)
     else
     {
         filelog_printf(g_CharacterInfoSettings.achLogFileName,
-            "Could not successfully create existence cache '%s' - deleting\n",
-            cacheDBTemp);
-        DeleteFile(cacheDBTemp);
+            "Could not successfully create existence cache '%s' - deleting\n", cacheDBTemp);
+        DeleteFileA(cacheDBTemp);
     }
 }
 

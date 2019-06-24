@@ -16,14 +16,14 @@
 #include <utilitieslib/network/netio.h>
 #include "comm_backend.h"
 #include "SgrpBadges.h"
-#include "BadgeStats.h"
+#include "player/BadgeStats.h"
 #include <utilitieslib/utils/textparser.h>
 
 // for rewards
-#include "entity.h"
-#include "entplayer.h"
+#include "entity/entity.h"
+#include "entity/entplayer.h"
 #include "SgrpServer.h"
-#include "Supergroup.h"
+#include "entity/Supergroup.h"
 #include <utilitieslib/utils/log.h>
 
 #if STATSERVER

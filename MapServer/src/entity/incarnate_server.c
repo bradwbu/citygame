@@ -1,17 +1,17 @@
 #include "incarnate_server.h"
-#include "badges_server.h"
-#include "badges.h"
-#include "powers.h"
-#include "origins.h"
-#include "character_base.h"
+#include "player/badges_server.h"
+#include "player/badges.h"
+#include "entity/powers.h"
+#include "entity/origins.h"
+#include "entity/character_base.h"
 #include "character_combat.h"
-#include "team.h"
+#include "container/team.h"
 #include <utilitieslib/utils/timing.h>
 
 #include <utilitieslib/components/earray.h>
-#include "svr_chat.h"
-#include "sendToClient.h"
-#include "dbcomm.h"
+#include "gameComm/svr_chat.h"
+#include "gameComm/sendToClient.h"
+#include "dbcomm/dbcomm.h"
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/utils/structDefines.h>
 

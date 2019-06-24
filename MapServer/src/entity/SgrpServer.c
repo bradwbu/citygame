@@ -1,67 +1,67 @@
 #include "SgrpServer.h"
-#include "Sgrpbasepermissions.h"
-#include "baseupkeep.h"
+#include "entity/Sgrpbasepermissions.h"
+#include "bases/baseupkeep.h"
 
 #include <utilitieslib/utils/eval.h>
-#include "arenamapserver.h"
-#include "character_base.h"
-#include "character_eval.h"
-#include "cmdserver.h"
-#include "cmdservercsr.h"
+#include "gameSys/arenamapserver.h"
+#include "entity/character_base.h"
+#include "entity/character_eval.h"
+#include "cmdparse/cmdserver.h"
+#include "cmdparse/cmdservercsr.h"
 #include "comm_backend.h"
 #include "comm_game.h"
-#include "containerbroadcast.h"
-#include "containerSupergroup.h"
-#include "costume.h"
-#include "costume_data.h"
-#include "dbcomm.h"
-#include "dbcontainer.h"
-#include "dbnamecache.h"
-#include "dbquery.h"
+#include "container/containerbroadcast.h"
+#include "container/containerSupergroup.h"
+#include "entity/costume.h"
+#include "gameData/costume_data.h"
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/dbcontainer.h"
+#include "dbcomm/dbnamecache.h"
+#include "dbcomm/dbquery.h"
 #include <utilitieslib/components/earray.h>
-#include "entity.h"
-#include "entPlayer.h"
-#include "langServerUtil.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include "language/langServerUtil.h"
 #include <utilitieslib/utils/memorymonitor.h>
-#include "MultiMessageStore.h"
-#include "sendToClient.h"
-#include "staticMapInfo.h"
-#include "Supergroup.h"
-#include "svr_base.h"
-#include "svr_chat.h"
-#include "svr_player.h"
-#include "team.h"
-#include "teamup.h"
+#include <utilitieslib/language/MultiMessageStore.h>
+#include "gameComm/sendToClient.h"
+#include "dbcomm/staticMapInfo.h"
+#include "entity/Supergroup.h"
+#include "svr/svr_base.h"
+#include "gameComm/svr_chat.h"
+#include "svr/svr_player.h"
+#include "container/team.h"
+#include "entity/teamup.h"
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/utils.h>
-#include "validate_name.h"
+#include "filter/validate_name.h"
 #include <utilitieslib/components/estring.h>
-#include "bases.h"
-#include "baseparse.h"
-#include "basedata.h"
-#include "basesystems.h"
-#include "powers.h"
-#include "DetailRecipe.h"
+#include "bases/bases.h"
+#include "bases/baseparse.h"
+#include "bases/basedata.h"
+#include "bases/basesystems.h"
+#include "entity/powers.h"
+#include "bases/DetailRecipe.h"
 #include "auth/authUserData.h"
-#include "character_inventory.h"
-#include "mathutil.h"
-#include "storysend.h"
-#include "contactdef.h"
-#include "storyarcprivate.h"
-#include "raidmapserver.h"
-#include "baseloadsave.h"
+#include "entity/character_inventory.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "storyarc/storysend.h"
+#include "storyarc/contactdef.h"
+#include "storyarc/storyarcprivate.h"
+#include "gameSys/raidmapserver.h"
+#include "container/baseloadsave.h"
 #include <utilitieslib/utils/memlog.h>
-#include "baseserver.h"
-#include "beaconClientServerPrivate.h"
-#include "profanity.h"
+#include "bases/baseserver.h"
+#include "beacon/beaconClientServerPrivate.h"
+#include "filter/profanity.h"
 #include <utilitieslib/language/AppLocale.h>
-#include "baselegal.h"
+#include "bases/baselegal.h"
 
-#include "classes.h"
-#include "origins.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
 
 #include "TeamReward.h"
-#include "logcomm.h"
+#include "dbcomm/logcomm.h"
 
 // defined in raidmapserver.c 
 extern SpecialDetail *ItemOfPowerFind(Supergroup *pSG, const char *pName);
@@ -2835,7 +2835,7 @@ SpecialDetail *FindSpecialDetailByName(Supergroup *supergroup, const char *pchNa
 SpecialDetail *AddSpecialDetail(Supergroup *supergroup, const Detail *pDetail, U32 timeCreation, U32 timeExpiration, U32 iFlags)
 {
     int i;
-    SpecialDetail *pNew;
+    SpecialDetail *pNew = NULL;
     int iSize = eaSize(&supergroup->specialDetails);
 
     for(i=0; i<iSize; i++)

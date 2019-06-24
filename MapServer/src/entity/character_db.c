@@ -7,37 +7,37 @@
 
 
 #include <utilitieslib/utils/utils.h>
-#include "entity.h"
-#include "entPlayer.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
 #include "entGameActions.h"
 #include "container/dbcontainerpack.h"
 
-#include "character_base.h"
-#include "character_level.h"
-#include "character_eval.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "entity/character_eval.h"
 #include "character_combat.h"
-#include "classes.h"
-#include "origins.h"
-#include "powers.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
+#include "entity/powers.h"
 #include <utilitieslib/components/earray.h>
-#include "dbcomm.h"
-#include "motion.h"
+#include "dbcomm/dbcomm.h"
+#include "entity/motion.h"
 
 #include "character_db.h"
-#include "character_mods.h"
+#include "entity/character_mods.h"
 #include "dbghelper.h"
 #include <utilitieslib/utils/error.h>
-#include "cmdserver.h"
-#include "svr_chat.h"
-#include "containerloadsave.h"
+#include "cmdparse/cmdserver.h"
+#include "gameComm/svr_chat.h"
+#include "container/containerloadsave.h"
 #include "comm_backend.h"
-#include "arenamap.h"
-#include "staticMapInfo.h"
+#include "gameSys/arenamap.h"
+#include "dbcomm/staticMapInfo.h"
 #include "character_pet.h"
-#include "seq.h"
+#include "seq/seq.h"
 #include "alignment_shift.h"
 #include <utilitieslib/utils/log.h>
-#include "logcomm.h"
+#include "dbcomm/logcomm.h"
 
 #if (POWER_VAR_MAX_COUNT!=MAX_DB_POWER_VARS)
 #error POWER_VAR_MAX_COUNT is not the same as MAX_DB_POWER_VARS!

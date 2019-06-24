@@ -11,11 +11,11 @@
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/language/AppLocale.h>
-#include "profanity.h"
+#include "filter/profanity.h"
 
-#include "entity.h"
-#include "Costume.h"
-#include "seq.h"
+#include "entity/entity.h"
+#include "entity/Costume.h"
+#include "seq/seq.h"
 
 
 static char **s_NPCNamesMale;

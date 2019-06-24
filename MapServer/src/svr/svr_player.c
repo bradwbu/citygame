@@ -21,12 +21,12 @@
 #include "character_base.h"
 #include "character_level.h"
 #include "groupnetdb.h"
-#include "breakpoint.h"
+#include <utilitieslib/utils/breakpoint.h>
 #include "entVarUpdate.h"
 #include "svr_player.h"
 #include "team.h"
 #include "entPlayer.h"
-#include "net_socket.h"
+#include <utilitieslib/network/net_socket.h>
 #include "storyarcinterface.h"
 #include "mission.h"
 #include "pl_stats.h" // for stat_*

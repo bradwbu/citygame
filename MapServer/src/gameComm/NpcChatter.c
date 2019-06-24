@@ -12,25 +12,25 @@
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/language/AppLocale.h>
-#include "profanity.h"
+#include "filter/profanity.h"
 #include <utilitieslib/utils/SimpleParser.h>
 
-#include "entity.h"
-#include "entPlayer.h"
-#include "powers.h"
-#include "character_base.h"
-#include "net_structdefs.h"
-#include "svr_player.h"
-#include "langServerUtil.h"
-#include "cmdcommon.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include "entity/powers.h"
+#include "entity/character_base.h"
+#include <utilitieslib/network/net_structdefs.h>
+#include "svr/svr_player.h"
+#include "language/langServerUtil.h"
+#include "cmdparse/cmdcommon.h"
 #include <utilitieslib/utils/timing.h>
-#include "entGameActions.h"
-#include "storyarcinterface.h"
-#include "storyarcutil.h"
-#include "cmdserver.h"
+#include "entity/entGameActions.h"
+#include "storyarc/storyarcinterface.h"
+#include "storyarc/storyarcutil.h"
+#include "cmdparse/cmdserver.h"
 #include <utilitieslib/utils/scriptvars.h>
 #include <utilitieslib/language/MessageStore.h>
-#include "encounter.h"
+#include "generator/encounter.h"
 
 static char **s_NPCChatter;
 static char **s_NPCChatterHero;
@@ -266,8 +266,8 @@ static char *RandomChatter(Entity *e, Entity *ePlayer)
     int i;
     int iBanks;
     StashElement elem;
-    MapChat *pmcGlobal;
-    MapChat *pmcMap;
+    MapChat *pmcGlobal = NULL;
+    MapChat *pmcMap = NULL;
     int iCntType = 0;
     int iCntGeneral = 0;
     int iCntMapGeneral = 0;

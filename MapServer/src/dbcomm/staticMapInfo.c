@@ -13,15 +13,15 @@
 #include <utilitieslib/components/StashTable.h>
 #include "entity/gametypes.h"
 #ifdef SERVER
-    #include "cmdserver.h"
-    #include "svr_base.h"
-    #include "langServerUtil.h"
-    #include "sendToClient.h"
-    #include "storyarcutil.h"
-    #include "storyarcprivate.h"
+    #include "cmdparse/cmdserver.h"
+    #include "svr/svr_base.h"
+    #include "language/langServerUtil.h"
+    #include "gameComm/sendToClient.h"
+    #include "storyarc/storyarcutil.h"
+    #include "storyarc/storyarcprivate.h"
     #include <utilitieslib/components/stringcache.h>
     #include "language/langServerUtil.h"
-    #include "character_eval.h"
+    #include "entity/character_eval.h"
 #endif
 
 //-------------------------------------------------------------------

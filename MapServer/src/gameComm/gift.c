@@ -1,29 +1,29 @@
-#include "entity.h"
+#include "entity/entity.h"
 #include <utilitieslib/network/net_packetutil.h>
-#include "svr_base.h"
-#include "character_base.h"
-#include "boost.h"
+#include "svr/svr_base.h"
+#include "entity/character_base.h"
+#include "entity/boost.h"
 #include <utilitieslib/components/earray.h>
-#include "powers.h"
-#include "entVarUpdate.h"
-#include "svr_chat.h"
-#include "entPlayer.h"
-#include "langServerUtil.h"
-#include "teamup.h"
-#include "dbnamecache.h"
-#include "entGameActions.h"
-#include "character_combat.h"
-#include "trayCommon.h"
-#include "mathutil.h"
-#include "arenamap.h"
-#include "entserver.h"
-#include "character_target.h"
-#include "character_inventory.h"
-#include "DetailRecipe.h"
-#include "logcomm.h"
+#include "entity/powers.h"
+#include "entity/entVarUpdate.h"
+#include "gameComm/svr_chat.h"
+#include "entity/entPlayer.h"
+#include "language/langServerUtil.h"
+#include "entity/teamup.h"
+#include "dbcomm/dbnamecache.h"
+#include "entity/entGameActions.h"
+#include "entity/character_combat.h"
+#include "gameComm/trayCommon.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "gamesys/arenamap.h"
+#include "entity/entserver.h"
+#include "entity/character_target.h"
+#include "entity/character_inventory.h"
+#include "bases/DetailRecipe.h"
+#include "dbcomm/logcomm.h"
 #include "dbghelper.h"
-#include "arenamap.h"
-#include "logcomm.h"
+#include "gameSys/arenamap.h"
+#include "dbcomm/logcomm.h"
 
 // something failed somewhere, pretend it never happened
 //
@@ -203,7 +203,7 @@ static void gift_givePower( Entity *e, Entity *recipient, int iset, int ipow )
 //
 static void gift_giveSalvage( Entity *e, Entity *recipient, int idx )
 {
-    const SalvageItem * sal;
+    const SalvageItem * sal = NULL;
 
     if( idx >=0 && idx < eaSize(&e->pchar->salvageInv) )
         sal = e->pchar->salvageInv[idx]->salvage;

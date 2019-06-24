@@ -3,7 +3,7 @@
 
 
 #include <utilitieslib/stdtypes.h>
-#include "costume.h"
+#include "entity/costume.h"
 
 #define MAX_CAPTION 200
 

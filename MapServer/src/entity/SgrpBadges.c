@@ -3,6 +3,7 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
+#include <utilitieslib/stdtypes.h>
 #include "SgrpBadges.h"
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
@@ -12,12 +13,12 @@
 #include <utilitieslib/components/MemoryPool.h>
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/eval.h>
-#include "Supergroup.h"
+#include "entity/Supergroup.h"
 #include "SgrpStats.h"
-#include "BadgeStats.h"
+#include "player/BadgeStats.h"
 #include <utilitieslib/components/bitfield.h>
-#include "logcomm.h"
-#include "badges_load.h"
+#include "dbcomm/logcomm.h"
+#include "player/badges_load.h"
 
 
 

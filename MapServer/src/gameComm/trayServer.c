@@ -8,11 +8,11 @@
 #include "trayServer.h"
 #include "varutils.h"
 #include <utilitieslib/network/netio.h>
-#include "trayCommon.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "powers.h"
-#include "character_base.h"
+#include "gameComm/trayCommon.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include "entity/powers.h"
+#include "entity/character_base.h"
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/strings_opt.h>
 

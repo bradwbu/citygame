@@ -28,7 +28,7 @@
 #include "sgrpserver.h"
 #include "raidmapserver.h"
 #include "svr_chat.h"
-#include "AppVersion.h"
+#include <utilitieslib/version/AppVersion.h>
 #include <utilitieslib/components/StringTable.h>
 #include "sgraid.h"
 #include "basesystems.h"

@@ -11,25 +11,25 @@
  */
 
 #include <utilitieslib/utils/mathutil.h>
-#include "structoldnames.h"
+#include <utilitieslib/utils/structoldnames.h>
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/estring.h>
-#include "group.h"
-#include "basedata.h"
-#include "bases.h"
-#include "baseloadsave.h"
-#include "baseparse.h"
-#include "basetogroup.h"
-#include "entity.h"
-#include "scriptengine.h"
-#include "dbcontainer.h"
+#include "group/group.h"
+#include "bases/basedata.h"
+#include "bases/bases.h"
+#include "container/baseloadsave.h"
+#include "bases/baseparse.h"
+#include "bases/basetogroup.h"
+#include "entity/entity.h"
+#include "script/scriptengine.h"
+#include "dbcomm/dbcontainer.h"
 #include "comm_backend.h"
-#include "supergroup.h"
-#include "entaiscript.h"
-#include "svr_player.h"
+#include "entity/supergroup.h"
+#include "ai/entaiscript.h"
+#include "svr/svr_player.h"
 #include "sgraid_V2.h"
-#include "iopdata.h"
+#include "gameData/iopdata.h"
 
 Vec3 g_baseraidOffsets[MAX_SGS_IN_RAID + 1];
 char raidInfoString[MAX_PATH];
@@ -1210,7 +1210,7 @@ int sgRaidGetBaseRaidIOPData(unsigned int team, unsigned int index, const char *
 void sgRaidInitBaseRaidScript()
 {
     const ScriptDef *pScriptDef;
-    char *scriptName;
+    char *scriptName = NULL;
 
     switch (g_baseRaidType)
     {

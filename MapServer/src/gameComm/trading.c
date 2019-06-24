@@ -1,33 +1,33 @@
 
-#include "svr_base.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "cmdserver.h"
-#include "powers.h"
-#include "DetailRecipe.h"
+#include "svr/svr_base.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
+#include "cmdparse/cmdserver.h"
+#include "entity/powers.h"
+#include "bases/DetailRecipe.h"
 #include "trading.h"
-#include "entPlayer.h"
-#include "character_base.h"
-#include "character_net.h"
-#include "entVarUpdate.h"
+#include "entity/entPlayer.h"
+#include "entity/character_base.h"
+#include "entity/character_net.h"
+#include "entity/entVarUpdate.h"
 #include "language/langServerUtil.h"
-#include "dbcomm.h"            // for dbPlayerIdFromName
+#include "dbcomm/dbcomm.h"            // for dbPlayerIdFromName
 #include "comm_game.h"
-#include "parseClientInput.h"
+#include "player/parseClientInput.h"
 #include <utilitieslib/utils/timing.h>
 #include "svr_chat.h"
-#include "svr_player.h"
+#include "svr/svr_player.h"
 #include "dbghelper.h"
-#include "character_combat.h"
-#include "dbnamecache.h"
-#include "arenamap.h"
-#include "character_inventory.h"
-#include "character_target.h"
+#include "entity/character_combat.h"
+#include "dbcomm/dbnamecache.h"
+#include "gameSys/arenamap.h"
+#include "entity/character_inventory.h"
+#include "entity/character_target.h"
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/estring.h>
 #include "auth/authUserData.h"
 #include <utilitieslib/utils/log.h>
-#include "logcomm.h"
+#include "dbcomm/logcomm.h"
 //---------------------------------------------------------------------------------
 
 enum

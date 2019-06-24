@@ -16,7 +16,7 @@
 #include "dbdoor.h"
 #include "dbcomm.h"
 #include "staticMapInfo.h"
-#include "AppVersion.h"
+#include <utilitieslib/version/AppVersion.h>
 #include "taskRandom.h"
 #include "entity.h"
 #include "teamCommon.h"

@@ -12,7 +12,7 @@
 #include "entserver.h"
 #include "dbnamecache.h"
 #include "comm_game.h"
-#include "AppVersion.h"
+#include <utilitieslib/version/AppVersion.h>
 #include "cmdservercsr.h"
 #include "storyarcprivate.h"
 #include "dbcomm.h"

@@ -1,7 +1,7 @@
 #include <utilitieslib/assert/assert.h>
 #include <process.h>
 #include <utilitieslib/network/netio.h>
-#include "netio_send.h"
+#include <utilitieslib/network/netio_send.h>
 #include <utilitieslib/utils/error.h>
 #include "dbcomm.h"
 #include <utilitieslib/utils/utils.h>
@@ -15,67 +15,67 @@
 #include "process.h"
 #include <utilitieslib/utils/error.h>
 #include "dbghelper.h"
-#include "storyarcinterface.h"
+#include "storyarc/storyarcinterface.h"
 #include <utilitieslib/components/estring.h>
-#include "svr_player.h"
+#include "svr/svr_player.h"
 #include <utilitieslib/network/sock.h>
 #include <utilitieslib/network/netcomp.h>
 #include <utilitieslib/utils/strings_opt.h>
-#include "cmdserver.h"
-#include "team.h"
+#include "cmdparse/cmdserver.h"
+#include "container/team.h"
 #include "logcomm.h"
-#include "mapgroup.h"
-#include "arenamapserver.h"
-#include "turnstile.h"
+#include "container/mapgroup.h"
+#include "gameSys/arenamapserver.h"
+#include "gameSys/turnstile.h"
 #include "shardcomm.h"
 #include "chatdb.h"
-#include "entity.h"
+#include "entity/entity.h"
 #include "dbnamecache.h"
-#include "baseloadsave.h"
-#include "group.h"
+#include "container/baseloadsave.h"
+#include "group/group.h"
 #include <utilitieslib/utils/memlog.h>
 #include <utilitieslib/utils/RegistryReader.h>
 #include "dbbackup.h"
 #include <utilitieslib/components/estring.h>
-#include "containerEmail.h"
-#include "missionServerMapTest.h"
-#include "svr_base.h"
+#include "container/containerEmail.h"
+#include "storyarc/missionServerMapTest.h"
+#include "svr/svr_base.h"
 #include "auth/authUserData.h"
-#include "character_base.h"
-#include "AppVersion.h"
+#include "entity/character_base.h"
+#include <utilitieslib/version/AppVersion.h>
 #include <utilitieslib/utils/sysutil.h>
-#include "eventHistory.h"
-#include "character_workshop.h"
-#include "character_combat.h"
-#include "character_net_server.h"
+#include "container/eventHistory.h"
+#include "entity/character_workshop.h"
+#include "entity/character_combat.h"
+#include "entity/character_net_server.h"
 #include <utilitieslib/utils/log.h>
-#include "arenamapserver.h"
+#include "gameSys/arenamapserver.h"
 #include "account/AccountCatalog.h"
-#include "character_inventory.h"
+#include "entity/character_inventory.h"
 
 #if defined (SERVER) && !defined(DBQUERY)
-#include "AccountInventory.h"
-#include "AccountCatalog.h"
+#include "account/AccountInventory.h"
+#include "account/AccountCatalog.h"
 #include "auth/authUserData.h"
-#include "playerCreatedStoryarcServer.h"
-#include "sendToClient.h"
-#include "scriptedzoneevent.h"
-#include "DetailRecipe.h"
-#include "svr_chat.h"
-#include "cmdserver.h"
-#include "costume.h"
-#include "character_eval.h"
-#include "pophelp.h"
-#include "parseClientInput.h"
+#include "storyarc/playerCreatedStoryarcServer.h"
+#include "gameComm/sendToClient.h"
+#include "script/ZoneEvents/scriptedzoneevent.h"
+#include "bases/DetailRecipe.h"
+#include "gameComm/svr_chat.h"
+#include "cmdparse/cmdserver.h"
+#include "entity/costume.h"
+#include "entity/character_eval.h"
+#include "player/pophelp.h"
+#include "player/parseClientInput.h"
 #include "staticMapInfo.h"
-#include "badges_server.h"
+#include "player/badges_server.h"
 #else
 static U32 g_overridden_auth_bits[AUTH_DWORDS] = { 0 };
 #endif
 
 #if !defined AUX_SERVER_DEFINE && !defined DBQUERY
-#include "entPlayer.h"
-#include "svr_base.h"
+#include "entity/entPlayer.h"
+#include "svr/svr_base.h"
 #endif
 
 #if STATSERVER
@@ -990,10 +990,10 @@ void miningdata_Receive(Packet *pak);
 
 #if defined(SERVER) && !defined(DBQUERY)
 #include "comm_game.h"
-#include "svr_base.h"
+#include "svr/svr_base.h"
 
-#include "sendToClient.h"
-#include "langServerUtil.h"
+#include "gameComm/sendToClient.h"
+#include "language/langServerUtil.h"
 
 static void s_mapserver_MessageEntity(Packet *pak_in)
 // this should really be a meta function
@@ -1737,7 +1737,7 @@ int dbMessageCallback(Packet *pak,int cmd,NetLink *link)
             int result = 0;
             bool isDuplicate = false;
             int orderIndex;
-            SalvageItem const *sal;
+            SalvageItem const *sal = NULL;
             bool goodToGo = true;
 
             if (!e)    // this can happen if the player has not been loaded yet into the map - delay until later

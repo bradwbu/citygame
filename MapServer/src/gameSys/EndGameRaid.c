@@ -9,21 +9,21 @@
  */
 
 #include <utilitieslib/utils/error.h>
-#include "dbcomm.h"
-#include "entity.h"
-#include "team.h"
-#include "league.h"
-#include "storyarcprivate.h"
-#include "encounterprivate.h"
-#include "encounter.h"
-#include "scriptedzoneevent.h"
-#include "cmdserver.h"
+#include "dbcomm/dbcomm.h"
+#include "entity/entity.h"
+#include "container/team.h"
+#include "container/league.h"
+#include "storyarc/storyarcprivate.h"
+#include "generator/encounterprivate.h"
+#include "generator/encounter.h"
+#include "script/ZoneEvents/scriptedzoneevent.h"
+#include "cmdparse/cmdserver.h"
 #include "endgameraid.h"
 #include "Turnstile.h"
-#include "logcomm.h"
-#include "svr_base.h" // START_PACKET and END_PACKET
+#include "dbcomm/logcomm.h"
+#include "svr/svr_base.h" // START_PACKET and END_PACKET
 #include "comm_game.h"
-#include "svr_chat.h"
+#include "gameComm/svr_chat.h"
 #include "door.h"
 
 static char s_zoneEvent[256];

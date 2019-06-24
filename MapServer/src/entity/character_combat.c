@@ -5,60 +5,60 @@
  ***************************************************************************/
 #include <utilitieslib/assert/assert.h>
 #include <float.h>
-#include "logcomm.h"
+#include "dbcomm/logcomm.h"
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/error.h>
-#include "entai.h"
-#include "entaiLog.h"
-#include "entity.h"
-#include "entplayer.h"
-#include "sendToClient.h" // inexplicably for sendInfoBox
+#include "ai/entai.h"
+#include "ai/entaiLog.h"
+#include "entity/entity.h"
+#include "entity/entplayer.h"
+#include "gameComm/sendToClient.h" // inexplicably for sendInfoBox
 #include "entGameActions.h" // for entAlive
-#include "gridfind.h"
+#include "gridcoll/gridfind.h"
 #include <utilitieslib/utils/utils.h>
-#include "motion.h"
-#include "npc.h"
-#include "dbcomm.h"
+#include "entity/motion.h"
+#include "gameComm/npc.h"
+#include "dbcomm/dbcomm.h"
 #include "dbghelper.h"
-#include "entworldcoll.h" // for entHeight
-#include "mission.h" // for MissionItemInterruptInteraction()
+#include "entity/entworldcoll.h" // for entHeight
+#include "storyarc/mission.h" // for MissionItemInterruptInteraction()
 #include "entserver.h"
-#include "megaGrid.h"
-#include "teamup.h"
+#include "gridcoll/megaGrid.h"
+#include "entity/teamup.h"
 
-#include "powers.h"
-#include "powerinfo.h"
-#include "boostset.h"
+#include "entity/powers.h"
+#include "entity/powerinfo.h"
+#include "entity/boostset.h"
 
 #include "combat_mod.h"
-#include "character_base.h"
+#include "entity/character_base.h"
 #include "character_animfx.h"
-#include "character_mods.h"
-#include "character_level.h"
+#include "entity/character_mods.h"
+#include "entity/character_level.h"
 #include "character_combat.h"
-#include "character_target.h"
-#include "character_eval.h"
+#include "entity/character_target.h"
+#include "entity/character_eval.h"
 #include "character_combat_eval.h"
-#include "character_workshop.h"
+#include "entity/character_workshop.h"
 #include "character_net_server.h"
-#include "attribmod.h"
-#include "seq.h"
-#include "dbnamecache.h"
-#include "cmdserver.h"
-#include "costume.h"
+#include "entity/attribmod.h"
+#include "seq/seq.h"
+#include "dbcomm/dbnamecache.h"
+#include "cmdparse/cmdserver.h"
+#include "entity/costume.h"
 
-#include "group.h"
-#include "groupfileload.h"
-#include "gridcoll.h"
-#include "gridcache.h"
+#include "group/group.h"
+#include "group/groupfileload.h"
+#include "gridcoll/gridcoll.h"
+#include "gridcoll/gridcache.h"
 
 #include <utilitieslib/utils/eval.h>
 #include <utilitieslib/utils/timing.h>
-#include "trading.h"
+#include "gameComm/trading.h"
 #include <utilitieslib/utils/Quat.h>
 #include <utilitieslib/language/AppLocale.h>
-#include "turnstile.h"
-#include "scripthook/ScriptHookInternal.h"
+#include "gameSys/turnstile.h"
+#include "script/scripthook/ScriptHookInternal.h"
 
 
 static void ApplyTravelSuppression(Character *pChar, float fDuration)
@@ -439,7 +439,7 @@ void HandleModStacking(Character *pSrc, Character *pTarget,
 void MarkLargestModForPromotionOutOfSuppression(Character *p, AttribMod *pmod)
 {
     AttribMod *largestMod;
-    Character *pStackSrc;
+    Character *pStackSrc = NULL;
 
     if (!p || !pmod)
         return;
@@ -822,8 +822,8 @@ static float CalcDefense(Character *pTarget, Power *ppow, int *out_iType)
 
         typed = true;
 
-        assert(ppow->ppowBase->pAttackTypes[i]>=offsetof(CharacterAttributes, fDefenseType)
-            && ppow->ppowBase->pAttackTypes[i]<offsetof(CharacterAttributes, fDefense));
+        assert(ppow->ppowBase->pAttackTypes[i]>= (int)offsetof(CharacterAttributes, fDefenseType)
+            && ppow->ppowBase->pAttackTypes[i]< (int)offsetof(CharacterAttributes, fDefense));
 
         f = *ATTRIB_GET_PTR(&pTarget->attrCur, ppow->ppowBase->pAttackTypes[i]);
 
@@ -852,8 +852,8 @@ static float CalcElusivity(Character *pTarget, Power *ppow, int *out_iType)
 
         typed = true;
 
-        assert(ppow->ppowBase->pAttackTypes[i]>=offsetof(CharacterAttributes, fDefenseType)
-               && ppow->ppowBase->pAttackTypes[i]<offsetof(CharacterAttributes, fDefense) );
+        assert(ppow->ppowBase->pAttackTypes[i]>= (int)offsetof(CharacterAttributes, fDefenseType)
+               && ppow->ppowBase->pAttackTypes[i]< (int)offsetof(CharacterAttributes, fDefense) );
 
         f = (*ATTRIB_GET_PTR(&pTarget->attrStrength, ppow->ppowBase->pAttackTypes[i] + offset_diff))-1;
 
@@ -1581,7 +1581,7 @@ void getLocationReachableVecOffset( Entity * e, Vec3 vecRealLocVisOffset )
 {
     Vec3 v = { 0, CHEST_OFFSET, 0 };
     bool notJustYaw = 0;
-    const Vec3 * mat;
+    const Vec3 * mat = NULL;
 
     //Kind of weird fast check: is this matrix more than just yaw?
     if( e )
