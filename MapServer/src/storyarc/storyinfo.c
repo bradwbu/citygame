@@ -10,16 +10,16 @@
 
 #include "storyinfo.h"
 #include "storyarcprivate.h"
-#include "staticMapInfo.h"
-#include "team.h"
-#include "dbcomm.h"
-#include "character_base.h"
-#include "entPlayer.h"
-#include "containerbroadcast.h"
-#include "origins.h"
+#include "dbcomm/staticMapInfo.h"
+#include "container/team.h"
+#include "dbcomm/dbcomm.h"
+#include "entity/character_base.h"
+#include "entity/entPlayer.h"
+#include "container/containerbroadcast.h"
+#include "entity/origins.h"
 #include "taskforce.h"
-#include "entity.h"
-#include "alignment_shift.h"
+#include "entity/entity.h"
+#include "entity/alignment_shift.h"
 #include "TeamReward.h"
 
 // *********************************************************************************
@@ -538,7 +538,7 @@ int *PlayerGetTasksMapIDs(Entity *ent)
     int *retval = NULL;
     StoryInfo *info;
     int count;
-    StoryLocation *storylocs;
+    StoryLocation *storylocs = NULL;
     int numlocs = 0;
 
     if (ent)

@@ -3,7 +3,7 @@
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/assert/assert.h>
 
-#include "groupgrid.h" // FIXME!!!
+#include "group/groupgrid.h" // FIXME!!!
 
 Grid obj_grid;
 

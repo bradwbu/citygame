@@ -10,7 +10,7 @@
 
 #include "contact.h"
 #include "storyarcprivate.h"
-#include "powers.h"
+#include "entity/powers.h"
 
 // *********************************************************************************
 //  Contact store parsing
@@ -106,7 +106,7 @@ ContactStoreItems* ContactStoreGetItems(ContactDef* contact, ContactRelationship
 
 static int ContactStoreGetUniqueBit(const ContactDef* contact, ContactRelationship relationship, ContactStoreItem* item)
 {
-    const ContactStoreItems* itemlist;
+    const ContactStoreItems* itemlist = NULL;
     int bit = 0;
     int i, n;
 

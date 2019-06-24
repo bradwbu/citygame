@@ -1,16 +1,17 @@
+#include <utilitieslib/stdtypes.h>
 #include "playerCreatedStoryarcServer.h"
 #include "missionServerMapTest.h"
-#include "netio.h"
-#include "dbcomm.h"
+#include <utilitieslib/network/netio.h>
+#include "dbcomm/dbcomm.h"
 #include "comm_backend.h"
-#include "earray.h"
-#include "EString.h"
-#include "playerCreatedStoryarc.h"
-#include "playerCreatedStoryarcValidate.h"
-#include "cmdserver.h"
-#include "UtilsNew/meta.h"
-#include "MissionServer/missionserver_meta.h"
-#include "error.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/EString.h>
+#include "storyarc/playerCreatedStoryarc.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
+#include "cmdparse/cmdserver.h"
+#include <utilitieslib/UtilsNew/meta.h>
+#include "mission/missionserver_meta.h"
+#include <utilitieslib/utils/error.h>
 
 #define TEST_START_WAIT_TIME 10
 

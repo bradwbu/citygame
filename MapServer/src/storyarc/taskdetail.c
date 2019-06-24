@@ -12,10 +12,10 @@
 #include "task.h"
 #include "storyarcprivate.h"
 #include "reward.h"
-#include "powers.h"
+#include "entity/powers.h"
 #include "comm_game.h"
-#include "entity.h"
-#include "teamCommon.h"
+#include "entity/entity.h"
+#include "entity/teamCommon.h"
 
 // *********************************************************************************
 //  Generating the detail page

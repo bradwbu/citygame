@@ -13,16 +13,16 @@
 
 #include "mission.h"
 #include "storyarcprivate.h"
-#include "dbdoor.h"
-#include "dbcomm.h"
-#include "staticMapInfo.h"
+#include "dbcomm/dbdoor.h"
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/staticMapInfo.h"
 #include <utilitieslib/version/AppVersion.h>
 #include "taskRandom.h"
-#include "entity.h"
-#include "teamCommon.h"
-#include "logcomm.h"
+#include "entity/entity.h"
+#include "entity/teamCommon.h"
+#include "dbcomm/logcomm.h"
 #include "comm_game.h"
-#include "missionMapCommon.h"
+#include "storyarc/missionMapCommon.h"
 
 // *********************************************************************************
 //  Mission map sets

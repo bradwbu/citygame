@@ -12,14 +12,14 @@
 
 #include "mission.h"
 #include "storyarcprivate.h"
-#include "NpcServer.h"
-#include "entai.h"
+#include "gameComm/NpcServer.h"
+#include "ai/entai.h"
 #include <utilitieslib/components/StringCache.h>
-#include "groupnetsend.h"
-#include "dbcomm.h"
-#include "entity.h"
+#include "group/groupnetsend.h"
+#include "dbcomm/dbcomm.h"
+#include "entity/entity.h"
 #include "skillobj.h"
-#include "logcomm.h"
+#include "dbcomm/logcomm.h"
 
 // *********************************************************************************
 //  General placement functions

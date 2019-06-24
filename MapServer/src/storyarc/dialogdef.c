@@ -9,20 +9,20 @@
  *
  */
 
-#include "entity.h"
+#include "entity/entity.h"
 #include "storyarcprivate.h"
 #include "dialogdef.h"
 #include <utilitieslib/components/HashFunctions.h>
-#include "character_eval.h"
-#include "character_level.h"
-#include "contactCommon.h"
+#include "entity/character_eval.h"
+#include "entity/character_level.h"
+#include "storyarc/contactCommon.h"
 #include "reward.h"
-#include "pnpcCommon.h"
+#include "storyarc/pnpcCommon.h"
 #include "contactDialog.h"
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 #include "TeamReward.h"
 #include "comm_game.h"
-#include "character_tick.h"
+#include "entity/character_tick.h"
 #include <utilitieslib/utils/FolderCache.h>
 #include <utilitieslib/utils/fileutil.h>
 

@@ -7,42 +7,42 @@
  *    the main contact dialog function
  *
  */
-#include "logcomm.h"
-#include "dbdoor.h"
+#include "dbcomm/logcomm.h"
+#include "dbcomm/dbdoor.h"
 #include "contact.h"
 #include "storyarcprivate.h"
-#include "character_level.h"
-#include "character_eval.h"
+#include "entity/character_level.h"
+#include "entity/character_eval.h"
 #include "gameSys/dooranim.h"
 #include <utilitieslib/language/MessageStoreUtil.h>
-#include "entPlayer.h"
+#include "entity/entPlayer.h"
 #include "gameData/store_net.h"
 #include "comm_game.h"
-#include "svr_base.h"
+#include "svr/svr_base.h"
 #include "Reward.h"
 #include "TeamTask.h"
-#include "team.h"
+#include "container/team.h"
 #include "TeamReward.h"
-#include "costume.h"
-#include "character_base.h"
-#include "entity.h"
+#include "entity/costume.h"
+#include "entity/character_base.h"
+#include "entity/entity.h"
 #include "taskRandom.h"
-#include "character_combat.h"
-#include "dbmapxfer.h"
-#include "cmdserver.h"
-#include "svr_chat.h"
+#include "entity/character_combat.h"
+#include "dbcomm/dbmapxfer.h"
+#include "cmdparse/cmdserver.h"
+#include "gameComm/svr_chat.h"
 #include <utilitieslib/components/StringCache.h>
-#include "supergroup.h"
-#include "sgrpserver.h"
-#include "basesystems.h"
-#include "badges_server.h"
+#include "entity/supergroup.h"
+#include "entity/sgrpserver.h"
+#include "bases/basesystems.h"
+#include "player/badges_server.h"
 #include "taskforce.h"
-#include "TaskforceParams.h"
+#include "entity/TaskforceParams.h"
 #include "playerCreatedStoryarcServer.h"
-#include "pnpcCommon.h"
-#include "MissionServer/missionserver_meta.h"
+#include "storyarc/pnpcCommon.h"
+#include "mission/missionserver_meta.h"
 #include <utilitieslib/components/HashFunctions.h>
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 
 // *********************************************************************************
 //  Main contact dialog
@@ -2479,7 +2479,7 @@ static void AddCantFormReason(int reason, const ContactDef *pDef, char *dialog, 
 
     if (reason == CANTTF_FAILTEAMREQUIRES)
     {
-        const char *dontPassRequires;
+        const char *dontPassRequires = NULL;
         if (pDef && pDef->storyarcrefs && pDef->storyarcrefs[0])
         {
             const StoryArc *arc = StoryArcDefinition(&pDef->storyarcrefs[0]->sahandle);

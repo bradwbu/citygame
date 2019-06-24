@@ -1141,13 +1141,13 @@ void ScriptedZoneEventSendDebugPrintf(int logFlags, char *format, ...)
 static ScriptDefinition *GetCurrentScript()
 {
     const char *address = VarGet("MyAddress");
-    void *ptr;
+    void* ptr = NULL;
 
     if (StringEmpty(address) || sscanf(address, "%p", &ptr) != 1)
     {
         assert(0 && "Bad script address");
     }
-    return (ScriptDefinition *) ptr;
+    return (ScriptDefinition *)ptr;
 }
 
 static ScriptDefinition *GetCurrentScriptDontAssert()

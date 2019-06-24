@@ -10,35 +10,35 @@
 
 #include "mission.h"
 #include "storyarcprivate.h"
-#include "dbcomm.h"
-#include "dbnamecache.h"
-#include "svr_player.h"
-#include "team.h"
-#include "cmdserver.h"
-#include "containerbroadcast.h"
-#include "dbdoor.h"
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/dbnamecache.h"
+#include "svr/svr_player.h"
+#include "container/team.h"
+#include "cmdparse/cmdserver.h"
+#include "container/containerbroadcast.h"
+#include "dbcomm/dbdoor.h"
 #include "comm_game.h"
-#include "character_base.h"
-#include "svr_tick.h"
-#include "character_level.h"
-#include "arenamap.h"
-#include "entity.h"
+#include "entity/character_base.h"
+#include "svr/svr_tick.h"
+#include "entity/character_level.h"
+#include "gameSys/arenamap.h"
+#include "entity/entity.h"
 #include <utilitieslib/utils/eval.h>
-#include "sgraid.h"
-#include "raidmapserver.h"
-#include "supergroup.h"
+#include "gameSys/sgraid.h"
+#include "gameSys/raidmapserver.h"
+#include "entity/supergroup.h"
 #include "door.h"
 #include "reward.h"
 #include "taskforce.h"
-#include "TaskforceParams.h"
-#include "missionMapCommon.h"
+#include "entity/TaskforceParams.h"
+#include "storyarc/missionMapCommon.h"
 #include "playerCreatedStoryarcServer.h"
-#include "staticMapInfo.h"
-#include "Turnstile.h"
+#include "dbcomm/staticMapInfo.h"
+#include "gameSys/Turnstile.h"
 #include "LWC_common.h"
-#include "ScriptedZoneEvent.h"
+#include "script/ZoneEvents/ScriptedZoneEvent.h"
 
-#include "logcomm.h"
+#include "dbcomm/logcomm.h"
 
 // *********************************************************************************
 //  Active Mission Information
@@ -65,7 +65,7 @@ char* MissionConstructInfoString(int owner, int sgowner, int taskforce, ContactH
 int MissionDeconstructInfoString(char* str, int* owner, int* sgowner, int* taskforce, ContactHandle* contact, StoryTaskHandle *sahandle,
                                  U32* seed,  int* level, StoryDifficulty *pDifficulty, U32* completeSideObjectives, EncounterAlliance* encAlly, VillainGroupEnum* villainGroup)
 {
-    return 17 == sscanf(str, "%i:%i:%i:%i:%i:%i:%i:%i:%i:%i:%i:%i:%i:%i:%i:%i:%i", owner, sgowner, taskforce, contact, &sahandle->context, &sahandle->subhandle, &sahandle->compoundPos, &sahandle->bPlayerCreated, 
+    return 17 == sscanf(str, "%i:%i:%i:%i:%i:%i:%i:%hhi:%i:%i:%i:%i:%i:%i:%i:%i:%i", owner, sgowner, taskforce, contact, &sahandle->context, &sahandle->subhandle, &sahandle->compoundPos, &sahandle->bPlayerCreated, 
         seed, level, &pDifficulty->levelAdjust, &pDifficulty->teamSize, &pDifficulty->dontReduceBoss, &pDifficulty->alwaysAV, completeSideObjectives, encAlly, villainGroup);
 }
 

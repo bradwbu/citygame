@@ -3137,6 +3137,12 @@
     <ClCompile Include="..\..\..\Common\account\AccountTypes.cpp">
       <Filter>Source Files\Common\account</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\storyarc\missionServerMapTest.c">
+      <Filter>Source Files\Common\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\container\container_util.c">
+      <Filter>Header Files\Common\container</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\src\CrypticSv.ico">

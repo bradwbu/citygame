@@ -12,22 +12,22 @@
 #if !defined NDEBUG
     // Use the DEBUG libraries.
 #if defined _M_IX86
-    #pragma comment(lib, "../../3rdparty/PhysX/SDKs/lib/win32/PhysXLoaderCHECKED.lib")
-    #pragma comment(lib, "../../3rdparty/PhysX/SDKs/lib/win32/PhysXCookingCHECKED.lib")
+    #pragma comment(lib, "../../../3rdparty/PhysX/SDKs/lib/win32/PhysXLoaderCHECKED.lib")
+    #pragma comment(lib, "../../../3rdparty/PhysX/SDKs/lib/win32/PhysXCookingCHECKED.lib")
 #elif defined _M_X64
-#pragma comment(lib, "../../3rdparty/PhysX/SDKs/lib/win64/PhysXLoader64CHECKED.lib")
-#pragma comment(lib, "../../3rdparty/PhysX/SDKs/lib/win64/PhysXCooking64CHECKED.lib")
+#pragma comment(lib, "../../../3rdparty/PhysX/SDKs/lib/win64/PhysXLoader64CHECKED.lib")
+#pragma comment(lib, "../../../3rdparty/PhysX/SDKs/lib/win64/PhysXCooking64CHECKED.lib")
 #else
 #error Unsupported arcitecture
 #endif // Architecture
 #else  // NDEBUG
     // Use the RELEASE libraries.
 #if defined _M_IX86
-    #pragma comment(lib, "../../3rdparty/PhysX/SDKs/lib/win32/PhysXCooking.lib")
-    #pragma comment(lib, "../../3rdparty/PhysX/SDKs/lib/win32/PhysXLoader.lib")
+    #pragma comment(lib, "../../../3rdparty/PhysX/SDKs/lib/win32/PhysXCooking.lib")
+    #pragma comment(lib, "../../../3rdparty/PhysX/SDKs/lib/win32/PhysXLoader.lib")
 #elif defined _M_X64
-#pragma comment(lib, "../../3rdparty/PhysX/SDKs/lib/win64/PhysXLoader64.lib")
-#pragma comment(lib, "../../3rdparty/PhysX/SDKs/lib/win64/PhysXCooking64.lib")
+#pragma comment(lib, "../../../3rdparty/PhysX/SDKs/lib/win64/PhysXLoader64.lib")
+#pragma comment(lib, "../../../3rdparty/PhysX/SDKs/lib/win64/PhysXCooking64.lib")
 #else
 #error Unsupported arcitecture
 #endif // Architecture

@@ -1,131 +1,131 @@
 #include <conio.h>
-#include "storyarc.h"
+#include "storyarc/storyarc.h"
 #include <utilitieslib/utils/StringUtil.h>
-#include "character_inventory.h"
-#include "SgrpBadges.h"
+#include "entity/character_inventory.h"
+#include "entity/SgrpBadges.h"
 #include <stdio.h>
 #include <process.h>
 #include <time.h>
 #include <utilitieslib/network/sock.h>
-#include "network\netio.h"
+#include <utilitieslib/network/netio.h>
 #include <utilitieslib/network/net_socket.h>
 #include <utilitieslib/utils/timing.h>
-#include "cmdserver.h"
-#include "gfxtree.h"
-#include "entity.h"
+#include "cmdparse/cmdserver.h"
+#include "seq/gfxtree.h"
+#include "entity/entity.h"
 #include "svr_base.h"
-#include "entsend.h"
+#include "entity/entsend.h"
 #include <utilitieslib/network/netcomp.h>
-#include "group.h"
-#include "groupfilesave.h"
-#include "grouputil.h"
-#include "entgen.h"
+#include "group/group.h"
+#include "group/groupfilesave.h"
+#include "group/grouputil.h"
+#include "generator/entgen.h"
 #include <utilitieslib/utils/fpmacros.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/file.h>
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 #include <utilitieslib/utils/utils.h>
-#include "debugUtils.h"
-#include "entscript.h"
-#include "entcon.h"
-#include "UtilsNew/profiler.h"
-#include "dbquery.h"
-#include "gridcoll.h"
+#include "utils/debugUtils.h"
+#include "ai/entscript.h"
+#include "cmdparse/entcon.h"
+#include <utilitieslib/UtilsNew/profiler.h>
+#include "dbcomm/dbquery.h"
+#include "gridcoll/gridcoll.h"
 #include "comm_backend.h"
-#include "dbcontainer.h"
-#include "groupnetdb.h"
+#include "dbcomm/dbcontainer.h"
+#include "group/groupnetdb.h"
 #include <utilitieslib/assert/assert.h>
 #include <crtdbg.h>
 #include <direct.h>
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/SuperAssert.h>
-#include "initCommon.h"
-#include "containerloadsave.h"
-#include "containercallbacks.h"
+#include "gameComm/initCommon.h"
+#include "container/containerloadsave.h"
+#include "container/containercallbacks.h"
 #include <utilitieslib/network/sock.h>
 #include "signal.h"
 #include "svr_base.h"
 #include "svr_player.h"
 #include "svr_tick.h"
-#include "encounter.h"
-#include "entai.h"
-#include "storyarcInterface.h"
+#include "generator/encounter.h"
+#include "ai/entai.h"
+#include "storyarc/storyarcInterface.h"
 #include "language/langServerUtil.h"
-#include "load_def.h" // for load_AllDefs
+#include "entity/load_def.h" // for load_AllDefs
 #include <utilitieslib/utils/FolderCache.h>
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/utils/sysutil.h>        // for getExecutableName()
-#include "groupfilelib.h"
-#include "groupfileload.h"
+#include "group/groupfilelib.h"
+#include "group/groupfileload.h"
 #include <utilitieslib/utils/strings_opt.h>
-#include "NpcNames.h"
+#include "gameComm/NpcNames.h"
 #include <utilitieslib/version/AppVersion.h>
 #include "serverError.h"
 #include <utilitieslib/components/SharedMemory.h>
-#include "profanity.h"
-#include "titles.h"
-#include "reserved_names.h"
-#include "NpcChatter.h"
+#include "filter/profanity.h"
+#include "filter/titles.h"
+#include "filter/reserved_names.h"
+#include "gameComm/NpcChatter.h"
 #include "player/stats_base.h" // for InitStats()
 #include "gameData/store.h"
 #include "gameData/costume_data.h"
-#include "power_customization.h"
-#include "entaiprivate.h"
-#include "gridcollperftest.h"
-#include "staticMapInfo.h"            // for staticMapInfosReload()
-#include "gridcache.h"
+#include "entity/power_customization.h"
+#include "ai/entaiprivate.h"
+#include "gridcoll/gridcollperftest.h"
+#include "dbcomm/staticMapInfo.h"            // for staticMapInfosReload()
+#include "gridcoll/gridcache.h"
 #include <utilitieslib/utils/wininclude.h>
-#include "DirMonitor.h"
-#include "characterTransfer.h"
-#include "characterInfo.h"
-#include "badges_server.h"
-#include "shardcomm.h"
-#include "shardcommtest.h"
-#include "character_combat_eval.h"
-#include "logcomm.h"
-#include "scriptengine.h"
-#include "characterRestore.h"
+#include <utilitieslib/utils/DirMonitor.h>
+#include "dbcomm/characterTransfer.h"
+#include "dbcomm/characterInfo.h"
+#include "player/badges_server.h"
+#include "dbcomm/shardcomm.h"
+#include "dbcomm/shardcommtest.h"
+#include "entity/character_combat_eval.h"
+#include "dbcomm/logcomm.h"
+#include "script/scriptengine.h"
+#include "dbcomm/characterRestore.h"
 #include <utilitieslib/language/AppLocale.h>
-#include "tricks.h"
-#include "input.h"
-#include "modelReload.h"
-#include "seq.h"
-#include "parseClientInput.h"
-#include "anim.h"
-#include "skillobj.h"
-#include "baseloadsave.h"
-#include "basedata.h"
+#include "seq/tricks.h"
+#include "win/input.h"
+#include "seq/modelReload.h"
+#include "seq/seq.h"
+#include "player/parseClientInput.h"
+#include "seq/anim.h"
+#include "storyarc/skillobj.h"
+#include "container/baseloadsave.h"
+#include "bases/basedata.h"
 #include "taskRandom.h"
-#include "arenaschedule.h"
-#include "iopdata.h"
-#include "seqstate.h"
-#include "Nwwrapper.h"
-#include "groupnovodex.h"
-#include "ragdoll.h"
+#include "gameData/arenaschedule.h"
+#include "gameData/iopdata.h"
+#include "seq/seqstate.h"
+#include "NovodeX/Nwwrapper.h"
+#include "group/groupnovodex.h"
+#include "entity/ragdoll.h"
 #include <utilitieslib/components/SharedHeap.h>
 #include <utilitieslib/components/StringCache.h>
 #include "taskpvp.h"
-#include "beaconClientServerPrivate.h"
-#include "Supergroup.h"
-#include "DetailRecipe.h"
-#include "raidmapserver.h"
-#include "powers.h"
-#include "containerDump.h"
-#include "AnimBitList.h"
+#include "beacon/beaconClientServerPrivate.h"
+#include "entity/Supergroup.h"
+#include "bases/DetailRecipe.h"
+#include "gameSys/raidmapserver.h"
+#include "entity/powers.h"
+#include "container/containerDump.h"
+#include "seq/AnimBitList.h"
 #include <utilitieslib/version/AppRegCache.h>
 #include <utilitieslib/language/MessageStore.h>
-#include "TaskforceParams.h"
-#include "turnstile.h"
-#include "playerCreatedStoryarcValidate.h"
+#include "entity/TaskforceParams.h"
+#include "gameSys/turnstile.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
 #include "plaque.h"
 #include "reward.h"
-#include "inventory_server.h"
+#include "player/inventory_server.h"
 #include <utilitieslib/utils/log.h>
-#include "AccountCatalog.h"
-#include "dbmapxfer.h"
+#include "account/AccountCatalog.h"
+#include "dbcomm/dbmapxfer.h"
 #include <psapi.h> // for EmptyWorkingSet()
-#include "character_eval.h"
-#include "character_combat_eval.h"
+#include "entity/character_eval.h"
+#include "entity/character_combat_eval.h"
 
 #define loadstart_printf if (!server_state.silent) loadstart_printf
 #define loadend_printf if (!server_state.silent) loadend_printf
@@ -1572,7 +1572,7 @@ static void createShellIcon(S32 forceCreate)
     if(forceCreate || prevWindowVisible != windowVisible || !iconExists)
     {
         int i;
-        NOTIFYICONDATA data = {0};
+        NOTIFYICONDATAA data = {0};
 
         for(i = 0; i < 2; i++)
         {
@@ -1593,7 +1593,7 @@ static void createShellIcon(S32 forceCreate)
                             "Shared Memory Preloader\nClick or minimize to HIDE the window." :
                             "Shared Memory Preloader\nDouble-click to SHOW the window." );
 
-            iconExists = Shell_NotifyIcon(iconExists ? NIM_MODIFY : NIM_ADD, &data);
+            iconExists = Shell_NotifyIconA(iconExists ? NIM_MODIFY : NIM_ADD, &data);
 
             if(iconExists)
                 break;
@@ -1685,7 +1685,7 @@ static HWND createWndIconHandler(void)
 
     if(!hwndIconHandler)
     {
-        WNDCLASSEX winClass = {0};
+        WNDCLASSEXA winClass = {0};
 
         winClass.cbSize            = sizeof(winClass);
         winClass.style            = CS_OWNDC | CS_DBLCLKS;
@@ -1698,9 +1698,9 @@ static HWND createWndIconHandler(void)
         winClass.lpszMenuName    = "";
         winClass.lpszClassName    = "MapServerTSRWindow";
 
-        RegisterClassEx(&winClass);
+        RegisterClassExA(&winClass);
 
-        hwndIconHandler = CreateWindow(    "MapServerTSRWindow",
+        hwndIconHandler = CreateWindowA("MapServerTSRWindow",
                                         "",
                                         WS_POPUP,
                                         0,
@@ -1715,7 +1715,7 @@ static HWND createWndIconHandler(void)
         if(!hwndIconHandler)
             FatalErrorf("Can't create icon handler window: %d", GetLastError());
 
-        taskBarCreateMessage = RegisterWindowMessage("TaskbarCreated");
+        taskBarCreateMessage = RegisterWindowMessageA("TaskbarCreated");
 
         createShellIcon(1);
         showWindow(0);
@@ -1776,11 +1776,11 @@ void compactWorkingSet(bool try_logging)
 
     if (try_logging)
     {
-        if(strstr(GetCommandLine(),"-heapinfo"))
+        if(strstr(GetCommandLineA(),"-heapinfo"))
             heapInfoPrint();
-        if(strstr(GetCommandLine(),"-heaplog"))
+        if(strstr(GetCommandLineA(),"-heaplog"))
             heapInfoLog();
-        if(strstr(GetCommandLine(),"-smmonitor"))
+        if(strstr(GetCommandLineA(),"-smmonitor"))
             memMonitorDisplayStats();
     }
 
@@ -2100,7 +2100,7 @@ int __cdecl main(int argc,char **argv)
     loadend_printf("done");
 
     // csv dump mode
-    if(strstr(GetCommandLine(),"-dumpspawndefs"))
+    if(strstr(GetCommandLineA(),"-dumpspawndefs"))
         DumpSpawndefs();
 
     // empty the process working set before we connect to the dbserver

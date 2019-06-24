@@ -10,12 +10,12 @@
 
 #include "task.h"
 #include "storyarcprivate.h"
-#include "group.h"
-#include "groupProperties.h"
-#include "grouputil.h"
-#include "groupnetsend.h"
-#include "staticmapinfo.h"
-#include "entity.h"
+#include "group/group.h"
+#include "group/groupProperties.h"
+#include "group/grouputil.h"
+#include "group/groupnetsend.h"
+#include "dbcomm/staticmapinfo.h"
+#include "entity/entity.h"
 
 // *********************************************************************************
 //  Visit location list

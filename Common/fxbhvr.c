@@ -3,11 +3,11 @@
 #include <utilitieslib/components/genericlist.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/components/earray.h>
-#include "font.h"
+#include "graphics/font.h"
 #include "time.h"
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/utils/error.h>
-#include "tricks.h"
+#include "seq/tricks.h"
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/strings_opt.h>

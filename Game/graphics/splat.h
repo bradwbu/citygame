@@ -14,7 +14,7 @@
 #include <utilitieslib/stdtypes.h>
 #include <utilitieslib/utils/mathutil.h>
 #include "gridcoll/gridcoll.h"
-#include "animtrackanimate.h"
+#include "seq/animtrackanimate.h"
 
 typedef struct GfxNode GfxNode;
 typedef struct BasicTexture BasicTexture;

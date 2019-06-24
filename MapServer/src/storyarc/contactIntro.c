@@ -10,9 +10,9 @@
 
 #include "contact.h"
 #include "storyarcprivate.h"
-#include "character_level.h"
-#include "entity.h"
-#include "character_eval.h"
+#include "entity/character_level.h"
+#include "entity/entity.h"
+#include "entity/character_eval.h"
 #include "taskforce.h"
 
 // *********************************************************************************

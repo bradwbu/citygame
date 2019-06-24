@@ -1,60 +1,60 @@
 #include <float.h>
-#include "SgrpRewards.h"
+#include "entity/SgrpRewards.h"
 #include <limits.h>
-#include "entserver.h"
+#include "entity/entserver.h"
 #include <utilitieslib/network/netio.h>
 #include "comm_game.h"
 #include "svr_base.h"
-#include "containerloadsave.h"
+#include "container/containerloadsave.h"
 #include <utilitieslib/assert/assert.h>
-#include "dbcontainer.h"
-#include "dbcomm.h"
-#include "dbmapxfer.h"
+#include "dbcomm/dbcontainer.h"
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/dbmapxfer.h"
 #include <utilitieslib/utils/timing.h>
 #include "varutils.h"
 #include <utilitieslib/utils/error.h>
-#include "motion.h"
-#include "clientEntityLink.h"
-#include "pmotion.h"
-#include "encounter.h"
-#include "origins.h"
-#include "character_base.h"
-#include "character_level.h"
-#include "groupnetdb.h"
+#include "entity/motion.h"
+#include "player/clientEntityLink.h"
+#include "player/pmotion.h"
+#include "generator/encounter.h"
+#include "entity/origins.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "group/groupnetdb.h"
 #include <utilitieslib/utils/breakpoint.h>
-#include "entVarUpdate.h"
+#include "entity/entVarUpdate.h"
 #include "svr_player.h"
-#include "team.h"
-#include "entPlayer.h"
+#include "container/team.h"
+#include "entity/entPlayer.h"
 #include <utilitieslib/network/net_socket.h>
-#include "storyarcinterface.h"
-#include "mission.h"
-#include "pl_stats.h" // for stat_*
-#include "parseClientInput.h"
-#include "cmdcontrols.h"
-#include "TeamTask.h"
-#include "cmdserver.h"
+#include "storyarc/storyarcinterface.h"
+#include "storyarc/mission.h"
+#include "player/pl_stats.h" // for stat_*
+#include "player/parseClientInput.h"
+#include "cmdparse/cmdcontrols.h"
+#include "storyarc/TeamTask.h"
+#include "cmdparse/cmdserver.h"
 #include <utilitieslib/utils/cmdoldparse.h>
-#include "logcomm.h"
-#include "shardcomm.h"
-#include "badges_server.h"
-#include "buddy_server.h"
-#include "arenamapserver.h"
+#include "dbcomm/logcomm.h"
+#include "dbcomm/shardcomm.h"
+#include "player/badges_server.h"
+#include "entity/buddy_server.h"
+#include "gameSys/arenamapserver.h"
 #include <utilitieslib/language/AppLocale.h>
-#include "seqstate.h"
-#include "seq.h"
-#include "entity.h"
-#include "position.h"
-#include "pmotion.h"
-#include "scriptengine.h"
-#include "group.h"
-#include "raidmapserver.h"
-#include "sgraid.h"
-#include "bases.h"
-#include "baseserver.h"
-#include "character_inventory.h"
-#include "endgameraid.h"
-#include "league.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "utils/position.h"
+#include "player/pmotion.h"
+#include "script/scriptengine.h"
+#include "group/group.h"
+#include "gameSys/raidmapserver.h"
+#include "gameSys/sgraid.h"
+#include "bases/bases.h"
+#include "bases/baseserver.h"
+#include "entity/character_inventory.h"
+#include "gameSys/endgameraid.h"
+#include "container/league.h"
 #include <utilitieslib/utils/log.h>
 #include "svr_tick.h"
 
@@ -929,7 +929,7 @@ void svrPrintControlQueue(ClientLink* client)
     }
 }
 
-#include "entPlayer.h"
+#include "entity/entPlayer.h"
 static void svrRecordLastGoodPosition(Entity *e)
 {
     #define        GOOD_POS_MINSTEP 4
@@ -947,9 +947,10 @@ static void svrRecordLastGoodPosition(Entity *e)
     copyVec3(pos,pl->last_good_pos[0]);
 }
 
-#include "gridcoll.h"
-#include "character_target.h"
-#include "dbdoor.h"
+#include "gridcoll/gridcoll.h"
+#include "entity/character_target.h"
+#include "dbcomm/dbdoor.h"
+
 void svrPlayerFindLastGoodPos(Entity *e)
 {
     int            i;

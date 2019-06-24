@@ -11,14 +11,14 @@
  */
 
 #include "storyarcprivate.h"
-#include "character_base.h"
-#include "character_level.h"
-#include "entPlayer.h"
-#include "team.h"
-#include "entity.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "entity/entPlayer.h"
+#include "container/team.h"
+#include "entity/entity.h"
 #include "taskforce.h"
-#include "staticMapInfo.h"
-#include "dbcomm.h"
+#include "dbcomm/staticMapInfo.h"
+#include "dbcomm/dbcomm.h"
 
 typedef struct DifficultySettings
 {

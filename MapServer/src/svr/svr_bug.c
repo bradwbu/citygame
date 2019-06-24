@@ -9,17 +9,17 @@
 #include <utilitieslib/utils/error.h>
 
 #include "svr_base.h"
-#include "entserver.h"
-#include "dbnamecache.h"
+#include "entity/entserver.h"
+#include "dbcomm/dbnamecache.h"
 #include "comm_game.h"
 #include <utilitieslib/version/AppVersion.h>
-#include "cmdservercsr.h"
-#include "storyarcprivate.h"
-#include "dbcomm.h"
-#include "mission.h"
-#include "beaconFile.h"
-#include "entity.h"
-#include "logcomm.h"
+#include "cmdparse/cmdservercsr.h"
+#include "storyarc/storyarcprivate.h"
+#include "dbcomm/dbcomm.h"
+#include "storyarc/mission.h"
+#include "beacon/beaconFile.h"
+#include "entity/entity.h"
+#include "dbcomm/logcomm.h"
 
 /**********************************************************************func*
  * bugStartReport

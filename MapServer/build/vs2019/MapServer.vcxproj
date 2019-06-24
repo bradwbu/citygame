@@ -633,6 +633,7 @@
     <ClCompile Include="..\..\..\Common\cmdparse\cmdstatserver.c" />
     <ClCompile Include="..\..\..\Common\container\containerEventHistory.c" />
     <ClCompile Include="..\..\..\Common\container\container_store.c" />
+    <ClCompile Include="..\..\..\Common\container\container_util.c" />
     <ClCompile Include="..\..\..\Common\container\dbcontainerpack.c" />
     <ClCompile Include="..\..\..\Common\DoorStrings.c" />
     <ClCompile Include="..\..\..\Common\entity\attribmod.c" />
@@ -1104,6 +1105,7 @@
     <ClCompile Include="..\..\src\storyarc\missionobjective.c" />
     <ClCompile Include="..\..\src\storyarc\missionplacement.c" />
     <ClCompile Include="..\..\src\storyarc\missionscript.c" />
+    <ClCompile Include="..\..\src\storyarc\missionServerMapTest.c" />
     <ClCompile Include="..\..\src\storyarc\missionset.c" />
     <ClCompile Include="..\..\src\storyarc\missionspec.c" />
     <ClCompile Include="..\..\src\storyarc\missionteamup.c" />

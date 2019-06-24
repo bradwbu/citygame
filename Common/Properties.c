@@ -1,3 +1,4 @@
+#include <utilitieslib/stdtypes.h>
 #include "properties.h"
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/components/earray.h>

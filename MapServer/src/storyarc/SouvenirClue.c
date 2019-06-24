@@ -4,7 +4,7 @@
  *        All Rights Reserved
  *        Confidential property of Cryptic Studios
  *
- *    Souvenier clues hang on the player forever and are a
+ *    Souvenir clues hang on the player forever and are a
  *    memento of their mission.  They have some limitations
  *    compared to regular clues
  *
@@ -12,11 +12,11 @@
 
 #include "SouvenirClue.h"
 #include "storyarcprivate.h"
-#include "badges_server.h"
+#include "player/badges_server.h"
 #include "comm_game.h"
-#include "cmdserver.h"
-#include "logcomm.h"
-#include "entity.h"
+#include "cmdparse/cmdserver.h"
+#include "dbcomm/logcomm.h"
+#include "entity/entity.h"
 
 typedef struct
 {

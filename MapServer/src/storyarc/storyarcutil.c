@@ -10,45 +10,45 @@
  */
 #include "storyarcprivate.h"
 #include "pnpc.h"
-#include "cmdserver.h"
-#include "MultiMessageStore.h"
+#include "cmdparse/cmdserver.h"
+#include <utilitieslib/language/MultiMessageStore.h>
 #include <utilitieslib/language/MessageStore.h>
-#include "megaGrid.h"
-#include "position.h"
-#include "powers.h"
-#include "entPlayer.h"
-#include "langServerUtil.h"
-#include "groupnetsend.h"
-#include "scriptengine.h"
-#include "encounter.h"
-#include "entserver.h"
-#include "entaipriority.h"
-#include "chat_emote.h" //for g_EmoteAnims
-#include "entaiprivate.h" //maybe move out
-#include "encounterprivate.h"
-#include "dbcomm.h"
-#include "seq.h"
-#include "entity.h"
-#include "svr_player.h"
-#include "svr_chat.h"
-#include "motion.h"
-#include "entai.h"
-#include "gridcoll.h"
-#include "entGameActions.h"
-#include "entaiScript.h"
-#include "beaconPath.h"
-#include "character_base.h"
-#include "origins.h"
-#include "teamcommon.h"
+#include "gridcoll/megaGrid.h"
+#include "utils/position.h"
+#include "entity/powers.h"
+#include "entity/entPlayer.h"
+#include "language/langServerUtil.h"
+#include "group/groupnetsend.h"
+#include "script/scriptengine.h"
+#include "generator/encounter.h"
+#include "entity/entserver.h"
+#include "ai/entaipriority.h"
+#include "cmdparse/chat_emote.h" //for g_EmoteAnims
+#include "ai/entaiprivate.h" //maybe move out
+#include "generator/encounterprivate.h"
+#include "dbcomm/dbcomm.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "svr/svr_player.h"
+#include "gameComm/svr_chat.h"
+#include "entity/motion.h"
+#include "ai/entai.h"
+#include "gridcoll/gridcoll.h"
+#include "entity/entGameActions.h"
+#include "ai/entaiScript.h"
+#include "beacon/beaconPath.h"
+#include "entity/character_base.h"
+#include "entity/origins.h"
+#include "entity/teamcommon.h"
 #include <utilitieslib/utils/FolderCache.h>
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/language/AppLocale.h>
-#include "commonLangUtil.h"
+#include "language/commonLangUtil.h"
 #include <utilitieslib/utils/tokenstore.h>
-#include "aiBehaviorPublic.h"
-#include "animBitList.h"
-#include "pnpcCommon.h"
-#include "supergroup.h"
+#include "ailib/aiBehaviorPublic.h"
+#include "seq/animBitList.h"
+#include "storyarc/pnpcCommon.h"
+#include "entity/supergroup.h"
 #include "auth/authUserData.h"
 #include <utilitieslib/utils/log.h>
 
@@ -1132,7 +1132,7 @@ void saUtilEntSays(Entity* ent, int flag, const char* dialog)
     {
         int i;
         char *displayname = 0;
-        Entity * parent;
+        Entity * parent = NULL;
 
         //We've decided if you get another thing to say, you dump what you were saying
         for( i = 0 ; i < ent->queuedChatCount ; i++)
@@ -1422,7 +1422,7 @@ char *saUtilEntityVariableReplacement( const char * in_str, Entity * e )
             }
             else if( strnicmp( pCursor, "primary", 7) == 0 )
             {
-                char * pchPrimary;
+                char * pchPrimary = NULL;
                 int i;
                 for( i = 0; i < eaSize(&e->pchar->ppPowerSets); i++ )
                 {
@@ -1434,7 +1434,7 @@ char *saUtilEntityVariableReplacement( const char * in_str, Entity * e )
             }
             else if( strnicmp( pCursor, "secondary", 9) == 0 )
             {
-                char * pchSecondary;
+                char * pchSecondary = NULL;
                 int i;
                 for( i = 0; i < eaSize(&e->pchar->ppPowerSets); i++ )
                 {

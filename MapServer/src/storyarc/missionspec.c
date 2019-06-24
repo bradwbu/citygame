@@ -12,8 +12,8 @@
 #include "mission.h"
 #include "storyarcprivate.h"
 #include "missionspec.h"
-#include "dbcomm.h"
-#include "missionMapCommon.h"
+#include "dbcomm/dbcomm.h"
+#include "storyarc/missionMapCommon.h"
 
 // *********************************************************************************
 //  Mission spec file

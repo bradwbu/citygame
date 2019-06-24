@@ -4,11 +4,11 @@
 #include "comm_game.h"
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/StashTable.h>
-#include "entity.h"
-#include "process_util.h"
+#include "entity/entity.h"
+#include <utilitieslib/utils/process_util.h>
 #include <utilitieslib/utils/log.h>
-#include "dbcomm.h"
-#include "mission.h"        // for g_activemission, @todo should probably relocate svrLogPerf
+#include "dbcomm/dbcomm.h"
+#include "storyarc/mission.h"        // for g_activemission, @todo should probably relocate svrLogPerf
 
 NetLinkList net_links;
 
@@ -19,7 +19,7 @@ ClientLink *clientFromEnt( Entity *ent )
 
 void svrLogPerf(void)
 {
-    // write mapserver statitics upon exit, only if logging level is appropriate
+    // write mapserver statistics upon exit, only if logging level is appropriate
     if(logShouldWrite(LOG_PERFORMANCE,LOG_LEVEL_VERBOSE))
     {
         double upsecs, kernelsecs, usersecs;

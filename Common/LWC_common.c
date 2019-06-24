@@ -1,12 +1,12 @@
 #include "LWC_common.h"
-#include "gametypes.h"
-#include "entity.h"
-#include "entPlayer.h"
+#include "entity/gametypes.h"
+#include "entity/entity.h"
+#include "entity/entPlayer.h"
 #include "clientcomm.h"
 #include "comm_game.h"
 
 #ifdef SERVER
-#include "staticMapInfo.h"
+#include "dbcomm/staticMapInfo.h"
 #endif
 
 LWC_STAGE LWC_GetRequiredDataStageForMap(const char *map_name)

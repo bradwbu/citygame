@@ -3,43 +3,43 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-
+#include <utilitieslib/stdtypes.h>
 #include "varutils.h"
 #include <utilitieslib/network/netio.h>
-#include "player.h"
-#include "entVarUpdate.h"
-#include "entStrings.h" // for mallocEntStrings
+#include "player/player.h"
+#include "entity/entVarUpdate.h"
+#include "entity/entStrings.h" // for mallocEntStrings
 #include "gameData/BodyPart.h"
 #include <utilitieslib/utils/error.h>
-#include "character_base.h"
-#include "Costume.h"
-#include "power_customization.h"
-#include "PowerInfo.h"
+#include "entity/character_base.h"
+#include "entity/Costume.h"
+#include "entity/power_customization.h"
+#include "entity/PowerInfo.h"
 #include <utilitieslib/components/earray.h>
-#include "wdwbase.h"
-#include "entStrings.h"
-#include "entPlayer.h"
-#include "teamup.h"
-#include "friendCommon.h"
-#include "trayCommon.h"
-#include "entity.h"
-#include "Supergroup.h"
-#include "seq.h"
+#include "gameComm/wdwbase.h"
+#include "entity/entStrings.h"
+#include "entity/entPlayer.h"
+#include "entity/teamup.h"
+#include "entity/friendCommon.h"
+#include "gameComm/trayCommon.h"
+#include "entity/entity.h"
+#include "entity/Supergroup.h"
+#include "seq/seq.h"
 
 #ifdef SERVER
-    #include "entGameActions.h"
-    #include "containerEmail.h"
-    #include "storyarcInterface.h"
-    #include "trading.h"
-    #include "keybinds.h"
-    #include "pl_stats.h"
-    #include "dbcomm.h"
-    #include "arenastruct.h"
-    #include "pet.h"
-    #include "mapHistory.h"
-    #include "Turnstile.h"
-    #include "AccountInventory.h"
-    #include "contactdef.h"
+    #include "entity/entGameActions.h"
+    #include "container/containerEmail.h"
+    #include "storyarc/storyarcInterface.h"
+    #include "gameComm/trading.h"
+    #include "entity/keybinds.h"
+    #include "player/pl_stats.h"
+    #include "dbcomm/dbcomm.h"
+    #include "gameData/arenastruct.h"
+    #include "gameComm/pet.h"
+    #include "entity/mapHistory.h"
+    #include "gamesys/Turnstile.h"
+    #include "account/AccountInventory.h"
+    #include "storyarc/contactdef.h"
 #else
     #include "attrib_net.h"
     #include "uiKeybind.h"

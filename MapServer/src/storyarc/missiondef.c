@@ -12,9 +12,9 @@
 #include "mission.h"
 #include "storyarcprivate.h"
 #include "reward.h"
-#include "staticmapinfo.h"
-#include "missionMapCommon.h"
-#include "CustomVillainGroup.h"
+#include "dbcomm/staticmapinfo.h"
+#include "storyarc/missionMapCommon.h"
+#include "entity/CustomVillainGroup.h"
 // *********************************************************************************
 //  Load and parse mission defs
 // *********************************************************************************

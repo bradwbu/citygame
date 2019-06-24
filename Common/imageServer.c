@@ -22,13 +22,13 @@
 #endif
 
 #include "imageServer.h"
-#include "seq.h"
-#include "entity.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
 #include <utilitieslib/utils/mathutil.h>
-#include "motion.h"
-#include "entity.h"
+#include "entity/motion.h"
+#include "entity/entity.h"
 #include <utilitieslib/utils/file.h>
-#include "BodyPart.h"
+#include "gameData/BodyPart.h"
 #include <utilitieslib/utils/error.h>
 
 #if CLIENT

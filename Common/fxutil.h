@@ -2,8 +2,8 @@
 #define _FXUTIL_H
 
 #include <utilitieslib/utils/Color.h>
-#include "seq.h"
-#include "gfxtree.h"
+#include "seq/seq.h"
+#include "seq/gfxtree.h"
 #include <utilitieslib/utils/mathutil.h>
 
 typedef struct ColorPair ColorPair;

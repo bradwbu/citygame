@@ -3,9 +3,9 @@
 
 #include <utilitieslib/stdtypes.h>
 #include "fxutil.h"
-#include "splat.h"
-#include "animtrackanimate.h"
-#include "NwWrapper.h"
+#include "graphics/splat.h"
+#include "seq/animtrackanimate.h"
+#include "NovodeX/NwWrapper.h"
 
 //Plots the behavior of an fxgeo.  Read in from a .bhvr file 
 typedef struct FxBhvr

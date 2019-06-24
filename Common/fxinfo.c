@@ -7,7 +7,7 @@
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>
-#include "font.h"
+#include "graphics/font.h"
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/components/genericlist.h>
 #include "time.h"
@@ -17,16 +17,16 @@
 #include <utilitieslib/utils/strings_opt.h>
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/utils/fileutil.h>
-#include "animtrack.h"
+#include "seq/animtrack.h"
 #include <utilitieslib/utils/mathutil.h>
-#include "cmdcommon.h"
-#include "groupfilelib.h"
+#include "cmdparse/cmdcommon.h"
+#include "group/groupfilelib.h"
 #include "fxbhvr.h"
 #include <utilitieslib/utils/timing.h>
 
 
 #if SERVER
-    #include "cmdserver.h"
+    #include "cmdparse/cmdserver.h"
 #endif
 
 #if CLIENT

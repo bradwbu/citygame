@@ -508,15 +508,15 @@ void MissionControlHandleResponse(Packet * pak) {
 
 #if SERVER
 
-#include "svr_base.h"
-#include "entity.h"
+#include "svr/svr_base.h"
+#include "entity/entity.h"
 #include "comm_game.h"
-#include "staticMapInfo.h"
-#include "dbcomm.h"
+#include "dbcomm/staticMapInfo.h"
+#include "dbcomm/dbcomm.h"
 #include <utilitieslib/components/ArrayOld.h>
 #include <utilitieslib/network/netcomp.h>
-#include "beacon.h"
-#include "beaconprivate.h"
+#include "beacon/beacon.h"
+#include "beacon/beaconprivate.h"
 
 extern Array basicBeaconArray;
 
