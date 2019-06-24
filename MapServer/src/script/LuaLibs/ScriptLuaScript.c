@@ -1,14 +1,14 @@
-#include "../../../3rdparty/lua-5.1.5/src/lua.h"
-#include "../../../3rdparty/lua-5.1.5/src/lualib.h"
-#include "../../../3rdparty/lua-5.1.5/src/lauxlib.h"
+#include <lua/lua.h>
+#include <lua/lualib.h>
+#include <lua/lauxlib.h>
 
 #include "ScriptLuaScript.h"
-#include "script.h"
+#include "script/script.h"
 #include "ScriptLuaCommon.h"
-#include "character_eval.h"
+#include "entity/character_eval.h"
 #include <utilitieslib/utils/file.h>                // needed for isDevelopmentMode()
-#include "turnstile.h"
-#include "mission.h"            // needed for turnstileConfigDef somehow
+#include "gameSys/turnstile.h"
+#include "storyarc/mission.h"            // needed for turnstileConfigDef somehow
 
 // Script Systems Library Defintions
 

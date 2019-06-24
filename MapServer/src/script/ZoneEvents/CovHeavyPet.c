@@ -3,7 +3,7 @@
 // This is a location script that runs the Heavy Pet event
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 #define COV_RECLUSES_VICTORY_BOUNTY_TOKEN            "ReclusesVictoryBounty"
 #define COV_RECLUSES_VICTORY_HEAVY_TOKEN            "ReclusesVictoryHeavy"

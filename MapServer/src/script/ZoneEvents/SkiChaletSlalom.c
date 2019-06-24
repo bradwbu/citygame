@@ -2,7 +2,7 @@
 //
 // This script will set a map token when it starts and then remove it when it shuts down.
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 static StringArray playerList;
  
@@ -103,7 +103,8 @@ void SkiChaletSlalomUpdateTimes(ENTITY player, FRACTION time)
     int found = false;
     STRING var;
     STRING playerName = EntityName(player);
-    STRING oldName, oldName2;
+    STRING oldName = NULL;
+    STRING oldName2 = NULL;
     FRACTION oldTime = 999.9f, oldTime2 = 999.9f;
 
     for (i = 0; i < count; i++)
@@ -167,7 +168,7 @@ ENTITY SkiChaletSlalomAddRemoveFromList(ENTITY player)
 {
     int idx = StringArrayFind(playerList, player);
     char *pEntString = NULL;
-    STRING retval;
+    STRING retval = NULL;
 
     if (idx != -1)
     {    

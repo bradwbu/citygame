@@ -73,7 +73,7 @@ const char *ContactDisplayName(const ContactDef* contact, Entity* player);
 //const char *ContactDisplayName(ContactHandle handle, Entity* player); // use this instead?  tbd, post-merge cleanup
 int ContactNPCNumber(const ContactDef *cdef, Entity* player);                    // for a costume index
 void ContactLevelRange(ContactHandle handle, int* minlevel, int* maxlevel);
-char *ContactAlignmentName(int alliance);
+char const* ContactAlignmentName(int alliance);
 
 // *********************************************************************************
 //  Badge Auto-Fix system - here for convenience

@@ -3,7 +3,7 @@
 // This is an encounter script that runs the Hellions Burning Building event
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 
 #define CLEANUP_PL    "PL_FleeToNearestDoor"

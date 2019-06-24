@@ -1,5 +1,5 @@
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 
 void GhostTrap()

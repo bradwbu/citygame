@@ -1,11 +1,11 @@
-#include "../../../3rdparty/lua-5.1.5/src/lua.h"
-#include "../../../3rdparty/lua-5.1.5/src/lualib.h"
-#include "../../../3rdparty/lua-5.1.5/src/lauxlib.h"
+#include <lua/lua.h>
+#include <lua/lualib.h>
+#include <lua/lauxlib.h>
 
 #include "ScriptLuaKarma.h"
-#include "script.h"
+#include "script/script.h"
 #include "ScriptLuaCommon.h"
-#include "ScriptedZoneEventKarma.h"
+#include "script/ZoneEvents/ScriptedZoneEventKarma.h"
 
 //void ScriptSetKarmaContainer(ENTITY player);
 static int l_ScriptSetKarmaContainer (lua_State *L)

@@ -3,7 +3,7 @@
 // This script is just intended to test the scripting system. 
 // It sends a lot of output to the debug console.
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 static void heartBeat(void)
 {

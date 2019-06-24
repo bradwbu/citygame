@@ -12,7 +12,7 @@
 //      COTSUMMON_SAYBEFORE - what the summoner says when he starts summoning
 //      COTSUMMON_SAYAFTER - what the summoner says after summoning
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 void CotSummonSpawn()
 {

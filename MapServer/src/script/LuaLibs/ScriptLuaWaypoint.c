@@ -1,9 +1,9 @@
-#include "../../../3rdparty/lua-5.1.5/src/lua.h"
-#include "../../../3rdparty/lua-5.1.5/src/lualib.h"
-#include "../../../3rdparty/lua-5.1.5/src/lauxlib.h"
+#include <lua/lua.h>
+#include <lua/lualib.h>
+#include <lua/lauxlib.h>
 
 #include "ScriptLuaWaypoint.h"
-#include "script.h"
+#include "script/script.h"
 #include "ScriptLuaCommon.h"
 
 //NUMBER CreateWaypoint(LOCATION location, STRING text, STRING icon, STRING iconB, NUMBER compass, NUMBER pulse, FRACTION rotate)

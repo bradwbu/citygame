@@ -4,7 +4,7 @@
 //
 
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 #define FOREMAN_POSITION 1 //Foreman needs to be in the first postion in the encounter
 

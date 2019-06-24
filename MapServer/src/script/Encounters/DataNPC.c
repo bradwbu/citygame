@@ -1,5 +1,5 @@
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 // Documentation at: http://code:8081/display/cs/Data+NPC+Encounter+Script
 

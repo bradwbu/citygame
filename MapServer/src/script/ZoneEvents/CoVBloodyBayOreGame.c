@@ -3,7 +3,7 @@
 // This is a location script for the Bloody Bay Collect The Ore Game
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 #include "scriptui.h"
 
 #define COVBLOODYBAYORETOKEN_NUM    6

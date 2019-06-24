@@ -4,16 +4,16 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include <utilitieslib/utils/error.h>
-#include "SgrpBadges.h"
+#include "entity/SgrpBadges.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/eval.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/assert/assert.h>
 
-#include "entplayer.h"
+#include "entity/entplayer.h"
 
-#include "badges.h"
+#include "player/badges.h"
 #include "BadgeStats.h"
 #include "badges_server.h"
 #include <utilitieslib/components/StashTable.h>

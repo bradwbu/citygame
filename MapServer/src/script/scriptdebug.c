@@ -12,9 +12,9 @@
 #include "scriptdebug.h"
 #include "scriptengine.h"
 #include "comm_game.h"
-#include "debugCommon.h"
+#include "gameComm/debugCommon.h"
 #include <utilitieslib/components/earray.h>
-#include "entity.h"
+#include "entity/entity.h"
 
 Packet* sv_pak;
 int sv_count;

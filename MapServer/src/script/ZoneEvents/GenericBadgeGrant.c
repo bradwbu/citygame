@@ -2,7 +2,7 @@
 //
 // The generic badge grant script is pretty simple.  It grants a badge to all players who are entering the zone.
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 // don't run on city zones that don't have the marker we expect
 static int CorrectCityZone()

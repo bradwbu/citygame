@@ -11,30 +11,30 @@
 *
  */
 
-#include "entity.h"
-#include "entplayer.h"
-#include "store.h"
-#include "contact.h"
-#include "store_net.h"
-#include "storyinfo.h"
-#include "contactdef.h"
-#include "scriptengine.h"
+#include "entity/entity.h"
+#include "entity/entplayer.h"
+#include "gameData/store.h"
+#include "storyarc/contact.h"
+#include "gameData/store_net.h"
+#include "storyarc/storyinfo.h"
+#include "storyarc/contactdef.h"
+#include "script/scriptengine.h"
 #include <utilitieslib/components/earray.h>
-#include "mission.h"
-#include "team.h"
-#include "missiongeoCommon.h"
-#include "dbdoor.h"
-#include "svr_base.h"
+#include "storyarc/mission.h"
+#include "container/team.h"
+#include "storyarc/missiongeoCommon.h"
+#include "dbcomm/dbdoor.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
-#include "character_level.h"
-#include "character_net_server.h"
-#include "dialogdef.h"
+#include "entity/character_level.h"
+#include "entity/character_net_server.h"
+#include "storyarc/dialogdef.h"
 #include <utilitieslib/components/HashFunctions.h>
-#include "character_eval.h"
+#include "entity/character_eval.h"
 #include "reward.h"
-#include "logcomm.h"
+#include "dbcomm/logcomm.h"
 
-#include "scripthook/ScriptHookInternal.h"
+#include "script/scripthook/ScriptHookInternal.h"
 
 // *********************************************************************************
 //  S C R I P T    D A T A

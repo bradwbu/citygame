@@ -12,31 +12,31 @@
 #include "contact.h"
 #include "storyarcprivate.h"
 #include "pnpc.h"
-#include "Npc.h"
-#include "badges.h"
-#include "badges_server.h"
-#include "entplayer.h"
-#include "entity.h"
+#include "gameComm/Npc.h"
+#include "player/badges.h"
+#include "player/badges_server.h"
+#include "entity/entplayer.h"
+#include "entity/entity.h"
 #include <utilitieslib/utils/FolderCache.h>
 #include <utilitieslib/utils/fileutil.h>
-#include "commonLangUtil.h"
-#include "pnpcCommon.h"
+#include "language/commonLangUtil.h"
+#include "storyarc/pnpcCommon.h"
 #include "taskforce.h"
-#include "teamCommon.h"
-#include "character_eval.h"
+#include "entity/teamCommon.h"
+#include "entity/character_eval.h"
 #include "Reward.h"
 #include "taskdef.h"
-#include "character_level.h"
-#include "svr_chat.h"
+#include "entity/character_level.h"
+#include "gameComm/svr_chat.h"
 #include <utilitieslib/language/MessageStoreUtil.h>
-#include "svr_base.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
-#include "dbcomm.h"
-#include "staticMapInfo.h"
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/staticMapInfo.h"
 #include "dialogdef.h"
 
 #if SERVER
-    #include "cmdserver.h"
+    #include "cmdparse/cmdserver.h"
 #endif
 
 SHARED_MEMORY DesignerContactTipTypes g_DesignerContactTipTypes;
@@ -1246,7 +1246,7 @@ void ContactLevelRange(ContactHandle handle, int* minlevel, int* maxlevel)
     }
 }
 
-char *ContactAlignmentName(int alliance)
+char const* ContactAlignmentName(int alliance)
 {
     int i;
     for(i = 0; i < ARRAY_SIZE(ParseContactAlliance); i++)

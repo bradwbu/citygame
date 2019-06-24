@@ -5,7 +5,7 @@
 // city, and a set number of invaders that have spawned out of portals.
 
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 // don't run on city zones that don't have the marker we expect
 static int CorrectCityZone()

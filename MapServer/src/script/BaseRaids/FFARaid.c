@@ -2,24 +2,24 @@
 //
 // Runs an FFA SG base raid.
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 #include <utilitieslib/utils/timing.h>
-#include "bases.h"
-#include "basesystems.h"
-#include "basedata.h"
+#include "bases/bases.h"
+#include "bases/basesystems.h"
+#include "bases/basedata.h"
 #include <utilitieslib/components/earray.h>
-#include "villaindef.h"
-#include "sgraid.h"
+#include "gameComm/villaindef.h"
+#include "gamesys/sgraid.h"
 #include <utilitieslib/utils/error.h>
-#include "entai.h"
-#include "entity.h"
-#include "entserver.h"
-#include "entaiscript.h"
-#include "scriptengine.h"
-#include "dooranimcommon.h"
-#include "svr_player.h"
-#include "raidmapserver.h"
-#include "sgraid_V2.h"
+#include "ai/entai.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
+#include "ai/entaiscript.h"
+#include "script/scriptengine.h"
+#include "gameComm/dooranimcommon.h"
+#include "svr/svr_player.h"
+#include "gameSys/raidmapserver.h"
+#include "gamesys/sgraid_V2.h"
 
 #define WRAPUP_LENGTH    1.0f    // in minutes
 #define ATTACKER_CLOCK    2.0f    // in minutes

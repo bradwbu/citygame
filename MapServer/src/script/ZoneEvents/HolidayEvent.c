@@ -1,10 +1,10 @@
 // ZONE SCRIPT
 //
 
-#include "scriptutil.h"
-#include "scriptengine.h"
+#include "script/scriptutil.h"
+#include "script/scriptengine.h"
 #include <utilitieslib/utils/file.h>
-#include "svr_chat.h"
+#include "gameComm/svr_chat.h"
 #include "holidayevent.h"
 
 static GLOWIEDEF HolidayEventPresent = NULL;

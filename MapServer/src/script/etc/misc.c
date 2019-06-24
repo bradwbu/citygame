@@ -1,6 +1,6 @@
 // Miscellaneous small scripts
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 
 void EitherSideWins(void)

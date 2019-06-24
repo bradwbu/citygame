@@ -3,8 +3,8 @@
 
 // Used for testing new features of the script system
 
-#include "scriptutil.h"
-#include "entPlayer.h"
+#include "script/scriptutil.h"
+#include "entity/entPlayer.h"
 #include "TeamReward.h"
 #include <utilitieslib/utils/timing.h>
 

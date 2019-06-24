@@ -8,14 +8,14 @@
 #include <utilitieslib/components/earray.h>
 
 #include "container/dbcontainerpack.h"
-#include "sendToClient.h" // conprintf
+#include "gameComm/sendToClient.h" // conprintf
 
-#include "entity.h"
-#include "entplayer.h"
-#include "cmdserver.h"
-#include "character_base.h"
-#include "villainDef.h"
-#include "arenamap.h"
+#include "entity/entity.h"
+#include "entity/entplayer.h"
+#include "cmdparse/cmdserver.h"
+#include "entity/character_base.h"
+#include "gameComm/villainDef.h"
+#include "gamesys/arenamap.h"
 
 #include "stats_base.h"
 #include "pl_stats.h"
@@ -24,12 +24,12 @@
 
 #include "language/langServerUtil.h"
 #include <utilitieslib/utils/timing.h>
-#include "mission.h"
-#include "badges_server.h"
-#include "character_level.h"
-#include "cmdstatserver.h"
-#include "teamCommon.h"
-#include "logcomm.h"
+#include "storyarc/mission.h"
+#include "player/badges_server.h"
+#include "entity/character_level.h"
+#include "cmdparse/cmdstatserver.h"
+#include "entity/teamCommon.h"
+#include "dbcomm/logcomm.h"
 
 /**********************************************************************func*
  * packageEntStats

@@ -11,16 +11,16 @@
  *
  */
 
-#include "script.h"
-#include "scriptengine.h"
-#include "scriptutil.h"
+#include "script/script.h"
+#include "script/scriptengine.h"
+#include "script/scriptutil.h"
 
-#include "entity.h"
-#include "groupnetsend.h"
-#include "sendToClient.h"
-#include "storyarcprivate.h"
+#include "entity/entity.h"
+#include "group/groupnetsend.h"
+#include "gameComm/sendToClient.h"
+#include "storyarc/storyarcprivate.h"
 
-#include "scripthook/ScriptHookInternal.h"
+#include "script/scripthook/ScriptHookInternal.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 // W A Y P O I N T S

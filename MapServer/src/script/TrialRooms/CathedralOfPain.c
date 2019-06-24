@@ -16,7 +16,7 @@
 //           Obelisk   = EP 1
 //           WillForge = EP 2
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 // called when the player leaves the map
 int CathedralOfPainOnLeaveMap(ENTITY player)

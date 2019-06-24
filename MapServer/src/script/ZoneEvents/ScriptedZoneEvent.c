@@ -5,32 +5,32 @@
 // For handling displayStrings for the compass / ui window, take a look at
 // textStdUnformattedConst() to get the string complete with {xyz} sequences
 
-#include "scriptutil.h"
-#include "scriptengine.h"
-#include "mission.h"
+#include "script/scriptutil.h"
+#include "script/scriptengine.h"
+#include "storyarc/mission.h"
 #include <utilitieslib/utils/eval.h>
 #include <utilitieslib/utils/timing.h>
-#include "svr_chat.h"
+#include "gameComm/svr_chat.h"
 #include <utilitieslib/utils/file.h>
-#include "character_eval.h"
+#include "entity/character_eval.h"
 #include <utilitieslib/components/StashTable.h>
 #include "malloc.h"
 #include <utilitieslib/language/MessageStoreUtil.h>
 #include "scriptedzoneevent.h"
-#include "scripthook/ScriptHookInternal.h"
-#include "character_karma.h"
+#include "script/scripthook/ScriptHookInternal.h"
+#include "entity/character_karma.h"
 #include "ScriptedZoneEventKarma.h"
-#include "cmdserver.h"
-#include "staticMapInfo.h"
-#include "dbcomm.h"
-#include "character_inventory.h"
-#include "groupdbmodify.h"
+#include "cmdparse/cmdserver.h"
+#include "dbcomm/staticMapInfo.h"
+#include "dbcomm/dbcomm.h"
+#include "entity/character_inventory.h"
+#include "group/groupdbmodify.h"
 #include <utilitieslib/utils/log.h>
-#include "turnstile.h"
-#include "pmotion.h"
+#include "gameSys/turnstile.h"
+#include "player/pmotion.h"
 
 #include "AutoGen/ScriptedZoneEvent_c_ast.h"
-#include "logcomm.h"
+#include "dbcomm/logcomm.h"
 
 #define UISTATE_GLOBAL                        0
 #define UISTATE_BYVOLUME                    1
@@ -2021,7 +2021,7 @@ static void ScriptedZoneEventOnEnterVolume(ENTITY player, STRING name)
     NUMBER uiState;
     ScriptDefinition *script;
     ScriptStage *stage;
-    ScriptZEUICollection *UICollection;
+    ScriptZEUICollection *UICollection = NULL;
     const char *collection;
 
     // Put me in the team of players in this volume.
@@ -5004,7 +5004,7 @@ void ScriptedZoneEvent(void)
     ScriptGlowie *glowie;
     ScriptPort *port;
     ScriptStage *stage;
-    ScriptZEUICollection *UICollection;
+    ScriptZEUICollection *UICollection = NULL;
     LOCATION loc;
     ENTITY player;
     const char *instanceName;

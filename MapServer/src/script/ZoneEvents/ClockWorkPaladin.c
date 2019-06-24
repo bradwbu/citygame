@@ -4,10 +4,10 @@
 //
 
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 //Very temp debugging 
-#include "scriptengine.h"
+#include "script/scriptengine.h"
 #include <utilitieslib/assert/assert.h>
 //End very temp debugging 
 

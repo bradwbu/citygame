@@ -4,7 +4,7 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include <utilitieslib/utils/textparser.h>
-#include "character_eval.h"
+#include "entity/character_eval.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/utils/eval.h>
@@ -17,43 +17,43 @@
 #include <utilitieslib/utils/timing.h>
 
 #include "pl_stats.h"
-#include "entity.h"
-#include "entplayer.h"
-#include "villainDef.h"
-#include "sendToClient.h"
-#include "entGameActions.h"
-#include "dbcomm.h"
+#include "entity/entity.h"
+#include "entity/entplayer.h"
+#include "gameComm/villainDef.h"
+#include "gamecomm/sendToClient.h"
+#include "entity/entGameActions.h"
+#include "dbcomm/dbcomm.h"
 #include "reward.h"
-#include "langServerUtil.h"
-#include "commonLangUtil.h"
+#include "language/langServerUtil.h"
+#include "language/commonLangUtil.h"
 #include "auth/authUserData.h"
-#include "arenamap.h"
+#include "gameSys/arenamap.h"
 #include <utilitieslib/utils/structDefines.h>
 
-#include "origins.h"
-#include "classes.h"
-#include "character_base.h"
-#include "character_level.h"
+#include "entity/origins.h"
+#include "entity/classes.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
 
-#include "badges.h"
+#include "player/badges.h"
 #include "badges_server.h"
 
 #include <utilitieslib/language/MessageStore.h>
 #include "TeamReward.h"
-#include "Team.h"
-#include "teamCommon.h"
-#include "Supergroup.h"
+#include "container/Team.h"
+#include "entity/teamCommon.h"
+#include "entity/Supergroup.h"
 #include "BadgeStats.h"
 #include "badges_load.h"
-#include "SgrpBadges.h"
-#include "SgrpStats.h"
+#include "entity/SgrpBadges.h"
+#include "entity/SgrpStats.h"
 #include <utilitieslib/components/StashTable.h>
-#include "cmdserver.h"
+#include "cmdparse/cmdserver.h"
 #include <utilitieslib/language/AppLocale.h>
 #include "plaque.h" // badge reward popups
 #include "comm_game.h"
-#include "pophelp.h"
-#include "logcomm.h"
+#include "player/pophelp.h"
+#include "dbcomm/logcomm.h"
 
 static EvalContext *s_pBadgeEval;
 static bool s_bSystemDirty = false;

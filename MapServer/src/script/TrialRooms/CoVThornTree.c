@@ -3,7 +3,7 @@
 
 // Runs the thorn vines in the CoT CoV Respec mission "Thorn Tree"
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 // Variables
 //        SpawnTimer#        Time to respawn for this spawn

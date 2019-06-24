@@ -1,13 +1,13 @@
 #include "ScriptUI.h"
-#include "Entity.h"
-#include "svr_base.h"
+#include "entity/Entity.h"
+#include "svr/svr_base.h"
 #include "comm_game.h"
 #include "TeamReward.h"
-#include "storyarcutil.h"
-#include "scriptengine.h"
-#include "entPlayer.h"
+#include "storyarc/storyarcutil.h"
+#include "script/scriptengine.h"
+#include "entity/entPlayer.h"
 #include <utilitieslib/utils/strings_opt.h>
-#include "svr_player.h"
+#include "svr/svr_player.h"
 #include <utilitieslib/utils/timing.h>
 
 typedef struct ScriptUICollection

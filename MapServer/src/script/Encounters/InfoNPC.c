@@ -1,5 +1,5 @@
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 // Documentation at: http://code:8081/display/cs/Info+NPC+Encounter+Script
 
@@ -73,7 +73,7 @@ void ScriptInfoNPC()
 {
     INITIAL_STATE    
      {
-        ENTITY InfoNPC;
+        ENTITY InfoNPC = NULL;
         ScriptType scriptType = GetScriptType();
 
         if(scriptType == SCRIPT_ENCOUNTER)

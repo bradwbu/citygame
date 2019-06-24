@@ -1,9 +1,9 @@
 #include "groupjournal.h"
 #include <utilitieslib/utils/mathutil.h>
-#include "group.h"
+#include "group/group.h"
 #include <utilitieslib/utils/SuperAssert.h>
-#include "groupgrid.h"
-#include "grouptrack.h"
+#include "group/groupgrid.h"
+#include "group/grouptrack.h"
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/utils.h>
 

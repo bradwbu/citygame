@@ -6,7 +6,7 @@
 // Then we start spawning bad guys at regular intervals until the players have
 // repelled everybody.
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 // Parameters:
 //        STATUS_REACTOR

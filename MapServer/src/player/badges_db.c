@@ -6,21 +6,21 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/StringCache.h>
 #include <utilitieslib/components/estring.h>
-#include "teamCommon.h"
+#include "entity/teamCommon.h"
 #include <utilitieslib/utils/file.h>
 
 #include "container/dbcontainerpack.h"
-#include "entplayer.h"
-#include "entity.h"
+#include "entity/entplayer.h"
+#include "entity/entity.h"
 
-#include "badges.h"
+#include "player/badges.h"
 #include "badges_server.h"
 #include "BadgeStats.h"
 #include <utilitieslib/components/StashTable.h>
-#include "badgestats_db.h"
+#include "gameData/badgestats_db.h"
 
 #include <utilitieslib/utils/structDefines.h>
-#include "VillainDef.h"
+#include "gameComm/VillainDef.h"
 
 // --------------------
 // player

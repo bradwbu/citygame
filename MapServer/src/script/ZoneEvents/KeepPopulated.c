@@ -3,7 +3,7 @@
 // This is a location script that keeps a specified population in a zone
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 
 #define CLEANUP_PL            "PL_FleeToNearestDoor"

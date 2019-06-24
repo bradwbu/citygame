@@ -1,15 +1,15 @@
 #include <utilitieslib/utils/wininclude.h>
 #include <stdio.h>
 #include <utilitieslib/assert/assert.h>
-#include "entserver.h"
+#include "entity/entserver.h"
 #include "clientEntityLink.h"
-#include "entVarUpdate.h"
-#include "sendToClient.h"
-#include "position.h"
+#include "entity/entVarUpdate.h"
+#include "gameComm/sendToClient.h"
+#include "utils/position.h"
 #include "comm_game.h"
 #include "clientEntityLink.h"
-#include "svr_base.h"
-#include "entity.h"
+#include "svr/svr_base.h"
+#include "entity/entity.h"
 
 //
 // MS: ClientLink functions for accessing fields of ClientLink.

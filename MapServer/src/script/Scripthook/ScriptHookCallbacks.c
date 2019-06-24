@@ -11,27 +11,27 @@
  *
  */
 
-#include "script.h"
-#include "scriptengine.h"
-#include "scriptutil.h"
+#include "script/script.h"
+#include "script/scriptengine.h"
+#include "script/scriptutil.h"
 
-#include "storyarcprivate.h"
-#include "encounterprivate.h"
-#include "entai.h"
-#include "entaiScript.h"
-#include "entaivars.h"
-#include "entaiprivate.h"
-#include "svr_player.h"
-#include "entPlayer.h"
-#include "entgameactions.h"
-#include "character_base.h"
-#include "character_level.h"
-#include "character_target.h"
-#include "character_tick.h"
-#include "entity.h"
-#include "pnpcCommon.h"
+#include "storyarc/storyarcprivate.h"
+#include "generator/encounterprivate.h"
+#include "ai/entai.h"
+#include "ai/entaiScript.h"
+#include "ai/entaivars.h"
+#include "ai/entaiprivate.h"
+#include "svr/svr_player.h"
+#include "entity/entPlayer.h"
+#include "entity/entgameactions.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "entity/character_target.h"
+#include "entity/character_tick.h"
+#include "entity/entity.h"
+#include "storyarc/pnpcCommon.h"
 
-#include "scripthook/ScriptHookInternal.h"
+#include "script/scripthook/ScriptHookInternal.h"
 
 // *********************************************************************************
 //  Enter & exit map hooks

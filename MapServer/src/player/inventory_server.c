@@ -3,24 +3,24 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "character_base.h"
-#include "Auction.h"
+#include "entity/character_base.h"
+#include "auction/Auction.h"
 
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/utils.h>
-#include "entPlayer.h"
-#include "entity.h"
-#include "entserver.h"
+#include "entity/entPlayer.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/network/netio.h>
 #include <utilitieslib/utils/timing.h>
-#include "character_net.h"
+#include "entity/character_net.h"
 #include "inventory_server.h"
-#include "AccountData.h"
-#include "AccountCatalog.h"
+#include "account/AccountData.h"
+#include "account/AccountCatalog.h"
 #include <utilitieslib/utils/cmdoldparse.h>
-#include "cmdaccountserver.h"
-#include "cmdcommon_enum.h"
+#include "cmdparse/cmdaccountserver.h"
+#include "cmdparse/cmdcommon_enum.h"
 
 
 //------------------------------------------------------------

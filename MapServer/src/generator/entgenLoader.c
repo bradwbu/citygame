@@ -1,20 +1,20 @@
 #include "entgenLoader.h"
-#include "CommandFileParser.h"
-#include "HashTableStack.h"
+#include <utilitieslib/utils/CommandFileParser.h>
+#include <utilitieslib/components/HashTableStack.h>
 
-#include "group.h"
-#include "GroupProperties.h"
+#include "group/group.h"
+#include "group/GroupProperties.h"
 #include <utilitieslib/utils/SimpleParser.h>
 
 #include <string.h>
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/error.h>
 #include "missionMapInit.h"
-#include "storyarcinterface.h"
+#include "storyarc/storyarcinterface.h"
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/utils/FolderCache.h>
-#include "dbcomm.h"
+#include "dbcomm/dbcomm.h"
 
 #include <utilitieslib/utils/strings_opt.h>
 
@@ -899,8 +899,8 @@ void entgenDisableOrphanGenerators(int disable){
  * Generator Instanciation related stuff
  */
 #include "entgen.h"        // For randomizedGenerators
-#include "grouputil.h"    // For GroupDefTraverser
-#include "gridcoll.h"    // For collgrid() in snapGenToGround()
+#include "group/grouputil.h"    // For GroupDefTraverser
+#include "gridcoll/gridcoll.h"    // For collgrid() in snapGenToGround()
 
 //static Array spawnAreaStack;    // Holds all spawn areas that are currently being initialized.
 Array generators = {0, 0, 0};

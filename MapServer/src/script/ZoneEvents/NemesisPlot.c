@@ -2,7 +2,7 @@
 // This script runs the Nemesis Plot Event intended for the 8th Anniverary
 // Draws heavily from the Rikti Invastion script
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 #define NEMESIS_PLOT_GANG    9
 

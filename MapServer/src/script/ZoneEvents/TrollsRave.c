@@ -13,7 +13,7 @@
 //            BuffedTrolls    - Supatrolls running to riot location
 //            WanderTrolls    - SupaTrolls that have made it to the riot location
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 
 #define CLEANUP_BEHAVIOR    "RunIntoDoor"

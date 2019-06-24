@@ -3,7 +3,7 @@
 // This is a location script that runs controls the opening and closing of the Pocket D ski resort.
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 void TestCapeBugSpawn(NUMBER loc)
 {

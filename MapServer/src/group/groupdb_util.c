@@ -1,10 +1,10 @@
 #include <utilitieslib/assert/assert.h>
 #include <string.h>
-#include "group.h"
-#include "groupgrid.h"
-#include "grouptrack.h"
-#include "groupfilelib.h"
-#include "groupfileload.h"
+#include "group/group.h"
+#include "group/groupgrid.h"
+#include "group/grouptrack.h"
+#include "group/groupfilelib.h"
+#include "group/groupfileload.h"
 #include "groupdbmodify.h"
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/utils/error.h>
@@ -211,7 +211,7 @@ void groupTraySwap(char *selname,DefTracker **trackers,int count)
 {
     int            i,idx;
     GroupDef    *def;
-    DefTracker    *rootref;
+    DefTracker* rootref = NULL;
 
     printf("\nrename\n");
     for(i=0;i<count;i++)

@@ -3,7 +3,7 @@
 
 // Runs on supergroup bases during a raid - provides overall game control, and UI for the raid
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 #include <utilitieslib/utils/timing.h>
 
 #define DISRUPTER_PYLON_POWER "Auto Pets.Raid_Disruptor_Pylon_Create.Create"
@@ -170,20 +170,20 @@ void BaseRaidInit()
 // ************************************************************************************
 // hooks that are specific to base raiding - better to group them here
 
-#include "bases.h"
-#include "basesystems.h"
-#include "basedata.h"
+#include "bases/bases.h"
+#include "bases/basesystems.h"
+#include "bases/basedata.h"
 #include <utilitieslib/components/earray.h>
-#include "villaindef.h"
-#include "sgraid.h"
+#include "gameComm/villaindef.h"
+#include "gameSys/sgraid.h"
 #include <utilitieslib/utils/error.h>
-#include "entai.h"
-#include "entity.h"
-#include "entserver.h"
-#include "scriptengine.h"
-#include "dooranimcommon.h"
-#include "svr_player.h"
-#include "raidmapserver.h"
+#include "ai/entai.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
+#include "script/scriptengine.h"
+#include "gameComm/dooranimcommon.h"
+#include "svr/svr_player.h"
+#include "gameSys/raidmapserver.h"
 
 NUMBER NumActiveAnchors(void)
 {

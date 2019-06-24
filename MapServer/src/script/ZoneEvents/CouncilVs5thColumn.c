@@ -3,7 +3,7 @@
 // This is an encounter script that runs the Ghostship through Independence Port
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 static void showState( void )
 {

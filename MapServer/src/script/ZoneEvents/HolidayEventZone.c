@@ -6,14 +6,14 @@
 
 // Notes - Crystal locations are Crystal_01 thru Crystal_06
 
-#include "scriptutil.h"
-#include "scriptengine.h"
-#include "gridcoll.h"
-#include "encounterprivate.h"
+#include "script/scriptutil.h"
+#include "script/scriptengine.h"
+#include "gridcoll/gridcoll.h"
+#include "generator/encounterprivate.h"
 #include <utilitieslib/utils/file.h>
 #include "holidayevent.h"
 #include <utilitieslib/utils/SuperAssert.h>
-#include "dbcontainer.h"
+#include "dbcomm/dbcontainer.h"
 
 #define    LORD_WINTERS_TEAM                "LordWintersTeam"
 #define    WINTER_LORDS_TEAM                "WinterLordsTeam"

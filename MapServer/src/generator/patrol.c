@@ -14,9 +14,9 @@
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/error.h>
-#include "group.h"
-#include "groupProperties.h"
-#include "groupnetsend.h"
+#include "group/group.h"
+#include "group/groupProperties.h"
+#include "group/groupnetsend.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/components/StashTable.h>

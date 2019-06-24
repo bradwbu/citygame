@@ -1,6 +1,6 @@
 // Encounter Script
 //
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 enum {
     COV_WARBURGSCIENTIST_PAGE_HELLO = 1,

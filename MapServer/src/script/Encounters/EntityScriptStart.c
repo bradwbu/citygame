@@ -1,5 +1,5 @@
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 extern void ScriptError(char* s, ...);
 
 void EntityScriptStart()

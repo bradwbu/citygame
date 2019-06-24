@@ -1,7 +1,7 @@
 // ZONE SCRIPT
 //
-#include "scriptutil.h"
-#include "storyarcutil.h"
+#include "script/scriptutil.h"
+#include "storyarc/storyarcutil.h"
 
 // Used for testing new features of the script system
 
@@ -723,7 +723,7 @@ void CoVSirensCallHunterGameAddToList(StringArray *list, ENTITY player)
 
 ENTITY CoVSirensCallHunterGameGetAndMoveToBottomOfList(NUMBER listType)
 {
-    StringArray *list; 
+    StringArray *list = NULL; 
     STRING retval;
     char *pEntString;
     int size;
@@ -796,7 +796,7 @@ ENTITY CoVSirensCallHunterGameRemoveFromList(StringArray *list, ENTITY player)
 {
     int idx = StringArrayFind(*list, player);
     char *pEntString = NULL;
-    STRING retval;
+    STRING retval = NULL;
 
     if (idx != -1)
     {    

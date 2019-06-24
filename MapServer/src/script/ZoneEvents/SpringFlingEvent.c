@@ -1,7 +1,7 @@
 // ZONE SCRIPT
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 void SpawnContact( STRING layout, STRING spawn, STRING def )
 {

@@ -3,7 +3,7 @@
 
 // Used for testing new features of the script system
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 #include <utilitieslib/utils/timing.h>
 
 #define COV_WARBURG_LAUNCHB_IMAGES "sp_icon_code_full.tga"
@@ -51,7 +51,7 @@ ENTITY CoVWarburgFootballRemoveFromList(StringArray *list, ENTITY player)
 {
     int idx = StringArrayFind(*list, player);
     char *pEntString = NULL;
-    STRING retval;
+    STRING retval = NULL;
 
     if (idx != -1)
     {    

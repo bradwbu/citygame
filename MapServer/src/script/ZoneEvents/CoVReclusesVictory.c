@@ -3,7 +3,7 @@
 
 // Script for the zone capture game in ReclusesVictory
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 
 #define COV_RECLUSES_VICTORY_BUNKER_H_WPICON        "map_button_HeroPillbox"

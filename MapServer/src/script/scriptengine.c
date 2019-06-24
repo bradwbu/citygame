@@ -11,14 +11,14 @@
 #include "scriptengine.h"
 #include <utilitieslib/components/MemoryPool.h>
 #include <utilitieslib/utils/error.h>
-#include "storyarcprivate.h"
-#include "dbcomm.h"
-#include "staticMapInfo.h"
-#include "mapgroup.h"
-#include "entity.h"
+#include "storyarc/storyarcprivate.h"
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/staticMapInfo.h"
+#include "container/mapgroup.h"
+#include "entity/entity.h"
 #include <utilitieslib/utils/FolderCache.h>
 #include <utilitieslib/utils/fileutil.h>
-#include "logcomm.h"
+#include "dbcomm/logcomm.h"
 
 int    g_scriptCombatLevel = 0;
 int    g_scriptMinCombatLevel = 0;

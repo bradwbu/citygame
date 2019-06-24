@@ -3,7 +3,7 @@
 // This script runs the Zombie Apocalypse Event.
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 #define CLEANUP_PL        "DoNotGoToSleep, DoNothing(Untargetable,AnimList(Dismiss),Timer(2)), DestroyMe"
 #define KILL_PL            "DestroyMe"

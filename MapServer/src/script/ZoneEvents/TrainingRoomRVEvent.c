@@ -2,7 +2,7 @@
 //
 
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 static GLOWIEDEF TrainingRoomRVEventPresent = NULL;
 static int *TrainingRoomRVEventLocationUsed = NULL;

@@ -1,15 +1,16 @@
+#include <utilitieslib/stdtypes.h>
 #include "ScriptedZoneEventKarma.h"
 #include <utilitieslib/components/earray.h>
-#include "entity.h"
+#include "entity/entity.h"
 #include <utilitieslib/utils/SuperAssert.h>
-#include "character_karma.h"
-#include "scriptengine.h"
-#include "scripthook/ScriptHookInternal.h"
+#include "entity/character_karma.h"
+#include "script/scriptengine.h"
+#include "script/scripthook/ScriptHookInternal.h"
 #include <utilitieslib/language/MessageStoreUtil.h>
 #include "container/containerEventHistory.h"
-#include "EventHistory.h"
+#include "container/EventHistory.h"
 #include "ScriptedZoneEvent.h"
-#include "powers.h"
+#include "entity/powers.h"
 
 static ScriptKarmaBucketList **s_scriptKarmaBucketList = NULL;
 

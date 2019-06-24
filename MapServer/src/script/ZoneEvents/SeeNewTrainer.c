@@ -1,4 +1,4 @@
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 int SeeNewTrainerOnEnterMap(ENTITY player)
 {

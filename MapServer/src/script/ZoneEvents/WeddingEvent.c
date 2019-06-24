@@ -3,7 +3,7 @@
 
 // Used for testing new features of the script system
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 
 static void SpawnPowerSup()

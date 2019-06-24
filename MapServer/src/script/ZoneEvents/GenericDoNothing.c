@@ -2,7 +2,7 @@
 //
 // The generic do nothing script is pretty simple.  It does nothing.
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

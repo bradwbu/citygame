@@ -3,7 +3,7 @@
 // This is a location script that runs the Snake Pit event
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 #define CLEANUP_PL                            "PL_FleeToNearestDoor"
 #define COV_SNAKEPIT_MOVETO_VARIANCE        10.0f

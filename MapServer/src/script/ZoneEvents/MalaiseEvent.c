@@ -15,13 +15,13 @@
 //        1.) at what health does he teleport
 //        2.) where does he teleport each player
 
-#include "scriptutil.h"
-#include "scriptengine.h"
-#include "entity.h"
-#include "mission.h"
-#include "Scripthook\ScriptHookInternal.h"
-#include "entaiprivate.h"
-#include "character_tick.h"
+#include "script/scriptutil.h"
+#include "script/scriptengine.h"
+#include "entity/entity.h"
+#include "storyarc/mission.h"
+#include "script/Scripthook/ScriptHookInternal.h"
+#include "ai/entaiprivate.h"
+#include "entity/character_tick.h"
 #include <utilitieslib/utils/Quat.h>
 
 #define MAX_MID_POINTS 5

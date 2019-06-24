@@ -1,9 +1,9 @@
-#include "../../../3rdparty/lua-5.1.5/src/lua.h"
-#include "../../../3rdparty/lua-5.1.5/src/lualib.h"
-#include "../../../3rdparty/lua-5.1.5/src/lauxlib.h"
+#include <lua/lua.h>
+#include <lua/lualib.h>
+#include <lua/lauxlib.h>
 
 #include "ScriptLuaGlowie.h"
-#include "script.h"
+#include "script/script.h"
 
 //GLOWIEDEF GlowieCreateDef(STRING name, STRING model, STRING InteractBeginString, STRING InteractInterruptedString,
 //                                STRING InteractCompleteString, STRING InteractActionString, NUMBER delay);

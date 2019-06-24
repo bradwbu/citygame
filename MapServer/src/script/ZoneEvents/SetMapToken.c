@@ -2,7 +2,7 @@
 //
 // This script will set a map token when it starts and then remove it when it shuts down.
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

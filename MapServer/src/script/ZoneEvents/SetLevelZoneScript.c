@@ -3,7 +3,7 @@
 
 // Sets level of all players in zone
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 void SetLevelZoneScriptShutdown(void)
 {

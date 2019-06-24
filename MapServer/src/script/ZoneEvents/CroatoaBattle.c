@@ -3,7 +3,7 @@
 // This is a location script for Croatoa for the Battle between the Red Caps and Cabal
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 static void CroatoaBattleSpawnAttackSquads( const char *spawndef, const char *spawnlayout)
 {

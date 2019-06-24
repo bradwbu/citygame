@@ -8,8 +8,7 @@
 //
 
 #include <utilitieslib/utils/utils.h>
-
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 // Parameters:
 //        STATUS_REACTOR

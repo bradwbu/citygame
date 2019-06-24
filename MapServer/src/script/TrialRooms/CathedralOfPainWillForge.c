@@ -1,7 +1,7 @@
 // MISSION SCRIPT
 // Encounter Script
 //
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 void CathedralOfPainWillForge(void)
 {  

@@ -11,31 +11,31 @@
  *
  */
 
-#include "script.h"
-#include "scriptengine.h"
-#include "scriptutil.h"
+#include "script/script.h"
+#include "script/scriptengine.h"
+#include "script/scriptutil.h"
 
-#include "cmdserver.h"
-#include "storyarcprivate.h"
-#include "encounterprivate.h"
-#include "entai.h"
-#include "entaiLog.h"
-#include "entaiScript.h"
-#include "entaivars.h"
-#include "entaiprivate.h"
-#include "svr_player.h"
-#include "entPlayer.h"
-#include "entgameactions.h"
-#include "character_base.h"
-#include "character_level.h"
-#include "character_target.h"
-#include "character_tick.h"
-#include "entity.h"
-#include "group.h"
-#include "motion.h"
+#include "cmdparse/cmdserver.h"
+#include "storyarc/storyarcprivate.h"
+#include "generator/encounterprivate.h"
+#include "ai/entai.h"
+#include "ai/entaiLog.h"
+#include "ai/entaiScript.h"
+#include "ai/entaivars.h"
+#include "ai/entaiprivate.h"
+#include "svr/svr_player.h"
+#include "entity/entPlayer.h"
+#include "entity/entgameactions.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "entity/character_target.h"
+#include "entity/character_tick.h"
+#include "entity/entity.h"
+#include "group/group.h"
+#include "entity/motion.h"
 
-#include "scripthook/ScriptHookInternal.h"
-#include "PCC_Critter.h"
+#include "script/scripthook/ScriptHookInternal.h"
+#include "entity/PCC_Critter.h"
 
 //Internal Functions
 void ReserveEncounterInternal(EncounterGroup* group);
@@ -424,7 +424,7 @@ int ScriptGetEncounter(EncounterGroup* group, Entity* player)
 // if a specific group isn't given as encounter.
 LOCATION Spawn(int num, TEAM teamName, STRING spawnfile, ENCOUNTERGROUP encounter, STRING layout, int level, int size)
 { 
-    EncounterGroup* group;
+    EncounterGroup* group = NULL;
     const SpawnDef* spawndef;
     int i;
     int tempSpawnType = false;

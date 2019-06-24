@@ -3,7 +3,7 @@
 // This is a location script that runs controls the sound effects for the monkey fight in Pocket D
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 static int gPocketDMonkeyFightRunning = 0;
  

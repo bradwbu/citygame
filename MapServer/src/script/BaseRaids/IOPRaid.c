@@ -2,25 +2,25 @@
 //
 // Runs the main IOP SG base raid
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 #include <utilitieslib/utils/timing.h>
-#include "bases.h"
-#include "basesystems.h"
-#include "basedata.h"
+#include "bases/bases.h"
+#include "bases/basesystems.h"
+#include "bases/basedata.h"
 #include <utilitieslib/components/earray.h>
-#include "villaindef.h"
-#include "sgraid.h"
+#include "gameComm/villaindef.h"
+#include "gameSys/sgraid.h"
 #include <utilitieslib/utils/error.h>
-#include "entai.h"
-#include "entity.h"
-#include "entserver.h"
-#include "entaiscript.h"
-#include "scriptengine.h"
-#include "dooranimcommon.h"
-#include "svr_player.h"
-#include "raidmapserver.h"
-#include "character_target.h"
-#include "sgraid_V2.h"
+#include "ai/entai.h"
+#include "entity/entity.h"
+#include "entity/entserver.h"
+#include "ai/entaiscript.h"
+#include "script/scriptengine.h"
+#include "gameComm/dooranimcommon.h"
+#include "svr/svr_player.h"
+#include "gameSys/raidmapserver.h"
+#include "entity/character_target.h"
+#include "gameSys/sgraid_V2.h"
 
 #define INITIAL_WAIT_DELAY    1.0        /* time in minutes for everyone to connect*/
 #define WRAPUP_DELAY        1.0        /* time in minutes at end */
@@ -109,7 +109,7 @@ static void deactivateRedGlowies()
 
 static void SetBlueFlagState(int state)
 {
-    char *statestr;
+    char *statestr = NULL;
 
     switch (state)
     {
@@ -134,7 +134,7 @@ static void SetBlueFlagState(int state)
 
 static void SetRedFlagState(int state)
 {
-    char *statestr;
+    char *statestr = NULL;
 
     switch (state)
     {

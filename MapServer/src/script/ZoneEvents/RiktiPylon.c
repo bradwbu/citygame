@@ -3,7 +3,7 @@
 // This script runs the Rikti Warzone Pylon Game.
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 int *eaRiktiPylonMarkers = NULL;
 int *eaRiktiPylonRespawn = NULL;

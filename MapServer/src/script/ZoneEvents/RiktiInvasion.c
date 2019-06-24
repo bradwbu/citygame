@@ -3,7 +3,7 @@
 // This script runs the Rikti Invasion Event.
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 #define CLEANUP_PL        "DoNotGoToSleep, RiktiTroopLeave"
 #define KILL_PL            "DestroyMe"

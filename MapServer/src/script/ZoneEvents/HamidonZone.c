@@ -3,7 +3,7 @@
 // This is a location script that runs the Snake Pit event
 //
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 #define CLEANUP_PL                            "RunIntoDoor(Timer(60),CombatOverride(Passive)),DestroyMe"
 #define KILL_PL                                "DestroyMe"

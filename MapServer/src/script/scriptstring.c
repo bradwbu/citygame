@@ -18,9 +18,9 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/mathutil.h>
 #include "limits.h"
-#include "contact.h"
+#include "storyarc/contact.h"
 #include <utilitieslib/language/MessageStoreUtil.h>
-#include "storyarcutil.h"
+#include "storyarc/storyarcutil.h"
 #include <utilitieslib/components/HashFunctions.h>
 
 Entity* EntTeamInternal(TEAM team, int index, int* num);

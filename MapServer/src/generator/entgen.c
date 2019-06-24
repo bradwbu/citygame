@@ -5,37 +5,37 @@
 
 #include "entgen.h"
 #include <utilitieslib/components/ArrayOld.h>
-#include "grouputil.h"
-#include "position.h"
+#include "group/grouputil.h"
+#include "utils/position.h"
 #include <utilitieslib/components/StashTable.h>
 
-#include "HashTableStack.h"
-#include "gridcoll.h"
+#include <utilitieslib/components/HashTableStack.h>
+#include "gridcoll/gridcoll.h"
 #include <utilitieslib/components/MemoryPool.h>
 #include "entgenLoader.h"
 #include "missionMapInit.h"
-#include "cmdserver.h"
-#include "entserver.h"
-#include "entsend.h"
-#include "entai.h"
-#include "NpcServer.h"
-#include "villainDef.h"
+#include "cmdparse/cmdserver.h"
+#include "entity/entserver.h"
+#include "entity/entsend.h"
+#include "ai/entai.h"
+#include "gameComm/NpcServer.h"
+#include "gameComm/villainDef.h"
 #include <utilitieslib/utils/error.h>
-#include "svr_player.h"
-#include "motion.h"
-#include "netfx.h"
+#include "svr/svr_player.h"
+#include "entity/motion.h"
+#include "entity/netfx.h"
 #include <utilitieslib/language/AppLocale.h>
 
 // lf stuff
 #include "string.h"
-#include "combat.h"
-#include "entVarUpdate.h"
-#include "entserver.h"
+#include "combat/combat.h"
+#include "entity/entVarUpdate.h"
+#include "entity/entserver.h"
 #include <utilitieslib/components/StringCache.h>
 #include "varutils.h"
-#include "seq.h"
-#include "entity.h"
-#include "ragdoll.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "entity/ragdoll.h"
 
 Array randomizedGenerators = {0, 0, 0}; // An array that holds all generators, but in randomized order
 static int generatorsPaused = 0;
@@ -104,7 +104,7 @@ Pair* pickPercentageWeightedPair(Array* pairs){
         return pairs->storage[randomRoll];
     }else{
         int i;
-        Pair* pickedPair;
+        Pair* pickedPair = NULL;
 
         // Picking a pair at weighted rates.
         randomRoll = randInt(100);

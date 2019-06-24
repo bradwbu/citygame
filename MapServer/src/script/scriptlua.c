@@ -4,26 +4,26 @@
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/utils/timing.h>
 
-#include "../../3rdparty/lua-5.1.5/src/lua.h"
-#include "../../3rdparty/lua-5.1.5/src/lualib.h"
-#include "../../3rdparty/lua-5.1.5/src/lauxlib.h"
+#include <lua/lua.h>
+#include <lua/lualib.h>
+#include <lua/lauxlib.h>
 
-#include "ScriptLuaCommon.h"
-#include "ScriptLuaAI.h"
-#include "ScriptLuaCallback.h"
-#include "ScriptLuaEncounter.h"
-#include "ScriptLuaEntity.h"
-#include "ScriptLuaGlowie.h"
-#include "ScriptLuaKarma.h"
-#include "ScriptLuaLocation.h"
-#include "ScriptLuaMessage.h"
-#include "ScriptLuaMission.h"
-#include "ScriptLuaReward.h"
-#include "ScriptLuaScript.h"
-#include "ScriptLuaTeam.h"
-#include "ScriptLuaUI.h"
-#include "ScriptLuaVar.h"
-#include "ScriptLuaWaypoint.h"
+#include "script/LuaLibs/ScriptLuaCommon.h"
+#include "script/LuaLibs/ScriptLuaAI.h"
+#include "script/LuaLibs/ScriptLuaCallback.h"
+#include "script/LuaLibs/ScriptLuaEncounter.h"
+#include "script/LuaLibs/ScriptLuaEntity.h"
+#include "script/LuaLibs/ScriptLuaGlowie.h"
+#include "script/LuaLibs/ScriptLuaKarma.h"
+#include "script/LuaLibs/ScriptLuaLocation.h"
+#include "script/LuaLibs/ScriptLuaMessage.h"
+#include "script/LuaLibs/ScriptLuaMission.h"
+#include "script/LuaLibs/ScriptLuaReward.h"
+#include "script/LuaLibs/ScriptLuaScript.h"
+#include "script/LuaLibs/ScriptLuaTeam.h"
+#include "script/LuaLibs/ScriptLuaUI.h"
+#include "script/LuaLibs/ScriptLuaVar.h"
+#include "script/LuaLibs/ScriptLuaWaypoint.h"
 
 typedef struct LuaLibrary
 {

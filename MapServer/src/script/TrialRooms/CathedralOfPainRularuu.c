@@ -1,10 +1,10 @@
 // MISSION SCRIPT
 // Encounter Script
 //
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
-#include "entity.h"
-#include "character_combat.h"
+#include "entity/entity.h"
+#include "entity/character_combat.h"
 Entity* EntTeamInternal(TEAM team, int index, int* num);
 
 

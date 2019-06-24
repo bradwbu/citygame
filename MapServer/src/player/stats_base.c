@@ -10,9 +10,9 @@
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/utils/utils.h>
 
-#include "staticMapInfo.h"
-#include "villainDef.h"
-#include "dbcomm.h"
+#include "dbcomm/staticMapInfo.h"
+#include "gameComm/villainDef.h"
+#include "dbcomm/dbcomm.h"
 
 #include "stats_base.h"
 #include "pl_stats_internal.h"

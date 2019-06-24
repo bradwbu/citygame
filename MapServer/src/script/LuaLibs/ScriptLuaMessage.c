@@ -1,11 +1,11 @@
-#include "../../../3rdparty/lua-5.1.5/src/lua.h"
-#include "../../../3rdparty/lua-5.1.5/src/lualib.h"
-#include "../../../3rdparty/lua-5.1.5/src/lauxlib.h"
+#include <lua/lua.h>
+#include <lua/lualib.h>
+#include <lua/lauxlib.h>
 
 #include "ScriptLuaMessage.h"
-#include "script.h"
+#include "script/script.h"
 #include "ScriptLuaCommon.h"
-#include "svr_chat.h"
+#include "gameComm/svr_chat.h"
 
 //void chatSendDebug( const char * msg )
 static int l_DebugPrint (lua_State *L) {

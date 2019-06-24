@@ -1,5 +1,5 @@
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 // Documentation at: http://ncncsvn01:8081/display/coh/Encounter+Alert+Script
 

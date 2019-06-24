@@ -3,11 +3,11 @@
 // This script runs the Deadly Apocalypse Halloween 2009 Event.
 //
 
-#include "scriptutil.h"
-#include "scriptengine.h"
+#include "script/scriptutil.h"
+#include "script/scriptengine.h"
 #include <utilitieslib/utils/file.h>
-#include "gridcoll.h"
-#include "svr_chat.h"
+#include "gridcoll/gridcoll.h"
+#include "gameComm/svr_chat.h"
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/assert/assert.h>
 

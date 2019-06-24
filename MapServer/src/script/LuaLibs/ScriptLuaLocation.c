@@ -1,11 +1,11 @@
-#include "../../../3rdparty/lua-5.1.5/src/lua.h"
-#include "../../../3rdparty/lua-5.1.5/src/lualib.h"
-#include "../../../3rdparty/lua-5.1.5/src/lauxlib.h"
+#include <lua/lua.h>
+#include <lua/lualib.h>
+#include <lua/lauxlib.h>
 
 #include "ScriptLuaLocation.h"
-#include "script.h"
+#include "script/script.h"
 #include "ScriptLuaCommon.h"
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 //int EntityInArea(ENTITY ent, AREA area)
 static int l_EntityInArea (lua_State *L) {

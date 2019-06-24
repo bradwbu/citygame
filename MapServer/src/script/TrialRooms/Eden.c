@@ -3,7 +3,7 @@
 // This script runs the overall situation in Eden 
 // All it does is change the mission objective strings
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 void EdenMission(void)
 {

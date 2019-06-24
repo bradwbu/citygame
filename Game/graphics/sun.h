@@ -1,9 +1,9 @@
 #ifndef _SUN_H
 #define _SUN_H
 
-#include "mathutil.h"
-#include "model.h"
-#include "groupscene.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/model.h"
+#include "group/groupscene.h"
 
 #define SUN_INITIALIZE	1
 

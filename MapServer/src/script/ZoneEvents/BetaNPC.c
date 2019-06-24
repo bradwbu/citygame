@@ -1,5 +1,5 @@
 
-#include "scriptutil.h"
+#include "script/scriptutil.h"
 
 
 int BetaNPCOnClick(ENTITY player, ENTITY target, NUMBER link, ContactResponse* response)
