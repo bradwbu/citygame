@@ -26,7 +26,7 @@ static int groupPieceInThisLib(GroupDef *def,GroupFile *file,const char *libdir)
 {
     int        len;
 
-    len = strlen(libdir);
+    len = (int)strlen(libdir);
     if (strcmp(libdir,"grp")==0)
     {
         if (!groupInLib(def))

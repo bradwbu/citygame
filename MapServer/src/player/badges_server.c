@@ -877,7 +877,7 @@ void badge_UpdateBadgesCollection(Entity *e)
             {
                 if(BADGE_IS_OWNED(iBadge))
                 {
-                    eval_StoreInt(s_pBadgeEval, "Entity", (int)e);
+                    eval_StoreInt(s_pBadgeEval, "Entity", (int)(intptr_t)e);
                     eval_ClearStack(s_pBadgeEval);
 
                     if(badge->ppchRevoke
@@ -890,7 +890,7 @@ void badge_UpdateBadgesCollection(Entity *e)
                 // Not an else since the last part might have changed OWNED.
                 if(!BADGE_IS_OWNED(iBadge))
                 {
-                    eval_StoreInt(s_pBadgeEval, "Entity", (int)e);
+                    eval_StoreInt(s_pBadgeEval, "Entity", (int)(intptr_t)e);
                     eval_ClearStack(s_pBadgeEval);
 
                     if(BitFieldGet(e->pl->aiBadgesOwned, BADGE_ENT_BITFIELD_SIZE, iBadgeIdx))

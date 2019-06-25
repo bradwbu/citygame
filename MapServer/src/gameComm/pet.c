@@ -72,7 +72,7 @@ static void PetSays(Entity *owner, Entity *pet, unsigned int offString, const ch
     if(!pet || !pet->villainDef || !pet->villainDef->petCommandStrings)
         return;
 
-    messages = (char ***)(((int)pet->villainDef->petCommandStrings[0])+offString);
+    messages = (char***)(((intptr_t)pet->villainDef->petCommandStrings[0]) + offString);
     i = eaSize(messages);
     if(i>0)
     {

@@ -50,18 +50,18 @@ static void processGridEntries(GridCell *cell,GridEntryState *state)
         {
             for(i=0;i<ARRAY_SIZE(ents->entries);i++)
             {
-                node = (void *)ents->entries[i];
+                node = (void*)(uintptr_t)ents->entries[i];
                 if (!node)
                     continue;
 
-                if (((U32) node) & 1)
+                if (((uintptr_t)node) & 1)
                 {
                     group_opened = 1;
-                    groupUnpackGrid(state->grid,(DefTracker*)(((U32) node) & ~1));
+                    groupUnpackGrid(state->grid,(DefTracker*)(((uintptr_t) node) & ~1));
                     break;
                 }
 
-                t = ((U32)node) >> 1;
+                t = ((uintptr_t)node) >> 1;
                 if (t < 100000)
                 {
                     if (t >= tag_max)
@@ -77,7 +77,7 @@ static void processGridEntries(GridCell *cell,GridEntryState *state)
                 else
                 {
                     TagEnt        *tagp;
-                    tagp = &tag_cache[( (((U32)node) >> 3) & (ARRAY_SIZE(tag_cache)-1) )];
+                    tagp = &tag_cache[( (((uintptr_t)node) >> 3) & (ARRAY_SIZE(tag_cache)-1) )];
                     if ( (tagp->node[0] == node && tagp->tag[0] == tag)
                         || (tagp->node[1] == node && tagp->tag[1] == tag) )
                         continue;

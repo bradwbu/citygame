@@ -24,7 +24,7 @@ char const* dbg_AttribName(size_t offset, char const* pchOrig)
         && offset<offsetof(CharacterAttributes, fHitPoints))
     {
         // TODO; Add lookup
-        int i = (offset-offsetof(CharacterAttributes, fDamageType))/sizeof(float);
+        int i = (int)((offset - offsetof(CharacterAttributes, fDamageType)) / sizeof(float));
         if(i>=0 && i<eaSize(&g_AttribNames.ppDamage))
         {
             return g_AttribNames.ppDamage[i]->pchName;
@@ -34,7 +34,7 @@ char const* dbg_AttribName(size_t offset, char const* pchOrig)
         && offset<offsetof(CharacterAttributes, fDefense))
     {
         // TODO; Add lookup
-        int i = (offset-offsetof(CharacterAttributes, fDefenseType))/sizeof(float);
+        int i = (int)((offset - offsetof(CharacterAttributes, fDefenseType)) / sizeof(float));
         if(i>=0 && i<eaSize(&g_AttribNames.ppDefense))
         {
             return g_AttribNames.ppDefense[i]->pchName;
@@ -44,7 +44,7 @@ char const* dbg_AttribName(size_t offset, char const* pchOrig)
         && offset<offsetof(CharacterAttributes, fElusivityBase))
     {
         // TODO; Add lookup
-        int i = (offset-offsetof(CharacterAttributes, fElusivity))/sizeof(float);
+        int i = (int)((offset - offsetof(CharacterAttributes, fElusivity)) / sizeof(float));
         if(i>=0 && i<eaSize(&g_AttribNames.ppElusivity))
         {
             return g_AttribNames.ppElusivity[i]->pchName;

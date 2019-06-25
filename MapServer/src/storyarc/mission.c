@@ -65,7 +65,7 @@ char* MissionConstructInfoString(int owner, int sgowner, int taskforce, ContactH
 int MissionDeconstructInfoString(char* str, int* owner, int* sgowner, int* taskforce, ContactHandle* contact, StoryTaskHandle *sahandle,
                                  U32* seed,  int* level, StoryDifficulty *pDifficulty, U32* completeSideObjectives, EncounterAlliance* encAlly, VillainGroupEnum* villainGroup)
 {
-    return 17 == sscanf(str, "%i:%i:%i:%i:%i:%i:%i:%hhi:%i:%i:%i:%i:%i:%i:%i:%i:%i", owner, sgowner, taskforce, contact, &sahandle->context, &sahandle->subhandle, &sahandle->compoundPos, &sahandle->bPlayerCreated, 
+    return 17 == sscanf(str, "%i:%i:%i:%Ii:%Ii:%i:%i:%hhi:%i:%i:%i:%i:%i:%i:%i:%i:%i", owner, sgowner, taskforce, contact, &sahandle->context, &sahandle->subhandle, &sahandle->compoundPos, &sahandle->bPlayerCreated, 
         seed, level, &pDifficulty->levelAdjust, &pDifficulty->teamSize, &pDifficulty->dontReduceBoss, &pDifficulty->alwaysAV, completeSideObjectives, encAlly, villainGroup);
 }
 

@@ -664,7 +664,7 @@ static const char* ContactTaskConstructStatusInternal(StoryTaskInfo* task, Entit
                 {
                     ScriptVarsTablePushVar(&vars, "token", "0");
                 } else {
-                    ScriptVarsTablePushVarEx(&vars, "token", (char *) count, 'I', 0);
+                    ScriptVarsTablePushVarEx(&vars, "token", (char*)(intptr_t)count, 'I', 0);
                 }
 
                 // Display 

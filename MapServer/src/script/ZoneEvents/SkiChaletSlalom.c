@@ -191,7 +191,7 @@ void SkiChaletSlalomPlayerEntersVolume(ENTITY player, STRING name)
     if (VarIsEmpty("RaceNameKey"))
         return;
 
-    len = strlen(VarGet("RaceNameKey"));
+    len = (int)strlen(VarGet("RaceNameKey"));
     if (!strnicmp(name, VarGet("RaceNameKey"), len))
     {
         const char *sNumber = &(name[len]);

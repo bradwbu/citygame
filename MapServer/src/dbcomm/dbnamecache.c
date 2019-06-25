@@ -46,7 +46,7 @@ void dbAddToNameTables(const char *name, int db_id, Gender gender, Gender name_g
     if (!stashIntFindPointer(db_id_hashes, db_id, &oldstring))
         oldstring = NULL;
     
-    len = strlen(name);
+    len = (int)strlen(name);
 
     newstring = calloc(1, len+7);
     strcpy(newstring,name);
@@ -270,7 +270,7 @@ int dbPraetorianProgressFromId(int db_id)
 
 static char *trim(char *pch)
 {
-    int len = strlen(pch);
+    int len = (int)strlen(pch);
 
     // Get rid of leading spaces, inefficiently
     while(*pch==' ')

@@ -54,7 +54,7 @@ char* MissionConstructIdString(int owner, StoryTaskHandle *sahandle)
 
 int MissionDeconstructIdString(const char* str, int* owner, StoryTaskHandle* sahandle)
 {
-    return sscanf(str, "%i:%i:%i:%i", owner, &sahandle->context, &sahandle->subhandle, &sahandle->compoundPos) == 4;
+    return sscanf(str, "%i:%Ii:%i:%i", owner, &sahandle->context, &sahandle->subhandle, &sahandle->compoundPos) == 4;
 }
 
 // this player has logged into the map, record his teamup id for future use
@@ -110,7 +110,7 @@ char* MissionConstructObjectiveString(int owner, StoryTaskHandle *sahandle, int 
 }
 int MissionDeconstructObjectiveString(char* str, int* owner, StoryTaskHandle *sahandle, int* objnum, int* success)
 {
-    return sscanf(str, "%i,%i,%i,%i,%i,%i", owner, &sahandle->context,  &sahandle->subhandle, &sahandle->compoundPos, objnum, success);
+    return sscanf(str, "%i,%Ii,%i,%i,%i,%i", owner, &sahandle->context,  &sahandle->subhandle, &sahandle->compoundPos, objnum, success);
 }
 
 // send information on a completed objective to team and global info
@@ -407,6 +407,7 @@ int CheckMissionMap(int map_id, int owner, int sgowner, int taskforce, StoryTask
 {
     int mowner, msgowner, mtaskforce, dontcare;
     U32 udontcare;
+    ContactHandle unused = 0;
     VillainGroupEnum villainGroup;
     ContainerStatus c_list[1];
     EncounterAlliance encAlly;
@@ -417,7 +418,7 @@ int CheckMissionMap(int map_id, int owner, int sgowner, int taskforce, StoryTask
     if (!c_list[0].valid) 
         return 0;
 
-    if (!MissionDeconstructInfoString(c_list[0].mission_info, &mowner, &msgowner, &mtaskforce, &dontcare, &mhandle, 
+    if (!MissionDeconstructInfoString(c_list[0].mission_info, &mowner, &msgowner, &mtaskforce, &unused, &mhandle,
         &udontcare, &dontcare, &doesntMatter, &dontcare, &encAlly, &villainGroup))
         return 0;
     if (ready) *ready = c_list[0].ready;
@@ -768,7 +769,7 @@ static int miapr_success = 0;
 // find the highest tick number
 static int highTicks(StashElement el)
 {
-    int ticks = (int)stashElementGetPointer(el);
+    int ticks = (int)(intptr_t)stashElementGetPointer(el);
     if (ticks > miapr_highticks) 
         miapr_highticks = ticks;
     return 1;
@@ -785,7 +786,7 @@ static int eachActivePlayer(StashElement el)
     if (!db_id) 
         return 1;
 
-    ticks = (int)stashElementGetPointer(el);
+    ticks = (int)(intptr_t)stashElementGetPointer(el);
     percent = 100.0 * (F32)ticks / (F32)miapr_highticks;
     if (percent >= MISSION_HELPER_REQUIREMENT || g_activemission->taskforceId)
     {
@@ -1023,7 +1024,7 @@ static int eachActivePlayerSpecific(StashElement el)
     if (!db_id) 
         return 1;
 
-    ticks = (int)stashElementGetPointer(el);
+    ticks = (int)(intptr_t)stashElementGetPointer(el);
     percent = 100.0 * (F32)ticks / (F32)miapr_highticks;
     if (percent >= MISSION_HELPER_REQUIREMENT || g_activemission->taskforceId)
     {

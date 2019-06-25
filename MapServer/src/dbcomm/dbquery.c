@@ -446,7 +446,10 @@ char *dbQuery(char *query_cmd)
         static PerformanceInfo* perfInfo;
 
         pak = pktCreateEx(&db_comm_link,DBCLIENT_REQ_CONTAINER_STATUS);
-        pktSendBitsPack(pak,1,(U32)dbQueryReceiveStatus);
+#if defined(_M_X64)
+        #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+#endif
+        pktSendBitsPack(pak,1,(U32)(uintptr_t)dbQueryReceiveStatus);
         pktSendBitsPack(pak,1,list_id);
         pktSendBitsPack(pak,1,1);
         pktSendBitsPack(pak,1,container_id);
@@ -662,7 +665,10 @@ int dbQueryOnline(int list_id,int container_id)
     Packet    *pak;
 
     pak = pktCreateEx(&db_comm_link,DBCLIENT_REQ_CONTAINER_STATUS);
-    pktSendBitsPack(pak,1,(U32)dbQueryReceiveOnlineStatus);
+#if defined(_M_X64)
+        #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+#endif
+    pktSendBitsPack(pak,1,(U32)(uintptr_t)dbQueryReceiveOnlineStatus);
     pktSendBitsPack(pak,1,list_id);
     pktSendBitsPack(pak,1,1);
     pktSendBitsPack(pak,1,container_id);

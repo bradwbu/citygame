@@ -98,7 +98,7 @@ Pair* pickPercentageWeightedPair(Array* pairs){
     firstPair = pairs->storage[0];
 
     // How should we pick the pairs?  at equal rates? or at weighted rates?
-    if(-1 == (int)(firstPair->value2)){
+    if(-1 == (int)(intptr_t)(firstPair->value2)){
         // Picking a pair at equal rates.
         randomRoll = randInt(pairs->size);
         return pairs->storage[randomRoll];
@@ -114,14 +114,14 @@ Pair* pickPercentageWeightedPair(Array* pairs){
             pickedPair = pairs->storage[i];
 
             // Did the random roll fall into the weight range of this pair?
-            if(randomRoll - (int)(pickedPair->value2) <= 0)
+            if(randomRoll - (int)(intptr_t)(pickedPair->value2) <= 0)
                 // Yes, we found the pair that was chosen.
                 return pickedPair;
             else
                 // No, the rolled value falls outside the range of the this pair's
                 // weight.  Take this pair's weight into consideration when examining
                 // the next pair.
-                randomRoll -= (int)(pickedPair->value2);
+                randomRoll -= (int)(intptr_t)(pickedPair->value2);
         }
 
         // Unable to pick a pair because all weight values add up to less than the

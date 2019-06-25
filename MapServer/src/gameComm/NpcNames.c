@@ -44,7 +44,7 @@ static void ReadNameFile(char *pch, char ***pearray)
         s = strtok(s, " \t\r\n");
         if (s && strncmp(s, "//", 2)!=0)
         {
-            if(!IsProfanity(s, strlen(s)))
+            if(!IsProfanity(s, (int)strlen(s)))
             {
                 eaPush(pearray, s);
             }

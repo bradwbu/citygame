@@ -125,7 +125,7 @@ static void InitResultDescs(void)
         StatResultDesc *pnew = (StatResultDesc *)calloc(sizeof(StatResultDesc), 1);
         *pnew = *pdesc;
 
-        stashAddInt(s_hashResultTables, GetDescName(pnew->pchItem, pnew->eCat), (int)pnew, false);
+        stashAddInt(s_hashResultTables, GetDescName(pnew->pchItem, pnew->eCat), (int)(intptr_t)pnew, false);
         eaPush(&g_ppResultDescs, pnew);
     }
 
@@ -141,13 +141,13 @@ static void InitResultDescs(void)
 
             pnew->pchItem = info->name;
             pnew->eCat = kStat_Kills;
-            stashAddInt(s_hashResultTables, GetDescName(pnew->pchItem, pnew->eCat), (int)pnew, false);
+            stashAddInt(s_hashResultTables, GetDescName(pnew->pchItem, pnew->eCat), (int)(intptr_t)pnew, false);
             eaPush(&g_ppResultDescs, pnew);
 
             pnew = (StatResultDesc *)calloc(sizeof(StatResultDesc), 1);
             pnew->pchItem = info->name;
             pnew->eCat = kStat_XP;
-            stashAddInt(s_hashResultTables, GetDescName(pnew->pchItem, pnew->eCat), (int)pnew, false);
+            stashAddInt(s_hashResultTables, GetDescName(pnew->pchItem, pnew->eCat), (int)(intptr_t)pnew, false);
             eaPush(&g_ppResultDescs, pnew);
         }
     }
@@ -159,7 +159,7 @@ static void InitResultDescs(void)
 
         pnew->pchItem = villainGroupGetName(i);
         pnew->eCat = kStat_Kills;
-        stashAddInt(s_hashResultTables, GetDescName(pnew->pchItem, pnew->eCat), (int)pnew, false);
+        stashAddInt(s_hashResultTables, GetDescName(pnew->pchItem, pnew->eCat), (int)(intptr_t)pnew, false);
         eaPush(&g_ppResultDescs, pnew);
     }
 
@@ -210,7 +210,7 @@ void InitStats(void)
     sdi = ParseVillainRankEnum;
     while(sdi->key != DM_END)
     {
-        if((int)sdi->key>DM_NOTYPE)
+        if((uintptr_t)sdi->key > DM_NOTYPE)
         {
             bool bFound = stashAddIntAndGetElement(s_hashStatNames, sdi->key, s_iCntStats, false, &he);
             assert( bFound );
@@ -359,7 +359,7 @@ DBStatResult *stat_GetTable(const char *pchName, StatCategory cat, StatPeriod pe
 
     if(stashFindInt(s_hashResultTables, GetDescName(pchName, cat), &i))
     {
-        StatResultDesc *pdesc = (StatResultDesc *)i;
+        StatResultDesc *pdesc = (StatResultDesc*)(intptr_t)i;
         return &pdesc->aRes[per];
     }
 

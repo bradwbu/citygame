@@ -808,7 +808,10 @@ static void sendPerformanceUpdateLayout(Packet* pak, PerformanceInfo* info)
 
     pktSendBitsPack(pak, 7, info->uid);
     pktSendString(pak, info->locName);
-    pktSendBits(pak, 32, (U32)info->rootStatic);
+#if defined(_M_X64)
+    #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+#endif
+    pktSendBits(pak, 32, (U32)(uintptr_t)info->rootStatic);
 
     // There's currently 3 info types, and it's usually set to 0, thus this piece of code.
     pktSendBits(pak, 1, info->infoType ? 1 : 0);

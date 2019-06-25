@@ -188,7 +188,7 @@ void sgrpstats_SendQueued(Packet *pak)
                 {
                     const char *stat = stashElementGetStringKey( helem );
                     SgrpStatAdj *adj = stashElementGetPointer( helem );
-                    int idStat = (int)stashFindPointerReturnPointer( g_BadgeStatsSgroup.idxStatFromName, stat );
+                    int idStat = (int)(intptr_t)stashFindPointerReturnPointer( g_BadgeStatsSgroup.idxStatFromName, stat );
                     int adjAmt = verify(adj) ? adj->adj : 0;
                     
                     pktSendBitsPack( pak, SGRPSTATS_IDSTAT_PACKBITS, idStat); 

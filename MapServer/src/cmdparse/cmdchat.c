@@ -955,7 +955,7 @@ char *team_CheckInviteeConditions(Entity *invitee, char *invitee_name, char *tas
             int task_assignedDbId;
             StoryTaskHandle sahandle;
 
-            sscanf(taskdesc, "%i:%i:%i:%i:%hhi", &task_assignedDbId, SAHANDLE_SCANARGSPOS(sahandle));
+            sscanf(taskdesc, "%i:%Ii:%i:%i:%hhi", &task_assignedDbId, SAHANDLE_SCANARGSPOS(sahandle));
             if (invitee->teamup->activetask->assignedDbId &&
                 invitee->teamup->activetask->assignedDbId == task_assignedDbId &&
                 isSameStoryTaskPos(&sahandle, &invitee->teamup->activetask->sahandle))

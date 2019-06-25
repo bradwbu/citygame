@@ -108,7 +108,7 @@ static struct {
 } cmdStats[CLIENT_PAKLOG_COUNT];
 
 int clientSubPacketLogEntryAllocatedCount(){
-    return mpGetAllocatedCount(MP_NAME(ClientSubPacketLogEntry));
+    return (int)mpGetAllocatedCount(MP_NAME(ClientSubPacketLogEntry));
 }
 
 CmdStats* getCmdStats(int index, U32 cmd, int create){
@@ -380,11 +380,11 @@ void* clientSubPacketLogBegin(int index, Packet* pak, Entity* e, U32 cmd){
     openEntry->pak = pak;
     openEntry->dbID = e ? e->db_id : 0;
     
-    return (void*)openEntries.count;
+    return (void*)(intptr_t)openEntries.count;
 }
 
 void clientSubPacketLogEnd(int index, void* indexParam){
-    int openEntryIndex = (int)indexParam - 1;
+    int openEntryIndex = ((int)(intptr_t)indexParam) - 1;
     ClientSubPacketLogEntry* entry;
     OpenEntry openEntry;
     CmdStats* stats;

@@ -771,7 +771,7 @@ int staticMapInfoMatchNames( char *name )
 
     //next compare display names
     // trim trailing spaces
-    i = strlen(name)-1;
+    i = (int)(strlen(name) -1);
     while( name[i] == ' ' )
     {
         name[i] = '\0';

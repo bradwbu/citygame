@@ -153,13 +153,14 @@ void sendDoorMsg( Entity *e, int msg_type, char *errmsg, ... )
 // Changed from being a local variable so it can't get freed or stomped on.
 static ContainerStatus c_list[1];
 
-// does a syncronous db call to verify this map has the correct supergroup as the player
+// does a synchronous db call to verify this map has the correct supergroup as the player
 // and to make sure that the map does not have too many people
 // Only returns 0 if you explicitly need to be restricted from entering the map
 static int CheckSupergroupMission(int map_id, int playerSG, char* errmsg)
 {
     U32 udontcare;
     int dontcare, missionSG;
+    ContactHandle unused = 0;
     VillainGroupEnum villainGroup;
     EncounterAlliance encAlly;
     StoryDifficulty  doesntMatter;
@@ -168,7 +169,7 @@ static int CheckSupergroupMission(int map_id, int playerSG, char* errmsg)
     dbSyncContainerStatusRequest(CONTAINER_MAPS, &(c_list[0]), 1);
     if (!c_list[0].valid)
         return 1;
-    if (!MissionDeconstructInfoString(c_list[0].mission_info, &dontcare, &missionSG, &dontcare, &dontcare, tempStoryTaskHandle(0,0,0,0), &udontcare, 
+    if (!MissionDeconstructInfoString(c_list[0].mission_info, &dontcare, &missionSG, &dontcare, &unused, tempStoryTaskHandle(0,0,0,0), &udontcare, 
         &dontcare, &doesntMatter, &udontcare, &encAlly, &villainGroup))
     {
         return 1;

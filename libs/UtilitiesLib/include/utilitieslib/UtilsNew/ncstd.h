@@ -174,9 +174,9 @@ NCINLINE BOOL bit_tst(S32 *mem,S32 offset) { return (mem[offset >> 5] & (1 << (o
 #define IS_ARRAY(a)                ((char*)(a) == (char*)&(a))
 // #define ARRAY_SIZE_UNSAFE(n)    (sizeof(n) / sizeof((n)[0])) // I can't think of any (safe) reason for this
 #ifdef ARRAY_SIZE
-#    undef ARRAY_SIZE
+//#    undef ARRAY_SIZE
 #endif
-#define ARRAY_SIZE(n)            (int)(sizeof(n) / ((sizeof(n)==sizeof(void*) || sizeof(n)==0) ? 0: sizeof((n)[0])))
+//#define ARRAY_SIZE(n)            (int)(sizeof(n) / ((sizeof(n)==sizeof(void*) || sizeof(n)==0) ? 0: sizeof((n)[0])))
 #define ASTR(str)                str, ARRAY_SIZE(str)
 
 #define ClearStruct(p)            memset((p), 0, sizeof(*(p)))

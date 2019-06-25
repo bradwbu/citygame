@@ -168,7 +168,7 @@ static void entGridUpdateHelper(Entity* e, Grid* grid, GridIdxList** grid_idx, i
     addVec3(pos,dv,max);
 
     PERFINFO_AUTO_START("gridAdd", 1);
-        if(!gridAdd(grid,(void *)((e->owner+1)<<2),min,max,nodetype,grid_idx))
+        if(!gridAdd(grid,(void *)(intptr_t)((e->owner + 1) << 2), min, max, nodetype, grid_idx))
         {
             entUpdatePosInstantaneous(e, zerovec3);
         }
@@ -200,7 +200,7 @@ void entInitGrid(Entity* e, EntType entType)
 
     if(!e->megaGridNode)
     {
-        e->megaGridNode = createMegaGridNode((void*)e->owner, dxyz, 1);
+        e->megaGridNode = createMegaGridNode((void*)(intptr_t)e->owner, dxyz, 1);
     }
     else
     {
@@ -222,7 +222,7 @@ void entInitGrid(Entity* e, EntType entType)
 
     if(!e->megaGridNodeCollision)
     {
-        e->megaGridNodeCollision = createMegaGridNode((void*)e->owner, collisionSize, 0);
+        e->megaGridNodeCollision = createMegaGridNode((void*)(intptr_t)e->owner, collisionSize, 0);
     }
     else
     {
@@ -233,7 +233,7 @@ void entInitGrid(Entity* e, EntType entType)
     {
         if(!e->megaGridNodePlayer)
         {
-            e->megaGridNodePlayer = createMegaGridNode((void*)e->owner, 512, 0);
+            e->megaGridNodePlayer = createMegaGridNode((void*)(intptr_t)e->owner, 512, 0);
         }
         else
         {
@@ -305,7 +305,7 @@ int entWithinDistance(const Mat4 pos, F32 distance, Entity** result, EntType ent
         Mat4 mat;
         Vec3 vel;
 
-        Entity* proxEnt = entities[(int)entArray[i]];
+        Entity* proxEnt = entities[(int)(intptr_t)entArray[i]];
         if (enttype != ENTTYPE_NOT_SPECIFIED && enttype != ENTTYPE(proxEnt)) continue;
 
         if (velpredict && proxEnt->motion)
@@ -495,7 +495,7 @@ int entGangIDFromGangName( const char * gangName )
     }
     else
     {
-        int gangID = hashCalc(gangName, strlen(gangName), 0xa74d94e3);
+        int gangID = hashCalc(gangName, (ub4)strlen(gangName), 0xa74d94e3);
         gangID |= GANG_ID_IS_STATIC;
         return gangID;
     }

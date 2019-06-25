@@ -39,7 +39,7 @@ static void initAMemPool(MemPool *mp, int node_size, int num_nodes, char *mem)
         int *j;
 
         j    = ( int * )( mem + i * node_size );     //first int in each node is a * to free list.
-        *j   = ( int )last;
+        *j   = ( int )(intptr_t)last;
         last = j;
     }
 
@@ -51,7 +51,7 @@ static void freeMemNode(MemPool **mem, void *chunk)
 {
     if( *mem )
     {
-        *( int *)chunk    = ( int )(*mem)->free_list; //Point chunk to old top of free_list and push freed chunk back to head of
+        *( int *)chunk    = ( int )(intptr_t)(*mem)->free_list; //Point chunk to old top of free_list and push freed chunk back to head of
         (*mem)->free_list = chunk;                    //free_list.  Remember 0th int in MemPool struct is a * to free_list.
         *mem              = ( MemPool * )NULL;
     }
@@ -64,7 +64,7 @@ static void *getMemNode( MemPool * mp )
     if( mp->free_list )
     {
         a               = mp->free_list;
-        mp->free_list   = ( int * )*(( int * )a);   //pointer to next in free list.
+        mp->free_list   = (int*)(intptr_t)*((int*)a);   //pointer to next in free list.
     }
 
     return a;

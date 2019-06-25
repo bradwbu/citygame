@@ -5055,7 +5055,7 @@ void ScriptedZoneEvent(void)
             else
             {
                 strncpyt(fullName, baseName, MAX_PATH);
-                strncpyt(&fullName[strlen(fullName)], ".zoneevent", MAX_PATH - strlen(fullName));
+                strncpyt(&fullName[strlen(fullName)], ".zoneevent", (int)(MAX_PATH - strlen(fullName)));
                 fullName[MAX_PATH - 1] = 0;
 
                 memset(script, 0, sizeof(ScriptDefinition));
@@ -5491,8 +5491,8 @@ int ScriptedZoneEventStartFile(char *file, int isMission)
     char fullName[MAX_PATH];
 
     strncpyt(fullName, "scriptdefs\\", MAX_PATH);
-    strncpyt(&fullName[strlen(fullName)], file, MAX_PATH - strlen(fullName));
-    strncpyt(&fullName[strlen(fullName)], ".scriptdef", MAX_PATH - strlen(fullName));
+    strncpyt(&fullName[strlen(fullName)], file, (int)(MAX_PATH - strlen(fullName)));
+    strncpyt(&fullName[strlen(fullName)], ".scriptdef", (int)(MAX_PATH - strlen(fullName)));
     fullName[MAX_PATH - 1] = 0;
 
     if (pScriptDef = ScriptDefFromFilename(fullName))
@@ -5507,7 +5507,7 @@ void ScriptedZoneEventStopEvent(char *event)
     char string[1024];
 
     strncpyt(string, event, 1000);
-    strncpyt(&string[strlen(string)], ".stop", 1024 - strlen(string));
+    strncpyt(&string[strlen(string)], ".stop", (int)(1024 - strlen(string)));
 
     ScriptSendScriptMessage(string);
 }
@@ -5517,8 +5517,8 @@ void ScriptedZoneEventGotoStage(char *event, char *stage)
     char string[1024];
 
     strncpyt(string, event, 512);
-    strncpyt(&string[strlen(string)], ".goto.", 1024 - strlen(string));
-    strncpyt(&string[strlen(string)], stage, 1024 - strlen(string));
+    strncpyt(&string[strlen(string)], ".goto.", (int)(1024 - strlen(string)));
+    strncpyt(&string[strlen(string)], stage, (int)(1024 - strlen(string)));
 
     ScriptSendScriptMessage(string);
 }

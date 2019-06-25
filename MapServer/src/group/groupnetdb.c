@@ -918,7 +918,7 @@ static void groupdbUpdateTrackers(Packet *pak)
             else
             {
                 eaPushConst(&names,name);        // push on a 2 because we didn't hit this
-                eaiPush(&occ,(void *)2);    // the first time we saw this value in name
+                eaiPush(&occ, 2);    // the first time we saw this value in name
             }
         }
         name=tempname;

@@ -152,7 +152,7 @@ static void ReadChatterFile(char *pch)
                     verifyPrintable(s, pch, line);
                 }
 
-                if(!IsProfanity(s, strlen(s)) && !isEmptyStr(s))
+                if(!IsProfanity(s, (int)strlen(s)) && !isEmptyStr(s))
                 {
                     int n = eaSize(&ppchMaps);
                     int i;

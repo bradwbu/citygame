@@ -1915,6 +1915,10 @@ static void fatalErrorCallback(char* errMsg)
 int __cdecl main(int argc,char **argv)
 {
     int        startup_timer;
+
+#if defined(_M_X64)
+    #pragma message("Don't even think about running 64 bit compiled MapServer binaries. The only reason they are compile-able in this state is to simplify batch builds")
+#endif
     
     memCheckInit();
 
@@ -2041,7 +2045,7 @@ int __cdecl main(int argc,char **argv)
 
     loadstart_printf("reserving shared heap space...");
     {
-        U32 uiReservedSize = reserveSharedHeapSpace(getSharedHeapReservationSize());
+        U32 uiReservedSize = (U32)reserveSharedHeapSpace(getSharedHeapReservationSize());
         if ( uiReservedSize )
         {
             loadend_printf(" reserved %d MB", uiReservedSize / (1024 * 1024));

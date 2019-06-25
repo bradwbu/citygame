@@ -2583,7 +2583,7 @@ char* UniqueTaskGetAttribute(const char* logicalname)
 
 const char* UniqueTaskFromAttribute(const char* attribute)
 {
-    int len = strlen(UNIQUETASK_ATTR_PREFIX);
+    int len = (int)strlen(UNIQUETASK_ATTR_PREFIX);
     if (strncmp(UNIQUETASK_ATTR_PREFIX, attribute, len))
         return NULL;
     return attribute + len;

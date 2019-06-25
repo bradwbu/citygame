@@ -189,23 +189,23 @@ char* PropertyValueStr(PropertyDef* property)
         case PROPTYPE_COMBOTEXTBOX:
             return property->data;
         xcase PROPTYPE_COMBOBOX:
-            if (!property->texts || ((int)property->data < 0) || ((int)property->data >= eaSize(&property->texts)))
+            if (!property->texts || ((intptr_t)property->data < 0) || ((intptr_t)property->data >= eaSize(&property->texts)))
                 return NULL;
-            return property->texts[(int)property->data];
+            return property->texts[(intptr_t)property->data];
         xcase PROPTYPE_RADIOBUTTONS:
-            if (!property->texts || ((int)property->data < 0) || ((int)property->data >= eaSize(&property->texts)))
+            if (!property->texts || ((intptr_t)property->data < 0) || ((intptr_t)property->data >= eaSize(&property->texts)))
                 return NULL;
-            return property->texts[(int)property->data];
+            return property->texts[(intptr_t)property->data];
         xcase PROPTYPE_PROPLIST:
-            if (!property->props || ((int)property->data < 0) || ((int)property->data >= eaSize(&property->props)))
+            if (!property->props || ((intptr_t)property->data < 0) || ((intptr_t)property->data >= eaSize(&property->props)))
                 return NULL;
-            return property->props[(int)property->data]->name;
+            return property->props[(intptr_t)property->data]->name;
         xcase PROPTYPE_INTEGERSLIDER:
             sprintf(propText, "%i", (U32)(*((F32*)&property->data)));
             return propText;
         xcase PROPTYPE_CHECKBOX:
         case PROPTYPE_CHECKBOXLIST:
-            sprintf(propText, "%i", (int)property->data);
+            sprintf(propText, "%i", (intptr_t)property->data);
             return propText;
         xcase PROPTYPE_SLIDER:
             sprintf(propText, "%f", *((F32*)&property->data));

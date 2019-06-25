@@ -2747,7 +2747,7 @@ void svrPlayerSetDisconnectTimer(Entity *e,int bad_connection)
 
     if (e->access_level > 0)
     {
-        int debug_seconds = (int)clientLinkGetDebugVar(e->client, "LogoutTimer");
+        int debug_seconds = (int)(intptr_t)clientLinkGetDebugVar(e->client, "LogoutTimer");
 
         if(debug_seconds > 0)
         {

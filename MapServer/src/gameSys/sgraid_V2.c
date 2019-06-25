@@ -549,7 +549,7 @@ int sgRaidLoadPhase1(int index)
     id = base->curr_id + 1;
 
     base->data_str = map_data;
-    base->full.unpack_size = strlen(map_data);
+    base->full.unpack_size = (U32)strlen(map_data);
 
     eaPush(&g_raidbases, base);
 
@@ -992,7 +992,7 @@ ControlConsumed 0\n";
     baseToDefs(base, eaSize(&g_raidbases));
 
     base->data_str = eBase;
-    base->full.unpack_size = strlen(eBase);
+    base->full.unpack_size = (U32)strlen(eBase);
 
     eaPush(&g_raidbases, base);
     // Don't destroy eBase, we need to keep the string around so we can send the base to the clients

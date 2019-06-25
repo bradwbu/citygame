@@ -1353,19 +1353,19 @@ float combateval_Eval(Entity *eSrc, Entity *eTarget, const Power *pPow, const ch
         PERFINFO_AUTO_START("combateval_Eval", 1);
 
         if (eTarget)
-            eval_StoreInt(s_pCombatEval, "Target", (int)eTarget);
+            eval_StoreInt(s_pCombatEval, "Target", (int)(intptr_t)eTarget);
         else
             eval_ForgetInt(s_pCombatEval, "Target");
 
         if (eSrc)
-            eval_StoreInt(s_pCombatEval, "Source", (int)eSrc);
+            eval_StoreInt(s_pCombatEval, "Source", (int)(intptr_t)eSrc);
         else
             eval_ForgetInt(s_pCombatEval, "Source");
 
         if (pPow)
         {
-            eval_StoreInt(s_pCombatEval, "Power", (int)pPow);
-            eval_StoreInt(s_pCombatEval, "BasePower", (int)pPow->ppowBase);
+            eval_StoreInt(s_pCombatEval, "Power", (int)(intptr_t)pPow);
+            eval_StoreInt(s_pCombatEval, "BasePower", (int)(intptr_t)pPow->ppowBase);
         }
         else
         {
@@ -1395,19 +1395,19 @@ float combateval_EvalFromBasePower(Entity *eSrc, Entity *eTarget, const BasePowe
         PERFINFO_AUTO_START("combateval_Eval", 1);
 
         if (eTarget)
-            eval_StoreInt(s_pCombatEval, "Target", (int)eTarget);
+            eval_StoreInt(s_pCombatEval, "Target", (int)(intptr_t)eTarget);
         else
             eval_ForgetInt(s_pCombatEval, "Target");
         
         if (eSrc)
-            eval_StoreInt(s_pCombatEval, "Source", (int)eSrc);
+            eval_StoreInt(s_pCombatEval, "Source", (int)(intptr_t)eSrc);
         else
             eval_ForgetInt(s_pCombatEval, "Source");
         
         eval_StoreInt(s_pCombatEval, "Power", 0);
         
         if (pPowBase)
-            eval_StoreInt(s_pCombatEval, "BasePower", (int)pPowBase);
+            eval_StoreInt(s_pCombatEval, "BasePower", (int)(intptr_t)pPowBase);
         else
             eval_ForgetInt(s_pCombatEval, "BasePower");
         

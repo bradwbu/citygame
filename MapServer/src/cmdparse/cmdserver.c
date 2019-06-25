@@ -3449,7 +3449,7 @@ static void serverExecCmd(Cmd *cmd, ClientLink *client, char *source_str, Entity
             int        db_id,leveladjust,online,level,seed;
             StoryTaskHandle sahandle;
 
-            sscanf(tmp_str, "%i:%i:%i:%i:%hhi:%i:%i:%i", &db_id, SAHANDLE_SCANARGSPOS(sahandle), &leveladjust, &level, &seed);
+            sscanf(tmp_str, "%i:%Ii:%i:%i:%hhi:%i:%i:%i", &db_id, SAHANDLE_SCANARGSPOS(sahandle), &leveladjust, &level, &seed);
             if (relayCommandStart(admin, db_id, str, &e, &online))
             {
                 StoryInfo* info = StoryArcLockInfo(e);

@@ -550,8 +550,10 @@ void handleCustomData(Packet *pak)
 {
     DbCustomDataCallback    cb;
     int                        db_id,count;
-
-    cb        = (DbCustomDataCallback) pktGetBits(pak,32);
+#if defined(_M_X64)
+    #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+#endif
+    cb        = (DbCustomDataCallback)(uintptr_t)pktGetBits(pak,32);
     db_id    = pktGetBitsPack(pak,1);
     count    = pktGetBitsPack(pak,1);
     cb(pak,db_id,count);
@@ -648,8 +650,10 @@ void dbReqCustomData(int list_id,char *table,char *limit,char *search,char *colu
     Packet    *pak;
 
     pak = pktCreateEx(&db_comm_link,DBCLIENT_REQ_CUSTOM_DATA);
-
-    pktSendBits(pak,32,(U32)cb);
+#if defined(_M_X64)
+    #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+#endif
+    pktSendBits(pak,32,(U32)(uintptr_t)cb);
     pktSendBitsPack(pak,1,db_id);
     pktSendString(pak,limit);
     pktSendString(pak,search);
@@ -1056,7 +1060,10 @@ int dbMessageCallback(Packet *pak,int cmd,NetLink *link)
             user_data        = pktGetBitsPack(pak,1);
             if (user_data)
             {
-                cb = (NetPacketCallback *)user_data;
+#if defined(_M_X64)
+                #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+#endif
+                cb = (NetPacketCallback*)(uintptr_t)user_data;
                 return cb(pak,cmd,link);
             }
             else
@@ -1069,7 +1076,10 @@ int dbMessageCallback(Packet *pak,int cmd,NetLink *link)
             user_data        = pktGetBitsPack(pak,1);
             if (user_data)
             {
-                cb = (NetPacketCallback *)user_data;
+#if defined(_M_X64)
+                #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+#endif
+                cb = (NetPacketCallback*)(uintptr_t)user_data;
                 cb(pak,cmd,link);
             }
             else
@@ -1190,7 +1200,10 @@ int dbMessageCallback(Packet *pak,int cmd,NetLink *link)
             user_data        = pktGetBitsPack(pak,1);
             if (user_data)
             {
-                cb = (NetPacketCallback *)user_data;
+#if defined(_M_X64)
+                #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+#endif
+                cb = (NetPacketCallback*)(uintptr_t)user_data;
                 return cb(pak,cmd,link);
             }
          }
@@ -2095,7 +2108,7 @@ void dbDelinkMe(char *errorMsg)
     sockSetAddr(&addr,ipFromString(db_state.server_name),DEFAULT_DBCRASHMAP_PORT);
     connect(sock,(void *)&addr,sizeof(addr));
     send(sock,(void*)&map,sizeof(map),0);
-    len = strlen(errorMsg)+1;
+    len = (int)strlen(errorMsg)+1;
     send(sock, (char*)&len, sizeof(len),0);
     send(sock, errorMsg, len, 0);
     closesocket(sock);

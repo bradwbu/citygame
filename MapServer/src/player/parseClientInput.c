@@ -1120,9 +1120,12 @@ int allowed_commands[] = {CLIENTINP_SVRCMD, CLIENTINP_SVRCMD}; // twice to fool 
 int isCommandAllowedOnUnownedEnts(int cmd)
 {
     int i;
-    for (i=0; i<ARRAY_SIZE(allowed_commands); i++) {
+    for (i=0; i < ARRAY_SIZE(allowed_commands); i++)
+    {
         if (allowed_commands[i] == cmd)
+        {
             return 1;
+        }
     }
     return 0;
 }

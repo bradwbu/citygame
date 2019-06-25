@@ -100,7 +100,7 @@ static void PushDependencyForCurrentBadge(EvalContext *pcontext, const char *pch
             eaiCreate(&piBadgeList);
         }
         eaiPush(&piBadgeList, iBadgeIdx);
-        stashAddInt(hashBadgeStatUsage, pchStat, (int)piBadgeList, true);
+        stashAddInt(hashBadgeStatUsage, pchStat, (int)(intptr_t)piBadgeList, true);
     }
 }
 
@@ -392,7 +392,7 @@ StashTable LoadBadgeStatUsage(StashTable hashBadgeStatUsage, const BadgeDefs *ba
     // eval_RegisterFunc(pcontext, "%",           Percent,               1, 1);
 
     // store the stat hashtable
-    eval_StoreInt(pcontext, "hashBadgeStatUsage", (int)hashBadgeStatUsage );
+    eval_StoreInt(pcontext, "hashBadgeStatUsage", (int)(intptr_t)hashBadgeStatUsage );
 
     
     for(i=0; i<n; i++)

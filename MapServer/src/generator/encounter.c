@@ -857,7 +857,7 @@ static void EncounterGridAdd(EncounterGroup* group)
     index = g_encountergroups.size - 1;    // Index in array of the group
     if (group->encounterGridNode)
         destroyMegaGridNode(group->encounterGridNode);
-    group->encounterGridNode = createMegaGridNode((void *)index, EG_MAX_SPAWN_RADIUS, 1);
+    group->encounterGridNode = createMegaGridNode((void*)(intptr_t)index, EG_MAX_SPAWN_RADIUS, 1);
     mgUpdate(3, group->encounterGridNode, group->mat[3]);
 }
 
@@ -904,7 +904,7 @@ static int EncountersWithinDistanceMegaGrid(Vec3 pos, F32 distance, EncounterGro
     count = 0;
     for (i = 0; i < gridCount; i++)
     {
-        group = g_encountergroups.storage[(int)indices[i]];
+        group = g_encountergroups.storage[(int)(intptr_t)indices[i]];
         if (distance3Squared(group->mat[3], pos) <= d2)
         {
             result[count++] = group;
@@ -5281,7 +5281,7 @@ void EncounterMemUsage(ClientLink* client)
     }
 
     numStrings = stashGetValidElementCount(g_groupstringhashes);
-    stringSize = strTableMemUsage(g_groupstrings);
+    stringSize = (int)strTableMemUsage(g_groupstrings);
 
     conPrintf(client, "EncounterGroup %i instances, %i size, %i total", g_encountergroups.size, sizeof(EncounterGroup),
         g_encountergroups.size * sizeof(EncounterGroup));
@@ -6278,7 +6278,7 @@ static void AddNeighborhoodSpawn(const char* neighborhood, const char* spawndef)
 static int ForEachSpawn(StashElement el)
 {
     const char* spawn = stashElementGetStringKey(el);
-    int times = (int)stashElementGetPointer(el);
+    int times = (int)(intptr_t)stashElementGetPointer(el);
     NeighborhoodPrint("   %s (%i)\n", spawn, times);
     return 1;
 }

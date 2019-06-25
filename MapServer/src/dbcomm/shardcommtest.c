@@ -584,7 +584,7 @@ void shardCommTestTick()
                         {
                             if(id >= MAX_USERS)
                                 id= 0;
-                            if(-1 == eaiFind(&gTestClients[userID].friends, (void*) id))
+                            if(-1 == eaiFind(&gTestClients[userID].friends, id))
                                 break;
                         }
                     }
@@ -719,9 +719,9 @@ int shardTestMessageCallback(Packet *pak,int cmd,NetLink *link)
                 int userID = string2ID(args[2], "username");
                 if(userID >= 0 && userID <= MAX_USERS)
                 {
-                    if(-1 == eaiFind(&gTestClients[userID].watching, (void*) channelID))
+                    if(-1 == eaiFind(&gTestClients[userID].watching, channelID))
                     {
-                        eaiPush(&gTestClients[userID].watching, (void*) channelID);
+                        eaiPush(&gTestClients[userID].watching, channelID);
                         gChannels[channelID]++;
                     }
                 }
@@ -733,7 +733,7 @@ int shardTestMessageCallback(Packet *pak,int cmd,NetLink *link)
                 int i;
                 if(userID >= 0 && userID <= MAX_USERS)
                 {
-                    if(-1 != (i = eaiFind(&gTestClients[userID].watching, (void*) channelID)))
+                    if(-1 != (i = eaiFind(&gTestClients[userID].watching, channelID)))
                     {
                         eaiRemove(&gTestClients[userID].watching, i);
                         gChannels[channelID]--;
@@ -763,9 +763,9 @@ int shardTestMessageCallback(Packet *pak,int cmd,NetLink *link)
                 int friendID = string2ID(args[1], "username");
                 if(friendID >= 0 && friendID <= MAX_USERS)
                 {
-                    if(-1 == eaiFind(&gTestClients[userID].friends, (void*) friendID))
+                    if(-1 == eaiFind(&gTestClients[userID].friends, friendID))
                     {
-                        eaiPush(&gTestClients[userID].friends, (void*) friendID);
+                        eaiPush(&gTestClients[userID].friends, friendID);
                     }
                 }
             }
@@ -775,7 +775,7 @@ int shardTestMessageCallback(Packet *pak,int cmd,NetLink *link)
                 int i, friendID = string2ID(args[1], "username");
                 if(friendID >= 0 && friendID <= MAX_USERS)
                 {
-                    if(-1 != (i = eaiFind(&gTestClients[userID].friends, (void*) friendID)))
+                    if(-1 != (i = eaiFind(&gTestClients[userID].friends, friendID)))
                     {
                         eaiRemove(&gTestClients[userID].watching, i);
                     }

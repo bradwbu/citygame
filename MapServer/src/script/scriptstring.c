@@ -73,7 +73,7 @@ char* StringAlloc(int len)
 
 char* StringDupe(const char* str)
 {
-    int len = strlen(str);
+    int len = (int)strlen(str);
     char* result = StringAlloc(len);
     strcpy(result, str);
     return result;
@@ -316,7 +316,7 @@ void VarSetArrayElement(VARIABLE var, NUMBER index, STRING value)
      
     copy = StringDupe(orig);
     // This is probably excessive, but it does guarantee we'll have enough space.
-    result = StringAlloc(strlen(copy) + strlen(value) + 4 + index);
+    result = StringAlloc((int)(strlen(copy) + strlen(value) + 4 + index));
     result[0] = 0;
     target = result;
     pTok = strtok(copy, ";"); 
@@ -440,7 +440,7 @@ STRING StringAdd(STRING lhs, STRING rhs)
 
     if (!lhs || !lhs[0]) return rhs;
     if (!rhs || !rhs[0]) return lhs;
-    len = strlen(lhs) + strlen(rhs);
+    len = (int)(strlen(lhs) + strlen(rhs));
     result = StringAlloc(len);
     strcpy(result, lhs);
     strcat(result, rhs);
@@ -453,7 +453,7 @@ STRING StringCopy(STRING str)
     char* result;
 
     if (!str || !str[0]) return str;
-    len = strlen(str);
+    len = (int)strlen(str);
     result = StringAlloc(len);
     strcpy(result, str);
     return result;
@@ -465,7 +465,7 @@ mSTRING StringCopySafe(STRING str)
     char* result;
 
     if (!str) str = "";
-    len = strlen(str);
+    len = (int)strlen(str);
     result = StringAlloc(len);
     strcpy(result, str);
     return result;

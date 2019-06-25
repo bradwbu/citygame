@@ -54,7 +54,7 @@ void convPrintf( ClientLink* client, const char *s, va_list va )
 
     size = _vscprintf(s, va);
     if (redirect) 
-        size += strlen(client->entity->name) + strlen(format);
+        size += (int)(strlen(client->entity->name) + strlen(format));
 
     buffer = _alloca(size+1);
     if (redirect)
@@ -195,8 +195,8 @@ void sendChatMsgEx( Entity *e, Entity *sender, const char *srcmsg, int type, F32
             && (client->message_dbid && client->entity->db_id != client->message_dbid))
         {
             char *format = "CSR:%s> %s";
-            int size = strlen(srcmsg) + strlen(client->entity->name) + strlen(format);
-            msg = _alloca(size+1);
+            size_t size = strlen(srcmsg) + strlen(client->entity->name) + strlen(format);
+            msg = _alloca(size + 1);
             sprintf(msg, format, client->entity->name, srcmsg);
             chatSendToPlayer(client->message_dbid, msg, INFO_DEBUG_INFO, 0);
             return;

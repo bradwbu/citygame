@@ -3943,7 +3943,7 @@ void entSendUpdate(NetLink *link,Entity *player_ent,int re_predict,int full_upda
 
             for(i=0;i<count;i++)
             {
-                int idx = (int)vis_ents[i];
+                int idx = (int)(intptr_t)vis_ents[i];
                 Entity* e = validEntFromId(idx);
 
                 if(e)

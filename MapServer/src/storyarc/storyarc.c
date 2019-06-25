@@ -854,7 +854,7 @@ char* StoryArcGetLeafNameByDef(const StoryArc* arc)
         leafstart = arc->filename;
     }
 
-    leaflen = strlen(leafstart);
+    leaflen = (int)strlen(leafstart);
 
     // Chop off the ".storyarc" or whatever (if there is one).
     leafend = strrchr(leafstart, '.');

@@ -371,7 +371,11 @@ static void readExistInfoCacheBinary(const char *filename)
 
             fread(&keyLength, sizeof(keyLength), 1, f);
             fread(hashingKey, sizeof(char), keyLength + 1, f);
+#if defined(_M_X64)
+            #pragma message("This code will not run when compiled in 64 bit, it is however compile-able to simplyfy batch builds") 
+#else
             STATIC_INFUNC_ASSERT(sizeof(ExistInfo) - 4 == 52);
+#endif
             fread(pei, sizeof(ExistInfo) - 4, 1, f);
 
             if (ferror(f))
@@ -1308,7 +1312,7 @@ void LogBannedCharacter(char *pchName)
 
     if (pchName)
     {
-        len = strlen(pchName) + 1;
+        len = (int)strlen(pchName) + 1;
         str = malloc(len);
 
         strcpy_s(str, len, pchName);

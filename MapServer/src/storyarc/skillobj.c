@@ -149,7 +149,7 @@ const char * const **skillobj_GetPossibleSkillObjectives(const char *pchMap, con
             // verbose_printf("   %s\n", pchKey);
             stashFindElementConst(g_hashMapsAndVillainsToSkillObjectives, pchKey, &elem);
 
-            iLen = strlen(pchTmp);
+            iLen = (int)strlen(pchTmp);
             pchTmp = getDirectoryName(pchTmp);
         }
 
@@ -168,7 +168,7 @@ const char * const **skillobj_GetPossibleSkillObjectives(const char *pchMap, con
             // verbose_printf("   %s\n", pchTmp);
             stashFindElementConst(g_hashMapsAndVillainsToSkillObjectives, pchTmp, &elem);
 
-            iLen = strlen(pchTmp);
+            iLen = (int)strlen(pchTmp);
             pchTmp = getDirectoryName(pchTmp);
         }
 

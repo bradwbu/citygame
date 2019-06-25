@@ -746,7 +746,7 @@ const char * passSpacesAndEquals( const char * s )
 //lookBackMeans I should also look one past beginning of string for delimiters
 int isSameToken( const char * s, const char * tok, int lookBack  )
 {
-    unsigned int len = strlen(tok);
+    unsigned int len = (unsigned int)strlen(tok);
     if( s && len && 0 == strnicmp( s, tok, len ) && (strlen(s) >= len) )
     {
         if( s[len] == '\0' || s[len] == ' ' || s[len] == '=' || s[len] == '\t' || s[len] == '>'  )
@@ -988,7 +988,7 @@ int parseDialogForBubbleTags( const char * dialog, char * animation, const char 
     {
         int len;
         char * s;
-        len = strlen(dialogToSayLater);
+        len = (int)strlen(dialogToSayLater);
         s = malloc( len + 1);
         strcpy( s, dialogToSayLater );
         dialogToSayLater = s; 
@@ -999,7 +999,7 @@ int parseDialogForBubbleTags( const char * dialog, char * animation, const char 
     {
         int lenNow;
         char * s;
-        lenNow = strlen(dialogToSayNow) - strlen(dialogToSayLater);
+        lenNow = (int)(strlen(dialogToSayNow) - strlen(dialogToSayLater));
         s = malloc( lenNow + 1);
         strncpy( s, dialogToSayNow, lenNow );
         s[lenNow] = 0;
@@ -1786,10 +1786,10 @@ void saBuildScriptVarsTable(ScriptVarsTable        *svt,                // Table
     // If db_id is supplied, use the D type (always valid) - otherwise do not add anything
     else if(ent_db_id > 0)
     {
-        ScriptVarsTablePushVarEx(svt, "Hero",        (char*) ent_db_id, 'D', 0);
-        ScriptVarsTablePushVarEx(svt, "HeroName",    (char*) ent_db_id, 'D', 0);            // deprecated
-        ScriptVarsTablePushVarEx(svt, "Villain",    (char*) ent_db_id, 'D', 0);            // deprecated
-        ScriptVarsTablePushVarEx(svt, "VillainName",(char*) ent_db_id, 'D', 0);            // deprecated
+        ScriptVarsTablePushVarEx(svt, "Hero",        (char*)(intptr_t)ent_db_id, 'D', 0);
+        ScriptVarsTablePushVarEx(svt, "HeroName",    (char*)(intptr_t)ent_db_id, 'D', 0);            // deprecated
+        ScriptVarsTablePushVarEx(svt, "Villain",    (char*)(intptr_t)ent_db_id, 'D', 0);            // deprecated
+        ScriptVarsTablePushVarEx(svt, "VillainName",(char*)(intptr_t)ent_db_id, 'D', 0);            // deprecated
 
         if(ent && permanent)
         {

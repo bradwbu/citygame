@@ -360,7 +360,7 @@ static int GeneratedEntType_Type_Handler(ParseContext context, char* params){
     p->value1 = strdup(classTypeName);
     // If a percentage was extracted...
     if(result)
-        p->value2 = (void*)percentage;
+        p->value2 = (void*)(intptr_t)percentage;
     else
         p->value2 = (void*)-1;
 
@@ -417,7 +417,7 @@ static int GeneratorType_GeneratedTypes_Handler(ParseContext context, char* para
     p->value1 = entType;
     // If a percentage was extracted...
     if(result)
-        p->value2 = (void*)percentage;
+        p->value2 = (void*)(intptr_t)percentage;
     else
         p->value2 = (void*)-1;
 
@@ -479,7 +479,7 @@ static int GeneratorType_GeneratedGroups_Handler(ParseContext context, char* par
     p->value1 = groupDef;
     // If a percentage was extracted...
     if(result)
-        p->value2 = (void*)percentage;
+        p->value2 = (void*)(intptr_t)percentage;
     else
         p->value2 = (void*)-1;
 
@@ -534,7 +534,7 @@ static int GeneratedGrpMemberDef_GeneratedTypes_Handler(ParseContext context, ch
     p->value1 = entType;
     // If a percentage was extracted...
     if(result)
-        p->value2 = (void*)percentage;
+        p->value2 = (void*)(intptr_t)percentage;
     else
         p->value2 = (void*)-1;
 

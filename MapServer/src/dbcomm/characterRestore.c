@@ -24,7 +24,7 @@ static void columnPrintf(int columnWidth, char spacer, const char *str, ...)
     vsprintf(buf, str, arg);
     va_end(arg);
 
-    len = strlen(buf);
+    len = (int)strlen(buf);
     if (len > columnWidth)
         buf[columnWidth] = 0;
     
