@@ -92,7 +92,7 @@ void sharedMemoryInit(void) {
     if (shared_memory_mode != SMM_UNINITED)
         return;
 
-    if (!IsUsingWin2kOrXp() || !IsUsing64BitWindows()) {
+    if (!IsUsingWin7orLater()) {
         sharedMemorySetMode(SMM_DISABLED);
         return;
     }
@@ -115,7 +115,6 @@ void sharedMemoryInit(void) {
     }
 
     sharedMemorySetMode(SMM_ENABLED);
-
 }
 
 
