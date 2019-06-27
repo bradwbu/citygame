@@ -1,10 +1,10 @@
 /*\
  *
- *	ArenaServer.h/c - Copyright 2004, 2005 Cryptic Studios
- *		All Rights Reserved
- *		Confidential property of Cryptic Studios
+ *    ArenaServer.h/c - Copyright 2004, 2005 Cryptic Studios
+ *        All Rights Reserved
+ *        Confidential property of Cryptic Studios
  *
- *	Single shard-wide server to keep track of global list of 
+ *    Single shard-wide server to keep track of global list of 
  *  arena events.  Uses db to serialize out this list to sql.
  *
  */

@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{2ADE3B23-011A-4745-B8BF-1C39693920EA}</ProjectGuid>
+    <ProjectGuid>{6FBFE732-15AB-4AEE-A6E8-EC5FEA0A345B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>MapServer</RootNamespace>
+    <RootNamespace>ArenaServer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -72,23 +72,32 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)intermediate\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)intermediate\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)intermediate\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)intermediate\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;AUX_SERVER_DEFINE;_CRTDBG_MAP_ALLOC;FULLDEBUG;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\Game\src;$(ProjectDir)..\..\..\DBServer\src;$(ProjectDir)..\..\..\MapServer\src;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -100,8 +109,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;AUX_SERVER_DEFINE;_CRTDBG_MAP_ALLOC;FULLDEBUG;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\Game\src;$(ProjectDir)..\..\..\DBServer\src;$(ProjectDir)..\..\..\MapServer\src;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -115,8 +125,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;AUX_SERVER_DEFINE;FINAL;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\Game\src;$(ProjectDir)..\..\..\DBServer\src;$(ProjectDir)..\..\..\MapServer\src;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,8 +143,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;AUX_SERVER_DEFINE;FINAL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\Game\src;$(ProjectDir)..\..\..\DBServer\src;$(ProjectDir)..\..\..\MapServer\src;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,6 +155,53 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Common\container\container_store.c" />
+    <ClCompile Include="..\..\..\Common\container\container_util.c" />
+    <ClCompile Include="..\..\..\Common\container\dbcontainerpack.c" />
+    <ClCompile Include="..\..\..\Common\dbserver\servercfg.c" />
+    <ClCompile Include="..\..\..\Common\gameData\arenaschedule.c" />
+    <ClCompile Include="..\..\..\Common\gameData\arenastruct.c" />
+    <ClCompile Include="..\..\..\DBServer\src\container_diff.c" />
+    <ClCompile Include="..\..\..\DBServer\src\container_tplt_utils.c" />
+    <ClCompile Include="..\..\..\MapServer\src\container\containerArena.c" />
+    <ClCompile Include="..\..\..\MapServer\src\dbcomm\dbcomm.c" />
+    <ClCompile Include="..\..\..\MapServer\src\dbcomm\dbcontainer.c" />
+    <ClCompile Include="..\..\src\arenadb.c" />
+    <ClCompile Include="..\..\src\arenaevent.c" />
+    <ClCompile Include="..\..\src\arenaplayer.c" />
+    <ClCompile Include="..\..\src\arenaranking.c" />
+    <ClCompile Include="..\..\src\arenaserver.c" />
+    <ClCompile Include="..\..\src\arenaupdates.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Common\container\container_store.h" />
+    <ClInclude Include="..\..\..\Common\container\container_util.h" />
+    <ClInclude Include="..\..\..\Common\container\dbcontainerpack.h" />
+    <ClInclude Include="..\..\..\Common\dbserver\servercfg.h" />
+    <ClInclude Include="..\..\..\Common\gameData\arenaref.h" />
+    <ClInclude Include="..\..\..\Common\gameData\arenaschedule.h" />
+    <ClInclude Include="..\..\..\Common\gameData\arenastruct.h" />
+    <ClInclude Include="..\..\..\DBServer\src\container_diff.h" />
+    <ClInclude Include="..\..\..\DBServer\src\container_tplt_utils.h" />
+    <ClInclude Include="..\..\..\MapServer\src\container\containerArena.h" />
+    <ClInclude Include="..\..\..\MapServer\src\dbcomm\dbcomm.h" />
+    <ClInclude Include="..\..\..\MapServer\src\dbcomm\dbcontainer.h" />
+    <ClInclude Include="..\..\src\arenaevent.h" />
+    <ClInclude Include="..\..\src\arenaplayer.h" />
+    <ClInclude Include="..\..\src\arenaranking.h" />
+    <ClInclude Include="..\..\src\arenaserver.h" />
+    <ClInclude Include="..\..\src\arenaupdates.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\3rdparty\cryptopp-8.3\build\vs2019\cryptopp.vcxproj">
+      <Project>{aca8c226-ef10-49f2-8b3d-d9939ee4a4fe}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdparty\zlib-1.2.11\build\vs2019\zlib.vcxproj">
+      <Project>{8426a8d3-2549-4523-b584-fcd81e89b7bc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\libs\UtilitiesLib\build\vs2019\UtilitiesLib.vcxproj">
+      <Project>{02b25697-0348-423c-8df3-e1bdf89bb43d}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

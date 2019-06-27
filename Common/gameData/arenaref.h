@@ -1,10 +1,10 @@
 /*\
 *
-*	arenaref.h - Copyright 2004, 2005 Cryptic Studios
-*		All Rights Reserved
-*		Confidential property of Cryptic Studios
+*    arenaref.h - Copyright 2004, 2005 Cryptic Studios
+*        All Rights Reserved
+*        Confidential property of Cryptic Studios
 *
-*	Arenaref stuff
+*    Arenaref stuff
 *
  */
 
@@ -15,8 +15,8 @@
 
 typedef struct ArenaRef
 {
-	U32				eventid;
-	U32				uniqueid;
+    U32                eventid;
+    U32                uniqueid;
 } ArenaRef;
 
 #define ArenaRefMatch(lhs, rhs) ((lhs)->eventid == (rhs)->eventid && (lhs)->uniqueid == (rhs)->uniqueid) // events or refs

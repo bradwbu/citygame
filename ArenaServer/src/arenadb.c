@@ -1,65 +1,65 @@
 /*\
  *
- *	ArenaDb.h/c - Copyright 2004, 2005 Cryptic Studios
- *		All Rights Reserved
- * 		Confidential property of Cryptic Studios
+ *    ArenaDb.h/c - Copyright 2004, 2005 Cryptic Studios
+ *        All Rights Reserved
+ *         Confidential property of Cryptic Studios
  *
- *	Stub functions so arena can use dbcomm, dbcontainer.
+ *    Stub functions so arena can use dbcomm, dbcontainer.
  *  Also any other arena-specific db client functions.
  *
  */
 
-#include "dbcomm.h"
-#include "dbcontainer.h"
+#include "dbcomm/dbcomm.h"
+#include "dbcomm/dbcontainer.h"
 #include "ArenaEvent.h"
 #include "arenaplayer.h"
-#include "error.h"
-#include "entity.h"
-#include "entsend.h"
+#include <utilitieslib/utils/error.h>
+#include "entity/entity.h"
+#include "entity/entsend.h"
 #include "comm_backend.h"
-#include "log.h"
+#include <utilitieslib/utils/log.h>
 
 void containerHandleArena(ContainerInfo* ci)
 {
-	ArenaEvent* ae = EventGetAdd(ci->id, 1);
-	if (!ae)
-	{
-		LOG_OLD_ERR("containerHandleArena: Couldn't create event?");
-		return;
-	}
-	unpackArenaEvent(ae, ci->data, ci->id);
-	// MAK- this was a bad idea..
-	//ae->uniqueid = 0;	// arenaserver resets all unique id's on initial container load
+    ArenaEvent* ae = EventGetAdd(ci->id, 1);
+    if (!ae)
+    {
+        LOG_OLD_ERR("containerHandleArena: Couldn't create event?");
+        return;
+    }
+    unpackArenaEvent(ae, ci->data, ci->id);
+    // MAK- this was a bad idea..
+    //ae->uniqueid = 0;    // arenaserver resets all unique id's on initial container load
 }
 
 void containerHandleArenaPlayers(ContainerInfo* ci)
 {
-	ArenaPlayer* ap = PlayerGetAdd(ci->id, 1);
-	if (!ap)
-	{
-		LOG_OLD_ERR("containerHandleArena: Couldn't create player?");
-		return;
-	}
-	unpackArenaPlayer(ap, ci->data, ci->id);
+    ArenaPlayer* ap = PlayerGetAdd(ci->id, 1);
+    if (!ap)
+    {
+        LOG_OLD_ERR("containerHandleArena: Couldn't create player?");
+        return;
+    }
+    unpackArenaPlayer(ap, ci->data, ci->id);
 }
 
 // arena server only pays attention to arena events, players
 U32 dealWithContainer(ContainerInfo *ci,int type)
 {
-	if (type == CONTAINER_ARENAEVENTS)
-		containerHandleArena(ci);
-	else if (type == CONTAINER_ARENAPLAYERS)
-		containerHandleArenaPlayers(ci);
-	else
-		LOG_OLD_ERR("dealWithContainer: got update for type %i", type);
-	return 0;
+    if (type == CONTAINER_ARENAEVENTS)
+        containerHandleArena(ci);
+    else if (type == CONTAINER_ARENAPLAYERS)
+        containerHandleArenaPlayers(ci);
+    else
+        LOG_OLD_ERR("dealWithContainer: got update for type %i", type);
+    return 0;
 }
 
 // *********************************************************************************
 //  stub functions for dbcomm, dbcontainer
 // *********************************************************************************
 
-#include "svr_player.h"
+#include "svr/svr_player.h"
 
 // Externs
 int last_db_error_code;

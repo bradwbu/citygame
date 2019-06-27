@@ -10,13 +10,13 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/sysutil.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "..\Common\auth\auth.h"
+#include "auth/auth.h"
 #include <utilitieslib/language/AppLocale.h>
 #include <utilitieslib/utils/log.h>
 #include "overloadProtection.h"
 
 #ifdef DBSERVER
-#include "..\Common\auth\authUserData.h"
+#include "auth/authUserData.h"
 #include "container_tplt_utils.h"
 #endif
 
