@@ -3,9 +3,9 @@
 
 #include <winsock2.h>
 #include <windows.h>
-#include "net_structdefs.h"
-#include "textparser.h"
-#include "listView.h"
+#include <utilitieslib/network/net_structdefs.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/listView.h>
 
 
 #define CHATMON_PROTOCOL_VERSION	( 20050106 )

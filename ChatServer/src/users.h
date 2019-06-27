@@ -2,7 +2,7 @@
 #define _USERS_H
 
 #include "chatdb.h"
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 
 extern int g_online_count;
 
@@ -23,7 +23,7 @@ Email *emailPush(Email ***email_list,User * to, User *from, char * sender, char 
 void emailRemove(Email ***email_list,int idx);
 
 Email *gmailPush(U32 to_auth_id, char *to_name, U32 from_auth_id, char *from_name, U32 original_from_auth_id, char *subj, 
-				 char *msg, char *attach, int delay);
+                 char *msg, char *attach, int delay);
 
 void gmailRemove(UserGmail *gmUser, int mail_id);
 

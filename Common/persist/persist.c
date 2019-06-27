@@ -1526,9 +1526,9 @@ int persist_Panic(void)
 }
 
 // HTTP Output /////////////////////////////////////////////////////////////////
-#include "utilitieslib/UtilsNew/Str.h"
-#include "utilitieslib/components/EString.h" // required for ParserWriteText
-#include "textparserUtils.h"
+#include <utilitieslib/UtilsNew/Str.h>
+#include <utilitieslib/components/EString.h> // required for ParserWriteText
+#include <utilitieslib/utils/textparserUtils.h>
 #define sendline(fmt, ...)    Str_catf(str, fmt"\n", __VA_ARGS__)
 #define rowclass            ((row++)&1)
 

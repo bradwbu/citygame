@@ -2,7 +2,7 @@
 #define _MSGSEND_H
 
 #include "chatdb.h"
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 
 void msgFlushPacket(NetLink *link);
 void sendMsg(NetLink *link,int auth_id,char *msg);

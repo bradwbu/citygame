@@ -67,6 +67,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua", "..\..\3rdparty\lua-5
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArenaServer", "..\..\ArenaServer\build\vs2019\ArenaServer.vcxproj", "{6FBFE732-15AB-4AEE-A6E8-EC5FEA0A345B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChatServer", "..\..\ChatServer\build\vs2019\ChatServer.vcxproj", "{D42CFCF3-6823-48C9-A1B4-3E9CC875E4DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -307,6 +309,14 @@ Global
 		{6FBFE732-15AB-4AEE-A6E8-EC5FEA0A345B}.Release|x64.Build.0 = Release|x64
 		{6FBFE732-15AB-4AEE-A6E8-EC5FEA0A345B}.Release|x86.ActiveCfg = Release|Win32
 		{6FBFE732-15AB-4AEE-A6E8-EC5FEA0A345B}.Release|x86.Build.0 = Release|Win32
+		{D42CFCF3-6823-48C9-A1B4-3E9CC875E4DB}.Debug|x64.ActiveCfg = Debug|x64
+		{D42CFCF3-6823-48C9-A1B4-3E9CC875E4DB}.Debug|x64.Build.0 = Debug|x64
+		{D42CFCF3-6823-48C9-A1B4-3E9CC875E4DB}.Debug|x86.ActiveCfg = Debug|Win32
+		{D42CFCF3-6823-48C9-A1B4-3E9CC875E4DB}.Debug|x86.Build.0 = Debug|Win32
+		{D42CFCF3-6823-48C9-A1B4-3E9CC875E4DB}.Release|x64.ActiveCfg = Release|x64
+		{D42CFCF3-6823-48C9-A1B4-3E9CC875E4DB}.Release|x64.Build.0 = Release|x64
+		{D42CFCF3-6823-48C9-A1B4-3E9CC875E4DB}.Release|x86.ActiveCfg = Release|Win32
+		{D42CFCF3-6823-48C9-A1B4-3E9CC875E4DB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

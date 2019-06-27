@@ -1,12 +1,12 @@
 #ifndef MONITOR_H__
 #define MONITOR_H__
 
-#include "netio.h"
+#include <utilitieslib/network/netio.h>
 
 
 typedef struct
 {
-	NetLink	*link;
+    NetLink    *link;
 
 } MonitorLink;
 
