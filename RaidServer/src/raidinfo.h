@@ -1,17 +1,17 @@
 /*\
  *
- *	raidinfo.h/c - Copyright 2004, 2005 Cryptic Studios
- *		All Rights Reserved
- *		Confidential property of Cryptic Studios
+ *    raidinfo.h/c - Copyright 2004, 2005 Cryptic Studios
+ *        All Rights Reserved
+ *        Confidential property of Cryptic Studios
  *
- *	Some information about the raid game saved to supergroups
+ *    Some information about the raid game saved to supergroups
  *
  */
 
 #ifndef RAIDINFO_H
 #define RAIDINFO_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct Packet Packet;
 typedef struct SupergroupRaidInfo SupergroupRaidInfo;

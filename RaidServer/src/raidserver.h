@@ -1,17 +1,17 @@
 /*\
  *
- *	raidserver.h/c - Copyright 2004, 2005 Cryptic Studios
- *		All Rights Reserved
- *		Confidential property of Cryptic Studios
+ *    raidserver.h/c - Copyright 2004, 2005 Cryptic Studios
+ *        All Rights Reserved
+ *        Confidential property of Cryptic Studios
  *
- *	Handles central server functions for scheduled base raids
+ *    Handles central server functions for scheduled base raids
  *
  */
 
 #ifndef RAIDSERVER_H
 #define RAIDSERVER_H
 
-#include "raidstruct.h"
+#include "gameData/raidstruct.h"
 #include "comm_backend.h"
 
 void UpdateConsoleTitle(void);
