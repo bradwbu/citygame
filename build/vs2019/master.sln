@@ -71,6 +71,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChatServer", "..\..\ChatSer
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RaidServer", "..\..\RaidServer\build\vs2019\RaidServer.vcxproj", "{D075ABF6-215C-4C60-B73C-C4069313A5F3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nvparse", "..\..\3rdparty\nvparse\build\vs2019\nvparse.vcxproj", "{A70C9B90-9574-4831-B622-EE05365C1D94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -327,6 +329,14 @@ Global
 		{D075ABF6-215C-4C60-B73C-C4069313A5F3}.Release|x64.Build.0 = Release|x64
 		{D075ABF6-215C-4C60-B73C-C4069313A5F3}.Release|x86.ActiveCfg = Release|Win32
 		{D075ABF6-215C-4C60-B73C-C4069313A5F3}.Release|x86.Build.0 = Release|Win32
+		{A70C9B90-9574-4831-B622-EE05365C1D94}.Debug|x64.ActiveCfg = Debug|x64
+		{A70C9B90-9574-4831-B622-EE05365C1D94}.Debug|x64.Build.0 = Debug|x64
+		{A70C9B90-9574-4831-B622-EE05365C1D94}.Debug|x86.ActiveCfg = Debug|Win32
+		{A70C9B90-9574-4831-B622-EE05365C1D94}.Debug|x86.Build.0 = Debug|Win32
+		{A70C9B90-9574-4831-B622-EE05365C1D94}.Release|x64.ActiveCfg = Release|x64
+		{A70C9B90-9574-4831-B622-EE05365C1D94}.Release|x64.Build.0 = Release|x64
+		{A70C9B90-9574-4831-B622-EE05365C1D94}.Release|x86.ActiveCfg = Release|Win32
+		{A70C9B90-9574-4831-B622-EE05365C1D94}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -350,6 +360,7 @@ Global
 		{06935686-B980-4030-867E-506CF0A3A0A8} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{A54F2941-F15E-40CC-94CC-AE551F95BA33} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{494EE6BF-16C7-4457-8759-AF93033293A7} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
+		{A70C9B90-9574-4831-B622-EE05365C1D94} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}
