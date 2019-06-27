@@ -418,7 +418,7 @@ void dbAsyncContainerRequest(int list_id,int container_id,int cmd,NetPacketCallb
 
     pak = pktCreateEx(&db_comm_link,DBCLIENT_REQ_CONTAINERS);
 #if defined(_M_X64)
-        #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+        #pragma message("The line below needs to be proper ported to 64 bit compatible code")
 #endif
     pktSendBitsPack(pak,1,(U32)(uintptr_t)cb_func);
     pktSendBitsPack(pak,1,list_id);
@@ -438,7 +438,7 @@ void dbAsyncContainersRequest(int list_id,int *eaContainer_ids,int cmd,NetPacket
         
         pak = pktCreateEx(&db_comm_link,DBCLIENT_REQ_CONTAINERS);
 #if defined(_M_X64)
-        #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+        #pragma message("The line below needs to be proper ported to 64 bit compatible code")
 #endif
         pktSendBitsPack(pak,1,(U32)(uintptr_t)cb_func);
         pktSendBitsPack(pak,1,list_id);

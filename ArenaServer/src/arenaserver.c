@@ -705,7 +705,7 @@ int* reqSomeOnlineEnts(int *ids, bool wantOnline)
     int count = eaiSize( &ids );
     Packet *pak = pktCreateEx(&db_comm_link, DBCLIENT_REQ_SOME_ONLINE_ENTS);
 #if defined(_M_X64)
-    #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+    #pragma message("The line below needs to be proper ported to 64 bit compatible code")
 #endif
     pktSendBitsPack( pak, 1, (U32)(uintptr_t)netpacketcallback_SomeOnlineEnts);
     pktSendBitsAuto( pak, count);

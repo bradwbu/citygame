@@ -447,7 +447,7 @@ char *dbQuery(char *query_cmd)
 
         pak = pktCreateEx(&db_comm_link,DBCLIENT_REQ_CONTAINER_STATUS);
 #if defined(_M_X64)
-        #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+        #pragma message("The line below needs to be proper ported to 64 bit compatible code")
 #endif
         pktSendBitsPack(pak,1,(U32)(uintptr_t)dbQueryReceiveStatus);
         pktSendBitsPack(pak,1,list_id);
@@ -666,7 +666,7 @@ int dbQueryOnline(int list_id,int container_id)
 
     pak = pktCreateEx(&db_comm_link,DBCLIENT_REQ_CONTAINER_STATUS);
 #if defined(_M_X64)
-        #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+        #pragma message("The line below needs to be proper ported to 64 bit compatible code")
 #endif
     pktSendBitsPack(pak,1,(U32)(uintptr_t)dbQueryReceiveOnlineStatus);
     pktSendBitsPack(pak,1,list_id);

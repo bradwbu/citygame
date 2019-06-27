@@ -809,7 +809,7 @@ static void sendPerformanceUpdateLayout(Packet* pak, PerformanceInfo* info)
     pktSendBitsPack(pak, 7, info->uid);
     pktSendString(pak, info->locName);
 #if defined(_M_X64)
-    #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+    #pragma message("The line below needs to be proper ported to 64 bit compatible code")
 #endif
     pktSendBits(pak, 32, (U32)(uintptr_t)info->rootStatic);
 

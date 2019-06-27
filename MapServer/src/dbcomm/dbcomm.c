@@ -551,7 +551,7 @@ void handleCustomData(Packet *pak)
     DbCustomDataCallback    cb;
     int                        db_id,count;
 #if defined(_M_X64)
-    #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+    #pragma message("The line below needs to be proper ported to 64 bit compatible code")
 #endif
     cb        = (DbCustomDataCallback)(uintptr_t)pktGetBits(pak,32);
     db_id    = pktGetBitsPack(pak,1);
@@ -651,7 +651,7 @@ void dbReqCustomData(int list_id,char *table,char *limit,char *search,char *colu
 
     pak = pktCreateEx(&db_comm_link,DBCLIENT_REQ_CUSTOM_DATA);
 #if defined(_M_X64)
-    #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+    #pragma message("The line below needs to be proper ported to 64 bit compatible code")
 #endif
     pktSendBits(pak,32,(U32)(uintptr_t)cb);
     pktSendBitsPack(pak,1,db_id);
@@ -1061,7 +1061,7 @@ int dbMessageCallback(Packet *pak,int cmd,NetLink *link)
             if (user_data)
             {
 #if defined(_M_X64)
-                #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+                #pragma message("The line below needs to be proper ported to 64 bit compatible code")
 #endif
                 cb = (NetPacketCallback*)(uintptr_t)user_data;
                 return cb(pak,cmd,link);
@@ -1077,7 +1077,7 @@ int dbMessageCallback(Packet *pak,int cmd,NetLink *link)
             if (user_data)
             {
 #if defined(_M_X64)
-                #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+                #pragma message("The line below needs to be proper ported to 64 bit compatible code")
 #endif
                 cb = (NetPacketCallback*)(uintptr_t)user_data;
                 cb(pak,cmd,link);
@@ -1201,7 +1201,7 @@ int dbMessageCallback(Packet *pak,int cmd,NetLink *link)
             if (user_data)
             {
 #if defined(_M_X64)
-                #pragma message("The line below needs to be proper ported to 64 bit compatbile code")
+                #pragma message("The line below needs to be proper ported to 64 bit compatible code")
 #endif
                 cb = (NetPacketCallback*)(uintptr_t)user_data;
                 return cb(pak,cmd,link);
