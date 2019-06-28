@@ -6,8 +6,8 @@
 #ifndef UICHAT_H__
 #define UICHAT_H__
 
-#include "entVarUpdate.h"
-#include "chatSettings.h"
+#include "entity/entVarUpdate.h"
+#include "entity/chatSettings.h"
 
 #define DEFAULT_BUBBLE_TIME			2.0 //Time before bringing up the next bubble
 #define DEFAULT_BUBBLE_DURATION		8.0 //Time this bubble lasts on screen

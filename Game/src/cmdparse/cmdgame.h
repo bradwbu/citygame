@@ -1,12 +1,12 @@
 #ifndef _CMDGAME_H
 #define _CMDGAME_H
 
-#include "stdtypes.h"
-#include "cmdoldparse.h"
-#include "ArrayOld.h"
-#include "cmdcommon.h"
-#include "groupscene.h" // For DOFValues struct
-#include "gfxSettings.h" // For OptionCubemap
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/cmdoldparse.h>
+#include <utilitieslib/components/ArrayOld.h>
+#include "cmdparse/cmdcommon.h"
+#include "group/groupscene.h" // For DOFValues struct
+#include "graphics/gfxSettings.h" // For OptionCubemap
 
 typedef __int64 EntityRef;
 

@@ -6,8 +6,8 @@
 #ifndef SPRITE_TEXT_H__
 #define SPRITE_TEXT_H__
 
-#include "wdwbase.h"
-#include "stdtypes.h"
+#include "gameComm/wdwbase.h"
+#include <utilitieslib/stdtypes.h>
 #include <stdarg.h>
 
 typedef struct TTDrawContext TTDrawContext;

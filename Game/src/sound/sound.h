@@ -1,7 +1,7 @@
 #ifndef _SOUND_H
 #define _SOUND_H
 
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "sound_common.h"
 
 #ifdef FINAL

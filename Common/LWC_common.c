@@ -2,7 +2,7 @@
 #include "entity/gametypes.h"
 #include "entity/entity.h"
 #include "entity/entPlayer.h"
-#include "clientcomm.h"
+#include "clientcomm/clientcomm.h"
 #include "comm_game.h"
 
 #ifdef SERVER

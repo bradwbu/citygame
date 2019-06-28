@@ -5,7 +5,7 @@
 // This file is contains utility and helper functions for ui stuff
 //------------------------------------------------------------------------------------
 
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "uiInclude.h"
 
 #define PIX1	1

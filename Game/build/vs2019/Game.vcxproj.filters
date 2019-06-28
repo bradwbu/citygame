@@ -1,0 +1,1879 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Common">
+      <UniqueIdentifier>{0da72002-4afd-4fe6-816d-cb84e9b6dcf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{64202e49-c005-43a0-b4dd-f5f7e9d5affc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\player">
+      <UniqueIdentifier>{c45b34a4-687b-481d-b60b-6519668af2a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\player">
+      <UniqueIdentifier>{96e27472-7fa1-4def-95aa-97b68ff5398c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{201e1904-d8ab-45b2-bb11-c386df7d4eb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{dd023597-f38e-4e90-86ec-b67f5d19f95c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\account">
+      <UniqueIdentifier>{e8b3e037-4071-4d0f-af3d-07ab70af08ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\account">
+      <UniqueIdentifier>{522cf559-9eaf-4ad5-86a5-867952574955}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\arena">
+      <UniqueIdentifier>{9b8760b2-83fd-4fa0-9925-a50c12f07810}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\arena">
+      <UniqueIdentifier>{6bf6966c-e03a-4c4e-8702-5b54bf9f886a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\gameData">
+      <UniqueIdentifier>{4640cf07-8e4b-4c7f-a46d-0d6cef9303b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\gameData">
+      <UniqueIdentifier>{a98d6511-cbe9-4cce-a732-782050ecf424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\auction">
+      <UniqueIdentifier>{70329bdc-e2be-4980-bcdf-1fa7275b7ce6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\auction">
+      <UniqueIdentifier>{86c15356-914c-4187-9bef-9652ce302dd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\bases">
+      <UniqueIdentifier>{8a8e7cf8-03f2-4115-b25f-edb5167c9e36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\bases">
+      <UniqueIdentifier>{c59552d3-bfe2-46df-85d4-e7279a185ab9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\bases">
+      <UniqueIdentifier>{911263db-8e22-4812-8f13-50221e5cbbb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\bases">
+      <UniqueIdentifier>{63cf40b8-354d-4592-808c-bbae3ea20843}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\auth">
+      <UniqueIdentifier>{eecee2fe-16de-4f04-a951-14587481ca9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\auth">
+      <UniqueIdentifier>{05df25d6-e957-434b-8cb0-bd3a9b682254}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\clientcomm">
+      <UniqueIdentifier>{e5c91bcc-4ccd-448d-a92d-87e0720558b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\clientcomm">
+      <UniqueIdentifier>{b6e8f8aa-a5c3-4a8a-a678-90d0bed7636b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gameComm">
+      <UniqueIdentifier>{0da87a98-afbf-4dd6-bf00-005958f5fe52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gameComm">
+      <UniqueIdentifier>{c686af5a-e7f9-44e3-91ff-9919ccdb2639}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cloth">
+      <UniqueIdentifier>{92357309-66f3-4c4a-966f-f0f4e3ef9dfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Cloth">
+      <UniqueIdentifier>{2ff25906-39d5-4447-b92f-654f90669374}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cmdparse">
+      <UniqueIdentifier>{3fea4b0f-6509-4241-8354-d52af6102a1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cmdparse">
+      <UniqueIdentifier>{f4c850ed-9e70-43fe-afe3-0767e20c7324}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\cmdparse">
+      <UniqueIdentifier>{ec67c57a-aa7c-45c3-9652-295187112c3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\cmdparse">
+      <UniqueIdentifier>{0ad3d463-b052-4902-acd2-091ea6eb8e47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\container">
+      <UniqueIdentifier>{b824a883-3ced-4896-94d9-fde1929671d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\container">
+      <UniqueIdentifier>{ce280fbf-709e-4e83-be85-84cac3de4abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\edit">
+      <UniqueIdentifier>{b581c583-a2ea-486e-bcac-2580a828b471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\edit">
+      <UniqueIdentifier>{98450cbf-b1a1-4ff2-b790-df23dc9f56d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\entity">
+      <UniqueIdentifier>{f21f01b9-d603-499a-9e56-76cd67b626cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\entity">
+      <UniqueIdentifier>{80f4e76c-b7c0-46a2-8b2a-7873c81f609e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\entity">
+      <UniqueIdentifier>{cfb338f2-c85c-4ada-be1e-0a84955fbead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\entity">
+      <UniqueIdentifier>{e8a5bff8-dde5-443c-9af2-dbd52fa70ddf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\filter">
+      <UniqueIdentifier>{7944d367-8aeb-48cc-bb4c-2ff63c03f825}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\filter">
+      <UniqueIdentifier>{3c2bb42d-4d97-4362-a30a-9cd4db72ad41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\formatter">
+      <UniqueIdentifier>{2c18499a-9e1e-44c0-b671-222f1b3e6908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\formatter">
+      <UniqueIdentifier>{4c6430b8-6670-4327-b237-b1df4c892263}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\gameComm">
+      <UniqueIdentifier>{c22efdd1-b373-4a7e-bd2f-f1f777a7afa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\gameComm">
+      <UniqueIdentifier>{5f33d29e-1d2b-46fc-919e-8b0d3b3de0a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gameData">
+      <UniqueIdentifier>{c9a139a3-5c27-4f97-8025-737004fb5150}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gameData">
+      <UniqueIdentifier>{520e8815-4d18-4690-b3c6-4b3687a59ce6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\graphics">
+      <UniqueIdentifier>{e796de50-6277-46e4-bab8-579b0ff5bb30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\graphics\FX">
+      <UniqueIdentifier>{f91fbf00-59b2-4d35-a9eb-c3e79a972d8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\graphics">
+      <UniqueIdentifier>{97534b04-94cc-482f-8f56-83d4a26d6b43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\graphics\FX">
+      <UniqueIdentifier>{4ba3b4e4-320c-4e57-b966-50b800941e5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\graphics\truetype">
+      <UniqueIdentifier>{70bbee6d-c021-489e-baf1-e7fa736376bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\graphics\truetype">
+      <UniqueIdentifier>{b438dcff-1b03-46ed-b8f8-1efbfd3978f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\gridcoll">
+      <UniqueIdentifier>{2378b4a5-37ea-4c2b-a5d1-6d0c74ec28f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\gridcoll">
+      <UniqueIdentifier>{74fc4efc-d299-437b-b3ee-c86ebff45281}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\group">
+      <UniqueIdentifier>{418885dc-d5e3-4c53-9b0a-309c03fc0861}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\group">
+      <UniqueIdentifier>{745ce840-8503-4f6b-afdb-cf9ee5c90b68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\group">
+      <UniqueIdentifier>{647583a0-4431-4953-b010-8714490ebcea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\group">
+      <UniqueIdentifier>{7a40b02f-e09f-4a27-8857-a2687bec7acd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\language">
+      <UniqueIdentifier>{0b3b7415-6ec4-44b4-acc6-80b25176f45d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\language">
+      <UniqueIdentifier>{20ad61c1-5bdd-4fa3-9e9e-11c424d01ea4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\language">
+      <UniqueIdentifier>{f7c8e504-7c7a-4c42-b07a-80067c855d32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\language">
+      <UniqueIdentifier>{6f03ea53-4362-4c01-88e4-af1988dc2fb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\NovodeX">
+      <UniqueIdentifier>{37d6e30c-f295-42e6-a4bf-f57e8ce0db4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\NovodeX">
+      <UniqueIdentifier>{900febdf-6834-45bf-831d-5d7bdaaf486b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\LWC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\demo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\LWC_common.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\player\pophelp.h">
+      <Filter>Header Files\Common\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPopHelp.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\account\AccountData.h">
+      <Filter>Header Files\Common\account</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\account\AccountInventory.h">
+      <Filter>Header Files\Common\account</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\account\AccountTypes.h">
+      <Filter>Header Files\Common\account</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\account\AccountCatalog.h">
+      <Filter>Header Files\Common\account</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\arena\arenagame.h">
+      <Filter>Header Files\arena</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameData\arenastruct.h">
+      <Filter>Header Files\Common\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\auction\Auction.h">
+      <Filter>Header Files\Common\auction</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\auction\AuctionData.h">
+      <Filter>Header Files\Common\auction</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\auction\Xact.h">
+      <Filter>Header Files\Common\auction</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\bases\baseclientrecv.h">
+      <Filter>Header Files\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\bases\baseclientsend.h">
+      <Filter>Header Files\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\bases\basedraw.h">
+      <Filter>Header Files\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\bases\baseedit.h">
+      <Filter>Header Files\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\baseinv.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\baselegal.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\baseparse.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\baseRaid.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\bases.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\basesend.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\basestorage.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\basesystems.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\basetogroup.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\basetrim.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\baseupkeep.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\DetailRecipe.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\basedata.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\bases\basefromgroup.h">
+      <Filter>Header Files\Common\bases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\auth\auth.h">
+      <Filter>Header Files\Common\auth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\auth\authconn.h">
+      <Filter>Header Files\Common\auth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\auth\authUserData.h">
+      <Filter>Header Files\Common\auth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\clientcomm\authclient.h">
+      <Filter>Header Files\clientcomm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\clientcomm\autoResumeInfo.h">
+      <Filter>Header Files\clientcomm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gameComm\chatClient.h">
+      <Filter>Header Files\gameComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\chatdb.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\clientcomm\clientcomm.h">
+      <Filter>Header Files\clientcomm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\clientcomm\clientcommreceive.h">
+      <Filter>Header Files\clientcomm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\comm_backend.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\comm_game.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\clientcomm\dbclient.h">
+      <Filter>Header Files\clientcomm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\clientcomm\Des.h">
+      <Filter>Header Files\clientcomm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Cloth\ClothCollide.h">
+      <Filter>Header Files\Cloth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Cloth\ClothDefs.h">
+      <Filter>Header Files\Cloth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Cloth\ClothMesh.h">
+      <Filter>Header Files\Cloth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Cloth\ClothPrivate.h">
+      <Filter>Header Files\Cloth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Cloth\Wind.h">
+      <Filter>Header Files\Cloth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Cloth\Cloth.h">
+      <Filter>Header Files\Cloth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\cmdparse\cmdDebug.h">
+      <Filter>Header Files\cmdparse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\cmdparse\cmdgame.h">
+      <Filter>Header Files\cmdparse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\cmdparse\AppServerCmd.h">
+      <Filter>Header Files\Common\cmdparse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\cmdparse\cmdaccountserver.h">
+      <Filter>Header Files\Common\cmdparse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\cmdparse\cmdcommon.h">
+      <Filter>Header Files\Common\cmdparse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\cmdparse\cmdcommon_enum.h">
+      <Filter>Header Files\Common\cmdparse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\cmdparse\cmdcontrols.h">
+      <Filter>Header Files\Common\cmdparse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\container\container_store.h">
+      <Filter>Header Files\Common\container</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\container\container_util.h">
+      <Filter>Header Files\Common\container</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\container\dbcontainerpack.h">
+      <Filter>Header Files\Common\container</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_cmd.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_cmd_adjust.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_cmd_file.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_cmd_group.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_cmd_select.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_context_menu.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_cubemap.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_drawlines.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_errcheck.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_info.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_library.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_lods.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_net.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_pickcolor.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_select.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_transformToolbar.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\edit_uiscroll.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\EditListView.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\MapGenerator.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\Menu.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\UI.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\ClickToSource.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\edit\DebugLocation.h">
+      <Filter>Header Files\edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\ClickToSourceFlags.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\editorUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\MissionControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\Properties.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\attrib_description.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\attrib_names.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\attrib_net.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\boost.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\boostset.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\buddy.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\character_attribs.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\character_base.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\character_combat_eval.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\character_eval.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\character_inventory.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\character_level.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\character_net.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\character_target.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\chatSettings.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\classes.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\Concept.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\costume.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\CustomVillainGroup.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\entity.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\entityRef.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\entPlayer.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\entStrings.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\entVarUpdate.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\entworldcoll.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\friendCommon.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\incarnate.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\Invention.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\load_def.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\LoadDefCommon.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\motion.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\netfx.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\origins.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\PCC_Critter.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\power_customization.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\power_system.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\PowerInfo.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\powers.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\Proficiency.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\ragdoll.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\RewardItemType.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\RewardSlot.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\RewardToken.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\salvage.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\SgrpBasePermissions.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\SgrpStatsCommon.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\Supergroup.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\supergroup_eval.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\TaskforceParams.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\teamup.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\TokenizerUiWidget.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\character_animfx_client.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\character_net_client.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\entity\character_workshop.h">
+      <Filter>Header Files\Common\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\costume_client.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\CustomVillainGroup_Client.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\entclient.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\entDebug.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\entDebugPrivate.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\entIncludeClient.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\entity_power_client.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\entrecv.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\PCC_Critter_Client.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\power_customization_client.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\entity\scriptDebugClient.h">
+      <Filter>Header Files\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\filter\profanity.h">
+      <Filter>Header Files\Common\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\filter\titles.h">
+      <Filter>Header Files\Common\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\filter\validate_name.h">
+      <Filter>Header Files\Common\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\formatter\smf_interact.h">
+      <Filter>Header Files\formatter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\formatter\smf_main.h">
+      <Filter>Header Files\formatter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\formatter\smf_parse.h">
+      <Filter>Header Files\formatter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\formatter\smf_render.h">
+      <Filter>Header Files\formatter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\formatter\smf_select.h">
+      <Filter>Header Files\formatter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\formatter\smf_util.h">
+      <Filter>Header Files\formatter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\formatter\smf_format.h">
+      <Filter>Header Files\formatter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameComm\debugCommon.h">
+      <Filter>Header Files\Common\gameComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameComm\dooranimcommon.h">
+      <Filter>Header Files\Common\gameComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameComm\initCommon.h">
+      <Filter>Header Files\Common\gameComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameComm\Npc.h">
+      <Filter>Header Files\Common\gameComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameComm\petCommon.h">
+      <Filter>Header Files\Common\gameComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameComm\trayCommon.h">
+      <Filter>Header Files\Common\gameComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameComm\VillainDef.h">
+      <Filter>Header Files\Common\gameComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameComm\wdwbase.h">
+      <Filter>Header Files\Common\gameComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gameComm\dooranimclient.h">
+      <Filter>Header Files\gameComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gameComm\initClient.h">
+      <Filter>Header Files\gameComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gameComm\itemselect.h">
+      <Filter>Header Files\gameComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\DoorStrings.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\varutils.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameData\BodyPart.h">
+      <Filter>Header Files\Common\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gameData\costume_critter.h">
+      <Filter>Header Files\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameData\costume_data.h">
+      <Filter>Header Files\Common\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gameData\costume_diff.h">
+      <Filter>Header Files\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gameData\list1a.h">
+      <Filter>Header Files\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gameData\list2a.h">
+      <Filter>Header Files\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gameData\menudef.h">
+      <Filter>Header Files\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameData\raidstruct.h">
+      <Filter>Header Files\Common\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gameData\randomCharCreate.h">
+      <Filter>Header Files\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gameData\randomName.h">
+      <Filter>Header Files\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gameData\sgraidClient.h">
+      <Filter>Header Files\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameData\store.h">
+      <Filter>Header Files\Common\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gameData\store_data.h">
+      <Filter>Header Files\Common\gameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\fxutil.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\imageServer.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\fxbhvr.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\fxinfo.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\FX\fx.h">
+      <Filter>Header Files\graphics\FX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\FX\fxcapes.h">
+      <Filter>Header Files\graphics\FX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\FX\fxdebris.h">
+      <Filter>Header Files\graphics\FX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\FX\fxfluid.h">
+      <Filter>Header Files\graphics\FX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\FX\fxgeo.h">
+      <Filter>Header Files\graphics\FX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\FX\fxlists.h">
+      <Filter>Header Files\graphics\FX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\FX\particle.h">
+      <Filter>Header Files\graphics\FX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\ttFont.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\ttFontUtil.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\truetype\ttAppleMapping.h">
+      <Filter>Header Files\graphics\truetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\truetype\ttDebug.h">
+      <Filter>Header Files\graphics\truetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\truetype\ttFontBitmap.h">
+      <Filter>Header Files\graphics\truetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\truetype\ttFontCore.h">
+      <Filter>Header Files\graphics\truetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\truetype\ttFontDraw.h">
+      <Filter>Header Files\graphics\truetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\truetype\ttFontManager.h">
+      <Filter>Header Files\graphics\truetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\camera.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\clothnode.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\failtext.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\fog.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\fontdata.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\frustum_c.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\gfx.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\gfxDebug.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\gfxDevHUD.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\gfxLoadScreens.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\gfxSettings.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\gfxwindow.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\groupdraw.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\groupdrawinline.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\groupdrawutil.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\groupMiniTrackers.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\groupThumbnail.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\imageCapture.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\jconfig.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\jerror.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\jmorecfg.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\jpeg.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\jpeglib.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\light.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\seqgraphics.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\splat.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\sun.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\test_cape.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\test_flag.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\textureatlas.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\textureatlasPrivate.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\view_cache.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\viewport.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\vistray.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\vistraygrid.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\zOcclusion.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\zOcclusionClip.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\zOcclusionDraw.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\graphics\zOcclusionTypes.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gridcoll\ctri.h">
+      <Filter>Header Files\Common\gridcoll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gridcoll\grid.h">
+      <Filter>Header Files\Common\gridcoll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gridcoll\gridcache.h">
+      <Filter>Header Files\Common\gridcoll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gridcoll\gridcoll.h">
+      <Filter>Header Files\Common\gridcoll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gridcoll\gridcollobj.h">
+      <Filter>Header Files\Common\gridcoll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gridcoll\gridcollperftest.h">
+      <Filter>Header Files\Common\gridcoll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gridcoll\gridfind.h">
+      <Filter>Header Files\Common\gridcoll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\gridcoll\tritri_isectline.h">
+      <Filter>Header Files\Common\gridcoll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\group\groupdynrecv.h">
+      <Filter>Header Files\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\group\groupnetrecv.h">
+      <Filter>Header Files\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\group.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\groupdyn.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\groupfilelib.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\groupfileload.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\groupfileloadutil.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\groupfilesave.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\groupgrid.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\groupMetaMinimap.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\groupnovodex.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\groupProperties.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\groupscene.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\grouptrack.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\group\grouputil.h">
+      <Filter>Header Files\Common\group</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\language\commonLangUtil.h">
+      <Filter>Header Files\Common\language</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\language\langClientUtil.h">
+      <Filter>Header Files\language</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\NovodeX\NwCoreDump.h">
+      <Filter>Header Files\Common\NovodeX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\NovodeX\NwRagdoll.h">
+      <Filter>Header Files\Common\NovodeX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\NovodeX\NwSharedStream.h">
+      <Filter>Header Files\Common\NovodeX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\NovodeX\NwStream.h">
+      <Filter>Header Files\Common\NovodeX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\NovodeX\NwTypes.h">
+      <Filter>Header Files\Common\NovodeX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\NovodeX\NwWrapper.h">
+      <Filter>Header Files\Common\NovodeX</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\uiTextLink.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\uiLevelingpact.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\LWC.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\game.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\demo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\validateFiles.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\LWC_common.c">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\player\pophelp.c">
+      <Filter>Source Files\Common\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPopHelp.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\account\AccountCatalog.c">
+      <Filter>Source Files\Common\account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\account\AccountData.c">
+      <Filter>Source Files\Common\account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\account\AccountInventory.c">
+      <Filter>Source Files\Common\account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\account\AccountTypes.cpp">
+      <Filter>Source Files\Common\account</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\arena\arenagame.c">
+      <Filter>Source Files\arena</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gameData\arenastruct.c">
+      <Filter>Source Files\Common\gameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\auction\Auction.c">
+      <Filter>Source Files\Common\auction</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\auction\AuctionData.c">
+      <Filter>Source Files\Common\auction</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\auction\Xact.c">
+      <Filter>Source Files\Common\auction</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\bases\baseclientrecv.c">
+      <Filter>Source Files\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\bases\baseclientsend.c">
+      <Filter>Source Files\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\bases\basedrag.c">
+      <Filter>Source Files\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\bases\basedraw.c">
+      <Filter>Source Files\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\bases\baseedit.c">
+      <Filter>Source Files\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\baseparse.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\baseRaid.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\bases.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\basesend.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\basestorage.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\basesystems.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\basetogroup.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\basetrim.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\baseupkeep.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\DetailRecipe.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\basedata.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\BaseEntry.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\basefromgroup.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\baseinv.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\bases\baselegal.c">
+      <Filter>Source Files\Common\bases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\auth\auth.c">
+      <Filter>Source Files\Common\auth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\auth\authUserData.c">
+      <Filter>Source Files\Common\auth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\clientcomm\authclient.c">
+      <Filter>Source Files\clientcomm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\clientcomm\autoResumeInfo.c">
+      <Filter>Source Files\clientcomm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gameComm\chatClient.c">
+      <Filter>Source Files\gameComm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\clientcomm\clientcomm.c">
+      <Filter>Source Files\clientcomm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\clientcomm\clientcommreceive.c">
+      <Filter>Source Files\clientcomm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\clientcomm\dbclient.c">
+      <Filter>Source Files\clientcomm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\clientcomm\Des.c">
+      <Filter>Source Files\clientcomm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Cloth\ClothConstraint.c">
+      <Filter>Source Files\Cloth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Cloth\ClothMesh.c">
+      <Filter>Source Files\Cloth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Cloth\ClothMeshPrimitive.c">
+      <Filter>Source Files\Cloth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Cloth\ClothObject.c">
+      <Filter>Source Files\Cloth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Cloth\ClothParse.c">
+      <Filter>Source Files\Cloth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Cloth\Wind.c">
+      <Filter>Source Files\Cloth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Cloth\Cloth.c">
+      <Filter>Source Files\Cloth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Cloth\ClothBuild.c">
+      <Filter>Source Files\Cloth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Cloth\ClothCollide.c">
+      <Filter>Source Files\Cloth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\cmdparse\cmdDebug.c">
+      <Filter>Source Files\cmdparse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\cmdparse\cmdgame.c">
+      <Filter>Source Files\cmdparse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\cmdparse\AppServerCmd.c">
+      <Filter>Source Files\Common\cmdparse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\cmdparse\cmdaccountserver.c">
+      <Filter>Source Files\Common\cmdparse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\cmdparse\cmdcommon.c">
+      <Filter>Source Files\Common\cmdparse</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\container\container_util.c">
+      <Filter>Source Files\Common\container</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\container\dbcontainerpack.c">
+      <Filter>Source Files\Common\container</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\container\container_store.c">
+      <Filter>Source Files\Common\container</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_drawlines.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_errcheck.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_info.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_library.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_lods.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_net.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_pickcolor.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_select.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_transformToolbar.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_uiscroll.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\EditListView.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\MapGenerator.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\Menu.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\UI.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\ClickToSource.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\DebugLocation.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_cmd.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_cmd_adjust.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_cmd_file.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_cmd_group.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_cmd_select.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_context_menu.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\edit\edit_cubemap.c">
+      <Filter>Source Files\edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\editorUI.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\MissionControl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\Properties.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\Concept.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\classes.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\chatSettings.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\character_target.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\character_net.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\character_level.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\character_inventory.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\character_eval.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\character_combat_eval.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\character_base.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\character_attribs.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\buddy.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\boostset.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\boost.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\attrib_net.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\attrib_names.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\attrib_description.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\teamup.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\TaskforceParams.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\supergroup_eval.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\Supergroup.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\SgrpBasePermissions.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\salvage.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\RewardToken.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\RewardSlot.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\RewardItemType.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\ragdoll.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\Proficiency.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\powers_load.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\powers.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\PowerInfo.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\power_system.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\power_customization.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\PCC_Critter.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\origins.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\motion.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\LoadDefCommon.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\load_def.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\Invention.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\incarnate.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\friendCommon.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\entworldcoll.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\entStrings.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\entityRef.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\entity.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\CustomVillainGroup.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\costume.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\entity\character_animfx_client.c">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\entity\character_net_client.c">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\entity\character_workshop.c">
+      <Filter>Source Files\Common\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\entity\costume_client.c">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\entity\CustomVillainGroup_Client.c">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\entity\entclient.c">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\entity\entDebug.c">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\entity\entity_power_client.c">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\entity\entrecv.c">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\entity\PCC_Critter_Client.c">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\entity\power_customization_client.c">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\entity\scriptDebugClient.c">
+      <Filter>Source Files\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\filter\profanity.c">
+      <Filter>Source Files\Common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\filter\titles.c">
+      <Filter>Source Files\Common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\filter\validate_name.c">
+      <Filter>Source Files\Common\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\formatter\smf_main.c">
+      <Filter>Source Files\formatter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\formatter\smf_parse.c">
+      <Filter>Source Files\formatter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\formatter\smf_render.c">
+      <Filter>Source Files\formatter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\formatter\smf_select.c">
+      <Filter>Source Files\formatter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\formatter\smf_util.c">
+      <Filter>Source Files\formatter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\formatter\smf_format.c">
+      <Filter>Source Files\formatter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\formatter\smf_interact.c">
+      <Filter>Source Files\formatter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gameComm\dooranimcommon.c">
+      <Filter>Source Files\Common\gameComm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gameComm\initCommon.c">
+      <Filter>Source Files\Common\gameComm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gameComm\NPC.c">
+      <Filter>Source Files\Common\gameComm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gameComm\trayCommon.c">
+      <Filter>Source Files\Common\gameComm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gameComm\VillainDef.c">
+      <Filter>Source Files\Common\gameComm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gameComm\wdwbase.c">
+      <Filter>Source Files\Common\gameComm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gameComm\dooranimclient.c">
+      <Filter>Source Files\gameComm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gameComm\initClient.c">
+      <Filter>Source Files\gameComm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gameComm\itemselect.c">
+      <Filter>Source Files\gameComm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\DoorStrings.c">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\varutils.c">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gameData\BodyPart.c">
+      <Filter>Source Files\Common\gameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gameData\costume_critter.c">
+      <Filter>Source Files\gameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gameData\costume_data.c">
+      <Filter>Source Files\Common\gameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gameData\costume_diff.c">
+      <Filter>Source Files\gameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gameData\menudef.c">
+      <Filter>Source Files\gameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gameData\raidstruct.c">
+      <Filter>Source Files\Common\gameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gameData\randomCharCreate.c">
+      <Filter>Source Files\gameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gameData\randomName.c">
+      <Filter>Source Files\gameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gameData\sgraidClient.c">
+      <Filter>Source Files\gameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gameData\store.c">
+      <Filter>Source Files\Common\gameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gameData\store_data.c">
+      <Filter>Source Files\Common\gameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\imageServer.c">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\FX\fxcapes.c">
+      <Filter>Source Files\graphics\FX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\FX\fxdebris.c">
+      <Filter>Source Files\graphics\FX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\FX\fxfluid.c">
+      <Filter>Source Files\graphics\FX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\FX\fxgeo.c">
+      <Filter>Source Files\graphics\FX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\FX\fxlists.c">
+      <Filter>Source Files\graphics\FX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\FX\fxutil.c">
+      <Filter>Source Files\graphics\FX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\FX\particle.c">
+      <Filter>Source Files\graphics\FX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\FX\fx.c">
+      <Filter>Source Files\graphics\FX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\fxbhvr.c">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\fxinfo.c">
+      <Filter>Source Files\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\truetype\ttDebug.c">
+      <Filter>Source Files\graphics\truetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\truetype\ttFontBitmap.c">
+      <Filter>Source Files\graphics\truetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\truetype\ttFontCore.c">
+      <Filter>Source Files\graphics\truetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\truetype\ttFontDraw.c">
+      <Filter>Source Files\graphics\truetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\truetype\ttFontManager.c">
+      <Filter>Source Files\graphics\truetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\truetype\ttAppleMapping.c">
+      <Filter>Source Files\graphics\truetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\ttFont.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\ttFontUtil.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\sun.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\textureatlas.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\view_cache.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\viewport.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\vistray.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\vistraygrid.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\zOcclusion.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\zOcclusionClip.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\camera.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\camera_detached.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\clothnode.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\failtext.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\fog.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\fontdata.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\frustum_c.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\gfx.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\gfxDebug.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\gfxDevHUD.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\gfxLoadScreens.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\gfxSettings.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\gfxwindow.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\groupdraw.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\groupdrawinline.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\groupdrawutil.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\groupMiniTrackers.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\groupThumbnail.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\imageCapture.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\jpeg.cpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\light.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\seqgraphics.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics\splat.c">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gridcoll\gridcache.c">
+      <Filter>Source Files\Common\gridcoll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gridcoll\gridcoll.c">
+      <Filter>Source Files\Common\gridcoll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gridcoll\gridcollobj.c">
+      <Filter>Source Files\Common\gridcoll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gridcoll\gridfind.c">
+      <Filter>Source Files\Common\gridcoll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gridcoll\gridstats.c">
+      <Filter>Source Files\Common\gridcoll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gridcoll\tritri_isectline.c">
+      <Filter>Source Files\Common\gridcoll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gridcoll\ctri.c">
+      <Filter>Source Files\Common\gridcoll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\gridcoll\grid.c">
+      <Filter>Source Files\Common\gridcoll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\group\groupdynrecv.c">
+      <Filter>Source Files\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\group\groupnetrecv.c">
+      <Filter>Source Files\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\group.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\groupdyn.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\groupfilelib.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\groupfileload.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\groupfileloadutil.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\groupfilesave.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\groupgrid.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\groupMetaMinimap.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\groupnovodex.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\groupProperties.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\groupscene.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\grouptrack.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\group\grouputil.c">
+      <Filter>Source Files\Common\group</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\language\commonLangUtil.c">
+      <Filter>Source Files\Common\language</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\language\langClientUtil.c">
+      <Filter>Source Files\language</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\NovodeX\NwRagdoll.cpp">
+      <Filter>Source Files\Common\NovodeX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\NovodeX\NwSharedStream.cpp">
+      <Filter>Source Files\Common\NovodeX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\NovodeX\NwStream.cpp">
+      <Filter>Source Files\Common\NovodeX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\NovodeX\NwWrapper.cpp">
+      <Filter>Source Files\Common\NovodeX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\NovodeX\NwCoreDump.cpp">
+      <Filter>Source Files\Common\NovodeX</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\src\Icon_Statesman.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\src\Icon_Rogue.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\src\Icon_Ouroboros.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\src\Icon_Korean.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\src\Icon_Cov.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\src\CrypticIcn.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\src\logo4small_rogue.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\src\logo4small_red.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\src\logo4small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\src\resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

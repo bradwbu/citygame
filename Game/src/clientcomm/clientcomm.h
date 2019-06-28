@@ -1,8 +1,8 @@
 #ifndef _CLIENTCOMM_H
 #define _CLIENTCOMM_H
 
-#include "net_structdefs.h"
-#include "timing.h"
+#include <utilitieslib/network/net_structdefs.h>
+#include <utilitieslib/utils/timing.h>
 
 typedef enum{
 	NST_None,

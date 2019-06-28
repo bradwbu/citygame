@@ -1,7 +1,7 @@
 #ifndef TTFONTDRAW_H
 #define TTFONTDRAW_H
 
-#include "truetype/ttFontCore.h" // for TTFontRenderParams
+#include "graphics/truetype/ttFontCore.h" // for TTFontRenderParams
 
 //------------------------------------------------------------------------------
 // TTDrawContext

@@ -1,9 +1,9 @@
-#include "wdwbase.h"
+#include "gameComm/wdwbase.h"
 
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 
 #include "uiPopHelp.h"
-#include "pophelp.h"
+#include "player/pophelp.h"
 #include "uiUtil.h"
 #include "uiUtilGame.h"
 #include "uiUtilMenu.h"
@@ -11,37 +11,37 @@
 #include "uiInput.h"
 #include "uiEditText.h"
 #include "uiTabControl.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "uiChat.h"
 
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "textureatlas.h"
-#include "entPlayer.h"
-#include "player.h"
-#include "character_base.h"
-#include "entity.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "graphics/textureatlas.h"
+#include "entity/entPlayer.h"
+#include "player/player.h"
+#include "entity/character_base.h"
+#include "entity/entity.h"
 
-#include "entVarUpdate.h"
-#include "textparser.h"
-#include "earray.h"
+#include "entity/entVarUpdate.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/earray.h>
 
 #include "uiSMFView.h"
-#include "smf_main.h"
-#include "MessageStore.h"
-#include "MessageStoreUtil.h"
-#include "StashTable.h"
+#include "formatter/smf_main.h"
+#include <utilitieslib/language/MessageStore.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/components/StashTable.h>
 #include "uiOptions.h"
-#include "scriptvars.h"
-#include "clientcomm.h"
-#include "file.h"
-#include "error.h"
-#include "groupnetrecv.h"
-#include "sound.h"
+#include <utilitieslib/utils/scriptvars.h>
+#include "clientcomm/clientcomm.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/error.h>
+#include "group/groupnetrecv.h"
+#include "sound/sound.h"
 #include "uiGame.h"
 
-#include "cmdgame.h" //cfg_LockActiveForGR() for the issue 17-18 transition
+#include "cmdparse/cmdgame.h" //cfg_LockActiveForGR() for the issue 17-18 transition
 
 char *unread_texture_name = "Pop_Help_Icon_On_Alert";
 char *glow_texture_name = "Pop_Help_Icon_On_Alert_Glow";

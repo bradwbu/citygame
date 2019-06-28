@@ -1,8 +1,8 @@
 #ifndef windows_h
 #define	windows_h
 
+#include <utilitieslib/stdtypes.h>
 #include "uiInclude.h"
-#include "stdtypes.h"
 
 typedef struct Wdw Wdw;
 

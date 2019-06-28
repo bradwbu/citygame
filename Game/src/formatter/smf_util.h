@@ -1,9 +1,9 @@
 #ifndef SMF_UTIL_H__
 #define SMF_UTIL_H__
 
-#include "stdtypes.h" // for bool
-#include "truetype/ttFontDraw.h"
-#include "CBox.h"
+#include <utilitieslib/stdtypes.h> // for bool
+#include "graphics/truetype/ttFontDraw.h"
+#include <utilitieslib/utils/CBox.h>
 
 /***************************************************************************/
 /* SMF Memory Analysis Flags                                               */

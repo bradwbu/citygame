@@ -2,7 +2,7 @@
 #define UITABCONTROL_H__
 
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef void* uiTabData;
 typedef struct uiTabControl uiTabControl;

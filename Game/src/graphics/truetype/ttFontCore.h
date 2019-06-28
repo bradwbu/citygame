@@ -1,8 +1,8 @@
 #ifndef TTFONTCORE_H
 #define TTFONTCORE_H
 
-#include "ArrayOld.h"
-#include "ft2build.h"
+#include <utilitieslib/components/ArrayOld.h>
+#include <ft2build.h>
 #include <freetype/freetype.h>
 typedef struct TTFontManager TTFontManager;
 typedef struct TTFontBitmap TTFontBitmap;
