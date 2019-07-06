@@ -16,10 +16,10 @@
 
 typedef enum CostumeEditMode
 {
-	COSTUME_EDIT_MODE_STANDARD,
-	COSTUME_EDIT_MODE_TAILOR,
-	COSTUME_EDIT_MODE_NPC,
-	COSTUME_EDIT_MODE_NPC_NO_SKIN,
+    COSTUME_EDIT_MODE_STANDARD,
+    COSTUME_EDIT_MODE_TAILOR,
+    COSTUME_EDIT_MODE_NPC,
+    COSTUME_EDIT_MODE_NPC_NO_SKIN,
 }CostumeEditMode;
 
 void resetCostumeMenu();
@@ -52,10 +52,10 @@ int drawAvatarControls(F32 cx, F32 cy, int * zoomedIn, int drawArrowsOnly);
 // result of color bar interaction
 typedef enum
 {
-	CB_NONE,
-	CB_HIT,
-	CB_HIT_ONE,
-	CB_HIT_TWO,
+    CB_NONE,
+    CB_HIT,
+    CB_HIT_ONE,
+    CB_HIT_TWO,
 } ColorBarResult;
 
 F32 costumeDrawSlider(float x, float y, float scale, int sliderType, char * title,  F32 value, F32 range, float uiScale, float screenScaleX, float screenScaleY );
@@ -72,33 +72,33 @@ extern float gTailorSGCostumeScale;
 
 enum
 {
-	COLOR_1,
-	COLOR_2,
-	COLOR_3,
-	COLOR_4,
-	COLOR_SKIN,
-	COLOR_TOTAL,
+    COLOR_1,
+    COLOR_2,
+    COLOR_3,
+    COLOR_4,
+    COLOR_SKIN,
+    COLOR_TOTAL,
 };
 enum
 {
-	REGION_HEAD,
-	REGION_UPPER,
-	REGION_LOWER,
-	REGION_WEAPON,
-	REGION_SHIELD,
-	REGION_CAPE,
-	REGION_GLOWIE,
-	REGION_TOTAL_DEF, // total number we acknowledge in the defs
-	REGION_SETS = REGION_TOTAL_DEF, // a virtual region
-	REGION_TOTAL_UI, // total number of ui regions for local arrays and such
+    REGION_HEAD,
+    REGION_UPPER,
+    REGION_LOWER,
+    REGION_WEAPON,
+    REGION_SHIELD,
+    REGION_CAPE,
+    REGION_GLOWIE,
+    REGION_TOTAL_DEF, // total number we acknowledge in the defs
+    REGION_SETS = REGION_TOTAL_DEF, // a virtual region
+    REGION_TOTAL_UI, // total number of ui regions for local arrays and such
 };
 enum
 {
-	REGION_ARACHNOS_EPIC_ARCHETYPE,
-	REGION_ARACHNOS_WEAPON,
-	REGION_ARACHNOS_AURA,
+    REGION_ARACHNOS_EPIC_ARCHETYPE,
+    REGION_ARACHNOS_WEAPON,
+    REGION_ARACHNOS_AURA,
 
-	REGION_ARACHNOS_TOTAL_UI
+    REGION_ARACHNOS_TOTAL_UI
 };
 
 typedef union Color Color;
@@ -109,7 +109,7 @@ int getSkinIndexFromColor( Color color );
 typedef struct CostumeSave CostumeSave;
 CostumeSave *costumeBuildSave(CostumeSave * cs);
 void costumeClearSave( CostumeSave *cs);
-int	costumeApplySave( CostumeSave *cs );
+int    costumeApplySave( CostumeSave *cs );
 
 extern int gActiveColor;
 extern int gColorsLinked;
@@ -122,7 +122,7 @@ extern int gSelectedCostumeSet;
 
 SkuId isSellableProduct(const char ** costumeKeys, const char * productCode, const char ** internalProductCodes);
 
-#define SELLABLE_PRODUCT(obj)	isSellableProduct(COSTUME_LOCKS(obj))
+#define SELLABLE_PRODUCT(obj)    isSellableProduct(COSTUME_LOCKS(obj))
 
 typedef struct CostumeBoneSet CostumeBoneSet;
 bool bonesetIsLegacy( const CostumeBoneSet *bset );
@@ -148,12 +148,12 @@ bool costumesetIsLocked( const CostumeSetSet *set);
 
 typedef enum CostumeClothPiece
 {
-	CCP_NONE = 0,
-	CCP_TRENCH_COAT = 1,
-	CCP_MAGIC_BOLERO = 1 << 1,
-	CCP_CAPE = 1 << 2,
-	CCP_WEDDING_VEIL = 1 << 3,
-	CCP_ALL = ((1 << 4)-1),
+    CCP_NONE = 0,
+    CCP_TRENCH_COAT = 1,
+    CCP_MAGIC_BOLERO = 1 << 1,
+    CCP_CAPE = 1 << 2,
+    CCP_WEDDING_VEIL = 1 << 3,
+    CCP_ALL = ((1 << 4)-1),
 }CostumeClothPiece;
 bool costume_isOtherRestrictedPieceSelected(const char *currentPart, const char *restriction);
 const char *costume_isRestrictedPiece(const char **flags, const char *restriction);
@@ -163,12 +163,12 @@ char *getCustomCostumeDir();
 const char *getCustomCostumeExt();
 
 typedef struct Costume Costume;
-typedef struct cCostume	cCostume;
+typedef struct cCostume    cCostume;
 typedef struct CustomNPCCostume CustomNPCCostume;
 int costume_isThereSkinEffect(const cCostume *costume);
 int costume_setColorTintablePartsBitField(const cCostume *costume);
 void costume_NPCCostumeSave(const cCostume *originalCostume, const char *npcName, CustomNPCCostume **NPCCostume);
-const CostumeOriginSet*	costume_get_current_origin_set(void);
+const CostumeOriginSet*    costume_get_current_origin_set(void);
 
 void costumeMenuExitCode(void);
 void updateCostumeWeapons();
@@ -178,9 +178,9 @@ int checkCostumeMatchesBody(BodyType costume, AvatarMode avatarBodyType);
 
 typedef enum HideStorePiecesStates
 {
-	HIDE_STORE_PIECES_UNITIALIZED = 0,
-	HIDE_STORE_PIECES_UNCHECKED = 1,
-	HIDE_STORE_PIECES_CHECKED = 2
+    HIDE_STORE_PIECES_UNITIALIZED = 0,
+    HIDE_STORE_PIECES_UNCHECKED = 1,
+    HIDE_STORE_PIECES_CHECKED = 2
 } HideStorePiecesStates;
 
 void costumeInitHideStorePiecesState(HideStorePiecesStates state);

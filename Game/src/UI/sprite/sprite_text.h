@@ -46,7 +46,7 @@ void determineTextColor(int rgba[4]);
 
 // poor client locale functions looking for a home..
 char* timerFriendlyDateFromSS2(char *datestr, int datestrLength, U32 seconds);
-char* timerFriendlyHourFromSS2(char* datestr, int datestrLength, U32 seconds, int rounded, int showMin);	// rounded adds a few seconds to try to get to even hour
+char* timerFriendlyHourFromSS2(char* datestr, int datestrLength, U32 seconds, int rounded, int showMin);    // rounded adds a few seconds to try to get to even hour
 char* timerFriendlyHour(char* datestr, int datestrLength, int hour, int min, int showMin);
 int timerHourFromSS2Value(U32 seconds, int rounded);
 

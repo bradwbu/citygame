@@ -9,30 +9,30 @@
 
 typedef enum DragType
 {
-	kDragType_None = 0,
-	kDragType_Drag,
-	kDragType_Sticky,
+    kDragType_None = 0,
+    kDragType_Drag,
+    kDragType_Sticky,
 } DragType;
 
 typedef struct BaseEditState 
 {
-	int forward;
-	int backward;
-	int left;
-	int right;
-	int turnleft;
-	int turnright;
-	int mouselook;
-	int zoomin;
-	int zoomout;
-	int dragging;
+    int forward;
+    int backward;
+    int left;
+    int right;
+    int turnleft;
+    int turnright;
+    int mouselook;
+    int zoomin;
+    int zoomout;
+    int dragging;
 
-	DragType surface_dragging;
-	DragType detail_dragging;
-	DragType room_dragging;
-	DragType door_dragging;
-	DragType plot_dragging;
-	DragType room_moving;
+    DragType surface_dragging;
+    DragType detail_dragging;
+    DragType room_dragging;
+    DragType door_dragging;
+    DragType plot_dragging;
+    DragType room_moving;
 
 } BaseEditState;
 

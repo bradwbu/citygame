@@ -9,48 +9,48 @@ typedef struct AtlasTex AtlasTex;
 
 typedef struct
 {
-	U8		Letter;
-	S16		Width;
-	S16		X,Y;
-	S16		Height;
+    U8        Letter;
+    S16        Width;
+    S16        X,Y;
+    S16        Height;
 } FontLetter;
 
 typedef struct
 {
-	char		*Name;
-	int			Width;
-	int			Height;
-	FontLetter	*Letters;
+    char        *Name;
+    int            Width;
+    int            Height;
+    FontLetter    *Letters;
 } FontInfo;
 
-#define FONT_MAXCHARS	128
+#define FONT_MAXCHARS    128
 
 typedef struct
 {
-	BasicTexture *font_bind;
-	int			texid;
-	FontLetter	*Letters;
-	U8			Indices[FONT_MAXCHARS];
-	int			tex_width,tex_height;
+    BasicTexture *font_bind;
+    int            texid;
+    FontLetter    *Letters;
+    U8            Indices[FONT_MAXCHARS];
+    int            tex_width,tex_height;
 } Font;
 
 typedef struct
 {
-	U8		rgba[4];
-	F32		scaleX,scaleY;
-	Font	*font;
+    U8        rgba[4];
+    F32        scaleX,scaleY;
+    Font    *font;
 } FontState;
 
 typedef struct
 {
-	F32			X,Y;
-	int			StringIdx;
-	FontState	state;
+    F32            X,Y;
+    int            StringIdx;
+    FontState    state;
 } FontMessage;
 
 typedef struct
 {
-	int		count;
+    int        count;
 } RdrDbgFont;
 
 #ifdef RT_PRIVATE

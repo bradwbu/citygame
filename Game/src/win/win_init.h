@@ -6,17 +6,17 @@
 #include "textparser.h"
 
 typedef struct GfxResolution
-{	
-	int x;
-	int y;
-	int depth;
-	int *refreshRates;
+{    
+    int x;
+    int y;
+    int depth;
+    int *refreshRates;
 } GfxResolution;
 #define MAX_SUPPORTED_GFXRESOLUTIONS 1000
 
 
 extern HINSTANCE glob_hinstance;
-extern HWND	hwnd;
+extern HWND    hwnd;
 
 void DestroySplash();
 
@@ -38,7 +38,7 @@ void windowExitDlg(void * data);
 void windowExit(int exitCode);
 void windowUpdate(void);
 void windowProcessMessages();
-void winMsgAlert(char *str);	// "error" ok box
+void winMsgAlert(char *str);    // "error" ok box
 void winErrorDialog(char *str, char* title, char* fault, int highlight); // title & fault optional
 void winErrorDispatch(void *unused, int type, void *data);
 void winRenderStall(void);
@@ -63,6 +63,6 @@ LONG WINAPI DefWindowProc_timed( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
 
 bool winGetString(char *prompt, char *result); // max size TEXT_DIALOG_MAX_STRLEN
 bool winGetEString(char *prompt, char **result); // no max size
-	// prompt for a string with a windows dialog box, returns false on cancel, fills in result with new value and returns true on ok
+    // prompt for a string with a windows dialog box, returns false on cancel, fills in result with new value and returns true on ok
 
 #endif

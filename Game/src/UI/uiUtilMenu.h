@@ -63,38 +63,38 @@ void colorRingGetSize( float* x, float* y );
 
 typedef enum
 {
-	CRD_NONE,
-	CRD_SELECTED	= (1 << 0),	// The color ring is selected
-	CRD_SELECTABLE = (1 << 1),
-	CRD_MOUSEOVER	= (1 << 2),	// The color ring should respond to mouseover
+    CRD_NONE,
+    CRD_SELECTED    = (1 << 0),    // The color ring is selected
+    CRD_SELECTABLE = (1 << 1),
+    CRD_MOUSEOVER    = (1 << 2),    // The color ring should respond to mouseover
 } CRDMode;
 int colorRingDraw( float x, float y, float z, CRDMode mode, int color, float scale );
 
 typedef enum
 {
-	ACB_NONE,
-	ACB_ACCEPT = (1 << 0),
-	ACB_CANCEL = (1 << 1),
+    ACB_NONE,
+    ACB_ACCEPT = (1 << 0),
+    ACB_CANCEL = (1 << 1),
 } ACButton;
 
 typedef enum
 {
-	ACBR_NONE,
-	ACBR_ACCEPT = (1 << 0),
-	ACBR_CANCEL = (1 << 1),
-	ACBR_ACCEPT_LOCKED = (1 << 2),
-	ACBR_CANCEL_LOCKED = (1 << 3),
+    ACBR_NONE,
+    ACBR_ACCEPT = (1 << 0),
+    ACBR_CANCEL = (1 << 1),
+    ACBR_ACCEPT_LOCKED = (1 << 2),
+    ACBR_CANCEL_LOCKED = (1 << 3),
 } ACButtonResult;
 
 // Add new nag contexts to the end so the old ones keep the same bit in the
 // key we store in the registry.
 typedef enum
 {
-	GRNAG_NONE = 0,
-	GRNAG_POWERSET,
-	GRNAG_MORALITY,
-	GRNAG_CHARSELECT,
-	GRNAG_COUNT,
+    GRNAG_NONE = 0,
+    GRNAG_POWERSET,
+    GRNAG_MORALITY,
+    GRNAG_CHARSELECT,
+    GRNAG_COUNT,
 } GRNagContext;
 
 ACButtonResult drawAcceptCancelButton(ACButton grayButtons, float screenScaleX, float screenScaleY);
@@ -105,23 +105,23 @@ void setupUIColors(void);
 typedef struct NonLinearMenu NonLinearMenu;
 typedef struct NonLinearMenuElement
 {
-	int menuId;
-	const char *title[3];
-	int (*hiddenCode)(void);
-	int (*cantEnterCode)(void);
-	void (*enterCode)(void);
-	void (*passThroughCode)(void);
-	void (*exitCleanupCode)(void);
-	int listId;
-	float flashingTimer;
-	NonLinearMenu *nlm_owner;
+    int menuId;
+    const char *title[3];
+    int (*hiddenCode)(void);
+    int (*cantEnterCode)(void);
+    void (*enterCode)(void);
+    void (*passThroughCode)(void);
+    void (*exitCleanupCode)(void);
+    int listId;
+    float flashingTimer;
+    NonLinearMenu *nlm_owner;
 }NonLinearMenuElement;
 
 typedef struct NonLinearMenu
 {
-	NonLinearMenuElement **elementList;
-	int currentMenu;
-	int transactionId;
+    NonLinearMenuElement **elementList;
+    int currentMenu;
+    int transactionId;
 }NonLinearMenu;
 
 int drawNonLinearMenu(NonLinearMenu * nlm, float startx, float y, float z, float wd, float ht, float sc, int currentMenuId, int displayMenuId, int locked);

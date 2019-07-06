@@ -5,28 +5,28 @@
 
 typedef enum
 {
-	MS_NONE,
-	MS_DOWN,
-	MS_UP,
-	MS_CLICK,
-	MS_DRAG,
-	MS_DBLCLICK,
+    MS_NONE,
+    MS_DOWN,
+    MS_UP,
+    MS_CLICK,
+    MS_DRAG,
+    MS_DBLCLICK,
 } mouseState;
 
 enum
 {
-	MS_LEFT,
-	MS_RIGHT,
+    MS_LEFT,
+    MS_RIGHT,
 };
 
 typedef struct mouse_input
 {
-	int x;
-	int y;
-	int z;				// mousewheel
-	mouseState left;
-	mouseState mid;		// middle button or mousewheel button
-	mouseState right;
+    int x;
+    int y;
+    int z;                // mousewheel
+    mouseState left;
+    mouseState mid;        // middle button or mousewheel button
+    mouseState right;
 } mouse_input;
 
 #define MOUSE_INPUT_SIZE 256

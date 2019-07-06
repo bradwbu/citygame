@@ -4,55 +4,55 @@
 #include "stdtypes.h"
 #include "sound.h"
 
-#define MAX_EVER_SOUND_CHANNELS		128
+#define MAX_EVER_SOUND_CHANNELS        128
 
 typedef struct SoundFileInfo
 {
-	char	*data;
-	int		length;
-	char	name[128];
-	int		ref_count;
-	int		last_used;
+    char    *data;
+    int        length;
+    char    name[128];
+    int        ref_count;
+    int        last_used;
 
-	// used for pcm cache
-	char*	pcm_data;
-	int		pcm_len;
-	int		frequency;
-	int		num_channels;
-	int		recent_play_count;
-	int		loadIndex;
+    // used for pcm cache
+    char*    pcm_data;
+    int        pcm_len;
+    int        frequency;
+    int        num_channels;
+    int        recent_play_count;
+    int        loadIndex;
 } SoundFileInfo;
 
 typedef struct DecodeState DecodeState;
 
 typedef struct CodecFuncs{
-	int		(*init)		(DecodeState *decode);
-	int		(*decode)	(DecodeState *decode);
-	void	(*reset)	(DecodeState *decode);
-	void	(*rewind)	(DecodeState *decode);
+    int        (*init)        (DecodeState *decode);
+    int        (*decode)    (DecodeState *decode);
+    void    (*reset)    (DecodeState *decode);
+    void    (*rewind)    (DecodeState *decode);
 } CodecFuncs;
 
 typedef struct DecodeState
 {
-	U8				*decode_buffer;
-	int				decode_count;	// bytes currently decoded
-	int				decode_len;		// max size of decode buffer
-	int				num_channels;
-	int				frequency;
-	SoundFileInfo	*info;
-	void			*codec_state; // data needed by the particular codec
-	int				pcm_len;		// total length of pcm data
-	CodecFuncs		*codec;
+    U8                *decode_buffer;
+    int                decode_count;    // bytes currently decoded
+    int                decode_len;        // max size of decode buffer
+    int                num_channels;
+    int                frequency;
+    SoundFileInfo    *info;
+    void            *codec_state; // data needed by the particular codec
+    int                pcm_len;        // total length of pcm data
+    CodecFuncs        *codec;
 } DecodeState;
 
 typedef struct DSParams
 {
-	double 	innerRadius;
-	double 	outerRadius;
-	double 	innerAngle;
-	double 	outerAngle;
-	double 	volume;
-	int 	gets3D;
+    double     innerRadius;
+    double     outerRadius;
+    double     innerAngle;
+    double     outerAngle;
+    double     volume;
+    int     gets3D;
 } DSParams;
 
 extern AudioState g_audio_state;

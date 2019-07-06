@@ -1,10 +1,10 @@
 /*\
  *
- *	uiSGRaidList.h/c - Copyright 2005 Cryptic Studios
- *		All Rights Reserved
- *		Confidential property of Cryptic Studios
+ *    uiSGRaidList.h/c - Copyright 2005 Cryptic Studios
+ *        All Rights Reserved
+ *        Confidential property of Cryptic Studios
  *
- *	Shows the list of active supergroup raids for the player
+ *    Shows the list of active supergroup raids for the player
  *
  */
 

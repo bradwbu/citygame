@@ -8,25 +8,25 @@ typedef struct TTFontRenderParams TTFontRenderParams;
 // TTFontBitmap
 //------------------------------------------------------------------------------
 /* Structure TTFontBitMapInfo
-*	Used to describe the characteristics of a bitmap
-*	so the bitmap can be manipulated.
+*    Used to describe the characteristics of a bitmap
+*    so the bitmap can be manipulated.
 */
 typedef struct TTFontBitmapInfo{
-	// Describes the region that are actually occupied with image data.
-	unsigned short width;
-	unsigned short height;
+    // Describes the region that are actually occupied with image data.
+    unsigned short width;
+    unsigned short height;
 
-	// Offsets that must be applied to the drawing position when drawing this bitmap.
-	// These allows letters to be lined up correctly.
-	short bitmapTop;
-	short bitmapLeft;
-	short advanceX;		// How much to advance the drawing position to draw the next letter.
+    // Offsets that must be applied to the drawing position when drawing this bitmap.
+    // These allows letters to be lined up correctly.
+    short bitmapTop;
+    short bitmapLeft;
+    short advanceX;        // How much to advance the drawing position to draw the next letter.
 } TTFontBitmapInfo;
 
 typedef struct TTFontBitmap{
-	TTFontBitmapInfo bitmapInfo;
-	unsigned short* bitmap;
-	unsigned char* bitmapRGBA;
+    TTFontBitmapInfo bitmapInfo;
+    unsigned short* bitmap;
+    unsigned char* bitmapRGBA;
 } TTFontBitmap;
 
 TTFontBitmap* createTTFontBitmap();
@@ -39,32 +39,32 @@ int ttFontBitmapGetBitmapMemFootprint(TTFontBitmap* bitmap);
 // TTFontBitmap utilities
 //------------------------------------------------------------------------------
 typedef struct{
-	int x;
-	int y;
-	int width;
-	int height;
+    int x;
+    int y;
+    int width;
+    int height;
 } TTFontRectangle;
 
 typedef union LumAlphaPixel
 {
-	unsigned short integer;
-	struct{
-		unsigned char luminance;
-		unsigned char alpha;
-	};
+    unsigned short integer;
+    struct{
+        unsigned char luminance;
+        unsigned char alpha;
+    };
 } LumAlphaPixel;
 
 typedef struct{
-	TTFontBitmap* src;
-	int srcX;
-	int srcY;
+    TTFontBitmap* src;
+    int srcX;
+    int srcY;
 
-	TTFontBitmap* dst;
-	int dstX;
-	int dstY;
+    TTFontBitmap* dst;
+    int dstX;
+    int dstY;
 
-	LumAlphaPixel* srcPixel;
-	LumAlphaPixel* dstPixel;
+    LumAlphaPixel* srcPixel;
+    LumAlphaPixel* dstPixel;
 } TTFontBBlitContext;
 
 typedef void (*ttFontBitmapBlitProcessor)(TTFontBBlitContext* context);

@@ -13,16 +13,16 @@
 //----------------------------------------------------------
 typedef struct uiGrowBigItem
 { 
-	F32 scale;
-	void *over;
+    F32 scale;
+    void *over;
 } uiGrowBigItem;
 
 #define UIGROWBIGITEM_COUNT 4
 typedef struct uiGrowBig
 {
-	uiGrowBigItem items[UIGROWBIGITEM_COUNT];
-	F32 stepsize;
-	F32 max;
+    uiGrowBigItem items[UIGROWBIGITEM_COUNT];
+    F32 stepsize;
+    F32 max;
 } uiGrowBig;
 
 

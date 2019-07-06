@@ -1,10 +1,10 @@
 /*\
 *
-*	uiChannelSearch.h/c - Copyright 2004, 2005 Cryptic Studios
-*		All Rights Reserved
-*		Confidential property of Cryptic Studios
+*    uiChannelSearch.h/c - Copyright 2004, 2005 Cryptic Studios
+*        All Rights Reserved
+*        Confidential property of Cryptic Studios
 *
-*	Shows a list of global chat channels and and allows the player to search them
+*    Shows a list of global chat channels and and allows the player to search them
 *
  */
 

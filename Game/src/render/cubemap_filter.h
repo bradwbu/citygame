@@ -6,7 +6,7 @@ extern "C" {
 #endif
 
 void filterCubemap(void *outputFaces[], int outputSize, void *inputFaces[], int inputSize, 
-				   float blurRadius);
+                   float blurRadius);
 
 #ifdef __cplusplus
 }; // extern "C"

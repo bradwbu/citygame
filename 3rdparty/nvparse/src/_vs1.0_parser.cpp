@@ -41,7 +41,7 @@
 #define    ILLEGAL        284
 #define    UNKNOWN_STRING 285
 #define    INTVAL         286
-#define	   REGISTER       287
+#define    REGISTER       287
 #define    XYZW_MODIFIER  288
 #define    COMMENT        289
 

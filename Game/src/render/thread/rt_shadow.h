@@ -3,17 +3,17 @@
 
 #include "rt_model_cache.h"
 
-typedef struct VBO		VBO;
-typedef struct Splat	Splat;
+typedef struct VBO        VBO;
+typedef struct Splat    Splat;
 
 typedef struct
 {
-	VBO		*vbo;
-	Mat4	mat;
-	Vec3	offsetx;
-	int		alpha;
-	int		shadow_mask;
-	F32		dist;
+    VBO        *vbo;
+    Mat4    mat;
+    Vec3    offsetx;
+    int        alpha;
+    int        shadow_mask;
+    F32        dist;
 } RdrStencilShadow;
 
 #ifdef RT_PRIVATE

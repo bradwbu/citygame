@@ -1,5 +1,5 @@
 #ifndef windows_h
-#define	windows_h
+#define    windows_h
 
 #include <utilitieslib/stdtypes.h>
 #include "uiInclude.h"
@@ -70,7 +70,7 @@ extern int gCurrentWindefIndex;
 extern int custom_window_count;
 
 #define WINDOW_BUTTON_WIDTH 25
-#define WINDOW_TAB_HT	10
+#define WINDOW_TAB_HT    10
 
 #define WDW_FIND_ANY 0
 #define WDW_FIND_OPEN 1

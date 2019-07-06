@@ -2,13 +2,13 @@
 #define RENDERSSAO_H
 
 enum ssaoQuality {
-	ssaoOff = 0,
-	ssaoFastest,
-	ssaoLow,
-	ssaoMedium,
-	ssaoHigh,
-	ssaoUltra,
-	ssaoTunable,
+    ssaoOff = 0,
+    ssaoFastest,
+    ssaoLow,
+    ssaoMedium,
+    ssaoHigh,
+    ssaoUltra,
+    ssaoTunable,
 };
 
 void rdrAmbientStart();

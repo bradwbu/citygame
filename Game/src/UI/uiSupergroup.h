@@ -28,15 +28,15 @@ void sgroup_demote(void *foo);
 
 void sgroup_kickName( char * name );
 
-#define SG_MEMBER_ARCHETYPE				"SG Arch"
-#define SG_MEMBER_ORIGIN				"SG Origin"
-#define SG_MEMBER_NAME_COLUMN			"SG Name"
-#define SG_MEMBER_TITLE_COLUMN			"SG Title"
-#define SG_MEMBER_ZONE					"SG Zone"
-#define SG_MEMBER_LEVEL					"SG Level"
-#define SG_MEMBER_LAST_ONLINE_COLUMN	"SG Last Online"
-#define SG_MEMBER_DATE_JOINED_COLUMN	"SG Date Joined"
-#define SG_MEMBER_PRESTIGE				"SG Prestige"
+#define SG_MEMBER_ARCHETYPE                "SG Arch"
+#define SG_MEMBER_ORIGIN                "SG Origin"
+#define SG_MEMBER_NAME_COLUMN            "SG Name"
+#define SG_MEMBER_TITLE_COLUMN            "SG Title"
+#define SG_MEMBER_ZONE                    "SG Zone"
+#define SG_MEMBER_LEVEL                    "SG Level"
+#define SG_MEMBER_LAST_ONLINE_COLUMN    "SG Last Online"
+#define SG_MEMBER_DATE_JOINED_COLUMN    "SG Date Joined"
+#define SG_MEMBER_PRESTIGE                "SG Prestige"
 
 SupergroupStats* sgGetPlayerSGStats(void);
 

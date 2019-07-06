@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 /*****************************************************************************************
  * TTDrawContext
- *	All text drawing must be done using a ttDrawContext.
- *	It knows how to:
- *		- Draw a string on the screen.
- *		- Draw a string in 3D space.	(not implemented)
- *		- Draw a string to a texture.	(not implemented)
+ *    All text drawing must be done using a ttDrawContext.
+ *    It knows how to:
+ *        - Draw a string on the screen.
+ *        - Draw a string in 3D space.    (not implemented)
+ *        - Draw a string to a texture.    (not implemented)
  */
 
 typedef struct TTDrawContext{
-	TTFontRenderParams renderParams;
-	TTCompositeFont* font;
-	int dynamic;	// Is this thing going to be continuously scaled?
-	int dumpDebugInfo;
+    TTFontRenderParams renderParams;
+    TTCompositeFont* font;
+    int dynamic;    // Is this thing going to be continuously scaled?
+    int dumpDebugInfo;
 } TTDrawContext;
 
 TTDrawContext* createTTDrawContext();
@@ -36,18 +36,18 @@ typedef struct TTFMCacheElement TTFMCacheElement;
 // the string.
 typedef int (*GlyphHandler)(TTTextForEachGlyphParam* param);
 struct TTTextForEachGlyphParam{
-	GlyphHandler handler;
-	TTFMCacheElement const* cachedTexture;
+    GlyphHandler handler;
+    TTFMCacheElement const* cachedTexture;
 
-	unsigned short unicodeCharacter;
+    unsigned short unicodeCharacter;
 
-	// This is where the glyph would be drawn relative to the origin.
-	float top;
-	float left;
-	float xScale;
-	float yScale;
-	float nextGlyphLeft;
-	int normalized;
+    // This is where the glyph would be drawn relative to the origin.
+    float top;
+    float left;
+    float xScale;
+    float yScale;
+    float nextGlyphLeft;
+    int normalized;
 };
 void ttTextForEachGlyph(TTDrawContext* context, TTTextForEachGlyphParam* param, float x, float y, float xScale, float yScale, unsigned short* text, unsigned int textLength, int allowScaling);
 
@@ -56,7 +56,7 @@ void ttTextForEachGlyph(TTDrawContext* context, TTTextForEachGlyphParam* param, 
 // Basic text drawing
 //------------------------------------------------------------------------------
 /* ttDrawTextXXX
- *	These functions makes openGL calls to draw the given text immediately.
+ *    These functions makes openGL calls to draw the given text immediately.
  */
 void ttDrawText2DWithScaling(TTDrawContext* context, float x, float y, float z, float xScale, float yScale, int rgba[4], unsigned short* text, int textLength);
 void ttDrawText2DWithScalingSprite(TTDrawContext* context, float x, float y, float z, float xScale, float yScale, int rgba[4], unsigned short* text, int textLength);
@@ -66,16 +66,16 @@ typedef void (*RenderCallback)(void* userData, float top, float left, float bott
 void ttDrawText2DWithScalingSoftware(TTDrawContext* context, float x, float y, float xScale, float yScale, int rgba[4], unsigned short* text, int textLength, RenderCallback callback, void *userData);
 
 /* Enum QuadRGBA 
- *	The RGBA quadruple-let used by ttDrawText2DWithScaling() is used to specifiy the color for each
- *	of the 4 corners of the quad the text is drawn on.
- *	
- *	This enum allows access to each of the corners by symbol/name rather than by number.
+ *    The RGBA quadruple-let used by ttDrawText2DWithScaling() is used to specifiy the color for each
+ *    of the 4 corners of the quad the text is drawn on.
+ *    
+ *    This enum allows access to each of the corners by symbol/name rather than by number.
  */
 typedef enum{
-	QC_topLeft, 
-	QC_topRight, 
-	QC_bottomRight,
-	QC_bottomLeft, 
+    QC_topLeft, 
+    QC_topRight, 
+    QC_bottomRight,
+    QC_bottomLeft, 
 } QuadRGBA;
 
 
@@ -97,15 +97,15 @@ int ttFontValidateCharacter(TTDrawContext* context, unsigned short character);
 // TrueType bufferred text display
 //------------------------------------------------------------------------------
 /*typedef struct{
-	float x;
-	float y;
-	float z;
-	float xScale;
-	float yScale;
-	int rgba[4];
-	unsigned short* text;
-	int textLength;
-	TTDrawContext drawContext;
+    float x;
+    float y;
+    float z;
+    float xScale;
+    float yScale;
+    int rgba[4];
+    unsigned short* text;
+    int textLength;
+    TTDrawContext drawContext;
 } TTBufferredText;
 
 void TTBTStartup();

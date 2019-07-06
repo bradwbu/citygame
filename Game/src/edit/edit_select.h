@@ -8,56 +8,56 @@ typedef struct GfxNode GfxNode;
 
 typedef struct
 {
-	DefTracker  *activeLayer;		//Set by selecting a layer.  Set as default group_parent_def when set parent is not explicitly set
-	int			activeLayer_refid;
-	DefTracker	*group_parent_def;	//Set by set parent
-	int			group_parent_refid;
-	GfxNode		*parent;
-	GfxNode		*offsetnode;
-	GfxNode		*scalenode;
-	Vec3		min,max;
-	Vec3		pyr;
-	Vec3		scale,scale_inv;
-	Vec3		pick_point;
-	int			use_pick_point;
-	Grid		grid;
-	int			cut;
-	int			waitingforserver;
-	DefTracker	fake_ref; 
-	Vec3		snap_pos;
-	int			lib_load;
-	char		lib_name[1000];
+    DefTracker  *activeLayer;        //Set by selecting a layer.  Set as default group_parent_def when set parent is not explicitly set
+    int            activeLayer_refid;
+    DefTracker    *group_parent_def;    //Set by set parent
+    int            group_parent_refid;
+    GfxNode        *parent;
+    GfxNode        *offsetnode;
+    GfxNode        *scalenode;
+    Vec3        min,max;
+    Vec3        pyr;
+    Vec3        scale,scale_inv;
+    Vec3        pick_point;
+    int            use_pick_point;
+    Grid        grid;
+    int            cut;
+    int            waitingforserver;
+    DefTracker    fake_ref; 
+    Vec3        snap_pos;
+    int            lib_load;
+    char        lib_name[1000];
 } EditSelect;
 
 extern EditSelect sel;
 
 typedef struct
 {
-	U32			color_idx;
-	int			id;
-	TrickNode	trick;
-	DefTracker	*def_tracker;
-	int			depth,ent_idx; // for sorting
-	Mat4		mat;
-	int			pick_pivot;
-	int			*idxs;
+    U32            color_idx;
+    int            id;
+    TrickNode    trick;
+    DefTracker    *def_tracker;
+    int            depth,ent_idx; // for sorting
+    Mat4        mat;
+    int            pick_pivot;
+    int            *idxs;
 } SelInfo;
 
 enum
 {
-	SNAP_CENTER = 0,
-	SNAP_VERT,
-	SNAP_NONE
+    SNAP_CENTER = 0,
+    SNAP_VERT,
+    SNAP_NONE
 };
 
-extern SelInfo	sel_list[12000];
-extern int		sel_count;
-extern bool		updatePropertiesMenu;
+extern SelInfo    sel_list[12000];
+extern int        sel_count;
+extern bool        updatePropertiesMenu;
 
-extern int			mouseover_ctri_idx;
-extern DefTracker	*mouseover_tracker;
+extern int            mouseover_ctri_idx;
+extern DefTracker    *mouseover_tracker;
 
-extern int			g_edit_collide_flags;
+extern int            g_edit_collide_flags;
 
 #define EDITOR_LIST 1
 extern const F32 lock_angs[];

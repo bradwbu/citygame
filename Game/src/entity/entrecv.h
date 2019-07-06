@@ -8,10 +8,10 @@
 
 enum
 {
-	LOADING_MAP     = 0,
-	PLAYING_GAME    = 1,
-	MAP_LOADED_FINISHING_LOADING_BAR = 2 //this state is to give one final frame to finish loading enities, and
-	                                     //then to run the loading bar to the end.
+    LOADING_MAP     = 0,
+    PLAYING_GAME    = 1,
+    MAP_LOADED_FINISHING_LOADING_BAR = 2 //this state is to give one final frame to finish loading enities, and
+                                         //then to run the loading bar to the end.
 };
 
 typedef struct Entity Entity;

@@ -28,9 +28,6 @@
     <Filter Include="Header Files\UI">
       <UniqueIdentifier>{201e1904-d8ab-45b2-bb11-c386df7d4eb4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\UI">
-      <UniqueIdentifier>{dd023597-f38e-4e90-86ec-b67f5d19f95c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Common\account">
       <UniqueIdentifier>{e8b3e037-4071-4d0f-af3d-07ab70af08ba}</UniqueIdentifier>
     </Filter>
@@ -204,6 +201,87 @@
     </Filter>
     <Filter Include="Header Files\Common\NovodeX">
       <UniqueIdentifier>{900febdf-6834-45bf-831d-5d7bdaaf486b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\player">
+      <UniqueIdentifier>{d955541f-bddc-4a2d-9e0a-e799cfc42c42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\player">
+      <UniqueIdentifier>{157b6fc5-4283-4a68-b04f-7994a3c516e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\render">
+      <UniqueIdentifier>{bde91a7f-0d4c-4ee5-b732-0a68c4827315}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render">
+      <UniqueIdentifier>{59674f27-1427-406d-9c3e-b1dc79dbf713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\render\thread">
+      <UniqueIdentifier>{b7075040-b703-4d8c-a70a-5e340d5806b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render\thread">
+      <UniqueIdentifier>{521c4992-1b24-4b5e-9a91-c6286abe19c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\seq">
+      <UniqueIdentifier>{ca0edcb9-844e-4c36-b6ef-72d376c64081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\seq">
+      <UniqueIdentifier>{9d2947b2-c1b3-494f-b8f8-d092fa519f7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound">
+      <UniqueIdentifier>{5d9590ed-d033-4a44-90b2-cdade51fca19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sound">
+      <UniqueIdentifier>{ca679177-0599-46be-ad55-4f944310288a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\mission">
+      <UniqueIdentifier>{dc0b07f6-4ee6-49e3-807c-b66df56de1e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\mission">
+      <UniqueIdentifier>{6f0b2b92-8500-4e5b-8c12-1cb3e285b4b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\storyarc">
+      <UniqueIdentifier>{d7d47bef-9d03-4fbf-8440-45b425c6016a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\storyarc">
+      <UniqueIdentifier>{6caa7e13-87c2-4af3-b7e1-cfcaa9375f3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\storyarc">
+      <UniqueIdentifier>{a5ba9b5c-e43b-4f15-a149-39f004625775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\storyarc">
+      <UniqueIdentifier>{4c94b589-eb70-4229-8fe6-66eded4e3d6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\testClient">
+      <UniqueIdentifier>{e7cee6cf-38db-4518-9ba4-9e9232daac44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\testClient">
+      <UniqueIdentifier>{4beaf216-2f87-4de8-9aec-c2b9ab24051e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Common\utils">
+      <UniqueIdentifier>{3c4f3a17-e631-48c7-92b5-838bdf657d68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\utils">
+      <UniqueIdentifier>{56207054-de12-4494-8bd8-2f3f6ef1eb2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\win">
+      <UniqueIdentifier>{cd00f852-3f57-465d-8ca8-ad1ffb0c07d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\win">
+      <UniqueIdentifier>{1ae6645f-4ee3-489f-ba96-75cee543f840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{14da4f58-d483-4925-9cc4-d45623d76157}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\Hybrid">
+      <UniqueIdentifier>{2a54d176-1bfa-46e8-a8b8-bd8a6585a6b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI\Hybrid">
+      <UniqueIdentifier>{5fc37990-3dc6-438b-9e80-707ea996230c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\sprite">
+      <UniqueIdentifier>{554dba2d-17c0-4316-bd14-784b745a2756}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI\sprite">
+      <UniqueIdentifier>{5b0d708b-db66-4c34-9936-b08c88351d48}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1050,6 +1128,912 @@
     <ClInclude Include="..\..\..\Common\NovodeX\NwWrapper.h">
       <Filter>Header Files\Common\NovodeX</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Common\player\badges.h">
+      <Filter>Header Files\Common\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\player\pmotion.h">
+      <Filter>Header Files\Common\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\player\inventory_client.h">
+      <Filter>Header Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\player\player.h">
+      <Filter>Header Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\player\playerState.h">
+      <Filter>Header Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\player\playerSticky.h">
+      <Filter>Header Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\player\badges_client.h">
+      <Filter>Header Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\mipmap.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\nvparse.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\ogl.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_bonedmodel.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_cgfx.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_cgfx_statemgmt.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_cloth.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_cubemap.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_cursor.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_effects.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_filter.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_font.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_init.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_model.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_model_cache.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_particles.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_pbuffer.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_perf.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_prim.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_queue.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_report.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_shaderMgr.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_shadow.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_shadowmap.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_sprite.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_ssao.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_state.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_stats.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_tex.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_tricks.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_tune.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_util.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_water.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\rt_win_init.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\shadersATI.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\shadersTexEnv.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\thread\wcw_statemgmt.h">
+      <Filter>Header Files\render\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\rendershadowmap.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\renderssao.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\renderstats.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\rendertree.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\rendertricks.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\renderUtil.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\renderWater.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\rotoZoom.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\sprite.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\tex.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\tex_gen.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\texEnums.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\texUnload.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\texWords.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\texWordsEdit.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\texWordsPrivate.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\videoMemory.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\bump.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\cubemap.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\cubemap_filter.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\dd.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\dxtlibwrapper.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\model.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\model_cache.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\pbuffer.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\perfcounter.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\render.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\renderbonedmodel.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\rendercgfx.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\rendercloth.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\renderEffects.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\renderfont.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\rendermodel.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\renderparticles.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\renderperf.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\renderprim.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\render\rendershadow.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\anim.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\AnimBitList.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\animtrack.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\animtrackanimate.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\AutoLOD.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\bones.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\gfxtree.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\modelReload.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\seq.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\seqanimate.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\seqload.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\seqregistration.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\seqsequence.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\seqskeleton.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\seqstate.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\seqtype.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\seq\tricks.h">
+      <Filter>Header Files\Common\seq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\sound\ogg_decode.h">
+      <Filter>Header Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\sound\sound.h">
+      <Filter>Header Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\sound\sound_ambient.h">
+      <Filter>Header Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\sound\sound_sys.h">
+      <Filter>Header Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\mission\missionserver_meta.h">
+      <Filter>Header Files\Common\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\mission\MissionSearch.h">
+      <Filter>Header Files\Common\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\storyarc\contactCommon.h">
+      <Filter>Header Files\Common\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\storyarc\missiongeoCommon.h">
+      <Filter>Header Files\Common\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\storyarc\missionMapCommon.h">
+      <Filter>Header Files\Common\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\storyarc\playerCreatedStoryarc.h">
+      <Filter>Header Files\Common\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\storyarc\playerCreatedStoryarcValidate.h">
+      <Filter>Header Files\Common\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\storyarc\pnpcCommon.h">
+      <Filter>Header Files\Common\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\storyarc\storyarcCommon.h">
+      <Filter>Header Files\Common\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\storyarc\zowieCommon.h">
+      <Filter>Header Files\Common\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\storyarc\contactClient.h">
+      <Filter>Header Files\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\storyarc\missionClient.h">
+      <Filter>Header Files\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\storyarc\playerCreatedStoryarcClient.h">
+      <Filter>Header Files\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\storyarc\storyarcClient.h">
+      <Filter>Header Files\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\storyarc\zowieClient.h">
+      <Filter>Header Files\storyarc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\testClient\TestClient.h">
+      <Filter>Header Files\Common\testClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\testClient\testLevelup.h">
+      <Filter>Header Files\Common\testClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\clientError.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\utils\debugUtils.h">
+      <Filter>Header Files\Common\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\utils\position.h">
+      <Filter>Header Files\Common\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\win\hwlight.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\win\input.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\win\win_cursor.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\win\win_init.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\uiLevelingpact.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\sprite\sprite_base.h">
+      <Filter>Header Files\UI\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\sprite\sprite_debug.h">
+      <Filter>Header Files\UI\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\sprite\sprite_font.h">
+      <Filter>Header Files\UI\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\sprite\sprite_list.h">
+      <Filter>Header Files\UI\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\sprite\sprite_text.h">
+      <Filter>Header Files\UI\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiArchetype.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiBody.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiCostumes.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiHybridMenu.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiLoyaltyTree.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiLoyaltyTreeAccess.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiLWC.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiOrigin.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiPlaystyle.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiPower.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiRedirect.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiRegister.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\Hybrid\uiWebStoreFrame.h">
+      <Filter>Header Files\UI\Hybrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiAmountSlider.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiArena.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiArenaGladiator.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiArenaJoin.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiArenaList.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiArenaResult.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiAuction.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiAutomap.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiAutomapFog.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiAvatar.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiBadges.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiBaseInput.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiBaseInventory.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiBaseLog.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiBaseProps.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiBaseRoom.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiBaseStorage.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiBox.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiBrowser.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiBuff.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiChannel.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiChannelSearch.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiChat.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiChatOptions.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiChatUtil.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiClipper.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiClue.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiColorPicker.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiCombatMonitor.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiCombatNumbers.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiCombineSpec.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiComboBox.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiComment.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiCompass.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiConceptInv.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiConsole.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiContact.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiContactDialog.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiContactFinder.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiContextMenu.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiConvertEnhancement.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiCostume.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiCostumeSelect.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiCursor.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiCustomVillainGroupWindow.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiCustomWindow.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiDeath.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiDialog.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiDock.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\UIEdit.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiEditText.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiEmail.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiEmote.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiEnhancement.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiFocus.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiFriend.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiFx.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiGame.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiGender.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiGift.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiGroupWindow.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiGrowBig.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiHelp.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiHelpButton.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiIME.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiIncarnate.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiInclude.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiInfo.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiInput.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiInspiration.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiInvent.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiInventory.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiKeybind.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiKeymapping.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiLeague.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiLevelPower.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiLevelSpec.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiLfg.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiListView.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiLoadCostume.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiLoadingTip.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiLoadPowerCust.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiLogin.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiMapSelect.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiMission.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiMissionComment.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiMissionMaker.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiMissionMakerScrollSet.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiMissionReview.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiMissionSearch.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiMissionSummary.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiMMMapViewer.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiNet.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiNewFeatures.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiNPCCostume.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiNPCCreationNLM.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiNPCProfile.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiOptions.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPCCCreationNLM.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPCCPowers.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPCCProfile.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPCCRank.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPet.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPetition.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPictureBrowser.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPlaque.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPlayerNote.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPowerCust.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPowerInfo.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPowerInventory.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiPowers.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiQuit.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiRaidResult.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiRecentTeam.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiRecipeInv.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiRecipeInventory.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiRenderStats.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiReSpec.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiReticle.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiRewardChoice.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiSalvage.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiSalvageOpen.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiSaveCostume.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiScript.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiScrollBar.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiScrollSelector.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiScrollSet.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiServerTransfer.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiSGList.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiSGRaidList.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiSlider.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiSMFView.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiStatus.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiStore.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiStoredSalvage.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiSupercostume.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiSupergroup.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiSuperRegistration.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTabControl.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTailor.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTarget.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTeam.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTextLink.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTitleSelect.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiToolTip.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTrade.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTradeLogic.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTray.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTraySingle.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTree.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTrialReminder.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiTurnstile.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiUtil.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiUtilGame.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiUtilMenu.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiWindows.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\UI\uiWindows_init.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\uiTextLink.c">
@@ -1078,9 +2062,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Common\player\pophelp.c">
       <Filter>Source Files\Common\player</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\UI\uiPopHelp.c">
-      <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Common\account\AccountCatalog.c">
       <Filter>Source Files\Common\account</Filter>
@@ -1840,6 +2821,888 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Common\NovodeX\NwCoreDump.cpp">
       <Filter>Source Files\Common\NovodeX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\player\badges.c">
+      <Filter>Source Files\Common\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\player\pmotion.c">
+      <Filter>Source Files\Common\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\player\inventory_client.c">
+      <Filter>Source Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\player\player.c">
+      <Filter>Source Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\player\playerState.c">
+      <Filter>Source Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\player\playerSticky.c">
+      <Filter>Source Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\player\badges_client.c">
+      <Filter>Source Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_model.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_model_cache.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_particles.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_pbuffer.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_perf.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_prim.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_queue.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_report.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_shaderMgr.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_shadow.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_shadowmap.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_sprite.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_ssao.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_state.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_stats.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_tex.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_tricks.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_tune.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_util.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_water.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_win_init.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\shadersATI.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\shadersTexEnv.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\wcw_statemgmt.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\glext.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\mipmap.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_bonedmodel.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_cgfx.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_cgfx_statemgmt.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_cloth.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_cubemap.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_cursor.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_effects.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_filter.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_font.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_graphfps.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\thread\rt_init.c">
+      <Filter>Source Files\render\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\bump.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\cubemap.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\cubemap_filter.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\dxtlibwrapper.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\model.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\model_cache.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\pbuffer.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\perfcounter.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\renderbonedmodel.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\rendercloth.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\renderEffects.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\renderfont.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\rendermodel.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\renderparticles.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\renderperf.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\renderprim.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\rendershadow.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\rendershadowmap.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\renderssao.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\renderstats.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\rendertree.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\rendertricks.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\renderUtil.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\renderWater.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\rotoZoom.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\sprite.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\tex.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\tex_gen.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\texUnload.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\texWords.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\texWordsEdit.c">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\render\videoMemory.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\bones.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\gfxtree.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\modelReload.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\seq.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\seqanimate.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\seqload.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\seqregistration.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\seqsequence.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\seqskeleton.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\seqstate.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\seqtype.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\tricks.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\anim.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\AnimBitList.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\animtrack.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\animtrackanimate.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\seq\AutoLOD.c">
+      <Filter>Source Files\Common\seq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\sound\sound.c">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\sound\sound_ambient.c">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\sound\sound_sys.c">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\sound\ogg_decode.c">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\mission\missionserver_meta.c">
+      <Filter>Source Files\Common\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\storyarc\missionClient.c">
+      <Filter>Source Files\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\storyarc\playerCreatedStoryarcClient.c">
+      <Filter>Source Files\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\storyarc\storyarcClient.c">
+      <Filter>Source Files\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\storyarc\zowieClient.c">
+      <Filter>Source Files\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\storyarc\contactClient.c">
+      <Filter>Source Files\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\storyarc\missiongeoCommon.c">
+      <Filter>Source Files\Common\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\storyarc\missionMapCommon.c">
+      <Filter>Source Files\Common\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\storyarc\playerCreatedStoryarc.c">
+      <Filter>Source Files\Common\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\storyarc\playerCreatedStoryarcValidate.c">
+      <Filter>Source Files\Common\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\storyarc\pnpcCommon.c">
+      <Filter>Source Files\Common\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\storyarc\storyarcCommon.c">
+      <Filter>Source Files\Common\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\storyarc\zowieCommon.c">
+      <Filter>Source Files\Common\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\storyarc\contactCommon.c">
+      <Filter>Source Files\Common\storyarc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\mission\MissionSearch.c">
+      <Filter>Source Files\Common\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\testClient\testLevelup.c">
+      <Filter>Source Files\Common\testClient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\clientError.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\utils\debugUtils.c">
+      <Filter>Source Files\Common\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\utils\EVAL.C">
+      <Filter>Source Files\Common\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\utils\Position.c">
+      <Filter>Source Files\Common\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win\win_cursor.c">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win\win_init.c">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win\hwlight.c">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\win\input.c">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiHybridMenu.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiLoyaltyTree.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiLoyaltyTreeAccess.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiLWC.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiOrigin.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiPlaystyle.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiPower.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiRedirect.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiRegister.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiWebStoreFrame.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiArchetype.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiBody.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\Hybrid\uiCostumes.c">
+      <Filter>Source Files\UI\Hybrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\sprite\sprite_debug.c">
+      <Filter>Source Files\UI\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\sprite\sprite_font.c">
+      <Filter>Source Files\UI\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\sprite\sprite_list.c">
+      <Filter>Source Files\UI\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\sprite\sprite_text.c">
+      <Filter>Source Files\UI\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\sprite\sprite_base.c">
+      <Filter>Source Files\UI\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiBox.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiBrowser.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiBuff.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiClipper.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiColorPicker.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiComboBox.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiConceptInv.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiConsole.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiCursor.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiDialog.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\UIEdit.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiEditText.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiEmote.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiFocus.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiFx.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiGame.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiGrowBig.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiHelpButton.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiIME.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiInput.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiKeybind.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiKeymapping.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiListView.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiLoadingTip.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiMapSelect.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiMissionSearch.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiNet.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPictureBrowser.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiRaidResult.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiReticle.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiScrollBar.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiScrollSelector.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiScrollSet.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiSlider.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiSMFView.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiTabControl.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiToolTip.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiTree.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiUtil.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiTitleSelect.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiAmountSlider.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiArena.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiArenaGladiator.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiArenaJoin.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiArenaList.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiArenaResult.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiAuction.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiAutomap.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiAutomapFog.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiBadges.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiBaseInput.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiBaseInventory.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiBaseLog.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiBaseProps.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiBaseRoom.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiBaseStorage.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiChannel.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiChannelSearch.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiChat.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiChatOptions.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiChatUtil.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiClue.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiCombatMonitor.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiCombatNumbers.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiComment.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiCompass.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiContact.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiContactDialog.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiContextMenu.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiConvertEnhancement.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiCostumeSelect.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiCustomVillainGroupWindow.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiCustomWindow.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiDeath.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiDock.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiEmail.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiEnhancement.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiFriend.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiGift.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiGroupWindow.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiHelp.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiIncarnate.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiInfo.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiInspiration.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiInvent.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiInventory.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiLeague.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiLfg.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiMission.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiMissionComment.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiMissionMaker.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiMissionMakerScrollSet.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiMissionReview.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiMissionSummary.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiMMMapViewer.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPet.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPetition.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPlaque.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPlayerNote.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPowerInfo.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPowerInventory.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiQuit.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiRecentTeam.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiRecipeInv.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiRecipeInventory.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiRenderStats.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiRewardChoice.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiSalvage.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiScript.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiServerTransfer.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiSGList.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiSGRaidList.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiStatus.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiStore.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiStoredSalvage.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiSupergroup.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiTarget.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiTeam.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiTrade.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiTradeLogic.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiTray.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiTraySingle.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiTrialReminder.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiTurnstile.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiUtilGame.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiWindows.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiWindows_init.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiAvatar.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiCombineSpec.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiContactFinder.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiCostume.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiGender.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiLevelPower.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiLevelSpec.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiLoadCostume.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiLoadPowerCust.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiLogin.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiNewFeatures.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiNPCCostume.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiNPCCreationNLM.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiNPCProfile.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiOptions.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPCCCreationNLM.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPCCPowers.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPCCProfile.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPCCRank.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPowerCust.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiPowers.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiReSpec.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiSalvageOpen.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiSaveCostume.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiSupercostume.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiSuperRegistration.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiTailor.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UI\uiUtilMenu.c">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

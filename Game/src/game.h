@@ -7,9 +7,9 @@
 
 typedef enum
 {
-	PROGRESSDIALOGTYPE_NONE = -1,
-	PROGRESSDIALOGTYPE_OK,				// Prompts OK
-	PROGRESSDIALOGTYPE_SAFEMODE,		// Prompts YES/NO for safemode
+    PROGRESSDIALOGTYPE_NONE = -1,
+    PROGRESSDIALOGTYPE_OK,                // Prompts OK
+    PROGRESSDIALOGTYPE_SAFEMODE,        // Prompts YES/NO for safemode
 } PROGRESSDIALOGTYPE;
 
 void parseArgs(int argc,char **argv);

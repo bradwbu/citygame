@@ -8,8 +8,8 @@ typedef struct UIBox UIBox;
 typedef struct CBox CBox;
 typedef struct DisplaySprite DisplaySprite;
 
-void clipperPushRestrict(UIBox* box);	// Restrict clipper box based on the current one.
-void clipperPush(UIBox* box);			// Instate a brand new clipper box.
+void clipperPushRestrict(UIBox* box);    // Restrict clipper box based on the current one.
+void clipperPush(UIBox* box);            // Instate a brand new clipper box.
 void clipperPushCBox( CBox *box );
 void clipperPop();
 int clipperGetCount();

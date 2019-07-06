@@ -9,8 +9,8 @@ void setClientSideMissionMakerContact( int idx, Costume *pCostume, char * pchNam
 
 typedef struct ClientSideMissionMakerContactCostume
 {
-	int npc_idx;
-	Costume * pCostume;
+    int npc_idx;
+    Costume * pCostume;
 }ClientSideMissionMakerContactCostume;
 
 extern ClientSideMissionMakerContactCostume gMissionMakerContact;

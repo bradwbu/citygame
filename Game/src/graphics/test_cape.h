@@ -81,15 +81,15 @@ char * cape_text =
 #define tDZ -0.50f
 Vec3 cape_hook_offsets[CAPE_NUMHOOKS] =
 {
-	{ -1.00f*tDX, tDY, tDZ },
-	{ -0.75f*tDX, tDY, tDZ },
-	{ -0.50f*tDX, tDY, tDZ },
-	{ -0.25f*tDX, tDY, tDZ },
-	{  0.00f*tDX, tDY, tDZ },
-	{  0.25f*tDX, tDY, tDZ },
-	{  0.50f*tDX, tDY, tDZ },
-	{  0.75f*tDX, tDY, tDZ },
-	{  1.00f*tDX, tDY, tDZ },
+    { -1.00f*tDX, tDY, tDZ },
+    { -0.75f*tDX, tDY, tDZ },
+    { -0.50f*tDX, tDY, tDZ },
+    { -0.25f*tDX, tDY, tDZ },
+    {  0.00f*tDX, tDY, tDZ },
+    {  0.25f*tDX, tDY, tDZ },
+    {  0.50f*tDX, tDY, tDZ },
+    {  0.75f*tDX, tDY, tDZ },
+    {  1.00f*tDX, tDY, tDZ },
 };
 #undef tDX
 #undef tDY

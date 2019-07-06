@@ -7,12 +7,12 @@ typedef struct Packet Packet;
 
 typedef struct DebugLocation
 {
-	Vec3	position;
-	U32		uniqueId;
-	Vec3	hsv;
-	Vec3	rgb;
-	int		alpha;
-	int		vModifier;
+    Vec3    position;
+    U32        uniqueId;
+    Vec3    hsv;
+    Vec3    rgb;
+    int        alpha;
+    int        vModifier;
 } DebugLocation;
 
 U32 DebugLocationCreate(Vec3 pos, U32 col);

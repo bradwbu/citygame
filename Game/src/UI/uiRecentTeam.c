@@ -2,5 +2,5 @@
 
 int recentTeamWindow()
 {
-	return 0;
+    return 0;
 }

@@ -5,41 +5,41 @@
 //MOVEMENT
 typedef enum pictBrowseMovement
 {
-	PICTBROWSE_LEFT,
-	PICTBROWSE_RIGHT,
+    PICTBROWSE_LEFT,
+    PICTBROWSE_RIGHT,
 } PictBrowseMovement;
 
 typedef enum pictBrowseType
 {
-	PICTBROWSE_IMAGE = 0,
-	PICTBROWSE_MOVIE = 1,
+    PICTBROWSE_IMAGE = 0,
+    PICTBROWSE_MOVIE = 1,
 } PictBrowseType;
 
 typedef struct PictureBrowser
 {
-	int state;
-	int currChoice;
-	int wdw;
-	int changed;
-	int type;
-	int idx;
+    int state;
+    int currChoice;
+    int wdw;
+    int changed;
+    int type;
+    int idx;
 
 
-	float x;
-	float y;
-	float z;
-	float sc;
+    float x;
+    float y;
+    float z;
+    float sc;
 
-	float wd;
-	float ht;
-	float maxWd;
-	float maxHt;
+    float wd;
+    float ht;
+    float maxWd;
+    float maxHt;
 
-	float transitionTime;	//time between a click and when an icon is finished moving.
-	AtlasTex **elements;	//the should be an earray of all images appearing in the viewer.
-	MMPinPData *mmdata;
-	int *costumeChanges;
-	int currentCostume;
+    float transitionTime;    //time between a click and when an icon is finished moving.
+    AtlasTex **elements;    //the should be an earray of all images appearing in the viewer.
+    MMPinPData *mmdata;
+    int *costumeChanges;
+    int currentCostume;
 
 }PictureBrowser;
 

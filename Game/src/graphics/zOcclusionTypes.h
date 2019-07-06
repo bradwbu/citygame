@@ -3,7 +3,7 @@
 
 #include "stdtypes.h"
 
-#define ZO_SAFE				0
+#define ZO_SAFE                0
 
 #if 0
 
@@ -50,10 +50,10 @@
 #define ZINIT ZMAX
 #define ZTEST(newZ, existingZ) ((newZ) <= (existingZ))
 
-#define ZTOR(val)		(val>=0.9?2550*val-2295:0)
-#define ZTOG(val)		(0)
-#define ZTOB(val)		(0)
-#define ZTOALPHA(val)	(val < ZMAX ? 255 : 0)
+#define ZTOR(val)        (val>=0.9?2550*val-2295:0)
+#define ZTOG(val)        (0)
+#define ZTOB(val)        (0)
+#define ZTOALPHA(val)    (val < ZMAX ? 255 : 0)
 
 #define MAX_OCCLUDERS 200
 #define MAX_OCCLUDER_TRIS 2000
@@ -71,26 +71,26 @@ typedef float ZType;
 
 typedef struct ZBufferPoint
 {
-	U8 cached;
-	U8 clipcode;
-	S16 x,y;     // integer coordinates in the zbuffer
-	ZType z;
-	Vec4 hClipPos;
+    U8 cached;
+    U8 clipcode;
+    S16 x,y;     // integer coordinates in the zbuffer
+    ZType z;
+    Vec4 hClipPos;
 } ZBufferPoint, *ZBufferPointPtr;
 
 typedef struct Occluder
 {
-	float screenSpace;
-	Model *m;
-	Mat4 modelToWorld;
-	int uid;
+    float screenSpace;
+    Model *m;
+    Mat4 modelToWorld;
+    int uid;
 } Occluder, *OccluderPtr;
 
 typedef struct HierarchicalZBuffer
 {
-	int dim;
-	ZType *minZ;
-	ZType *maxZ;
+    int dim;
+    ZType *minZ;
+    ZType *maxZ;
 } HierarchicalZBuffer;
 
 #endif//_ZOCCLUSIONTYPES_H_

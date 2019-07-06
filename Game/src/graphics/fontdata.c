@@ -109,9 +109,9 @@ FontLetter sysfont_letters[] = {
 };
 
 FontInfo sysfont_info = 
-{ "FONT",		/*Name (a.k.a. font20.rgb)*/
-  8,			/*letter width*/
-  8,			/*letter height*/
+{ "FONT",        /*Name (a.k.a. font20.rgb)*/
+  8,            /*letter width*/
+  8,            /*letter height*/
   sysfont_letters
 };
 

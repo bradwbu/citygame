@@ -7,15 +7,15 @@
 
 typedef struct
 {
-	Vec3	cursor_pos;
-	char	axis[10];
-	char	snap[20];
-	char	posrot[10];
-	char	gridsize[10];
-	char	rotsize[10];
-	char	geo[1000];
-	char	group[1000];
-	int		poly_recount,last_polycount,last_objcount,last_totalgroups;
+    Vec3    cursor_pos;
+    char    axis[10];
+    char    snap[20];
+    char    posrot[10];
+    char    gridsize[10];
+    char    rotsize[10];
+    char    geo[1000];
+    char    group[1000];
+    int        poly_recount,last_polycount,last_objcount,last_totalgroups;
 } EditStats;
 
 extern EditStats edit_stats;

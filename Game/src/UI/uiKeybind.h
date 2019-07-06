@@ -8,23 +8,23 @@
 // temporary struct used to hold data parsed in
 typedef struct defaultKeyBind
 {
-	int keys;
-	char *key;
-	char *command;
+    int keys;
+    char *key;
+    char *command;
 } defaultKeyBind;
 
 // A list of all the keybindings
 typedef struct KeyBindList
 {
-	char			*displayName;
-	char			*name;
-	defaultKeyBind **binds;
+    char            *displayName;
+    char            *name;
+    defaultKeyBind **binds;
 } KeyBindList;
 
 // a list of profiles
 typedef struct KeyBindProfiles
 {
-	KeyBindList **profiles;
+    KeyBindList **profiles;
 }KeyBindProfiles;
 
 // holder for parsed data list
@@ -34,45 +34,45 @@ extern KeyBindProfiles data_kbp;
 
 typedef enum ModTypes
 {
-	MODIFIER_NONE,
-	MODIFIER_CTRL,
-	MODIFIER_SHIFT,
-	MODIFIER_ALT,
-	MOD_TOTAL,
+    MODIFIER_NONE,
+    MODIFIER_CTRL,
+    MODIFIER_SHIFT,
+    MODIFIER_ALT,
+    MOD_TOTAL,
 }ModTypes;
 
 typedef struct KeyBind
 {
-	// used for data recieved form server
-	int		key;
-	int		modifier;
-	int		secondary;
-	U32		uID;
+    // used for data recieved form server
+    int        key;
+    int        modifier;
+    int        secondary;
+    U32        uID;
 
-	// used for bind exec
-	int		pressed[MOD_TOTAL];
-	char	*command[MOD_TOTAL];
+    // used for bind exec
+    int        pressed[MOD_TOTAL];
+    char    *command[MOD_TOTAL];
 
 } KeyBind;
 
 /* Function type Command parser
-*	Parameters:
-*		str - a string that contains the command name to invoke as well as any parameters
+*    Parameters:
+*        str - a string that contains the command name to invoke as well as any parameters
 *
-*	Returns:
-*		0 - if the command passed in str was not handled
-*		1 - if the command passed in str was handled
+*    Returns:
+*        0 - if the command passed in str was not handled
+*        1 - if the command passed in str was handled
 */
 typedef int (*CommandParser)(char *str, int x, int y);
 typedef struct KeyBindProfile
 {
-	unsigned int		havePressed	: 1;	// are any keys in the binding "pressed" right now?
-	unsigned int		trickleKeys : 1;	// allow unhandled keys to be handled by other profiles?
+    unsigned int        havePressed    : 1;    // are any keys in the binding "pressed" right now?
+    unsigned int        trickleKeys : 1;    // allow unhandled keys to be handled by other profiles?
 
-	void (*allOtherKeyCallback)();
-	KeyBind binds[BIND_MAX];
-	CommandParser parser;
-	char* name;
+    void (*allOtherKeyCallback)();
+    KeyBind binds[BIND_MAX];
+    CommandParser parser;
+    char* name;
 
 } KeyBindProfile;
 

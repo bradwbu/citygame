@@ -10,9 +10,9 @@ typedef struct BasePower BasePower;
 
 typedef enum BuffWindow
 {
-	kBuff_Status,
-	kBuff_Group,
-	kBuff_Pet,
+    kBuff_Status,
+    kBuff_Group,
+    kBuff_Pet,
 }BuffWindow;
 
 

@@ -2,20 +2,20 @@
 #define RT_TUNE_H
 
 enum TuneInputDir {
-	tuneInputTerminator = 0,
-	tuneInputToggle,
-	tuneInputBack,
-	tuneInputUp,
-	tuneInputDown,
-	tuneInputLeft,
-	tuneInputRight,
+    tuneInputTerminator = 0,
+    tuneInputToggle,
+    tuneInputBack,
+    tuneInputUp,
+    tuneInputDown,
+    tuneInputLeft,
+    tuneInputRight,
 };
 
 typedef struct TuneInputCommand {
-	U8 cmd;
-	U32 shift:1;
-	U32 ctrl:1;
-	U32 alt:1;
+    U8 cmd;
+    U32 shift:1;
+    U32 ctrl:1;
+    U32 alt:1;
 } TuneInputCommand;
 
 void tuneInput(TuneInputCommand * input);

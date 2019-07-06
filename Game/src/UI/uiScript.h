@@ -1,5 +1,5 @@
 #ifndef _UISCRIPT_H
-#define	_UISCRIPT_H
+#define    _UISCRIPT_H
 
 #include "uiInclude.h"
 #include "stdtypes.h"

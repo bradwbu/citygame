@@ -5,63 +5,63 @@ typedef struct ScrollBar ScrollBar;
 
 typedef struct ComboSetting
 {
-	int id;
-	char * text;
-	char * title;
-	char * icon;
+    int id;
+    char * text;
+    char * title;
+    char * icon;
 }ComboSetting;
 
-#define CCE_UNSELECTABLE	1
-#define CCE_TEXT_NOMSPRINT	2
-#define CCE_TITLE_NOMSPRINT	4
+#define CCE_UNSELECTABLE    1
+#define CCE_TEXT_NOMSPRINT    2
+#define CCE_TITLE_NOMSPRINT    4
 
 typedef struct ComboCheckboxElement
 {
-	int			selected;
-	int			flags;
-//	int			unselectable;
-	int			id;
-	int			color;
-	int			icon_color;
-	AtlasTex	*icon;
-	char		*txt;
-	char		*title;
-	void		*data;
+    int            selected;
+    int            flags;
+//    int            unselectable;
+    int            id;
+    int            color;
+    int            icon_color;
+    AtlasTex    *icon;
+    char        *txt;
+    char        *title;
+    void        *data;
 }ComboCheckboxElement;
 
 typedef struct ComboBox
 {
-	int state;
-	int currChoice;
-	int type;
-	int wdw;
-	int reverse;
-	int newlySelectedItem;  // regular combo box only
-	int all;
-	int unselectable;  //invisible
-	int locked;
-	int changed;
-	int	architect;
-	int color;
-	int back_color;
-	int highlight_color;
+    int state;
+    int currChoice;
+    int type;
+    int wdw;
+    int reverse;
+    int newlySelectedItem;  // regular combo box only
+    int all;
+    int unselectable;  //invisible
+    int locked;
+    int changed;
+    int    architect;
+    int color;
+    int back_color;
+    int highlight_color;
 
-	float x;
-	float y;
-	float z;
-	float sc;
+    float x;
+    float y;
+    float z;
+    float sc;
 
-	float wd;
-	float dropWd;
-	float ht;
-	float expandHt;
-	float scale;
+    float wd;
+    float dropWd;
+    float ht;
+    float expandHt;
+    float scale;
 
-	char				 *title;
-	const char			 **strings;
-	ComboCheckboxElement **elements;
+    char                 *title;
+    const char             **strings;
+    ComboCheckboxElement **elements;
 
-	ScrollBar *sb;
+    ScrollBar *sb;
 }ComboBox;
 #define COMBOBOX_ARCHITECT_UNSELECTED 1
 #define COMBOBOX_ARCHITECT_SELECTED 2

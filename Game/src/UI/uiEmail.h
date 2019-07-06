@@ -3,18 +3,18 @@
 
 typedef enum EmailType
 {
-	kEmail_Local,
-	kEmail_Global,
-	kEmail_Certification,
-	kEmail_Count,
+    kEmail_Local,
+    kEmail_Global,
+    kEmail_Certification,
+    kEmail_Count,
 }EmailType;
 
 typedef enum MailViewMode
 {
-	MVM_MAIL,
-	MVM_CERTIFICATION,
-	MVM_VOUCHER,
-	MVM_COUNT,
+    MVM_MAIL,
+    MVM_CERTIFICATION,
+    MVM_VOUCHER,
+    MVM_COUNT,
 }MailViewMode;
 
 void emailHeaderListPrepareUpdate();
@@ -35,9 +35,9 @@ void email_setView(char *view);
 int email_getView();
 void certificationClaimAllTick();
 
-#define EMAIL_FROM_COLUMN		"EmailFrom"
-#define EMAIL_SUBJECT_COLUMN	"EmailSubject"
-#define EMAIL_DATE_COLUMN		"EmailDate"
-#define EMAIL_EXPIRES_COLUMN	"EmailExpiration"
+#define EMAIL_FROM_COLUMN        "EmailFrom"
+#define EMAIL_SUBJECT_COLUMN    "EmailSubject"
+#define EMAIL_DATE_COLUMN        "EmailDate"
+#define EMAIL_EXPIRES_COLUMN    "EmailExpiration"
 // End mkproto
 #endif

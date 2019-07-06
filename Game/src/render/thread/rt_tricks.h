@@ -5,7 +5,7 @@
 
 #ifdef RT_PRIVATE
 #include "rt_state.h"
-extern Vec4	tex_scrolls[4];
+extern Vec4    tex_scrolls[4];
 typedef struct TrickNode TrickNode;
 typedef struct StAnim StAnim;
 typedef struct RdrModelStruct RdrModel;

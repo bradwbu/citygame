@@ -19,10 +19,10 @@ bool playerIsInBaseEntrance();
 
 typedef enum BaseStatusMsgType
 {
-	kBaseStatusMsg_Instruction,
-	kBaseStatusMsg_PassiveError,
-	kBaseStatusMsg_Warning,
-	kBaseStatusMsg_Error,
+    kBaseStatusMsg_Instruction,
+    kBaseStatusMsg_PassiveError,
+    kBaseStatusMsg_Warning,
+    kBaseStatusMsg_Error,
 }BaseStatusMsgType;
 
 void base_setStatusMsg( char * str, int type );

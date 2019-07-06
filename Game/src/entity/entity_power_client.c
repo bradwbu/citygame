@@ -23,17 +23,17 @@
  */
 void entity_ActivatePowerAtLocationSend(Entity *e, Packet *pak, int ibuild, int iset, int ipow, Entity *ptarget, Vec3 vec)
 {
-	assert(e!=NULL);
-	assert(pak!=NULL);
+    assert(e!=NULL);
+    assert(pak!=NULL);
 
-	pktSendBitsAuto(pak, ibuild);
-	pktSendBitsPack(pak,  4, iset);
-	pktSendBitsPack(pak,  4, ipow);
-	pktSendBitsPack(pak, 16, ptarget->svr_idx);
-	pktSendBitsPack(pak, 32, ptarget->id);
-	pktSendF32( pak, camGetPlayerHeight() );
-	pktSendVec3(pak, vec);
-	pktSendVec3(pak, cam_info.cammat[3]);
+    pktSendBitsAuto(pak, ibuild);
+    pktSendBitsPack(pak,  4, iset);
+    pktSendBitsPack(pak,  4, ipow);
+    pktSendBitsPack(pak, 16, ptarget->svr_idx);
+    pktSendBitsPack(pak, 32, ptarget->id);
+    pktSendF32( pak, camGetPlayerHeight() );
+    pktSendVec3(pak, vec);
+    pktSendVec3(pak, cam_info.cammat[3]);
 }
 
 /**********************************************************************func*
@@ -45,24 +45,24 @@ void entity_ActivatePowerAtLocationSend(Entity *e, Packet *pak, int ibuild, int 
  */
 void entity_ActivatePowerSend(Entity *e, Packet *pak, int ibuild, int iset, int ipow, Entity *ptarget)
 {
-	assert(e!=NULL);
-	assert(pak!=NULL);
+    assert(e!=NULL);
+    assert(pak!=NULL);
 
-	pktSendBitsAuto(pak, ibuild);
-	pktSendBitsPack(pak, 4, iset);
-	pktSendBitsPack(pak, 4, ipow);
+    pktSendBitsAuto(pak, ibuild);
+    pktSendBitsPack(pak, 4, iset);
+    pktSendBitsPack(pak, 4, ipow);
 
-	if(ptarget!=NULL)
-	{
-		pktSendBitsPack(pak, 16, ptarget->svr_idx);
-		pktSendBitsPack(pak, 32, ptarget->id);
-	}
-	else
-	{
-		// used for assists
-		pktSendBitsPack(pak, 16, 0);
-		pktSendBitsPack(pak, 32, 0);
-	}
+    if(ptarget!=NULL)
+    {
+        pktSendBitsPack(pak, 16, ptarget->svr_idx);
+        pktSendBitsPack(pak, 32, ptarget->id);
+    }
+    else
+    {
+        // used for assists
+        pktSendBitsPack(pak, 16, 0);
+        pktSendBitsPack(pak, 32, 0);
+    }
 }
 
 /**********************************************************************func*
@@ -74,12 +74,12 @@ void entity_ActivatePowerSend(Entity *e, Packet *pak, int ibuild, int iset, int 
  */
 void entity_SetDefaultPowerSend(Entity *e, Packet *pak, int ibuild, int iset, int ipow)
 {
-	assert(e!=NULL);
-	assert(pak!=NULL);
+    assert(e!=NULL);
+    assert(pak!=NULL);
 
-	pktSendBitsAuto(pak, ibuild);
-	pktSendBitsPack(pak, 4, iset);
-	pktSendBitsPack(pak, 4, ipow);
+    pktSendBitsAuto(pak, ibuild);
+    pktSendBitsPack(pak, 4, iset);
+    pktSendBitsPack(pak, 4, ipow);
 }
 
 /**********************************************************************func*
@@ -91,11 +91,11 @@ void entity_SetDefaultPowerSend(Entity *e, Packet *pak, int ibuild, int iset, in
  */
 void entity_ActivateInspirationSend(Entity *e, Packet *pak, int iCol, int iRow)
 {
-	assert(e!=NULL);
-	assert(pak!=NULL);
+    assert(e!=NULL);
+    assert(pak!=NULL);
 
-	pktSendBitsPack(pak, 3, iCol);
-	pktSendBitsPack(pak, 3, iRow);
+    pktSendBitsPack(pak, 3, iCol);
+    pktSendBitsPack(pak, 3, iRow);
 }
 
 /**********************************************************************func*
@@ -107,13 +107,13 @@ void entity_ActivateInspirationSend(Entity *e, Packet *pak, int iCol, int iRow)
  */
 void entity_EnterStanceSend(Entity *e, Packet *pak, int ibuild, int iset, int ipow)
 {
-	assert(e!=NULL);
-	assert(pak!=NULL);
+    assert(e!=NULL);
+    assert(pak!=NULL);
 
-	pktSendBits(pak, 1, 1);
-	pktSendBitsAuto(pak, ibuild);
-	pktSendBitsPack(pak, 4, iset);
-	pktSendBitsPack(pak, 4, ipow);
+    pktSendBits(pak, 1, 1);
+    pktSendBitsAuto(pak, ibuild);
+    pktSendBitsPack(pak, 4, iset);
+    pktSendBitsPack(pak, 4, ipow);
 }
 
 /**********************************************************************func*
@@ -125,10 +125,10 @@ void entity_EnterStanceSend(Entity *e, Packet *pak, int ibuild, int iset, int ip
  */
 void entity_ExitStanceSend(Entity *e, Packet *pak)
 {
-	assert(e!=NULL);
-	assert(pak!=NULL);
+    assert(e!=NULL);
+    assert(pak!=NULL);
 
-	pktSendBits(pak, 1, 0);
+    pktSendBits(pak, 1, 0);
 }
 
 /**********************************************************************func*
@@ -137,30 +137,30 @@ void entity_ExitStanceSend(Entity *e, Packet *pak)
  */
 void entity_StanceReceive(Packet *pak)
 {
-	int ibuild;
-	int iset;
-	int ipow;
-	Power *ppow = NULL;
-	Entity *e = playerPtr();
-	extern U32 g_timeLastPower;
+    int ibuild;
+    int iset;
+    int ipow;
+    Power *ppow = NULL;
+    Entity *e = playerPtr();
+    extern U32 g_timeLastPower;
 
-	g_timeLastPower = timerSecondsSince2000();
+    g_timeLastPower = timerSecondsSince2000();
 
-	assert(pak!=NULL);
+    assert(pak!=NULL);
 
-	if(pktGetBits(pak, 1))
-	{
-		ibuild = pktGetBitsAuto(pak);
-		iset = pktGetBitsPack(pak, 4);
-		ipow = pktGetBitsPack(pak, 4);
+    if(pktGetBits(pak, 1))
+    {
+        ibuild = pktGetBitsAuto(pak);
+        iset = pktGetBitsPack(pak, 4);
+        ipow = pktGetBitsPack(pak, 4);
 
-		if(e)
-			e->pchar->ppowStance = SafeGetPowerByIdx(e->pchar, ibuild, iset, ipow);
-	}
-	else if(e)
-	{
-		e->pchar->ppowStance = NULL;
-	}
+        if(e)
+            e->pchar->ppowStance = SafeGetPowerByIdx(e->pchar, ibuild, iset, ipow);
+    }
+    else if(e)
+    {
+        e->pchar->ppowStance = NULL;
+    }
 }
 
 /* End of File */

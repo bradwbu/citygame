@@ -17,8 +17,8 @@ typedef struct Detail Detail;
 
 typedef struct TintedGroupDef
 {
-	GroupDef *pDef;
-	Color tint[2];
+    GroupDef *pDef;
+    Color tint[2];
 } TintedGroupDef;
 
 

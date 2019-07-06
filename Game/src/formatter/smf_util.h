@@ -22,42 +22,42 @@ extern int smf_printDebugLines; // set to 1 to get some printf's that I have str
 
 typedef struct TupleSN
 {
-	char *pchName;
-	int iVal;
+    char *pchName;
+    int iVal;
 } TupleSN;
 
 typedef struct TupleSS
 {
-	// Data type which maps a string to another string.
-	char *pchName;
-	char *pchVal;
+    // Data type which maps a string to another string.
+    char *pchName;
+    char *pchVal;
 } TupleSS;
 
 typedef enum SMAlignment
 {
-	SMAlignment_None,
-	SMAlignment_Left,
-	SMAlignment_Right,
-	SMAlignment_Center,
-	SMAlignment_Top,
-	SMAlignment_Bottom,
-	SMAlignment_Both,
+    SMAlignment_None,
+    SMAlignment_Left,
+    SMAlignment_Right,
+    SMAlignment_Center,
+    SMAlignment_Top,
+    SMAlignment_Bottom,
+    SMAlignment_Both,
 } SMAlignment;
 
 typedef struct SMPosition
 {
-	float iX;
-	float iY;
-	float iWidth;
-	float iHeight;
+    float iX;
+    float iY;
+    float iWidth;
+    float iHeight;
 
-	SMAlignment alignHoriz;
-	SMAlignment alignVert;
+    SMAlignment alignHoriz;
+    SMAlignment alignVert;
 
-	float iMinWidth;
-	float iMinHeight;
+    float iMinWidth;
+    float iMinHeight;
 
-	int iBorder;
+    int iBorder;
 
 } SMPosition;
 
@@ -68,22 +68,22 @@ typedef struct SMBlock SMBlock; // forward decl since it's self-referential
 
 typedef enum SMFLineBreakMode
 {
-	SMFLineBreakMode_None = 0,
-	SMFLineBreakMode_SingleLine,
-	SMFLineBreakMode_MultiLineBreakOnWhitespace,
-	SMFLineBreakMode_MultiLineBreakOnWhitespaceWithInverseTabbing,
+    SMFLineBreakMode_None = 0,
+    SMFLineBreakMode_SingleLine,
+    SMFLineBreakMode_MultiLineBreakOnWhitespace,
+    SMFLineBreakMode_MultiLineBreakOnWhitespaceWithInverseTabbing,
 } SMFLineBreakMode;
 
 extern const SMFLineBreakMode SMFLineBreakMode_DefaultValue;
 
 typedef enum SMFInputMode
 {
-	SMFInputMode_None = 0,
-	SMFInputMode_AnyTextNoTagsOrCodes,
-	SMFInputMode_NonnegativeIntegers,
-	SMFInputMode_Alphanumeric,
-	SMFInputMode_PlayerNames,
-	SMFInputMode_PlayerNamesAndHandles,
+    SMFInputMode_None = 0,
+    SMFInputMode_AnyTextNoTagsOrCodes,
+    SMFInputMode_NonnegativeIntegers,
+    SMFInputMode_Alphanumeric,
+    SMFInputMode_PlayerNames,
+    SMFInputMode_PlayerNamesAndHandles,
 } SMFInputMode;
 
 extern const SMFInputMode SMFInputMode_DefaultValue;
@@ -91,139 +91,139 @@ extern const int SMFInputLimit_DefaultValue;
 
 typedef enum SMFEditMode
 {
-	SMFEditMode_None = 0,
-	SMFEditMode_Unselectable,
-	SMFEditMode_ReadOnly,
-	SMFEditMode_ReadWrite
+    SMFEditMode_None = 0,
+    SMFEditMode_Unselectable,
+    SMFEditMode_ReadOnly,
+    SMFEditMode_ReadWrite
 } SMFEditMode;
 
 extern const SMFEditMode SMFEditMode_DefaultValue;
 
 typedef enum SMFScrollMode
 {
-	SMFScrollMode_None = 0,
-	SMFScrollMode_ExternalOnly,
-	SMFScrollMode_InternalScrolling
+    SMFScrollMode_None = 0,
+    SMFScrollMode_ExternalOnly,
+    SMFScrollMode_InternalScrolling
 } SMFScrollMode;
 
 extern const SMFScrollMode SMFScrollMode_DefaultValue;
 
 typedef enum SMFOutputMode
 {
-	SMFOutputMode_None = 0,
-	SMFOutputMode_StripAllTagsAndCodes,
-	SMFOutputMode_StripAllTags,
-	SMFOutputMode_StripFlaggedTagsAndCodes,
-	SMFOutputMode_StripFlaggedTags,
-	SMFOutputMode_StripNoTags,
+    SMFOutputMode_None = 0,
+    SMFOutputMode_StripAllTagsAndCodes,
+    SMFOutputMode_StripAllTags,
+    SMFOutputMode_StripFlaggedTagsAndCodes,
+    SMFOutputMode_StripFlaggedTags,
+    SMFOutputMode_StripNoTags,
 } SMFOutputMode;
 
 extern const SMFOutputMode SMFOutputMode_DefaultValue;
 
 typedef enum SMFDisplayMode
 {
-	SMFDisplayMode_None = 0,
-	SMFDisplayMode_AllCharacters,
-	SMFDisplayMode_AsterisksOnly,
-	SMFDisplayMode_NumbersWithCommas,
+    SMFDisplayMode_None = 0,
+    SMFDisplayMode_AllCharacters,
+    SMFDisplayMode_AsterisksOnly,
+    SMFDisplayMode_NumbersWithCommas,
 } SMFDisplayMode;
 
 extern const SMFDisplayMode SMFDisplayMode_DefaultValue;
 
 typedef enum SMFContextMenuMode
 {
-	SMFContextMenuMode_None = 0,
-	SMFContextMenuMode_Cut = 1,
-	SMFContextMenuMode_Copy = 1 << 1,
-	SMFContextMenuMode_Paste = 1 << 2,
-	SMFContextMenuMode_Format = 1 << 3,
-	SMFContextMenuMode_Color = 1 << 4,
-	SMFContextMenuMode_TextSub = 1 << 5,
-	SMFContextMenuMode_CutCopyPaste = SMFContextMenuMode_Cut | SMFContextMenuMode_Copy | SMFContextMenuMode_Paste,
-	SMFContextMenuMode_CutCopyPasteFormat = SMFContextMenuMode_CutCopyPaste | SMFContextMenuMode_Format,
-	SMFContextMenuMode_CutCopyPasteFormatColor = SMFContextMenuMode_CutCopyPaste | SMFContextMenuMode_Format | SMFContextMenuMode_Color,
-	SMFContextMenuMode_CutCopyPasteFormatColorText = SMFContextMenuMode_CutCopyPasteFormatColor | SMFContextMenuMode_TextSub,
+    SMFContextMenuMode_None = 0,
+    SMFContextMenuMode_Cut = 1,
+    SMFContextMenuMode_Copy = 1 << 1,
+    SMFContextMenuMode_Paste = 1 << 2,
+    SMFContextMenuMode_Format = 1 << 3,
+    SMFContextMenuMode_Color = 1 << 4,
+    SMFContextMenuMode_TextSub = 1 << 5,
+    SMFContextMenuMode_CutCopyPaste = SMFContextMenuMode_Cut | SMFContextMenuMode_Copy | SMFContextMenuMode_Paste,
+    SMFContextMenuMode_CutCopyPasteFormat = SMFContextMenuMode_CutCopyPaste | SMFContextMenuMode_Format,
+    SMFContextMenuMode_CutCopyPasteFormatColor = SMFContextMenuMode_CutCopyPaste | SMFContextMenuMode_Format | SMFContextMenuMode_Color,
+    SMFContextMenuMode_CutCopyPasteFormatColorText = SMFContextMenuMode_CutCopyPasteFormatColor | SMFContextMenuMode_TextSub,
 } SMFContextMenuMode;
 
 extern const SMFContextMenuMode SMFContextMenuMode_DefaultValue;
 
 typedef struct SMFBlock
 {
-	int iLastYBase;
-	int iLastWidth;
-	int iLastHeight;
-	SMAlignment defaultHorizAlign;
-	U32 ulCrc;
-	SMBlock *pBlock;
-	char *rawString;
-	char *outputString;
-	unsigned int displayStringLength;
-	int dont_reparse_ever_again;
-	int lastFontScale;
-	float masterScale;
-	SMFEditMode editMode;
-	SMFLineBreakMode lineBreakMode;
-	SMFInputMode inputMode;
-	SMFScrollMode scrollMode;
-	SMFOutputMode outputMode;
-	SMFDisplayMode displayMode;
-	SMFContextMenuMode contextMenuMode;
-	int inputLimit;
-	char *coselectionSetName;
-	char *tabNavigationSetName;
-	int tabNavigationSetIndex;
-	int currentDisplayOffsetX;
-	int currentDisplayOffsetY;
-	bool interactedThisFrame;
-	bool clickedOnThisFrame;
-	bool rightClickedOnThisFrame;
-	bool draggedOnThisFrame;
-	CBox *scissorsBox;
-	int internalScrollDiff;
-	bool editedThisFrame;
-	char *sound_successfulKeyboardInput;
-	char *sound_failedKeyboardInput;
-	bool displayedThisFrameSinceLastTimeIWasASelectionEndpoint;
+    int iLastYBase;
+    int iLastWidth;
+    int iLastHeight;
+    SMAlignment defaultHorizAlign;
+    U32 ulCrc;
+    SMBlock *pBlock;
+    char *rawString;
+    char *outputString;
+    unsigned int displayStringLength;
+    int dont_reparse_ever_again;
+    int lastFontScale;
+    float masterScale;
+    SMFEditMode editMode;
+    SMFLineBreakMode lineBreakMode;
+    SMFInputMode inputMode;
+    SMFScrollMode scrollMode;
+    SMFOutputMode outputMode;
+    SMFDisplayMode displayMode;
+    SMFContextMenuMode contextMenuMode;
+    int inputLimit;
+    char *coselectionSetName;
+    char *tabNavigationSetName;
+    int tabNavigationSetIndex;
+    int currentDisplayOffsetX;
+    int currentDisplayOffsetY;
+    bool interactedThisFrame;
+    bool clickedOnThisFrame;
+    bool rightClickedOnThisFrame;
+    bool draggedOnThisFrame;
+    CBox *scissorsBox;
+    int internalScrollDiff;
+    bool editedThisFrame;
+    char *sound_successfulKeyboardInput;
+    char *sound_failedKeyboardInput;
+    bool displayedThisFrameSinceLastTimeIWasASelectionEndpoint;
 } SMFBlock;
 
 typedef struct SMBlock
 {
-	// Definition of an atomic item in the text stream. Can also contain
-	// blocks hierarchically.
+    // Definition of an atomic item in the text stream. Can also contain
+    // blocks hierarchically.
 
-	SMPosition pos;
-	// Location and dimension info for the block, inherited by children.
+    SMPosition pos;
+    // Location and dimension info for the block, inherited by children.
 
-	int iType;
-	// An arbitrary type given by the user of the smparser so they can
-	// tell what the following void * is.
+    int iType;
+    // An arbitrary type given by the user of the smparser so they can
+    // tell what the following void * is.
 
-	bool bFreeOnDestroy;
-	// true if pv should be freed on destroy.
+    bool bFreeOnDestroy;
+    // true if pv should be freed on destroy.
 
-	void *pv;
-	// holds whatever the caller gives us
+    void *pv;
+    // holds whatever the caller gives us
 
-	bool bHasBlocks;
-	// If this block contains others, this is true
+    bool bHasBlocks;
+    // If this block contains others, this is true
 
-	SMBlock **ppBlocks;
-	// Managed array holding the blocks this block contains.
+    SMBlock **ppBlocks;
+    // Managed array holding the blocks this block contains.
 
-	SMBlock *pParent;
-	// Points back to the owning block. Can be used for tree traversal.
+    SMBlock *pParent;
+    // Points back to the owning block. Can be used for tree traversal.
 
-	SMFBlock *pSMFBlock;
+    SMFBlock *pSMFBlock;
 
-	int bgcolor;
+    int bgcolor;
 
-	bool bHover;
+    bool bHover;
 
-	bool bSelected;
+    bool bSelected;
 
-	unsigned int rawStringStartIndex;
+    unsigned int rawStringStartIndex;
 
-	unsigned int displayStringStartIndex;
+    unsigned int displayStringStartIndex;
 
 } SMBlock;
 
@@ -243,23 +243,23 @@ typedef SMBlock *(*SMInitProc)(SMBlock *pBlock);
 
 typedef struct SMTagDef
 {
-	char *pchName;
-	// tag name
+    char *pchName;
+    // tag name
 
-	int id;
-	// The identity (aka tag-type) of this def. Just make it the same
-	//   as the pfn function name as a string with the SMF_TAG macro
+    int id;
+    // The identity (aka tag-type) of this def. Just make it the same
+    //   as the pfn function name as a string with the SMF_TAG macro
 
-	SMTagProc  pfn;
-	// function to execute for this tag
+    SMTagProc  pfn;
+    // function to execute for this tag
 
-	TupleSS aParams[SM_MAX_PARAMS];
-	// Parameter name and default defs. The first one will be filled in
-	// if no attrib name is given.
+    TupleSS aParams[SM_MAX_PARAMS];
+    // Parameter name and default defs. The first one will be filled in
+    // if no attrib name is given.
 
-	int displayLength;
+    int displayLength;
 
-	bool outputToString;
+    bool outputToString;
 
 } SMTagDef;
 
@@ -267,40 +267,40 @@ extern SMTagDef smf_aTagDefs[];
 
 typedef enum SMFTags
 {
-	k_sm_none = 0,
-	k_sm_ws,
-	k_sm_bsp,
-	k_sm_br,
-	k_sm_image,
-	k_sm_table,
-	k_sm_table_end,
-	k_sm_tr,
-	k_sm_tr_end,
-	k_sm_td,
-	k_sm_td_end,
-	k_sm_span,
-	k_sm_span_end,
-	k_sm_p,
-	k_sm_p_end,
-	k_sm_nolink,
-	k_sm_nolink_end,
-	k_sm_text,
-	k_sm_anchor,
+    k_sm_none = 0,
+    k_sm_ws,
+    k_sm_bsp,
+    k_sm_br,
+    k_sm_image,
+    k_sm_table,
+    k_sm_table_end,
+    k_sm_tr,
+    k_sm_tr_end,
+    k_sm_td,
+    k_sm_td_end,
+    k_sm_span,
+    k_sm_span_end,
+    k_sm_p,
+    k_sm_p_end,
+    k_sm_nolink,
+    k_sm_nolink_end,
+    k_sm_text,
+    k_sm_anchor,
 
-	k_sm_b,
-	k_sm_i,
-	k_sm_color,
-	k_sm_color2,
-	k_sm_colorhover,
-	k_sm_colorselect,
-	k_sm_colorselectbg,
-	k_sm_scale,
-	k_sm_face,
-	k_sm_font,
-	k_sm_outline,
-	k_sm_shadow,
-	k_sm_toggle_end,
-	k_sm_toggle_link_end,
+    k_sm_b,
+    k_sm_i,
+    k_sm_color,
+    k_sm_color2,
+    k_sm_colorhover,
+    k_sm_colorselect,
+    k_sm_colorselectbg,
+    k_sm_scale,
+    k_sm_face,
+    k_sm_font,
+    k_sm_outline,
+    k_sm_shadow,
+    k_sm_toggle_end,
+    k_sm_toggle_link_end,
 } SMFTags;
 
 #define SMF_TAG(x) k_##x, x
@@ -375,38 +375,38 @@ U32 smf_ConvertColorNameToValue(char *pchColorName);
 
 typedef enum SMFSearchCommand
 {
-	SMFSearchCommand_None,
-	SMFSearchCommand_Done, // Set smf_selectionSearch to this to signal that you've determined the correct search value.
-	SMFSearchCommand_WordAboveSelectedEnd,
-	SMFSearchCommand_WordBelowSelectedEnd,
-	SMFSearchCommand_EndOfLineBeforeSelectedEndLine,
-	SMFSearchCommand_StartOfSelectedEndLine,
-	SMFSearchCommand_EndOfSelectedEndLine,
-	SMFSearchCommand_StartOfLineAfterSelectedEndLine,
-	SMFSearchCommand_NextTabbedBlock,
-	SMFSearchCommand_PreviousTabbedBlock,
-	SMFSearchCommand_PreviousBeginningOfWord,
-	SMFSearchCommand_NextBeginningOfWord,
-	SMFSearchCommand_BlockNearestCursor,
-	SMFSearchCommand_ClearSelection,
+    SMFSearchCommand_None,
+    SMFSearchCommand_Done, // Set smf_selectionSearch to this to signal that you've determined the correct search value.
+    SMFSearchCommand_WordAboveSelectedEnd,
+    SMFSearchCommand_WordBelowSelectedEnd,
+    SMFSearchCommand_EndOfLineBeforeSelectedEndLine,
+    SMFSearchCommand_StartOfSelectedEndLine,
+    SMFSearchCommand_EndOfSelectedEndLine,
+    SMFSearchCommand_StartOfLineAfterSelectedEndLine,
+    SMFSearchCommand_NextTabbedBlock,
+    SMFSearchCommand_PreviousTabbedBlock,
+    SMFSearchCommand_PreviousBeginningOfWord,
+    SMFSearchCommand_NextBeginningOfWord,
+    SMFSearchCommand_BlockNearestCursor,
+    SMFSearchCommand_ClearSelection,
 } SMFSearchCommand;
 
 typedef enum SMFEditCommand
 {
-	SMFEditCommand_None,
-	SMFEditCommand_Done,
-	SMFEditCommand_AddCharAtCursor,
-	SMFEditCommand_AddLineBreakAtCursor,
-	SMFEditCommand_RemoveCharBeforeCursor,
-	SMFEditCommand_RemoveCharAfterCursor,
-	SMFEditCommand_PasteStringAtCursor,
+    SMFEditCommand_None,
+    SMFEditCommand_Done,
+    SMFEditCommand_AddCharAtCursor,
+    SMFEditCommand_AddLineBreakAtCursor,
+    SMFEditCommand_RemoveCharBeforeCursor,
+    SMFEditCommand_RemoveCharAfterCursor,
+    SMFEditCommand_PasteStringAtCursor,
 } SMFEditCommand;
 
 typedef enum SMFSelectionCommand
 {
-	SMFSelectionCommand_None,
-	SMFSelectionCommand_Delete,
-	SMFSelectionCommand_InsertTags,
+    SMFSelectionCommand_None,
+    SMFSelectionCommand_Delete,
+    SMFSelectionCommand_InsertTags,
 } SMFSelectionCommand;
 
 //********************************************************************
@@ -478,93 +478,93 @@ extern bool s_bAllowAnchor;
 
 typedef struct SMAnchor
 {
-	bool bHover;
-	bool bSelected;
+    bool bHover;
+    bool bSelected;
 #pragma warning(push, 1) // For C++ compilation
-	char ach[];
+    char ach[];
 #pragma warning(pop)
 } SMAnchor;
 
 typedef struct TextAttribs
 {
-	int *piBold;
-	int *piItalic;
-	int *piColor;
-	int *piColor2;
-	int *piColorHover; //disabled.. fix two lines in smf_Render to re-enable.
-	int *piColorSelect;
-	int *piColorSelectBG;
-	int *piScale;
-	int *piFace;
-	int *piFont; // I think this value isn't actually used for anything... apparently it's supposed to be a TTDrawContext cast to an int?
-	int *piAnchor;
-	int *piLink;
-	int *piLinkBG;
-	int *piLinkHover;
-	int *piLinkHoverBG;
-	int *piLinkSelect;
-	int *piLinkSelectBG;
-	int *piOutline;
-	int *piShadow;
+    int *piBold;
+    int *piItalic;
+    int *piColor;
+    int *piColor2;
+    int *piColorHover; //disabled.. fix two lines in smf_Render to re-enable.
+    int *piColorSelect;
+    int *piColorSelectBG;
+    int *piScale;
+    int *piFace;
+    int *piFont; // I think this value isn't actually used for anything... apparently it's supposed to be a TTDrawContext cast to an int?
+    int *piAnchor;
+    int *piLink;
+    int *piLinkBG;
+    int *piLinkHover;
+    int *piLinkHoverBG;
+    int *piLinkSelect;
+    int *piLinkSelectBG;
+    int *piOutline;
+    int *piShadow;
 } TextAttribs;
 
 typedef enum FormatTags
 {
-	kFormatTags_Bold,
-	kFormatTags_Italic,
-	kFormatTags_Color,
-	kFormatTags_Color2,
-	kFormatTags_ColorHover,
-	kFormatTags_ColorSelect,
-	kFormatTags_ColorSelectBG,
-	kFormatTags_Scale,
-	kFormatTags_Face,
-	kFormatTags_Font,
-	kFormatTags_Anchor,
-	kFormatTags_Link,
-	kFormatTags_LinkBG,
-	kFormatTags_LinkHover,
-	kFormatTags_LinkHoverBG,
-	kFormatTags_LinkSelect,
-	kFormatTags_LinkSelectBG,
-	kFormatTags_Outline,
-	kFormatTags_Shadow,
-	kFormatTags_Count,
+    kFormatTags_Bold,
+    kFormatTags_Italic,
+    kFormatTags_Color,
+    kFormatTags_Color2,
+    kFormatTags_ColorHover,
+    kFormatTags_ColorSelect,
+    kFormatTags_ColorSelectBG,
+    kFormatTags_Scale,
+    kFormatTags_Face,
+    kFormatTags_Font,
+    kFormatTags_Anchor,
+    kFormatTags_Link,
+    kFormatTags_LinkBG,
+    kFormatTags_LinkHover,
+    kFormatTags_LinkHoverBG,
+    kFormatTags_LinkSelect,
+    kFormatTags_LinkSelectBG,
+    kFormatTags_Outline,
+    kFormatTags_Shadow,
+    kFormatTags_Count,
 } FormatTags;
 
 typedef struct SMImage
 {
-	char achTex[SMF_MAX_IMG_NAME];
-	char achTexHover[SMF_MAX_IMG_NAME];
-	int iWidth;
-	int iHeight;
-	int iHighlight;
-	int iColor;
+    char achTex[SMF_MAX_IMG_NAME];
+    char achTexHover[SMF_MAX_IMG_NAME];
+    int iWidth;
+    int iHeight;
+    int iHighlight;
+    int iColor;
 } SMImage;
 
 typedef struct SMColumn
 {
-	int iWidthRequested;
-	int iHighlight;
-	int iSelected;
+    int iWidthRequested;
+    int iHighlight;
+    int iSelected;
 } SMColumn;
 
 typedef struct SMRow
 {
-	int iHighlight;
-	int iSelected;
-	int iStyle;
+    int iHighlight;
+    int iSelected;
+    int iStyle;
 } SMRow;
 
 typedef struct SMFont
 {
-	int bColor   : 1;
-	int bColor2	 : 1;
-	int bFace    : 1;
-	int bScale   : 1;
-	int bOutline : 1;
-	int bShadow  : 1;
-	int bItalic  : 1;
+    int bColor   : 1;
+    int bColor2     : 1;
+    int bFace    : 1;
+    int bScale   : 1;
+    int bOutline : 1;
+    int bShadow  : 1;
+    int bItalic  : 1;
 } SMFont;
 
 

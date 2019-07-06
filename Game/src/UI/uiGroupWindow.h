@@ -18,17 +18,17 @@ void setTeamBuffMode( int mode );
 void searchClearComment();
 
 void drawGroupInterior( float x, float y, float z, float wd, float scale, float hp_percent, float absorb_percent, float end_percent, int barColor, 
-					   char * txt, int selected, int active, int offMap, int leader, AtlasTex *icon, int i, int isSelf, int pet, int currentTab, int oldStyleTeamUI );
+                       char * txt, int selected, int active, int offMap, int leader, AtlasTex *icon, int i, int isSelf, int pet, int currentTab, int oldStyleTeamUI );
 
 typedef struct SearchOption
 {
-	int		bitmask;
-	char	*displayName;
-	char	*displayTitle;
-	int		clear_others;
-	char	*texName;
-	int		color;
-	int		icon_color;
+    int        bitmask;
+    char    *displayName;
+    char    *displayTitle;
+    int        clear_others;
+    char    *texName;
+    int        color;
+    int        icon_color;
 }SearchOption;
 
 SearchOption * lfg_getSearchOption( int lfg );

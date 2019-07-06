@@ -12,77 +12,77 @@ typedef struct MMElementList MMElementList;
 AUTO_STRUCT;
 typedef struct LevelRestrict
 {
-	int min;
-	int max;
+    int min;
+    int max;
 }LevelRestrict;
 
 AUTO_STRUCT;
 typedef struct MMScrollSet_Mission
 {
-	int minLevel; 
-	int maxLevel; 
+    int minLevel; 
+    int maxLevel; 
 
-	int minRestrictedLevel;
-	int maxRestrictedLevel;
+    int minRestrictedLevel;
+    int maxRestrictedLevel;
 
-	LevelRestrict **ppRestrict; 
+    LevelRestrict **ppRestrict; 
 
-	MapLimit mapCount; 
-	MapLimit *pMapLimit; NO_AST
+    MapLimit mapCount; 
+    MapLimit *pMapLimit; NO_AST
 
-	MMRegion **ppMissionRegion;
-	MMRegion **ppDetailRegion;
-	MMRegionButton **ppDetailButton;
+    MMRegion **ppMissionRegion;
+    MMRegion **ppDetailRegion;
+    MMRegionButton **ppDetailButton;
 
-	MMScrollSet *pSetParent; NO_AST
-	int bReportedLevelRange; NO_AST
-	int	bFailable; NO_AST
+    MMScrollSet *pSetParent; NO_AST
+    int bReportedLevelRange; NO_AST
+    int    bFailable; NO_AST
 
 }MMScrollSet_Mission;
 
 typedef struct MMScrollSet
 {
-	// Per Story Arc Info
-	int dirty;
-	F32 wd; 
-	F32 ht; 
-	F32 page_wd; 
+    // Per Story Arc Info
+    int dirty;
+    F32 wd; 
+    F32 ht; 
+    F32 page_wd; 
 
 
-	char *pchFilename;
-	int arc_id;
-	int owned; // editing an arc that the player has published, only relevant with arc_id
+    char *pchFilename;
+    int arc_id;
+    int owned; // editing an arc that the player has published, only relevant with arc_id
 
-	int bShowTips; 
+    int bShowTips; 
 
-	int current_page;
-	int current_mission;
-	int current_region;
+    int current_page;
+    int current_mission;
+    int current_region;
 
-	int bShowErrors;
-	int bShowWrongness;
-	int bWarnings;
-	F32 fErrorBlinkTimer;
-	F32 filesize;
-	int keywordpicks;
+    int bShowErrors;
+    int bShowWrongness;
+    int bWarnings;
+    F32 fErrorBlinkTimer;
+    F32 filesize;
+    int keywordpicks;
 
-	F32 fSaveMessageTimer;
+    F32 fSaveMessageTimer;
 
-	int scrollsetOpen;
+    int scrollsetOpen;
 
-	ScrollBar leftSb;	
-	ScrollBar rightSb;
-	ScrollBar errorSb;
+    ScrollBar leftSb;    
+    ScrollBar rightSb;
+    ScrollBar errorSb;
 
-	MMElementList *pTargetList; 
-	
-	F32 fBlinkTimer; 
-	F32 fTargetY; 
-	int converge; 
+    MMElementList *pTargetList; 
+    
+    F32 fBlinkTimer; 
+    F32 fTargetY; 
+    int converge; 
 
-	MMRegion **ppStoryRegion;
-	MMScrollSet_Mission **ppMission;
-	CBox bounds;
+    MMRegion **ppStoryRegion;
+    MMScrollSet_Mission **ppMission;
+    CBox bounds;
 
 } MMScrollSet;
 
@@ -118,8 +118,8 @@ F32 MMScrollSet_Draw( MMScrollSet * pSet, F32 x, F32 y, F32 z, F32 ht, F32 sc, i
 void MMtoggleArchitectLocalValidation(int mode);
 typedef enum MMIgnoreValidationFlags
 {
-	MM_IGNORE_OFF = 0,
-	MM_IGNORE_ON = 1,
-	MM_IGNORE_FROM_CONSOLE = 1 << 1,
+    MM_IGNORE_OFF = 0,
+    MM_IGNORE_ON = 1,
+    MM_IGNORE_FROM_CONSOLE = 1 << 1,
 }MMIgnoreValidationFlags;
 #endif

@@ -10,9 +10,9 @@
 
 typedef enum AccountServerStatus
 {
-	ACCOUNT_SERVER_UP = 0,
-	ACCOUNT_SERVER_SLOW,
-	ACCOUNT_SERVER_DOWN,
+    ACCOUNT_SERVER_UP = 0,
+    ACCOUNT_SERVER_SLOW,
+    ACCOUNT_SERVER_DOWN,
 
 } AccountServerStatus;
 

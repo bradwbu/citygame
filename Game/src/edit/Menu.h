@@ -73,25 +73,25 @@ typedef struct MenuEntry MenuEntry;
 **/
 
 typedef struct Menu {
-	MenuEntry * root;	//the parent item
+    MenuEntry * root;    //the parent item
 
-						//formatting parameters
-	int tabSpace;		//space an item is indented for each level of depth
-	int lineHeight;		//the height of each line, not the height of each character
+                        //formatting parameters
+    int tabSpace;        //space an item is indented for each level of depth
+    int lineHeight;        //the height of each line, not the height of each character
 
-	EditListView * lv;	//handles all the display stuff
+    EditListView * lv;    //handles all the display stuff
 
-	//customizable stuff
-	int  (*colorFunc)(MenuEntry *,void *);	//if not NULL, determines the color that MenuEntrys are
-											//drawn, if it returns 0 the default coloring is used
+    //customizable stuff
+    int  (*colorFunc)(MenuEntry *,void *);    //if not NULL, determines the color that MenuEntrys are
+                                            //drawn, if it returns 0 the default coloring is used
 } Menu;
 
 Menu * newMenu(int x,int y,int width,int height,const char * name);
-void displayMenu(Menu *);	//displays all open items in a menu
-void destroyMenu(Menu *);	//destroys a Menu and all of its items
+void displayMenu(Menu *);    //displays all open items in a menu
+void destroyMenu(Menu *);    //destroys a Menu and all of its items
 MenuEntry * addEntryToMenu(Menu *,const char *,void (*func)(MenuEntry *,ClickInfo *),void * info);
-void deleteEntryFromMenu(Menu *,const char *);	//deletes a directory from the Menu
-												//will also recursively delete all children
+void deleteEntryFromMenu(Menu *,const char *);    //deletes a directory from the Menu
+                                                //will also recursively delete all children
 
 //used as a callback for EditListView, should not be considered public code
 void outputText(int,int,char **,int *,int *,void *);
@@ -104,31 +104,31 @@ void outputText(int,int,char **,int *,int *,void *);
 // There should be no need to instantiate a MenuEntry.  Using a Menu should handle everything appropriately.
 
 typedef struct MenuEntry {
-	char *name;			// display name of the entry.  Now an EString!
-	Menu * theMenu;		//allows all MenuEntrys to get information from the Menu, such as font
-						//or location on the screen
-	void * info;		//each MenuEntry can store whatever is needed here
-	void (*clickFunc)(MenuEntry *,ClickInfo *);	//if not NULL, it is run when this MenuEntry is clicked
+    char *name;            // display name of the entry.  Now an EString!
+    Menu * theMenu;        //allows all MenuEntrys to get information from the Menu, such as font
+                        //or location on the screen
+    void * info;        //each MenuEntry can store whatever is needed here
+    void (*clickFunc)(MenuEntry *,ClickInfo *);    //if not NULL, it is run when this MenuEntry is clicked
 
-	//state information
-	int opened;		//flag that determines if children should be displayed
-	int depth;		//distance from this MenuEntry to the root MenuEntry
-	int color;		//color that this item should be displayed with, 0 indicates standard coloring
+    //state information
+    int opened;        //flag that determines if children should be displayed
+    int depth;        //distance from this MenuEntry to the root MenuEntry
+    int color;        //color that this item should be displayed with, 0 indicates standard coloring
 
-	//this stuff is last so that it can be viewed easily in the debugger
-	MenuEntry * parent;	//pointer to the parent MenuEntry (NULL iff root)
-	MenuEntry * child;	//pointer to the first child (NULL iff childless)
-	MenuEntry * sibling;//pointer to the first sibling (NULL iff this is the last sibling)
-	//sibling is used by the parent to be able to find all of its children
+    //this stuff is last so that it can be viewed easily in the debugger
+    MenuEntry * parent;    //pointer to the parent MenuEntry (NULL iff root)
+    MenuEntry * child;    //pointer to the first child (NULL iff childless)
+    MenuEntry * sibling;//pointer to the first sibling (NULL iff this is the last sibling)
+    //sibling is used by the parent to be able to find all of its children
 } MenuEntry;
 
 MenuEntry * newMenuEntry(Menu *,MenuEntry *,const char * name);
 void recurseOnAllEntries(MenuEntry * me,int onlyOpened,int preorder,void * info,void (*func)(MenuEntry *,ClickInfo *));
-void displayMenuEntry(MenuEntry *,void * info);	//displays a MenuEntry and all of its children
-												//info is a pointer to an array of integers
-												//giving information about which elements
-												//are to be displayed
-void destroyMenuEntry(MenuEntry *,void * info);	//destroys a MenuEntry and all of its children
+void displayMenuEntry(MenuEntry *,void * info);    //displays a MenuEntry and all of its children
+                                                //info is a pointer to an array of integers
+                                                //giving information about which elements
+                                                //are to be displayed
+void destroyMenuEntry(MenuEntry *,void * info);    //destroys a MenuEntry and all of its children
 MenuEntry * addMenuEntry(MenuEntry *,const char * name,void (*func)(MenuEntry *,ClickInfo *),void * info);
 
 MenuEntry* findMenuEntry(MenuEntry *me, const char *name);

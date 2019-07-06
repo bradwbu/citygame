@@ -10,24 +10,24 @@ typedef struct BasicTexture BasicTexture;
 // a texture that is part of an atlas
 typedef struct AtlasTex
 {
-	int skin;
-	int width, height;
-	char *name;
-	int ignoreSkin;
+    int skin;
+    int width, height;
+    char *name;
+    int ignoreSkin;
 
-	struct AtlasTexInternal *data;
+    struct AtlasTexInternal *data;
 } AtlasTex;
 
 
 typedef enum
 {
-	// pixel type
-	PIX_LA = 1,
-	PIX_RGBA = 2,
-	PIX_MASK = 3,
-	// bit flags
-	PIX_DONTATLAS = 1<<3,
-	PIX_NO_VFLIP = 1<<4,
+    // pixel type
+    PIX_LA = 1,
+    PIX_RGBA = 2,
+    PIX_MASK = 3,
+    // bit flags
+    PIX_DONTATLAS = 1<<3,
+    PIX_NO_VFLIP = 1<<4,
 } PixelType;
 
 
@@ -46,7 +46,7 @@ static INLINEDBG AtlasTex *atlasGenTexture(U8 *src_bitmap, U32 width, U32 height
 AtlasTex *atlasGenTextureFromBasic(BasicTexture *basic_texture, bool flipX, bool flipY);
 
 void atlasUpdateTexture(AtlasTex *tex, U8 *src_bitmap, int srcWidth, int srcHeight, PixelType pixel_type);
-int atlasUpdateTexturePbuffer(Vec2 ul, Vec2 lr, AtlasTex *tex, PBuffer *pbuffer);	//returns positive on actual update, 0 on no change, negative on failure
+int atlasUpdateTexturePbuffer(Vec2 ul, Vec2 lr, AtlasTex *tex, PBuffer *pbuffer);    //returns positive on actual update, 0 on no change, negative on failure
 void atlasUpdateTextureFromScreen(AtlasTex *tex, U32 x, U32 y, U32 width, U32 height);
 
 

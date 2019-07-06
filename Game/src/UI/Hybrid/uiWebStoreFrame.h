@@ -6,8 +6,8 @@
 
 typedef struct ShoppingCart
 {
-	SkuId * items;
-	U32 itemCount;
+    SkuId * items;
+    U32 itemCount;
 } ShoppingCart;
 
 void webStoreOpenProduct(const char * product);

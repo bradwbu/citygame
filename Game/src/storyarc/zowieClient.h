@@ -9,9 +9,9 @@ extern StashTable zowieDestList;
 #define zowieReset()
 #else
 // Values for setsaved
-#define USE_CACHED			0		// Use the currently cached value
-#define SET_CACHED			1		// Set the cache to the passed parameter
-#define DESTROY_CACHED		2		// If and only if the passed parameter is the same as the cached, set the cached to NULL.  Used whenever we destroy a TaskStatus
+#define USE_CACHED            0        // Use the currently cached value
+#define SET_CACHED            1        // Set the cache to the passed parameter
+#define DESTROY_CACHED        2        // If and only if the passed parameter is the same as the cached, set the cached to NULL.  Used whenever we destroy a TaskStatus
 void updateAutomapZowies(struct TaskStatus *task, int cacheControl);
 void zowieAddGlowFlags(struct TaskStatus *task);
 void zowieSoundTick();

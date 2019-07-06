@@ -1,46 +1,46 @@
 #ifndef UIGAME_H
-#define	UIGAME_H
+#define    UIGAME_H
 
 //switch to turn off all menu collisions.
 extern int collisions_off_for_rest_of_frame; 
 
 typedef enum menuFunctions
 {
-	MENU_LOGIN,			// login screen
+    MENU_LOGIN,            // login screen
 
-	// hybrid menus
-	MENU_ORIGIN,
-	MENU_PLAYSTYLE,
-	MENU_ARCHETYPE,
-	MENU_POWER,
-	MENU_BODY,
-	MENU_REGISTER,
+    // hybrid menus
+    MENU_ORIGIN,
+    MENU_PLAYSTYLE,
+    MENU_ARCHETYPE,
+    MENU_POWER,
+    MENU_BODY,
+    MENU_REGISTER,
 
-	// original 
-	MENU_GENDER,		// gender selection menu
-	MENU_COSTUME,		// costume creation
-	MENU_LEVEL_POWER,	// power leveling screen
-	MENU_LEVEL_POOL_EPIC, // pool and epic power leveling screen
-	MENU_LEVEL_SPEC,	// specialization leveling screen
-	MENU_COMBINE_SPEC,	// specialization combining screen
-	MENU_SUPER_REG,		// supergroup registration page
-	MENU_SUPERCOSTUME,	// supergroup costume color changing
-	MENU_TAILOR,		// costume changing
-	MENU_RESPEC,		// character respecialization
-	MENU_LOADCOSTUME,	// load costume for CostumeCreator
-	MENU_PCC_POWERS,	// power selection screen for Player Created Critter
-	MENU_PCC_PROFILE,	// profile menu for Player Created Critter
-	MENU_NPC_COSTUME,	// NPC Costume Edit screen
-	MENU_NPC_PROFILE,	// NPC Profile Edit screen
-	MENU_PCC_RANK,		//	Costume creator rank screen
-	MENU_SAVECOSTUME,	// save costume for CostumeCreator
-	MENU_POWER_CUST,	// Powers Customization
-	MENU_POWER_CUST_POWERPOOL,	// Powers Customization - Power Pools
-	MENU_POWER_CUST_INCARNATE,	// Powers Customization - Incarnate
-	MENU_LOAD_POWER_CUST,	//	Power Customization load
-	MENU_REDIRECT,		// Error screen with instructions for what to fix
-	MENU_GAME,			// in gamewindows - DO NOT ADD SHELL MENUS AFTER THIS
-	MENU_TOTAL,
+    // original 
+    MENU_GENDER,        // gender selection menu
+    MENU_COSTUME,        // costume creation
+    MENU_LEVEL_POWER,    // power leveling screen
+    MENU_LEVEL_POOL_EPIC, // pool and epic power leveling screen
+    MENU_LEVEL_SPEC,    // specialization leveling screen
+    MENU_COMBINE_SPEC,    // specialization combining screen
+    MENU_SUPER_REG,        // supergroup registration page
+    MENU_SUPERCOSTUME,    // supergroup costume color changing
+    MENU_TAILOR,        // costume changing
+    MENU_RESPEC,        // character respecialization
+    MENU_LOADCOSTUME,    // load costume for CostumeCreator
+    MENU_PCC_POWERS,    // power selection screen for Player Created Critter
+    MENU_PCC_PROFILE,    // profile menu for Player Created Critter
+    MENU_NPC_COSTUME,    // NPC Costume Edit screen
+    MENU_NPC_PROFILE,    // NPC Profile Edit screen
+    MENU_PCC_RANK,        //    Costume creator rank screen
+    MENU_SAVECOSTUME,    // save costume for CostumeCreator
+    MENU_POWER_CUST,    // Powers Customization
+    MENU_POWER_CUST_POWERPOOL,    // Powers Customization - Power Pools
+    MENU_POWER_CUST_INCARNATE,    // Powers Customization - Incarnate
+    MENU_LOAD_POWER_CUST,    //    Power Customization load
+    MENU_REDIRECT,        // Error screen with instructions for what to fix
+    MENU_GAME,            // in gamewindows - DO NOT ADD SHELL MENUS AFTER THIS
+    MENU_TOTAL,
 
 } menuFunctions;
 

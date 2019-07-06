@@ -12,16 +12,16 @@
 #define CLOTH_SUB_LOD_NUM 4
 
 enum {
-	CLOTH_FLAG_DEBUG_COLLISION = 1,
-	CLOTH_FLAG_DEBUG_POINTS = 2,
-	CLOTH_FLAG_DEBUG_IM_POINTS = 4,
-	CLOTH_FLAG_DEBUG_TANGENTS = 8,
-	CLOTH_FLAG_DEBUG_AND_RENDER = 16,
-	CLOTH_FLAG_DEBUG_NORMALS = 32,
-	CLOTH_FLAG_DEBUG_HARNESS = 64,
-	CLOTH_FLAG_DEBUG = 0xff,
-	CLOTH_FLAG_RIPPLE_VERTICAL = 0x100,	// Produces nice ripples for flags.
-	CLOTH_FLAG_MASK = 0xffff
+    CLOTH_FLAG_DEBUG_COLLISION = 1,
+    CLOTH_FLAG_DEBUG_POINTS = 2,
+    CLOTH_FLAG_DEBUG_IM_POINTS = 4,
+    CLOTH_FLAG_DEBUG_TANGENTS = 8,
+    CLOTH_FLAG_DEBUG_AND_RENDER = 16,
+    CLOTH_FLAG_DEBUG_NORMALS = 32,
+    CLOTH_FLAG_DEBUG_HARNESS = 64,
+    CLOTH_FLAG_DEBUG = 0xff,
+    CLOTH_FLAG_RIPPLE_VERTICAL = 0x100,    // Produces nice ripples for flags.
+    CLOTH_FLAG_MASK = 0xffff
 };
 
 //============================================================================
@@ -60,121 +60,121 @@ typedef struct ClothNodeData ClothNodeData;
 
 typedef struct ClothCommonData
 {
-	// Data shared between main/threaded data
-	//   Pointers should be to things that don't chang after init
-	//   Other values are copied per frame
+    // Data shared between main/threaded data
+    //   Pointers should be to things that don't chang after init
+    //   Other values are copied per frame
 
-	S32 Width, Height;
-	S32 NumParticles; 	// = Width * Height
-	S32 SubLOD;
-	const ClothLengthConstraint *LengthConstraints; // Const pointer to make sure no one changes this after init
+    S32 Width, Height;
+    S32 NumParticles;     // = Width * Height
+    S32 SubLOD;
+    const ClothLengthConstraint *LengthConstraints; // Const pointer to make sure no one changes this after init
 
-	// ----------------------------------------
-	// Attachment (Hook / Eyelet) Data
-	S32 NumAttachments;
-	S32 MaxAttachments; // Largest index into hooks that is used
-	ClothAttachment *Attachments;
+    // ----------------------------------------
+    // Attachment (Hook / Eyelet) Data
+    S32 NumAttachments;
+    S32 MaxAttachments; // Largest index into hooks that is used
+    ClothAttachment *Attachments;
 
-	F32 *ApproxNormalLens;	// Used for fast normal calculation
+    F32 *ApproxNormalLens;    // Used for fast normal calculation
 
 } ClothCommonData;
 
 typedef struct ClothRenderData
 {
-	ClothCommonData commonData;
+    ClothCommonData commonData;
 
-	// Data used only by rendering
+    // Data used only by rendering
 
-	// One element per Rendered Particle
-	Vec3 *RenderPos;		// Buffer for positions to be used by the renderer (copied from CurPos)
-	Vec2 *TexCoords; 		// Array of texture coords
+    // One element per Rendered Particle
+    Vec3 *RenderPos;        // Buffer for positions to be used by the renderer (copied from CurPos)
+    Vec2 *TexCoords;         // Array of texture coords
 
-	// One element per rendered particle
-	Vec3 *Normals;	// Array of normals
+    // One element per rendered particle
+    Vec3 *Normals;    // Array of normals
 #if CLOTH_CALC_BINORMALS
-	Vec3 *BiNormals;	// Array of binormals (for bumpmapping)
+    Vec3 *BiNormals;    // Array of binormals (for bumpmapping)
 #endif
 #if CLOTH_CALC_TANGENTS
-	Vec3 *Tangents;		// Array of tangents (for bumpmapping)
+    Vec3 *Tangents;        // Array of tangents (for bumpmapping)
 #endif
-	F32 *NormalScale; // - = relative min, + = relative max, 1 / particle
+    F32 *NormalScale; // - = relative min, + = relative max, 1 / particle
 
-	Vec3 *hookNormals; // Filled in per-frame and sent to renderer
+    Vec3 *hookNormals; // Filled in per-frame and sent to renderer
 
-	ClothMesh *currentMesh;
-	S32 CurSubLOD;
+    ClothMesh *currentMesh;
+    S32 CurSubLOD;
 
-	Cloth *debug_cloth_backpointer; // For debugging, shouldn't be used in code
+    Cloth *debug_cloth_backpointer; // For debugging, shouldn't be used in code
 
 } ClothRenderData;
 
 struct Cloth
 {
-	S32 Flags;			// Mostly debug, also RIPPLE_VERTICAL
+    S32 Flags;            // Mostly debug, also RIPPLE_VERTICAL
 
-	// ----------------------------------------
-	// Constants (set on creation)
-	ClothCommonData commonData;
-	S32 MinSubLOD;		// Determines how many positions to allocate
-	F32 PointColRad;	// Collision radius of Modeled Particles
-	S32 NumIterations[CLOTH_SUB_LOD_NUM];	// How many times to iterate at each sublod
+    // ----------------------------------------
+    // Constants (set on creation)
+    ClothCommonData commonData;
+    S32 MinSubLOD;        // Determines how many positions to allocate
+    F32 PointColRad;    // Collision radius of Modeled Particles
+    S32 NumIterations[CLOTH_SUB_LOD_NUM];    // How many times to iterate at each sublod
 
-	// One element per Modeled Particle
-	Vec3 *OrigPos; 			// Origional Positions
-	F32 *InvMasses; 		// Array of 1/mass
-	Vec3 *PosBuffer1; 		// CurPos or OldPos points to this
-	Vec3 *PosBuffer2; 		// OldPos or CurPos points to this
-	
-	ClothRenderData renderData;
+    // One element per Modeled Particle
+    Vec3 *OrigPos;             // Origional Positions
+    F32 *InvMasses;         // Array of 1/mass
+    Vec3 *PosBuffer1;         // CurPos or OldPos points to this
+    Vec3 *PosBuffer2;         // OldPos or CurPos points to this
+    
+    ClothRenderData renderData;
 
-	// ----------------------------------------
-	// Calculated Each Frame
-	Vec3 MaxPos, MinPos;
-	Vec3 CenterPos, DeltaPos;
+    // ----------------------------------------
+    // Calculated Each Frame
+    Vec3 MaxPos, MinPos;
+    Vec3 CenterPos, DeltaPos;
 
-	// One element per Modeled Particle
-	F32 *ColAmt; 			// Collision amount each frame
+    // One element per Modeled Particle
+    F32 *ColAmt;             // Collision amount each frame
 
-	// ----------------------------------------
-	// Pointers
-	Vec3 *CurPos; // Points to PosBuffer1 or PosBuffer2
-	Vec3 *OldPos; // Points to PosBuffer2 or PosBuffer1
+    // ----------------------------------------
+    // Pointers
+    Vec3 *CurPos; // Points to PosBuffer1 or PosBuffer2
+    Vec3 *OldPos; // Points to PosBuffer2 or PosBuffer1
 
-	// ----------------------------------------
-	// Constraint Data
-	S32 NumLengthConstraints[CLOTH_SUB_LOD_NUM];
-	S32 NumConnections;
-	ClothLengthConstraint *LengthConstraintsInit; // Version only written two during initialization
-	// in commonData: const ClothLengthConstraint *LengthConstraints; // Const pointer to make sure no one changes this after init
+    // ----------------------------------------
+    // Constraint Data
+    S32 NumLengthConstraints[CLOTH_SUB_LOD_NUM];
+    S32 NumConnections;
+    ClothLengthConstraint *LengthConstraintsInit; // Version only written two during initialization
+    // in commonData: const ClothLengthConstraint *LengthConstraints; // Const pointer to make sure no one changes this after init
 
-	// ----------------------------------------
-	// Collision Data
-	S32 NumCollidables;
-	ClothCol *Collidables;
+    // ----------------------------------------
+    // Collision Data
+    S32 NumCollidables;
+    ClothCol *Collidables;
 
-	// ----------------------------------------
-	// Private data
-	// in commonData: S32 SubLOD;
-	S32 SkipUpdatePhysics; // set when movement during a frame is too severe
-	
-	// ----------------------------------------
-	// Physics
-	Mat4 Matrix;
-	Vec4 mQuat; // From matrix
-	Mat4 EntMatrix;
-	Vec3 Vel;
-	F32 Gravity;
-	F32 Drag;
-	F32 Time;
-	// Wind
-	Vec3 WindDir;			// [-1, 1]
-	F32 WindMag;			// [ 0, 2] (normally [0, 1])
-	F32 WindScaleFactor;	// ~= 64.0 ft/s (scales [-1, 1] -> ft/s; 64 ~= 2x gravity)
-	F32 WindRippleAmt;		// [-1, 1]
-	F32 WindRippleRepeat;	// number of waves across cloak
-	F32 WindRipplePeriod;	// seconds
+    // ----------------------------------------
+    // Private data
+    // in commonData: S32 SubLOD;
+    S32 SkipUpdatePhysics; // set when movement during a frame is too severe
+    
+    // ----------------------------------------
+    // Physics
+    Mat4 Matrix;
+    Vec4 mQuat; // From matrix
+    Mat4 EntMatrix;
+    Vec3 Vel;
+    F32 Gravity;
+    F32 Drag;
+    F32 Time;
+    // Wind
+    Vec3 WindDir;            // [-1, 1]
+    F32 WindMag;            // [ 0, 2] (normally [0, 1])
+    F32 WindScaleFactor;    // ~= 64.0 ft/s (scales [-1, 1] -> ft/s; 64 ~= 2x gravity)
+    F32 WindRippleAmt;        // [-1, 1]
+    F32 WindRippleRepeat;    // number of waves across cloak
+    F32 WindRipplePeriod;    // seconds
 
-	Vec3 PositionOffset;	// Offset to all verts from actual world coordinates, add this to a Vec3 to get to world space, subtract it from a Vec3 to get to Cloth space
+    Vec3 PositionOffset;    // Offset to all verts from actual world coordinates, add this to a Vec3 to get to world space, subtract it from a Vec3 to get to Cloth space
 };
 
 // Create
@@ -225,10 +225,10 @@ extern char ClothErrorMessage[];
 
 struct ClothAttachment
 {
-	S32 PIdx;	// Particle Idx
-	F32 Frac;	// pos = Hooks[Hook1] * Frac + Hooks[Hook2] * (1-Frac)
-	S32 Hook1;	// 1st Index into Hooks
-	S32 Hook2;	// 2nd Index into Hooks
+    S32 PIdx;    // Particle Idx
+    F32 Frac;    // pos = Hooks[Hook1] * Frac + Hooks[Hook2] * (1-Frac)
+    S32 Hook1;    // 1st Index into Hooks
+    S32 Hook2;    // 2nd Index into Hooks
 };
 
 //============================================================================
@@ -237,11 +237,11 @@ struct ClothAttachment
 
 struct ClothLengthConstraint
 {
-	S16 P1;
-	S16 P2;
-	F32 RestLength; // if < 0, -RestLength = minimum distance
-	F32 InvLength; // 1/dist(P1,P2)
-	F32 MassTot2; // 2 / (P1->InvMass + P2->InvMass)
+    S16 P1;
+    S16 P2;
+    F32 RestLength; // if < 0, -RestLength = minimum distance
+    F32 InvLength; // 1/dist(P1,P2)
+    F32 MassTot2; // 2 / (P1->InvMass + P2->InvMass)
 };
 
 //============================================================================
@@ -252,9 +252,9 @@ struct ClothLengthConstraint
 
 struct ClothLOD
 {
-	Cloth *mCloth;
-	ClothMesh *Meshes[CLOTH_SUB_LOD_NUM];
-	S32 MaxSubLOD;
+    Cloth *mCloth;
+    ClothMesh *Meshes[CLOTH_SUB_LOD_NUM];
+    S32 MaxSubLOD;
 };
 
 //============================================================================
@@ -264,13 +264,13 @@ struct ClothLOD
 
 struct ClothObject
 {
-	S32 NumLODs;
-	S32 CurLOD;
-	S32 CurSubLOD;
-	ClothLOD **LODs;
-	ClothNodeData *GameData;	// implementation hook
-	Vec3 *debugHookPos;
-	Vec3 *debugHookNormal;
+    S32 NumLODs;
+    S32 CurLOD;
+    S32 CurSubLOD;
+    ClothLOD **LODs;
+    ClothNodeData *GameData;    // implementation hook
+    Vec3 *debugHookPos;
+    Vec3 *debugHookNormal;
 };
 
 extern ClothObject *ClothObjectCreate();

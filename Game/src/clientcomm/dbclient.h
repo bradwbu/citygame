@@ -16,67 +16,67 @@
 
 typedef struct
 {
-	int		idx;
-	int		type;
-	int		subtype;
-	int		typeByLocation;
-	int		praetorian;
-	char	name[64];
-	char	playerslot_class[64];
-	char	origin[64];
-	U32		db_flags;
-	int		level;
-	int		db_id;
-	char	map_name[256];
-	int		map_seconds;
-	U32		seconds_till_offline;
-	U32		last_online;
-	SlotLock slot_lock;
-	Costume *costume;
-	U32		invalid:1;
-	char	primaryPower[64];
-	char	secondaryPower[64];
+    int        idx;
+    int        type;
+    int        subtype;
+    int        typeByLocation;
+    int        praetorian;
+    char    name[64];
+    char    playerslot_class[64];
+    char    origin[64];
+    U32        db_flags;
+    int        level;
+    int        db_id;
+    char    map_name[256];
+    int        map_seconds;
+    U32        seconds_till_offline;
+    U32        last_online;
+    SlotLock slot_lock;
+    Costume *costume;
+    U32        invalid:1;
+    char    primaryPower[64];
+    char    secondaryPower[64];
 } PlayerSlot;
 
 
 typedef struct
 {
-	U32		ip;
-	U32		port;
-	U32		cookie;
-	U32		user_id;
+    U32        ip;
+    U32        port;
+    U32        cookie;
+    U32        user_id;
 } MapServerConn;
 
 typedef struct AccountInventory AccountInventory;
 
 typedef struct
 {
-	PlayerSlot						*players;
-	int								player_count;
-	int								base_slots;
-	int								bonus_slots;
-	int								vip;
-	int								showPremiumSlotLockNag;
-	int								shardXferTokens;
-	int								shardXferFreeOnly;
-	int								max_slots;
-	MapServerConn					mapserver;
-	char							error_msg[1000];
-	U8								auth_user_data[AUTH_BYTES];
-	char							address[100];
-	U32								time_recvd; // when this info was sent
-	//U32								time_remaining;
-	//U32								reservations;
-	char							shardname[100];
-	AccountInventorySet				account_inventory;
-	U8								loyaltyStatus[LOYALTY_BITS/8];
-	U32								loyaltyPointsUnspent;
-	U32								loyaltyPointsEarned;
-	U32								virtualCurrencyBal;
-	U32								lastEmailTime;
-	U32								lastNumEmailsSent;
-	U32								accountInformationAuthoritative;
-	U32								accountInformationCacheTime;
+    PlayerSlot                        *players;
+    int                                player_count;
+    int                                base_slots;
+    int                                bonus_slots;
+    int                                vip;
+    int                                showPremiumSlotLockNag;
+    int                                shardXferTokens;
+    int                                shardXferFreeOnly;
+    int                                max_slots;
+    MapServerConn                    mapserver;
+    char                            error_msg[1000];
+    U8                                auth_user_data[AUTH_BYTES];
+    char                            address[100];
+    U32                                time_recvd; // when this info was sent
+    //U32                                time_remaining;
+    //U32                                reservations;
+    char                            shardname[100];
+    AccountInventorySet                account_inventory;
+    U8                                loyaltyStatus[LOYALTY_BITS/8];
+    U32                                loyaltyPointsUnspent;
+    U32                                loyaltyPointsEarned;
+    U32                                virtualCurrencyBal;
+    U32                                lastEmailTime;
+    U32                                lastNumEmailsSent;
+    U32                                accountInformationAuthoritative;
+    U32                                accountInformationCacheTime;
 } DbInfo;
 
 extern DbInfo db_info;

@@ -9,8 +9,8 @@ typedef struct Grid Grid;
 
 typedef struct VisTrayInfo
 {
-	int portal_count;
-	int detail_count;
+    int portal_count;
+    int detail_count;
 } VisTrayInfo;
 
 

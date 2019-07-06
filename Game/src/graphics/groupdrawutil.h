@@ -16,21 +16,21 @@ typedef struct TraverserDrawParams TraverserDrawParams;
 typedef int (*GroupTreeTraverserCallback)(GroupDef *def, DefTracker *tracker, Mat4 world_mat, TraverserDrawParams *draw);
 typedef struct TraverserDrawParams
 {
-	// Parameters
-	GroupTreeTraverserCallback	callback;
-	U32							need_texAndTintCrc:1;
-	U32							need_matricies:1;
-	U32							need_texswaps:1;
+    // Parameters
+    GroupTreeTraverserCallback    callback;
+    U32                            need_texAndTintCrc:1;
+    U32                            need_matricies:1;
+    U32                            need_texswaps:1;
 
-	// Values given to callback if desired
-	int							uid;
-	U8							*tint_color_ptr;
-	TextureOverride				tex_binds;
-	int							swapIndex;
-	int							texAndTintCrc;
-	int							editor_visible_only;
-	void						*userDataPtr; // Propagated from parents to children
-	int							userDataInt; // Propagated from parents to children
+    // Values given to callback if desired
+    int                            uid;
+    U8                            *tint_color_ptr;
+    TextureOverride                tex_binds;
+    int                            swapIndex;
+    int                            texAndTintCrc;
+    int                            editor_visible_only;
+    void                        *userDataPtr; // Propagated from parents to children
+    int                            userDataInt; // Propagated from parents to children
 } TraverserDrawParams;
 
 void groupTreeTraverseDefEx(Mat4 mat, TraverserDrawParams *draw, GroupDef *def, DefTracker *tracker);

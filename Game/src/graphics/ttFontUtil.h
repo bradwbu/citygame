@@ -9,28 +9,28 @@ typedef struct TTDrawContext TTDrawContext;
 
 /**********************************************************************************************
  * Formatted Text
- *	Intended to break long strings into word-wrapped lines.
+ *    Intended to break long strings into word-wrapped lines.
  */
 typedef struct{
-	unsigned short* text;
-	unsigned int characterCount;
-	unsigned int lineWidthRemainder;
-	unsigned int lineWidth;
-	unsigned int xOffset;
+    unsigned short* text;
+    unsigned int characterCount;
+    unsigned int lineWidthRemainder;
+    unsigned int lineWidth;
+    unsigned int xOffset;
 } FormattedLine;
 
 typedef struct{
-	unsigned int useless;
-	unsigned int useless2;
-	unsigned short* sharedTextBuffer;	// Shared by all this formatted text's formatted lines.
-	unsigned int bufferSize;
-	unsigned int characterCount;
-	Array lines;
-	// Cachability info:
-	float xScale;
-	float yScale;
-	int fitWidth;
-	int fontSize;
+    unsigned int useless;
+    unsigned int useless2;
+    unsigned short* sharedTextBuffer;    // Shared by all this formatted text's formatted lines.
+    unsigned int bufferSize;
+    unsigned int characterCount;
+    Array lines;
+    // Cachability info:
+    float xScale;
+    float yScale;
+    int fitWidth;
+    int fontSize;
 } FormattedText;
 
 FormattedText* createFormattedText();
@@ -54,22 +54,22 @@ int formattedTextBlockLineCount(Array*);
  */
 enum
 {
-	// used in PrintBasic*
-	CENTER_X	= (1<<0),
-	CENTER_Y	= (1<<1),
+    // used in PrintBasic*
+    CENTER_X    = (1<<0),
+    CENTER_Y    = (1<<1),
 
-	// used in higher level text functions (vprnt() & higher)
-	NO_MSPRINT	= (1<<2),
-	NO_PREPEND	= (1<<3),
-	FIT_WIDTH	= (1<<4), // internal use
+    // used in higher level text functions (vprnt() & higher)
+    NO_MSPRINT    = (1<<2),
+    NO_PREPEND    = (1<<3),
+    FIT_WIDTH    = (1<<4), // internal use
 
-	// if you want to add more prefixes, check loadMessageTypeData()!
-	PREPEND_P	= (1<<5),
-	PREPEND_L_P	= (1<<6)
+    // if you want to add more prefixes, check loadMessageTypeData()!
+    PREPEND_P    = (1<<5),
+    PREPEND_L_P    = (1<<6)
 };
-void printBasic(TTDrawContext*	font, float x, float y, float z, float xScale, float yScale, int center, const char *str, int charsToPrint, int rgba[4]);
-void printBasicWide(TTDrawContext*	font, float x, float y, float z, float xScale, float yScale, int center, unsigned short *str, int charsToPrint, int rgba[4]);
-void printBasicWideAbsolute(TTDrawContext*	font, float x, float y, float z, float xScale, float yScale, int center, unsigned short *str, int charsToPrint, int rgba[4]);
+void printBasic(TTDrawContext*    font, float x, float y, float z, float xScale, float yScale, int center, const char *str, int charsToPrint, int rgba[4]);
+void printBasicWide(TTDrawContext*    font, float x, float y, float z, float xScale, float yScale, int center, unsigned short *str, int charsToPrint, int rgba[4]);
+void printBasicWideAbsolute(TTDrawContext*    font, float x, float y, float z, float xScale, float yScale, int center, unsigned short *str, int charsToPrint, int rgba[4]);
 /*
  * String drawing utilities
  **********************************************************************************************/
@@ -90,14 +90,14 @@ void strDimensionsScaledWide(TTDrawContext* font, float xScale, float yScale, un
 typedef struct TTTextWrapper TTTextWrapper;
 typedef struct  
 {
-	unsigned short* wideText;
-	int characterCount;		// How many characters from "text" should be in this line?
+    unsigned short* wideText;
+    int characterCount;        // How many characters from "text" should be in this line?
 
-	int fitWidth;
-	int lineWidth;
-	int remainderWidth;
-	int lineHeight;
-	TTDrawContext* font;
+    int fitWidth;
+    int lineWidth;
+    int remainderWidth;
+    int lineHeight;
+    TTDrawContext* font;
 } TTTextLine;
 
 TTTextWrapper* ttTextWrapperCreate(void);

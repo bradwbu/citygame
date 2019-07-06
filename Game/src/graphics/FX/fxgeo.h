@@ -9,11 +9,11 @@
 #define MAX_FXMINITRACKERS 50 //pretty rare, so can be too big, but I ought to dynamically alloc them
 typedef struct FxMiniTracker 
 {
-	DefTracker *tracker;
-	DefTracker *lighttracker;
-	int count;
-	int fxIds[MAX_FXMINITRACKERS];
-	U8 alpha;
+    DefTracker *tracker;
+    DefTracker *lighttracker;
+    int count;
+    int fxIds[MAX_FXMINITRACKERS];
+    U8 alpha;
 } FxMiniTracker;
 
 typedef struct FxParams FxParams;
@@ -28,102 +28,102 @@ typedef struct NwEmissaryData NwEmissaryData;
 //where that might happen are covered
 typedef struct FxGeo
 {
-	//////List Management (must be first)
-	struct FxGeo	* next;
-	struct FxGeo	* prev;
-	int				handle;
+    //////List Management (must be first)
+    struct FxGeo    * next;
+    struct FxGeo    * prev;
+    int                handle;
 
-	// HOT stuff
-	GfxNode			* gfx_node;
-	int				gfx_node_id;
-	Vec3			position_last_frame;
-	F32				age;				//age in frames
-	U8				alpha;
-	U8				fxgeo_flags;
-	U8				hasCollided : 1;
-	U8				isDeathFxGeo : 1;
-	U8				isRoot : 1;
-	U8				bhvrOverride : 1;
+    // HOT stuff
+    GfxNode            * gfx_node;
+    int                gfx_node_id;
+    Vec3            position_last_frame;
+    F32                age;                //age in frames
+    U8                alpha;
+    U8                fxgeo_flags;
+    U8                hasCollided : 1;
+    U8                isDeathFxGeo : 1;
+    U8                isRoot : 1;
+    U8                bhvrOverride : 1;
 #ifdef NOVODEX
-	U8				waitingOnNxActor : 1;
+    U8                waitingOnNxActor : 1;
 #endif
-	U8				needSetCustomTextures : 1;
+    U8                needSetCustomTextures : 1;
 #ifdef NOVODEX
-	NwEmissaryDataGuid		nxEmissary;
-	NwEmissaryDataGuid		nxForceCollisionSphere;
+    NwEmissaryDataGuid        nxEmissary;
+    NwEmissaryDataGuid        nxForceCollisionSphere;
 #endif
-	Vec3			velocity;			//Physical state
-	GfxNode			* origin;			//If position node, who does it get it's position from? 
-	int				originid;			//should this be fxgeos instead of gfxnodes?
-	const FxBhvr	*bhvr;				//What to do every frame, assigned at creation
-	Vec3			bhvr_spin;			//Jittered bhvr spin
+    Vec3            velocity;            //Physical state
+    GfxNode            * origin;            //If position node, who does it get it's position from? 
+    int                originid;            //should this be fxgeos instead of gfxnodes?
+    const FxBhvr    *bhvr;                //What to do every frame, assigned at creation
+    Vec3            bhvr_spin;            //Jittered bhvr spin
 
-	//////Behavior and current state
-	char			name[FXSTRLEN];		//Name given to it by the event that created it
+    //////Behavior and current state
+    char            name[FXSTRLEN];        //Name given to it by the event that created it
 #ifdef NOVODEX_FLUIDS
-	FxFluidEmitter	fluidEmitter;
+    FxFluidEmitter    fluidEmitter;
 #endif
-	int				unique_id;			//to identify me to the sound system
-	FxEvent			* event;			//Event that created it; 0 = key. not made by an event
-	Mat4			world_spot;			//current world position
-	Mat4			world_spot_last_frame;
-	F32				world_spot_age;		//age at which the world_spot was last updated
-	Vec3			spinrate;
-	Vec3			cumulativescale;	//needed for when rotations and such ditch it's scale values
-	Vec3			clampMinScale;
-	Vec3			clampMaxScale;
-	Vec3			cumulativespin;		//needed for when scales and such ditch it's spin values
-	int				lifeStage;
-	F32				fadingOutTime;  //length of time this fxgeo has been fading out
-	F32				fadingInTime;  //length of time this fxgeo has been fading in
-	char			* rgbs;				// static lighting for object if needed
-	int				is_scaling;
-	int				hasSplat;
-	F32				lifespan;
-	U8				groupTint[3]; // For color tinting via tints on groups in the editor
-	U8				seq_tint_color[2][3]; // For color tinting attached sequencers/animations
-	TextureOverride	seq_textures; // For swapping textures on attached sequencers/animations
-	ColorPair		customTint; // For tinting based on customized power colors
+    int                unique_id;            //to identify me to the sound system
+    FxEvent            * event;            //Event that created it; 0 = key. not made by an event
+    Mat4            world_spot;            //current world position
+    Mat4            world_spot_last_frame;
+    F32                world_spot_age;        //age at which the world_spot was last updated
+    Vec3            spinrate;
+    Vec3            cumulativescale;    //needed for when rotations and such ditch it's scale values
+    Vec3            clampMinScale;
+    Vec3            clampMaxScale;
+    Vec3            cumulativespin;        //needed for when scales and such ditch it's spin values
+    int                lifeStage;
+    F32                fadingOutTime;  //length of time this fxgeo has been fading out
+    F32                fadingInTime;  //length of time this fxgeo has been fading in
+    char            * rgbs;                // static lighting for object if needed
+    int                is_scaling;
+    int                hasSplat;
+    F32                lifespan;
+    U8                groupTint[3]; // For color tinting via tints on groups in the editor
+    U8                seq_tint_color[2][3]; // For color tinting attached sequencers/animations
+    TextureOverride    seq_textures; // For swapping textures on attached sequencers/animations
+    ColorPair        customTint; // For tinting based on customized power colors
 
-	//////Interested parties that this fxgeo creates, updates and destroys
-	int				seq_handle;
-	ParticleSystem	* psys[MAX_PSYSPERFXGEO];
-	int				psys_id[MAX_PSYSPERFXGEO];
-	int				psys_count;
-	int				childfxid;
-	SoundEvent		* sound_triggered;
+    //////Interested parties that this fxgeo creates, updates and destroys
+    int                seq_handle;
+    ParticleSystem    * psys[MAX_PSYSPERFXGEO];
+    int                psys_id[MAX_PSYSPERFXGEO];
+    int                psys_count;
+    int                childfxid;
+    SoundEvent        * sound_triggered;
 
-	GroupDef		* worldGroupPtr;
-	int				worldGroupPtrVersion;
-	char *			worldGroupName;
-	FxMiniTracker	* fxMiniTracker;
+    GroupDef        * worldGroupPtr;
+    int                worldGroupPtrVersion;
+    char *            worldGroupName;
+    FxMiniTracker    * fxMiniTracker;
 
-	GfxNode			* splatNode;
-	int				splatNodeUniqueId;
+    GfxNode            * splatNode;
+    int                splatNodeUniqueId;
 
-	FxCapeInst		* capeInst;
+    FxCapeInst        * capeInst;
 
-	//////Nodes and FxGeos used to move and orient 
+    //////Nodes and FxGeos used to move and orient 
 
-	int				magnetid;		//handle of magnet fxgeo
-	int				lookatid;		//handle of "other" fxgeo
-	int				pmagnetid;		//handle of magnet for particle systems fxgeo
-	int				potherid;		//handle of pother for particle systems fxgeo
+    int                magnetid;        //handle of magnet fxgeo
+    int                lookatid;        //handle of "other" fxgeo
+    int                pmagnetid;        //handle of magnet for particle systems fxgeo
+    int                potherid;        //handle of pother for particle systems fxgeo
 
-	//Temp Debug
-	int			bhvrage;
+    //Temp Debug
+    int            bhvrage;
 #ifdef NOVODEX_FLUIDS
-	int			fluidage;
+    int            fluidage;
 #endif
-	int			partage[MAX_PSYSPERFXGEO];
+    int            partage[MAX_PSYSPERFXGEO];
 
 } FxGeo;
 
 enum 
 {
-	FXGEO_ACTIVE	= 0,
-	FXGEO_FADINGOUT	= 1,
-	FXGEO_KEY		= 2
+    FXGEO_ACTIVE    = 0,
+    FXGEO_FADINGOUT    = 1,
+    FXGEO_KEY        = 2
 };
 
 // Generated by mkproto

@@ -10,9 +10,9 @@ typedef struct Character Character;
 
 typedef struct NewPower
 {
-	PowerSet		*pSet;
-	const BasePowerSet	*baseSet;
-	const BasePower	*basePow;
+    PowerSet        *pSet;
+    const BasePowerSet    *baseSet;
+    const BasePower    *basePow;
 } NewPower;
 
 #define FRAME_OFFSET 40

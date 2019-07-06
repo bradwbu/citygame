@@ -9,47 +9,47 @@
 
 typedef struct SystemSpecs
 {
-	U32		maxPhysicalMemory;
-	U32		availablePhysicalMemory; //At time specs are fetched
-	char	videoCardName[256];
-	int		videoCardVendorID;
-	int		videoCardDeviceID;
-	F32		CPUSpeed;
-	int		numVirtualCPUs;
-	int		numRealCPUs;
-	char	cpuIdentifier[256];
-	U32		cpuInfo[4];
-	time_t	videoDriverDate;
+    U32        maxPhysicalMemory;
+    U32        availablePhysicalMemory; //At time specs are fetched
+    char    videoCardName[256];
+    int        videoCardVendorID;
+    int        videoCardDeviceID;
+    F32        CPUSpeed;
+    int        numVirtualCPUs;
+    int        numRealCPUs;
+    char    cpuIdentifier[256];
+    U32        cpuInfo[4];
+    time_t    videoDriverDate;
 
-	// OS version:
-	int		lowVersion, highVersion, build;
-	int		servicePackMajor, servicePackMinor;
-	char	bandwidth[256]; // from updater
+    // OS version:
+    int        lowVersion, highVersion, build;
+    int        servicePackMajor, servicePackMinor;
+    char    bandwidth[256]; // from updater
 
-	U32		videoMemory;
-	int		numMonitors;
+    U32        videoMemory;
+    int        numMonitors;
 
-	char	lastPiggCorruption[64];
+    char    lastPiggCorruption[64];
 
-	int		isFilledIn;
+    int        isFilledIn;
 } SystemSpecs;
 
-extern SystemSpecs	systemSpecs;
+extern SystemSpecs    systemSpecs;
 
 typedef struct RdrLightmapState RdrLightmapState;
 
 #if (0 || defined(_FULLDEBUG)) && !defined(TEST_CLIENT)
-	#define DOING_CHECKGL
+    #define DOING_CHECKGL
 #endif
 
 #ifdef DOING_CHECKGL
-	#define CHECKGL do { rdrCheckThread(); checkgl(__FILE__,__LINE__); } while(0)
-	#define INEXACT_CHECKGL do { rdrCheckThread(); checkgl("somewhere before " __FILE__,__LINE__); } while(0)
-	#define CHECKNOTGLTHREAD do { rdrCheckNotThread(); } while(0)
+    #define CHECKGL do { rdrCheckThread(); checkgl(__FILE__,__LINE__); } while(0)
+    #define INEXACT_CHECKGL do { rdrCheckThread(); checkgl("somewhere before " __FILE__,__LINE__); } while(0)
+    #define CHECKNOTGLTHREAD do { rdrCheckNotThread(); } while(0)
 #else
-	#define CHECKGL do {} while(0)
-	#define INEXACT_CHECKGL do {} while(0)
-	#define CHECKNOTGLTHREAD do {} while(0)
+    #define CHECKGL do {} while(0)
+    #define INEXACT_CHECKGL do {} while(0)
+    #define CHECKNOTGLTHREAD do {} while(0)
 #endif
 
 // List of video card vendor IDs and device IDs available here (might not be definitive):
@@ -62,12 +62,12 @@ typedef struct RdrLightmapState RdrLightmapState;
 #define VENDOR_SIS     0x1039
 
 enum {
-	SHADERTEST_SPEC_ONLY = 1,
-	SHADERTEST_DIFFUSE_ONLY,
-	SHADERTEST_NORMALS_ONLY,
-	SHADERTEST_TANGENTS_ONLY,
-	SHADERTEST_BASEMAT_ONLY,
-	SHADERTEST_BLENDMAT_ONLY,
+    SHADERTEST_SPEC_ONLY = 1,
+    SHADERTEST_DIFFUSE_ONLY,
+    SHADERTEST_NORMALS_ONLY,
+    SHADERTEST_TANGENTS_ONLY,
+    SHADERTEST_BASEMAT_ONLY,
+    SHADERTEST_BLENDMAT_ONLY,
 };
 
 void rdrExamineDriversEarly(oivd);
@@ -109,7 +109,7 @@ void setNormalMapTestMode( const char* testMode );
 void setUseDXT5nmNormals( unsigned int useDXT5nmNormals );
 int getShaderDebugSpecialDefines(const char** defineArray /*OUT*/, int defineArraySz /*IN*/);
 int rdrToggleFeatures(int gfx_features_enable, int gfx_features_disable, bool onlyDynamic);
-void rdrSetNumberOfTexUnits( int num_units );		// use this to tell the engine how many texture units are available
+void rdrSetNumberOfTexUnits( int num_units );        // use this to tell the engine how many texture units are available
 void rdrClearOldDriverCheck(void);
 
 #endif

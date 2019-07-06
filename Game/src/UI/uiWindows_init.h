@@ -6,25 +6,25 @@
 #include "uiBox.h"
 
 // This file handles the big messy initialization of windows
-#define WINDOW_ICON_SIZE	10
-#define WINDOW_HT_OFFSET	-7
-#define JELLY_HT			18
+#define WINDOW_ICON_SIZE    10
+#define WINDOW_HT_OFFSET    -7
+#define JELLY_HT            18
 #define CLOSE_DEFAULT 0
 #define MOVE_DEFAULT  1
 #define LOCK_DEFAULT  2
 
 typedef enum WindowHorizAnchor
 {
-	kWdwAnchor_Left,
-	kWdwAnchor_Center,
-	kWdwAnchor_Right
+    kWdwAnchor_Left,
+    kWdwAnchor_Center,
+    kWdwAnchor_Right
 } WindowHorizAnchor;
 
 typedef enum WindowVertAnchor
 {
-	kWdwAnchor_Top,
-	kWdwAnchor_Middle,
-	kWdwAnchor_Bottom
+    kWdwAnchor_Top,
+    kWdwAnchor_Middle,
+    kWdwAnchor_Bottom
 } WindowVertAnchor;
 
 // sets all the default window values

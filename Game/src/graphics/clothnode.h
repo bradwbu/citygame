@@ -5,9 +5,9 @@
 #include "gfxtree.h"
 
 typedef enum ClothType {
-	CLOTH_TYPE_CAPE = 1,
-	CLOTH_TYPE_FLAG = 2,
-	CLOTH_TYPE_TAIL = 3
+    CLOTH_TYPE_CAPE = 1,
+    CLOTH_TYPE_FLAG = 2,
+    CLOTH_TYPE_TAIL = 3
 } ClothType;
 
 typedef struct SeqInst SeqInst;
@@ -18,8 +18,8 @@ typedef struct ParticleSystem ParticleSystem;
 // Stored in ClothCapeData
 typedef struct ClothBodyColInfo
 {
-	BoneId bonenum1;
-	BoneId bonenum2;
+    BoneId bonenum1;
+    BoneId bonenum2;
 } ClothBodyColInfo;
 #define MAX_CLOTH_COL 12
 #define MAX_NUM_LODS 3
@@ -31,31 +31,31 @@ typedef struct ClothBodyColInfo
 //  members must line up.
 typedef struct ClothNodeData
 {
-	// Common
-	U32 readycount;		// Number of frames cloth has been updated
-	S32 type;			// = CLOTH_TYPE_*
-	U32 frame;			// Last frame updated
-	F32 avgdt;			// 1/Average framerate (only used if USE_AVGTIME = 1)
-	int avgdtfactor;	// Number of elements averaged together so far
-	const char *seqType;		// Sequencer type to use for collision
-	ParticleSystem *system; // Particle system if this is being rendered in the particle rendering phase
+    // Common
+    U32 readycount;        // Number of frames cloth has been updated
+    S32 type;            // = CLOTH_TYPE_*
+    U32 frame;            // Last frame updated
+    F32 avgdt;            // 1/Average framerate (only used if USE_AVGTIME = 1)
+    int avgdtfactor;    // Number of elements averaged together so far
+    const char *seqType;        // Sequencer type to use for collision
+    ParticleSystem *system; // Particle system if this is being rendered in the particle rendering phase
 } ClothNodeData;
 
 typedef struct ClothCapeData
 {
-	// Common
-	U32 readycount;		// Number of frames cloth has been updated
-	ClothType type;			// = CLOTH_TYPE_CAPE
-	U32 frame;			// Last frame updated
-	F32 avgdt;			// 1/Average framerate (only used if USE_AVGTIME = 1)
-	int avgdtfactor;	// Number of elements averaged together so far
-	const char *seqType;		// Sequencer type to use for collision
-	ParticleSystem *system; // Particle system if this is being rendered in the particle rendering phase
-	// Cape specific
-	Vec3 scale;			// Character scale factor
-	F32 avgscale;		// ||scale||, used for scaling radii.
-	// Bulky collision info storage... 
-	ClothBodyColInfo colinfo[MAX_NUM_LODS][MAX_CLOTH_COL];
+    // Common
+    U32 readycount;        // Number of frames cloth has been updated
+    ClothType type;            // = CLOTH_TYPE_CAPE
+    U32 frame;            // Last frame updated
+    F32 avgdt;            // 1/Average framerate (only used if USE_AVGTIME = 1)
+    int avgdtfactor;    // Number of elements averaged together so far
+    const char *seqType;        // Sequencer type to use for collision
+    ParticleSystem *system; // Particle system if this is being rendered in the particle rendering phase
+    // Cape specific
+    Vec3 scale;            // Character scale factor
+    F32 avgscale;        // ||scale||, used for scaling radii.
+    // Bulky collision info storage... 
+    ClothBodyColInfo colinfo[MAX_NUM_LODS][MAX_CLOTH_COL];
 } ClothCapeData;
 
 

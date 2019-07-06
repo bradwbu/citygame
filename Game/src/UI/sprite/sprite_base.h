@@ -21,42 +21,42 @@ typedef struct CBox CBox;
 extern int do_scissor;
 
 typedef enum {
-	ZCLIP_NONE,
-	ZCLIP_BEHIND,
-	ZCLIP_INFRONT,
+    ZCLIP_NONE,
+    ZCLIP_BEHIND,
+    ZCLIP_INFRONT,
 } ZClipMode;
 
 typedef enum SpriteScalingMode
 {
-	SPRITE_XY_SCALE,					//Scale X and Y to fit the default screed width/height
-	SPRITE_XY_NO_SCALE,					//Do not scale X or Y, use absolute
-	SPRITE_X_ONLY_SCALE,				//Scale X, use absolute for Y
-	SPRITE_Y_ONLY_SCALE,				//Scale Y, use absolute for X
-	SPRITE_X_UNIFORM_SCALE,				//Scale X, use the same scale for Y
-	SPRITE_Y_UNIFORM_SCALE,				//Scale Y, use the same scale for X
-	SPRITE_XY_SMALLEST_UNIFORM_SCALE,	//Scale X and Y uniformly based on which scale is smaller
+    SPRITE_XY_SCALE,                    //Scale X and Y to fit the default screed width/height
+    SPRITE_XY_NO_SCALE,                    //Do not scale X or Y, use absolute
+    SPRITE_X_ONLY_SCALE,                //Scale X, use absolute for Y
+    SPRITE_Y_ONLY_SCALE,                //Scale Y, use absolute for X
+    SPRITE_X_UNIFORM_SCALE,                //Scale X, use the same scale for Y
+    SPRITE_Y_UNIFORM_SCALE,                //Scale Y, use the same scale for X
+    SPRITE_XY_SMALLEST_UNIFORM_SCALE,    //Scale X and Y uniformly based on which scale is smaller
 } SpriteScalingMode;
 
 typedef enum ScreenScaleOption
 {
-	SSO_SCALE_NONE = 0,			//Turn off screen scaling for sprites. (Fixed pixel position, Sprite is not stretched.)
-	SSO_SCALE_ALL,				//Screen scale sprites position and texture. (Stretched out version of the sprite in the same relative position.)
-	SSO_SCALE_POSITION,			//Screen scale sprite position only. (Sprite keeps the same relative position, but the sprite is not stretched.)
-	SSO_SCALE_TEXTURE			//Screen scale sprite texture only. (Sprite has a fixed pixel position, but the sprite looks stretched.)
+    SSO_SCALE_NONE = 0,            //Turn off screen scaling for sprites. (Fixed pixel position, Sprite is not stretched.)
+    SSO_SCALE_ALL,                //Screen scale sprites position and texture. (Stretched out version of the sprite in the same relative position.)
+    SSO_SCALE_POSITION,            //Screen scale sprite position only. (Sprite keeps the same relative position, but the sprite is not stretched.)
+    SSO_SCALE_TEXTURE            //Screen scale sprite texture only. (Sprite has a fixed pixel position, but the sprite looks stretched.)
 } ScreenScaleOption;
 
 typedef enum HAlign
 {
-	H_ALIGN_LEFT,
-	H_ALIGN_CENTER,
-	H_ALIGN_RIGHT
+    H_ALIGN_LEFT,
+    H_ALIGN_CENTER,
+    H_ALIGN_RIGHT
 } HAlign;
 
 typedef enum VAlign
 {
-	V_ALIGN_TOP,
-	V_ALIGN_CENTER,
-	V_ALIGN_BOTTOM
+    V_ALIGN_TOP,
+    V_ALIGN_CENTER,
+    V_ALIGN_BOTTOM
 } VAlign;
 
 // the main sprite functions
@@ -77,8 +77,8 @@ void init_display_list();
 void interp_rgba(float vec, int src, int dest, int *res);
 void calc_scrn_scaling_with_offset(F32 * xsc, F32 * ysc, F32 * xOffset, F32 * yOffset);
 void calc_scrn_scaling(float *xsc, float *ysc);
-void set_scrn_scaling_disabled(int disabled);	//deprecated, use setSpriteScaleMode
-int is_scrn_scaling_disabled();					//deprecated, use getSpriteScaleMode
+void set_scrn_scaling_disabled(int disabled);    //deprecated, use setSpriteScaleMode
+int is_scrn_scaling_disabled();                    //deprecated, use getSpriteScaleMode
 void setScalingModeAndOption(SpriteScalingMode mode, ScreenScaleOption option);
 void setSpriteScaleMode(SpriteScalingMode mode);
 void setScreenScaleOption(ScreenScaleOption option);
@@ -114,53 +114,53 @@ Clipper2D *clipperGetCurrent(void);
 
 static INLINEDBG void display_sprite_tex(BasicTexture *tex, float xp, float yp, float zp, float xscale, float yscale, int rgba)
 {
-	display_sprite_ex(0, tex, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
+    display_sprite_ex(0, tex, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
 }
 
 static INLINEDBG void display_sprite(AtlasTex * spr, float xp, float yp, float zp, float xscale, float yscale, int rgba)
 {
-	display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
+    display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
 }
 
 static INLINEDBG void display_sprite_menu(AtlasTex * spr, float xp, float yp, float zp, float xscale, float yscale, int rgba)
 {
-	display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), SSO_SCALE_NONE, H_ALIGN_LEFT, V_ALIGN_TOP);
+    display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), SSO_SCALE_NONE, H_ALIGN_LEFT, V_ALIGN_TOP);
 }
 
 static INLINEDBG void display_rotated_sprite(AtlasTex * spr, float xp, float yp, float zp, float xscale, float yscale, int rgba, float angle, int additive)
 {
-	display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, angle, additive, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
+    display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, angle, additive, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
 }
 
 static INLINEDBG void display_sprite_blend(AtlasTex * spr, float xp, float yp, float zp, float xscale, float yscale, int color_ul, int color_ur, int color_lr, int color_ll )
 {
- 	display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, color_ul, color_ur, color_lr, color_ll, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP); 
+     display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, color_ul, color_ur, color_lr, color_ll, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP); 
 }
 
 #define FLIP_HORIZONTAL 1
 #define FLIP_VERTICAL   2
-#define FLIP_BOTH		(FLIP_HORIZONTAL|FLIP_VERTICAL)
+#define FLIP_BOTH        (FLIP_HORIZONTAL|FLIP_VERTICAL)
 
 static INLINEDBG void display_spriteUV(AtlasTex * spr, float xp, float yp, float zp, float xscale, float yscale, int rgba, float left, float top, float right, float bottom)
 {
-	display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, left, top, right, bottom, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
+    display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, left, top, right, bottom, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
 }
 
 static INLINEDBG void display_spriteFlip(AtlasTex * spr, float xp, float yp, float zp, float xscale, float yscale, int rgba, int flip_type )
 {
-	if( flip_type==FLIP_BOTH )
-		display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 1, 1, 0, 0, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
-	else if( flip_type&FLIP_HORIZONTAL )
-		display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 1, 0, 0, 1, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
-	else if (flip_type&FLIP_VERTICAL )
-		display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 1, 1, 0, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
-	else
-		display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
+    if( flip_type==FLIP_BOTH )
+        display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 1, 1, 0, 0, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
+    else if( flip_type&FLIP_HORIZONTAL )
+        display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 1, 0, 0, 1, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
+    else if (flip_type&FLIP_VERTICAL )
+        display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 1, 1, 0, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
+    else
+        display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
 }
 
 static INLINEDBG void display_sprite_UV_4Color(AtlasTex * spr, float xp, float yp, float zp, float xscale, float yscale, int rgba1, int rgba2, int rgba3, int rgba4, float left, float top, float right, float bottom)
 {
-	display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba1, rgba2, rgba3, rgba4, left, top, right, bottom, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
+    display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba1, rgba2, rgba3, rgba4, left, top, right, bottom, 0, 0, clipperGetCurrent(), SSO_SCALE_ALL, H_ALIGN_LEFT, V_ALIGN_TOP);
 }
 
 void display_spriteFullscreenLetterbox(AtlasTex *spr, float zp, int rgba, F32 *xScaleOutput, F32 *yScaleOutput);
@@ -168,31 +168,31 @@ void display_spriteFullscreenLetterbox(AtlasTex *spr, float zp, int rgba, F32 *x
 //"positional" indicates that this will use the current screenScaleOption
 static INLINEDBG void display_sprite_positional(AtlasTex * spr, float xp, float yp, float zp, float xscale, float yscale, int rgba, HAlign ha, VAlign va)
 {
-	display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), getScreenScaleOption(), ha, va);
+    display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), getScreenScaleOption(), ha, va);
 }
 
 //"positional" indicates that this will use the current screenScaleOption
 static INLINEDBG void display_sprite_positional_flip(AtlasTex * spr, float xp, float yp, float zp, float xscale, float yscale, int rgba, int flip_type, HAlign ha, VAlign va )
 {
-	if( flip_type==FLIP_BOTH )
-		display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 1, 1, 0, 0, 0, 0, clipperGetCurrent(), getScreenScaleOption(), ha, va);
-	else if( flip_type&FLIP_HORIZONTAL )
-		display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 1, 0, 0, 1, 0, 0, clipperGetCurrent(), getScreenScaleOption(), ha, va);
-	else if (flip_type&FLIP_VERTICAL )
-		display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 1, 1, 0, 0, 0, clipperGetCurrent(), getScreenScaleOption(), ha, va);
-	else
-		display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), getScreenScaleOption(), ha, va);
+    if( flip_type==FLIP_BOTH )
+        display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 1, 1, 0, 0, 0, 0, clipperGetCurrent(), getScreenScaleOption(), ha, va);
+    else if( flip_type&FLIP_HORIZONTAL )
+        display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 1, 0, 0, 1, 0, 0, clipperGetCurrent(), getScreenScaleOption(), ha, va);
+    else if (flip_type&FLIP_VERTICAL )
+        display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 1, 1, 0, 0, 0, clipperGetCurrent(), getScreenScaleOption(), ha, va);
+    else
+        display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), getScreenScaleOption(), ha, va);
 }
 
 //"positional" indicates that this will use the current screenScaleOption
 static INLINEDBG void display_sprite_positional_blend(AtlasTex * spr, float xp, float yp, float zp, float xscale, float yscale, int color_ul, int color_ur, int color_lr, int color_ll, HAlign ha, VAlign va )
 {
-	display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, color_ul, color_ur, color_lr, color_ll, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), getScreenScaleOption(), ha, va); 
+    display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, color_ul, color_ur, color_lr, color_ll, 0, 0, 1, 1, 0, 0, clipperGetCurrent(), getScreenScaleOption(), ha, va); 
 }
 
 static INLINEDBG void display_sprite_positional_rotated(AtlasTex * spr, float xp, float yp, float zp, float xscale, float yscale, int rgba, float angle, int additive, HAlign ha, VAlign va )
 {
-	display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, angle, additive, clipperGetCurrent(), getScreenScaleOption(), ha, va);
+    display_sprite_ex(spr, 0, xp, yp, zp, xscale, yscale, rgba, rgba, rgba, rgba, 0, 0, 1, 1, angle, additive, clipperGetCurrent(), getScreenScaleOption(), ha, va);
 }
 
 #endif /* #ifndef SPRITE_BASE_H__ */

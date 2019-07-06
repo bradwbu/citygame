@@ -10,55 +10,55 @@
 typedef struct VisitedMap VisitedMap;
 typedef struct Thumbtack
 {
-	int		owner_db_id;
-	Mat4	location;
+    int        owner_db_id;
+    Mat4    location;
 } Thumbtack;
 
 // icon types
 typedef enum // this corresponds to multiple saved bitfields,
 { // YOU CANNOT CHANGE THE ORDER HERE
-	// USE mapOptionGet() / mapOptionSet() for these!
-	ICON_CONTACT, // 0
-	ICON_GATE,
-	ICON_NEIGHBORHOOD,
-	ICON_TEAMMATE,
-	ICON_TRAIN_STATION,
-	ICON_HOSPITAL,
-	ICON_MISSION,
-	ICON_THUMBTACK,
+    // USE mapOptionGet() / mapOptionSet() for these!
+    ICON_CONTACT, // 0
+    ICON_GATE,
+    ICON_NEIGHBORHOOD,
+    ICON_TEAMMATE,
+    ICON_TRAIN_STATION,
+    ICON_HOSPITAL,
+    ICON_MISSION,
+    ICON_THUMBTACK,
 
-	ICON_DISPLAYNAMES, // 8
-	ICON_STORE,
-	ICON_INITIALIZED, // flag used to see if the first initialization was performed, could potentially be refactored out
-	ICON_PLAYER, // cannot be disabled
-	ICON_TEXT, // cannot be disabled
-	ICON_CITY, // cannot be disabled
-	ICON_SERVER,
-	ICON_MISSION_WAYPOINT, // cannot be disabled
+    ICON_DISPLAYNAMES, // 8
+    ICON_STORE,
+    ICON_INITIALIZED, // flag used to see if the first initialization was performed, could potentially be refactored out
+    ICON_PLAYER, // cannot be disabled
+    ICON_TEXT, // cannot be disabled
+    ICON_CITY, // cannot be disabled
+    ICON_SERVER,
+    ICON_MISSION_WAYPOINT, // cannot be disabled
 
-	ICON_MISSION_KEYDOOR, // 16, cannot be disabled
-	ICON_NONE, // cannot be disabled
-	ICON_ARCHITECT,
-	ICON_ARENA,
-	ICON_SEWER,
-	ICON_INIT2, // flag used to see if the second initialization was performed, could potentially be refactored out
-	ICON_ZOWIE,
-	ICON_PRECINCT,
+    ICON_MISSION_KEYDOOR, // 16, cannot be disabled
+    ICON_NONE, // cannot be disabled
+    ICON_ARCHITECT,
+    ICON_ARENA,
+    ICON_SEWER,
+    ICON_INIT2, // flag used to see if the second initialization was performed, could potentially be refactored out
+    ICON_ZOWIE,
+    ICON_PRECINCT,
 
-	ICON_LOUNGE, // 24
-	ICON_FOLLOWER, // cannot be disabled
-	ICON_ENEMY, // cannot be disabled
-	ICON_ITEM, // cannot be disabled
-	ICON_LEAGUEMATE,
-	ICON_TRAINER,
-	ICON_NOTORIETY,
-	ICON_CONTACT_HAS_NEW_MISSION,
+    ICON_LOUNGE, // 24
+    ICON_FOLLOWER, // cannot be disabled
+    ICON_ENEMY, // cannot be disabled
+    ICON_ITEM, // cannot be disabled
+    ICON_LEAGUEMATE,
+    ICON_TRAINER,
+    ICON_NOTORIETY,
+    ICON_CONTACT_HAS_NEW_MISSION,
 
-	ICON_CONTACT_ON_MISSION, // 32, 0 for second int
-	ICON_CONTACT_COMPLETED_MISSION,
-	ICON_CONTACT_SIGNATURE_STORY,
-	ICON_CONTACT_TASK_FORCE,
-	// USE mapOptionGet() / mapOptionSet() for these!
+    ICON_CONTACT_ON_MISSION, // 32, 0 for second int
+    ICON_CONTACT_COMPLETED_MISSION,
+    ICON_CONTACT_SIGNATURE_STORY,
+    ICON_CONTACT_TASK_FORCE,
+    // USE mapOptionGet() / mapOptionSet() for these!
 } MapOptions;
 
 #define MISSION_ID -1
@@ -76,8 +76,8 @@ void miniMapLoad();
 
 typedef struct VisitedStaticMap
 {
-	int db_id;
-	VisitedMap **staticMaps;
+    int db_id;
+    VisitedMap **staticMaps;
 }VisitedStaticMap;
 VisitedStaticMap *automap_getMapStruct(int db_id);
 void automap_addStaticMapCell(VisitedStaticMap *vsm, int db_id, int map_id, int opaque_fog, int num_cells, U32 *cell_array);
@@ -105,7 +105,7 @@ void automapClearRemainderIcons(int matchType);
 #ifndef TEST_CLIENT
 void automap_drawMapHeader(ArchitectMapHeader * header, F32 x, F32 y, F32 z, F32 sc, F32 wd, F32 ht);
 void automap_drawSubmapFloor(ArchitectMapSubMap * map, ArchitectMapSubMap *itemsLoc, ArchitectMapSubMap *spawnsLoc, F32 x, F32 y, F32 z, F32 wd, F32 ht, F32 sc, F32 useStretch);
-void automap_showAllMaps(int on);	//allow all maps to be displayed in the map window.
+void automap_showAllMaps(int on);    //allow all maps to be displayed in the map window.
 #endif
 // End mkproto
 #endif

@@ -1,10 +1,10 @@
 /*\
  *
- *	sgraidClient.h/c - Copyright 2005 Cryptic Studios
- *		All Rights Reserved
- *		Confidential property of Cryptic Studios
+ *    sgraidClient.h/c - Copyright 2005 Cryptic Studios
+ *        All Rights Reserved
+ *        Confidential property of Cryptic Studios
  *
- *	Client UI stuff for supergroup raids
+ *    Client UI stuff for supergroup raids
  *
  */
 
@@ -23,7 +23,7 @@ void receiveSGRaidOffer(Packet *pak);
 char* getSGRaidCompassString(void);
 char* getSGRaidInfoString(void);
 
-char* getSGName(U32 sgid);	// dictionary built when we receive raid info
+char* getSGName(U32 sgid);    // dictionary built when we receive raid info
 
 SupergroupRaidInfo** g_raidinfos;
 void receiveSGRaidInfo(Packet* pak);

@@ -25,35 +25,35 @@ void optionLoad(char * pchFile);
 
 typedef enum EOptionType
 {
-	kOptionType_Nop,
-	kOptionType_Bool,
-	kOptionType_Func,
-	kOptionType_String,
-	kOptionType_FloatSlider,
-	kOptionType_IntSlider,
-	kOptionType_Title,
-	kOptionType_SnapSlider,
-	kOptionType_SnapMinMaxSlider,
-	kOptionType_MinMaxSlider,
-	kOptionType_IntMinMaxSlider,
-	kOptionType_TitleUltra,
-	kOptionType_SnapSliderUltra,
-	kOptionType_IntSnapSlider,
+    kOptionType_Nop,
+    kOptionType_Bool,
+    kOptionType_Func,
+    kOptionType_String,
+    kOptionType_FloatSlider,
+    kOptionType_IntSlider,
+    kOptionType_Title,
+    kOptionType_SnapSlider,
+    kOptionType_SnapMinMaxSlider,
+    kOptionType_MinMaxSlider,
+    kOptionType_IntMinMaxSlider,
+    kOptionType_TitleUltra,
+    kOptionType_SnapSliderUltra,
+    kOptionType_IntSnapSlider,
 } EOptionType;
 
 typedef enum BubbleColorType
 {
-	BUB_COLOR_TEXT,
-	BUB_COLOR_BACK,
-	BUB_COLOR_TOTAL,
+    BUB_COLOR_TEXT,
+    BUB_COLOR_BACK,
+    BUB_COLOR_TOTAL,
 }BubbleColorType;
 
 typedef enum OptionDisplayType
 {
-	OPT_DISPLAY,
-	OPT_DISABLE,
-	OPT_CUSTOMIZED, // Same as Disable but the UI reports "Customized" instead of "N/A"
-	OPT_HIDE
+    OPT_DISPLAY,
+    OPT_DISABLE,
+    OPT_CUSTOMIZED, // Same as Disable but the UI reports "Customized" instead of "N/A"
+    OPT_HIDE
 }OptionDisplayType;
 
 
@@ -63,22 +63,22 @@ typedef struct HelpButton HelpButton;
 
 typedef struct GameOptions
 {
-	int			id;					// UserOption Id
+    int            id;                    // UserOption Id
 
-	EOptionType eTypeDisplay;		// what kind of thing is being displayed
-	void		*pvDisplay;			// what the display type expects
-	char		*pchHelp;			// Help text explaining the option
-	void		*pvDisplayParam;    // ditto
-	EOptionType eTypeToggle;		// Action to perform
-	void		*pvToggle;			// data to perform action
-	void		*pvToggleParam;     // ditto
-	char		*pchTrue;           // Strings to display when option type is bool
-	char		*pchFalse;
-	OptionDisplayType (*doDisplay)(GameOptions *); //callback function that determines display state
-	void		(*getSliderMinMax)(float *, float*);	// call back to get slider min and max
-	void        *pSave;             // Where to save the initial value
-	ToolTip     *pToolTip;          // Tooltip if we have one
-	HelpButton  *pHelpButton;
+    EOptionType eTypeDisplay;        // what kind of thing is being displayed
+    void        *pvDisplay;            // what the display type expects
+    char        *pchHelp;            // Help text explaining the option
+    void        *pvDisplayParam;    // ditto
+    EOptionType eTypeToggle;        // Action to perform
+    void        *pvToggle;            // data to perform action
+    void        *pvToggleParam;     // ditto
+    char        *pchTrue;           // Strings to display when option type is bool
+    char        *pchFalse;
+    OptionDisplayType (*doDisplay)(GameOptions *); //callback function that determines display state
+    void        (*getSliderMinMax)(float *, float*);    // call back to get slider min and max
+    void        *pSave;             // Where to save the initial value
+    ToolTip     *pToolTip;          // Tooltip if we have one
+    HelpButton  *pHelpButton;
 } GameOptions;
 
 void setNewOptions();

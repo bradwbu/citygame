@@ -5,9 +5,9 @@ int auctionWindow();
 
 typedef enum AuctionItemType
 {
-	kAuctionItemType_Power,
-	kAuctionItemType_Salvage,
-	kAuctionItemType_Recipe,
+    kAuctionItemType_Power,
+    kAuctionItemType_Salvage,
+    kAuctionItemType_Recipe,
 }AuctionItemType;
 
 void auction_AddToDict( void * item, AuctionItemType type );

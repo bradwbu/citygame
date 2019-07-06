@@ -10,10 +10,10 @@ typedef struct DefTracker DefTracker;
 
 typedef struct
 {
-	int			ent_id;
-	GroupDef	*def;
-	Mat4		mat;
-	DefTracker 	*tracker;
+    int            ent_id;
+    GroupDef    *def;
+    Mat4        mat;
+    DefTracker     *tracker;
 } ItemSelect;
 
 extern EntityRef g_erTaunter;
@@ -24,8 +24,8 @@ int canSelectAnyEntity();
 int cursorFind3D(Vec3 start, Vec3 end, ItemSelect *item, Mat4 matWorld, bool *hitWorld);
 int cursorFind(int x,int y,F32 dist,ItemSelect *item,Vec3 end,Mat4 matWorld,bool *hitWorld, int defMaxDistance, Vec3 probe);
 int selectNextEntity(int last_svr_idx, bool bBackwards, int FriendOrFoe, int DeadOrAlive, 
-					 int BasePassiveOrNot, int MyPetOrNot, int TeammateOrNot, char *name );
-	// for the 'Or' variables, -1 is first only, 0 is both, 1 is second only
+                     int BasePassiveOrNot, int MyPetOrNot, int TeammateOrNot, char *name );
+    // for the 'Or' variables, -1 is first only, 0 is both, 1 is second only
 int isEntitySelectable(Entity *e);
 void selectNearestTarget( int type, int dead );
 void selectNearestTargetForPower(int iset, int ipow);

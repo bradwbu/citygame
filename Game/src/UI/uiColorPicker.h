@@ -3,16 +3,16 @@
 
 typedef struct ColorPicker
 {
-	int rgb_color;
-	float hue;
-	float saturation;
-	float luminosity;
+    int rgb_color;
+    float hue;
+    float saturation;
+    float luminosity;
 
-	int cur_hue_idx;
-	int cur_sat_idx;
-	int cur_lum_idx;
-	int last_lum_idx;
-	float trans_sc;
+    int cur_hue_idx;
+    int cur_sat_idx;
+    int cur_lum_idx;
+    int last_lum_idx;
+    float trans_sc;
 }ColorPicker;
 
 typedef union Color Color;

@@ -10,36 +10,36 @@
 //--------------------------------------------------------------------------------------------------------------------
 typedef enum
 {
-	WPM_NONE,
-	WPM_HORIZONTAL,
-	WPM_VERTICAL,
+    WPM_NONE,
+    WPM_HORIZONTAL,
+    WPM_VERTICAL,
 } WidgetPartMode;
 
 typedef struct 
 {
-	union
-	{
-		struct 
-		{
-			char* top;
-			char* mid;
-			char* bottom;
-		};
-		struct 
-		{
-			char* left;
-			char* center;
-			char* right;
-		};
-		struct 
-		{
-			char* part1;
-			char* part2;
-			char* part3;
-		};
-	};
+    union
+    {
+        struct 
+        {
+            char* top;
+            char* mid;
+            char* bottom;
+        };
+        struct 
+        {
+            char* left;
+            char* center;
+            char* right;
+        };
+        struct 
+        {
+            char* part1;
+            char* part2;
+            char* part3;
+        };
+    };
 
-	WidgetPartMode mode;
+    WidgetPartMode mode;
 } Widget3Part;
 
 void Widget3PartDraw(Widget3Part* widget, float x, float y, float z, float scale, unsigned int size, int color);
@@ -52,16 +52,16 @@ void Widget3PartGetWidths(Widget3Part* widget, unsigned int* part1Width, unsigne
 
 typedef struct 
 {
-	char* name;
-	char* caption;
-	float minWidth;
-	float maxWidth;
-	float curWidth;
-	float relWD;
+    char* name;
+    char* caption;
+    float minWidth;
+    float maxWidth;
+    float curWidth;
+    float relWD;
 
-	bool resizable;
-	bool dragging;
-	bool hidden;
+    bool resizable;
+    bool dragging;
+    bool hidden;
 
 } UIColumnHeader;
 
@@ -82,11 +82,11 @@ void uiCHDestroy(UIColumnHeader* column);
 //--------------------------------------------------------------------------------------------------------------------
 typedef struct 
 {
-	UIColumnHeader** columns;
-	int selectedColumn;
-	unsigned int width;
-	unsigned int minWidth;
-	int drawColor;
+    UIColumnHeader** columns;
+    int selectedColumn;
+    unsigned int width;
+    unsigned int minWidth;
+    int drawColor;
 } UIListViewHeader;
 
 UIListViewHeader* uiLVHCreate(void);
@@ -111,21 +111,21 @@ void uiLVHSetDrawColor(UIListViewHeader* header, int color);
 
 typedef struct 
 {
-	// All fields are read-only.
-	UIListViewHeader* header;		// Iterating through columns in this header.
+    // All fields are read-only.
+    UIListViewHeader* header;        // Iterating through columns in this header.
 
-	int columnIndex;				// The index ofd the column the iterator is on.
-	UIColumnHeader* column;			// The column the iterator is on.
+    int columnIndex;                // The index ofd the column the iterator is on.
+    UIColumnHeader* column;            // The column the iterator is on.
 
-	int columnStartOffset;			// Where should this column start on the row?
-	int currentWidth;				// The width of this column.
-	int extraColumnSpacing;			// The amount of space added to column::minWidth to get currentWidth.
+    int columnStartOffset;            // Where should this column start on the row?
+    int currentWidth;                // The width of this column.
+    int extraColumnSpacing;            // The amount of space added to column::minWidth to get currentWidth.
 
-	int headerPart1Width;			// Width of the the "rounded" part" that sticks off of the end of the headers.
-	int headerPart3Width;
-	
-	int separatorWidth;				// How wide is the seperator?
-	UIBox clipBox;					// ClipBox for
+    int headerPart1Width;            // Width of the the "rounded" part" that sticks off of the end of the headers.
+    int headerPart3Width;
+    
+    int separatorWidth;                // How wide is the seperator?
+    UIBox clipBox;                    // ClipBox for
 } UIColumnHeaderIterator;
 
 int uiCHIGetIterator(UIListViewHeader* header, UIColumnHeaderIterator* iterator);
@@ -141,49 +141,49 @@ typedef struct UIListView UIListView;
 
 typedef enum
 {
-	UILVSS_FORWARD,
-	UILVSS_BACKWARD,
-	UILVSS_MAX,
+    UILVSS_FORWARD,
+    UILVSS_BACKWARD,
+    UILVSS_MAX,
 } UIListViewSortDirection;
 
 /* UILIstViewDisplayItemFunc
- *	Each list view may deal with display its items differently.
- *	When a list view is displayed, the list view first draws the header, then it calls the display 
- *	callback on each of the items.  The function is expected to return an UIBox which specifies where
- *	the item was drawn.
+ *    Each list view may deal with display its items differently.
+ *    When a list view is displayed, the list view first draws the header, then it calls the display 
+ *    callback on each of the items.  The function is expected to return an UIBox which specifies where
+ *    the item was drawn.
  */
 typedef UIBox (*UIListViewDisplayItemFunc)(UIListView* list, PointFloatXYZ rowOrigin, void* userSettings, void* item, int itemIndex);
 typedef int (*UIListViewItemCompare)(const void* item1, const void* item2);
 
 struct UIListView
 {
-	UIListViewHeader* header;
-	void** items;				// EArray of items to be displayed by the list view.
-	void* userSettings;			// Extra user data to be store with the list view
-	UIBox** itemWindows;		// Used to determine if a user has clicked on an item.
+    UIListViewHeader* header;
+    void** items;                // EArray of items to be displayed by the list view.
+    void* userSettings;            // Extra user data to be store with the list view
+    UIBox** itemWindows;        // Used to determine if a user has clicked on an item.
 
-	void* selectedItem;			// Which item is selected in the list view?
-	void* mouseOverItem;		// Which item is the mouse over?
+    void* selectedItem;            // Which item is selected in the list view?
+    void* mouseOverItem;        // Which item is the mouse over?
 
-	UIListViewDisplayItemFunc	displayItem;
+    UIListViewDisplayItemFunc    displayItem;
 
-	UIListViewItemCompare*		compareItem;	// Sort function for each column in the header.
-	UIListViewSortDirection		sortDirection;
-	unsigned int minHeight;
-	unsigned int height;		// How tall is the table right now?
-	unsigned int rowHeight;		// How tall is each row?
+    UIListViewItemCompare*        compareItem;    // Sort function for each column in the header.
+    UIListViewSortDirection        sortDirection;
+    unsigned int minHeight;
+    unsigned int height;        // How tall is the table right now?
+    unsigned int rowHeight;        // How tall is each row?
 
-	unsigned int scrollOffset;	// How much to scroll the list down?
-	ScrollBar verticalScrollBar;
+    unsigned int scrollOffset;    // How much to scroll the list down?
+    ScrollBar verticalScrollBar;
 
-	unsigned int enableSelection : 1;
-	unsigned int enableMouseOver : 1;
-	unsigned int newlySelectedItem : 1;
-	unsigned int itemsAreClickable : 1;
+    unsigned int enableSelection : 1;
+    unsigned int enableMouseOver : 1;
+    unsigned int newlySelectedItem : 1;
+    unsigned int itemsAreClickable : 1;
 
-	float scale;
+    float scale;
 
-	int drawColor;
+    int drawColor;
 };
 
 UIListView* uiLVCreate(void);

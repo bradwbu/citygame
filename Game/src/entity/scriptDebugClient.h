@@ -1,10 +1,10 @@
 /*\
  *
- *	scriptdebugclient.h/c - Copyright 2004 Cryptic Studios
- *		All Rights Reserved
- *		Confidential property of Cryptic Studios
+ *    scriptdebugclient.h/c - Copyright 2004 Cryptic Studios
+ *        All Rights Reserved
+ *        Confidential property of Cryptic Studios
  *
- *	Provides client UI for debugging scripts
+ *    Provides client UI for debugging scripts
  *
  */
 

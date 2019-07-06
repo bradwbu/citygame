@@ -5,13 +5,13 @@
 
 void combineSpecMenu();
 
-#define FRAME_WIDTH		320
+#define FRAME_WIDTH        320
 #define FRAME_SPACE (DEFAULT_SCRN_WD - 3*FRAME_WIDTH)/4
 #define POWER_SPEC_HT   65
-#define SKILL_SPEC_HT	55
-#define POWER_OFFSET	50
-#define SKILL_OFF		25
-#define POWER_WIDTH		240
+#define SKILL_SPEC_HT    55
+#define POWER_OFFSET    50
+#define SKILL_OFF        25
+#define POWER_WIDTH        240
 #define SPEC_WD         36
 
 #define SKILL_OFFSET 16
@@ -21,12 +21,12 @@ void combineSpecMenu();
 
 typedef enum EBoostState
 {
-	kBoostState_Normal,
-	kBoostState_Disabled,
-	kBoostState_Selected,
-	kBoostState_Hidden,
-	kBoostState_Later,
-	kBoostState_BeyondMaxSize,
+    kBoostState_Normal,
+    kBoostState_Disabled,
+    kBoostState_Selected,
+    kBoostState_Hidden,
+    kBoostState_Later,
+    kBoostState_BeyondMaxSize,
 } EBoostState;
 
 typedef struct Power Power;

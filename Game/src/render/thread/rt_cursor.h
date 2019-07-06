@@ -4,7 +4,7 @@
 #include "rt_pbuffer.h"
 #include "rt_sprite.h"
 
-extern PBuffer	cursor_pbuf;
+extern PBuffer    cursor_pbuf;
 
 #ifdef RT_PRIVATE
 void hwcursorClearDirect();

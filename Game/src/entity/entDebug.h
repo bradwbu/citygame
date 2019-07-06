@@ -30,32 +30,32 @@ void setMouseOverDebugUI(int on);
 void drawFilledBox4(int x1, int y1, int x2, int y2, int argb_ul, int argb_ur, int argb_ll, int argb_lr);
 void drawFilledBox(int x1, int y1, int x2, int y2, int argb);
 int drawButton2D(int x1, int y1, int dx, int dy, int centered, char* text, float scale, char* command, int* setMe);
-void printDebugString(	char* outputString,
-						int x,
-						int y,
-						float scale,
-						int lineHeight,
-						int overridecolor,
-						int defaultcolor,
-						U8 alpha,
-						int* getWidthHeightBuffer);
-#define ALIGN_BOTTOM	0
-#define ALIGN_VCENTER	(1 << 0)
-#define ALIGN_TOP		(1 << 1)
-#define ALIGN_LEFT		0
-#define ALIGN_HCENTER	(1 << 2)
-#define	ALIGN_RIGHT		(1 << 3)
+void printDebugString(    char* outputString,
+                        int x,
+                        int y,
+                        float scale,
+                        int lineHeight,
+                        int overridecolor,
+                        int defaultcolor,
+                        U8 alpha,
+                        int* getWidthHeightBuffer);
+#define ALIGN_BOTTOM    0
+#define ALIGN_VCENTER    (1 << 0)
+#define ALIGN_TOP        (1 << 1)
+#define ALIGN_LEFT        0
+#define ALIGN_HCENTER    (1 << 2)
+#define    ALIGN_RIGHT        (1 << 3)
 void printDebugStringAlign(char* outputString,
-					  int x,
-					  int y,
-					  int dx,
-					  int dy,
-					  int align,
-					  float scale,
-					  int lineHeight,
-					  int overridecolor,
-					  int defaultcolor,
-					  U8 alpha);
+                      int x,
+                      int y,
+                      int dx,
+                      int dy,
+                      int align,
+                      float scale,
+                      int lineHeight,
+                      int overridecolor,
+                      int defaultcolor,
+                      U8 alpha);
 
 
 #endif

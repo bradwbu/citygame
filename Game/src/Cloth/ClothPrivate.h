@@ -13,7 +13,7 @@ extern Cloth *ClothBuildCopy(Cloth *cloth, Cloth *pcloth, F32 point_h_scale);
 
 // Collisions
 extern void ClothCollideCollidable(Cloth *cloth, ClothCol *clothcol);
-	
+    
 // Queries
 extern S32 ClothNumRenderedParticles(ClothCommonData *commonData, int sublod);
 
@@ -21,7 +21,7 @@ extern S32 ClothNumRenderedParticles(ClothCommonData *commonData, int sublod);
 extern void ClothSetMinSubLOD(Cloth *cloth, int minsublod);
 extern S32  ClothSetSubLOD(Cloth *cloth, int sublod);
 extern S32  ClothGetSubLOD(Cloth *cloth);
-	
+    
 // Physics
 extern void ClothSetMatrix(Cloth *cloth, Mat4Ptr mat);
 
@@ -29,10 +29,10 @@ extern void ClothSetMatrix(Cloth *cloth, Mat4Ptr mat);
 extern void ClothUpdateCollisions(Cloth *cloth);
 extern void ClothUpdateConstraints(Cloth *cloth);
 typedef enum CCTRWhat {
-	CCTR_COPY_DATA		= 1<<0,
-	CCTR_COPY_HOOKS		= 1<<1,
+    CCTR_COPY_DATA        = 1<<0,
+    CCTR_COPY_HOOKS        = 1<<1,
 
-	CCTR_COPY_ALL		= CCTR_COPY_HOOKS|CCTR_COPY_DATA,
+    CCTR_COPY_ALL        = CCTR_COPY_HOOKS|CCTR_COPY_DATA,
 } CCTRWhat;
 extern void ClothCopyToRenderData(Cloth *cloth, Vec3 *hookNormals, CCTRWhat what);
 

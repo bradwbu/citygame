@@ -10,63 +10,63 @@ typedef enum VAlign VAlign;
 
 typedef struct HybridElement
 {
-	int index;
-	const char * text;
-	const char * desc1;  //tooltip for hybrid buttons
+    int index;
+    const char * text;
+    const char * desc1;  //tooltip for hybrid buttons
 
-	const char * iconName0;
-	const char * iconName1;
-	const char * iconName2;
-	const char * texName0;
-	const char * texName1; 
-	const char * texName2;
-	const void * pData;
+    const char * iconName0;
+    const char * iconName1;
+    const char * iconName2;
+    const char * texName0;
+    const char * texName1; 
+    const char * texName2;
+    const void * pData;
 
-	F32 percent; // what percent selected are we
-	F32 timer;
+    F32 percent; // what percent selected are we
+    F32 timer;
 
-	AtlasTex * icon0, *icon1, *icon2; // icons on the bar
-	AtlasTex * tex0, *tex1, *tex2;  // external textures determined by bar
+    AtlasTex * icon0, *icon1, *icon2; // icons on the bar
+    AtlasTex * tex0, *tex1, *tex2;  // external textures determined by bar
 
-	int storeLocked;
-	int text_flags;			// set NO_MSPRINT to avoid translation (for character names)
+    int storeLocked;
+    int text_flags;            // set NO_MSPRINT to avoid translation (for character names)
 }HybridElement;
 
 typedef enum HybridNameType
 {
-	HYBRID_NAME_CREATION = 0,
-	HYBRID_NAME_REGISTER,
-	HYBRID_NAME_ID,
+    HYBRID_NAME_CREATION = 0,
+    HYBRID_NAME_REGISTER,
+    HYBRID_NAME_ID,
 } HybridNameType;
 
 typedef enum HybridMenuType
 {
-	HYBRID_MENU_CREATION = 0,
-	HYBRID_MENU_TAILOR,
-	HYBRID_MENU_NO_NAVIGATION,
-	
+    HYBRID_MENU_CREATION = 0,
+    HYBRID_MENU_TAILOR,
+    HYBRID_MENU_NO_NAVIGATION,
+    
 } HybridMenuType;
 
 typedef enum HybridMenuDirection
 {
-	DIR_LEFT = 0,
-	DIR_RIGHT = 1,
-	DIR_LEFT_NO_NAV = 2,
-	DIR_RIGHT_NO_NAV = 3,
-	DIR_LEFT_DONT_USE_ME = 4, // LEFTs need to be even numbered
-	DIR_RIGHT_LOGIN = 5,
-	DIR_COUNT,
+    DIR_LEFT = 0,
+    DIR_RIGHT = 1,
+    DIR_LEFT_NO_NAV = 2,
+    DIR_RIGHT_NO_NAV = 3,
+    DIR_LEFT_DONT_USE_ME = 4, // LEFTs need to be even numbered
+    DIR_RIGHT_LOGIN = 5,
+    DIR_COUNT,
 } HybridMenuDirection;
 
 #define CLR_H_HIGHLIGHT 0xfbcf31ff
-#define CLR_H_BACK		0x046ecaff
-#define CLR_H_WHITE		0xffffffff
-#define CLR_H_GREY		0x444444ff
+#define CLR_H_BACK        0x046ecaff
+#define CLR_H_WHITE        0xffffffff
+#define CLR_H_GREY        0x444444ff
 #define CLR_H_DARK_BACK 0x073d6cff
 #define CLR_H_BRIGHT_BACK 0x93b1cbff
-#define CLR_H_GLOW		0xffffffff  //artist will control this color
-#define CLR_H_TAB_BACK	0x55353dff
-#define CLR_H_DESC_TEXT	0xcfcfffff
+#define CLR_H_GLOW        0xffffffff  //artist will control this color
+#define CLR_H_TAB_BACK    0x55353dff
+#define CLR_H_DESC_TEXT    0xcfcfffff
 #define CLR_H_DESC_TEXT_DS 0x00000099  //DS = drop shadow
 
 extern const int HYBRID_FRAME_COLOR[3];
@@ -91,21 +91,21 @@ void goHybridNext(int dir);  //automatically go to the next menu
 
 void hybridElementInit(HybridElement *hb);
 
-#define HB_FADE_ENDS		(1<<0)
-#define HB_ROUND_ENDS		(1<<1)
-#define HB_TAIL_RIGHT		(1<<2)
+#define HB_FADE_ENDS        (1<<0)
+#define HB_ROUND_ENDS        (1<<1)
+#define HB_TAIL_RIGHT        (1<<2)
 #define HB_TAIL_RIGHT_ROUND (1<<3)
 #define HB_TAIL_LEFT_ROUND  (1<<4)
-#define HB_UNSELECTABLE		(1<<5)
-#define HB_FLASH			(1<<6)
-#define HB_CENTERED			(1<<7)
-#define HB_GREY				(1<<8)
-#define HB_NO_HOVER_SCALING	(1<<9)
-#define HB_FLAT				(1<<10)
-#define HB_ROUND_ENDS_THIN	(1<<11)
-#define HB_SMALL_FONT		(1<<12)
-#define HB_HIGHLIGHT_FONT	(1<<13)
-#define HB_SCALE_DOWN_FONT	(1<<14)
+#define HB_UNSELECTABLE        (1<<5)
+#define HB_FLASH            (1<<6)
+#define HB_CENTERED            (1<<7)
+#define HB_GREY                (1<<8)
+#define HB_NO_HOVER_SCALING    (1<<9)
+#define HB_FLAT                (1<<10)
+#define HB_ROUND_ENDS_THIN    (1<<11)
+#define HB_SMALL_FONT        (1<<12)
+#define HB_HIGHLIGHT_FONT    (1<<13)
+#define HB_SCALE_DOWN_FONT    (1<<14)
 #define HB_ALWAYS_FULL_ALPHA (1<<15)
 
 void hybrid_start_menu( int menu );
@@ -135,9 +135,9 @@ int drawHybridArrow( F32 cx, F32 cy, F32 z, F32 sc, int flip );
 void drawHybridFade( F32 cx, F32 cy, F32 z, F32 wd, F32 ht, F32 mid, int color );
 
 #define HB_DISABLED (1<<0)
-#define HB_FLIP_H	(1<<1)
-#define HB_LIGHT_UP	(1<<2)
-#define HB_SHRINK_OVER	(1<<3)
+#define HB_FLIP_H    (1<<1)
+#define HB_LIGHT_UP    (1<<2)
+#define HB_SHRINK_OVER    (1<<3)
 #define HB_DRAW_BACKING (1<<4)
 #define HB_DRAW_NORMAL_ICON (1<<5)
 #define HB_DO_NOT_EDIT_ELEMENT (1<<6)  //for buttons that may repeat on a page, we don't want them reusing the same scale

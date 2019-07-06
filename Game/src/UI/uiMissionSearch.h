@@ -4,8 +4,8 @@
 
 // uiNet interface
 void missionsearch_TabClear(MissionSearchPage category, const char *context, int page, int pages);
-void missionsearch_TabAddLine(	MissionSearchPage category, int arcid, int mine, int played,
-								int myVote, int ratingi, int total_votes, int keyword_votes, U32 date, const char *header ); 
+void missionsearch_TabAddLine(    MissionSearchPage category, int arcid, int mine, int played,
+                                int myVote, int ratingi, int total_votes, int keyword_votes, U32 date, const char *header ); 
 void missionsearch_TabAddSection(MissionSearchPage category, const char *section);
 void missionsearch_SetArcData(int arcid, const char *arcdata);
 void missionsearch_ArcDeleted(int arcid);

@@ -7,8 +7,8 @@ typedef struct TexThreadPackage TexThreadPackage;
 
 typedef struct TexWord TexWord;
 typedef struct TexWordParams {
-	const char *layoutName; // call allocAddString() when you set this!
-	char **parameters; // EArray of strings to replace "TEMPLATE1", "TEMPLATE2", etc
+    const char *layoutName; // call allocAddString() when you set this!
+    char **parameters; // EArray of strings to replace "TEMPLATE1", "TEMPLATE2", etc
 } TexWordParams;
 
 TexWord *texWordFind(const char *texName, int search); // Use search=1 if this is for a dynamic texture that wants to search the Base locale for a layout file as well

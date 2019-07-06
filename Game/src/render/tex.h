@@ -18,21 +18,21 @@
 
 // The structure defining the header of a .texture file
 typedef struct {
-	int header_size; // Number of bytes in header data of file (not sizeof(struct))
-	int file_size; // Number of bytes in data chunk of file (everything after the header + name + mip = .tga file or .dds file)
-	int width, height;
-	TexOptFlags flags;
-	F32 fade[2];
-	U8 alpha; // boolean flag
-	U8 pad[3]; // =TEX for v1 .Textures, =TX2 for v2 .Textures
+    int header_size; // Number of bytes in header data of file (not sizeof(struct))
+    int file_size; // Number of bytes in data chunk of file (everything after the header + name + mip = .tga file or .dds file)
+    int width, height;
+    TexOptFlags flags;
+    F32 fade[2];
+    U8 alpha; // boolean flag
+    U8 pad[3]; // =TEX for v1 .Textures, =TX2 for v2 .Textures
 } TextureFileHeader;
 // Next comes the name (sz)
 // Next comes the mipmap data (header+data) to preload (ignored/not there in v1 .textures)
 
 typedef struct {
-	int structsize; // sizeof(TextureFileMipHeader)
-	int width, height; // of first preload mip level
-	int format; // Normally gathered from the .dds file header
+    int structsize; // sizeof(TextureFileMipHeader)
+    int width, height; // of first preload mip level
+    int format; // Normally gathered from the .dds file header
 } TextureFileMipHeader;
 
 
@@ -48,47 +48,47 @@ some params might need to stay around cuz gettex uses them.
 */
 typedef struct TexReadInfo
 {
-	U8		*data;			//texture data 
-	int		mip_count;		//number of mip maps for the dds
-	int		format;			//one of the flags below (TEXFMT_8BIT, TEXFMT_I_8, etc) or a flag defined in glext.h like GL_COMPRESSED_RGBA_S3TC_DXT1_EXT 
-							//used to set texbind->flags for compression level, to calculate block_size, and then as 
-							//a flag to glCompressedTexImage2DARB.	
+    U8        *data;            //texture data 
+    int        mip_count;        //number of mip maps for the dds
+    int        format;            //one of the flags below (TEXFMT_8BIT, TEXFMT_I_8, etc) or a flag defined in glext.h like GL_COMPRESSED_RGBA_S3TC_DXT1_EXT 
+                            //used to set texbind->flags for compression level, to calculate block_size, and then as 
+                            //a flag to glCompressedTexImage2DARB.    
 
-	int		width,height;	//texture height and width - stores the actual w/h after mip reduction, but isn't used
-	int		size;			//bytes of texture data
+    int        width,height;    //texture height and width - stores the actual w/h after mip reduction, but isn't used
+    int        size;            //bytes of texture data
 } TexReadInfo;
 
 enum
 {
-	TEXFMT_8BIT,
-	TEXFMT_I_8,
-	TEXFMT_16BIT,
-	TEXFMT_ARGB_1555,
-	TEXFMT_ARGB_0565,
-	TEXFMT_ARGB_4444,
-	TEXFMT_32BIT,
-	TEXFMT_ARGB_8888,
-	TEXFMT_ARGB_0888,
-	TEXFMT_P_8,
-	TEXFMT_RAW_DDS, // For loading raw data to be uncompressed in software
+    TEXFMT_8BIT,
+    TEXFMT_I_8,
+    TEXFMT_16BIT,
+    TEXFMT_ARGB_1555,
+    TEXFMT_ARGB_0565,
+    TEXFMT_ARGB_4444,
+    TEXFMT_32BIT,
+    TEXFMT_ARGB_8888,
+    TEXFMT_ARGB_0888,
+    TEXFMT_P_8,
+    TEXFMT_RAW_DDS, // For loading raw data to be uncompressed in software
 };
 
 typedef enum TexFlags
 {
-	TEX_ALPHA		= 1 << 0,
-	TEX_RGB8		= 1 << 1,
-	TEX_COMP4		= 1 << 2,
-	TEX_COMP8		= 1 << 3,
-	
-	TEX_TGA			= 1 << 5,
-	TEX_DDS			= 1 << 6,
+    TEX_ALPHA        = 1 << 0,
+    TEX_RGB8        = 1 << 1,
+    TEX_COMP4        = 1 << 2,
+    TEX_COMP8        = 1 << 3,
+    
+    TEX_TGA            = 1 << 5,
+    TEX_DDS            = 1 << 6,
 
 
-	TEX_CUBEMAPFACE	= 1 << 9,
-	TEX_REPLACEABLE	= 1 << 10,
-	TEX_BUMPMAP		= 1 << 11,
+    TEX_CUBEMAPFACE    = 1 << 9,
+    TEX_REPLACEABLE    = 1 << 10,
+    TEX_BUMPMAP        = 1 << 11,
 
-	TEX_JPEG		= 1 << 13,
+    TEX_JPEG        = 1 << 13,
 } TexFlags;
 
 typedef struct TexWord TexWord;
@@ -100,89 +100,89 @@ typedef struct ScrollsScales ScrollsScales;
 
 typedef struct BasicTexture
 {
-	const char	*name;
+    const char    *name;
 
-	struct BasicTexture *actualTexture; // This may be set to something different if the scene has swapped textures
+    struct BasicTexture *actualTexture; // This may be set to something different if the scene has swapped textures
 
-	int		width;		// Logical width/height
-	int		height;
-	int		id;			// OpenGL ID
+    int        width;        // Logical width/height
+    int        height;
+    int        id;            // OpenGL ID
 
-	TexFlags	flags;				//texture flags described below (TEX_ALPHA,TEX_RGB8, etc) (some set during texLoadData)
+    TexFlags    flags;                //texture flags described below (TEX_ALPHA,TEX_RGB8, etc) (some set during texLoadData)
 
-	TexOptFlags texopt_flags;
-	U32		texopt_surface;
+    TexOptFlags texopt_flags;
+    U32        texopt_surface;
 
-	U32		last_used_time_stamp[2];//0==regular, 1==raw
-	TexLoadState load_state[2];		//has the data been loaded (are the id handles valid for it) 0==regular, 1==raw
+    U32        last_used_time_stamp[2];//0==regular, 1==raw
+    TexLoadState load_state[2];        //has the data been loaded (are the id handles valid for it) 0==regular, 1==raw
 
-	U32		file_pos;				//Offset of the texture data from file start
-	U32		file_bytes;				//Size of texture data
-	const char	*dirname;				//texture directory name ("WORLD/Filler/") - tack on texture_library/ and name and .texture to get the filename
+    U32        file_pos;                //Offset of the texture data from file start
+    U32        file_bytes;                //Size of texture data
+    const char    *dirname;                //texture directory name ("WORLD/Filler/") - tack on texture_library/ and name and .texture to get the filename
 
-	int		target;					//OpenGL target flag (GL_TEXTURE_CUBE_MAP_ARB or GL_TEXTURE_2D)
-	F32		gloss;					//for bumpmapping
+    int        target;                    //OpenGL target flag (GL_TEXTURE_CUBE_MAP_ARB or GL_TEXTURE_2D)
+    F32        gloss;                    //for bumpmapping
 
-	// Preloaded mipmap data
-	char	*mipdata;
-	int		mipsize;
-	int		mipid;
+    // Preloaded mipmap data
+    char    *mipdata;
+    int        mipsize;
+    int        mipid;
 
-	TexReadInfo *rawInfo;
-	int		rawReferenceCount;		// Count of texLoadRawData()s outstanding
+    TexReadInfo *rawInfo;
+    int        rawReferenceCount;        // Count of texLoadRawData()s outstanding
 
-	// Texture compositing
-	TexWord *texWord;
-	int		origWidth, origHeight;
-	TexWordParams *texWordParams; // For dynamic textures
-	TexWordLoadInfo *texWordLoadInfo;
+    // Texture compositing
+    TexWord *texWord;
+    int        origWidth, origHeight;
+    TexWordParams *texWordParams; // For dynamic textures
+    TexWordLoadInfo *texWordLoadInfo;
 
-	U32		hasBeenComposited:1;	// If the texture has a texWord*, has it been applied?
+    U32        hasBeenComposited:1;    // If the texture has a texWord*, has it been applied?
 
-	TexUsage	use_category;	//what is this texture used for?
-	int		memory_use[2];
+    TexUsage    use_category;    //what is this texture used for?
+    int        memory_use[2];
 
-	S32		cube_face_idx:8;		// Used by textures that are cube maps 
+    S32        cube_face_idx:8;        // Used by textures that are cube maps 
 
-	int		realWidth, realHeight;	// GL size of the texture, power of 2
+    int        realWidth, realHeight;    // GL size of the texture, power of 2
 
 } BasicTexture;
 
 typedef struct TexBind
 {
-	const char	*name;
+    const char    *name;
 
-	int		width;	// Width and height of base texture (used for sprites/2D)
-	int		height;
+    int        width;    // Width and height of base texture (used for sprites/2D)
+    int        height;
 
-	const char	*dirname;				// Either directory name of the texture, or trick file name if this is a trick-made texture
+    const char    *dirname;                // Either directory name of the texture, or trick file name if this is a trick-made texture
 
-	BlendModeType	bind_blend_mode;//pixel shader to use (BLENDMODE_MULTIPLY etc)
-	F32		bind_scale[2][2];		//st scale for this tex and secondary texture, if any (tex_links[0])
+    BlendModeType    bind_blend_mode;//pixel shader to use (BLENDMODE_MULTIPLY etc)
+    F32        bind_scale[2][2];        //st scale for this tex and secondary texture, if any (tex_links[0])
 
-	TexUsage	use_category;	//what is this texture used for?
+    TexUsage    use_category;    //what is this texture used for?
 
-	BasicTexture *tex_layers[TEXLAYER_MAX_LAYERS];	//set in texsetbinds, given ids in texConvertToGameFormat
-	U8		tex_swappable[TEXLAYER_MAX_LAYERS];	// Whether or not, on a MultiTexture shader, each layer can be swapped
-	U8		needs_alphasort:1;
-	U8		allocated_scrollsScales:1; // We allocated our own scrollsScales struct that needs to be freed
-	U8		allocated_byMiniTracker:1;
-	U8		is_fallback_material:1;
-	TexOpt	*texopt;
-	ScrollsScales *scrollsScales;
-	TexBind *tex_lod; // generated on the fly when needed by the LOD system
-	TexBind *orig_bind; // points to self unless this is an lod of a tex bind
+    BasicTexture *tex_layers[TEXLAYER_MAX_LAYERS];    //set in texsetbinds, given ids in texConvertToGameFormat
+    U8        tex_swappable[TEXLAYER_MAX_LAYERS];    // Whether or not, on a MultiTexture shader, each layer can be swapped
+    U8        needs_alphasort:1;
+    U8        allocated_scrollsScales:1; // We allocated our own scrollsScales struct that needs to be freed
+    U8        allocated_byMiniTracker:1;
+    U8        is_fallback_material:1;
+    TexOpt    *texopt;
+    ScrollsScales *scrollsScales;
+    TexBind *tex_lod; // generated on the fly when needed by the LOD system
+    TexBind *orig_bind; // points to self unless this is an lod of a tex bind
 } TexBind;
 
 typedef struct TexThreadPackage
 {
-	struct TexThreadPackage * next;
-	struct TexThreadPackage * prev;
+    struct TexThreadPackage * next;
+    struct TexThreadPackage * prev;
 
-	BasicTexture *bind;		// bind being worked on
-	TexReadInfo info;
-	int should_queue; // set to -1 if it should be based on the current state of the queuing variable in the thread
-	int needRawData;
+    BasicTexture *bind;        // bind being worked on
+    TexReadInfo info;
+    int should_queue; // set to -1 if it should be based on the current state of the queuing variable in the thread
+    int needRawData;
 } TexThreadPackage;
 
 
@@ -249,33 +249,33 @@ int texReadFile(char * texName, char * directoryName, TexReadInfo * info);
 int texWriteFile(char * texName, TexReadInfo * info);
 static INLINEDBG int texDemandLoad(BasicTexture *texbind)
 {
-	BasicTexture *actualTexture;
-	extern int client_frame_timestamp;
+    BasicTexture *actualTexture;
+    extern int client_frame_timestamp;
 
-	if (!texbind)
-		return 0;
-	actualTexture = texbind->actualTexture;
+    if (!texbind)
+        return 0;
+    actualTexture = texbind->actualTexture;
 
-	if (!actualTexture)
-		return 0;
+    if (!actualTexture)
+        return 0;
 
-	actualTexture->last_used_time_stamp[0] = client_frame_timestamp;
-	if (actualTexture->load_state[0] == TEX_LOADED)
-		return actualTexture->id;
-	return texDemandLoadActual(texbind);
+    actualTexture->last_used_time_stamp[0] = client_frame_timestamp;
+    if (actualTexture->load_state[0] == TEX_LOADED)
+        return actualTexture->id;
+    return texDemandLoadActual(texbind);
 }
 
 static INLINEDBG int texDemandLoadComposite(TexBind *texbind)
 {
-	extern int client_frame_timestamp;
-	return texDemandLoad(texbind->tex_layers[TEXLAYER_BASE1]);
+    extern int client_frame_timestamp;
+    return texDemandLoad(texbind->tex_layers[TEXLAYER_BASE1]);
 }
 
 static INLINEDBG TexBind *texFindLOD(TexBind *orig_bind)
 {
-	if (!orig_bind->tex_lod)
-		texCreateLOD(orig_bind);
-	return orig_bind->tex_lod;
+    if (!orig_bind->tex_lod)
+        texCreateLOD(orig_bind);
+    return orig_bind->tex_lod;
 }
 
 

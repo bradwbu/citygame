@@ -3,23 +3,23 @@
 
 typedef struct
 {
-	float maxThroughput;
-	float minTimePerCall;
-	int numTests;
+    float maxThroughput;
+    float minTimePerCall;
+    int numTests;
 } PerfTestResultsHeader;
 
 typedef struct
 {
-	int trisPerModel;
-	float avgTimePerCall;
-	float avgThroughput;
-	float avgCalls;
+    int trisPerModel;
+    float avgTimePerCall;
+    float avgThroughput;
+    float avgCalls;
 } PerfTestResult;
 
 typedef struct
 {
-	PerfTestResultsHeader header;
-	PerfTestResult **testResults;
+    PerfTestResultsHeader header;
+    PerfTestResult **testResults;
 } PerfTestResults;
 
 void freePerfTestResults(PerfTestResults *results);

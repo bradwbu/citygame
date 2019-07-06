@@ -21,39 +21,39 @@ typedef struct ComboCheckboxElement ComboCheckboxElement;
 
 typedef enum SalvageSortType
 {
-	kSalvageSortType_Name_Ascending,
-	kSalvageSortType_Name_Descending,
-	kSalvageSortType_Amount_Ascending,
-	kSalvageSortType_Amount_Descending,
-	kSalvageSortType_Type_Ascending,
-	kSalvageSortType_Type_Descending,
-	kSalvageSortType_Rarity_Ascending,
-	kSalvageSortType_Rarity_Descending,
+    kSalvageSortType_Name_Ascending,
+    kSalvageSortType_Name_Descending,
+    kSalvageSortType_Amount_Ascending,
+    kSalvageSortType_Amount_Descending,
+    kSalvageSortType_Type_Ascending,
+    kSalvageSortType_Type_Descending,
+    kSalvageSortType_Rarity_Ascending,
+    kSalvageSortType_Rarity_Descending,
 
-	// last
-	kSalvageSortType_Count
+    // last
+    kSalvageSortType_Count
 } SalvageSortType;
 
 typedef struct SalvageTabState
 {
-	SalvageSortType sortby;
-	ComboBox sortbyCombo; 
+    SalvageSortType sortby;
+    ComboBox sortbyCombo; 
 } SalvageTabState; 
 
 typedef struct SalvageWindowState
 {
-	uiTabControl * tc;
-	SalvageTabState **tabStates;
-	SalvageInventoryItem **ppItems;
-	SalvageInventoryItem **(*GetSalvageInv)();
-	uiGrowBig growbig; 
+    uiTabControl * tc;
+    SalvageTabState **tabStates;
+    SalvageInventoryItem **ppItems;
+    SalvageInventoryItem **(*GetSalvageInv)();
+    uiGrowBig growbig; 
 
-	// used to identify invention inventory
-	int	inventionInventoryIdx;
+    // used to identify invention inventory
+    int    inventionInventoryIdx;
 
-	// used by controls
-	ComboCheckboxElement **catElements;
-	ComboCheckboxElement **allElements;
+    // used by controls
+    ComboCheckboxElement **catElements;
+    ComboCheckboxElement **allElements;
 } SalvageWindowState;
 
 typedef struct DialogCheckbox DialogCheckbox;

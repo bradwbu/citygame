@@ -8,41 +8,41 @@
 
 typedef enum CLOTH_COLTYPE
 {
-	CLOTH_COL_NONE,
-	CLOTH_COL_SPHERE,
-	CLOTH_COL_PLANE,
-	CLOTH_COL_CYLINDER,
-	CLOTH_COL_BALLOON,
+    CLOTH_COL_NONE,
+    CLOTH_COL_SPHERE,
+    CLOTH_COL_PLANE,
+    CLOTH_COL_CYLINDER,
+    CLOTH_COL_BALLOON,
 #if CLOTH_SUPPORT_BOX_COL
-	CLOTH_COL_BOX,
+    CLOTH_COL_BOX,
 #endif
-	CLOTH_COL_SKIP = 0x1000
+    CLOTH_COL_SKIP = 0x1000
 } CLOTH_COLTYPE;
 
 struct ClothCol
 {
-	CLOTH_COLTYPE Type;
-	S16 MinSubLOD;
-	S16 MaxSubLOD;
-	Vec3 Center;
-	Vec3 Norm;
+    CLOTH_COLTYPE Type;
+    S16 MinSubLOD;
+    S16 MaxSubLOD;
+    Vec3 Center;
+    Vec3 Norm;
 #if CLOTH_SUPPORT_BOX_COL
-	Vec3 XVec; // Box Only
-	Vec3 YVec; // Box Only
+    Vec3 XVec; // Box Only
+    Vec3 YVec; // Box Only
 #endif
-	F32 PlaneD;
-	F32 HLength; // Half length
-	F32 Radius;  // X radius for Box
+    F32 PlaneD;
+    F32 HLength; // Half length
+    F32 Radius;  // X radius for Box
 #if CLOTH_SUPPORT_BOX_COL
-	F32 YRadius; // Box Only
+    F32 YRadius; // Box Only
 #endif
-	// debug
-	ClothMesh *Mesh;
+    // debug
+    ClothMesh *Mesh;
 };
 
 
 void ClothColUpdate(ClothCol *clothcol, Vec3 c, Vec3 n, F32 len, F32 rad, F32 frac);
-	
+    
 void ClothColSetSphere(ClothCol *clothcol, Vec3 c, F32 rad, F32 frac);
 void ClothColSetPlane(ClothCol *clothcol, Vec3 c, Vec3 dir, F32 frac);
 void ClothColSetCylinder(ClothCol *clothcol, Vec3 p1, Vec3 p2, F32 rad, F32 exten1, F32 exten2, F32 frac);

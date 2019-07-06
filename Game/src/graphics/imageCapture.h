@@ -13,23 +13,23 @@
 
 typedef struct MMPinPData
 {
-	Entity * e;
-	Costume *c;
-	AtlasTex * bind;
-	//set once for every entity.  We must save if this is the same entity
-	int x1;	//left hand position of image in the screen's buffer
-	int x2;	//right "
-	int y1;
-	int y2;
-	int motionAvailable;
-	Vec3 headshotCameraPos; 
-	Vec3 lookatPos;
-	unsigned int wdPow, htPow;
-	float yOffset;
-	float rotation;
-	float FOV;
-	Vec3 bgColor;
-	PBuffer pbuffer;
+    Entity * e;
+    Costume *c;
+    AtlasTex * bind;
+    //set once for every entity.  We must save if this is the same entity
+    int x1;    //left hand position of image in the screen's buffer
+    int x2;    //right "
+    int y1;
+    int y2;
+    int motionAvailable;
+    Vec3 headshotCameraPos; 
+    Vec3 lookatPos;
+    unsigned int wdPow, htPow;
+    float yOffset;
+    float rotation;
+    float FOV;
+    Vec3 bgColor;
+    PBuffer pbuffer;
 }MMPinPData;
 
 
@@ -39,8 +39,8 @@ typedef struct MMPinPData
  * and width.
  */
 U8 * getMMSeqImage(U8 ** buf, SeqInst * seq, Vec3 cameraPos, Vec3 lookat, float yOffset, float rot, F32 FOV,
-			  unsigned int * desiredWidth, unsigned int *desiredHeight,
-			  int *x1, int *x2, int *y1, int *y2, int newImage, AtlasTex *bgimage, int square);
+              unsigned int * desiredWidth, unsigned int *desiredHeight,
+              int *x1, int *x2, int *y1, int *y2, int newImage, AtlasTex *bgimage, int square);
 void updateMMSeqImage(MMPinPData * data, Vec2 screenPosition);
 
 AtlasTex* imageCapture_getMap(char * mapName);

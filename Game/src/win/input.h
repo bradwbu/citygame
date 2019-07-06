@@ -1,32 +1,32 @@
 /* File Input.h
- *	This file defines functions and variables that defines the game's input system.
+ *    This file defines functions and variables that defines the game's input system.
  *
- *	Keyboard:
- *		The keyboard tracks its input in two seperate forms.
- *		1. Raw keyboard input mode.
- *			This particular mode lets allows the rest of the program to find out exactly which
- *			keys are being depressed.  The status of each key can be queried using inp_edges()
- *			and inp_levels().  Edge values for each key becomes 1 the key is initially depressed.
- *			If the user continues holding the same key down, the Level value becomes non-zero and
- *			can increase to 127 the longer the user holds the key down.
+ *    Keyboard:
+ *        The keyboard tracks its input in two seperate forms.
+ *        1. Raw keyboard input mode.
+ *            This particular mode lets allows the rest of the program to find out exactly which
+ *            keys are being depressed.  The status of each key can be queried using inp_edges()
+ *            and inp_levels().  Edge values for each key becomes 1 the key is initially depressed.
+ *            If the user continues holding the same key down, the Level value becomes non-zero and
+ *            can increase to 127 the longer the user holds the key down.
  *
- *			Raw keyboard information is extracted by polling the keyboard each time inpUpdate() is 
- *			called.
- *			
+ *            Raw keyboard information is extracted by polling the keyboard each time inpUpdate() is 
+ *            called.
+ *            
  *
- *		2. Text keyboard input mode.
- *			In addition to the raw keyboard input, the keyboard also tracks the actual text that has
- *			been entered through the keyboard.  The text is stored in terms of KeyInputs using the
- *			inpGetKeyBuf() and inpGetNextKey().  Each valid KeyInput would either represent
- *			an ascii character, a unicode character, or an edit key.  It is intended that any text
- *			editing function of the game be fully functional by reading keyboard input through this
- *			facility alone.
- *			
- *			Text keyboard information should be extracted by reading some buffered keyboard data so
- *			that text input does not become lost or out of order if the user were to type faster
- *			than the keyboard can be polled.  Currently, the keyboard is updated through reading
- *			windows messages.  This is neccessary to allow both ascii and unicode input.
- *	
+ *        2. Text keyboard input mode.
+ *            In addition to the raw keyboard input, the keyboard also tracks the actual text that has
+ *            been entered through the keyboard.  The text is stored in terms of KeyInputs using the
+ *            inpGetKeyBuf() and inpGetNextKey().  Each valid KeyInput would either represent
+ *            an ascii character, a unicode character, or an edit key.  It is intended that any text
+ *            editing function of the game be fully functional by reading keyboard input through this
+ *            facility alone.
+ *            
+ *            Text keyboard information should be extracted by reading some buffered keyboard data so
+ *            that text input does not become lost or out of order if the user were to type faster
+ *            than the keyboard can be polled.  Currently, the keyboard is updated through reading
+ *            windows messages.  This is neccessary to allow both ascii and unicode input.
+ *    
  */
 #include <utilitieslib/stdtypes.h>
 
@@ -198,143 +198,143 @@
 #define INP_RIGHTARROW      INP_RIGHT           /* RightArrow on arrow keypad */
 #define INP_DOWNARROW       INP_DOWN            /* DownArrow on arrow keypad */
 #define INP_PGDN            INP_NEXT            /* PgDn on arrow keypad */
-#define INP_TILDE			INP_GRAVE			/* Because nobody knows what an "INP_GRAVE" is. */
+#define INP_TILDE            INP_GRAVE            /* Because nobody knows what an "INP_GRAVE" is. */
 
 //Joystick buttons
 // Annoyingly there are a billion joysitck buttons that have no spot, so I'm just going to cram them 
 // into this table whereever there are spaces.
-#define INP_JOY1	0x5A
-#define INP_JOY2	0x5B
-#define INP_JOY3	0x5C
-#define INP_JOY4	0x5D
-#define INP_JOY5	0x5E
-#define INP_JOY6	0x5F
-#define INP_JOY7	0x60
-#define INP_JOY8	0x61
-#define INP_JOY9	0x62
-#define INP_JOY10	0x63
+#define INP_JOY1    0x5A
+#define INP_JOY2    0x5B
+#define INP_JOY3    0x5C
+#define INP_JOY4    0x5D
+#define INP_JOY5    0x5E
+#define INP_JOY6    0x5F
+#define INP_JOY7    0x60
+#define INP_JOY8    0x61
+#define INP_JOY9    0x62
+#define INP_JOY10    0x63
 
-#define INP_JOY11	0x7F
-#define INP_JOY12	0x80
-#define INP_JOY13	0x81
-#define INP_JOY14	0x82
-#define INP_JOY15	0x83
-#define INP_JOY16	0x84
-#define INP_JOY17	0x85
-#define INP_JOY18	0x86
-#define INP_JOY19	0x87
-#define INP_JOY20	0x88
-#define INP_JOY21	0x89
-#define INP_JOY22	0x8A
-#define INP_JOY23	0x8B
-#define INP_JOY24	0x8C 
-#define INP_JOY25	0x59// ok technically directX can handle 31 button joysticks, but I'm gonna say 24 is enough
+#define INP_JOY11    0x7F
+#define INP_JOY12    0x80
+#define INP_JOY13    0x81
+#define INP_JOY14    0x82
+#define INP_JOY15    0x83
+#define INP_JOY16    0x84
+#define INP_JOY17    0x85
+#define INP_JOY18    0x86
+#define INP_JOY19    0x87
+#define INP_JOY20    0x88
+#define INP_JOY21    0x89
+#define INP_JOY22    0x8A
+#define INP_JOY23    0x8B
+#define INP_JOY24    0x8C 
+#define INP_JOY25    0x59// ok technically directX can handle 31 button joysticks, but I'm gonna say 24 is enough
 
 // pov[0]
-#define INP_JOYPAD_UP		0xB9
-#define INP_JOYPAD_DOWN		0xBA
-#define INP_JOYPAD_LEFT		0xBB
-#define INP_JOYPAD_RIGHT	0xBC
+#define INP_JOYPAD_UP        0xB9
+#define INP_JOYPAD_DOWN        0xBA
+#define INP_JOYPAD_LEFT        0xBB
+#define INP_JOYPAD_RIGHT    0xBC
 
 // pov[1] - pov[3]
-#define INP_POV1_UP		0x67
-#define INP_POV1_DOWN	0x68
-#define INP_POV1_LEFT	0x69
-#define INP_POV1_RIGHT	0x71
+#define INP_POV1_UP        0x67
+#define INP_POV1_DOWN    0x68
+#define INP_POV1_LEFT    0x69
+#define INP_POV1_RIGHT    0x71
 
-#define INP_POV2_UP		0x72
-#define INP_POV2_DOWN	0x74
-#define INP_POV2_LEFT	0x75
-#define INP_POV2_RIGHT	0x76
+#define INP_POV2_UP        0x72
+#define INP_POV2_DOWN    0x74
+#define INP_POV2_LEFT    0x75
+#define INP_POV2_RIGHT    0x76
 
-#define INP_POV3_UP		0x77
-#define INP_POV3_DOWN	0x7A
-#define INP_POV3_LEFT	0x7C
-#define INP_POV3_RIGHT	0x8E
+#define INP_POV3_UP        0x77
+#define INP_POV3_DOWN    0x7A
+#define INP_POV3_LEFT    0x7C
+#define INP_POV3_RIGHT    0x8E
 
 // XY axis
-#define INP_JOYSTICK1_UP	0xBD
-#define INP_JOYSTICK1_DOWN	0xBE
-#define INP_JOYSTICK1_LEFT	0xBF
-#define INP_JOYSTICK1_RIGHT	0xC0
+#define INP_JOYSTICK1_UP    0xBD
+#define INP_JOYSTICK1_DOWN    0xBE
+#define INP_JOYSTICK1_LEFT    0xBF
+#define INP_JOYSTICK1_RIGHT    0xC0
 
 // Z, Zrot Axis
-#define INP_JOYSTICK2_UP	0xA5
-#define INP_JOYSTICK2_DOWN	0xA6
-#define INP_JOYSTICK2_LEFT	0xA7
-#define INP_JOYSTICK2_RIGHT	0xA8
+#define INP_JOYSTICK2_UP    0xA5
+#define INP_JOYSTICK2_DOWN    0xA6
+#define INP_JOYSTICK2_LEFT    0xA7
+#define INP_JOYSTICK2_RIGHT    0xA8
 
 // Xrot, Yrot Axis
-#define INP_JOYSTICK3_UP	0x8F
-#define INP_JOYSTICK3_DOWN	0x98
-#define INP_JOYSTICK3_LEFT	0x9A
-#define INP_JOYSTICK3_RIGHT	0x9B
+#define INP_JOYSTICK3_UP    0x8F
+#define INP_JOYSTICK3_DOWN    0x98
+#define INP_JOYSTICK3_LEFT    0x9A
+#define INP_JOYSTICK3_RIGHT    0x9B
 
-#define INP_KEY_LAST		0xED
+#define INP_KEY_LAST        0xED
 
 // Mouse buttons
-//	Although DirectX 8.1 returns 256 key scan codes, only 237 keys are defined.
-//	This map the mouse buttons to right after INP_MEDIASELECT.  The only purpose
-//	is so that the keybinding system can use an array of 256 elements to bind
-//	both keyboard and mouse commands.
-//	
-#define INP_MOUSE_BUTTONS	0xEE
-#define INP_LBUTTON			(INP_MOUSE_BUTTONS + 0)
-#define INP_MBUTTON			(INP_MOUSE_BUTTONS + 1)
-#define INP_RBUTTON			(INP_MOUSE_BUTTONS + 2)
-#define INP_BUTTON4			(INP_MOUSE_BUTTONS + 3)
-#define INP_BUTTON5			(INP_MOUSE_BUTTONS + 4)
-#define INP_BUTTON6			(INP_MOUSE_BUTTONS + 5)
-#define INP_BUTTON7			(INP_MOUSE_BUTTONS + 6)
-#define INP_BUTTON8			(INP_MOUSE_BUTTONS + 7)
-#define INP_MOUSEWHEEL		(INP_MOUSE_BUTTONS + 8)
+//    Although DirectX 8.1 returns 256 key scan codes, only 237 keys are defined.
+//    This map the mouse buttons to right after INP_MEDIASELECT.  The only purpose
+//    is so that the keybinding system can use an array of 256 elements to bind
+//    both keyboard and mouse commands.
+//    
+#define INP_MOUSE_BUTTONS    0xEE
+#define INP_LBUTTON            (INP_MOUSE_BUTTONS + 0)
+#define INP_MBUTTON            (INP_MOUSE_BUTTONS + 1)
+#define INP_RBUTTON            (INP_MOUSE_BUTTONS + 2)
+#define INP_BUTTON4            (INP_MOUSE_BUTTONS + 3)
+#define INP_BUTTON5            (INP_MOUSE_BUTTONS + 4)
+#define INP_BUTTON6            (INP_MOUSE_BUTTONS + 5)
+#define INP_BUTTON7            (INP_MOUSE_BUTTONS + 6)
+#define INP_BUTTON8            (INP_MOUSE_BUTTONS + 7)
+#define INP_MOUSEWHEEL        (INP_MOUSE_BUTTONS + 8)
 
-#define INP_MOUSE_CHORD		(INP_MOUSE_BUTTONS + 9)
+#define INP_MOUSE_CHORD        (INP_MOUSE_BUTTONS + 9)
 
 // mouse wheel, drags, and clicks will send additional signals for fine tuning of input with binds
-#define INP_LCLICK					(INP_MOUSE_BUTTONS + 10)
-#define INP_MCLICK					(INP_MOUSE_BUTTONS + 11)
-#define INP_RCLICK					(INP_MOUSE_BUTTONS + 12)
-#define	INP_LDRAG					(INP_MOUSE_BUTTONS + 13)
-#define INP_MDRAG					(INP_MOUSE_BUTTONS + 14)
-#define INP_RDRAG					(INP_MOUSE_BUTTONS + 15)
-#define INP_MOUSEWHEEL_FORWARD		(INP_MOUSE_BUTTONS + 16)// <--0xfe, end of array
-#define INP_MOUSEWHEEL_BACKWARD		(0x54) // we hit end of 256 array
-#define INP_LDBLCLICK				(0x55) // so now annoyingly I have to jump to new empty spot in table
-#define INP_MDBLCLICK				(0x78)
-#define INP_RDBLCLICK				(0x9E) // Note to self every thing before 0x9E is taken so if I need to
-										   // find another empty sopt start form there
-#define INP_VIRTUALKEY_LAST	INP_MOUSEWHEEL_FORWARD
+#define INP_LCLICK                    (INP_MOUSE_BUTTONS + 10)
+#define INP_MCLICK                    (INP_MOUSE_BUTTONS + 11)
+#define INP_RCLICK                    (INP_MOUSE_BUTTONS + 12)
+#define    INP_LDRAG                    (INP_MOUSE_BUTTONS + 13)
+#define INP_MDRAG                    (INP_MOUSE_BUTTONS + 14)
+#define INP_RDRAG                    (INP_MOUSE_BUTTONS + 15)
+#define INP_MOUSEWHEEL_FORWARD        (INP_MOUSE_BUTTONS + 16)// <--0xfe, end of array
+#define INP_MOUSEWHEEL_BACKWARD        (0x54) // we hit end of 256 array
+#define INP_LDBLCLICK                (0x55) // so now annoyingly I have to jump to new empty spot in table
+#define INP_MDBLCLICK                (0x78)
+#define INP_RDBLCLICK                (0x9E) // Note to self every thing before 0x9E is taken so if I need to
+                                           // find another empty sopt start form there
+#define INP_VIRTUALKEY_LAST    INP_MOUSEWHEEL_FORWARD
 
 // Special aliases
 // These are only meaningful for use with inpLevel() and inpEdge().
-#define INP_SPECIAL_ALIASES	0x800
-#define INP_CONTROL			(INP_SPECIAL_ALIASES + 1)
-#define INP_SHIFT			(INP_SPECIAL_ALIASES + 2)
-#define INP_ALT				(INP_SPECIAL_ALIASES + 3)
+#define INP_SPECIAL_ALIASES    0x800
+#define INP_CONTROL            (INP_SPECIAL_ALIASES + 1)
+#define INP_SHIFT            (INP_SPECIAL_ALIASES + 2)
+#define INP_ALT                (INP_SPECIAL_ALIASES + 3)
 
 typedef enum{
-	KIT_None,
-	KIT_EditKey,
-	KIT_Ascii,
-	KIT_Unicode
+    KIT_None,
+    KIT_EditKey,
+    KIT_Ascii,
+    KIT_Unicode
 }KeyInputType;
 
 typedef enum{
-	KIA_NONE	= 0,
-	KIA_CONTROL = 1 << 0,
-	KIA_ALT		= 1 << 1,
-	KIA_SHIFT	= 1 << 2,
+    KIA_NONE    = 0,
+    KIA_CONTROL = 1 << 0,
+    KIA_ALT        = 1 << 1,
+    KIA_SHIFT    = 1 << 2,
 }KeyInputAttrib;
 
 typedef struct KeyInput{
-	KeyInputType type;
-	union{
-		int key;
-		char asciiCharacter;
-		unsigned short unicodeCharacter;
-	};
-	KeyInputAttrib attrib;
+    KeyInputType type;
+    union{
+        int key;
+        char asciiCharacter;
+        unsigned short unicodeCharacter;
+    };
+    KeyInputAttrib attrib;
 } KeyInput;
 
 extern int altKeyState;

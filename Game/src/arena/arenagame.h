@@ -1,10 +1,10 @@
 /*\
  *
- *	ArenaGame.h/c - Copyright 2004, 2005 Cryptic Studios
- *		All Rights Reserved
- *		Confidential property of Cryptic Studios
+ *    ArenaGame.h/c - Copyright 2004, 2005 Cryptic Studios
+ *        All Rights Reserved
+ *        Confidential property of Cryptic Studios
  *
- *	Game client logic for arena events.  Mainly networking stuff
+ *    Game client logic for arena events.  Mainly networking stuff
  *
  */
 

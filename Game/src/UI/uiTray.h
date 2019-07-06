@@ -89,8 +89,8 @@ void trayslot_Display( Entity *e, int i, int current_tray, int curTrayType, floa
 
 int gMacroOnstack;
 
-#define BOX_SIDE	40.f
-#define TRAY_YOFF	5
+#define BOX_SIDE    40.f
+#define TRAY_YOFF    5
 #define DEFAULT_TRAY_HT     50
 #define ARROW_OFFSET 7
 

@@ -1,10 +1,10 @@
 /*\
  *
- *	uiSGList.h/c - Copyright 2004, 2005 Cryptic Studios
- *		All Rights Reserved
- *		Confidential property of Cryptic Studios
+ *    uiSGList.h/c - Copyright 2004, 2005 Cryptic Studios
+ *        All Rights Reserved
+ *        Confidential property of Cryptic Studios
  *
- *	Shows a list of supergroups at the registration desk
+ *    Shows a list of supergroups at the registration desk
  *
  */
 

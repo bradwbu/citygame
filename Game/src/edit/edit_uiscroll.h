@@ -5,32 +5,32 @@
 
 typedef struct
 {
-	U8	depth;
-	U8	group;
-	U8	expanded;
-	char	name[128];
+    U8    depth;
+    U8    group;
+    U8    expanded;
+    char    name[128];
 } NameInfo;
 
 typedef int cb(char *,int);
 
 typedef struct
 {
-	NameInfo	*names;
-	int			count;
-	char		*list_names;
-	int			list_step;
-	int			list_count;
-	int			xpos,ypos;
-	int			maxlines;
-	int			maxcols;
-	char		header[128];
-	int			offset;
-	int			got_focus;
-	int			grow_upwards;
-	int			mouseDrag;		//true if a mouse down event should be treated like a click
-	int			lastIdx;		//used by mouseDrag events
-	cb			*callback;	
-	cb			*rollover;
+    NameInfo    *names;
+    int            count;
+    char        *list_names;
+    int            list_step;
+    int            list_count;
+    int            xpos,ypos;
+    int            maxlines;
+    int            maxcols;
+    char        header[128];
+    int            offset;
+    int            got_focus;
+    int            grow_upwards;
+    int            mouseDrag;        //true if a mouse down event should be treated like a click
+    int            lastIdx;        //used by mouseDrag events
+    cb            *callback;    
+    cb            *rollover;
 } ScrollInfo;
 
 

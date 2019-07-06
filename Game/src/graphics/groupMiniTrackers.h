@@ -7,7 +7,7 @@ typedef struct GroupDef GroupDef;
 
 typedef struct MiniTracker
 {
-	TexBind **tracker_binds[MAX_LODS];
+    TexBind **tracker_binds[MAX_LODS];
 } MiniTracker;
 
 void groupDrawBuildMiniTrackers(void);

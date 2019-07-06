@@ -15,13 +15,13 @@ extern int gNumEnhancesLeft;
 
 typedef struct EnhancementAnim
 {
-	Power	*pow;
-	int     expanding;
-	int     count;
-	int     id[5];
-	int     shrink[5];
-	float   xoffset;
-	float   scale[5];
+    Power    *pow;
+    int     expanding;
+    int     count;
+    int     id[5];
+    int     shrink[5];
+    float   xoffset;
+    float   scale[5];
 
 }EnhancementAnim;
 

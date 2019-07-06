@@ -13,25 +13,25 @@ typedef struct ContactResponseOption ContactResponseOption;
 ///////////////////////////////////////////////////////////////////////////////
 // client side version of StoryarcAlliance in storyarcprivate.h
 typedef enum StoryarcAlliance {
-	SA_ALLIANCE_BOTH,
-	SA_ALLIANCE_HERO,
-	SA_ALLIANCE_VILLAIN,
+    SA_ALLIANCE_BOTH,
+    SA_ALLIANCE_HERO,
+    SA_ALLIANCE_VILLAIN,
 } StoryarcAlliance;
 
 typedef struct StoryarcFlashbackHeader
 {
-	char					*name;
-	char					*fileID;
-	U32						bronzeTime;
-	U32						silverTime;
-	U32						goldTime;
-	int						minLevel;
-	int						maxLevel;
-	StoryarcAlliance		alliance;
-	F32						costMultiplier; // deprecated
-//	char					**completeRequires;
-	int						complete;
-	int						completeEvaluated;
+    char                    *name;
+    char                    *fileID;
+    U32                        bronzeTime;
+    U32                        silverTime;
+    U32                        goldTime;
+    int                        minLevel;
+    int                        maxLevel;
+    StoryarcAlliance        alliance;
+    F32                        costMultiplier; // deprecated
+//    char                    **completeRequires;
+    int                        complete;
+    int                        completeEvaluated;
 } StoryarcFlashbackHeader;
 
 extern StoryarcFlashbackHeader **storyarcFlashbackList;

@@ -14,42 +14,42 @@
 
 typedef struct
 {
-	int		curmodel_changes;
+    int        curmodel_changes;
 
-	int		bonemodel_drawn;
-	int		worldmodel_drawn;
-	int		clothmodel_drawn;
+    int        bonemodel_drawn;
+    int        worldmodel_drawn;
+    int        clothmodel_drawn;
 
-	int		model_count;
-	int		model_unique_count;
+    int        model_count;
+    int        model_unique_count;
 
-	int		tri_count;
-	int		tri_unique_count;
+    int        tri_count;
+    int        tri_unique_count;
 
-	int		vert_count;
-	int		vert_unique_count;
+    int        vert_count;
+    int        vert_unique_count;
 
-	int		buffer_changes;
-	int		buffer_calls;
+    int        buffer_changes;
+    int        buffer_calls;
 
-	int		texbind_changes;
-	int		texbind_calls;
+    int        texbind_changes;
+    int        texbind_calls;
 
-	int		blendstate_changes;
-	int		blendstate_calls;
+    int        blendstate_changes;
+    int        blendstate_calls;
 
-	int		vp_changes;
+    int        vp_changes;
 
-	int		drawstate_changes;
-	int		drawstate_calls;
+    int        drawstate_changes;
+    int        drawstate_calls;
 
-	int		drawcalls;
+    int        drawcalls;
 
-	int		frame_id;
+    int        frame_id;
 
-	int		drawcall_texbinds[MAX_TEX_BINDS];
+    int        drawcall_texbinds[MAX_TEX_BINDS];
 
-	double	costs[STATS_NUM_CARDS];
+    double    costs[STATS_NUM_CARDS];
 
     S64     cycles_cpu;             //# of CPU cycles between clear and get of stats
 //  S64     cycles_gpu;             //# of GPU cycles between clear and get of stats
@@ -57,17 +57,17 @@ typedef struct
 
 typedef struct
 {
-	int		vert_access_count;
-	int		vert_lock_count;
-	int		model_lock_count;
-	int		tri_histo[128];
-	int		texload_count;
-	char	tex_histo[16384];
+    int        vert_access_count;
+    int        vert_lock_count;
+    int        model_lock_count;
+    int        tri_histo[128];
+    int        texload_count;
+    char    tex_histo[16384];
 
-	int		texture_usage_map;
-	int		texture_usage_total;
-	int		texture_usage_recent_num;
-	int		texture_usage_recent_size;
+    int        texture_usage_map;
+    int        texture_usage_total;
+    int        texture_usage_recent_num;
+    int        texture_usage_recent_size;
 
 } RenderStats;
 
@@ -85,12 +85,12 @@ typedef enum
 
 enum
 {
-	RSTAT_TYPE   = 1 << RTSTAT_TYPE,
-	RSTAT_DIST   = 1 << RTSTAT_DIST,
-	RSTAT_UWATER = 1 << RTSTAT_UWATER,
-	RSTAT_SHADOW = 1 << RTSTAT_SHADOW,
-	RSTAT_OTHER  = 1 << RTSTAT_OTHER,
-	RSTAT_ALL    = (1 << RTSTAT_COUNT) - 1
+    RSTAT_TYPE   = 1 << RTSTAT_TYPE,
+    RSTAT_DIST   = 1 << RTSTAT_DIST,
+    RSTAT_UWATER = 1 << RTSTAT_UWATER,
+    RSTAT_SHADOW = 1 << RTSTAT_SHADOW,
+    RSTAT_OTHER  = 1 << RTSTAT_OTHER,
+    RSTAT_ALL    = (1 << RTSTAT_COUNT) - 1
 };
 
 void rdrStatsBeginFrame(void);
@@ -106,11 +106,11 @@ typedef struct VBO VBO;
 
 typedef struct SimpleStats
 {
-	int num_models;
-	int num_objects;
-	int num_tris;
-	float obj_cost;
-	float tri_cost;
+    int num_models;
+    int num_objects;
+    int num_tris;
+    float obj_cost;
+    float tri_cost;
 } SimpleStats;
 
 
@@ -123,8 +123,8 @@ void rdrStatsGetLevelCost(SimpleStats *cur, SimpleStats *minspec);
 #define RDRSTAT_ADD(s,d) render_stats.s += d
 #define RDRSTAT_INC(s) render_stats.s++
 #define RDRSTAT_TEXLOAD(id) \
-	RDRSTAT_ADD(texload_count,1); \
-	RDRSTAT_ADD(tex_histo[id],1);
+    RDRSTAT_ADD(texload_count,1); \
+    RDRSTAT_ADD(tex_histo[id],1);
 
 #else
 

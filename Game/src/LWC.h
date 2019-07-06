@@ -6,9 +6,9 @@
 
 typedef enum
 {
-	LWC_DOWNLOAD_NORMAL		= 0,
-	LWC_DOWNLOAD_FASTEST	= 1,
-	LWC_DOWNLOAD_PAUSED		= 2,
+    LWC_DOWNLOAD_NORMAL        = 0,
+    LWC_DOWNLOAD_FASTEST    = 1,
+    LWC_DOWNLOAD_PAUSED        = 2,
 } LWC_DOWNLOAD_RATE;
 
 void LWC_Init();
@@ -28,11 +28,11 @@ bool LWC_CheckStageAndShowMessageIfNotReady(LWC_STAGE stage);
 
 // seconds remaining until the next stage is ready
 U32 LWC_GetRemainingSecondsForNextStage();
-F32 LWC_GetPercentDoneNextStage();		// 0.0f to 1.0f
+F32 LWC_GetPercentDoneNextStage();        // 0.0f to 1.0f
 
 // seconds remaining until the last stage is ready (all data is ready)
 U32 LWC_GetRemainingSecondsTotal();
-F32 LWC_GetPercentDoneTotal();		// 0.0f to 1.0f
+F32 LWC_GetPercentDoneTotal();        // 0.0f to 1.0f
 
 void LWCDebug_SetMode(int);
 void LWC_SetCurrentDataStage(LWC_STAGE stage);

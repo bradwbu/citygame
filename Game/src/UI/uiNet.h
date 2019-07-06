@@ -77,7 +77,7 @@ void recieveLeagueERQuit(Packet *pak);
 void receiveSuperGroupOffer(Packet *pak );
 void receiveSuperResponse(Packet *pak);
 void receiveRegisterSupergroup(Packet *pak);
-void sgroup_sendCreate(	Supergroup* sg );
+void sgroup_sendCreate(    Supergroup* sg );
 void sgroup_requestCostume(void);
 void sendTeamAccept(void *data);
 void sendTeamDecline(void *data);
@@ -283,16 +283,16 @@ void receiveEditCritterCostume(Packet *pak);
 
 typedef struct ArenaPet
 {
-	char * name;		
-	int cost;
-	int tokenID;
-	int showAsInCurrentlySelectedArmy[MAX_OF_PET_TYPE]; //Just for available
+    char * name;        
+    int cost;
+    int tokenID;
+    int showAsInCurrentlySelectedArmy[MAX_OF_PET_TYPE]; //Just for available
 } ArenaPet;
 
 typedef struct ArenaPetManagementInfo
 {
-	ArenaPet ** availablePets;
-	ArenaPet ** currentPets;
+    ArenaPet ** availablePets;
+    ArenaPet ** currentPets;
 } ArenaPetManagementInfo;
 
 extern ArenaPetManagementInfo g_ArenaPetManagementInfo;

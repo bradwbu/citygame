@@ -6,47 +6,47 @@
 
 typedef struct BodyConfigScales
 {
-	F32 	global;
-	F32 	bone;
-	F32		head;
-	F32 	chest;
-	F32 	shoulder;
-	F32		waist;
-	F32 	hip;
-	F32		leg;
-	F32		arm;
+    F32     global;
+    F32     bone;
+    F32        head;
+    F32     chest;
+    F32     shoulder;
+    F32        waist;
+    F32     hip;
+    F32        leg;
+    F32        arm;
 
-	Vec3	face[NUM_3D_BODY_SCALES];
+    Vec3    face[NUM_3D_BODY_SCALES];
 
 }BodyConfigScales;
 
 typedef struct BodyConfig{
 
-	char *	displayName;
-	char *	bodyBuild;	// athletic, 
-	char *	bodyType;	// male, female, huge	
+    char *    displayName;
+    char *    bodyBuild;    // athletic, 
+    char *    bodyType;    // male, female, huge    
 
-	union
-	{
-		struct {
-			BodyConfigScales scales;
-		};
+    union
+    {
+        struct {
+            BodyConfigScales scales;
+        };
 
-		struct {
-			float fScales[MAX_BODY_SCALES];
-		};
-	};
+        struct {
+            float fScales[MAX_BODY_SCALES];
+        };
+    };
 
 
 }BodyConfig;
 
 typedef enum BuildPresetTypes
 {
-	BUILD_SLIM,
-	BUILD_AVERAGE,
-	BUILD_ATHLETIC,
-	BUILD_HEAVY,
-	BUILD_NUM,
+    BUILD_SLIM,
+    BUILD_AVERAGE,
+    BUILD_ATHLETIC,
+    BUILD_HEAVY,
+    BUILD_NUM,
 } BuildPresetTypes;
 
 extern BodyConfig sBodyConfig;
@@ -61,16 +61,16 @@ void convergeConfigs();
 void setConfigs();
 void tailorGenderInit( Entity * e );
 
-void genderScale(			float x, float y, float screenScaleX, float screenScaleY);
-void genderBoneScale(		float x, float y, float screenScaleX, float screenScaleY, float uiScale, int costume);
-void genderLegScale(		float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume);
-void genderChestScale(		float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume);
-void genderWaistScale(		float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume);
-void genderHeadScale(		float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume);
-void genderHipScale(		float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume);
-void genderShoulderScale(	float x, float y, float screenScaleX, float screenScaleY, float uiScale, int costume);
-void genderArmScale(		float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume);
-void genderFaceScale(		float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume, int part);
+void genderScale(            float x, float y, float screenScaleX, float screenScaleY);
+void genderBoneScale(        float x, float y, float screenScaleX, float screenScaleY, float uiScale, int costume);
+void genderLegScale(        float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume);
+void genderChestScale(        float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume);
+void genderWaistScale(        float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume);
+void genderHeadScale(        float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume);
+void genderHipScale(        float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume);
+void genderShoulderScale(    float x, float y, float screenScaleX, float screenScaleY, float uiScale, int costume);
+void genderArmScale(        float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume);
+void genderFaceScale(        float x, float y, float screenScaleX, float screenScaleY, float uiscale, int costume, int part);
 
 F32 adjustScale(F32 orig, F32 range);
 void genderSetScalesFromApperance( Entity * e );

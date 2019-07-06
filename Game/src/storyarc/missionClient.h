@@ -1,10 +1,10 @@
 /*\
  *
- *	missionClient.h/c - Copyright 2003, 2004 Cryptic Studios
- *		All Rights Reserved
- *		Confidential property of Cryptic Studios
+ *    missionClient.h/c - Copyright 2003, 2004 Cryptic Studios
+ *        All Rights Reserved
+ *        Confidential property of Cryptic Studios
  *
- *	client UI stuff for tasks and missions, includes objective object code
+ *    client UI stuff for tasks and missions, includes objective object code
  *
  */
 
@@ -20,7 +20,7 @@ typedef struct Packet Packet;
 // *********************************************************************************
 
 char* MissionAddTimer(char* str, TaskStatus* task, int testwidth); // adds the mission timer to the string; if testwidth is set, maximum width string given
-char* MissionSecondLine(TaskStatus* task, int showState);	// get a descriptive second line - either location or status
+char* MissionSecondLine(TaskStatus* task, int showState);    // get a descriptive second line - either location or status
 void MissionObjectiveStopTimer();
 
 // *********************************************************************************

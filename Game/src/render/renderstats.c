@@ -64,7 +64,7 @@ S64 g_statsDisplayCycles[RENDERPASS_COUNT] = { 0, 0, 0, 0, 0, 0, 0, 0, 0};
 #define COLOR_HIHEAT    0xFF0000FF
 #define COLOR_FULLHEAT  0xFF7F7FFF
 
-#define COLOR_WHITE		0xFFFFFFFF
+#define COLOR_WHITE        0xFFFFFFFF
 
 void rdrStatsBeginFrame(void)
 {
@@ -136,122 +136,122 @@ RTStats* rdrStatsGetPtr(ERTSTAT_TYPE type, int pass)
 
 static unsigned int colorLerpComponent(unsigned int color0, unsigned int color1, float t, unsigned int mask, unsigned int shift)
 {
-	unsigned int c0, c1;
-	unsigned int c;
-	c0 = (color0 & mask) >> shift;
-	c1 = (color1 & mask) >> shift;
-	c = c0 * (1.f-t) + c1 * t;
-	if (c > 0xFF)
-		c = 0xFF;
-	if (c < 0)
-		c = 0;
+    unsigned int c0, c1;
+    unsigned int c;
+    c0 = (color0 & mask) >> shift;
+    c1 = (color1 & mask) >> shift;
+    c = c0 * (1.f-t) + c1 * t;
+    if (c > 0xFF)
+        c = 0xFF;
+    if (c < 0)
+        c = 0;
 
-	return c << shift;
+    return c << shift;
 }
 
 unsigned int colorLerp(unsigned int color0, unsigned int color1, float t)
 {
-	int color = 0;
+    int color = 0;
 
-	if (t < 0)
-		t = 0;
-	if (t > 1)
-		t = 1;
+    if (t < 0)
+        t = 0;
+    if (t > 1)
+        t = 1;
 
-	color |= colorLerpComponent(color0, color1, t, 0xFF000000, 24);
-	color |= colorLerpComponent(color0, color1, t, 0x00FF0000, 16);
-	color |= colorLerpComponent(color0, color1, t, 0x0000FF00, 8);
-	color |= colorLerpComponent(color0, color1, t, 0x000000FF, 0);
+    color |= colorLerpComponent(color0, color1, t, 0xFF000000, 24);
+    color |= colorLerpComponent(color0, color1, t, 0x00FF0000, 16);
+    color |= colorLerpComponent(color0, color1, t, 0x0000FF00, 8);
+    color |= colorLerpComponent(color0, color1, t, 0x000000FF, 0);
 
-	return color;
+    return color;
 }
 
 static float fullHeatCycle = 0;
 unsigned int getHeatColor(float heat, int cycle)
 {
-	if (heat > 1)
-		heat = 1;
+    if (heat > 1)
+        heat = 1;
 
-	if (heat < 0.6f)
-		return COLOR_LOWHEAT;
-	else if (heat < 0.8f)
-		return colorLerp(COLOR_LOWHEAT, COLOR_MIDHEAT, (heat-0.6f) * 5.f);
-	else if (heat < 1)
-		return colorLerp(COLOR_MIDHEAT, COLOR_HIHEAT, (heat-0.8f) * 5.f);
-	else if (cycle)
-		return colorLerp(COLOR_HIHEAT, COLOR_FULLHEAT, 0.5f + (0.5f * sinf(fullHeatCycle - 1.5708f)));
+    if (heat < 0.6f)
+        return COLOR_LOWHEAT;
+    else if (heat < 0.8f)
+        return colorLerp(COLOR_LOWHEAT, COLOR_MIDHEAT, (heat-0.6f) * 5.f);
+    else if (heat < 1)
+        return colorLerp(COLOR_MIDHEAT, COLOR_HIHEAT, (heat-0.8f) * 5.f);
+    else if (cycle)
+        return colorLerp(COLOR_HIHEAT, COLOR_FULLHEAT, 0.5f + (0.5f * sinf(fullHeatCycle - 1.5708f)));
 
-	return COLOR_HIHEAT;
+    return COLOR_HIHEAT;
 }
 
 
 void drawProfilerBar(F32 x1, F32 y1, F32 x2, F32 y2, F32 depth, int color)
 {
-	display_sprite(white_tex_atlas,
-		x1,
-		y1,
-		depth,
-		(double)(x2-x1)/8.0,
-		(double)(y2-y1)/8.0,
-		color);
+    display_sprite(white_tex_atlas,
+        x1,
+        y1,
+        depth,
+        (double)(x2-x1)/8.0,
+        (double)(y2-y1)/8.0,
+        color);
 }
 
 #define BORDER 2
 
 void drawCostBar(float x, float y, float width, float height, float z, double cost, double maxCost)
 {
-	double heat;
-	F32 x2;
-	heat = cost / maxCost;
+    double heat;
+    F32 x2;
+    heat = cost / maxCost;
 
-	drawProfilerBar(x,y,x+width,y+height,z++,0x000000ff);
-	drawProfilerBar(x+BORDER-1,y+BORDER-1,x+width-(BORDER-1),y+height-(BORDER-1),z++,0xffffffff);
-	drawProfilerBar(x+BORDER,y+BORDER,x+width-BORDER,y+height-BORDER,z++,0x7f7f7fff);
+    drawProfilerBar(x,y,x+width,y+height,z++,0x000000ff);
+    drawProfilerBar(x+BORDER-1,y+BORDER-1,x+width-(BORDER-1),y+height-(BORDER-1),z++,0xffffffff);
+    drawProfilerBar(x+BORDER,y+BORDER,x+width-BORDER,y+height-BORDER,z++,0x7f7f7fff);
 
-	width -= BORDER+BORDER;
-	height -= BORDER+BORDER;
-	y += BORDER;
-	x += BORDER;
+    width -= BORDER+BORDER;
+    height -= BORDER+BORDER;
+    y += BORDER;
+    x += BORDER;
 
-	if (heat >= 1)
-		heat = 1;
+    if (heat >= 1)
+        heat = 1;
 
-	x2 = x + heat * width;
-	drawProfilerBar(x,y,x2,y+height,z++,getHeatColor(heat, 1));
+    x2 = x + heat * width;
+    drawProfilerBar(x,y,x2,y+height,z++,getHeatColor(heat, 1));
 }
 
 double drawBreakdownBar(float x, float y, float width, float height, float z, double cost1, double cost2, int color1, int color2, double maxCost)
 {
-	float x2;
-	double heat;
+    float x2;
+    double heat;
 
-	if (cost1 + cost2 > maxCost)
-	{
-		float mult = maxCost / (cost1 + cost2);
-		cost1 *= mult;
-		cost2 *= mult;
-	}
+    if (cost1 + cost2 > maxCost)
+    {
+        float mult = maxCost / (cost1 + cost2);
+        cost1 *= mult;
+        cost2 *= mult;
+    }
 
-	heat = (cost1 + cost2) / maxCost;
+    heat = (cost1 + cost2) / maxCost;
 
-	drawProfilerBar(x,y,x+width,y+height,z++,0x000000ff);
-	drawProfilerBar(x+BORDER-1,y+BORDER-1,x+width-(BORDER-1),y+height-(BORDER-1),z++,0xffffffff);
-	drawProfilerBar(x+BORDER,y+BORDER,x+width-BORDER,y+height-BORDER,z++,0x7f7f7fff);
+    drawProfilerBar(x,y,x+width,y+height,z++,0x000000ff);
+    drawProfilerBar(x+BORDER-1,y+BORDER-1,x+width-(BORDER-1),y+height-(BORDER-1),z++,0xffffffff);
+    drawProfilerBar(x+BORDER,y+BORDER,x+width-BORDER,y+height-BORDER,z++,0x7f7f7fff);
 
-	width -= BORDER+BORDER;
-	height -= BORDER+BORDER;
+    width -= BORDER+BORDER;
+    height -= BORDER+BORDER;
 
-	y += BORDER;
-	x += BORDER;
+    y += BORDER;
+    x += BORDER;
 
-	x2 = x + (cost1 / maxCost) * width;
-	drawProfilerBar(x,y,x2,y+height,z++,color1);
+    x2 = x + (cost1 / maxCost) * width;
+    drawProfilerBar(x,y,x2,y+height,z++,color1);
 
-	x = x2;
-	x2 = x + (cost2 / maxCost) * width;
-	drawProfilerBar(x,y,x2,y+height,z++,color2);
+    x = x2;
+    x2 = x + (cost2 / maxCost) * width;
+    drawProfilerBar(x,y,x2,y+height,z++,color2);
 
-	return heat;
+    return heat;
 }
 
 static float cost_hist[640] = {0};
@@ -260,9 +260,9 @@ static int cost_hist_idx = 0;
 static void drawCostGraph(int scale, int card_idx)
 {
 
-	int		i,idx;
-	float	height;
-	int		w, h;
+    int        i,idx;
+    float    height;
+    int        w, h;
 
     double total_cost = 0.0;
 
@@ -271,27 +271,27 @@ static void drawCostGraph(int scale, int card_idx)
         total_cost += STAT_TOTAL(i, costs[card_idx]);
     }
 
-	cost_hist[cost_hist_idx++] = total_cost;
-	if (cost_hist_idx >= ARRAY_SIZE(cost_hist))
-		cost_hist_idx -= ARRAY_SIZE(cost_hist);
+    cost_hist[cost_hist_idx++] = total_cost;
+    if (cost_hist_idx >= ARRAY_SIZE(cost_hist))
+        cost_hist_idx -= ARRAY_SIZE(cost_hist);
 
-	if (!game_state.costgraph)
-		return;
+    if (!game_state.costgraph)
+        return;
 
-	fontSet(0);
+    fontSet(0);
 
-	windowSize(&w, &h);
+    windowSize(&w, &h);
 
-	for(i=0;i<ARRAY_SIZE(cost_hist);i++)
-	{
-		idx = cost_hist_idx + i;
-		if (idx >= ARRAY_SIZE(cost_hist))
-			idx -= ARRAY_SIZE(cost_hist);
+    for(i=0;i<ARRAY_SIZE(cost_hist);i++)
+    {
+        idx = cost_hist_idx + i;
+        if (idx >= ARRAY_SIZE(cost_hist))
+            idx -= ARRAY_SIZE(cost_hist);
 
-		height = cost_hist[idx] / MAX_COST_TOTAL;
+        height = cost_hist[idx] / MAX_COST_TOTAL;
 
-		drawLine(w - i, 0, w - i + 1, height * scale, getHeatColor(height, 0) >> 8 | 0xFF000000);
-	}
+        drawLine(w - i, 0, w - i + 1, height * scale, getHeatColor(height, 0) >> 8 | 0xFF000000);
+    }
 }
 
 
@@ -306,7 +306,7 @@ static void printRenderStats(int offset_x, int offset_y, int line_height)
         "Shadow4",
         "Cubeface",
         "Reflect",
-		"Reflect2",
+        "Reflect2",
         //"ImageCap",
     };
     char* labels_sub[] = {
@@ -505,9 +505,9 @@ static void printRenderStats(int offset_x, int offset_y, int line_height)
 
 void rdrStatsDisplay()
 {
-	int			i,unique_tex=0,low_card;
-	extern int	ctri_total;
-	static int	heat_timer = 0;
+    int            i,unique_tex=0,low_card;
+    extern int    ctri_total;
+    static int    heat_timer = 0;
 
     unsigned total_tris = 0;
     unsigned total_drawcalls = 0;
@@ -520,24 +520,24 @@ void rdrStatsDisplay()
         total_tex_changes += STAT_TOTAL(i, texbind_changes);
     }
 
-	ADD_MISC_COUNT(total_tris, "Triangles Drawn");
-	ADD_MISC_COUNT(total_drawcalls, "Draw Calls");
-	ADD_MISC_COUNT(total_tex_changes, "Texture Changes");
+    ADD_MISC_COUNT(total_tris, "Triangles Drawn");
+    ADD_MISC_COUNT(total_drawcalls, "Draw Calls");
+    ADD_MISC_COUNT(total_tex_changes, "Texture Changes");
 
-	if (!heat_timer)
-	{
-		heat_timer = timerAlloc();
-		timerStart(heat_timer);
-	}
-	else
-	{
-		fullHeatCycle += 10.f * timerElapsedAndStart(heat_timer);
-		while (fullHeatCycle >= TWOPI)
-			fullHeatCycle -= TWOPI;
-	}
+    if (!heat_timer)
+    {
+        heat_timer = timerAlloc();
+        timerStart(heat_timer);
+    }
+    else
+    {
+        fullHeatCycle += 10.f * timerElapsedAndStart(heat_timer);
+        while (fullHeatCycle >= TWOPI)
+            fullHeatCycle -= TWOPI;
+    }
 
-	if (game_state.info)
-	{
+    if (game_state.info)
+    {
         unsigned total_model = 0;
         unsigned total_vert = 0;
         unsigned total_vert_unique = 0;
@@ -552,7 +552,7 @@ void rdrStatsDisplay()
         unsigned total_drawnmodel_bone = 0;
         unsigned total_drawnmodel_cloth = 0;
 
-		char buffer[1024];
+        char buffer[1024];
 
         for(i = 0; i <= RENDERPASS_COUNT; i++)
         {
@@ -569,51 +569,51 @@ void rdrStatsDisplay()
             total_drawnmodel_cloth += STAT_TOTAL(i, clothmodel_drawn); 
         }
 
-		sprintf(buffer, "O %d/%d  P % 4d  V %4d/%d/%d  SP % 4d  BC %d Tex: %d.%03dM/%d.%03dM Recent: %d.%03dM (%d) Queued: %d  VBOChanges: %d/%d",
-			total_model, total_model_type,
-			total_tris /* + STAT_TOTAL(shadow_tri_count)*/,
-			total_vert,total_vert_unique,ctri_total,
-			total_tri_shadow,
-			total_blend,
-			render_stats.texture_usage_map/1000000, render_stats.texture_usage_map/1000 % 1000,
-			render_stats.texture_usage_total/1000000, render_stats.texture_usage_total/1000 % 1000,
-			render_stats.texture_usage_recent_size/1000000, render_stats.texture_usage_recent_size/1000 % 1000,
-			render_stats.texture_usage_recent_num,
-			texLoadsPending(1),
-			total_buff_call, total_buff_change);
+        sprintf(buffer, "O %d/%d  P % 4d  V %4d/%d/%d  SP % 4d  BC %d Tex: %d.%03dM/%d.%03dM Recent: %d.%03dM (%d) Queued: %d  VBOChanges: %d/%d",
+            total_model, total_model_type,
+            total_tris /* + STAT_TOTAL(shadow_tri_count)*/,
+            total_vert,total_vert_unique,ctri_total,
+            total_tri_shadow,
+            total_blend,
+            render_stats.texture_usage_map/1000000, render_stats.texture_usage_map/1000 % 1000,
+            render_stats.texture_usage_total/1000000, render_stats.texture_usage_total/1000 % 1000,
+            render_stats.texture_usage_recent_size/1000000, render_stats.texture_usage_recent_size/1000 % 1000,
+            render_stats.texture_usage_recent_num,
+            texLoadsPending(1),
+            total_buff_call, total_buff_change);
 
-		//xyprintf(0,480/8-1 + TEXT_JUSTIFY,"%s");
-		printDebugString(buffer, 1, 1, 1, 11, -1, 0, 255, NULL);
-		xyprintf(5,24,"%d %d %d",total_drawnmodel_world,total_drawnmodel_bone,total_drawnmodel_cloth);
-	}
-	if (game_state.tri_hist)
-	{
-		for(i=0;i<20;i++)
-		{
-			xyprintf(i * 5,480/8-4 + TEXT_JUSTIFY,"%d",1 << i);
-			xyprintf(i * 5,480/8-3 + TEXT_JUSTIFY,"%d",render_stats.tri_histo[i]);
-		}
-		for(i=0;i<ARRAY_SIZE(render_stats.tex_histo);i++)
-		{
-			if (render_stats.tex_histo[i])
-				unique_tex++;
-		}
-		xyprintf(0,480/8-5 + TEXT_JUSTIFY,"Unique tex %d",unique_tex);
-	}
+        //xyprintf(0,480/8-1 + TEXT_JUSTIFY,"%s");
+        printDebugString(buffer, 1, 1, 1, 11, -1, 0, 255, NULL);
+        xyprintf(5,24,"%d %d %d",total_drawnmodel_world,total_drawnmodel_bone,total_drawnmodel_cloth);
+    }
+    if (game_state.tri_hist)
+    {
+        for(i=0;i<20;i++)
+        {
+            xyprintf(i * 5,480/8-4 + TEXT_JUSTIFY,"%d",1 << i);
+            xyprintf(i * 5,480/8-3 + TEXT_JUSTIFY,"%d",render_stats.tri_histo[i]);
+        }
+        for(i=0;i<ARRAY_SIZE(render_stats.tex_histo);i++)
+        {
+            if (render_stats.tex_histo[i])
+                unique_tex++;
+        }
+        xyprintf(0,480/8-5 + TEXT_JUSTIFY,"Unique tex %d",unique_tex);
+    }
 
-	low_card = -1;
-	for (i = 0; i < STATS_NUM_CARDS; i++)
-	{
-		int card = 1 << i;
-		if (game_state.stats_cards & card)
-		{
-			low_card = i;
-			break;
-		}
-	}
+    low_card = -1;
+    for (i = 0; i < STATS_NUM_CARDS; i++)
+    {
+        int card = 1 << i;
+        if (game_state.stats_cards & card)
+        {
+            low_card = i;
+            break;
+        }
+    }
 
-	if (game_state.showcomplexity)
-	{
+    if (game_state.showcomplexity)
+    {
         char* labels[] = {
             "Cost(in ms):",
             "Vert Program Changes:",
@@ -644,8 +644,8 @@ void rdrStatsDisplay()
         const int color_total = 8;
         const int category_color = 5;
 
-		char buffer[1024];
-		int y = 1;
+        char buffer[1024];
+        int y = 1;
         int j = 0;
         int t = 0;
 
@@ -703,11 +703,11 @@ void rdrStatsDisplay()
         y = 1;
 
         if(low_card >= 0)
-		{
+        {
             sprintf(buffer, "%.3f", total_cost[0] + total_cost[1] + total_cost[2] + total_cost[3] + total_cost[4]);
             printDebugString(buffer, offset_total, y, 1.0f, line_height, color_total, 0, 255, NULL);
             y += line_height;
-		}
+        }
 
         for(i = 0; i < ARRAY_SIZE(labels) - 1; i++)
         {
@@ -744,9 +744,9 @@ void rdrStatsDisplay()
         }
 
         font_set(&game_12, 0, 0, 1, 1, COLOR_WHITE, COLOR_WHITE);
-		sprintf(buffer, "FPS: %6.2f                   Total   | Opaque | Alpha  | A-Water | Shadow | Other", game_state.fps);
-		printDebugString(buffer, 1, y, 1, line_height, -1, 0, 255, NULL);
-	}
+        sprintf(buffer, "FPS: %6.2f                   Total   | Opaque | Alpha  | A-Water | Shadow | Other", game_state.fps);
+        printDebugString(buffer, 1, y, 1, line_height, -1, 0, 255, NULL);
+    }
 
     if (game_state.showrdrstats)
     {
@@ -758,139 +758,139 @@ void rdrStatsDisplay()
         //perfCounterStop();
     }
 
-	if (!editMode() && game_state.costbars && low_card >= 0)
-	{
-		font_set(&game_12, 0, 0, 1, 1, COLOR_WHITE, COLOR_WHITE);
-		cprntEx(300, 32, 1, 1, 1, 0, "Total");
-		rdrStatsDrawBar(350, 20, 250, 15, 1, RSTAT_ALL, low_card, MAX_COST_TOTAL);
-		cprntEx(300, 52, 1, 1, 1, 0, "Type");
-		rdrStatsDrawBar(350, 40, 250, 15, 1, RSTAT_TYPE, low_card, MAX_COST_TOTAL);
-		cprntEx(300, 72, 1, 1, 1, 0, "Dist");
-		rdrStatsDrawBar(350, 60, 250, 15, 1, RSTAT_DIST, low_card, MAX_COST_TOTAL);
-	    cprntEx(300, 92, 1, 1, 1, 0, "UnderWater");
-	    rdrStatsDrawBar(350, 80, 250, 15, 1, RSTAT_UWATER, low_card, MAX_COST_TOTAL);
-		cprntEx(300, 112, 1, 1, 1, 0, "Shadow");
-		rdrStatsDrawBar(350, 100, 250, 15, 1, RSTAT_SHADOW, low_card, MAX_COST_TOTAL);
-		cprntEx(300, 132, 1, 1, 1, 0, "Other");
-		rdrStatsDrawBar(350, 120, 250, 15, 1, RSTAT_OTHER, low_card, MAX_COST_TOTAL);
-	}
-	else if (!editMode() && game_state.stats_cards)
-	{
-		int y = 20;
-		for (i = 0; i < STATS_NUM_CARDS; i++)
-		{
-			int card = 1 << i;
-			if (!(game_state.stats_cards & card))
-				continue;
-			font_set(&game_12, 0, 0, 1, 1, COLOR_WHITE, COLOR_WHITE);
-			cprntEx(250, y+12, 1, 1, 1, 0, rdrStatsCardName(i));
-			rdrStatsDrawBar(350, y, 250, 15, 1, RSTAT_TYPE | RSTAT_DIST | RSTAT_UWATER, i, MAX_COST);
-			y += 20;
-		}
-	}
+    if (!editMode() && game_state.costbars && low_card >= 0)
+    {
+        font_set(&game_12, 0, 0, 1, 1, COLOR_WHITE, COLOR_WHITE);
+        cprntEx(300, 32, 1, 1, 1, 0, "Total");
+        rdrStatsDrawBar(350, 20, 250, 15, 1, RSTAT_ALL, low_card, MAX_COST_TOTAL);
+        cprntEx(300, 52, 1, 1, 1, 0, "Type");
+        rdrStatsDrawBar(350, 40, 250, 15, 1, RSTAT_TYPE, low_card, MAX_COST_TOTAL);
+        cprntEx(300, 72, 1, 1, 1, 0, "Dist");
+        rdrStatsDrawBar(350, 60, 250, 15, 1, RSTAT_DIST, low_card, MAX_COST_TOTAL);
+        cprntEx(300, 92, 1, 1, 1, 0, "UnderWater");
+        rdrStatsDrawBar(350, 80, 250, 15, 1, RSTAT_UWATER, low_card, MAX_COST_TOTAL);
+        cprntEx(300, 112, 1, 1, 1, 0, "Shadow");
+        rdrStatsDrawBar(350, 100, 250, 15, 1, RSTAT_SHADOW, low_card, MAX_COST_TOTAL);
+        cprntEx(300, 132, 1, 1, 1, 0, "Other");
+        rdrStatsDrawBar(350, 120, 250, 15, 1, RSTAT_OTHER, low_card, MAX_COST_TOTAL);
+    }
+    else if (!editMode() && game_state.stats_cards)
+    {
+        int y = 20;
+        for (i = 0; i < STATS_NUM_CARDS; i++)
+        {
+            int card = 1 << i;
+            if (!(game_state.stats_cards & card))
+                continue;
+            font_set(&game_12, 0, 0, 1, 1, COLOR_WHITE, COLOR_WHITE);
+            cprntEx(250, y+12, 1, 1, 1, 0, rdrStatsCardName(i));
+            rdrStatsDrawBar(350, y, 250, 15, 1, RSTAT_TYPE | RSTAT_DIST | RSTAT_UWATER, i, MAX_COST);
+            y += 20;
+        }
+    }
 
-	drawCostGraph(40, low_card);
+    drawCostGraph(40, low_card);
 
-	CopyStructs(&last_render_stats, &render_stats, 1);
-	ZeroStruct(&render_stats);
+    CopyStructs(&last_render_stats, &render_stats, 1);
+    ZeroStruct(&render_stats);
 }
 
 void rdrStatsDrawBar(float x, float y, float width, float height, float z, int stats, int card_idx, double maxCost)
 {
-	double cost = 0;
+    double cost = 0;
     int i;
 
-	if (stats & RSTAT_TYPE)
-	{
+    if (stats & RSTAT_TYPE)
+    {
         for(i = 0; i < RENDERPASS_COUNT; i++)
-		    cost += STAT_TYPE(i, costs[card_idx]);
-	}
+            cost += STAT_TYPE(i, costs[card_idx]);
+    }
 
-	if (stats & RSTAT_DIST)
-	{
+    if (stats & RSTAT_DIST)
+    {
         for(i = 0; i < RENDERPASS_COUNT; i++)
-    		cost += STAT_DIST(i, costs[card_idx]);
-	}
+            cost += STAT_DIST(i, costs[card_idx]);
+    }
 
-	if (stats & RSTAT_UWATER)
-	{
+    if (stats & RSTAT_UWATER)
+    {
         for(i = 0; i < RENDERPASS_COUNT; i++)
-	    	cost += STAT_UWATER(i, costs[card_idx]);
-	}
+            cost += STAT_UWATER(i, costs[card_idx]);
+    }
 
-	if (stats & RSTAT_SHADOW)
-	{
+    if (stats & RSTAT_SHADOW)
+    {
         for(i = 0; i < RENDERPASS_COUNT; i++)
-    		cost += STAT_SHADOW(i, costs[card_idx]);
-	}
+            cost += STAT_SHADOW(i, costs[card_idx]);
+    }
 
-	if (stats & RSTAT_OTHER)
-	{
+    if (stats & RSTAT_OTHER)
+    {
         for(i = 0; i < RENDERPASS_COUNT; i++)
-	    	cost += STAT_OTHER(i, costs[card_idx]);
-	}
+            cost += STAT_OTHER(i, costs[card_idx]);
+    }
 
-	// draw the bar
-	drawCostBar(x, y, width, height, z, cost, maxCost);
+    // draw the bar
+    drawCostBar(x, y, width, height, z, cost, maxCost);
 }
 
 void rdrStatsAddCard(char *name)
 {
-	int i;
-	for (i = 0; i < STATS_NUM_CARDS; i++)
-	{
-		if (simpleMatch(name, rdrStatsCardName(i)))
-			game_state.stats_cards |= 1 << i;
-	}
+    int i;
+    for (i = 0; i < STATS_NUM_CARDS; i++)
+    {
+        if (simpleMatch(name, rdrStatsCardName(i)))
+            game_state.stats_cards |= 1 << i;
+    }
 }
 
 void rdrStatsRemoveCard(char *name)
 {
-	int i;
-	for (i = 0; i < STATS_NUM_CARDS; i++)
-	{
-		if (simpleMatch(name, rdrStatsCardName(i)))
-			game_state.stats_cards &= ~(1 << i);
-	}
+    int i;
+    for (i = 0; i < STATS_NUM_CARDS; i++)
+    {
+        if (simpleMatch(name, rdrStatsCardName(i)))
+            game_state.stats_cards &= ~(1 << i);
+    }
 }
 
 static SimpleStats rdr_stats_minspec, rdr_stats_current;
 
 void rdrStatsClearLevelCost(void)
 {
-	ZeroStruct(&rdr_stats_minspec);
-	ZeroStruct(&rdr_stats_current);
+    ZeroStruct(&rdr_stats_minspec);
+    ZeroStruct(&rdr_stats_current);
 }
 
 void rdrStatsAddLevelModel(VBO *vbo, int ok_in_minspec)
 {
-	rdr_stats_current.num_models++;
-	rdr_stats_current.num_objects += vbo->tex_count;
-	rdr_stats_current.num_tris += vbo->tri_count;
-	rdr_stats_current.obj_cost += vbo->tex_count * 7.688888;
-	rdr_stats_current.tri_cost += vbo->tri_count * 0.278472;
+    rdr_stats_current.num_models++;
+    rdr_stats_current.num_objects += vbo->tex_count;
+    rdr_stats_current.num_tris += vbo->tri_count;
+    rdr_stats_current.obj_cost += vbo->tex_count * 7.688888;
+    rdr_stats_current.tri_cost += vbo->tri_count * 0.278472;
 
-	if (ok_in_minspec)
-	{
-		rdr_stats_minspec.num_models++;
-		rdr_stats_minspec.num_objects += vbo->tex_count;
-		rdr_stats_minspec.num_tris += vbo->tri_count;
-		rdr_stats_minspec.obj_cost += vbo->tex_count * 7.688888;
-		rdr_stats_minspec.tri_cost += vbo->tri_count * 0.278472;
-	}
+    if (ok_in_minspec)
+    {
+        rdr_stats_minspec.num_models++;
+        rdr_stats_minspec.num_objects += vbo->tex_count;
+        rdr_stats_minspec.num_tris += vbo->tri_count;
+        rdr_stats_minspec.obj_cost += vbo->tex_count * 7.688888;
+        rdr_stats_minspec.tri_cost += vbo->tri_count * 0.278472;
+    }
 }
 
 void rdrStatsGetLevelCost(SimpleStats *cur, SimpleStats *minspec)
 {
-	if (cur)
-	{
-		CopyStructs(cur, &rdr_stats_current, 1);
-	}
+    if (cur)
+    {
+        CopyStructs(cur, &rdr_stats_current, 1);
+    }
 
-	if (minspec)
-	{
-		CopyStructs(minspec, &rdr_stats_minspec, 1);
-	}
+    if (minspec)
+    {
+        CopyStructs(minspec, &rdr_stats_minspec, 1);
+    }
 }
 
 #endif

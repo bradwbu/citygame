@@ -15,32 +15,32 @@ typedef struct Grid Grid;
 
 typedef struct FxDebris 
 {
-	GfxNode* pGfxNode;
-	int iGfxNodeId;
-	NwEmissaryDataGuid nxEmissary;
-	Vec3 vScale;
-	int iLastPos[3];
-	GridIdxList* pGridIdxList;
-	int iFxID;
-	//const FxBhvr* bhvr;
+    GfxNode* pGfxNode;
+    int iGfxNodeId;
+    NwEmissaryDataGuid nxEmissary;
+    Vec3 vScale;
+    int iLastPos[3];
+    GridIdxList* pGridIdxList;
+    int iFxID;
+    //const FxBhvr* bhvr;
 } FxDebris;
 
 typedef struct FxFadeOutDebris
 {
-	struct FxFadeOutDebris* pNext;
-	GfxNode* pGfxNode;
-	int iGfxNodeId;
+    struct FxFadeOutDebris* pNext;
+    GfxNode* pGfxNode;
+    int iGfxNodeId;
 } FxFadeOutDebris;
 
 typedef struct FxDebrisManager
 {
-	Queue		debrisQueue;
-	U32			uiMaxDebris;
-	MemoryPool	mpDebris;
-	MemoryPool  mpFadeOutDebris;
-	Grid*		gridDebris;
-	FxFadeOutDebris* pFadeOutList;
-	U32			uiDebrisCount;
+    Queue        debrisQueue;
+    U32            uiMaxDebris;
+    MemoryPool    mpDebris;
+    MemoryPool  mpFadeOutDebris;
+    Grid*        gridDebris;
+    FxFadeOutDebris* pFadeOutList;
+    U32            uiDebrisCount;
 } FxDebrisManager;
 
 void fxInitDebrisManager();

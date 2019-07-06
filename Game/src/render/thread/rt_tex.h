@@ -6,34 +6,34 @@
 
 typedef struct RdrTexParams
 {
-	U16		width,height,x,y;
-	U32		clamp_s : 1;
-	U32		clamp_t : 1;
-	U32		mirror_s : 1;
-	U32		mirror_t : 1;
-	U32		mipmap : 1;
-	U32		point_sample : 1;
-	U32		dxtc : 1;
-	U32		no_file_corruption_check : 1;
-	U32		mip_count : 4;
-	U32		from_screen : 1;
-	U32		sub_image : 1;
-	U32		floatingpoint : 1;
-	U32		tex_border : 1;
-	int		id;
-	int		target;
-	int		src_format;
-	int		dst_format;
+    U16        width,height,x,y;
+    U32        clamp_s : 1;
+    U32        clamp_t : 1;
+    U32        mirror_s : 1;
+    U32        mirror_t : 1;
+    U32        mipmap : 1;
+    U32        point_sample : 1;
+    U32        dxtc : 1;
+    U32        no_file_corruption_check : 1;
+    U32        mip_count : 4;
+    U32        from_screen : 1;
+    U32        sub_image : 1;
+    U32        floatingpoint : 1;
+    U32        tex_border : 1;
+    int        id;
+    int        target;
+    int        src_format;
+    int        dst_format;
 } RdrTexParams;
 
 typedef struct RdrSubTexParams
 {
-	U16		x_offset, y_offset;
-	U16		width,height;
-	U32		dxtc : 1;
-	int		id;
-	int		target;
-	int		format;
+    U16        x_offset, y_offset;
+    U16        width,height;
+    U32        dxtc : 1;
+    int        id;
+    int        target;
+    int        format;
 } RdrSubTexParams;
 
 #ifdef RT_PRIVATE
@@ -51,10 +51,10 @@ void texResetAnisotropicDirect(int texid, bool bCubemap);
 void rdrTexFreeDirect(int texid);
 
 // Internal stuff (used by shadersTexEnv)
-extern int				boundTextures[];
-extern bool				texCoordPointersEnabled[];
-extern const F32		*texCoordPointers[];
-extern int				texCoordStrides[];
+extern int                boundTextures[];
+extern bool                texCoordPointersEnabled[];
+extern const F32        *texCoordPointers[];
+extern int                texCoordStrides[];
 // End Internal
 #endif
 

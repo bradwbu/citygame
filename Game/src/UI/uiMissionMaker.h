@@ -8,9 +8,9 @@ void mmscrollsetViewList( char * indexPath, int toggle_region );
 void missionMakerOpenWithArc(PlayerCreatedStoryArc *pArc, char *pchFileName, int arc_id, int owned); // NULL for new
 void missionMakerTestStoryArc(PlayerCreatedStoryArc *pArc); // takes ownership of pArc
 
-#define MM_TEST		(1<<0)
-#define MM_SAVEAS	(1<<1)
-#define MM_EXIT		(1<<2)
+#define MM_TEST        (1<<0)
+#define MM_SAVEAS    (1<<1)
+#define MM_EXIT        (1<<2)
 void missionMakerSave(int flags);
 
 void missionMakerExitDialog(void *userdata);

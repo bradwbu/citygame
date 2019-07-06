@@ -24,8 +24,8 @@ int uiconcept_DisplayItem(ConceptItem *concept, F32 x, F32 y, F32 z, F32 usIconW
 
 typedef struct uiAttribModGroup
 {
-	char *pchName;
-	char *pogName;
+    char *pchName;
+    char *pogName;
 } uiAttribModGroup;
 
 uiAttribModGroup* uiAttribModGroup_GetByStr(char const *str);

@@ -11,20 +11,20 @@ typedef struct ContextMenuElement ContextMenuElement;
 
 typedef enum CMVisType
 {
-	CM_HIDE,				// don't draw it
-	CM_VISIBLE,				// draw it, but don't allow selection
-	CM_CHECKED_UNAVAILABLE,	// draw a checkmark, but don't allow selection
-	CM_AVAILABLE,			// draw it and let people click it
-	CM_CHECKED,				// draw a checkmark, let people click it
+    CM_HIDE,                // don't draw it
+    CM_VISIBLE,                // draw it, but don't allow selection
+    CM_CHECKED_UNAVAILABLE,    // draw a checkmark, but don't allow selection
+    CM_AVAILABLE,            // draw it and let people click it
+    CM_CHECKED,                // draw a checkmark, let people click it
 } CMVisType;
 
 typedef enum CMAlign
 {
-	CM_TOP,
-	CM_BOTTOM,
-	CM_LEFT,
-	CM_RIGHT,
-	CM_CENTER,
+    CM_TOP,
+    CM_BOTTOM,
+    CM_LEFT,
+    CM_RIGHT,
+    CM_CENTER,
 } CMAlign;
 
 static int boolOffOn[] = { 0, 1 };
@@ -86,7 +86,7 @@ void contextMenu_activateElement( int i );
 // This function sets the current contextmenu (setting it = displays it), use closeAll to close, do not set to null
 void contextMenu_set( ContextMenu * cm, float x, float y, void *data );
 void contextMenu_setAlign( ContextMenu * cm, float x, float y, CMAlign alignHoriz, CMAlign alignVert, void *data );
-void contextMenu_display(ContextMenu * cm);	// displays context menu under mouse.
+void contextMenu_display(ContextMenu * cm);    // displays context menu under mouse.
 void contextMenu_displayEx(ContextMenu * cm, void * data );
 
 // Force all context menus closed - shouldn't be nessecary with catch all

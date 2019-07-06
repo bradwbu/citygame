@@ -32,15 +32,15 @@ char * flag_text =
 #define tDZ  0.0f
 Vec3 flag_hook_offsets[FLAG_NUMHOOKS] =
 {
-	{ tDX, tOY + -1.00f*tDY, tDZ },
-	{ tDX, tOY + -0.75f*tDY, tDZ },
-	{ tDX, tOY + -0.50f*tDY, tDZ },
-	{ tDX, tOY + -0.25f*tDY, tDZ },
-	{ tDX, tOY +  0.00f*tDY, tDZ },
-	{ tDX, tOY +  0.25f*tDY, tDZ },
-	{ tDX, tOY +  0.50f*tDY, tDZ },
-	{ tDX, tOY +  0.75f*tDY, tDZ },
-	{ tDX, tOY +  1.00f*tDY, tDZ },
+    { tDX, tOY + -1.00f*tDY, tDZ },
+    { tDX, tOY + -0.75f*tDY, tDZ },
+    { tDX, tOY + -0.50f*tDY, tDZ },
+    { tDX, tOY + -0.25f*tDY, tDZ },
+    { tDX, tOY +  0.00f*tDY, tDZ },
+    { tDX, tOY +  0.25f*tDY, tDZ },
+    { tDX, tOY +  0.50f*tDY, tDZ },
+    { tDX, tOY +  0.75f*tDY, tDZ },
+    { tDX, tOY +  1.00f*tDY, tDZ },
 };
 #undef tDX
 #undef tOY

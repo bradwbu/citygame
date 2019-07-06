@@ -5,7 +5,7 @@ typedef struct Entity Entity;
 typedef struct Packet Packet;
 
 extern int  player_slot;
-extern int	player_being_created;
+extern int    player_being_created;
 
 int startFadeInScreen(int set);
 void setWaitingForFullUpdate(void);

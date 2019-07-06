@@ -9,8 +9,8 @@
 #include "entity/entVarUpdate.h"
 #include "entity/chatSettings.h"
 
-#define DEFAULT_BUBBLE_TIME			2.0 //Time before bringing up the next bubble
-#define DEFAULT_BUBBLE_DURATION		8.0 //Time this bubble lasts on screen
+#define DEFAULT_BUBBLE_TIME            2.0 //Time before bringing up the next bubble
+#define DEFAULT_BUBBLE_DURATION        8.0 //Time this bubble lasts on screen
 
 typedef struct Entity Entity;
 typedef struct TTFontRenderParams TTFontRenderParams;
@@ -74,7 +74,7 @@ void SetLastPrivate(char * name, bool isHandle);
 
 
 
-void initChatUIOnce();	// global startup code
+void initChatUIOnce();    // global startup code
 
 bool canAddChannel();
 bool canAddFilter();
@@ -90,16 +90,16 @@ extern int gChatLogonTimer;
 
 enum 
 {
-	INFO_CHAT_TEXT = INFO_TOTAL+1,
-	INFO_PROFILE_TEXT,
-	INFO_HELP_TEXT,
-	INFO_STD_TEXT, 
-	INFO_SCRAPPER,
-	INFO_CHANNEL_TEXT,
-	INFO_CHANNEL_TEXT1,
-	INFO_CHANNEL_TEXT2,
-	INFO_CHANNEL_TEXT3,
-	INFO_CHANNEL_TEXT4,
+    INFO_CHAT_TEXT = INFO_TOTAL+1,
+    INFO_PROFILE_TEXT,
+    INFO_HELP_TEXT,
+    INFO_STD_TEXT, 
+    INFO_SCRAPPER,
+    INFO_CHANNEL_TEXT,
+    INFO_CHANNEL_TEXT1,
+    INFO_CHANNEL_TEXT2,
+    INFO_CHANNEL_TEXT3,
+    INFO_CHANNEL_TEXT4,
 };
 
 void chatLink( char *pchName );

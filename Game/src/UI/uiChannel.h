@@ -11,7 +11,7 @@ int channelWindow(float x, float y, float z, float wd, float ht, float sc, int c
 void resetChannelWindow();
 void notifyRemoveUser(ChatUser * user);
 void notifyChannelDestroy(ChatChannel *channel);
-void notifyRebuildChannelWindow();	
+void notifyRebuildChannelWindow();    
 void notifyRebuildChannelUserList(ChatChannel * channel);
 
 // Target context menu

@@ -21,29 +21,29 @@ void scrollSet_ElementListSelector( MMScrollSet_Mission *pMission, MMElementList
 void selectVillainGroup( MMElementList *pList, float x, float y, float z, float sc, float wd, int isRightList);
 typedef struct GenericTextList
 {
-	char **textItems;
-	int count;
-	int current;
+    char **textItems;
+    int count;
+    int current;
 } GenericTextList;
 
 void scrollSet_TextListSelector( GenericTextList *pList, float x, float y, float z, float sc, float wd, int active );
 
 typedef enum ScrollType
 {
-	kScrollType_CostumeSet,
-	kScrollType_Boneset,
-	kScrollType_Geo,
-	kScrollType_GeoTex,
-	kScrollType_Tex1,
-	kScrollType_Tex2,
-	kScrollType_Face,
-	kScrollType_GenericRegionSet,
-	kScrollType_CustomPowerSet,
-	kScrollType_CustomPower,
-	kScrollType_GenericElementList,
-	kScrollType_GenericTextList,
-	kScrollType_LeftVillainGroupList,
-	kScrollType_RightVillainGroupList,
+    kScrollType_CostumeSet,
+    kScrollType_Boneset,
+    kScrollType_Geo,
+    kScrollType_GeoTex,
+    kScrollType_Tex1,
+    kScrollType_Tex2,
+    kScrollType_Face,
+    kScrollType_GenericRegionSet,
+    kScrollType_CustomPowerSet,
+    kScrollType_CustomPower,
+    kScrollType_GenericElementList,
+    kScrollType_GenericTextList,
+    kScrollType_LeftVillainGroupList,
+    kScrollType_RightVillainGroupList,
 }ScrollType;
 
 void selectGeoSet( CostumeGeoSet * gset, int type, float x, float y, float z, float sc, float wd, int mode, F32 alpha );

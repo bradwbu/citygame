@@ -12,28 +12,28 @@ typedef struct NetFx NetFx;
 
 typedef enum DemoChatType
 {
-	kDemoChatType_Normal,
-	kDemoChatType_Floater, // must be 1
-	kDemoChatType_InfoBox,
-	kDemoChatType_Count,
+    kDemoChatType_Normal,
+    kDemoChatType_Floater, // must be 1
+    kDemoChatType_InfoBox,
+    kDemoChatType_Count,
 } DemoChatType;
 
 
 typedef struct DemoState
 {
-	int		demo_pause;
-	int		demo_fps;
-	int		demo_dump;
-	int		demo_dump_tga;
-	int		demo_loop;
-	int		demo_framestats;
-	F32		demo_speed_scale;
-	char	demoname[MAX_PATH];
-	int		demo_hide_names;
-	int		demo_hide_damage;
-	int		demo_hide_chat;
-	int		demo_hide_all_entity_ui;
-	int		detached_camera;
+    int        demo_pause;
+    int        demo_fps;
+    int        demo_dump;
+    int        demo_dump_tga;
+    int        demo_loop;
+    int        demo_framestats;
+    F32        demo_speed_scale;
+    char    demoname[MAX_PATH];
+    int        demo_hide_names;
+    int        demo_hide_damage;
+    int        demo_hide_chat;
+    int        demo_hide_all_entity_ui;
+    int        detached_camera;
 } DemoState;
 
 extern DemoState demo_state;

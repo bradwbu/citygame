@@ -11,82 +11,82 @@ extern "C" {
 extern "C" {
 void* cryptic_jpeg_malloc(int size)
 {
-	return malloc(size);
+    return malloc(size);
 }
 
 void cryptic_jpeg_free(void* mem)
 {
-	free(mem);
+    free(mem);
 }
 
 int jpegLoad(char *mem,int size,TexReadInfo *info)
 {
-	int		success = 0;
+    int        success = 0;
 
-	Pjpeg_decoder_file_stream Pinput_stream = new jpeg_decoder_file_stream();
-	Pinput_stream->set_mem_ptr(mem,size);
-	Pjpeg_decoder Pd = new jpeg_decoder(Pinput_stream, 0);
+    Pjpeg_decoder_file_stream Pinput_stream = new jpeg_decoder_file_stream();
+    Pinput_stream->set_mem_ptr(mem,size);
+    Pjpeg_decoder Pd = new jpeg_decoder(Pinput_stream, 0);
 
-	if (Pd->get_error_code() != 0)
-	{
-		printf("Error: Decoder failed! Error status: %i\n", Pd->get_error_code());
-		delete Pd;
-		delete Pinput_stream;
-		return 0;
-	}
+    if (Pd->get_error_code() != 0)
+    {
+        printf("Error: Decoder failed! Error status: %i\n", Pd->get_error_code());
+        delete Pd;
+        delete Pinput_stream;
+        return 0;
+    }
 
-	if (Pd->get_num_components() != 3)
-		goto fail_exit;
+    if (Pd->get_num_components() != 3)
+        goto fail_exit;
 
-	if (Pd->begin())
-		goto fail_exit;
+    if (Pd->begin())
+        goto fail_exit;
 
-	uchar *Pbuf = NULL;
+    uchar *Pbuf = NULL;
 
-	Pbuf = (uchar *)malloc(Pd->get_width() * 3 * Pd->get_height());
-	if (!Pbuf)
-		goto fail_exit;
+    Pbuf = (uchar *)malloc(Pd->get_width() * 3 * Pd->get_height());
+    if (!Pbuf)
+        goto fail_exit;
 
-	int lines_decoded = 0;
+    int lines_decoded = 0;
 
-	for ( ; ; )
-	{
-		void *Pscan_line_ofs;
-		uint scan_line_len;
+    for ( ; ; )
+    {
+        void *Pscan_line_ofs;
+        uint scan_line_len;
 
-		if (Pd->decode(&Pscan_line_ofs, &scan_line_len))
-			break;
+        if (Pd->decode(&Pscan_line_ofs, &scan_line_len))
+            break;
 
-		uchar *Psb = (uchar *)Pscan_line_ofs;
-		uchar *Pdb = &Pbuf[lines_decoded * Pd->get_width() * 3];
-		int src_bpp = Pd->get_bytes_per_pixel();
+        uchar *Psb = (uchar *)Pscan_line_ofs;
+        uchar *Pdb = &Pbuf[lines_decoded * Pd->get_width() * 3];
+        int src_bpp = Pd->get_bytes_per_pixel();
 
-		for (int x = Pd->get_width(); x > 0; x--, Psb += src_bpp, Pdb += 3)
-		{
-			Pdb[0] = Psb[0];
-			Pdb[1] = Psb[1];
-			Pdb[2] = Psb[2];
-		}
-		lines_decoded++;
-	}
-	if (Pd->get_error_code())
-		goto fail_exit;
+        for (int x = Pd->get_width(); x > 0; x--, Psb += src_bpp, Pdb += 3)
+        {
+            Pdb[0] = Psb[0];
+            Pdb[1] = Psb[1];
+            Pdb[2] = Psb[2];
+        }
+        lines_decoded++;
+    }
+    if (Pd->get_error_code())
+        goto fail_exit;
 
 #if 0
-	printf("Lines decoded: %i\n", lines_decoded);
-	printf("Input file size:  %i\n", Pinput_stream->get_size());
-	printf("Input bytes actually read: %i\n", Pd->get_total_bytes_read());
+    printf("Lines decoded: %i\n", lines_decoded);
+    printf("Input file size:  %i\n", Pinput_stream->get_size());
+    printf("Input bytes actually read: %i\n", Pd->get_total_bytes_read());
 #endif
 
-	success = 1;
-	info->width		= Pd->get_width();
-	info->height	= Pd->get_height();
-	info->data		= Pbuf;
-	info->format	= GL_RGB8;
-	info->size		= info->width * info->height * 3;
+    success = 1;
+    info->width        = Pd->get_width();
+    info->height    = Pd->get_height();
+    info->data        = Pbuf;
+    info->format    = GL_RGB8;
+    info->size        = info->width * info->height * 3;
 fail_exit:
   delete Pd;
-  delete Pinput_stream;	// JS: This does not close the file handle anymore.
+  delete Pinput_stream;    // JS: This does not close the file handle anymore.
   return success;
 }
 
@@ -159,9 +159,9 @@ fail_exit:
  * RGB color and is described by:
  */
 
-JSAMPLE * image_buffer;	/* Points to large array of R,G,B-order data */
-int image_height;	/* Number of rows in image */
-int image_width;		/* Number of columns in image */
+JSAMPLE * image_buffer;    /* Points to large array of R,G,B-order data */
+int image_height;    /* Number of rows in image */
+int image_width;        /* Number of columns in image */
 
 /*
  * Sample routine for JPEG compression.  We assume that the target file name
@@ -171,119 +171,119 @@ int image_width;		/* Number of columns in image */
 GLOBAL(void)
 write_JPEG_file (char * filename, int quality, char *extraJpegData, int extraJpegDatalen)
 {
-	/* This struct contains the JPEG compression parameters and pointers to
-	 * working space (which is allocated as needed by the JPEG library).
-	 * It is possible to have several such structures, representing multiple
-	 * compression/decompression processes, in existence at once.  We refer
-	 * to any one struct (and its associated working data) as a "JPEG object".
-	 */
-	struct jpeg_compress_struct cinfo;
-	/* This struct represents a JPEG error handler.  It is declared separately
-	 * because applications often want to supply a specialized error handler
-	 * (see the second half of this file for an example).  But here we just
-	 * take the easy way out and use the standard error handler, which will
-	 * print a message on stderr and call exit() if compression fails.
-	 * Note that this struct must live as long as the main JPEG parameter
-	 * struct, to avoid dangling-pointer problems.
-	 */
-	struct jpeg_error_mgr jerr;
-	/* More stuff */
-	FILE * outfile;		/* target file */
-	JSAMPROW row_pointer[1];	/* pointer to JSAMPLE row[s] */
-	int row_stride;		/* physical row width in image buffer */
+    /* This struct contains the JPEG compression parameters and pointers to
+     * working space (which is allocated as needed by the JPEG library).
+     * It is possible to have several such structures, representing multiple
+     * compression/decompression processes, in existence at once.  We refer
+     * to any one struct (and its associated working data) as a "JPEG object".
+     */
+    struct jpeg_compress_struct cinfo;
+    /* This struct represents a JPEG error handler.  It is declared separately
+     * because applications often want to supply a specialized error handler
+     * (see the second half of this file for an example).  But here we just
+     * take the easy way out and use the standard error handler, which will
+     * print a message on stderr and call exit() if compression fails.
+     * Note that this struct must live as long as the main JPEG parameter
+     * struct, to avoid dangling-pointer problems.
+     */
+    struct jpeg_error_mgr jerr;
+    /* More stuff */
+    FILE * outfile;        /* target file */
+    JSAMPROW row_pointer[1];    /* pointer to JSAMPLE row[s] */
+    int row_stride;        /* physical row width in image buffer */
 
-	/* Step 1: allocate and initialize JPEG compression object */
+    /* Step 1: allocate and initialize JPEG compression object */
 
-	/* We have to set up the error handler first, in case the initialization
-	 * step fails.  (Unlikely, but it could happen if you are out of memory.)
-	 * This routine fills in the contents of struct jerr, and returns jerr's
-	 * address which we place into the link field in cinfo.
-	 */
-	cinfo.err = jpeg_std_error(&jerr);
-	/* Now we can initialize the JPEG compression object. */
-	jpeg_create_compress(&cinfo);
+    /* We have to set up the error handler first, in case the initialization
+     * step fails.  (Unlikely, but it could happen if you are out of memory.)
+     * This routine fills in the contents of struct jerr, and returns jerr's
+     * address which we place into the link field in cinfo.
+     */
+    cinfo.err = jpeg_std_error(&jerr);
+    /* Now we can initialize the JPEG compression object. */
+    jpeg_create_compress(&cinfo);
 
-	/* Step 2: specify data destination (eg, a file) */
-	/* Note: steps 2 and 3 can be done in either order. */
+    /* Step 2: specify data destination (eg, a file) */
+    /* Note: steps 2 and 3 can be done in either order. */
 
-	/* Here we use the library-supplied code to send compressed data to a
-	 * stdio stream.  You can also write your own code to do something else.
-	 * VERY IMPORTANT: use "b" option to fopen() if you are on a machine that
-	 * requires it in order to write binary files.
-	 */
-	 mkdirtree(filename);
+    /* Here we use the library-supplied code to send compressed data to a
+     * stdio stream.  You can also write your own code to do something else.
+     * VERY IMPORTANT: use "b" option to fopen() if you are on a machine that
+     * requires it in order to write binary files.
+     */
+     mkdirtree(filename);
 
-	if ((outfile = (FileWrapper*)fopen(filename, "wb!")) == NULL) {
-	//fprintf(stderr, "can't open %s\n", filename);
-	exit(1);
-	}
+    if ((outfile = (FileWrapper*)fopen(filename, "wb!")) == NULL) {
+    //fprintf(stderr, "can't open %s\n", filename);
+    exit(1);
+    }
 
-	jpeg_stdio_dest(&cinfo, (FileWrapper*)fileRealPointer(outfile));
+    jpeg_stdio_dest(&cinfo, (FileWrapper*)fileRealPointer(outfile));
 
-	/* Step 3: set parameters for compression */
+    /* Step 3: set parameters for compression */
 
-	/* First we supply a description of the input image.
-	 * Four fields of the cinfo struct must be filled in:
-	 */
-	cinfo.image_width = image_width; 	/* image width and height, in pixels */
-	cinfo.image_height = image_height;
-	cinfo.input_components = 3;		/* # of color components per pixel */
-	cinfo.in_color_space = JCS_RGB; 	/* colorspace of input image */
-	/* Now use the library's routine to set default compression parameters.
-	 * (You must set at least cinfo.in_color_space before calling this,
-	 * since the defaults depend on the source color space.)
-	 */
-	jpeg_set_defaults(&cinfo);
-	/* Now you can set any non-default parameters you wish to.
-	 * Here we just illustrate the use of quality (quantization table) scaling:
-	 */
-	jpeg_set_quality(&cinfo, quality, TRUE /* limit to baseline-JPEG values */);
+    /* First we supply a description of the input image.
+     * Four fields of the cinfo struct must be filled in:
+     */
+    cinfo.image_width = image_width;     /* image width and height, in pixels */
+    cinfo.image_height = image_height;
+    cinfo.input_components = 3;        /* # of color components per pixel */
+    cinfo.in_color_space = JCS_RGB;     /* colorspace of input image */
+    /* Now use the library's routine to set default compression parameters.
+     * (You must set at least cinfo.in_color_space before calling this,
+     * since the defaults depend on the source color space.)
+     */
+    jpeg_set_defaults(&cinfo);
+    /* Now you can set any non-default parameters you wish to.
+     * Here we just illustrate the use of quality (quantization table) scaling:
+     */
+    jpeg_set_quality(&cinfo, quality, TRUE /* limit to baseline-JPEG values */);
 
-	/* Step 4: Start compressor */
+    /* Step 4: Start compressor */
 
-	/* TRUE ensures that we will write a complete interchange-JPEG file.
-	 * Pass TRUE unless you are very sure of what you're doing.
-	 */
-	jpeg_start_compress(&cinfo, TRUE);
+    /* TRUE ensures that we will write a complete interchange-JPEG file.
+     * Pass TRUE unless you are very sure of what you're doing.
+     */
+    jpeg_start_compress(&cinfo, TRUE);
 
 
-	/* Extra tags go here */
-	if(extraJpegData)
-	{
-		jpeg_write_marker(&cinfo, JPEG_APP0+0x0d, (const JOCTET *)extraJpegData, extraJpegDatalen);
-	}
+    /* Extra tags go here */
+    if(extraJpegData)
+    {
+        jpeg_write_marker(&cinfo, JPEG_APP0+0x0d, (const JOCTET *)extraJpegData, extraJpegDatalen);
+    }
 
-	/* Step 5: while (scan lines remain to be written) */
-	/*           jpeg_write_scanlines(...); */
+    /* Step 5: while (scan lines remain to be written) */
+    /*           jpeg_write_scanlines(...); */
 
-	/* Here we use the library's state variable cinfo.next_scanline as the
-	 * loop counter, so that we don't have to keep track ourselves.
-	 * To keep things simple, we pass one scanline per call; you can pass
-	 * more if you wish, though.
-	 */
-	row_stride = image_width * 3;	/* JSAMPLEs per row in image_buffer */
+    /* Here we use the library's state variable cinfo.next_scanline as the
+     * loop counter, so that we don't have to keep track ourselves.
+     * To keep things simple, we pass one scanline per call; you can pass
+     * more if you wish, though.
+     */
+    row_stride = image_width * 3;    /* JSAMPLEs per row in image_buffer */
 
-	while (cinfo.next_scanline < cinfo.image_height) {
-	/* jpeg_write_scanlines expects an array of pointers to scanlines.
-	 * Here the array is only one element long, but you could pass
-	 * more than one scanline at a time if that's more convenient.
-	 */
-	row_pointer[0] = & image_buffer[cinfo.next_scanline * row_stride];
-	(void) jpeg_write_scanlines(&cinfo, row_pointer, 1);
-	}
+    while (cinfo.next_scanline < cinfo.image_height) {
+    /* jpeg_write_scanlines expects an array of pointers to scanlines.
+     * Here the array is only one element long, but you could pass
+     * more than one scanline at a time if that's more convenient.
+     */
+    row_pointer[0] = & image_buffer[cinfo.next_scanline * row_stride];
+    (void) jpeg_write_scanlines(&cinfo, row_pointer, 1);
+    }
 
-	/* Step 6: Finish compression */
+    /* Step 6: Finish compression */
 
-	jpeg_finish_compress(&cinfo);
-	/* After finish_compress, we can close the output file. */
-	fclose(outfile);
+    jpeg_finish_compress(&cinfo);
+    /* After finish_compress, we can close the output file. */
+    fclose(outfile);
 
-	/* Step 7: release JPEG compression object */
+    /* Step 7: release JPEG compression object */
 
-	/* This is an important step since it will release a good deal of memory. */
-	jpeg_destroy_compress(&cinfo);
+    /* This is an important step since it will release a good deal of memory. */
+    jpeg_destroy_compress(&cinfo);
 
-	/* And we're done! */
+    /* And we're done! */
 }
 
 
@@ -358,9 +358,9 @@ write_JPEG_file (char * filename, int quality, char *extraJpegData, int extraJpe
  */
 
 struct my_error_mgr {
-	struct jpeg_error_mgr pub;	/* "public" fields */
+    struct jpeg_error_mgr pub;    /* "public" fields */
 
-	jmp_buf setjmp_buffer;	/* for return to caller */
+    jmp_buf setjmp_buffer;    /* for return to caller */
 };
 
 typedef struct my_error_mgr * my_error_ptr;
@@ -372,50 +372,50 @@ typedef struct my_error_mgr * my_error_ptr;
 METHODDEF(void)
 my_error_exit (j_common_ptr cinfo)
 {
-	/* cinfo->err really points to a my_error_mgr struct, so coerce pointer */
-	my_error_ptr myerr = (my_error_ptr) cinfo->err;
+    /* cinfo->err really points to a my_error_mgr struct, so coerce pointer */
+    my_error_ptr myerr = (my_error_ptr) cinfo->err;
 
-	/* Always display the message. */
-	/* We could postpone this until after returning, if we chose. */
-	(*cinfo->err->output_message) (cinfo);
+    /* Always display the message. */
+    /* We could postpone this until after returning, if we chose. */
+    (*cinfo->err->output_message) (cinfo);
 
-	/* Return control to the setjmp point */
-	longjmp(myerr->setjmp_buffer, 1);
+    /* Return control to the setjmp point */
+    longjmp(myerr->setjmp_buffer, 1);
 }
 
 //TO DO all this jpeg stuff should go in it's own file, and not clutter seqgraphics
 
 void jpgSave( char * name, U8 * pixbuf, int bpp, int sizeOfPictureX, int sizeOfPictureY)
 {
-	jpgSaveEx(name, pixbuf, bpp, sizeOfPictureX, sizeOfPictureY, NULL, 0);
+    jpgSaveEx(name, pixbuf, bpp, sizeOfPictureX, sizeOfPictureY, NULL, 0);
 }
 
 
 void jpgSaveEx( char * name, U8 * pixbuf, int bpp, int sizeOfPictureX, int sizeOfPictureY, char *extraJpegData, int extraJpegDatalen )
 {
-	int i;
-	U8 * jpegbuf;
+    int i;
+    U8 * jpegbuf;
 
-	assert(bpp > 2);
+    assert(bpp > 2);
 
-	//Convert from 4 byte to 3 byte
-	jpegbuf = (U8*)calloc( sizeOfPictureY * sizeOfPictureX, 3 );
-	for( i = 0 ; i < (sizeOfPictureY * sizeOfPictureX) ; i++ )
-	{
-		jpegbuf[i*3+0] = pixbuf[i*bpp+0];
-		jpegbuf[i*3+1] = pixbuf[i*bpp+1];
-		jpegbuf[i*3+2] = pixbuf[i*bpp+2];
-	}
+    //Convert from 4 byte to 3 byte
+    jpegbuf = (U8*)calloc( sizeOfPictureY * sizeOfPictureX, 3 );
+    for( i = 0 ; i < (sizeOfPictureY * sizeOfPictureX) ; i++ )
+    {
+        jpegbuf[i*3+0] = pixbuf[i*bpp+0];
+        jpegbuf[i*3+1] = pixbuf[i*bpp+1];
+        jpegbuf[i*3+2] = pixbuf[i*bpp+2];
+    }
 
-	//globals, I don't know why
-	image_buffer = jpegbuf;			// Points to large array of R,G,B-order data 
-	image_height = sizeOfPictureY;	// Number of rows in image 
-	image_width  = sizeOfPictureX;	// Number of columns in image 
+    //globals, I don't know why
+    image_buffer = jpegbuf;            // Points to large array of R,G,B-order data 
+    image_height = sizeOfPictureY;    // Number of rows in image 
+    image_width  = sizeOfPictureX;    // Number of columns in image 
 
-	write_JPEG_file(name, 95, extraJpegData, extraJpegDatalen); //Quality 1 - 100, 85 = 17k ish file
+    write_JPEG_file(name, 95, extraJpegData, extraJpegDatalen); //Quality 1 - 100, 85 = 17k ish file
 
-	free(jpegbuf);
-}//*/	
+    free(jpegbuf);
+}//*/    
 
 } // extern "C"
 

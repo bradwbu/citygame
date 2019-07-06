@@ -21,17 +21,17 @@ typedef struct uiEnhancement uiEnhancement;
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 typedef struct treeRecipeDisplayState {
-	SMFBlock				*recipeFormat;
-	int						count;				// count of how many of this recipe the player has
-	const DetailRecipe		*recipe;
-	U32						hash;
-	StuffBuff				text;
-	AtlasTex				*icon;
-	AtlasTex				*icon2;
-	int						reformat;			// does this require reformatting?
-	int						have_needed;		// do we have the salvage to make this?
-	float					height;				// height of this recipe (split pane mode)
-	uiEnhancement			*pEnhancement;		// pointer to enhancement drawing function if this recipe is an enhancement
+    SMFBlock                *recipeFormat;
+    int                        count;                // count of how many of this recipe the player has
+    const DetailRecipe        *recipe;
+    U32                        hash;
+    StuffBuff                text;
+    AtlasTex                *icon;
+    AtlasTex                *icon2;
+    int                        reformat;            // does this require reformatting?
+    int                        have_needed;        // do we have the salvage to make this?
+    float                    height;                // height of this recipe (split pane mode)
+    uiEnhancement            *pEnhancement;        // pointer to enhancement drawing function if this recipe is an enhancement
 } treeRecipeDisplayState;
 
 extern ToolTip recipeTip;
@@ -45,7 +45,7 @@ float uiIncarnateRecipeDraw(treeRecipeDisplayState *pState, float x, float y, fl
 AtlasTex * uiRecipeDrawIconEx(const DetailRecipe *pRec, int level, float x, float y, float z, float scale, int window, int showTooltip, int rgba, float tooltipOffsetY, int bDrawEnhancementsAsEnhancements);
 #define uiRecipeDrawIcon(pRec, level, x, y, z, scale, window, showTooltip, rgba) uiRecipeDrawIconEx(pRec, level, x, y, z, scale, window, showTooltip, rgba, 0.0f, false)
 void uiRecipeGetRequirementText(StuffBuff *text, const DetailRecipe *dr, int count, SalvageInventoryItem **components, 
-								int *have_needed, char *blueColor, char *whiteColor, char *redColor);
+                                int *have_needed, char *blueColor, char *whiteColor, char *redColor);
 #endif
 
 

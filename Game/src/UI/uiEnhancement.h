@@ -13,16 +13,16 @@ typedef struct Boost Boost;
 
 // structure used for drawing an enhancement
 typedef struct uiEnhancement {
-	const BasePower			*pBoostBase;		// a pointer to the base
-	int						level;
-	ToolTip					toolTip;
-	bool					isDisplayingToolTip;
-	int						isLicenseLocked;		// -1 if never tested, 0 if not locked, 1 if locked
-	StuffBuff				text;
-	int						refresh;
-	const Boost				*pBoost;
-	const DetailRecipe		*pRecipe;
-	int						color;
+    const BasePower            *pBoostBase;        // a pointer to the base
+    int                        level;
+    ToolTip                    toolTip;
+    bool                    isDisplayingToolTip;
+    int                        isLicenseLocked;        // -1 if never tested, 0 if not locked, 1 if locked
+    StuffBuff                text;
+    int                        refresh;
+    const Boost                *pBoost;
+    const DetailRecipe        *pRecipe;
+    int                        color;
 } uiEnhancement;
 
 int enhancementWindow();

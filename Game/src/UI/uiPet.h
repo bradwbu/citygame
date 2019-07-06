@@ -20,10 +20,10 @@ bool entIsPet( Entity * e );
 
 enum
 {
-	kPetCommandType_Current,
-	kPetCommandType_Name,
-	kPetCommandType_Power,
-	kPetCommandType_All,
+    kPetCommandType_Current,
+    kPetCommandType_Name,
+    kPetCommandType_Power,
+    kPetCommandType_All,
 };
 
 void pet_update(int svr_idx,PetStance stance, PetAction action);

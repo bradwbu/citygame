@@ -5,17 +5,17 @@
 
 typedef struct UIBox
 {
-	union
-	{
-		PointFloatXY origin;
+    union
+    {
+        PointFloatXY origin;
 
-		struct{
-			float x;
-			float y;
-		};
-	};
-	float width;
-	float height;
+        struct{
+            float x;
+            float y;
+        };
+    };
+    float width;
+    float height;
 } UIBox;
 
 UIBox* uiBoxCreate(void);
@@ -30,17 +30,17 @@ int uiBoxIntersects(UIBox* box1, UIBox* box2);
 
 typedef enum
 {
-	UIBAD_NONE	= 0,
-	UIBAD_LEFT	= (1 << 0),
-	UIBAD_TOP	= (1 << 1),
-	UIBAD_RIGHT	= (1 << 2),
-	UIBAD_BOTTOM= (1 << 3),
-	UIBAD_ALL = UIBAD_LEFT | UIBAD_TOP | UIBAD_RIGHT | UIBAD_BOTTOM,
+    UIBAD_NONE    = 0,
+    UIBAD_LEFT    = (1 << 0),
+    UIBAD_TOP    = (1 << 1),
+    UIBAD_RIGHT    = (1 << 2),
+    UIBAD_BOTTOM= (1 << 3),
+    UIBAD_ALL = UIBAD_LEFT | UIBAD_TOP | UIBAD_RIGHT | UIBAD_BOTTOM,
 } UIBoxAlterDirection;
 typedef enum
 {
-	UIBAT_GROW = 1,
-	UIBAT_SHRINK = -1,
+    UIBAT_GROW = 1,
+    UIBAT_SHRINK = -1,
 } UIBoxAlterType;
 
 void uiBoxAlter(UIBox* box, UIBoxAlterType type, UIBoxAlterDirection direction, unsigned int magnitude);

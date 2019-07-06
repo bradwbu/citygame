@@ -11,33 +11,33 @@
  *
  * Creating an Editor UI
  * 1. Create the UI
- *		Call editorUICreateWindow().  This returns an ID which you will
- *		use to add widgets to your window.
+ *        Call editorUICreateWindow().  This returns an ID which you will
+ *        use to add widgets to your window.
  *
  * 2. Add the widgets
- *		Call editorUIAdd*().  This will add various widgets to your UI,
- *		which will show up in the UI in the order you add them.  You
- *		will need to pass these functions the ID of your window.
+ *        Call editorUIAdd*().  This will add various widgets to your UI,
+ *        which will show up in the UI in the order you add them.  You
+ *        will need to pass these functions the ID of your window.
  *
  * 3. Add callbacks
- *		You can add a close callback that will be called when your
- *		window is closed (either by closing normally or if you destroy
- *		it yourself).  You can add this by calling
- *		editorUISetCloseCallback().  This is not required.
- *		Widgets also take callback functions.  These will be called when
- *		the individual widget is changed, and before the main window
- *		callback is called.
+ *        You can add a close callback that will be called when your
+ *        window is closed (either by closing normally or if you destroy
+ *        it yourself).  You can add this by calling
+ *        editorUISetCloseCallback().  This is not required.
+ *        Widgets also take callback functions.  These will be called when
+ *        the individual widget is changed, and before the main window
+ *        callback is called.
  *
  * 4. ...
- *		Now the window will activate and things will just work.  At
- *		this points you no longer need to keep track of the ID, unless
- *		you want to close the window yourself at some point (like as
- *		a result of them clicking a 'Cancel' button or something.
+ *        Now the window will activate and things will just work.  At
+ *        this points you no longer need to keep track of the ID, unless
+ *        you want to close the window yourself at some point (like as
+ *        a result of them clicking a 'Cancel' button or something.
  *
  * 5. Destroy the window
- *		The window will be destroyed automatically when it is closed.
- *		You can also do this yourself by calling editorUIDestroyWindow()
- *		and passing it the ID of your window.
+ *        The window will be destroyed automatically when it is closed.
+ *        You can also do this yourself by calling editorUIDestroyWindow()
+ *        and passing it the ID of your window.
  *
  ***********************************************************************
  *
@@ -67,28 +67,28 @@
 
 // enums, if needed
 typedef enum {
-	EDITORUI_NULL,
-	EDITORUI_CHECKBOX,
-	EDITORUI_CHECKBOXLIST,
-	EDITORUI_RADIOBUTTONS,
-	EDITORUI_STATICTEXT,
-	EDITORUI_DYNAMICTEXT,
-	EDITORUI_TEXTENTRY,
-	EDITORUI_SLIDER,
-	EDITORUI_EDITSLIDER,
-	EDITORUI_LIST,
-	EDITORUI_COMBOBOX,
-	EDITORUI_BUTTON,
-	EDITORUI_BUTTONROW,
-	EDITORUI_TABCONTROL,
-	EDITORUI_PROGRESSBAR,
-	EDITORUI_CONSOLE,
-	EDITORUI_SCROLLABLELIST,
-	EDITORUI_TREECONTROL,
-	EDITORUI_BREAKDOWNBAR,
-	EDITORUI_COLORSWATCH,
-	EDITORUI_HUESELECTOR,
-	EDITORUI_SATURATIONVALUESELECTOR,
+    EDITORUI_NULL,
+    EDITORUI_CHECKBOX,
+    EDITORUI_CHECKBOXLIST,
+    EDITORUI_RADIOBUTTONS,
+    EDITORUI_STATICTEXT,
+    EDITORUI_DYNAMICTEXT,
+    EDITORUI_TEXTENTRY,
+    EDITORUI_SLIDER,
+    EDITORUI_EDITSLIDER,
+    EDITORUI_LIST,
+    EDITORUI_COMBOBOX,
+    EDITORUI_BUTTON,
+    EDITORUI_BUTTONROW,
+    EDITORUI_TABCONTROL,
+    EDITORUI_PROGRESSBAR,
+    EDITORUI_CONSOLE,
+    EDITORUI_SCROLLABLELIST,
+    EDITORUI_TREECONTROL,
+    EDITORUI_BREAKDOWNBAR,
+    EDITORUI_COLORSWATCH,
+    EDITORUI_HUESELECTOR,
+    EDITORUI_SATURATIONVALUESELECTOR,
 } EditorUIType;
 
 typedef void(*EditorUICallback)(void*);
@@ -174,7 +174,7 @@ int editorUIAddSaturationValueSelector(int ID, float * value, EditorUICallback c
 
 typedef struct TreeElementAddress
 {
-	int *address;
+    int *address;
 } TreeElementAddress;
 void treeAddressPush(TreeElementAddress *address, int element);
 int treeAddressPop(TreeElementAddress *address);

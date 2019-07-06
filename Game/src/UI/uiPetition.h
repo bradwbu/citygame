@@ -8,9 +8,9 @@
 
 typedef enum PetitionWindowMode
 {
-	PETITION_NORMAL,		// opened from Menu
-	PETITION_COMMAND_LINE,	// opened from console command
-	PETITION_BUG,			// /bug console command
+    PETITION_NORMAL,        // opened from Menu
+    PETITION_COMMAND_LINE,    // opened from console command
+    PETITION_BUG,            // /bug console command
 } PetitionWindowMode;
 
 #define TEXTAREA_SUCCESS     0

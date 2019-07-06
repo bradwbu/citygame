@@ -13,100 +13,100 @@ typedef struct ViewportInfo ViewportInfo;
 
 typedef struct ViewSortNode
 {
-	Mat4		mat;
-	Vec3		mid;
-	Model		*model;
-	EntLight	*light;
-	F32			brightScale;
-	union {
-		struct { // Old style, dynamic swaps
-			TextureOverride tex_binds;
-			int			swapIndex;
-		};
-		struct { // New style, precomputed swaps
-			TexBind **materials;
-		};
-	};
-	U8			*rgbs;
-	U8			alpha;
-	U8			stipple_alpha;
-	U32			has_tint				: 1;
-	U32			has_fx_tint				: 1;
-	U32			has_tricks				: 1;
-	U32			draw_white				: 1;
-	U32			shadowcaster			: 1;
-	U32			use_fallback_material	: 1;
-	U32			hide					: 1;
-	U32			is_gfxnode				: 1;
-	U32			from_tray				: 1; // node w/ Tray portal visibility (VIS_EYE)
-	U8			tint_colors[2][4];
-	U32			uid;
-	TrickNode	*tricks; // Only used in drawing DefTrackers with tricks (wireframe in the editor)
-	Vec4		*reflection_planes;
-	U32			num_reflection_planes;
+    Mat4        mat;
+    Vec3        mid;
+    Model        *model;
+    EntLight    *light;
+    F32            brightScale;
+    union {
+        struct { // Old style, dynamic swaps
+            TextureOverride tex_binds;
+            int            swapIndex;
+        };
+        struct { // New style, precomputed swaps
+            TexBind **materials;
+        };
+    };
+    U8            *rgbs;
+    U8            alpha;
+    U8            stipple_alpha;
+    U32            has_tint                : 1;
+    U32            has_fx_tint                : 1;
+    U32            has_tricks                : 1;
+    U32            draw_white                : 1;
+    U32            shadowcaster            : 1;
+    U32            use_fallback_material    : 1;
+    U32            hide                    : 1;
+    U32            is_gfxnode                : 1;
+    U32            from_tray                : 1; // node w/ Tray portal visibility (VIS_EYE)
+    U8            tint_colors[2][4];
+    U32            uid;
+    TrickNode    *tricks; // Only used in drawing DefTrackers with tricks (wireframe in the editor)
+    Vec4        *reflection_planes;
+    U32            num_reflection_planes;
 } ViewSortNode;
 
 
 typedef struct ShadowNode
 {
-	Model *model;
-	Mat4 mat;
-	U8 alpha;
-	U8 shadowMask;
+    Model *model;
+    Mat4 mat;
+    U8 alpha;
+    U8 shadowMask;
 } ShadowNode;
 
 typedef struct AVSNParams {
-	GfxNode *node;
-	Model *model;
-	Mat4Ptr mat;
-	F32 *mid;
-	U8 alpha;
-	U8 stipple_alpha;
-	U8 *rgbs;
-	U8 *tint_colors;
-	EntLight * light;
-	F32 brightScale;
-	TrickNode *tricks;
-	U32 isOccluder				: 1;
-	U32 noUseRadius				: 1;
-	U32 beyond_fog				: 1;
-	U32 is_gfxnode				: 1;
-	U32 use_fallback_material	: 1;
-	U32 has_tint				: 1; // Tinting via shader (for characters) (V2)
-	U32 has_fx_tint				: 1; // Tinting via lighting (for FX) (V2)
-	U32 hide					: 1;
-	U32 from_tray				: 1; // node w/ Tray portal visibility (VIS_EYE)
-	U32	view_cache_add_occluder	:1;
-	Model		*view_cache_lowLodModel;
-	int uid;
-	// Only in Version 1:
-	TextureOverride *custom_texbinds;
-	int swapIndex;
-	// Version 2:
-	TexBind **materials; // List of materials if defaults are not being used
-	U32 num_reflection_quads;
-	Vec3 *reflection_quad_verts;
+    GfxNode *node;
+    Model *model;
+    Mat4Ptr mat;
+    F32 *mid;
+    U8 alpha;
+    U8 stipple_alpha;
+    U8 *rgbs;
+    U8 *tint_colors;
+    EntLight * light;
+    F32 brightScale;
+    TrickNode *tricks;
+    U32 isOccluder                : 1;
+    U32 noUseRadius                : 1;
+    U32 beyond_fog                : 1;
+    U32 is_gfxnode                : 1;
+    U32 use_fallback_material    : 1;
+    U32 has_tint                : 1; // Tinting via shader (for characters) (V2)
+    U32 has_fx_tint                : 1; // Tinting via lighting (for FX) (V2)
+    U32 hide                    : 1;
+    U32 from_tray                : 1; // node w/ Tray portal visibility (VIS_EYE)
+    U32    view_cache_add_occluder    :1;
+    Model        *view_cache_lowLodModel;
+    int uid;
+    // Only in Version 1:
+    TextureOverride *custom_texbinds;
+    int swapIndex;
+    // Version 2:
+    TexBind **materials; // List of materials if defaults are not being used
+    U32 num_reflection_quads;
+    Vec3 *reflection_quad_verts;
 } AVSNParams;
 
 typedef enum
 {
-	DSM_OPAQUE,
-	DSM_ALPHA_UNDERWATER,
-	DSM_ALPHA,
-	DSM_SHADOWS,
+    DSM_OPAQUE,
+    DSM_ALPHA_UNDERWATER,
+    DSM_ALPHA,
+    DSM_SHADOWS,
 } DrawSortMode;
 
 typedef enum
 {
-	TINT_NONE,
-	TINT_RED,
-	TINT_GREEN,
-	TINT_BLUE,
-	TINT_PURPLE,
-	TINT_YELLOW,
-	TINT_CYAN,
+    TINT_NONE,
+    TINT_RED,
+    TINT_GREEN,
+    TINT_BLUE,
+    TINT_PURPLE,
+    TINT_YELLOW,
+    TINT_CYAN,
 
-	TINT_COUNT
+    TINT_COUNT
 } TintColor;
 
 extern AVSNParams avsn_params;

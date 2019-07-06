@@ -10,20 +10,20 @@ typedef struct ClothStrip ClothStrip;
 
 struct ClothMesh
 {
-	S32 Allocate;
-	S32 NumStrips;
-	ClothStrip *Strips;	// allocated
-	S32 NumPoints;
-	Vec3 *Points;		// pointer to pool
-	Vec3 *Normals;		// pointer to pool
-	Vec3 *BiNormals;	// pointer to pool
-	Vec3 *Tangents;		// pointer to pool
-	Vec2 *TexCoords;	// pointer to pool
-	Vec3 Color;
-	F32  Alpha;
-	// Implementation specific data
-	TextureOverride TextureData[2];
-	U8   colors[4][4];
+    S32 Allocate;
+    S32 NumStrips;
+    ClothStrip *Strips;    // allocated
+    S32 NumPoints;
+    Vec3 *Points;        // pointer to pool
+    Vec3 *Normals;        // pointer to pool
+    Vec3 *BiNormals;    // pointer to pool
+    Vec3 *Tangents;        // pointer to pool
+    Vec2 *TexCoords;    // pointer to pool
+    Vec3 Color;
+    F32  Alpha;
+    // Implementation specific data
+    TextureOverride TextureData[2];
+    U8   colors[4][4];
 };
 
 extern ClothMesh *ClothMeshCreate();

@@ -5,16 +5,16 @@
 
 typedef enum EPlanarReflectModes
 {
-	kReflectNearby,
-	kReflectEntitiesOnly,
-	kReflectAll,
+    kReflectNearby,
+    kReflectEntitiesOnly,
+    kReflectAll,
 } EPlanarReflectModes;
 
 typedef enum EPlanarReflectProjClip
 {
-	kReflectProjClip_None,
-	kReflectProjClip_EntitiesOnly,
-	kReflectProjClip_All,
+    kReflectProjClip_None,
+    kReflectProjClip_EntitiesOnly,
+    kReflectProjClip_All,
 } EPlanarReflectProjClip;
 
 void rdrWaterGrabBuffer(bool doReflection);

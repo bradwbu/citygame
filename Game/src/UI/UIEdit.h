@@ -9,26 +9,26 @@ typedef struct KeyInput KeyInput;
 
 typedef enum uiEditAction
 {
-	kuiEditAction_ToEOL = -2,
-	kuiEditAction_ToCursor = -1,
-	kuiEditAction_Max = 0x7fffffff
+    kuiEditAction_ToEOL = -2,
+    kuiEditAction_ToCursor = -1,
+    kuiEditAction_Max = 0x7fffffff
 } uiEditAction;
 
 typedef struct UIUnderline
 {
-	bool active;
-	int iStart;
-	int diLen;
+    bool active;
+    int iStart;
+    int diLen;
 } UIUnderline;
 
 void uiunderline_Clear(UIUnderline *underline);
 
 typedef struct
 {
-	unsigned short* lineText;			// What is the text that should go on this line?
-	unsigned int hasNewLine : 1;		// reformatting does not proceed beyond these type of lines.
-	unsigned int dirty		: 1;		// requires re-formatting.
-	UIUnderline underline;
+    unsigned short* lineText;            // What is the text that should go on this line?
+    unsigned int hasNewLine : 1;        // reformatting does not proceed beyond these type of lines.
+    unsigned int dirty        : 1;        // requires re-formatting.
+    UIUnderline underline;
 } UIEditLine;
 
 
@@ -37,75 +37,75 @@ typedef void (*UIEditInputHandler)(UIEdit* edit);
 
 typedef struct UIEditCursor
 {
-	unsigned int lineIndex;	// Which line is the cursor on?
-	int characterIndex;		// Which character is the cursor on in the line?
-	int lastXPos;			// Last X position the cursor was drawn at. 
-							// ab: not quite. the last rendered x relative to the adjusted 
-							// left margin, which may be -100, for example.
-							// @deprecated: remove this when possible
+    unsigned int lineIndex;    // Which line is the cursor on?
+    int characterIndex;        // Which character is the cursor on in the line?
+    int lastXPos;            // Last X position the cursor was drawn at. 
+                            // ab: not quite. the last rendered x relative to the adjusted 
+                            // left margin, which may be -100, for example.
+                            // @deprecated: remove this when possible
 
-	int xDrawn;    // the last rendered X position in screen coords
+    int xDrawn;    // the last rendered X position in screen coords
 } UIEditCursor;
 
 typedef enum UIEditContentLimit
 {
-	UIECL_NONE,
-	UIECL_WIDE,
-	UIECL_UTF8,
-	UIECL_UTF8_ESCAPED,
+    UIECL_NONE,
+    UIECL_WIDE,
+    UIECL_UTF8,
+    UIECL_UTF8_ESCAPED,
 } UIEditContentLimit;
  
 typedef struct UIEdit
 {
-	UIEditCursor cursor;				// Where is the cursor?
-	UIEditLine** lines;
+    UIEditCursor cursor;                // Where is the cursor?
+    UIEditLine** lines;
 
-	unsigned int inEditMode		: 1;
-	unsigned int canEdit		: 1;
-	unsigned int dirty			: 1;	// Any reformat required?
-	unsigned int boundsChanged	: 1;	// Bounds changed. All lines should be reformatted.
-	unsigned int cursorMoved	: 1;
-	unsigned int password		: 1;	// Display *s
-	unsigned int disallowReturn	: 1;	// Don't let CRs into the text
-	unsigned int respectWhiteSpace : 1; // allow tabs and carraige returns
-	unsigned int rightAlign		: 1;	// align text to the right
-	unsigned int noClip			: 1;	// Don't clip.
+    unsigned int inEditMode        : 1;
+    unsigned int canEdit        : 1;
+    unsigned int dirty            : 1;    // Any reformat required?
+    unsigned int boundsChanged    : 1;    // Bounds changed. All lines should be reformatted.
+    unsigned int cursorMoved    : 1;
+    unsigned int password        : 1;    // Display *s
+    unsigned int disallowReturn    : 1;    // Don't let CRs into the text
+    unsigned int respectWhiteSpace : 1; // allow tabs and carraige returns
+    unsigned int rightAlign        : 1;    // align text to the right
+    unsigned int noClip            : 1;    // Don't clip.
     unsigned int dobox          : 1;    // do a box around the edit and do mouse focus.
-	bool nonAsciiBlocked;
-		// ASCII characters only allowed
+    bool nonAsciiBlocked;
+        // ASCII characters only allowed
 
-	UIBox boundsPage; // the parent to the bounds for the text
-	UIBox boundsText;
-	struct BoundsLayout
-	{
-		F32 leftIndent;
-	} boundsLayout;
+    UIBox boundsPage; // the parent to the bounds for the text
+    UIBox boundsText;
+    struct BoundsLayout
+    {
+        F32 leftIndent;
+    } boundsLayout;
 
-	float z;
-	float minWidth;
+    float z;
+    float minWidth;
 
-	TTDrawContext* font;
-	int textColor;
-	float textScale;
-	int fontHeight;
+    TTDrawContext* font;
+    int textColor;
+    float textScale;
+    int fontHeight;
 
-	TTTextWrapper* wrapper;
-	UIEditInputHandler inputHandler;
+    TTTextWrapper* wrapper;
+    UIEditInputHandler inputHandler;
 
-	float cursorInterval;
-	float cursorTimer;
-	int drawCursor;
+    float cursorInterval;
+    float cursorTimer;
+    int drawCursor;
 
-	float vertScroll;
+    float vertScroll;
 
-	int contentUTF8ByteCount;
-	int contentCharacterCount;
+    int contentUTF8ByteCount;
+    int contentCharacterCount;
 
-	UIEditContentLimit limitType;
-	int limitCount;
+    UIEditContentLimit limitType;
+    int limitCount;
 
-	char *keyClick;
-	char *fullClick;
+    char *keyClick;
+    char *fullClick;
 } UIEdit;
 
 //UIEditLine* uiEditLineCreate();

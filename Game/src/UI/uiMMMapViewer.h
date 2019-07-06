@@ -7,29 +7,29 @@
 
 typedef struct MMMapViewer
 {
-	int state;
-	int currChoice;
-	int wdw;
-	int changed;
-	int type;
+    int state;
+    int currChoice;
+    int wdw;
+    int changed;
+    int type;
 
-	float x;
-	float y;
-	float z;
-	float sc;
+    float x;
+    float y;
+    float z;
+    float sc;
 
-	float wd;
-	float ht;
-	float maxWd;
-	float maxHt;
-	float scale;
+    float wd;
+    float ht;
+    float maxWd;
+    float maxHt;
+    float scale;
 
-	float transitionTime;	//time between a click and when an icon is finished moving.
-	float transitionProgress;
+    float transitionTime;    //time between a click and when an icon is finished moving.
+    float transitionProgress;
 
-	ArchitectMapHeader * map;
+    ArchitectMapHeader * map;
 
-	char *mapname;			//the name of the map being displayed
+    char *mapname;            //the name of the map being displayed
 }MMMapViewer;
 
 

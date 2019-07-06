@@ -1,10 +1,10 @@
 /* uiFocus.h
- *	A silly mechanism for focus arbitration.
+ *    A silly mechanism for focus arbitration.
  *
- *	Objects that wish to participate in focus arbitration must call uiGetFocus() when
- *	they gain focus.  When checking for input, the object must call uiInFocus() to determine
- *	if it still has focus.  The object should proceed with input processing only if it still 
- *	has focus.
+ *    Objects that wish to participate in focus arbitration must call uiGetFocus() when
+ *    they gain focus.  When checking for input, the object must call uiInFocus() to determine
+ *    if it still has focus.  The object should proceed with input processing only if it still 
+ *    has focus.
  */
 #ifndef UIFOCUS_H
 #define UIFOCUS_H
@@ -12,7 +12,7 @@
 
 typedef int (*LostFocusFunction)(void* focusOwner, void* focusRequester);
 // Returns:
-//	0 - refuse to give up focus
+//    0 - refuse to give up focus
 //  1 - agree to give up focus
 
 int uiFocusRefuseAllRequests(void*, void*);
@@ -24,8 +24,8 @@ int uiGetFocusExDbg(void* obj, bool isEditable, LostFocusFunction onLostFocus, c
 #define uiGetFocusEx(obj, isEditable, onLostFocus) uiGetFocusExDbg(obj, isEditable, onLostFocus, __FILE__, __FUNCTION__, __LINE__)
 // Requests focus on behalf of the specified object.
 // Returns:
-//	0 - focus denied.
-//	1 - focus granted.
+//    0 - focus denied.
+//    1 - focus granted.
 
 void uiReturnFocus(void* obj);
 void uiReturnAllFocus(void);

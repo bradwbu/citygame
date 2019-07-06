@@ -7,7 +7,7 @@
 // is over the bounds
 typedef struct ToolTipParent
 {
-	CBox box;
+    CBox box;
 } ToolTipParent;
 
 typedef struct SMFBlock SMFBlock;
@@ -15,30 +15,30 @@ typedef struct SMFBlock SMFBlock;
 #define TT_NOTRANSLATE  1
 #define TT_FIXEDPOS  2
 #define TT_MISSIONMAKER  4
-#define TT_HIDE	 8
+#define TT_HIDE     8
 
 // tool tip structure
 typedef struct ToolTip
 {
-	int				window;			// the window enum, only nessecary if menu = MENU_GAME
-	int				menu;			// the menu enum
-	int				timer;			// If this is set, the tip will use this instead of the global slider
-	int				constant;		// If this is set, the tip does not need to be updated with window coordinates
-	int				reparse;		// Should we reparse the smf
-	int				updated;		// if this is set, we've already processed this tooltip this frame
-	int				flags;			// Flags, like no translate
-	CBox			bounds;			// the actual activation area
-	CBox			rel_bounds;		// the bounds relative to the window coordinates (only for constant tips)
-	char			*txt;			// the short text
-	char			*sourcetxt;		// before translation
-	ToolTipParent	*parent;		// pointer to parent, can be null
-	SMFBlock		*smf;
-	bool			allocated_self;			// can be free'd
-	int				constant_wd;
-	int				back_color;
-	float			x;
-	float			y;
-	bool			disableScreenScaling;
+    int                window;            // the window enum, only nessecary if menu = MENU_GAME
+    int                menu;            // the menu enum
+    int                timer;            // If this is set, the tip will use this instead of the global slider
+    int                constant;        // If this is set, the tip does not need to be updated with window coordinates
+    int                reparse;        // Should we reparse the smf
+    int                updated;        // if this is set, we've already processed this tooltip this frame
+    int                flags;            // Flags, like no translate
+    CBox            bounds;            // the actual activation area
+    CBox            rel_bounds;        // the bounds relative to the window coordinates (only for constant tips)
+    char            *txt;            // the short text
+    char            *sourcetxt;        // before translation
+    ToolTipParent    *parent;        // pointer to parent, can be null
+    SMFBlock        *smf;
+    bool            allocated_self;            // can be free'd
+    int                constant_wd;
+    int                back_color;
+    float            x;
+    float            y;
+    bool            disableScreenScaling;
 }ToolTip;
 
 void setToolTip( ToolTip * tip, CBox * box, const char * txt, ToolTipParent *parent, int menu, int window );

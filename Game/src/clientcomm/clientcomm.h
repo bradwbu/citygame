@@ -5,53 +5,53 @@
 #include <utilitieslib/utils/timing.h>
 
 typedef enum{
-	NST_None,
-	NST_ReceivedUnreliable,
-	NST_ReceivedReliable,		// Impossible to determine for now.
-	NST_LostIncomingPacket,
-	NST_LostOutgoingPacket,
+    NST_None,
+    NST_ReceivedUnreliable,
+    NST_ReceivedReliable,        // Impossible to determine for now.
+    NST_LostIncomingPacket,
+    NST_LostOutgoingPacket,
 } NetStatType;
 
 typedef enum{
-	TroubledComm_None,
-	TroubledComm_Mapserver,
-	TroubledComm_Dbserver,	
-	TroubledComm_DroppedPackets,
-	TroubledComm_Count
+    TroubledComm_None,
+    TroubledComm_Mapserver,
+    TroubledComm_Dbserver,    
+    TroubledComm_DroppedPackets,
+    TroubledComm_Count
 } TroubledCommReason;
 
 typedef enum
 {
-	CS_NONE,
-	CS_CONNECTED,
-	CS_NOT_RESPONSIVE,
-	CS_DISCONNECTED,
+    CS_NONE,
+    CS_CONNECTED,
+    CS_NOT_RESPONSIVE,
+    CS_DISCONNECTED,
 } ConnectionStatus;
 
 typedef struct
 {
-	NetStatType type;
-	int		bytes;
-	F32		time;
+    NetStatType type;
+    int        bytes;
+    F32        time;
 } NetStat;
 
 extern Packet *client_input_pak;
 extern NetLink comm_link;
 extern int g_showMapLoadingMessage;
 
-#define START_INPUT_PACKET(pakx, cmdNumber) {			\
-	Packet* pakx = client_input_pak;					\
-	START_BIT_COUNT(client_input_pak, #cmdNumber);		\
-	pktSendBitsPack(client_input_pak, 1, cmdNumber);
-	
-#define END_INPUT_PACKET								\
-	STOP_BIT_COUNT(client_input_pak);					\
+#define START_INPUT_PACKET(pakx, cmdNumber) {            \
+    Packet* pakx = client_input_pak;                    \
+    START_BIT_COUNT(client_input_pak, #cmdNumber);        \
+    pktSendBitsPack(client_input_pak, 1, cmdNumber);
+    
+#define END_INPUT_PACKET                                \
+    STOP_BIT_COUNT(client_input_pak);                    \
 }
 
-#define EMPTY_INPUT_PACKET(cmdNumber){					\
-	START_BIT_COUNT(client_input_pak, #cmdNumber);		\
-	pktSendBitsPack(client_input_pak, 1, cmdNumber);	\
-	STOP_BIT_COUNT(client_input_pak);					\
+#define EMPTY_INPUT_PACKET(cmdNumber){                    \
+    START_BIT_COUNT(client_input_pak, #cmdNumber);        \
+    pktSendBitsPack(client_input_pak, 1, cmdNumber);    \
+    STOP_BIT_COUNT(client_input_pak);                    \
 }
 
 #define RECV_HISTORY_SIZE 512 // must be power of 2

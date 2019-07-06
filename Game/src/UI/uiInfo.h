@@ -33,11 +33,11 @@ void info_Recipes( const DetailRecipe *pRec );
 int  infoWindow();
 
 typedef enum EPowInfo {
-	kPowInfo_Normal,
-	kPowInfo_Skill,
-	kPowInfo_Combine,
-	kPowInfo_Respec,
-	kPowInfo_SpecLevel,
+    kPowInfo_Normal,
+    kPowInfo_Skill,
+    kPowInfo_Combine,
+    kPowInfo_Respec,
+    kPowInfo_SpecLevel,
 }
 EPowInfo;
 

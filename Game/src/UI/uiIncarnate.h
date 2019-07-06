@@ -3,16 +3,16 @@
 
 static char *incarnateSlotDisplayNames[] =
 {
-	"IncarnateAlphaSlotName",
-	"IncarnateDestinySlotName",
-	"IncarnateGenesisSlotName",
-	"IncarnateHybridSlotName",
-	"IncarnateInterfaceSlotName",
-	"IncarnateJudgementSlotName",
-	"IncarnateLoreSlotName",
-	"IncarnateMindSlotName",
-	"IncarnateVitaeSlotName",
-	"IncarnateOmegaSlotName"
+    "IncarnateAlphaSlotName",
+    "IncarnateDestinySlotName",
+    "IncarnateGenesisSlotName",
+    "IncarnateHybridSlotName",
+    "IncarnateInterfaceSlotName",
+    "IncarnateJudgementSlotName",
+    "IncarnateLoreSlotName",
+    "IncarnateMindSlotName",
+    "IncarnateVitaeSlotName",
+    "IncarnateOmegaSlotName"
 };
 
 void uiIncarnateReparse();

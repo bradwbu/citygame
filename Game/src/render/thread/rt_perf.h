@@ -6,21 +6,21 @@
 
 typedef struct
 {
-	int		test_num;
-	int		loop_count;
-	int		repeats;
-	F32		elapsed;
-	int		trisDrawn;
+    int        test_num;
+    int        loop_count;
+    int        repeats;
+    F32        elapsed;
+    int        trisDrawn;
 } RdrPerfIO;
 
 typedef struct
 {
-	int			num_models;
-	struct
-	{
-		RdrModel	model;
-		RdrTexList	texlists[4];
-	} models[8];
+    int            num_models;
+    struct
+    {
+        RdrModel    model;
+        RdrTexList    texlists[4];
+    } models[8];
 } RdrPerfInfo;
 
 #ifdef RT_PRIVATE

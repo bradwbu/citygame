@@ -8,33 +8,33 @@
 
 typedef enum ShardType
 {
-	kShardType_None,
-	kShardType_Live = 1,
-	kShardType_Training = 4,
-	kShardType_Count
+    kShardType_None,
+    kShardType_Live = 1,
+    kShardType_Training = 4,
+    kShardType_Count
 } ShardType;
 
-#define		SERVER_NAME_SIZE		256
+#define        SERVER_NAME_SIZE        256
 
 typedef struct
 {
-	int		id;
-	U32		ip;
-	U32		port;
-	U8		age_limit;
-	U8		pk_flag;
-	U8		server_status;
-	U8		isVIP;
-	U32		curr_user_count;
-	U32		max_user_count;
-	U32		server_type;
-	char	name[SERVER_NAME_SIZE];
+    int        id;
+    U32        ip;
+    U32        port;
+    U8        age_limit;
+    U8        pk_flag;
+    U8        server_status;
+    U8        isVIP;
+    U32        curr_user_count;
+    U32        max_user_count;
+    U32        server_type;
+    char    name[SERVER_NAME_SIZE];
 } ServerInfo;
 
 typedef struct
 {
-	int		reason;
-	char	*msg;
+    int        reason;
+    char    *msg;
 } BlockedAccount;
 
 typedef enum Auth2EnabledState
@@ -47,38 +47,38 @@ typedef enum Auth2EnabledState
 
 typedef struct
 {
-	int				fail_type;
-	int				reason;
-	int				block_count;
-	BlockedAccount	*blocks;
-	int				server_count;
-	ServerInfo		*servers;
+    int                fail_type;
+    int                reason;
+    int                block_count;
+    BlockedAccount    *blocks;
+    int                server_count;
+    ServerInfo        *servers;
 
-	U32				pay_stat;
-	U32				loyalty;
-	U32				remain_time;
-	U32				quota_time;
-	U32				warn_flag;
-	U32				login_flag;
-	U32				update_key[2];
+    U32                pay_stat;
+    U32                loyalty;
+    U32                remain_time;
+    U32                quota_time;
+    U32                warn_flag;
+    U32                login_flag;
+    U32                update_key[2];
 
-	U32				game_key;
-	U32				uid;
-	int				server_id;
-	int				last_login_server_id;
-	char			name[128];
-	U32				passwordMD5[4];
-	int				protocol;
-	U8			RSA_mod[400];
-	int			RSA_modlen;
-	U8			RSA_exp[10];
-	int			RSA_explen;
+    U32                game_key;
+    U32                uid;
+    int                server_id;
+    int                last_login_server_id;
+    char            name[128];
+    U32                passwordMD5[4];
+    int                protocol;
+    U8            RSA_mod[400];
+    int            RSA_modlen;
+    U8            RSA_exp[10];
+    int            RSA_explen;
     Auth2EnabledState auth2_enabled; // for when we know auth2 protocol is active. Remove this field after migration. 
 } AuthInfo;
 
 
 
-extern AuthInfo		auth_info;
+extern AuthInfo        auth_info;
 
 typedef enum AuthFlags
 {
