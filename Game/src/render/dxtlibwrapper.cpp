@@ -8,7 +8,7 @@
 #if defined NDEBUG
 #pragma comment(lib, "../../../3rdparty/nvdxt/Release/nvDXTlibMT_S.lib")
 #else
-#pragma comment(lib, "../../../3rdparty/nvdxt/Release/nvDXTlibMT_Sd.lib")
+#pragma comment(lib, "../../../3rdparty/nvdxt/Debug/nvDXTlibMT_Sd.lib")
 #endif
 #endif
 
