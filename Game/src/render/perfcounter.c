@@ -12,8 +12,7 @@ int (* s_fpStop )() = NULL;
 void (* s_fpSample )() = NULL;  
 void (* s_fpDisplay )(int, int, int) = NULL;  
 
-
-#if defined(WIN32)
+#if defined(USE_RENDER_PERF_COUNTER) && defined(_WIN32)
 
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/SuperAssert.h>
@@ -259,7 +258,11 @@ void perfCounterInit(int chipset_nv, int chipset_ati)
 
 #else
 
-void perfCounterInit(void)      {}
+void perfCounterInit(int chipset_nv, int chipset_ati)
+{
+    UNUSED(chipset_nv);
+    UNUSED(chipset_ati);
+}
     
 #endif  //WIN32
 

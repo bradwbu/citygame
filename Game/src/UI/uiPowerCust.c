@@ -2074,7 +2074,7 @@ void powerCustomizationMenu()
     int totalCost = 0;
 
     int inTailor = getLastNavMenuType() == HYBRID_MENU_TAILOR;
-    char * greyPay;
+    char * greyPay = NULL;
     float screenScaleX, screenScaleY;
     Vec3 avatarPos;
     F32 xposSc, yposSc, xp, yp, textXSc, textYSc;

@@ -113,7 +113,7 @@ LONG WINAPI DefWindowProc_timed( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
 {
     LONG ret;
     PERFINFO_AUTO_START("DefWindowProc", 1);
-    ret = DefWindowProc(hWnd, uMsg, wParam, lParam);
+    ret = DefWindowProcA(hWnd, uMsg, wParam, lParam);
     PERFINFO_AUTO_STOP();
     return ret;
 }
@@ -139,11 +139,11 @@ static int curalpha = 0;
 
             // load bitmap and get size
             if (game_state.skin == UISKIN_PRAETORIANS)
-                hbmLogo = LoadBitmap(wc.hInstance, MAKEINTRESOURCE(IDB_ROGUELOGO));
+                hbmLogo = LoadBitmapA(wc.hInstance, MAKEINTRESOURCEA(IDB_ROGUELOGO));
             else if (game_state.skin == UISKIN_VILLAINS)
-                hbmLogo = LoadBitmap(wc.hInstance, MAKEINTRESOURCE(IDB_COVLOGO));
+                hbmLogo = LoadBitmapA(wc.hInstance, MAKEINTRESOURCEA(IDB_COVLOGO));
             else
-                hbmLogo = LoadBitmap(wc.hInstance, MAKEINTRESOURCE(IDB_LOGO));
+                hbmLogo = LoadBitmapA(wc.hInstance, MAKEINTRESOURCEA(IDB_LOGO));
             GetObject(hbmLogo, sizeof(BITMAP), &bmpdata);
             width = bmpdata.bmWidth > 0? bmpdata.bmWidth : bmpdata.bmWidth * -1;
             height = bmpdata.bmHeight > 0? bmpdata.bmHeight : bmpdata.bmHeight * -1;
@@ -303,7 +303,7 @@ static void CreateSplash()
 
 void DestroySplash()
 {
-    SendMessage(hlogo, WM_DESTROY, 0, 0);
+    SendMessageA(hlogo, WM_DESTROY, 0, 0);
     g_quitlogo = 1;
     Sleep(10); // let the window close before we go on
 }
@@ -572,9 +572,9 @@ static LONG WINAPI MainWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPara
 {
     LONG    lRet = 1;
 
-#if _DEBUG
+#if DEBUG
     if (isCrashed())
-        return DefWindowProc(hWnd, uMsg, wParam, lParam);
+        return DefWindowProcA(hWnd, uMsg, wParam, lParam);
 #endif
 
     startWindowMessageTimer(uMsg);
@@ -843,7 +843,7 @@ void winGetSupportedResolutions(GfxResolution * desktop, GfxResolution supported
 
     GfxResolution * gr;
     int success, modeNum, alreadyInList, i;
-    DEVMODE dm = {0};
+    DEVMODEA dm = {0};
 
     if (resolution_inited) {
         *desktop = resolution_desktop;
@@ -865,7 +865,7 @@ void winGetSupportedResolutions(GfxResolution * desktop, GfxResolution supported
     resolution_supportedCount = 0;
 
     dm.dmSize       = sizeof(dm);
-    success = EnumDisplaySettingsEx( NULL, ENUM_REGISTRY_SETTINGS,    &dm, 0 );
+    success = EnumDisplaySettingsExA( NULL, ENUM_REGISTRY_SETTINGS,    &dm, 0 );
 
     if( success && dm.dmBitsPerPel == 32 )
     {
@@ -875,7 +875,7 @@ void winGetSupportedResolutions(GfxResolution * desktop, GfxResolution supported
     }
 
     modeNum = 0;
-    while( EnumDisplaySettingsEx( NULL, modeNum, &dm, 0 ) )
+    while( EnumDisplaySettingsExA( NULL, modeNum, &dm, 0 ) )
     {
         modeNum++;
         if( dm.dmBitsPerPel == 32 )
@@ -1541,10 +1541,10 @@ void windowProcessMessages()
     
 
     processing_message = 1;
-    while( PeekMessage( &msg, 0, 0, 0, PM_REMOVE ) )
+    while( PeekMessageA( &msg, 0, 0, 0, PM_REMOVE ) )
     {
         TranslateMessage( &msg );
-        DispatchMessage( &msg );
+        DispatchMessageA( &msg );
         if(0 && msg.message == WM_QUIT)
             quit = 1;
     }
@@ -1857,7 +1857,7 @@ LRESULT CALLBACK EnterTextDialog(HWND hDlg, UINT msg, WPARAM wp, LPARAM lp)
             MapWindowPoints(GetDlgItem(hDlg, IDC_EDIT), hDlg, (LPPOINT)&rc, 2);
             MoveWindow(GetDlgItem(hDlg, IDC_EDIT), rc.left, rc.top, rc.right-rc.left, 200, FALSE);
             for (i = 0; EnterTextStrings[i][0]; i++)
-                SendMessage(GetDlgItem(hDlg, IDC_EDIT), CB_ADDSTRING, 0, (LPARAM)EnterTextStrings[i]);
+                SendMessageA(GetDlgItem(hDlg, IDC_EDIT), CB_ADDSTRING, 0, (LPARAM)EnterTextStrings[i]);
             //ActivateScenarios;Generator;Generator Group;MarkerAI;MarkerItem;Marke
 
             if (etd->prompt && etd->prompt[0])
@@ -1901,7 +1901,7 @@ LRESULT CALLBACK EnterTextDialogViaEString(HWND hDlg, UINT msg, WPARAM wp, LPARA
             MapWindowPoints(GetDlgItem(hDlg, IDC_EDIT), hDlg, (LPPOINT)&rc, 2);
             MoveWindow(GetDlgItem(hDlg, IDC_EDIT), rc.left, rc.top, rc.right-rc.left, 200, FALSE);
             for (i = 0; EnterTextStrings[i][0]; i++)
-                SendMessage(GetDlgItem(hDlg, IDC_EDIT), CB_ADDSTRING, 0, (LPARAM)EnterTextStrings[i]);
+                SendMessageA(GetDlgItem(hDlg, IDC_EDIT), CB_ADDSTRING, 0, (LPARAM)EnterTextStrings[i]);
             //ActivateScenarios;Generator;Generator Group;MarkerAI;MarkerItem;Marke
 
             if (etd->prompt && etd->prompt[0])

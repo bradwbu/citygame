@@ -99,12 +99,13 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\3rdparty\nvdxt;$(ProjectDir)..\..\..\3rdparty\nvcpl;$(ProjectDir)..\..\..\3rdparty\nvperf\inc;$(ProjectDir)..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\oggvorbis\include;$(ProjectDir)..\..\..\3rdparty\glew-2.1.0\include;$(ProjectDir)..\..\..\3rdparty\jpgdlib-0.93b\include;$(ProjectDir)..\..\..\3rdparty\libcubemapgen-1.4\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Physics\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Cooking\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Foundation\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\PhysXLoader\include;$(ProjectDir)..\..\..\3rdparty\AlienFX SDK\Unmanaged\includes</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\3rdparty\nvdxt;$(ProjectDir)..\..\..\3rdparty\nvcpl;$(ProjectDir)..\..\..\3rdparty\nvperf\inc;$(ProjectDir)..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\ogg-1.1.1\include;$(ProjectDir)..\..\..\3rdparty\glew-2.1.0\include;$(ProjectDir)..\..\..\3rdparty\vorbis-1.1.0\include;$(ProjectDir)..\..\..\3rdparty\jpgdlib-0.93b\include;$(ProjectDir)..\..\..\3rdparty\libcubemapgen-1.4\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Physics\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Cooking\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Foundation\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\PhysXLoader\include;$(ProjectDir)..\..\..\3rdparty\AlienFX SDK\Unmanaged\includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <LargeAddressAware>true</LargeAddressAware>
+      <AdditionalDependencies>ddraw.lib;dinput8.lib;dsound.lib;winmm.lib;dxguid.lib;Imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>$(Projectdir)..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\Common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
@@ -120,12 +121,13 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\3rdparty\nvdxt;$(ProjectDir)..\..\..\3rdparty\nvcpl;$(ProjectDir)..\..\..\3rdparty\nvperf\inc;$(ProjectDir)..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\oggvorbis\include;$(ProjectDir)..\..\..\3rdparty\glew-2.1.0\include;$(ProjectDir)..\..\..\3rdparty\jpgdlib-0.93b\include;$(ProjectDir)..\..\..\3rdparty\libcubemapgen-1.4\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Physics\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Cooking\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Foundation\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\PhysXLoader\include;$(ProjectDir)..\..\..\3rdparty\AlienFX SDK\Unmanaged\includes</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\3rdparty\nvdxt;$(ProjectDir)..\..\..\3rdparty\nvcpl;$(ProjectDir)..\..\..\3rdparty\nvperf\inc;$(ProjectDir)..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\ogg-1.1.1\include;$(ProjectDir)..\..\..\3rdparty\glew-2.1.0\include;$(ProjectDir)..\..\..\3rdparty\vorbis-1.1.0\include;$(ProjectDir)..\..\..\3rdparty\jpgdlib-0.93b\include;$(ProjectDir)..\..\..\3rdparty\libcubemapgen-1.4\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Physics\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Cooking\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Foundation\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\PhysXLoader\include;$(ProjectDir)..\..\..\3rdparty\AlienFX SDK\Unmanaged\includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <LargeAddressAware>true</LargeAddressAware>
+      <AdditionalDependencies>ddraw.lib;dinput8.lib;dsound.lib;winmm.lib;dxguid.lib;Imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>$(Projectdir)..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\Common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
@@ -143,7 +145,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\3rdparty\nvdxt;$(ProjectDir)..\..\..\3rdparty\nvcpl;$(ProjectDir)..\..\..\3rdparty\nvperf\inc;$(ProjectDir)..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\oggvorbis\include;$(ProjectDir)..\..\..\3rdparty\glew-2.1.0\include;$(ProjectDir)..\..\..\3rdparty\jpgdlib-0.93b\include;$(ProjectDir)..\..\..\3rdparty\libcubemapgen-1.4\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Physics\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Cooking\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Foundation\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\PhysXLoader\include;$(ProjectDir)..\..\..\3rdparty\AlienFX SDK\Unmanaged\includes</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\3rdparty\nvdxt;$(ProjectDir)..\..\..\3rdparty\nvcpl;$(ProjectDir)..\..\..\3rdparty\nvperf\inc;$(ProjectDir)..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\ogg-1.1.1\include;$(ProjectDir)..\..\..\3rdparty\glew-2.1.0\include;$(ProjectDir)..\..\..\3rdparty\vorbis-1.1.0\include;$(ProjectDir)..\..\..\3rdparty\jpgdlib-0.93b\include;$(ProjectDir)..\..\..\3rdparty\libcubemapgen-1.4\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Physics\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Cooking\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Foundation\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\PhysXLoader\include;$(ProjectDir)..\..\..\3rdparty\AlienFX SDK\Unmanaged\includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -151,6 +153,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <LargeAddressAware>true</LargeAddressAware>
+      <AdditionalDependencies>ddraw.lib;dinput8.lib;dsound.lib;winmm.lib;dxguid.lib;Imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>$(Projectdir)..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\Common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
@@ -168,7 +171,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\3rdparty\nvdxt;$(ProjectDir)..\..\..\3rdparty\nvcpl;$(ProjectDir)..\..\..\3rdparty\nvperf\inc;$(ProjectDir)..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\oggvorbis\include;$(ProjectDir)..\..\..\3rdparty\glew-2.1.0\include;$(ProjectDir)..\..\..\3rdparty\jpgdlib-0.93b\include;$(ProjectDir)..\..\..\3rdparty\libcubemapgen-1.4\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Physics\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Cooking\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Foundation\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\PhysXLoader\include;$(ProjectDir)..\..\..\3rdparty\AlienFX SDK\Unmanaged\includes</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\3rdparty\nvdxt;$(ProjectDir)..\..\..\3rdparty\nvcpl;$(ProjectDir)..\..\..\3rdparty\nvperf\inc;$(ProjectDir)..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\ogg-1.1.1\include;$(ProjectDir)..\..\..\3rdparty\glew-2.1.0\include;$(ProjectDir)..\..\..\3rdparty\vorbis-1.1.0\include;$(ProjectDir)..\..\..\3rdparty\jpgdlib-0.93b\include;$(ProjectDir)..\..\..\3rdparty\libcubemapgen-1.4\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Physics\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Cooking\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Foundation\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\PhysXLoader\include;$(ProjectDir)..\..\..\3rdparty\AlienFX SDK\Unmanaged\includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -176,6 +179,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <LargeAddressAware>true</LargeAddressAware>
+      <AdditionalDependencies>ddraw.lib;dinput8.lib;dsound.lib;winmm.lib;dxguid.lib;Imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>$(Projectdir)..\..\..\Utilities\StructParser\bin\$(PlatformTarget)\$(Configuration)\StructParser.exe PrjPath=$(ProjectPath);SrcDir=$(ProjectDir)..\..\src\;CommonDir=$(ProjectDir)..\..\..\Common\;OutDir=$(OutDir);IntDir=$(IntDir);Platform=$(Platform);Configuration=$(Configuration);SlnPath=$(SolutionPath)</Command>
@@ -442,6 +446,7 @@
     <ClInclude Include="..\..\src\graphics\clothnode.h" />
     <ClInclude Include="..\..\src\graphics\failtext.h" />
     <ClInclude Include="..\..\src\graphics\fog.h" />
+    <ClInclude Include="..\..\src\graphics\font.h" />
     <ClInclude Include="..\..\src\graphics\fontdata.h" />
     <ClInclude Include="..\..\src\graphics\frustum_c.h" />
     <ClInclude Include="..\..\src\graphics\FX\fx.h" />
@@ -1014,6 +1019,7 @@
     <ClCompile Include="..\..\src\graphics\clothnode.c" />
     <ClCompile Include="..\..\src\graphics\failtext.c" />
     <ClCompile Include="..\..\src\graphics\fog.c" />
+    <ClCompile Include="..\..\src\graphics\font.c" />
     <ClCompile Include="..\..\src\graphics\fontdata.c" />
     <ClCompile Include="..\..\src\graphics\frustum_c.c" />
     <ClCompile Include="..\..\src\graphics\FX\fx.c" />
@@ -1270,6 +1276,7 @@
     <ClCompile Include="..\..\src\UI\uiPictureBrowser.c" />
     <ClCompile Include="..\..\src\UI\uiPlaque.c" />
     <ClCompile Include="..\..\src\UI\uiPlayerNote.c" />
+    <ClCompile Include="..\..\src\UI\uiPopHelp.c" />
     <ClCompile Include="..\..\src\UI\uiPowerCust.c" />
     <ClCompile Include="..\..\src\UI\uiPowerInfo.c" />
     <ClCompile Include="..\..\src\UI\uiPowerInventory.c" />
@@ -1338,6 +1345,44 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\..\src\resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\3rdparty\cryptopp-8.3\build\vs2019\cryptopp.vcxproj">
+      <Project>{aca8c226-ef10-49f2-8b3d-d9939ee4a4fe}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdparty\glew-2.1.0\build\vs2019\glew.vcxproj">
+      <Project>{06935686-b980-4030-867e-506cf0a3a0a8}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdparty\jpeg-9c\build\vs2019\jpeg.vcxproj">
+      <Project>{22889577-b5ca-4986-b202-8c9af0c9ad39}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdparty\jpgdlib-0.93b\build\vs2019\jpgdlib.vcxproj">
+      <Project>{ca16f444-2a89-4f8e-b4ab-c0d397d64b6d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdparty\libcubemapgen-1.4\build\vs2019\CubeMapGenLib.vcxproj">
+      <Project>{bee2c47b-7a0a-4762-9259-d58a7c6b11a9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdparty\lua-5.1.5\build\vs2019\lua.vcxproj">
+      <Project>{494ee6bf-16c7-4457-8759-af93033293a7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdparty\nvparse\build\vs2019\nvparse.vcxproj">
+      <Project>{a70c9b90-9574-4831-b622-ee05365c1d94}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdparty\ogg-1.1.1\build\vs2019\ogg.vcxproj">
+      <Project>{383e2826-9ae9-43c4-ad8a-91f8be58e011}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdparty\vorbis-1.1.0\build\vs2019\vorbis.vcxproj">
+      <Project>{578b0bce-b38b-4dca-b653-24d0083d4b2b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdparty\zlib-1.2.11\build\vs2019\zlib.vcxproj">
+      <Project>{8426a8d3-2549-4523-b584-fcd81e89b7bc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\libs\UtilitiesLib\build\vs2019\UtilitiesLib.vcxproj">
+      <Project>{02b25697-0348-423c-8df3-e1bdf89bb43d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Utilities\StructParser\build\vs2019\StructParser.vcxproj">
+      <Project>{3d2903c7-c38e-43ef-8974-280d59da4a6d}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

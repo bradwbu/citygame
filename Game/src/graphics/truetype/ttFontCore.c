@@ -16,6 +16,13 @@
 #include <utilitieslib/utils/wininclude.h>
 #include <utilitieslib/utils/timing.h>
 
+#if defined _M_IX86
+#pragma comment(lib, "../../../3rdparty/freetype/freetypeMT.lib")
+#elif defined _M_X64
+#pragma comment(lib, "../../../3rdparty/freetype/x64/freetypeMT.lib")
+#endif
+
+
 //------------------------------------------------------------
 // Internal globals
 //------------------------------------------------------------

@@ -90,7 +90,7 @@ int sockCheckWriteConnection(unsigned int fd)
 
 void    sockStart(void)
 {
-#if defined(WIN32)
+#if defined(_WIN32)
     static bool bAlreadyCalled;
 
     WORD wVersionRequested;  
@@ -112,7 +112,7 @@ void    sockStart(void)
 
 
 void sockStop(void){
-#if defined(WIN32)
+#if defined(_WIN32)
     WSACleanup();
 #endif
 }

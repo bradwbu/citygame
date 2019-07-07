@@ -1,7 +1,16 @@
+#include <utilitieslib/assert/assert.h>
+
 #define EXCLUDE_LIBS
 #include <dxtlib.h>
 #include <stdio.h>
-#include "assert.h"
+
+#if defined _M_IX86
+#if defined NDEBUG
+#pragma comment(lib, "../../../3rdparty/nvdxt/Release/nvDXTlibMT_S.lib")
+#else
+#pragma comment(lib, "../../../3rdparty/nvdxt/Release/nvDXTlibMT_Sd.lib")
+#endif
+#endif
 
 extern "C" {
 

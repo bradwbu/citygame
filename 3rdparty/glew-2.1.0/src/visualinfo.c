@@ -1085,7 +1085,7 @@ void InitContext (GLContext* ctx)
 
 GLboolean CreateContext (GLContext* ctx)
 {
-  WNDCLASS wc;
+  WNDCLASSA wc;
   PIXELFORMATDESCRIPTOR pfd;
   /* check for input */
   if (NULL == ctx) return GL_TRUE;
@@ -1094,9 +1094,9 @@ GLboolean CreateContext (GLContext* ctx)
   wc.hInstance = GetModuleHandle(NULL);
   wc.lpfnWndProc = DefWindowProc;
   wc.lpszClassName = "GLEW";
-  if (0 == RegisterClass(&wc)) return GL_TRUE;
+  if (0 == RegisterClassA(&wc)) return GL_TRUE;
   /* create window */
-  ctx->wnd = CreateWindow("GLEW", "GLEW", 0, CW_USEDEFAULT, CW_USEDEFAULT, 
+  ctx->wnd = CreateWindowA("GLEW", "GLEW", 0, CW_USEDEFAULT, CW_USEDEFAULT, 
                           CW_USEDEFAULT, CW_USEDEFAULT, NULL, NULL, 
                           GetModuleHandle(NULL), NULL);
   if (NULL == ctx->wnd) return GL_TRUE;
@@ -1129,7 +1129,7 @@ void DestroyContext (GLContext* ctx)
   if (NULL != ctx->rc) wglDeleteContext(wglGetCurrentContext());
   if (NULL != ctx->wnd && NULL != ctx->dc) ReleaseDC(ctx->wnd, ctx->dc);
   if (NULL != ctx->wnd) DestroyWindow(ctx->wnd);
-  UnregisterClass("GLEW", GetModuleHandle(NULL));
+  UnregisterClassA("GLEW", GetModuleHandle(NULL));
 }
 
 /* ------------------------------------------------------------------------ */

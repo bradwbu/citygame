@@ -19,7 +19,7 @@
 namespace NX_CORE_DUMP
 {
 
-#if defined(WIN32) || defined(_XBOX) || defined(__CELLOS_LV2__)
+#if defined(_WIN32) || defined(_XBOX) || defined(__CELLOS_LV2__)
 #define    CORE_DUMP_ENABLE 1
 #else
 #define    CORE_DUMP_ENABLE 0

@@ -7,6 +7,7 @@
 #include <utilitieslib/utils/memcheck.h>
 
 #pragma comment (lib, "opengl32.lib")
+#pragma comment (lib, "glu32.lib")
 
 /*
 * Compute ceiling of integer quotient of A divided by B:

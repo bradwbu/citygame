@@ -1090,7 +1090,7 @@ void tailorPriceOptionsSelectionUpdate()
 }
 char * tailorPriceOptions_GreyPay(int cost, int influencePoints)
 {
-    char * greyPay;
+    char * greyPay = NULL;
 
     switch (priceOptions[tailorPriceSelectIndex].nextButtonStateCheck)
     {

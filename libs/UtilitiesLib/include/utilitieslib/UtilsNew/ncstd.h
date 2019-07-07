@@ -56,7 +56,7 @@ NCHEADER_BEGIN
 // warnings to ignore
 // *************************************************************************
 
-#if defined(WIN32)
+#if defined(_WIN32)
 #    pragma warning(disable:4127) // conditional expression is constant
 #    pragma warning(disable:4267) // conversion from size_t to int
 #    pragma warning(disable:4201) // nonstandard extension used : nameless struct/union
