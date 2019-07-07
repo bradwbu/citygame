@@ -7,8 +7,8 @@
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
-#include "animtrack.h"
-#include "animtrackanimate.h"
+#include "seq/animtrack.h"
+#include "seq/animtrackanimate.h"
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/strings_opt.h>
 #include <utilitieslib/network/netcomp.h>

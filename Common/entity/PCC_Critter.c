@@ -1,18 +1,18 @@
-#include "PCC_Critter.h"
+#include "entity/PCC_Critter.h"
 
 
-#include "character_base.h"
+#include "entity/character_base.h"
 #include <utilitieslib/components/earray.h>
-#include "powers.h"
+#include "entity/powers.h"
 #include "gameData/bodyPart.h"
-#include "costume.h"
-#include "entity.h"
+#include "entity/costume.h"
+#include "entity/entity.h"
 #include "player/player.h"
 #include <utilitieslib/components/estring.h>
 #include "varutils.h"                //    playerVarAlloc
 #include <utilitieslib/language/MessageStoreUtil.h>
-#include "origins.h"                //    for origins pointer
-#include "entPlayer.h"                //    costume ent player pointer
+#include "entity/origins.h"                //    for origins pointer
+#include "entity/EntPlayer.h"                //    costume ent player pointer
 #include "filter/profanity.h"
 #include "filter/validate_name.h"
 #include "storyarc/playerCreatedStoryarcValidate.h"

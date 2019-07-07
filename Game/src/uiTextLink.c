@@ -1,20 +1,20 @@
 
-#include "StashTable.h"
-#include "earray.h"
-#include "MessageStoreUtil.h"
-#include "EString.h"
-#include "mathutil.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/mathutil.h>
 
-#include "powers.h"
-#include "DetailRecipe.h"
-#include "salvage.h"
-#include "classes.h"
+#include "entity/powers.h"
+#include "bases/DetailRecipe.h"
+#include "entity/salvage.h"
+#include "entity/classes.h"
 
-#include "uiInfo.h"
+#include "UI/uiInfo.h"
 
-#include "entity.h"
-#include "player.h"
-#include "character_base.h"
+#include "entity/entity.h"
+#include "player/player.h"
+#include "entity/character_base.h"
 
 
 StashTable stTextLinkPowers;

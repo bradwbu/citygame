@@ -1,13 +1,13 @@
 
 
-#include "costume.h"
-#include "costume_data.h"
+#include "entity/costume.h"
+#include "gameData/costume_data.h"
 
-#include "earray.h"
-#include "utils.h"
-#include "file.h"
-#include "error.h"
-#include "uiCostume.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/error.h>
+#include "UI/uiCostume.h"
 
 CostumeMasterList    gCostumeOriginal = {0};
 

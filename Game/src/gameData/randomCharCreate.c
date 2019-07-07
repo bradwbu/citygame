@@ -1,28 +1,28 @@
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "randomCharCreate.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "player.h"
-#include "initClient.h"
-#include "origins.h"
-#include "classes.h"
-#include "character_base.h"
-#include "EArray.h"
-#include "powers.h"
-#include "costume.h"
-#include "costume_client.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "player/player.h"
+#include "gameComm/initClient.h"
+#include "entity/origins.h"
+#include "entity/classes.h"
+#include "entity/character_base.h"
+#include <utilitieslib/components/Earray.h>
+#include "entity/powers.h"
+#include "entity/costume.h"
+#include "entity/costume_client.h"
 #include "gameData/costume_data.h"
-#include "uiCostume.h"
+#include "UI/uiCostume.h"
 #include "randomName.h"
 #include <string.h>
 #include <conio.h>
-#include "memcheck.h"
-#include "utils.h"
-#include "uiAvatar.h"
-#include "traycommon.h"
-#include "cmdgame.h"
-#include "AccountData.h"
-#include "authUserData.h"
+#include <utilitieslib/utils/memcheck.h>
+#include <utilitieslib/utils/utils.h>
+#include "UI/uiAvatar.h"
+#include "gameComm/trayCommon.h"
+#include "cmdparse/cmdgame.h"
+#include "account/AccountData.h"
+#include "auth/authUserData.h"
 
 static int gCurrentClass;
 static int gCurrentOrigin;
@@ -347,7 +347,7 @@ int simulateCharacterCreate(int askuser, int connectionless)
     // Name, etc
     if (askuser) {
         printf("Character Name: ");
-        gets(e->name);
+        gets_s(e->name, sizeof(e->name));
     } else {
         strcpy(e->name, genName());
     }

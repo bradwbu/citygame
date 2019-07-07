@@ -4,31 +4,31 @@
  *     Confidential Property of Cryptic Studios
  */
 #include "game.h"
-#include "nwwrapper.h"
-#include "utils.h"
-#include "SuperAssert.h"
-#include "win_init.h"
-#include "fpmacros.h"
+#include "NovodeX/NwWrapper.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/SuperAssert.h>
+#include "win/win_init.h"
+#include <utilitieslib/utils/fpmacros.h>
 #include "clienterror.h"
-#include "FolderCache.h"
-#include "autoResumeInfo.h"
-#include "cmdgame.h"
-#include "textparser.h"
-#include "uiAutomap.h"
-#include "seqstate.h"
-#include "sound.h"
-#include "timing.h"
-#include "file.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include "clientcomm/autoResumeInfo.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/textparser.h>
+#include "UI/uiAutomap.h"
+#include "seq/seqstate.h"
+#include "sound/sound.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/file.h>
 #include "gameData/costume_diff.h"
-#include "AppRegCache.h"
-#include "hwlight.h"
-#include "MemoryMonitor.h"    // for memory tracking
+#include <utilitieslib/version/AppRegCache.h>
+#include "win/hwlight.h"
+#include <utilitieslib/utils/MemoryMonitor.h>    // for memory tracking
 #include "LWC.h"
-#include "RegistryReader.h"
-#include "AppLocale.h"
-#include "MessageStoreUtil.h"
-#include "process_util.h"
-#include "win_init.h"
+#include <utilitieslib/utils/RegistryReader.h>
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/process_util.h>
+#include "win/win_init.h"
 
 #define UPDATE_PROGRESS_STRING(X) loadstart_printf(X); game_setProgressString(X, NULL, PROGRESSDIALOGTYPE_OK);
 
@@ -45,8 +45,8 @@ void game_beforeRegisterWinClass(int argc, char **argv)
 }
 
 // remind bruce to remove this after the issues ncsoft's new "global auth" get ironed out
-#include "authclient.h"
-#include "sock.h"
+#include "clientComm/authclient.h"
+#include <utilitieslib/network/sock.h>
 void quickAuthCheck(BOOL localhost)
 {
     char *u;

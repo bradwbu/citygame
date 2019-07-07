@@ -1,9 +1,9 @@
 #ifndef TRAY_CLIENT_H
 #define TRAY_CLIENT_H
 
-#include "stdtypes.h"
-#include "uiInclude.h"
-#include "trayCommon.h"
+#include <utilitieslib/stdtypes.h>
+#include "UI/uiInclude.h"
+#include "gameComm/trayCommon.h"
 
 typedef struct Packet Packet;
 typedef struct Entity Entity;

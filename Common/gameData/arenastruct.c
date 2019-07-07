@@ -9,7 +9,7 @@
  *
  */
 
-#include "arenastruct.h"
+#include "gameData/arenastruct.h"
 #include <utilitieslib/network/netio.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/utils.h>

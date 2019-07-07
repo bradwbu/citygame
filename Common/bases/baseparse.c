@@ -1,12 +1,12 @@
-#include "bases.h"
+#include "bases/bases.h"
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/utils.h>
-#include "baseparse.h"
+#include "bases/baseparse.h"
 #include <utilitieslib/components/EString.h>
 #include <utilitieslib/components/EArray.h>
 #include <utilitieslib/assert/assert.h>
-#include "basedata.h"
+#include "bases/basedata.h"
 #include "entity/salvage.h"
 #include "entity/boost.h"
 

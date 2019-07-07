@@ -1,29 +1,30 @@
 
 #include <stdlib.h>
-#include "baseclientrecv.h"
-#include "mathutil.h"
-#include "bases.h"
-#include "netio.h"
-#include "netcomp.h"
-#include "basetogroup.h"
-#include "earray.h"
-#include "basedata.h"
-#include "textparser.h"
-#include "baseparse.h"
-#include "bindiff.h"
-#include "group.h"
-#include "groupscene.h"
-#include "sun.h"
-#include "baseedit.h"
-#include "EString.h"
-#include "uiAutomap.h"
+#include <utilitieslib/stdtypes.h>
+#include "bases/baseclientrecv.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "bases/bases.h"
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/network/netcomp.h>
+#include "bases/basetogroup.h"
+#include <utilitieslib/components/Earray.h>
+#include "bases/basedata.h"
+#include <utilitieslib/utils/textparser.h>
+#include "bases/baseparse.h"
+#include <utilitieslib/network/bindiff.h>
+#include "group/group.h"
+#include "group/groupscene.h"
+#include "graphics/sun.h"
+#include "bases/baseedit.h"
+#include <utilitieslib/components/estring.h>
+#include "UI/uiAutomap.h"
 
-#include "seq.h"
-#include "entity.h"
-#include "entclient.h"
-#include "clientcomm.h"
-#include "entVarUpdate.h"
-#include "crypt.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "entity/entclient.h"
+#include "clientcomm/clientcomm.h"
+#include "entity/entVarUpdate.h"
+#include <utilitieslib/network/crypt.h>
 
 int sBadBase = 0;
 
@@ -59,8 +60,9 @@ void setupInfoPointers(void)
 // Return 0 on failure
 static int baseReceiveAndLoad(Packet *pak, int raidIndex)
 {
-    int        not_diff,len = -1;
-    char    *str;
+    int not_diff;
+    int len = -1;
+    char* str = NULL;
     Base    *base;
 
     if (raidIndex)

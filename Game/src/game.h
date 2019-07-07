@@ -3,7 +3,7 @@
 #ifndef _GAME_H_
 #define _GAME_H_
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef enum
 {

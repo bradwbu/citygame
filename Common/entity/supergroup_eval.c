@@ -9,12 +9,12 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/bitfield.h>
 
-#include "entity.h"
-#include "entPlayer.h"    // for PlayerType
-#include "supergroup.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"    // for PlayerType
+#include "entity/Supergroup.h"
 
 #include "player/badges.h"
-#include "RewardToken.h"
+#include "entity/rewardtoken.h"
 #include "bases/basedata.h"
 #include "bases/DetailRecipe.h"
 

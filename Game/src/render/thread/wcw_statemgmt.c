@@ -1,21 +1,21 @@
 #define RT_ALLOW_BINDTEXTURE
 #define WCW_STATEMANAGER
-#include "ogl.h"
+#include "render/thread/ogl.h"
 #include "assert.h"
-#include "render.h"
-#include "wcw_statemgmt.h"
-#include "rt_cgfx.h"
-#include "shadersATI.h"
-#include "edit_cmd.h"
-#include "cmdgame.h"
-#include "MemoryMonitor.h"
-#include "error.h"
-#include "utils.h"
+#include "render/render.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_cgfx.h"
+#include "render/thread/shadersATI.h"
+#include "edit/edit_cmd.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/MemoryMonitor.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
 #include "rt_stats.h"
-#include "osdependent.h"
-#include "failtext.h"
-#include "renderWater.h"    // for kReflectProjClip_All, etc.
-#include "gfxDebug.h"
+#include <utilitieslib/utils/osdependent.h>
+#include "graphics/failtext.h"
+#include "render/renderWater.h"    // for kReflectProjClip_All, etc.
+#include "graphics/gfxDebug.h"
 
 #if defined(_FULLDEBUG)
     #define GLSTATEDEBUG 2
@@ -1070,7 +1070,7 @@ int fakeFogDisable=0; // Enables the faked method of disabling fog that we use f
 
 //#define FOG_DEBUG
 #ifdef FOG_DEBUG
-#include "memlog.h"
+#include <utilitieslib/utils/memlog.h>
 MemLog g_FogLog;
 #endif
 
@@ -1761,7 +1761,7 @@ void WCW_DepthMask( GLboolean mask )
     }
 }
 
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 //This function shouldn't needto exist, and should flag an error if GL texture state isn't correct
 void WCW_ClearTextureStateToWhite(void)
 {

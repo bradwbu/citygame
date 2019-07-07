@@ -1,8 +1,8 @@
 #ifndef _RT_TEX_H
 #define _RT_TEX_H
 
-#include "texEnums.h"
-#include "rt_queue.h"
+#include "render/texEnums.h"
+#include "render/thread/rt_queue.h"
 
 typedef struct RdrTexParams
 {

@@ -3,16 +3,16 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "netio.h"
-#include "netcomp.h"
-#include "entity.h"
-#include "character_base.h"
-#include "character_net.h"
-#include "player.h"
-#include "timing.h"
-#include "camera.h"
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/network/netcomp.h>
+#include "entity/entity.h"
+#include "entity/character_base.h"
+#include "entity/character_net.h"
+#include "player/player.h"
+#include <utilitieslib/utils/timing.h>
+#include "graphics/camera.h"
 
 /**********************************************************************func*
  * entity_ActivatePowerAtLocationSend

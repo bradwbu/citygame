@@ -1,6 +1,6 @@
-#include "seqtype.h"
+#include "seq/seqtype.h"
 #include <utilitieslib/utils/textparser.h>
-#include "seq.h"
+#include "seq/seq.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/components/earray.h>

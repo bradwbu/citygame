@@ -1,53 +1,53 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "mathutil.h"
-#include "error.h"
-#include "memcheck.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/memcheck.h>
 #include "assert.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "assert.h"
-#include "font.h"
-#include "cmdcommon.h"    //TIMESTEP
-#include "cmdgame.h"
-#include "seq.h"
-#include "fx.h"
+#include "graphics/font.h"
+#include "cmdparse/cmdcommon.h"    //TIMESTEP
+#include "cmdparse/cmdgame.h"
+#include "seq/seq.h"
+#include "graphics/FX/fx.h"
 #include "fxutil.h"
-#include "fxlists.h"
-#include "fxgeo.h"
+#include "graphics/FX/fxlists.h"
+#include "graphics/FX/fxgeo.h"
 #include "fxinfo.h"
-#include "camera.h"
-#include "uiConsole.h"
-#include "genericlist.h"
-#include "group.h" //for lighting so I don't have to rewrite lightmodel to be more generic
-#include "light.h"
-#include "seq.h"
-#include "textparser.h"
-#include "earray.h"
-#include "seqsequence.h"
-#include "entclient.h" //for debug
-#include "groupdraw.h"
-#include "groupdynrecv.h"
-#include "timing.h"
-#include "uiCursor.h"
-#include "strings_opt.h"
-#include "fileutil.h"
-#include "fxcapes.h"
-#include "input.h"
-#include "win_init.h"
-#include "groupdyn.h"
-#include "seqstate.h"
-#include "entity.h"
-#include "anim.h"
-#include "seqskeleton.h"
-#include "mailbox.h"
-#include "particle.h"
-#include "clicktosource.h"
-#include "uiutil.h"
-#include "StashTable.h"
-#include "fxdebris.h"
-#include "tricks.h"
-#include "gfx.h"
+#include "graphics/camera.h"
+#include "UI/uiConsole.h"
+#include <utilitieslib/components/genericlist.h>
+#include "group/group.h" //for lighting so I don't have to rewrite lightmodel to be more generic
+#include "graphics/light.h"
+#include "seq/seq.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/Earray.h>
+#include "seq/seqsequence.h"
+#include "entity/entclient.h" //for debug
+#include "graphics/groupdraw.h"
+#include "group/groupdynrecv.h"
+#include <utilitieslib/utils/timing.h>
+#include "UI/uiCursor.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/utils/fileutil.h>
+#include "graphics/FX/fxcapes.h"
+#include "win/input.h"
+#include "win/win_init.h"
+#include "group/groupdyn.h"
+#include "seq/seqstate.h"
+#include "entity/entity.h"
+#include "seq/anim.h"
+#include "seq/seqskeleton.h"
+#include <utilitieslib/components/mailbox.h>
+#include "graphics/FX/particle.h"
+#include "edit/ClickToSource.h"
+#include "UI/uiUtil.h"
+#include <utilitieslib/components/StashTable.h>
+#include "graphics/FX/fxdebris.h"
+#include "seq/tricks.h"
+#include "graphics/gfx.h"
 
 #define INITIAL_FXGEO_MEMPOOL_ALLOCATION    200
 #define INITIAL_FX_MEMPOOL_ALLOCATION        100
@@ -74,10 +74,10 @@ int fxDestroyedCount = 0;
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdio.h>
-#include "player.h"
+#include "player/player.h"
 
 #ifdef NOVODEX_FLUIDS
-#include "renderparticles.h"
+#include "render/renderparticles.h"
 #endif
 
 
@@ -620,7 +620,7 @@ char * fxPrintFxDebug()
     FxDebugInfo fxI[FX_INFO_MAX_COUNT];
     int fxICount;
     FxObject * fx;
-    FxDebugInfo * myFxI;
+    FxDebugInfo * myFxI = NULL;
     int i, found;
 
     fxICount = 0;
@@ -772,7 +772,7 @@ static void fxFindInputs(FxInfo * fxinfo, FxParams * fxp)
     int i = 0;
     BoneId bone;
     FxParams fxpold;
-    SeqInst * seq;
+    SeqInst * seq = NULL;
     char * inputname;
     int fxi, numinputs;
     int type = 0;

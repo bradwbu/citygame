@@ -1,19 +1,19 @@
 #include <stdio.h>
-#include "ogl.h"
-#include "pbuffer.h"
-#include "error.h"
-#include "win_init.h"
-#include "renderUtil.h"
-#include "wcw_statemgmt.h"
-#include "timing.h"
-#include "rendertree.h"
-#include "camera.h"
-#include "font.h"
-#include "sprite_text.h"
-#include "tex.h"
-#include "Color.h"
-#include "renderprim.h"
-#include "cmdgame.h"
+#include "render/thread/ogl.h"
+#include "render/pbuffer.h"
+#include <utilitieslib/utils/error.h>
+#include "win/win_init.h"
+#include "render/renderUtil.h"
+#include "render/thread/wcw_statemgmt.h"
+#include <utilitieslib/utils/timing.h>
+#include "render/rendertree.h"
+#include "graphics/camera.h"
+#include "graphics/font.h"
+#include "UI/sprite/sprite_text.h"
+#include "render/tex.h"
+#include <utilitieslib/utils/Color.h>
+#include "render/renderprim.h"
+#include "cmdparse/cmdgame.h"
 
 void winMakeCurrent()
 {

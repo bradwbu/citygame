@@ -1,38 +1,38 @@
 
-#include "wdwbase.h"
+#include "gameComm/wdwbase.h"
 
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 
 #include "uiHelp.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiWindows.h"
 #include "uiWindows.h"
-#include "uiInput.h"
-#include "uiEditText.h"
-#include "uiScrollbar.h"
-#include "uiBox.h"
-#include "uiClipper.h"
-#include "uiComboBox.h"
-#include "uiDialog.h"
-#include "mathutil.h"
+#include "UI/uiInput.h"
+#include "UI/uiEditText.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiBox.h"
+#include "UI/uiClipper.h"
+#include "UI/uiComboBox.h"
+#include "UI/uidialog.h"
+#include <utilitieslib/utils/mathutil.h>
 
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "textureatlas.h"
-#include "entPlayer.h"
-#include "player.h"
-#include "entity.h"
-#include "cmdgame.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "graphics/textureatlas.h"
+#include "entity/EntPlayer.h"
+#include "player/player.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdgame.h"
 
-#include "entVarUpdate.h"
-#include "textparser.h"
-#include "earray.h"
+#include "entity/entVarUpdate.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/Earray.h>
 
 #include "uiSMFView.h"
-#include "smf_main.h"
-#include "MessageStoreUtil.h"
+#include "formatter/smf_main.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 static TextAttribs gTextAttr =
 {

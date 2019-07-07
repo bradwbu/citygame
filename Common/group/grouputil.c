@@ -1,14 +1,14 @@
-#include "grouputil.h"
+#include "group/grouputil.h"
 #include <utilitieslib/utils/mathutil.h>
 #include <stdlib.h>
 #include <string.h>
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/utils.h>
-#include "grouptrack.h"    // for trackerOpen
-#include "group.h"
+#include "group/grouptrack.h"    // for trackerOpen
+#include "group/group.h"
 #include <utilitieslib/components/ArrayOld.h>
 #include <utilitieslib/components/StashTable.h>
-#include "groupProperties.h"
+#include "group/groupproperties.h"
 #include "seq/tricks.h"
 #include "seq/anim.h"
 #include "NovodeX/NwWrapper.h"

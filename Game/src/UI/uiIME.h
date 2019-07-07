@@ -6,8 +6,8 @@
 #ifndef UIIME_H
 #define UIIME_H
 
-#include <wininclude.h>
-#include "stdtypes.h"
+#include <utilitieslib/utils/wininclude.h>
+#include <utilitieslib/stdtypes.h>
 
 typedef struct UIEdit UIEdit;
 

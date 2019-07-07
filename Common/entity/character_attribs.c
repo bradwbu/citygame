@@ -9,10 +9,10 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/textparser.h> // ParserAllocStruct
 
-#include "attrib_names.h"
+#include "entity/attrib_names.h"
 #include "character_attribs.h"
-#include "character_base.h"
-#include "powers.h"
+#include "entity/character_base.h"
+#include "entity/powers.h"
 #include <utilitieslib/utils/mathutil.h>
 #include "attribmod.h"
 

@@ -1,19 +1,19 @@
 // Zowie stuff
 // This handles two client side details of Zowies: 1) making them hum and glow in the world, and 2) making the active task Zowies appear on the minimap.
 
-#include "grouputil.h"
-#include "groupproperties.h"
-#include "group.h"
-#include "contactclient.h"
-#include "stashtable.h"
-#include "cmdgame.h"
-#include "sound.h"
-#include "mathutil.h"
-#include "utils.h"
-#include "error.h"
-#include "uiautomap.h"
-#include "textureatlas.h"
-#include "zowieclient.h"
+#include "group/grouputil.h"
+#include "group/groupproperties.h"
+#include "group/group.h"
+#include "storyarc/contactclient.h"
+#include <utilitieslib/components/StashTable.h>
+#include "cmdparse/cmdgame.h"
+#include "sound/sound.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/error.h>
+#include "UI/uiAutomap.h"
+#include "graphics/textureatlas.h"
+#include "storyarc/zowieClient.h"
 
 // Icon to use for zowies on the minimap
 #define ZOWIE_ICON    "Zowie_Minimap_Icon"

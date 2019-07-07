@@ -6,15 +6,15 @@
 #include <stdlib.h> // calloc
 #include <string.h> // strncpy
 
-#include "smf_util.h"
-#include "smf_parse.h"
+#include "formatter/smf_util.h"
+#include "formatter/smf_parse.h"
 
-#include "stdtypes.h"
-#include "earray.h"
-#include "estring.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/components/estring.h>
 
-#include "sprite_font.h"
-#include "timing.h"
+#include "UI/sprite/sprite_font.h"
+#include <utilitieslib/utils/timing.h>
 
 static int s_iTagWS = -1;
 static int s_iTagText = -1;

@@ -1,7 +1,7 @@
 #ifndef MAP_GENERATOR_H
 #define MAP_GENERATOR_H
 
-#include "group.h"
+#include "group/group.h"
 
 #define MAX_PORTALS 8
 

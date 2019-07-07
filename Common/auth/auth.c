@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <utilitieslib/utils/timing.h>
-#include "auth.h"
+#include "auth/auth.h"
 #include <utilitieslib/stdtypes.h>
 #include <utilitieslib/network/sock.h>
 #include <utilitieslib/network/netio.h>

@@ -3,36 +3,36 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
-#include "entity.h"                // for Entity
-#include "EntPlayer.h"
-#include "entclient.h"            // for changeColor
-#include "uiAvatar.h"            // for scaleHero
-#include "player.h"                // for isPlayerValid
-#include "uicostume.h"            // for stupid cpicker crap
-#include "uiGame.h"            // for shell_menu()
-#include "earray.h"
-#include "utils.h"
-#include "costume_client.h"
-#include "costume_data.h"
-#include "npc.h"
-#include "clientcomm.h"
+#include <utilitieslib/assert/assert.h>
+#include "entity/entity.h"                // for Entity
+#include "entity/EntPlayer.h"
+#include "entity/entclient.h"            // for changeColor
+#include "UI/uiAvatar.h"            // for scaleHero
+#include "player/player.h"                // for isPlayerValid
+#include "UI/uiCostume.h"            // for stupid cpicker crap
+#include "UI/uiGame.h"            // for shell_menu()
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/utils.h>
+#include "entity/costume_client.h"
+#include "gameData/costume_data.h"
+#include "gameComm/npc.h"
+#include "clientcomm/clientcomm.h"
 #include "assert.h"
-#include "SimpleParser.h"
-#include "cmdgame.h"
-#include "tex.h"
-#include "seq.h"
-#include "mathutil.h"
-#include "strings_opt.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/SimpleParser.h>
+#include "cmdparse/cmdgame.h"
+#include "render/tex.h"
+#include "seq/seq.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/components/StashTable.h>
 #include "gameData/costume_critter.h"
-#include "file.h"
-#include "StringCache.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/StringCache.h>
 #include "fxinfo.h"
-#include "fileutil.h"
-#include "error.h"
-#include "LoadDefCommon.h"
-#include "FolderCache.h"
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/error.h>
+#include "entity/LoadDefCommon.h"
+#include <utilitieslib/utils/FolderCache.h>
 
 StashTable g_hashCostumeRewards;
 StashTable g_hashArchitectCostumeRewards;

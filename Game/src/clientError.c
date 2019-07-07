@@ -1,18 +1,18 @@
 #include "clientError.h"
-#include "font.h"
-#include "uiConsole.h"
-#include "win_init.h"
-#include "error.h"
-#include <assert.h>
-#include "timing.h"
-#include "AppRegCache.h"
-#include "RegistryReader.h"
-#include "sprite_text.h"
-#include "utils.h"
-#include "file.h"
-#include "cmdgame.h"
-#include "dbclient.h"
-#include "MessageStoreUtil.h"
+#include "graphics/font.h"
+#include "UI/uiConsole.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/version/AppRegCache.h>
+#include <utilitieslib/utils/RegistryReader.h>
+#include "UI/sprite/sprite_text.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/file.h>
+#include "cmdparse/cmdgame.h"
+#include "clientcomm/dbclient.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 //------------------------------------------------------------
 // Error callbacks

@@ -3,55 +3,55 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "earray.h"
-#include "player.h"
-#include "entplayer.h"
+#include <utilitieslib/components/Earray.h>
+#include "player/player.h"
+#include "entity/EntPlayer.h"
 #include "storyarc/missionClient.h"
 #include "language/langClientUtil.h"
 #include "storyarc/storyarcCommon.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 
-#include "uiUtil.h"
-#include "uiChat.h"
-#include "uiGame.h"
-#include "uiInput.h"
-#include "uiWindows.h"
-#include "uiToolTip.h"
-#include "uiUtilGame.h"
-#include "uiAutomap.h"
-#include "uiMissionSummary.h"
-#include "uiContactDialog.h"
-#include "uiScript.h"
+#include "UI/uiUtil.h"
+#include "UI/uiChat.h"
+#include "UI/uiGame.h"
+#include "UI/uiInput.h"
+#include "UI/uiWindows.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiAutomap.h"
+#include "UI/uiMissionSummary.h"
+#include "UI/uiContactDialog.h"
+#include "UI/uiScript.h"
 
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "ttFontUtil.h"
-#include "textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "graphics/ttFontUtil.h"
+#include "graphics/textureatlas.h"
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 
-#include "uiScrollBar.h"
+#include "UI/uiScrollBar.h"
 
-#include "uiClipper.h"
+#include "UI/uiClipper.h"
 
-#include "cmdgame.h"
-#include "uiContextMenu.h"
-#include "uiDialog.h"
-#include "entity.h"
-#include "uisgraidlist.h"
-#include "teamCommon.h"
-#include "uiTabControl.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiContextMenu.h"
+#include "UI/uidialog.h"
+#include "entity/entity.h"
+#include "UI/uiSGRaidList.h"
+#include "entity/teamCommon.h"
+#include "UI/uiTabControl.h"
 
-#include "clientcomm.h"
-#include "timing.h"
+#include "clientcomm/clientcomm.h"
+#include <utilitieslib/utils/timing.h>
 
-#include "supergroup.h"
-#include "estring.h"
-#include "bases.h"
-#include "clicktosource.h"
-#include "MessageStoreUtil.h"
-#include "teamup.h"
+#include "entity/Supergroup.h"
+#include <utilitieslib/components/estring.h>
+#include "bases/bases.h"
+#include "edit/ClickToSource.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "entity/teamup.h"
 
 ContextMenu* taskContextMenu;
 

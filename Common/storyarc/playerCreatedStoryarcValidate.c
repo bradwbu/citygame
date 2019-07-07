@@ -1,13 +1,13 @@
 
 
-#include "playerCreatedStoryarc.h"
-#include "playerCreatedStoryarcValidate.h"
+#include "storyarc/playerCreatedStoryarc.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
 
 #include "entity/PCC_Critter.h"
 #include "entity/CustomVillainGroup.h"
-#include "pnpcCommon.h"
+#include "storyarc/pnpcCommon.h"
 #include "gameComm/Npc.h"
-#include "missionMapCommon.h"
+#include "storyarc/missionMapCommon.h"
 #include "entity/entity.h"
 #include "seq/seq.h"
 #include "entity/entPlayer.h"
@@ -36,8 +36,8 @@
 #include "AutoGen/playerCreatedStoryarcValidate_h_ast.c"
 #include "LWC_Common.h"
 #ifdef CLIENT
-#include "cmdgame.h"
-#include "uiDialog.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uidialog.h"
 #endif
 
 #define DEFAULT_ANIMATION "At_Ease"

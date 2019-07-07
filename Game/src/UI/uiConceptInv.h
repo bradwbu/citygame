@@ -6,7 +6,7 @@
 #ifndef UICONCEPTINV_H
 #define UICONCEPTINV_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct TrayObj TrayObj;
 typedef struct ConceptItem ConceptItem;

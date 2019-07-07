@@ -1,19 +1,19 @@
 #include <ctype.h>
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "ttFontUtil.h"
-#include "ttFont.h"
-#include "MemoryPool.h"
-#include "stringUtil.h"
+#include "graphics/ttFontUtil.h"
+#include "graphics/ttFont.h"
+#include <utilitieslib/components/memorypool.h>
+#include <utilitieslib/utils/StringUtil.h>
 
-#include "sprite.h"
-#include "sprite_base.h"
-#include "uiChat.h" // for GetTextStyleForType
-#include "uiClipper.h"
-#include "EString.h"
-#include "sprite_text.h" // for DetermineColor()
+#include "render/sprite.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/uiChat.h" // for GetTextStyleForType
+#include "UI/uiClipper.h"
+#include <utilitieslib/components/estring.h>
+#include "UI/sprite/sprite_text.h" // for DetermineColor()
 
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 MemoryPool FormattedLineMemoryPool;
 MemoryPool FormattedTextMemoryPool;
@@ -453,7 +453,7 @@ void printBasicWide(TTDrawContext*    font, float x, float y, float z, float xSc
  *    Assumes that the specified x, y is in absolute cooridinates.
  *
  */
-#include "win_init.h"
+#include "win/win_init.h"
 void printBasicWideAbsolute(TTDrawContext*    font, float x, float y, float z, float xScale, float yScale, int center, unsigned short *str, int charsToPrint, int rgba[4]){
     //TTBufferredText*    bufferredText;
 

@@ -1,7 +1,7 @@
 #ifndef _WIN_CURSOR_H
 #define _WIN_CURSOR_H
 
-#include "rt_cursor.h"
+#include "render/thread/rt_cursor.h"
 
 typedef struct AtlasTex AtlasTex;
 

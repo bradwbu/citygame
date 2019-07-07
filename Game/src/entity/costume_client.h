@@ -7,8 +7,8 @@
 #define COSTUME_CLIENT_H__
 
 #include "gameData/BodyPart.h"    // for BodyPart
-#include "costume.h"            // for BodyType
-#include "Color.h"
+#include "entity/costume.h"            // for BodyType
+#include <utilitieslib/utils/Color.h>
 
 typedef struct Entity Entity;
 

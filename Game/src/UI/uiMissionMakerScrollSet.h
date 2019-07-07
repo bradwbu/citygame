@@ -3,9 +3,9 @@
 #define UIMISSIONMAKERSCROLLSET_H
 
 
-#include "uiScrollBar.h"
-#include "playerCreatedStoryarcValidate.h"
-#include "Cbox.h"
+#include "UI/uiScrollBar.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
+#include <utilitieslib/utils/CBox.h>
 
 typedef struct MMElementList MMElementList;
 

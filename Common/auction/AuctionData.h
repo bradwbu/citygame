@@ -3,7 +3,7 @@
 
 #include <utilitieslib/components/StashTable.h>
 #include "gameComm/trayCommon.h"
-#include "Auction.h"
+#include "auction/auction.h"
 
 void auctiondata_Init(void);
 

@@ -1,18 +1,18 @@
-#include "renderWater.h"
-#include "rt_queue.h"
-#include "rt_water.h"
-#include "win_init.h"
-#include "pbuffer.h"
-#include "cmdgame.h"
-#include "renderUtil.h"
-#include "gfx.h"
-#include "gfxSettings.h"
-#include "tex.h"
-#include "viewport.h"
-#include "camera.h"
-#include "sprite_base.h"
-#include "seq.h" //MAX_LODS
-#include "font.h"
+#include "render/renderWater.h"
+#include "render/thread/rt_queue.h"
+#include "render/thread/rt_water.h"
+#include "win/win_init.h"
+#include "render/pbuffer.h"
+#include "cmdparse/cmdgame.h"
+#include "render/renderUtil.h"
+#include "graphics/gfx.h"
+#include "graphics/gfxSettings.h"
+#include "render/tex.h"
+#include "graphics/viewport.h"
+#include "graphics/camera.h"
+#include "UI/sprite/sprite_base.h"
+#include "seq/seq.h" //MAX_LODS
+#include "graphics/font.h"
 
 
 static RdrFrameGrabParams framegrab_params;

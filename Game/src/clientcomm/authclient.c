@@ -1,19 +1,19 @@
-#include "authclient.h"
-#include "osdependent.h"
+#include "clientComm/authclient.h"
+#include <utilitieslib/utils/osdependent.h>
 #include "des.h"
 #include <string.h>
 #include <stdio.h>
-#include "sock.h"
+#include <utilitieslib/network/sock.h>
 #include "comm_backend.h"
-#include "cmdgame.h"
-#include "timing.h"
-#include "strings_opt.h"
-#include "error.h"
-#include "AppRegCache.h"
-#include "crypt.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/version/AppRegCache.h>
+#include <utilitieslib/network/crypt.h>
 #include "game.h"
-#include "AppLocale.h"
-#include "authUserData.h"
+#include <utilitieslib/language/AppLocale.h>
+#include "auth/authUserData.h"
 
 AuthInfo    auth_info;
 static        char    auth_error_msg[1000];
@@ -37,7 +37,7 @@ void acCleanup(void)
     SAFE_FREE(auth_info.blocks);
 }
 
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 
 static void dumpData(char *msg,const void *datav,int count)
 {

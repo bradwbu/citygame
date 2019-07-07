@@ -1,17 +1,17 @@
 
 #include "uiSlider.h"
-#include "wdwbase.h"        // for cbox
-#include "uiInput.h"
-#include "uiUtilGame.h"
-#include "player.h"            // for playerPtr()
-#include "sprite_base.h"    // for calc_scaled_pont
-#include "uiGame.h"        // for shell_menu()
-#include "uiUtil.h"
-#include "sound.h"
-#include "textureatlas.h"
-#include "cmdgame.h"
-#include "uiClipper.h"
-#include "uiBox.h"
+#include "gameComm/wdwbase.h"        // for cbox
+#include "UI/uiInput.h"
+#include "UI/uiUtilGame.h"
+#include "player/player.h"            // for playerPtr()
+#include "UI/sprite/sprite_base.h"    // for calc_scaled_pont
+#include "UI/uiGame.h"        // for shell_menu()
+#include "UI/uiUtil.h"
+#include "sound/sound.h"
+#include "graphics/textureatlas.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiClipper.h"
+#include "UI/uiBox.h"
 //------------------------------------------------------------
 
 void drawSliderBackground( float x, float y, float z, float wd, float scale, int flags )

@@ -1,9 +1,9 @@
 #ifndef _FX_H
 #define _FX_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "fxutil.h"
-#include "memorypool.h"
+#include <utilitieslib/components/memorypool.h>
 
 typedef struct FxCape FxCape;
 typedef struct FxGeo FxGeo;

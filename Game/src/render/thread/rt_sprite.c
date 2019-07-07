@@ -1,14 +1,14 @@
 #define RT_PRIVATE
 #define RT_ALLOW_BINDTEXTURE
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "rt_sprite.h"
-#include "rt_tex.h"
-#include "mathutil.h"
-#include "rt_state.h"
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_sprite.h"
+#include "render/thread/rt_tex.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/thread/rt_state.h"
 #include "rt_stats.h"
-#include "SuperAssert.h"
-#include "cmdgame.h"
+#include <utilitieslib/utils/SuperAssert.h>
+#include "cmdparse/cmdgame.h"
 
 static void setConstantColor(U32 color1,U32 color2)
 {

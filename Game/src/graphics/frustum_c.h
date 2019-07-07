@@ -1,8 +1,8 @@
 #ifndef _GFX_FRUSTUM_C_H
 #define _GFX_FRUSTUM_C_H
 
-#include "stdtypes.h"
-#include "ssemath.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/ssemath.h>
 
 enum
 {

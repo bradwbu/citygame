@@ -1,7 +1,7 @@
 #ifndef _TEX_GEN_H
 #define _TEX_GEN_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 typedef struct BasicTexture BasicTexture;
 typedef struct TexReadInfo TexReadInfo;
 

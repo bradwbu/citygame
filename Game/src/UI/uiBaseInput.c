@@ -3,40 +3,40 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "color.h"
-#include "earray.h"
+#include <utilitieslib/utils/Color.h>
+#include <utilitieslib/components/Earray.h>
 
-#include "entity.h"
-#include "entPlayer.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
 
-#include "cmdoldparse.h"
-#include "cmdgame.h"
-#include "gridcache.h"
-#include "gfx.h"
+#include <utilitieslib/utils/cmdoldparse.h>
+#include "cmdparse/cmdgame.h"
+#include "gridcoll/gridcache.h"
+#include "graphics/gfx.h"
 
-#include "player.h"
-#include "uiKeybind.h"
-#include "uiWindows.h"
-#include "uiConsole.h"
-#include "baseedit.h"
-#include "wdwbase.h"
-#include "bases.h"
-#include "basedata.h"
-#include "baseclientsend.h"
-#include "mathutil.h"
-#include "MessageStore.h"
-#include "MessageStoreUtil.h"
+#include "player/player.h"
+#include "UI/uiKeybind.h"
+#include "UI/uiWindows.h"
+#include "UI/uiConsole.h"
+#include "bases/baseedit.h"
+#include "gameComm/wdwbase.h"
+#include "bases/bases.h"
+#include "bases/basedata.h"
+#include "bases/baseclientsend.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/language/MessageStore.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
 
-#include "uiBaseInput.h"
-#include "uiBaseRoom.h"
-#include "uiBaseInventory.h"
-#include "uiNet.h"
-#include "uiCursor.h"
-#include "uiTray.h"
-#include "file.h"
-#include "uiGame.h"
-#include "uiScrollBar.h"
-#include "uiCursor.h"
+#include "UI/uiBaseInput.h"
+#include "UI/uiBaseRoom.h"
+#include "UI/uiBaseInventory.h"
+#include "UI/uiNet.h"
+#include "UI/uiCursor.h"
+#include "UI/uiTray.h"
+#include <utilitieslib/utils/file.h>
+#include "UI/uiGame.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiCursor.h"
 
 static bool s_bWasLooking = false;
 

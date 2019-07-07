@@ -1,7 +1,7 @@
 #ifndef _RT_EFFECTS_H_
 #define _RT_EFFECTS_H_
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct RdrShrinkTextureParams
 {

@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "grid.h"
-#include "ctri.h"
-#include "gridcoll.h"
+#include "gridcoll/grid.h"
+#include "gridcoll/ctri.h"
+#include "gridcoll/gridcoll.h"
 #include "seq/anim.h"
 #include "group/group.h"
 #include <stdlib.h>
-#include "gridcache.h"
+#include "gridcoll/gridcache.h"
 #include <utilitieslib/assert/assert.h>
 #include "gridcollobj.h"
 #include "gridcollperftest.h"

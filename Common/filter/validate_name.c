@@ -11,8 +11,8 @@
 #include <utilitieslib/utils/utils.h>
 
 #ifndef CHATSERVER
-#include "titles.h"
-#include "profanity.h"
+#include "filter/titles.h"
+#include "filter/profanity.h"
 #include "entity/entVarUpdate.h"
 #include <utilitieslib/language/AppLocale.h>
 #endif
@@ -21,7 +21,7 @@
 #include "filter/reserved_names.h"
 #endif
 
-#include "validate_name.h"
+#include "filter/validate_name.h"
 
 // Allowed korean character ranges
 #define HANGUL_FIRST 44032

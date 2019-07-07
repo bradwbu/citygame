@@ -1,7 +1,7 @@
 #ifndef _CONSOLE_H
 #define _CONSOLE_H
 
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
 typedef struct MRUList MRUList;
 

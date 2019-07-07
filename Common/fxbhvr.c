@@ -13,8 +13,8 @@
 #include <utilitieslib/utils/strings_opt.h>
 
 #ifdef CLIENT 
-#include "fx.h"
-#include "cmdgame.h"
+#include "graphics/FX/fx.h"
+#include "cmdparse/cmdgame.h"
 
 
 extern FxEngine fx_engine;

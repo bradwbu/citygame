@@ -1,31 +1,30 @@
-#include "mathutil.h"
-#include "network\netio.h"
-#include "netio.h"
-#include "win_init.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/network/netio.h>
+#include "win/win_init.h"
 #include "comm_game.h"
-#include "clientcomm.h"
-#include "memcheck.h"
-#include "group.h"
-#include "edit.h"
-#include "netcomp.h"
-#include "groupProperties.h"
-#include "edit_net.h"
-#include "edit_cmd.h"
-#include "edit_select.h"
-#include "cmdgame.h"
-#include "camera.h"
-#include "grouputil.h"
-#include "edit_cmd_file.h"
-#include "fileutil.h"
-#include "gfxtree.h"
-#include "utils.h"
-#include "gfx.h"
-#include "gfxLoadScreens.h"
-#include "edit_cmd_select.h"
-#include "bases.h"
-#include "edit_library.h"
-#include "debuglocation.h"
-#include "StashTable.h"
+#include "clientcomm/clientcomm.h"
+#include <utilitieslib/utils/memcheck.h>
+#include "group/group.h"
+#include "edit/edit.h"
+#include <utilitieslib/network/netcomp.h>
+#include "group/groupproperties.h"
+#include "edit/edit_net.h"
+#include "edit/edit_cmd.h"
+#include "edit/edit_select.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/camera.h"
+#include "group/grouputil.h"
+#include "edit/edit_cmd_file.h"
+#include <utilitieslib/utils/fileutil.h>
+#include "seq/gfxtree.h"
+#include <utilitieslib/utils/utils.h>
+#include "graphics/gfx.h"
+#include "graphics/gfxLoadScreens.h"
+#include "edit/edit_cmd_select.h"
+#include "bases/bases.h"
+#include "edit/edit_library.h"
+#include "edit/DebugLocation.h"
+#include <utilitieslib/components/StashTable.h>
 #include <string.h>
 
 /*
@@ -594,8 +593,8 @@ void editNew()
     editWaitingForServer(1, 1);
     unSelect(2);
 }
-#include "clientcomm.h"
-#include "timing.h"
+#include "clientcomm/clientcomm.h"
+#include <utilitieslib/utils/timing.h>
 
 void saveOnExit() {
 //    Packet    *pak;

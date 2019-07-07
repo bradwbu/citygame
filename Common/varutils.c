@@ -41,10 +41,10 @@
     #include "account/AccountInventory.h"
     #include "storyarc/contactdef.h"
 #else
-    #include "attrib_net.h"
-    #include "uiKeybind.h"
-    #include "uiBuff.h"
-    #include "uiTray.h"
+    #include "entity/attrib_net.h"
+    #include "UI/uiKeybind.h"
+    #include "UI/uiBuff.h"
+    #include "UI/uiTray.h"
 #endif
 
 MP_DEFINE(EntPlayer);

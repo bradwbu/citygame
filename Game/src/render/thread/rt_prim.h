@@ -1,7 +1,7 @@
 #ifndef _RENDERDISPATCH_H
 #define _RENDERDISPATCH_H
 
-#include "rt_queue.h"
+#include "render/thread/rt_queue.h"
 
 void rdrSetFogDirect(RdrFog *vals);
 void rdrSetFogDirect2(F32 near_dist, F32 far_dist, Vec3 color);

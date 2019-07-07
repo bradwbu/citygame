@@ -1,15 +1,15 @@
 #ifndef TEST_CLIENT
-#include "groupMetaMinimap.h"
+#include "group/groupMetaMinimap.h"
 #endif
 #include <utilitieslib/components/earray.h>
 #include "storyarc/missiongeoCommon.h"
 #include "seq/anim.h"
 #include <utilitieslib/utils/utils.h>
-#include "group.h"
-#include "grouputil.h"
-#include "groupfileload.h"
+#include "group/group.h"
+#include "group/grouputil.h"
+#include "group/groupfileload.h"
 #include <utilitieslib/utils/mathutil.h>
-#include "groupProperties.h"
+#include "group/groupproperties.h"
 #include "bases/bases.h"
 #include <utilitieslib/utils/error.h>
 #if SERVER

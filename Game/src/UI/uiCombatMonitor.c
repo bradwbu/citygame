@@ -1,30 +1,30 @@
 
 
-#include "earray.h"         // for StructGetNum
-#include "player.h"
-#include "entity.h"         // for entity
-#include "powers.h"
-#include "entPlayer.h"
-#include "character_base.h" // for pchar
-#include "attrib_description.h"
-#include "file.h"
+#include <utilitieslib/components/Earray.h>         // for StructGetNum
+#include "player/player.h"
+#include "entity/entity.h"         // for entity
+#include "entity/powers.h"
+#include "entity/EntPlayer.h"
+#include "entity/character_base.h" // for pchar
+#include "entity/attrib_description.h"
+#include <utilitieslib/utils/file.h>
 
-#include "sprite_font.h"    // for font definitions
-#include "sprite_text.h"    // for font functions
-#include "sprite_base.h"    // for sprites
-#include "textureatlas.h"
-#include "MessageStoreUtil.h"
-#include "ttFontUtil.h" 
+#include "UI/sprite/sprite_font.h"    // for font definitions
+#include "UI/sprite/sprite_text.h"    // for font functions
+#include "UI/sprite/sprite_base.h"    // for sprites
+#include "graphics/textureatlas.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "graphics/ttFontUtil.h" 
 
-#include "uiWindows.h"
-#include "uiInput.h"
-#include "uiUtilGame.h"     // for draw frame
-#include "uiUtilMenu.h"     //
-#include "uiUtil.h"         // for color definitions
-#include "uiNet.h"
-#include "uiContextMenu.h"
-#include "uiClipper.h"
-#include "uiCombatNumbers.h"
+#include "UI/uiWindows.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilGame.h"     // for draw frame
+#include "UI/uiUtilMenu.h"     //
+#include "UI/uiUtil.h"         // for color definitions
+#include "UI/uiNet.h"
+#include "UI/uiContextMenu.h"
+#include "UI/uiClipper.h"
+#include "UI/uiCombatNumbers.h"
 
 
 

@@ -5,7 +5,7 @@
  ***************************************************************************/
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/error.h>
-//#include "powers.h"
+//#include "entity/powers.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/mathutil.h>
@@ -13,15 +13,15 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/utils/textparser.h> // for TokenizerParseInfo
-#include "Concept.h"
-#include "character_inventory.h"
-//#include "boost.h"
+#include "entity/concept.h"
+#include "entity/character_inventory.h"
+//#include "entity/boost.h"
 #include <utilitieslib/components/earray.h>
 
-#include "origins.h"
-#include "powers.h"
-#include "boost.h"
-#include "character_base.h"
+#include "entity/origins.h"
+#include "entity/powers.h"
+#include "entity/boost.h"
+#include "entity/character_base.h"
 #include <utilitieslib/components/MemoryPool.h>
 
 // ------------------------------------------------------------

@@ -3,63 +3,63 @@
 // cursor.c - basically a massive function to handle everything the cursor controls
 //------------------------------------------------------------------------------------
 
-#include "input.h"
-#include "uiStoredSalvage.h"
-#include "player.h"
-#include "uiUtil.h"
-#include "win_init.h"
-#include "uiGame.h"
-#include "uiWindows.h"
-#include "cmdgame.h"
-#include "gfx.h"
-#include "clientcomm.h"
-#include "win_cursor.h"
-#include "uiTray.h"
-#include "entclient.h"
-#include "uiConsole.h"
-#include "uiCursor.h"
-#include "uiChat.h"
-#include "uiInput.h"
-#include "uiTarget.h"
-#include "uiTeam.h"
+#include "win/input.h"
+#include "UI/uiStoredSalvage.h"
+#include "player/player.h"
+#include "UI/uiUtil.h"
+#include "win/win_init.h"
+#include "UI/uiGame.h"
+#include "UI/uiWindows.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/gfx.h"
+#include "clientcomm/clientcomm.h"
+#include "win/win_cursor.h"
+#include "UI/uiTray.h"
+#include "entity/entclient.h"
+#include "UI/uiConsole.h"
+#include "UI/uiCursor.h"
+#include "UI/uiChat.h"
+#include "UI/uiInput.h"
+#include "UI/uiTarget.h"
+#include "UI/uiTeam.h"
 #include "uiGift.h"
-#include "uiPet.h"
-#include "uiDialog.h"
+#include "UI/uiPet.h"
+#include "UI/uidialog.h"
 
-#include "powers.h"
-#include "character_base.h"
-#include "character_animfx_client.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "fx.h"
-#include "uiInspiration.h"
-#include "uiContextMenu.h"
-#include "grouputil.h"    // for groupDefFindPropertyValue
-#include "earray.h"
-#include "pmotion.h"
+#include "entity/powers.h"
+#include "entity/character_base.h"
+#include "entity/character_animfx_client.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/FX/fx.h"
+#include "UI/uiInspiration.h"
+#include "UI/uiContextMenu.h"
+#include "group/grouputil.h"    // for groupDefFindPropertyValue
+#include <utilitieslib/components/Earray.h>
+#include "player/pmotion.h"
 #include "storyarc/contactClient.h"
-#include "textureatlas.h"
+#include "graphics/textureatlas.h"
 #include "language/langClientUtil.h"
-#include "entDebug.h"
-#include "timing.h"
-#include "dooranimclient.h"
-#include "gfxwindow.h"
-#include "camera.h"
-#include "playerSticky.h"
-#include "font.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "itemselect.h"
-#include "baseedit.h"
-#include "StashTable.h"
-#include "uiCursor.h"
-#include "bases.h"
-#include "basedata.h"
+#include "entity/entDebug.h"
+#include <utilitieslib/utils/timing.h>
+#include "gameComm/dooranimclient.h"
+#include "graphics/gfxwindow.h"
+#include "graphics/camera.h"
+#include "player/playerSticky.h"
+#include "graphics/font.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "gameComm/itemselect.h"
+#include "bases/baseedit.h"
+#include <utilitieslib/components/StashTable.h>
+#include "UI/uiCursor.h"
+#include "bases/bases.h"
+#include "bases/basedata.h"
 #include "uiBaseStorage.h"
-#include "uiOptions.h"
+#include "UI/uiOptions.h"
 #include "arena/arenagame.h"
-#include "character_target.h"
+#include "entity/character_target.h"
 
 #define BASIC_SELECTION_DISTANCE (300.0f)
 #define TELEPORT_SELECTION_DISTANCE (610.0f)
@@ -473,12 +473,12 @@ void handleCursorInternal()
 
                 if( cursor.overlay )
                 {
-                    hwcursorBlit( cursor.overlay, 1 << log2( cursor.overlay->width*DRAG_ICON_SC ),
-                        1 << log2( cursor.overlay->height*DRAG_ICON_SC ), 0, 0, cursor.overlay_scale*cursorScale*DRAG_ICON_SC, CLR_WHITE );
+                    hwcursorBlit( cursor.overlay, 1 << log2i( cursor.overlay->width*DRAG_ICON_SC ),
+                        1 << log2i( cursor.overlay->height*DRAG_ICON_SC ), 0, 0, cursor.overlay_scale*cursorScale*DRAG_ICON_SC, CLR_WHITE );
                 }
-                hwcursorBlit( cursor.dragged_icon, 1 << log2( cursor.dragged_icon->width*DRAG_ICON_SC ),
-                    1 << log2( cursor.dragged_icon->height*DRAG_ICON_SC ), 0, 0, cursor.dragged_icon_scale*cursorScale*DRAG_ICON_SC, CLR_WHITE );
-                hwcursorBlit( cursor.base, 1 << log2( cursor.base->width ), 1 << log2( cursor.base->width ),
+                hwcursorBlit( cursor.dragged_icon, 1 << log2i( cursor.dragged_icon->width*DRAG_ICON_SC ),
+                    1 << log2i( cursor.dragged_icon->height*DRAG_ICON_SC ), 0, 0, cursor.dragged_icon_scale*cursorScale*DRAG_ICON_SC, CLR_WHITE );
+                hwcursorBlit( cursor.base, 1 << log2i( cursor.base->width ), 1 << log2i( cursor.base->width ),
                     cursor.dragged_icon->width*cursor.dragged_icon_scale*DRAG_ICON_SC/2-12, cursor.dragged_icon->height*cursor.dragged_icon_scale*DRAG_ICON_SC/2-12, cursorScale, CLR_WHITE );
                 hwcursorReload(NULL, cursor.dragged_icon->width*DRAG_ICON_SC/2,cursor.dragged_icon->height*DRAG_ICON_SC/2);
             }
@@ -540,9 +540,9 @@ void handleCursorInternal()
                 hCursor = NULL;
                 hwcursorClear();
                 hwcursorSetHotSpot(cursor.hotX,cursor.hotY);
-                hwcursorBlit( cursor.base, 1 << log2( cursor.base->width ), 1 << log2( cursor.base->width ), 0, 0, cursorScale, CLR_WHITE );
+                hwcursorBlit( cursor.base, 1 << log2i( cursor.base->width ), 1 << log2i( cursor.base->width ), 0, 0, cursorScale, CLR_WHITE );
                 if( cursor.overlay )
-                    hwcursorBlit( cursor.overlay, 1 << log2( cursor.overlay->width ), 1 << log2( cursor.overlay->width ), 0, 0, cursorScale, CLR_WHITE );
+                    hwcursorBlit( cursor.overlay, 1 << log2i( cursor.overlay->width ), 1 << log2i( cursor.overlay->width ), 0, 0, cursorScale, CLR_WHITE );
                 regenerated = true;
             }
 

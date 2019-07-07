@@ -6,9 +6,9 @@
 #ifndef UISALVAGE_H
 #define UISALVAGE_H
 
-#include "uiInclude.h"
-#include "wdwbase.h"
-#include "uiComboBox.h"
+#include "UI/uiInclude.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiComboBox.h"
 #include "uiGrowBig.h"
 
 typedef struct SalvageInventoryItem SalvageInventoryItem;

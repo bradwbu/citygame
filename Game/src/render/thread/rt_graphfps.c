@@ -1,14 +1,14 @@
-#include "timing.h"
-#include "cmdgame.h"
-#include "mathutil.h"
-#include "wcw_statemgmt.h"
+#include <utilitieslib/utils/timing.h>
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/thread/wcw_statemgmt.h"
 
 #define RT_PRIVATE
 #include "rt_graphfps.h"
-#include "rt_state.h"
-#include "rt_font.h"
-#include "rt_model_cache.h"
-#include "rt_pbuffer.h"
+#include "render/thread/rt_state.h"
+#include "render/thread/rt_font.h"
+#include "render/thread/rt_model_cache.h"
+#include "render/thread/rt_pbuffer.h"
 
 Font* fontPtr(S32 font_index);
 

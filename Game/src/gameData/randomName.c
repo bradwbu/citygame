@@ -1,9 +1,9 @@
 #include "randomName.h"
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "memcheck.h"
+#include <utilitieslib/utils/memcheck.h>
 
 // Generates a random name
 // note: uses name list from http://home.hiwaay.net/~lkseitz/comics/herogen/

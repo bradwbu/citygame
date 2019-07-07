@@ -3,23 +3,23 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "wdwbase.h"
-#include "utils.h"
+#include "gameComm/wdwbase.h"
+#include <utilitieslib/utils/utils.h>
 
-#include "uiWindows.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiScrollbar.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiScrollBar.h"
 #include "uiSMFView.h"
-#include "clientcomm.h"
-#include "entVarUpdate.h"
-#include "textureatlas.h"
-#include "sprite_base.h"
-#include "player.h"
-#include "entity.h"
-#include "character_base.h"
-#include "entPlayer.h"
-#include "cmdgame.h"
+#include "clientcomm/clientcomm.h"
+#include "entity/entVarUpdate.h"
+#include "graphics/textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "player/player.h"
+#include "entity/entity.h"
+#include "entity/character_base.h"
+#include "entity/EntPlayer.h"
+#include "cmdparse/cmdgame.h"
 
 static SMFView *s_pview;
 static StuffBuff s_sb;

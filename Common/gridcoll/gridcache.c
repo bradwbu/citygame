@@ -1,9 +1,9 @@
 #include <string.h>
 #include <utilitieslib/utils/mathutil.h>
 #include "group/group.h"
-#include "grid.h"
-#include "gridcoll.h"
-#include "gridcache.h"
+#include "gridcoll/grid.h"
+#include "gridcoll/gridcoll.h"
+#include "gridcoll/gridcache.h"
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/components/HashFunctions.h>
 #include <utilitieslib/utils/memcheck.h>

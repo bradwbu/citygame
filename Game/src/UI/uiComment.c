@@ -3,28 +3,28 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "wdwbase.h"
-#include "utils.h"
+#include "gameComm/wdwbase.h"
+#include <utilitieslib/utils/utils.h>
 #include "comm_game.h"
-#include "estring.h"
+#include <utilitieslib/components/estring.h>
 
-#include "textureatlas.h"
-#include "input.h"
-#include "uiWindows.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiFocus.h"
-#include "uiScrollbar.h"
-#include "uiEditText.h"
-#include "uiUtilMenu.h"
-#include "uiInput.h"
+#include "graphics/textureatlas.h"
+#include "win/input.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiFocus.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiEditText.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiInput.h"
 #include "uiEdit.h"
-#include "uiPetition.h"
+#include "UI/uiPetition.h"
 
-#include "entVarUpdate.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "sprite_base.h"
+#include "entity/entVarUpdate.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
 
 #define TEXTAREA_LEN 256
 

@@ -1,19 +1,20 @@
+#include <utilitieslib/stdtypes.h>
 #include "cmdDebug.h"
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "Position.h"
-#include "StashTable.h"
+#include "utils/position.h"
+#include <utilitieslib/components/StashTable.h>
 #include <limits.h>
-#include <assert.h>
-#include "grouptrack.h"
-#include "gridcoll.h"
-#include "edit_select.h"
-#include "edit_drawlines.h"
-#include "netio.h"
-#include "entDebug.h"
-#include "utils.h"
-#include "model.h"
+#include <utilitieslib/assert/assert.h>
+#include "group/grouptrack.h"
+#include "gridcoll/gridcoll.h"
+#include "edit/edit_select.h"
+#include "edit/edit_drawlines.h"
+#include <utilitieslib/network/netio.h>
+#include "entity/entDebug.h"
+#include <utilitieslib/utils/utils.h>
+#include "render/model.h"
 
 BeaconDebugLine**    beaconConnection = NULL;
 int                    beacConn_showWhenMouseDown;

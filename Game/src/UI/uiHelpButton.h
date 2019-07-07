@@ -13,7 +13,7 @@ typedef struct HelpButton
 typedef enum helpButtonFlags
 {
     HELP_BUTTON_USE_BOX_WIDTH = 1 << 0,
-};
+} helpButtonFlags;
 void freeHelpButton(HelpButton *pHelp);
 float helpButtonEx( HelpButton **ppHelpButton, F32 x, F32 y, F32 z, F32 sc, char * txt, CBox * box, int flags );
 #define helpButton( ppHelpButton, x, y, z, sc, txt, box )    helpButtonEx( ppHelpButton, x, y, z, sc, txt, box, 0 );

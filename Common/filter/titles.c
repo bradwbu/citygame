@@ -13,7 +13,7 @@
 #include <utilitieslib/components/earray.h>
 #include "entity/character_base.h"
 #include "entity/origins.h"
-#include "titles.h"
+#include "filter/titles.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/file.h>
 #include "auth/authUserData.h"

@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------------------------------------------
 // NOVODEX SDK C WRAPPER
 // -------------------------------------------------------------------------------------------------------------------
-#include "NwWrapper.h"
+#include "NovodeX/NwWrapper.h"
 #include <utilitieslib/utils/SuperAssert.h>
 #if NOVODEX
 
@@ -36,19 +36,19 @@
 #include "NwSharedStream.h"
 
 // Basic SDK includes.
-#include "PhysXLoader.h"
-#include "NxPhysics.h"
-#include "NxPhysicsSDK.h"
-#include "NxMaterial.h"
-#include "NxScene.h"
+#include <PhysXLoader.h>
+#include <NxPhysics.h>
+#include <NxPhysicsSDK.h>
+#include <NxMaterial.h>
+#include <NxScene.h>
 
 // Shape and actor includes.
-#include "NxActor.h"
-#include "NxTriangleMeshDesc.h"
-#include "NxTriangleMeshShapeDesc.h"
+#include <NxActor.h>
+#include <NxTriangleMeshDesc.h>
+#include <NxTriangleMeshShapeDesc.h>
 
-#include "NxCooking.h"
-#include "NwRagdoll.h"
+#include <NxCooking.h>
+#include "NovodeX/NwRagdoll.h"
 #include "NwCoreDump.h"
 
 #include "NxUserOutputStream.h"
@@ -57,12 +57,12 @@
 extern "C"{
 
 #ifdef CLIENT
-    #include "camera.h"
-    #include "fxgeo.h"
-    #include "uiConsole.h"
-    #include "player.h"
-    #include "osdependent.h"
-    #include "fxdebris.h"
+    #include "graphics/camera.h"
+    #include "graphics/FX/fxgeo.h"
+    #include "UI/uiConsole.h"
+    #include "player/player.h"
+    #include <utilitieslib/utils/osdependent.h>
+    #include "graphics/FX/fxdebris.h"
 #endif
 
 #ifdef SERVER
@@ -683,7 +683,7 @@ public:
         return _Data.uiActorGuid;
     }
 
-    void notifyJointBroke(F32 fBreakingForce, NxVec3& vJointAnchor )
+    void notifyJointBroke(F32 fBreakingForce, NxVec3 const& vJointAnchor)
     {
         copyVec3(vJointAnchor, _Data.vJointAnchor);
         _Data.bJointJustBroke = true;
@@ -3578,7 +3578,7 @@ void nwConnectToPhysXDebug()
 }
 
 #ifdef CLIENT
-#include "renderprim.h"
+#include "render/renderprim.h"
 static void  nwDebugRender(const NxDebugRenderable* pDebugData)
 {
     {

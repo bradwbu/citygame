@@ -1,8 +1,8 @@
 #ifndef TTFONTUTIL_H
 #define TTFONTUTIL_H
 
-#include "ArrayOld.h"
-#include "uiBox.h"
+#include <utilitieslib/components/ArrayOld.h>
+#include "UI/uiBox.h"
 
 typedef struct TTDrawContext TTDrawContext;
 

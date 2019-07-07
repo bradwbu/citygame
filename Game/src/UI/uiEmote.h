@@ -7,7 +7,7 @@
 #define UIEMOTE_H__
 
 #ifndef ENTVARUPDATE_H__
-#include "entVarUpdate.h" // For INFO_BOX_MSGS
+#include "entity/entVarUpdate.h" // For INFO_BOX_MSGS
 #endif
 
 typedef struct Entity Entity;

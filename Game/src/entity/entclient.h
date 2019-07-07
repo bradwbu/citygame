@@ -6,7 +6,7 @@
 #ifndef ENTCLIENT_H__
 #define ENTCLIENT_H__
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct Packet Packet;
 typedef struct Entity Entity;

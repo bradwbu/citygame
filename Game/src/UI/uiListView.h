@@ -1,9 +1,9 @@
 #ifndef UILISTVIEW_H
 #define UILISTVIEW_H
 
-#include "uiScrollBar.h"
-#include "uiBox.h"
-#include "stdtypes.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiBox.h"
+#include <utilitieslib/stdtypes.h>
 
 //--------------------------------------------------------------------------------------------------------------------
 // Widet3Part

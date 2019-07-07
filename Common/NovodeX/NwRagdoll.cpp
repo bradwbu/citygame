@@ -1,10 +1,10 @@
-#include "NwWrapper.h"
+#include "NovodeX/NwWrapper.h"
 
 #if NOVODEX
 //#include "NxMath.h"     // needs to be included before mathutil.h or there's a define conflict
 
 #define NO_TEXT_PARSER 1
-#include "NwRagdoll.h"
+#include "NovodeX/NwRagdoll.h"
 
 #include "NxActor.h"
 #include "NxPhysicsSDK.h"

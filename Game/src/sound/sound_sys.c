@@ -1,23 +1,23 @@
-#include "win_init.h"
+#include "win/win_init.h"
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
 #include "..\..\directx\include\dsound.h"
-#include "timing.h"
-#include "file.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/file.h>
 #include "ogg_decode.h"
-#include "sound_sys.h"
+#include "sound/sound_sys.h"
 #include "assert.h"
-#include "error.h"
-#include "utils.h"
-#include "MemoryMonitor.h"
-#include "stdtypes.h"
-#include "player.h"
-#include "entity.h"
-#include "mathutil.h"
-#include "strings_opt.h"
-#include "cmdgame.h"
-#include "osdependent.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/MemoryMonitor.h>
+#include <utilitieslib/stdtypes.h>
+#include "player/player.h"
+#include "entity/entity.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/osdependent.h>
 
 void testCompressor();
 

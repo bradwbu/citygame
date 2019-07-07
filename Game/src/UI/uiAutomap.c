@@ -1,94 +1,94 @@
 
-#include "textureatlas.h"
-#include "gfx.h"
-#include "gfxwindow.h"
-#include "rt_state.h"
-#include "rendermodel.h"
-#include "renderutil.h"
+#include "graphics/textureatlas.h"
+#include "graphics/gfx.h"
+#include "graphics/gfxwindow.h"
+#include "render/thread/rt_state.h"
+#include "render/rendermodel.h"
+#include "render/renderUtil.h"
 
-#include "uiGame.h"
-#include "uiUtil.h"
-#include "uiInput.h"
-#include "uiStatus.h"
+#include "UI/uiGame.h"
+#include "UI/uiUtil.h"
+#include "UI/uiInput.h"
+#include "UI/uiStatus.h"
 #include "uiSlider.h"
-#include "uiCursor.h"
-#include "uiWindows.h"
-#include "uiCompass.h"
-#include "uiAutomap.h"
-#include "uiCompass.h"
-#include "uiUtilGame.h"
-#include "uiGroupWindow.h"
-#include "uiTarget.h"
-#include "uiOptions.h"
+#include "UI/uiCursor.h"
+#include "UI/uiWindows.h"
+#include "UI/uiCompass.h"
+#include "UI/uiAutomap.h"
+#include "UI/uiCompass.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiGroupWindow.h"
+#include "UI/uiTarget.h"
+#include "UI/uiOptions.h"
 #include "uiHelpButton.h"
-#include "uiPet.h"
-#include "uiWindows_init.h"
-#include "uiInspiration.h"
+#include "UI/uiPet.h"
+#include "UI/uiWindows_init.h"
+#include "UI/uiInspiration.h"
 
-#include "cmdgame.h"
-#include "cmdcommon.h"
+#include "cmdparse/cmdgame.h"
+#include "cmdparse/cmdcommon.h"
 
-#include "grouputil.h"
-#include "groupnetrecv.h"
+#include "group/grouputil.h"
+#include "group/groupnetrecv.h"
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "ttFontUtil.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/ttFontUtil.h"
 
-#include "font.h"
-#include "utils.h"
-#include "camera.h"
-#include "timing.h"
-#include "player.h"
-#include "camera.h"
-#include "earray.h"
-#include "textparser.h"
-#include "win_init.h"
-#include "entclient.h"
-#include "win_cursor.h"
+#include "graphics/font.h"
+#include <utilitieslib/utils/utils.h>
+#include "graphics/camera.h"
+#include <utilitieslib/utils/timing.h>
+#include "player/player.h"
+#include "graphics/camera.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/textparser.h>
+#include "win/win_init.h"
+#include "entity/entclient.h"
+#include "win/win_cursor.h"
 #include "storyarc/contactClient.h"
 #include "language/langClientUtil.h"
-#include "uiAutomapFog.h"
-#include "entVarUpdate.h"
-#include "uiEditText.h"
-#include "uiComboBox.h"
-#include "uiNet.h"
-#include "entity.h"
-#include "anim.h"
-#include "group.h"
-#include "groupProperties.h"
-#include "itemselect.h"
-#include "groupfileload.h"
-#include "teamCommon.h"
-#include "Supergroup.h"
-#include "uiTabControl.h"
-#include "bases.h"
-#include "basedata.h"
-#include "StashTable.h"
-#include "MessageStoreUtil.h"
-#include "tex.h"
-#include "imageCapture.h"
-#include "EString.h"
-#include "uiClipper.h"
-#include "character_target.h"
-#include "pnpcCommon.h"
-#include "zowieClient.h"
+#include "UI/uiAutoMapFog.h"
+#include "entity/entVarUpdate.h"
+#include "UI/uiEditText.h"
+#include "UI/uiComboBox.h"
+#include "UI/uiNet.h"
+#include "entity/entity.h"
+#include "seq/anim.h"
+#include "group/group.h"
+#include "group/groupproperties.h"
+#include "gameComm/itemselect.h"
+#include "group/groupfileload.h"
+#include "entity/teamCommon.h"
+#include "entity/Supergroup.h"
+#include "UI/uiTabControl.h"
+#include "bases/bases.h"
+#include "bases/basedata.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "render/tex.h"
+#include "graphics/imageCapture.h"
+#include <utilitieslib/components/estring.h>
+#include "UI/uiClipper.h"
+#include "entity/character_target.h"
+#include "storyarc/pnpcCommon.h"
+#include "storyarc/zowieClient.h"
 
-#include "character_eval.h"
-#include "missiongeoCommon.h"
-#include "uiMissionReview.h"
-#include "gametypes.h"
-#include "entPlayer.h"
-#include "sysutil.h"
+#include "entity/character_eval.h"
+#include "storyarc/missiongeoCommon.h"
+#include "UI/uiMissionReview.h"
+#include "entity/gametypes.h"
+#include "entity/EntPlayer.h"
+#include <utilitieslib/utils/sysutil.h>
 #include "shlobj.h"
 #include <nvdxt_options.h>
 
 #ifndef TEST_CLIENT
-#include "groupMetaMinimap.h"
+#include "group/groupMetaMinimap.h"
 #endif
-#include "sound.h"
-#include "fx.h"
+#include "sound/sound.h"
+#include "graphics/FX/fx.h"
 
 
 static void init_map_options();
@@ -1534,11 +1534,11 @@ char * getVisitedMapsDir(void)
         {
             char* buffer = sVisitedMapDirectory;
             size_t buffSz = ARRAY_SIZE(sVisitedMapDirectory);
-            HRESULT hRes = SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA|CSIDL_FLAG_CREATE, NULL, 0, buffer);
+            HRESULT hRes = SHGetFolderPathA(NULL, CSIDL_LOCAL_APPDATA|CSIDL_FLAG_CREATE, NULL, 0, buffer);
             if (SUCCEEDED(hRes))
             {
                 strcat_s(buffer, buffSz, LOCAL_USER_DATA_VISISTED_MAPDIR );
-                SHCreateDirectoryEx(NULL, buffer, NULL);
+                SHCreateDirectoryExA(NULL, buffer, NULL);
                 forwardSlashes(buffer);
                 fixTrailingSlash( buffer, buffSz, '/' ); 
             }

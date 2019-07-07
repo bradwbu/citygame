@@ -1,61 +1,61 @@
 //#include <winsock2.h>
-#include "StashTable.h"
-#include <wininclude.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/wininclude.h>
 #include <mmsystem.h>
 #include <winuser.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "win_init.h"
-#include "stdtypes.h"
-#include "error.h"
-#include "cmdoldparse.h"
-#include "clientcomm.h"
-#include "gfx.h"
-#include "memcheck.h"
-#include "input.h"
-#include "uiInput.h"
-#include "cmdgame.h"
-#include "win_cursor.h"
-#include "sound.h"
+#include "win/win_init.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/cmdoldparse.h>
+#include "clientcomm/clientcomm.h"
+#include "graphics/gfx.h"
+#include <utilitieslib/utils/memcheck.h>
+#include "win/input.h"
+#include "UI/uiInput.h"
+#include "cmdparse/cmdgame.h"
+#include "win/win_cursor.h"
+#include "sound/sound.h"
 #include "resource.h"
 #include <direct.h>
-#include "autoResumeInfo.h"
-#include "authclient.h"
-#include "gfxwindow.h"
-#include "uiWindows.h"
-#include "uiWindows_init.h"
-#include "sysutil.h"
+#include "clientcomm/autoResumeInfo.h"
+#include "clientComm/authclient.h"
+#include "graphics/gfxwindow.h"
+#include "UI/uiWindows.h"
+#include "UI/uiWindows_init.h"
+#include <utilitieslib/utils/sysutil.h>
 #include <process.h>
 #include "demo.h"
-#include "uiCursor.h"
-#include "font.h"
-#include "utils.h"
-#include "seqgraphics.h"
-#include "winutil.h"
-#include "sprite_text.h"
-#include "StringUtil.h"
-#include "edit_net.h"
-#include "rt_queue.h"
-#include "file.h"
-#include "tex.h"
-#include "renderUtil.h"
-#include "uiIME.h"
+#include "UI/uiCursor.h"
+#include "graphics/font.h"
+#include <utilitieslib/utils/utils.h>
+#include "graphics/seqgraphics.h"
+#include <utilitieslib/utils/winutil.h>
+#include "UI/sprite/sprite_text.h"
+#include <utilitieslib/utils/StringUtil.h>
+#include "edit/edit_net.h"
+#include "render/thread/rt_queue.h"
+#include <utilitieslib/utils/file.h>
+#include "render/tex.h"
+#include "render/renderUtil.h"
+#include "UI/uiIME.h"
 #include "clientError.h"
-#include "pbuffer.h"
-#include "renderssao.h"
-#include "AppLocale.h"
+#include "render/pbuffer.h"
+#include "render/renderSSAO.h"
+#include <utilitieslib/language/AppLocale.h>
 #include "shlobj.h"
-#include "timing.h"
-#include "strings_opt.h"
-#include "model.h"
-#include "groupfileload.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include "render/model.h"
+#include "group/groupfileload.h"
 #include "editorUI.h"
-#include "MessageStoreUtil.h"
-#include "hwlight.h"
-#include "log.h"
-#include "dbclient.h"
-#include "estring.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "win/hwlight.h"
+#include <utilitieslib/utils/log.h>
+#include "clientcomm/dbclient.h"
+#include <utilitieslib/components/estring.h>
 
 void windowDestroyDisplayContexts(void);
 void windowReleaseDisplayContexts(void);
@@ -73,7 +73,7 @@ void windowReInitDisplayContexts(void);
 HWND            hwnd;
 POINT            initCursorPos;
 
-static WNDCLASSEX wc;
+static WNDCLASSEXA wc;
 
 static int processing_message = 0;
 static int s_ignore_wm_size;            // in some cases we want to ignore WM_SIZE messages, e.g. returning to windowed mode
@@ -155,7 +155,7 @@ static int curalpha = 0;
 
 
             // see if we can get SetLayeredWindowAttributes
-            hLayeredWindowDll = LoadLibrary( "user32.dll" );
+            hLayeredWindowDll = LoadLibraryA( "user32.dll" );
             if (hLayeredWindowDll)
             {
                 pSetLayeredWindowAttributes = (tSetLayeredWindowAttributes) GetProcAddress(hLayeredWindowDll, "SetLayeredWindowAttributes");
@@ -238,7 +238,7 @@ static int curalpha = 0;
 
 void RegisterSplashWindow()
 {
-    WNDCLASS splashwc;
+    WNDCLASSA splashwc;
 
     splashwc.hInstance       = glob_hinstance;    
     splashwc.style         = CS_OWNDC;
@@ -247,22 +247,22 @@ void RegisterSplashWindow()
     splashwc.cbWndExtra    = 0;
     if ( locGetIDInRegistry() == locGetIDByWindowsLocale(LOCALE_KOREAN) )
     {
-        splashwc.hIcon         = LoadImage(glob_hinstance, MAKEINTRESOURCE(IDI_KOREAN), IMAGE_ICON, 
+        splashwc.hIcon         = LoadImageA(glob_hinstance, MAKEINTRESOURCEA(IDI_KOREAN), IMAGE_ICON, 
             GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON), 0);
     }
     else if (game_state.skin == UISKIN_PRAETORIANS)
     {
-        splashwc.hIcon         = LoadImage(glob_hinstance, MAKEINTRESOURCE(IDI_ROGUE), IMAGE_ICON, 
+        splashwc.hIcon         = LoadImageA(glob_hinstance, MAKEINTRESOURCEA(IDI_ROGUE), IMAGE_ICON, 
             GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON), 0);
     }
     else if (game_state.skin == UISKIN_VILLAINS)
     {
-        splashwc.hIcon         = LoadImage(glob_hinstance, MAKEINTRESOURCE(IDI_COV), IMAGE_ICON, 
+        splashwc.hIcon         = LoadImageA(glob_hinstance, MAKEINTRESOURCEA(IDI_COV), IMAGE_ICON, 
             GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON), 0);
     }
     else
     {
-        splashwc.hIcon         = LoadImage(glob_hinstance, MAKEINTRESOURCE(IDI_OUROBOROS), IMAGE_ICON, 
+        splashwc.hIcon         = LoadImageA(glob_hinstance, MAKEINTRESOURCEA(IDI_OUROBOROS), IMAGE_ICON, 
             GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON), 0);
     }
     splashwc.hCursor       = 0;
@@ -270,7 +270,7 @@ void RegisterSplashWindow()
     splashwc.lpszMenuName  = "CrypticLogo";
     splashwc.lpszClassName = "CrypticLogo";
 
-    RegisterClass( &splashwc );
+    RegisterClassA( &splashwc );
 }
 
 // run the splash screen during startup
@@ -279,14 +279,14 @@ DWORD WINAPI SplashThread(void* data)
     MSG msg;
 
     // get the window started
-    hlogo = CreateWindow("CrypticLogo", windowName, WS_POPUP | WS_BORDER, 
+    hlogo = CreateWindowA("CrypticLogo", windowName, WS_POPUP | WS_BORDER, 
         100, 100, 400, 200, NULL, NULL, wc.hInstance, NULL);
 
     // run the message pump
-    while (!g_quitlogo && GetMessage(&msg, 0, 0, 0))
+    while (!g_quitlogo && GetMessageA(&msg, 0, 0, 0))
     {
         TranslateMessage(&msg);
-        DispatchMessage(&msg);
+        DispatchMessageA(&msg);
     }
     DestroyWindow(hlogo);
     hlogo = NULL;
@@ -736,11 +736,11 @@ static LONG WINAPI MainWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPara
             if(wParam >= 128)
             {
                 wchar_t wChar;
-#ifdef _UNICODE
-                wChar = nChar;
-#else
+//#ifdef _UNICODE
+//                wChar = nChar;
+//#else
                 MultiByteToWideChar(s_CodePageCurLang(), 0, (char *)&wParam, 1, &wChar, 2);
-#endif
+//#endif
                 
                 inpKeyAddBuf(KIT_Unicode, wChar, lParam, attrib);
             }
@@ -985,7 +985,7 @@ void windowInit()
         DestroyWindow( hwnd );
     hwnd = 0;
     
-    hwnd = CreateWindow (className,
+    hwnd = CreateWindowA(className,
                          windowName,
                          WS_CLIPSIBLINGS | 
                          WS_CLIPCHILDREN |
@@ -997,7 +997,7 @@ void windowInit()
                          wc.hInstance,
                          NULL);
     if (!hwnd) {
-        MessageBox( 0, "Couldn't Create Window", windowName, MB_ICONERROR);
+        MessageBoxA( 0, "Couldn't Create Window", windowName, MB_ICONERROR);
         gfxResetGfxSettings();
         windowExit(0);
     }
@@ -1643,7 +1643,7 @@ int winMsgOkCancelParented(HWND parent, char *str)
 
     if (isGuiDisabled())
         printf("winMsgOkCancel: %s\n", str);
-    else if (MessageBox(parent, str, "City of Heroes Prompt", MB_OKCANCEL) == IDOK)
+    else if (MessageBoxA(parent, str, "City of Heroes Prompt", MB_OKCANCEL) == IDOK)
         retval = 1;
 
     // JS:    DX mouse buffered input loses data in foreground mode as soon as the message box
@@ -1665,7 +1665,7 @@ int winMsgYesNoParented(HWND parent, char *str)
 
     if (isGuiDisabled())
         printf("winMsgYesNo: %s\n", str);
-    else if (MessageBox(parent, str, "City of Heroes Prompt", MB_YESNO | MB_ICONQUESTION) == IDYES)
+    else if (MessageBoxA(parent, str, "City of Heroes Prompt", MB_YESNO | MB_ICONQUESTION) == IDYES)
         retval = 1;
 
     // JS:    DX mouse buffered input loses data in foreground mode as soon as the message box
@@ -1689,7 +1689,7 @@ void winMsgError(char *str)
         return;
     }
 
-    MessageBox( 0, str, "City of Heroes Prompt", MB_OK | MB_ICONERROR);
+    MessageBoxA( 0, str, "City of Heroes Prompt", MB_OK | MB_ICONERROR);
 
     // JS:    DX mouse buffered input loses data in foreground mode as soon as the message box
     //        comes up.  The game will lose the mouse-up message.  Subsequent mouse commands
@@ -1988,14 +1988,14 @@ bool winGetEString(char *prompt, char **result)
 
 char *winGetFileName(char *fileMask,char *fileName,int save)
 {
-    OPENFILENAME theFileInfo;
+    OPENFILENAMEA theFileInfo;
     //char filterStrs[256];
     int        ret;
     char    base[_MAX_PATH];
 
     _getcwd(base,_MAX_PATH);
     memset(&theFileInfo,0,sizeof(theFileInfo));
-    theFileInfo.lStructSize = sizeof(OPENFILENAME);
+    theFileInfo.lStructSize = sizeof(OPENFILENAMEA);
     theFileInfo.hwndOwner = hwnd;
     theFileInfo.hInstance = NULL;
     theFileInfo.lpstrFilter = fileMask;
@@ -2009,9 +2009,9 @@ char *winGetFileName(char *fileMask,char *fileName,int save)
     theFileInfo.lpstrDefExt = NULL;
 
     if (save)
-        ret = GetSaveFileName(&theFileInfo);
+        ret = GetSaveFileNameA(&theFileInfo);
     else
-        ret = GetOpenFileName(&theFileInfo);
+        ret = GetOpenFileNameA(&theFileInfo);
     _chdir(base);
 
     inpClear();
@@ -2023,15 +2023,15 @@ char *winGetFileName(char *fileMask,char *fileName,int save)
 
 char *winGetFolderName(char *dirname,char *title)
 {
-    BROWSEINFO bi;
+    BROWSEINFOA bi;
     LPITEMIDLIST lpidl;
     char * ret=0;
     memset(&bi,0,sizeof(bi));
     bi.lpszTitle=title;
-    lpidl=SHBrowseForFolder(&bi);
+    lpidl=SHBrowseForFolderA(&bi);
     if (lpidl==NULL)
         return NULL;
-    SHGetPathFromIDList(lpidl,dirname);
+    SHGetPathFromIDListA(lpidl,dirname);
     return dirname;
 }
 
@@ -2061,30 +2061,30 @@ void winRegisterClass(HINSTANCE hInstance)
     wc.hInstance     = hInstance;
     if ( locGetIDInRegistry() == locGetIDByWindowsLocale(LOCALE_KOREAN) )
     {
-        wc.hIcon         = LoadImage(hInstance, MAKEINTRESOURCE(IDI_KOREAN), IMAGE_ICON, 
+        wc.hIcon = LoadImageA(hInstance, MAKEINTRESOURCEA(IDI_KOREAN), IMAGE_ICON, 
             GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON), 0);
-        wc.hIconSm         = LoadImage(hInstance, MAKEINTRESOURCE(IDI_KOREAN), IMAGE_ICON,
+        wc.hIconSm = LoadImageA(hInstance, MAKEINTRESOURCEA(IDI_KOREAN), IMAGE_ICON,
             GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON), 0);
     }
     else if (game_state.skin == UISKIN_PRAETORIANS)
     {
-        wc.hIcon         = LoadImage(hInstance, MAKEINTRESOURCE(IDI_ROGUE), IMAGE_ICON, 
+        wc.hIcon = LoadImageA(hInstance, MAKEINTRESOURCEA(IDI_ROGUE), IMAGE_ICON, 
             GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON), 0);
-        wc.hIconSm         = LoadImage(hInstance, MAKEINTRESOURCE(IDI_ROGUE), IMAGE_ICON,
+        wc.hIconSm = LoadImageA(hInstance, MAKEINTRESOURCEA(IDI_ROGUE), IMAGE_ICON,
             GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON), 0);
     }
     else if (game_state.skin == UISKIN_VILLAINS)
     {
-        wc.hIcon         = LoadImage(hInstance, MAKEINTRESOURCE(IDI_COV), IMAGE_ICON, 
+        wc.hIcon = LoadImageA(hInstance, MAKEINTRESOURCEA(IDI_COV), IMAGE_ICON, 
             GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON), 0);
-        wc.hIconSm         = LoadImage(hInstance, MAKEINTRESOURCE(IDI_COV), IMAGE_ICON,
+        wc.hIconSm = LoadImageA(hInstance, MAKEINTRESOURCEA(IDI_COV), IMAGE_ICON,
             GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON), 0);
     }
     else
     {
-        wc.hIcon         = LoadImage(hInstance, MAKEINTRESOURCE(IDI_OUROBOROS), IMAGE_ICON, 
+        wc.hIcon = LoadImageA(hInstance, MAKEINTRESOURCEA(IDI_OUROBOROS), IMAGE_ICON, 
             GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON), 0);
-        wc.hIconSm         = LoadImage(hInstance, MAKEINTRESOURCE(IDI_OUROBOROS), IMAGE_ICON,
+        wc.hIconSm = LoadImageA(hInstance, MAKEINTRESOURCEA(IDI_OUROBOROS), IMAGE_ICON,
             GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON), 0);
     }
     wc.hCursor       = 0;//LoadCursor( NULL, IDC_ARROW );
@@ -2093,8 +2093,8 @@ void winRegisterClass(HINSTANCE hInstance)
     wc.lpszClassName = className;
     glob_hinstance = hInstance;
 
-    if ( !RegisterClassEx( &wc ) ) {
-        MessageBox( 0, "Couldn't Register Window Class", windowName, MB_ICONERROR );
+    if ( !RegisterClassExA( &wc ) ) {
+        MessageBoxA( 0, "Couldn't Register Window Class", windowName, MB_ICONERROR );
     }
 
 }

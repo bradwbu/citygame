@@ -1,23 +1,23 @@
-#include "uiTabControl.h"
-#include "earray.h"
+#include "UI/uiTabControl.h"
+#include <utilitieslib/components/Earray.h>
 #include "assert.h"
-#include "textureatlas.h"
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "uiUtil.h"
-#include "uiInput.h"
-#include "uiUtilGame.h"
-#include "mathutil.h"
-#include "trayCommon.h"
-#include "uiTray.h"
-#include "uiCursor.h"
-#include "ttFontUtil.h"
-#include "uiContextMenu.h"
-#include "utils.h"
-#include "cmdcommon.h"
-#include "uiScrollBar.h"
-#include "wininclude.h"
+#include "graphics/textureatlas.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/uiUtil.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilGame.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "gameComm/trayCommon.h"
+#include "UI/uiTray.h"
+#include "UI/uiCursor.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/uiContextMenu.h"
+#include <utilitieslib/utils/utils.h>
+#include "cmdparse/cmdcommon.h"
+#include "UI/uiScrollBar.h"
+#include <utilitieslib/utils/wininclude.h>
 //--------------------------------------
 // PRIVATE DATA STRUCTS & PROTOTYPES
 //
@@ -663,7 +663,7 @@ uiTabData drawTabControl(uiTabControl * tc, float x, float y, float z, float wid
 
         AtlasTex * activeTex[3];
         AtlasTex * inactiveTex[3];
-        AtlasTex ** tex;
+        AtlasTex ** tex = NULL;
 
         AtlasTex * backArrow, *forwardArrow;
 

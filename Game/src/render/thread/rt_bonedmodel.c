@@ -1,26 +1,26 @@
 #define RT_PRIVATE
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "bump.h"
-#include "shadersAti.h"
-#include "rendermodel.h"
-#include "utils.h"
-#include "error.h"
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/bump.h"
+#include "render/thread/shadersATI.h"
+#include "render/rendermodel.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/error.h>
 #include "rt_bonedmodel.h"
-#include "rt_model_cache.h"
-#include "rt_tex.h"
-#include "rt_tricks.h"
-#include "model_cache.h"
+#include "render/thread/rt_model_cache.h"
+#include "render/thread/rt_tex.h"
+#include "render/thread/rt_tricks.h"
+#include "render/model_cache.h"
 #include "rt_stats.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "assert.h"
-#include "rt_shadow.h"
-#include "cmdgame.h"
-#include "tex.h"
-#include "rt_cubemap.h"
-#include "rt_shadowmap.h"
-#include "renderWater.h"    // for kReflectProjClip_All, etc.
-#include "gfxDebug.h"
+#include "render/thread/rt_shadow.h"
+#include "cmdparse/cmdgame.h"
+#include "render/tex.h"
+#include "render/thread/rt_cubemap.h"
+#include "render/thread/rt_shadowmap.h"
+#include "render/renderWater.h"    // for kReflectProjClip_All, etc.
+#include "graphics/gfxDebug.h"
 
 #define MAX_VERTS 6000
 
@@ -124,9 +124,9 @@ static void modelDrawBonedWireframeSeams( VBO *vbo, Vec3 * verts )
 
 /*
     Not thread-safe
-#include "gfxwindow.h"
-#include "sprite_text.h"
-#include "StashTable.h"
+#include "graphics/gfxwindow.h"
+#include "UI/sprite/sprite_text.h"
+#include <utilitieslib/components/StashTable.h>
 static void modelDrawVertInfo( VBO *vbo, Vec3 * verts, Vec3 *norms, Vec3 *tangents, Vec3 *binormals, Vec2 *sts )
 {
     int        i;

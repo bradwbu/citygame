@@ -1,17 +1,18 @@
-#include "fog.h"
-#include "grouputil.h"
-#include "earray.h"
-#include "light.h"
-#include "camera.h"
-#include "sun.h"
-#include "Color.h"
-#include "utils.h"
-#include "font.h"
-#include "cmdgame.h"
-#include "error.h"
-#include "player.h"
-#include "entity.h"
-#include "group.h"
+#include <utilitieslib/stdtypes.h>
+#include "graphics/fog.h"
+#include "group/grouputil.h"
+#include <utilitieslib/components/Earray.h>
+#include "graphics/light.h"
+#include "graphics/camera.h"
+#include "graphics/sun.h"
+#include <utilitieslib/utils/Color.h>
+#include <utilitieslib/utils/utils.h>
+#include "graphics/font.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/error.h>
+#include "player/player.h"
+#include "entity/entity.h"
+#include "group/group.h"
 
 #define NEAR_RATIO 0.2f
 // #define NEAR_PERCENT 20

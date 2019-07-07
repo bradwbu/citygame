@@ -3,33 +3,33 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "net_packet.h"
-#include "net_packetutil.h"
+#include <utilitieslib/network/net_packet.h>
+#include <utilitieslib/network/net_packetutil.h>
 
-#include "entity.h"
-#include "entplayer.h"
-#include "player.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "player/player.h"
 
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
-#include "badges.h"
-#include "uiBadges.h"
+#include "player/badges.h"
+#include "UI/uiBadges.h"
 
-#include "badges_client.h"
-#include "character_net.h"
+#include "player/badges_client.h"
+#include "entity/character_net.h"
 
-#include "character_base.h"
-#include "character_net.h"
-#include "character_level.h"
-#include "character_inventory.h"
+#include "entity/character_base.h"
+#include "entity/character_net.h"
+#include "entity/character_level.h"
+#include "entity/character_inventory.h"
 
-#include "auction.h"
-#include "AccountCatalog.h"
-#include "dbclient.h"
-#include "inventory_client.h"
-#include "cmdgame.h"
-#include "cmdcommon_enum.h"
-#include "cmdaccountserver.h"
+#include "auction/auction.h"
+#include "account/AccountCatalog.h"
+#include "clientcomm/dbclient.h"
+#include "player/inventory_client.h"
+#include "cmdparse/cmdgame.h"
+#include "cmdparse/cmdcommon_enum.h"
+#include "cmdparse/cmdaccountserver.h"
 
 
 //------------------------------------------------------------

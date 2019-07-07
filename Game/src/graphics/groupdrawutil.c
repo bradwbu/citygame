@@ -3,27 +3,27 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
 */
-#include "utils.h"
-#include "timing.h"
-#include "crypt.h"
-#include "light.h"
-#include "groupdraw.h"
-#include "sun.h"
-#include "grouputil.h"
-#include "renderUtil.h"
-#include "camera.h"
-#include "model_cache.h"
-#include "fx.h"
-#include "tricks.h"
-#include "groupfileload.h"
-#include "gfxLoadScreens.h"
-#include "fxgeo.h"
-#include "groupdrawutil.h"
-#include "rendermodel.h"
-#include "tex.h"
-#include "rt_model.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/network/crypt.h>
+#include "graphics/light.h"
+#include "graphics/groupdraw.h"
+#include "graphics/sun.h"
+#include "group/grouputil.h"
+#include "render/renderUtil.h"
+#include "graphics/camera.h"
+#include "render/model_cache.h"
+#include "graphics/FX/fx.h"
+#include "seq/tricks.h"
+#include "group/groupfileload.h"
+#include "graphics/gfxLoadScreens.h"
+#include "graphics/FX/fxgeo.h"
+#include "graphics/groupdrawutil.h"
+#include "render/rendermodel.h"
+#include "render/tex.h"
+#include "render/thread/rt_model.h"
 #include "demo.h"
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 
 void colorTracker(DefTracker *tracker,Mat4 mat,DefTracker *light_trkr,int force, F32 brightScale)
 {

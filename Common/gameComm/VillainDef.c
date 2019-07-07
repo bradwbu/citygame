@@ -3,8 +3,8 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "VillainDef.h"
-#include "npc.h"        // For NPC structure defintion
+#include "gameComm/villainDef.h"
+#include "gameComm/npc.h"        // For NPC structure defintion
 #include <utilitieslib/utils/error.h>
 
 #include <utilitieslib/components/earray.h>

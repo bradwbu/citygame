@@ -1,21 +1,21 @@
 
-#include <assert.h>
-#include "viewport.h"
+#include <utilitieslib/assert/assert.h>
+#include "graphics/viewport.h"
 
-#include "gfx.h"
-#include "mathutil.h"
-#include "cmdgame.h"
-#include "rt_init.h"
-#include "rt_state.h"
-#include "pbuffer.h"
-#include "gfxwindow.h"
-#include "camera.h"
-#include "ogl.h"
-#include "player.h"
-#include "entity.h"
-#include "seq.h"
-#include "win_init.h"
-#include "rt_queue.h"
+#include "graphics/gfx.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "cmdparse/cmdgame.h"
+#include "render/thread/rt_init.h"
+#include "render/thread/rt_state.h"
+#include "render/pbuffer.h"
+#include "graphics/gfxwindow.h"
+#include "graphics/camera.h"
+#include "render/thread/ogl.h"
+#include "player/player.h"
+#include "entity/entity.h"
+#include "seq/seq.h"
+#include "win/win_init.h"
+#include "render/thread/rt_queue.h"
 
 
 #define MAX_VIEWPORTS 32

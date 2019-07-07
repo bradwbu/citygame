@@ -4,22 +4,22 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 
-#include "utils.h"
-#include "earray.h"
-#include "wdwbase.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/Earray.h>
+#include "gameComm/wdwbase.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
 
-#include "uiWindows.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiScrollbar.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiScrollBar.h"
 #include "uiSMFView.h"
 #include "storyarc/contactClient.h"
-#include "clientcomm.h"
-#include "entVarUpdate.h"
-#include "timing.h"
-#include "MessageStoreUtil.h"
+#include "clientcomm/clientcomm.h"
+#include "entity/entVarUpdate.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 static int s_dbid;
 static int s_context;

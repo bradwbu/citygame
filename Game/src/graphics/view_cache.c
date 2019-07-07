@@ -1,20 +1,20 @@
 
-#include "view_cache.h"
+#include "graphics/view_cache.h"
 
-#include "anim.h"
-#include "camera.h"
-#include "cmdcommon.h"
-#include "edit_cmd.h"
+#include "seq/anim.h"
+#include "graphics/camera.h"
+#include "cmdparse/cmdcommon.h"
+#include "edit/edit_cmd.h"
 #include "frustum_c.h"
-#include "gfx.h"
-#include "gfxwindow.h"
-#include "groupdraw.h"
-#include "mathutil.h"
-#include "renderstats.h"
-#include "SuperAssert.h"
-#include "utils.h"
-#include "viewport.h"
-#include "zOcclusion.h"
+#include "graphics/gfx.h"
+#include "graphics/gfxwindow.h"
+#include "graphics/groupdraw.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/renderstats.h"
+#include <utilitieslib/utils/SuperAssert.h>
+#include <utilitieslib/utils/utils.h>
+#include "graphics/viewport.h"
+#include "graphics/zOcclusion.h"
 
 #if !VIEWCACHEDISABLED
 typedef struct AutoLOD AutoLOD;

@@ -1,59 +1,59 @@
 
-#include "utils.h"    // for strstri
-#include "earray.h"
-#include "player.h"
-#include "cmdgame.h"
-#include "costume.h"
-#include "entPlayer.h"
-#include "entclient.h"    // for entSetAlpha
-#include "clientcomm.h"
-#include "costume_client.h"
-#include "character_base.h"
+#include <utilitieslib/utils/utils.h>    // for strstri
+#include <utilitieslib/components/Earray.h>
+#include "player/player.h"
+#include "cmdparse/cmdgame.h"
+#include "entity/costume.h"
+#include "entity/EntPlayer.h"
+#include "entity/entclient.h"    // for entSetAlpha
+#include "clientcomm/clientcomm.h"
+#include "entity/costume_client.h"
+#include "entity/character_base.h"
 
 #include "gameData/costume_data.h"
 #include "language/langClientUtil.h"
 
-#include "uiNet.h"
-#include "uiGame.h"
-#include "uiUtil.h"
-#include "uiInput.h"
-#include "uiAvatar.h"
-#include "uiTailor.h"
-#include "uiCostume.h"
-#include "uiGender.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"  
-#include "uiWindows.h"
-#include "uiSupercostume.h"
-#include "uiSuperRegistration.h"
-#include "uiEditText.h"
-#include "uiNet.h"
+#include "UI/uiNet.h"
+#include "UI/uiGame.h"
+#include "UI/uiUtil.h"
+#include "UI/uiInput.h"
+#include "UI/uiAvatar.h"
+#include "UI/uiTailor.h"
+#include "UI/uiCostume.h"
+#include "UI/uiGender.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"  
+#include "UI/uiWindows.h"
+#include "UI/uiSupercostume.h"
+#include "UI/uiSuperRegistration.h"
+#include "UI/uiEditText.h"
+#include "UI/uiNet.h"
 #include "uiScrollSelector.h"
-#include "uiPowerCust.h"
+#include "UI/uiPowerCust.h"
 
-#include "ttFontUtil.h"
-#include "sprite_base.h" 
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "tex.h"
-#include "seq.h"
-#include "seqstate.h"
-#include "entity.h"
-#include "Supergroup.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/sprite/sprite_base.h" 
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "render/tex.h"
+#include "seq/seq.h"
+#include "seq/seqstate.h"
+#include "entity/entity.h"
+#include "entity/Supergroup.h"
 #include "auth/authUserData.h"
-#include "dbclient.h"
-#include "MessageStoreUtil.h"
-#include "character_inventory.h"
-#include "character_base.h"
-#include "textureatlas.h"
-#include "fx.h"
+#include "clientcomm/dbclient.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "entity/character_inventory.h"
+#include "entity/character_base.h"
+#include "graphics/textureatlas.h"
+#include "graphics/FX/fx.h"
 
 #include "uiLoadCostume.h"
 #include "uiSaveCostume.h"
 
-#include "uiHybridMenu.h"
-#include "uiBody.h"
-#include "uiOptions.h"
+#include "UI/Hybrid/uiHybridMenu.h"
+#include "UI/Hybrid/uiBody.h"
+#include "UI/uiOptions.h"
 
 Costume *gTailoredCostume = 0;
 int FreeTailorCount = 0;
@@ -1170,7 +1170,7 @@ NonLinearMenuElement tailor_costume_NLME = { MENU_TAILOR, { "TailorString", 0, 0
 void tailorMenuEx(int sgMode)
 {
     Entity *e = playerPtr();
-    const CostumeGeoSet* selectedGeoSet;
+    const CostumeGeoSet* selectedGeoSet = NULL;
     static int repositioningCamera = 0;
     SpriteScalingMode ssm = getSpriteScaleMode();
     float screenScaleX = 1.f, screenScaleY = 1.f, screenScale;

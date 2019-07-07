@@ -1,8 +1,8 @@
 #ifndef MISSIONMAPCOMMON_H
 #define MISSIONMAPCOMMON_H
 
-#include "storyarcCommon.h"
-#include "playerCreatedStoryarcValidate.h"
+#include "storyarc/storyarcCommon.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
 #ifndef TEST_CLIENT
 #include "group/groupMetaMinimap.h"
 #endif

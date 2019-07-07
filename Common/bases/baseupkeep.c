@@ -3,7 +3,7 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "baseupkeep.h"
+#include "bases/baseupkeep.h"
 #include "entity/Supergroup.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>

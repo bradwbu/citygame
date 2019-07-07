@@ -1,13 +1,13 @@
 #define RT_PRIVATE
-#include "error.h"
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "file.h"
+#include <utilitieslib/utils/error.h>
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include <utilitieslib/utils/file.h>
 #include "nvparse.h"
-#include "rt_tune.h"
-#include "cmdgame.h"
-#include "gfxDebug.h"
-#include "rt_util.h"
+#include "render/thread/rt_tune.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/gfxDebug.h"
+#include "render/thread/rt_util.h"
 
 static GLuint *stencilbuf;
 static GLubyte *colorbuf;
@@ -82,9 +82,9 @@ int renderNvparse(char *str)
 { 
     nvparse(str);
     {
-    FILE    *file;
-    int        len;
-    char    *mem;
+        FILE* file;
+        int len;
+        char* mem = NULL;
 
         file = fileOpen("c:/temp/nvparse_errs.txt","w+");
         if (file)

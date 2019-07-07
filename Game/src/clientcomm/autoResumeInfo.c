@@ -1,17 +1,17 @@
-#include "autoResumeInfo.h"
-#include "file.h"
-#include "uiLogin.h"
-#include "uiEditText.h"
-#include "cmdgame.h"
-#include "utils.h"
-#include "win_init.h"
-#include "RegistryReader.h"
-#include "AppRegCache.h"
-#include "sound_sys.h"
-#include "timing.h"
-#include "textparser.h"
-#include "uiOptions.h"
-#include "crypt.h"
+#include "clientcomm/autoResumeInfo.h"
+#include <utilitieslib/utils/file.h>
+#include "UI/uiLogin.h"
+#include "UI/uiEditText.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/utils.h>
+#include "win/win_init.h"
+#include <utilitieslib/utils/RegistryReader.h>
+#include <utilitieslib/version/AppRegCache.h>
+#include "sound/sound_sys.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/textparser.h>
+#include "UI/uiOptions.h"
+#include <utilitieslib/network/crypt.h>
 
 //ResumeInfo is now in the registry
 #define REG_STR_BUF_SIZE 256

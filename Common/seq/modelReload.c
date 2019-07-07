@@ -4,17 +4,17 @@
 *     Confidential Property of Cryptic Studios
 */
 
-#include "modelReload.h"
+#include "seq/modelReload.h"
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/utils/FolderCache.h>
-#include "anim.h"
+#include "seq/anim.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/memlog.h>
 #include <utilitieslib/utils/error.h>
 #include "gridcoll/gridcache.h"
-#include "tricks.h"
+#include "seq/tricks.h"
 #include "group/groupfileload.h"
 #include "group/groupfilelib.h"
 #include <fcntl.h>
@@ -22,13 +22,13 @@
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/components/SharedHeap.h>
 #include <utilitieslib/components/StashTable.h>
-#include "AutoLOD.h"
+#include "seq/AutoLOD.h"
 
 #if CLIENT
-#include "gfxtree.h"
-#include "seqgraphics.h"
-#include "groupdraw.h"
-#include "fxgeo.h"
+#include "seq/gfxtree.h"
+#include "graphics/seqgraphics.h"
+#include "graphics/groupdraw.h"
+#include "graphics/FX/fxgeo.h"
 #include "clientError.h"
 #endif
 

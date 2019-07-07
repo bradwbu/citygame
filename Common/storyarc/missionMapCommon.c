@@ -2,9 +2,9 @@
 
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/textparser.h>
-#include "missionMapCommon.h"
+#include "storyarc/missionMapCommon.h"
 #include <utilitieslib/components/StashTable.h>
-#include "playerCreatedStoryarcValidate.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
 #include <utilitieslib/utils/mathutil.h>
 #ifndef TEST_CLIENT
 #include "group/groupMetaMinimap.h"

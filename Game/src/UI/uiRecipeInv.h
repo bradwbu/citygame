@@ -6,7 +6,7 @@
 #ifndef UIRECIPEINV_H
 #define UIRECIPEINV_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 typedef struct UIBox UIBox;
 
 int recipeinvWindow();

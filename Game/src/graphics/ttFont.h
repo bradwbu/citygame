@@ -1,8 +1,8 @@
 #ifndef TTFONT_H
 #define    TTFONT_H
 
-#include "truetype/ttFontDraw.h"
-#include "truetype/ttFontManager.h"
+#include "graphics/truetype/ttFontDraw.h"
+#include "graphics/truetype/ttFontManager.h"
 
 
 //------------------------------------------------------------------------------

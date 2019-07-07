@@ -1,65 +1,66 @@
 
-#include "uiAuction.h"
-#include "uiBox.h"
-#include "uiWindows.h"
-#include "uiClipper.h"
-#include "uiComboBox.h"
-#include "uiUtil.h"
-#include "uiEditText.h"
-#include "uiUtilMenu.h"
-#include "uiUtilGame.h"
-#include "uiScrollBar.h"
-#include "uiReticle.h"
-#include "uiInput.h"
-#include "uiNet.h"
+#include <utilitieslib/stdtypes.h>
+#include "UI/uiAuction.h"
+#include "UI/uiBox.h"
+#include "UI/uiWindows.h"
+#include "UI/uiClipper.h"
+#include "UI/uiComboBox.h"
+#include "UI/uiUtil.h"
+#include "UI/uiEditText.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiReticle.h"
+#include "UI/uiInput.h"
+#include "UI/uiNet.h"
 #include "uiEmote.h"
-#include "uiGame.h"
-#include "uiRecipeInventory.h"
-#include "uiEnhancement.h"
-#include "uiCursor.h"
-#include "uiChat.h"
+#include "UI/uiGame.h"
+#include "UI/uiRecipeInventory.h"
+#include "UI/uiEnhancement.h"
+#include "UI/uiCursor.h"
+#include "UI/uiChat.h"
 #include "uiAmountSlider.h"
-#include "uiTray.h"
-#include "uiDialog.h"
-#include "uiOptions.h"
+#include "UI/uiTray.h"
+#include "UI/uidialog.h"
+#include "UI/uiOptions.h"
 #include "uiSalvage.h"
-#include "uiPlaque.h"
-#include "uiHybridMenu.h"
+#include "UI/uiPlaque.h"
+#include "UI/Hybrid/uiHybridMenu.h"
 
-#include "wdwbase.h"
-#include "smf_format.h"
-#include "smf_main.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "salvage.h"
-#include "origins.h"
-#include "font.h"        // for xyprintf
-#include "ttFontUtil.h"
+#include "gameComm/wdwbase.h"
+#include "formatter/smf_format.h"
+#include "formatter/smf_main.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "entity/salvage.h"
+#include "entity/origins.h"
+#include "graphics/font.h"        // for xyprintf
+#include "graphics/ttFontUtil.h"
 #include "language/langClientUtil.h"
-#include "messagestoreutil.h"
-#include "win_init.h"    // for windowClientSize
-#include "cmdgame.h"
-#include "character_base.h"
-#include "sound.h"
-#include "powers.h"
-#include "boostset.h"
-#include "earray.h"
-#include "player.h"
-#include "entity.h" 
-#include "estring.h"
-#include "input.h"
-#include "StashTable.h"
-#include "textureatlas.h"
-#include "DetailRecipe.h"
-#include "trayCommon.h"
-#include "Auction.h"
-#include "boost.h"
-#include "attrib_names.h"
-#include "AuctionData.h"
-#include "entPlayer.h"
-#include "playerCreatedStoryarcValidate.h"
-#include "AccountCatalog.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "win/win_init.h"    // for windowClientSize
+#include "cmdparse/cmdgame.h"
+#include "entity/character_base.h"
+#include "sound/sound.h"
+#include "entity/powers.h"
+#include "entity/boostset.h"
+#include <utilitieslib/components/Earray.h>
+#include "player/player.h"
+#include "entity/entity.h" 
+#include <utilitieslib/components/estring.h>
+#include "win/input.h"
+#include <utilitieslib/components/StashTable.h>
+#include "graphics/textureatlas.h"
+#include "bases/DetailRecipe.h"
+#include "gameComm/trayCommon.h"
+#include "auction/auction.h"
+#include "entity/boost.h"
+#include "entity/attrib_names.h"
+#include "auction/AuctionData.h"
+#include "entity/EntPlayer.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
+#include "account/AccountCatalog.h"
 
 #define MAX_AUCTION_STACK_SIZE 10
 
@@ -606,8 +607,8 @@ static F32 drawAuctionSearch( F32 x, F32 y, F32 z, F32 wd, F32 sc, int color )
     {
          KeyInput* input;
         int index, autocomplete=0, nextword = 0;
-        char *token;
-        char * match=0;
+        char* token = NULL;
+        char* match=0;
 
         // Handle keyboard input.
          input = inpGetKeyBuf();
@@ -673,7 +674,7 @@ static F32 drawAuctionSearch( F32 x, F32 y, F32 z, F32 wd, F32 sc, int color )
             setSearchText( smfSearch->outputString, 0 );
         else if( autocomplete && currentFilter.auto_complete )
         {
-            char * token_start;
+            char* token_start = NULL;
             int skip_tokens = 1;
             index = smf_GetCursorIndex();
 

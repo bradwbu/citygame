@@ -1,53 +1,53 @@
 
 #include "uiPowers.h"
-#include "uiNet.h"
-#include "uiGame.h"
-#include "uiFx.h"
-#include "uiUtil.h"
-#include "uiChat.h"
-#include "uiInput.h"
-#include "uiEditText.h"
-#include "uiUtilMenu.h"
-#include "uiUtilGame.h"
-#include "uiScrollBar.h"
-#include "uiHybridMenu.h"
+#include "UI/uiNet.h"
+#include "UI/uiGame.h"
+#include "UI/uiFx.h"
+#include "UI/uiUtil.h"
+#include "UI/uiChat.h"
+#include "UI/uiInput.h"
+#include "UI/uiEditText.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiScrollBar.h"
+#include "UI/Hybrid/uiHybridMenu.h"
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
 
-#include "font.h"        // for xyprintf
-#include "ttFontUtil.h"
+#include "graphics/font.h"        // for xyprintf
+#include "graphics/ttFontUtil.h"
 #include "language/langClientUtil.h"
 
-#include "win_init.h"    // for windowClientSize
-#include "cmdgame.h"
-#include "inventory_client.h"
+#include "win/win_init.h"    // for windowClientSize
+#include "cmdparse/cmdgame.h"
+#include "player/inventory_client.h"
 
-#include "character_base.h"
-#include "sound.h"
-#include "origins.h"
-#include "powers.h"
-#include "earray.h"
-#include "player.h"
-#include "entity.h"
-#include "EntPlayer.h"
-#include "uiClipper.h"
-#include "uiToolTip.h"
-#include "uiPowerInfo.h"
-#include "costume_client.h" // costume keys
-#include "file.h"
-#include "input.h"
+#include "entity/character_base.h"
+#include "sound/sound.h"
+#include "entity/origins.h"
+#include "entity/powers.h"
+#include <utilitieslib/components/Earray.h>
+#include "player/player.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "UI/uiClipper.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiPowerInfo.h"
+#include "entity/costume_client.h" // costume keys
+#include <utilitieslib/utils/file.h>
+#include "win/input.h"
 
-#include "smf_main.h"
-#include "smf_format.h"
-#include "MessageStoreUtil.h"
-#include "dbclient.h"
-#include "authUserData.h"
-#include "authclient.h"
-#include "AccountData.h"
-#include "AccountCatalog.h"
+#include "formatter/smf_main.h"
+#include "formatter/smf_format.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "clientcomm/dbclient.h"
+#include "auth/authUserData.h"
+#include "clientComm/authclient.h"
+#include "account/AccountData.h"
+#include "account/AccountCatalog.h"
 
 int gCurrentPowerSet[kCategory_Count] = {-1, -1, -1, -1}; // the primary and secondary power set (index available powersets on character)
 int gCurrentPower[kCategory_Count]    = {-1, -1, -1, -1}; // the primary and secondary powers ( index into availble powers on character )

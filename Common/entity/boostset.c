@@ -11,14 +11,14 @@
 #include <utilitieslib/utils/error.h>
 
 #include <utilitieslib/components/StashTable.h>
-#include "powers.h"
-#include "boostset.h"
-#include "boost.h"
+#include "entity/powers.h"
+#include "entity/boostset.h"
+#include "entity/boost.h"
 #include <utilitieslib/components/earray.h>
-#include "character_base.h"
-#include "character_inventory.h"
+#include "entity/character_base.h"
+#include "entity/character_inventory.h"
 #include <utilitieslib/language/MessageStoreUtil.h>
-#include "entity.h"
+#include "entity/entity.h"
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/components/SharedHeap.h>
 #include <utilitieslib/utils/mathutil.h>

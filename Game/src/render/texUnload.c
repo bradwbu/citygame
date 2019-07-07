@@ -1,14 +1,14 @@
-#include "texUnload.h"
-#include "tex.h"
-#include "cmdgame.h"
-#include "sysutil.h"
-#include "memlog.h"
-#include "earray.h"
-#include "timing.h"
-#include "osdependent.h"
+#include "render/texUnload.h"
+#include "render/tex.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/sysutil.h>
+#include <utilitieslib/utils/memlog.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/osdependent.h>
 #include "videoMemory.h"
-#include "utils.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/mathutil.h>
 
 static int dynamicUnloadEnabled=0;
 static U32 nextUnloadTimeSeconds = 0;

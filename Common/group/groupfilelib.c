@@ -1,8 +1,8 @@
-#include "groupfilelib.h"
+#include "group/groupfilelib.h"
 #include <utilitieslib/components/StashTable.h>
 #include <string.h>
 #include <utilitieslib/utils/utils.h>
-#include "group.h"
+#include "group/group.h"
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/strings_opt.h>
@@ -11,7 +11,7 @@
 #include "edit/Menu.h"
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/components/earray.h>
-#include "groupfileload.h"
+#include "group/groupfileload.h"
 #include <utilitieslib/utils/serialize.h>
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/utils/mathutil.h>

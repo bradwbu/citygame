@@ -11,8 +11,8 @@
 #ifndef UITURNSTILE_H
 #define UITURNSTILE_H
 
-#include "stdtypes.h"
-#include "TurnstileCommon.h"
+#include <utilitieslib/stdtypes.h>
+#include "turnstile/TurnstileCommon.h"
 
 #define        CLIENT_RESPONSE_DELAY        EVENT_READY_BASE_DELAY        // Seconds to wait for player to respond,  This is slightly shorter than the 
                                                                     // serverside value, so the client times out first

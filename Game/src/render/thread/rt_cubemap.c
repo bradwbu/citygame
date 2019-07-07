@@ -3,27 +3,27 @@
 //
 #define RT_PRIVATE
 
-#include "superassert.h"
-#include "failtext.h"
-#include "cmdgame.h"
-#include "cubemap.h"
-#include "renderWater.h"
-#include "rt_cubemap.h"
-#include "rt_tune.h"
-#include "gfx.h"
-#include "ogl.h"
-#include "tex.h"
-#include "rt_init.h"
-#include "sprite_base.h"
-#include "mathutil.h"
-#include "camera.h"
-#include "renderutil.h"
-#include "wcw_statemgmt.h"
-#include "seq.h" //MAX_LODS
-#include "renderssao.h"
-#include "gfxsettings.h"
+#include <utilitieslib/utils/SuperAssert.h>
+#include "graphics/failtext.h"
+#include "cmdparse/cmdgame.h"
+#include "render/cubemap.h"
+#include "render/renderWater.h"
+#include "render/thread/rt_cubemap.h"
+#include "render/thread/rt_tune.h"
+#include "graphics/gfx.h"
+#include "render/thread/ogl.h"
+#include "render/tex.h"
+#include "render/thread/rt_init.h"
+#include "UI/sprite/sprite_base.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "graphics/camera.h"
+#include "render/renderUtil.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "seq/seq.h" //MAX_LODS
+#include "render/renderSSAO.h"
+#include "graphics/gfxSettings.h"
 #include "rt_filter.h"
-#include "rt_pbuffer.h"
+#include "render/thread/rt_pbuffer.h"
 
 typedef struct CubemapRenderGlobals
 {

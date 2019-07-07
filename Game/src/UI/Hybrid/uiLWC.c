@@ -1,7 +1,8 @@
+#include <utilitieslib/stdtypes.h>
 #include "uiLWC.h"
-#include "uiHybridMenu.h"
-#include "uiWindows.h"
-#include "wdwbase.h"
+#include "UI/Hybrid/uiHybridMenu.h"
+#include "UI/uiWindows.h"
+#include "gameComm/wdwbase.h"
 
 int uiLWCWindow()
 {

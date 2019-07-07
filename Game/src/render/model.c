@@ -1,24 +1,24 @@
 #include <stdio.h>
-#include "utils.h"
-#include "memcheck.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/memcheck.h>
 #include "assert.h"
-#include "error.h"
-#include "earray.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/Earray.h>
 
-#include "cmdgame.h"
-#include "gfxwindow.h"
-#include "gfxSettings.h"
-#include "uiConsole.h"
-#include "font.h"
-#include "renderutil.h"
-#include "model.h"
-#include "tex.h"
-#include "tricks.h"
-#include "anim.h"
-#include "light.h"
-#include "rt_state.h"
-#include "bump.h"
-#include "renderbonedmodel.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/gfxwindow.h"
+#include "graphics/gfxSettings.h"
+#include "UI/uiConsole.h"
+#include "graphics/font.h"
+#include "render/renderUtil.h"
+#include "render/model.h"
+#include "render/tex.h"
+#include "seq/tricks.h"
+#include "seq/anim.h"
+#include "graphics/light.h"
+#include "render/thread/rt_state.h"
+#include "render/bump.h"
+#include "render/renderbonedmodel.h"
 
 /* MW thoughts on model.c: One slightly awkward aspect is that the trick setting done here doesn't know anything about
 custom textures (either from the grouping or from the character customization).  Custom stuff has 

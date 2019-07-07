@@ -1,28 +1,28 @@
 #define RT_PRIVATE
-#include "utils.h"
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "mathutil.h"
-#include "bump.h"
-#include "rt_tex.h"
-#include "rt_model.h"
-#include "rt_tricks.h"
-#include "rt_cgfx.h"
-#include "shadersATI.h"
-#include "cmdgame.h"
+#include <utilitieslib/utils/utils.h>
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/bump.h"
+#include "render/thread/rt_tex.h"
+#include "render/thread/rt_model.h"
+#include "render/thread/rt_tricks.h"
+#include "render/thread/rt_cgfx.h"
+#include "render/thread/shadersATI.h"
+#include "cmdparse/cmdgame.h"
 #include "rt_stats.h"
-#include "rt_water.h"
-#include "rt_effects.h"
-#include "rt_state.h"
-#include "rt_shadow.h"
-#include "tex.h"
-#include "rt_cubemap.h"
-#include "rt_shadowmap.h"
-#include "rt_util.h"
-#include "gfxDebug.h"
+#include "render/thread/rt_water.h"
+#include "render/thread/rt_effects.h"
+#include "render/thread/rt_state.h"
+#include "render/thread/rt_shadow.h"
+#include "render/tex.h"
+#include "render/thread/rt_cubemap.h"
+#include "render/thread/rt_shadowmap.h"
+#include "render/thread/rt_util.h"
+#include "graphics/gfxDebug.h"
 
 // This temporary include is for tree shadow hack
-#include "anim.h"
+#include "seq/anim.h"
 
 #ifndef COLOR_SCALEUB
 #define COLOR_SCALEUB(x) (x >> 2)
@@ -1248,8 +1248,8 @@ typedef struct {
 } Record;
 
 Record **eaRecords;
-#include "earray.h"
-#include "tex.h"
+#include <utilitieslib/components/Earray.h>
+#include "render/tex.h"
 
 int tppproc(StashElement elem)
 {

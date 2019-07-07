@@ -6,8 +6,8 @@
 #include <utilitieslib/assert/assert.h>
 #include <stdio.h>
 
-#include "entity.h"
-#include "entityRef.h"
+#include "entity/entity.h"
+#include "entity/entityRef.h"
 
 /****************************************************
  * Entity Reference

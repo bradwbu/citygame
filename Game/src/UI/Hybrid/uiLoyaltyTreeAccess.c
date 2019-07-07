@@ -1,10 +1,11 @@
+#include <utilitieslib/stdtypes.h>
 #include "uiLoyaltyTreeAccess.h"
-#include "uiHybridMenu.h"
-#include "uiWindows.h"
-#include "uiUtil.h"
-#include "wdwbase.h"
-#include "uiUtilGame.h"
-#include "uiOptions.h"
+#include "UI/Hybrid/uiHybridMenu.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtil.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiOptions.h"
 
 #define CENTER_X 25.f
 #define CENTER_Y 24.5f

@@ -1,32 +1,32 @@
 #include <stdlib.h>
 #include <string.h>
-#include "light.h"
-#include "mathutil.h"
-#include "anim.h"
-#include "grid.h"
-#include "model.h"
-#include "gridcoll.h"
-#include "memcheck.h"
-#include "group.h"
-#include "grouptrack.h"
-#include "utils.h"
-#include "font.h"
-#include "cmdcommon.h"
-#include "rendermodel.h"
-#include "cmdgame.h"
-#include "entclient.h"
+#include "graphics/light.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "seq/anim.h"
+#include "gridcoll/grid.h"
+#include "render/model.h"
+#include "gridcoll/gridcoll.h"
+#include <utilitieslib/utils/memcheck.h>
+#include "group/group.h"
+#include "group/grouptrack.h"
+#include <utilitieslib/utils/utils.h>
+#include "graphics/font.h"
+#include "cmdparse/cmdcommon.h"
+#include "render/rendermodel.h"
+#include "cmdparse/cmdgame.h"
+#include "entity/entclient.h"
 #include "assert.h"
-#include "model_cache.h"
-#include "renderutil.h"
-#include "rgb_hsv.h"
-#include "sun.h"
-#include "tricks.h"
-#include "renderprim.h"
-#include "file.h"
-#include "seq.h"
-#include "gridfind.h"
-#include "vistray.h"
-#include "player.h"
+#include "render/model_cache.h"
+#include "render/renderUtil.h"
+#include <utilitieslib/utils/rgb_hsv.h>
+#include "graphics/sun.h"
+#include "seq/tricks.h"
+#include "render/renderprim.h"
+#include <utilitieslib/utils/file.h>
+#include "seq/seq.h"
+#include "gridcoll/gridfind.h"
+#include "graphics/vistray.h"
+#include "player/player.h"
 
 #define MAX_SHADOW_CALCS 5
 
@@ -286,8 +286,8 @@ DefTracker *findLights(Vec3 pos)
     return tracker;
 }
 
-#include "entity.h"
-#include "groupdraw.h"
+#include "entity/entity.h"
+#include "graphics/groupdraw.h"
 
 #define DISTANCE_TO_MOVE_BEFORE_RECALCULATING_LIGHT 2.0
 static int no_light_interp = 0; //debug
@@ -623,7 +623,7 @@ void lightGiveLightTrackerToMyDoor(DefTracker * tracker, DefTracker * lighttrack
     }
 }
 
-#include "gridcache.h"
+#include "gridcoll/gridcache.h"
 static int reapply_color_swaps;
 
 void lightReapplyColorSwaps()

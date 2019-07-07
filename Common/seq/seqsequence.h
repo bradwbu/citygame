@@ -2,7 +2,7 @@
 #define _SEQSEQUENCE_H
 
 #include <utilitieslib/stdtypes.h>
-#include "seq.h"
+#include "seq/seq.h"
 
 #ifdef CLIENT
 int seqSetMoveTrigger(FutureMoveTracker fmt_array[], TriggeredMove tm_array[], int * tm_count);

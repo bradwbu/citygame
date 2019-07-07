@@ -6,23 +6,23 @@
 #include <string.h>
 #include "demo.h"
 
-#include "mathutil.h"
-#include "StashTable.h"
-#include "profanity.h"
-#include "earray.h"
-#include "smf_parse.h"
-#include "smf_main.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/StashTable.h>
+#include "filter/profanity.h"
+#include <utilitieslib/components/Earray.h>
+#include "formatter/smf_parse.h"
+#include "formatter/smf_main.h"
 #include "uiEmote.h"
-#include "AppLocale.h"
-#include "entity.h"
-#include "entclient.h"
-#include "player.h"
-#include "playerState.h"
-#include "uichat.h"
-#include "entVarUpdate.h"
-#include "cmdgame.h"
-#include "EString.h"
-#include "uiOptions.h"
+#include <utilitieslib/language/AppLocale.h>
+#include "entity/entity.h"
+#include "entity/entclient.h"
+#include "player/player.h"
+#include "player/playerState.h"
+#include "UI/uiChat.h"
+#include "entity/entVarUpdate.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/components/estring.h>
+#include "UI/uiOptions.h"
 
 
 typedef struct TupleNNNN

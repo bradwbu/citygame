@@ -11,11 +11,11 @@
 
 #include "comm_game.h"
 
-#include "character_base.h"
-#include "character_net.h"
-#include "character_level.h"
-#include "powers.h"
-#include "PowerInfo.h"
+#include "entity/character_base.h"
+#include "entity/character_net.h"
+#include "entity/character_level.h"
+#include "entity/powers.h"
+#include "entity/PowerInfo.h"
 
 #if CLIENT
 #include "UI/uiInspiration.h"
@@ -329,8 +329,8 @@ void powerInfo_Receive(PowerInfo* info, Packet* pak)
 //-------------------------------------------------------------------------------------------
 // PowerInfo Server only functions
 //-------------------------------------------------------------------------------------------
-#include "entity.h"
-#include "powers.h"
+#include "entity/entity.h"
+#include "entity/powers.h"
 #ifdef SERVER
 #include "entity/character_net_server.h"
 #include "svr/svr_base.h"
@@ -660,8 +660,8 @@ void entity_SendPowerModeUpdate(Entity* e, Packet* pak)
 }
 
 #else
-#include "player.h"
-#include "character_net_client.h"
+#include "player/player.h"
+#include "entity/character_net_client.h"
 
 static void character_ReceivePowerRanges(Character *pchar, Packet *pak)
 {

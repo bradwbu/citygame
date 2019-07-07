@@ -1,8 +1,8 @@
 #ifndef _RENDERMODEL_H
 #define _RENDERMODEL_H
 
-#include "rt_state.h"
-#include "stdtypes.h"
+#include "render/thread/rt_state.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct ViewSortNode ViewSortNode;
 typedef struct DefTexSwapNode DefTexSwapNode;

@@ -1,6 +1,6 @@
 
-#include "playerCreatedStoryarc.h"
-#include "playerCreatedStoryarcValidate.h"
+#include "storyarc/playerCreatedStoryarc.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/textparser.h>
@@ -9,7 +9,7 @@
 #include "entity/PCC_Critter.h"
 #include "entity/CustomVillainGroup.h"
 #include <utilitieslib/components/StashTable.h>
-#include "pnpcCommon.h"
+#include "storyarc/pnpcCommon.h"
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/components/bitfield.h>
@@ -21,7 +21,7 @@
 #define COSTUME_GIVE_TOKEN(tok, notifyPlayer, isPCC) costume_Award(e,tok, notifyPlayer, isPCC)
 #define COSTUME_TAKE_TOKEN(tok, isPCC) costume_Unaward(e,tok, isPCC)
 #elif CLIENT
-#include "costume_client.h"
+#include "entity/costume_client.h"
 #define COSTUME_GIVE_TOKEN(tok, notifyPlayer, isPCC) costumereward_add(tok, isPCC)
 #define COSTUME_TAKE_TOKEN(tok, isPCC) costumereward_remove(tok, isPCC)
 #else

@@ -1,57 +1,58 @@
 
-#include "uiHybridMenu.h"
-#include "uiGame.h"                // for start_menu
+#include <utilitieslib/stdtypes.h>
+#include "UI/Hybrid/uiHybridMenu.h"
+#include "UI/uiGame.h"                // for start_menu
 
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
 
-#include "input.h"
-#include "earray.h"
-#include "win_init.h" // for windowClientSize
-#include "player.h"      // for playerPtr
-#include "font.h"
-#include "ttFontUtil.h"
-#include "sound.h"
+#include "win/input.h"
+#include <utilitieslib/components/Earray.h>
+#include "win/win_init.h" // for windowClientSize
+#include "player/player.h"      // for playerPtr
+#include "graphics/font.h"
+#include "graphics/ttFontUtil.h"
+#include "sound/sound.h"
 #include "language/langClientUtil.h"
-#include "textureatlas.h"
-#include "cmdgame.h"  // for timestep
-#include "MessageStoreUtil.h"
-#include "file.h"
+#include "graphics/textureatlas.h"
+#include "cmdparse/cmdgame.h"  // for timestep
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/file.h>
 
-#include "smf_format.h"
-#include "smf_main.h"
+#include "formatter/smf_format.h"
+#include "formatter/smf_main.h"
 
-#include "uiInput.h"
-#include "uiUtilMenu.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiClipper.h"
-#include "uiCostume.h"
-#include "entVarUpdate.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiClipper.h"
+#include "UI/uiCostume.h"
+#include "entity/entVarUpdate.h"
 
-#include "dbclient.h"
-#include "uiPower.h"
-#include "uiPowerCust.h"
-#include "uiBody.h"
-#include "uiRegister.h"
-#include "uiOrigin.h"
-#include "uiArchetype.h"
-#include "uiPlaystyle.h"
-#include "uiRedirect.h"
-#include "AppLocale.h"
-#include "titles.h"
-#include "entPlayer.h"
-#include "uiTailor.h"
-#include "uiComboBox.h"
-#include "uiToolTip.h"
-#include "uiScrollBar.h"
-#include "powers.h"
+#include "clientcomm/dbclient.h"
+#include "UI/Hybrid/uiPower.h"
+#include "UI/uiPowerCust.h"
+#include "UI/Hybrid/uiBody.h"
+#include "UI/Hybrid/uiRegister.h"
+#include "UI/Hybrid/uiOrigin.h"
+#include "UI/Hybrid/uiArchetype.h"
+#include "UI/Hybrid/uiPlaystyle.h"
+#include "UI/Hybrid/uiRedirect.h"
+#include <utilitieslib/language/AppLocale.h>
+#include "filter/titles.h"
+#include "entity/EntPlayer.h"
+#include "UI/uiTailor.h"
+#include "UI/uiComboBox.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiScrollBar.h"
+#include "entity/powers.h"
 #include "LWC.h"
-#include "inventory_client.h"
-#include "smf_main.h"
-#include "uiBox.h"
-#include "uiWebStoreFrame.h"
+#include "player/inventory_client.h"
+#include "formatter/smf_main.h"
+#include "UI/uiBox.h"
+#include "UI/Hybrid/uiWebStoreFrame.h"
 
 //#define FORCE_LWC_UI  //comment this out to show LWC only if active
 

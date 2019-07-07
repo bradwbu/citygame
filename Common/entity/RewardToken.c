@@ -3,15 +3,15 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "RewardToken.h"
+#include "entity/rewardtoken.h"
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/components/StringCache.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/MemoryPool.h>
-#include "entity.h"
-#include "entPlayer.h"
-#include "Supergroup.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "entity/Supergroup.h"
 
 MP_DEFINE(RewardToken);
 RewardToken* rewardtoken_Create(void)

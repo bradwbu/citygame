@@ -5,7 +5,7 @@
 #ifndef __rt_cubemap_h__
 #define __rt_cubemap_h__
 
-#include "viewport.h"
+#include "graphics/viewport.h"
 
 void rt_initCubeMapMenu();
 

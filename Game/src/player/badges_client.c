@@ -3,22 +3,22 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "net_packet.h"
-#include "net_packetutil.h"
-#include "earray.h"
-#include "entity.h"
-#include "entplayer.h"
+#include <utilitieslib/network/net_packet.h>
+#include <utilitieslib/network/net_packetutil.h>
+#include <utilitieslib/components/Earray.h>
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
 
-#include "badges.h"
-#include "uiBadges.h"
+#include "player/badges.h"
+#include "UI/uiBadges.h"
 
-#include "badges_client.h"
-#include "Supergroup.h"
-#include "player.h"
-#include "clientcomm.h"
-#include "MessageStoreUtil.h"
-#include "cmdgame.h"
-#include "bitfield.h"
+#include "player/badges_client.h"
+#include "entity/Supergroup.h"
+#include "player/player.h"
+#include "clientcomm/clientcomm.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/components/bitfield.h>
 
 char *g_pchBadgeText[BADGE_ENT_MAX_BADGES];
 char *g_pchBadgeFilename[BADGE_ENT_MAX_BADGES];

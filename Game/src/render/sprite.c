@@ -5,17 +5,18 @@
  *
  ***************************************************************************/
 
-#include "sprite.h"
-#include "sprite_list.h"
-#include "rt_sprite.h"
-#include "textureatlas.h"
-#include "tex.h"
-#include "gfx.h"
-#include "gfxLoadScreens.h"
-#include "render.h"
-#include "cmdgame.h"
-#include "file.h"
-#include "ogl.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/sprite.h"
+#include "UI/sprite/sprite_list.h"
+#include "render/thread/rt_sprite.h"
+#include "graphics/textureatlas.h"
+#include "render/tex.h"
+#include "graphics/gfx.h"
+#include "graphics/gfxLoadScreens.h"
+#include "render/render.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/file.h>
+#include "render/thread/ogl.h"
 
 #define DEBUG_SPRITE_DRAW_ORDER 0
 

@@ -1,7 +1,7 @@
 #ifndef CHAT_CLIENT_H__
 #define CHAT_CLIENT_H__
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 void chatClientInit();
 bool processShardCmd(char **args,int count);

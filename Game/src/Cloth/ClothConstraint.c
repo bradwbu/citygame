@@ -1,5 +1,5 @@
-#include "Cloth.h"
-#include "ClothPrivate.h"
+#include "Cloth/Cloth.h"
+#include "Cloth/ClothPrivate.h"
 
 // This determines how significantly a collision affects the effective mass
 // of a particle. 

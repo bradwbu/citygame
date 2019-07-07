@@ -6,7 +6,7 @@
 #if (!defined(BOOST_H__)) || (defined(BOOST_PARSE_INFO_DEFINITIONS)&&!defined(BOOST_PARSE_INFO_DEFINED))
 #define BOOST_H__
 
-#include "RewardSlot.h"
+#include "entity/RewardSlot.h"
 
 // Can't include powers.h due to circular include
 typedef struct CharacterOrigin CharacterOrigin;

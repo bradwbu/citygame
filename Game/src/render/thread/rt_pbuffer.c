@@ -1,24 +1,24 @@
 #define RT_PRIVATE
 #define RT_ALLOW_BINDTEXTURE
-#include "error.h"
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "renderUtil.h"
-#include "rt_state.h"
-#include "rt_pbuffer.h"
-#include "rt_tex.h"
-#include "rt_pbuffer.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/error.h>
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/renderUtil.h"
+#include "render/thread/rt_state.h"
+#include "render/thread/rt_pbuffer.h"
+#include "render/thread/rt_tex.h"
+#include "render/thread/rt_pbuffer.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "assert.h"
-#include "cmdgame.h"
-#include "genericlist.h"
-//#include "win_init.h"
-#include "sprite_text.h"
-#include "timing.h"
-#include "file.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/components/genericlist.h>
+//#include "win/win_init.h"
+#include "UI/sprite/sprite_text.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/file.h>
 #include "rt_win_init.h"
-#include "MessageStoreUtil.h"
-#include "failtext.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "graphics/failtext.h"
 
 #define WGL_SAMPLE_BUFFERS_ARB    0x2041
 #define WGL_SAMPLES_ARB        0x2042

@@ -1,34 +1,34 @@
 #define RT_PRIVATE
-#include "rendermodel.h"
-#include "model.h"
-#include "model_cache.h"
-#include "ogl.h"
+#include "render/rendermodel.h"
+#include "render/model.h"
+#include "render/model_cache.h"
+#include "render/thread/ogl.h"
 #include <stdio.h>
-#include "tricks.h"
-#include "error.h"
-#include "memcheck.h"
+#include "seq/tricks.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/memcheck.h>
 #include "assert.h" 
-#include "render.h"
-#include "mathutil.h"
-#include "cmdgame.h"
-#include "bump.h" 
-#include "light.h"
-#include "camera.h"
-#include "utils.h"
-#include "rt_queue.h"
-#include "rt_tex.h"
-#include "rt_cgfx.h"
-#include "sun.h"
-#include "rt_tricks.h"
-#include "tex.h"
-#include "group.h"
-#include "uiOptions.h"
-#include "gfx.h"
-#include "renderprim.h"
-#include "edit_cmd.h"
-#include "cubemap.h"
-#include "rendershadowmap.h"
-#include "rt_shadowmap.h"
+#include "render/render.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "cmdparse/cmdgame.h"
+#include "render/bump.h" 
+#include "graphics/light.h"
+#include "graphics/camera.h"
+#include <utilitieslib/utils/utils.h>
+#include "render/thread/rt_queue.h"
+#include "render/thread/rt_tex.h"
+#include "render/thread/rt_cgfx.h"
+#include "graphics/sun.h"
+#include "render/thread/rt_tricks.h"
+#include "render/tex.h"
+#include "group/group.h"
+#include "UI/uiOptions.h"
+#include "graphics/gfx.h"
+#include "render/renderprim.h"
+#include "edit/edit_cmd.h"
+#include "render/cubemap.h"
+#include "render/rendershadowmap.h"
+#include "render/thread/rt_shadowmap.h"
 
 void modelDrawGetCharacterLighting(GfxNode *node, Vec3 ambient, Vec3 diffuse, Vec3 lightdir)
 {
@@ -553,7 +553,7 @@ bool isReflective(const ScrollsScales *scrollsScales, bool isSkinned)
     return false;
 }
 
-#include "font.h"
+#include "graphics/font.h"
 
 void drawReflector(void)
 {

@@ -1,11 +1,11 @@
 #ifndef _RENDERPARTICLES_H
 #define _RENDERPARTICLES_H
 
-#include "particle.h"  
+#include "graphics/FX/particle.h"  
 
-#include "fxfluid.h"
+#include "graphics/FX/fxfluid.h"
 
-#include "rt_particles.h"
+#include "render/thread/rt_particles.h"
 
 int modelDrawParticleSys(ParticleSystem * system, F32 alpha, int VBOBuffer, Mat4 systemMatCamSpace  );
 #ifdef NOVODEX_FLUIDS

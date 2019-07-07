@@ -1,8 +1,8 @@
-#include "stdtypes.h"
-#include "earray.h"
-#include "texEnums.h"
-#include "textparser.h"
-#include "StashTable.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/Earray.h>
+#include "render/texEnums.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/StashTable.h>
 
 typedef enum TexWordLayerType {
     TWLT_NONE,

@@ -2,7 +2,7 @@
 #define _ZOCCLUSIONDRAW_H_
 
 #include "zOcclusionTypes.h"
-#include "ssemath.h"
+#include <utilitieslib/utils/ssemath.h>
 
 extern int zo_occluder_tris_drawn;
 extern ZType *zo_zbuf;

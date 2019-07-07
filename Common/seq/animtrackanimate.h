@@ -3,7 +3,7 @@
 
 #include <utilitieslib/stdtypes.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "animtrack.h"
+#include "seq/animtrack.h"
 #include <utilitieslib/assert/assert.h>
 
 

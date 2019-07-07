@@ -5,13 +5,13 @@
 #define RT_PRIVATE 1
 #define RT_ALLOW_BINDTEXTURE
 #include "shadersTexEnv.h"
-#include "ogl.h"
-#include "textparser.h"
-#include "earray.h"
-#include "error.h"
+#include "render/thread/ogl.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/error.h>
 #include "assert.h"
-#include "wcw_statemgmt.h"
-#include "rt_tex.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_tex.h"
 
 typedef enum TexEnvFlags {
     TEXENV_NOLIGHTING=1<<0,

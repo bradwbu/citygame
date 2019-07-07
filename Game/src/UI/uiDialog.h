@@ -1,8 +1,8 @@
 #ifndef _DIALOG_H
 #define    _DIALOG_H
 
-#include "uiInclude.h"
-#include "stdtypes.h"
+#include "UI/uiInclude.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef enum
 {

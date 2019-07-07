@@ -2,10 +2,10 @@
 #define SMF_MAIN_H__
 
 #ifndef _STDTYPES_H
-#include "stdtypes.h" // for bool
+#include <utilitieslib/stdtypes.h> // for bool
 #endif
 
-#include "smf_util.h"
+#include "formatter/smf_util.h"
 
 extern TextAttribs gTextAttr_Gray12;
 extern TextAttribs gTextAttr_White9;

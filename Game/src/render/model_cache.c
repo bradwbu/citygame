@@ -4,22 +4,22 @@
  *     Confidential Property of Cryptic Studios
  */
 #define RT_ALLOW_VBO
-#include "model.h"
-#include "ogl.h"
-#include "wcw_statemgmt.h" 
-#include "renderstats.h" 
-#include "bump.h" 
-#include "renderbonedmodel.h" 
-#include "error.h"
-#include "MemoryMonitor.h"
-#include "timing.h"
-#include "rt_state.h"
-#include "tex.h"
-#include "tricks.h"
-#include "renderprim.h"
-#include "model_cache.h" 
-#include "mathutil.h"
-#include "cmdgame.h"
+#include "render/model.h"
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h" 
+#include "render/renderstats.h" 
+#include "render/bump.h" 
+#include "render/renderbonedmodel.h" 
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/MemoryMonitor.h>
+#include <utilitieslib/utils/timing.h>
+#include "render/thread/rt_state.h"
+#include "render/tex.h"
+#include "seq/tricks.h"
+#include "render/renderprim.h"
+#include "render/model_cache.h" 
+#include <utilitieslib/utils/mathutil.h>
+#include "cmdparse/cmdgame.h"
 
 static CRITICAL_SECTION model_unpack_cs;
 

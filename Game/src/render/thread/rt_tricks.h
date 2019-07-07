@@ -1,10 +1,10 @@
 #ifndef _RT_TRICKS_H
 #define _RT_TRICKS_H
 
-#include "rt_model_cache.h"
+#include "render/thread/rt_model_cache.h"
 
 #ifdef RT_PRIVATE
-#include "rt_state.h"
+#include "render/thread/rt_state.h"
 extern Vec4    tex_scrolls[4];
 typedef struct TrickNode TrickNode;
 typedef struct StAnim StAnim;

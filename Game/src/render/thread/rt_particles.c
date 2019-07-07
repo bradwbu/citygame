@@ -1,14 +1,14 @@
 #define RT_PRIVATE
-#include "timing.h"
-#include "ogl.h"
-#include "wcw_statemgmt.h" 
-#include "rt_particles.h"
-#include "rt_model_cache.h"
-#include "mathutil.h"
-#include "rt_state.h"
+#include <utilitieslib/utils/timing.h>
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h" 
+#include "render/thread/rt_particles.h"
+#include "render/thread/rt_model_cache.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/thread/rt_state.h"
 #include "rt_stats.h"
-#include "cmdgame.h"
-#include "particle.h" // for enums ONLY!
+#include "cmdparse/cmdgame.h"
+#include "graphics/FX/particle.h" // for enums ONLY!
 
 void rdrPrepareToRenderParticleSystemsDirect(F32 **texarray)
 {

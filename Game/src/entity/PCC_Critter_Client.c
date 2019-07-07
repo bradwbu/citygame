@@ -1,36 +1,37 @@
 
-#include "MessageStoreUtil.h"
-#include "origins.h"                //    for origins pointer
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "entity/origins.h"                //    for origins pointer
 
-#include "entPlayer.h"                //    costume ent player pointer
+#include "entity/EntPlayer.h"                //    costume ent player pointer
 
-#include "PCC_Critter.h"
-#include "PCC_Critter_Client.h"
-#include "uiCustomVillainGroupWindow.h"
-#include "costume.h"
-#include "entity.h"
-#include "player.h"
-#include "EString.h"
-#include "MemoryPool.h"
+#include "entity/PCC_Critter.h"
+#include "entity/PCC_Critter_Client.h"
+#include "UI/uiCustomVillainGroupWindow.h"
+#include "entity/costume.h"
+#include "entity/entity.h"
+#include "player/player.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/memorypool.h>
 
 #include "varutils.h"                //    playerVarAlloc
-#include "character_base.h"
-#include "earray.h"
+#include "entity/character_base.h"
+#include <utilitieslib/components/Earray.h>
 
-#include "entclient.h"                //    for entcreate
-#include "uiSupercostume.h"            //    costume validation things
-#include "uiCostume.h"
-#include "fileutil.h"
-#include "error.h"
-#include "FolderCache.h"
-#include "sysutil.h"
-#include "StringCache.h"            //    for allocaddstring
-#include "powers.h"
-#include "CustomVillainGroup.h"
-#include "CustomVillainGroup_Client.h"
-#include "BodyPart.h"
-#include "FolderCache.h"
-#include "uiMissionMakerScrollSet.h"        //    for update custom critter list
+#include "entity/entclient.h"                //    for entcreate
+#include "UI/uiSupercostume.h"            //    costume validation things
+#include "UI/uiCostume.h"
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/sysutil.h>
+#include <utilitieslib/components/StringCache.h>            //    for allocaddstring
+#include "entity/powers.h"
+#include "entity/CustomVillainGroup.h"
+#include "entity/CustomVillainGroup_Client.h"
+#include "gameData/BodyPart.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include "UI/uiMissionMakerScrollSet.h"        //    for update custom critter list
+
 static char *pcc_origin = "Villain_Origin";
 static char *pcc_class = "Class_Lt_Grunt";
 

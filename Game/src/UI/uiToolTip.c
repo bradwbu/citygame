@@ -1,35 +1,35 @@
 
 
-#include "uiToolTip.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiInput.h"
-#include "uiEditText.h"
-#include "uiGame.h"
-#include "uiWindows.h"
-#include "uiOptions.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiInput.h"
+#include "UI/uiEditText.h"
+#include "UI/uiGame.h"
+#include "UI/uiWindows.h"
+#include "UI/uiOptions.h"
 
-#include "ttFontUtil.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "sprite_base.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
 
-#include "entVarUpdate.h"
-#include "win_init.h"
-#include "earray.h"
-#include "input.h"
-#include "mathutil.h"
+#include "entity/entVarUpdate.h"
+#include "win/win_init.h"
+#include <utilitieslib/components/Earray.h>
+#include "win/input.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "language/langClientUtil.h"
-#include "cmdcommon.h"
-#include "cmdgame.h"
+#include "cmdparse/cmdcommon.h"
+#include "cmdparse/cmdgame.h"
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 #include "uiSMFView.h"
-#include "uiClipper.h"
-#include "MessageStoreUtil.h"
-#include "uiClipper.h"
-#include "uiBox.h"
-#include "uiMissionMaker.h"
+#include "UI/uiClipper.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "UI/uiClipper.h"
+#include "UI/uiBox.h"
+#include "UI/uiMissionMaker.h"
 
 extern int do_scissor;
 

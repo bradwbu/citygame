@@ -6,12 +6,12 @@
     Author: Aki Morita 02/2009
 ****************************************************************************/
 
-#include "ogl.h"
+#include "render/thread/ogl.h"
 #include <Cg/cg.h>
 #include <Cg/cgGL.h>
-#include "SuperAssert.h"
-#include "wcw_statemgmt.h"
-#include "rt_cgfx.h"
+#include <utilitieslib/utils/SuperAssert.h>
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_cgfx.h"
 
 static CGprofile vertexProfile;
 static CGprofile fragmentProfile;

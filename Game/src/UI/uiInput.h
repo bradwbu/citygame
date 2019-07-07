@@ -1,7 +1,7 @@
 #ifndef UI_INPUT_H
 #define UI_INPUT_H
 
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
 typedef enum
 {

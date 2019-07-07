@@ -95,11 +95,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>CLIENT;USEZLIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SUBSTANCE_PLATFORM_OGLCG;FULLDEBUG;_CRTDBG_MAP_ALLOC;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CLIENT;USEZLIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SUBSTANCE_PLATFORM_OGLCG;_WINSOCK_DEPRECATED_NO_WARNINGS;FULLDEBUG;_CRTDBG_MAP_ALLOC;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\3rdparty\nvdxt;$(ProjectDir)..\..\..\3rdparty\nvcpl;$(ProjectDir)..\..\..\3rdparty\nvperf\inc;$(ProjectDir)..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\oggvorbis\include;$(ProjectDir)..\..\..\3rdparty\glew-2.1.0\include;$(ProjectDir)..\..\..\3rdparty\jpgdlib-0.93b\include;$(ProjectDir)..\..\..\3rdparty\libcubemapgen-1.4\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Physics\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Cooking\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Foundation\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\PhysXLoader\include;$(ProjectDir)..\..\..\3rdparty\AlienFX SDK\Unmanaged\includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -116,11 +116,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>CLIENT;USEZLIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SUBSTANCE_PLATFORM_OGLCG;FULLDEBUG;_CRTDBG_MAP_ALLOC;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CLIENT;USEZLIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SUBSTANCE_PLATFORM_OGLCG;_WINSOCK_DEPRECATED_NO_WARNINGS;FULLDEBUG;_CRTDBG_MAP_ALLOC;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\3rdparty\nvdxt;$(ProjectDir)..\..\..\3rdparty\nvcpl;$(ProjectDir)..\..\..\3rdparty\nvperf\inc;$(ProjectDir)..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\oggvorbis\include;$(ProjectDir)..\..\..\3rdparty\glew-2.1.0\include;$(ProjectDir)..\..\..\3rdparty\jpgdlib-0.93b\include;$(ProjectDir)..\..\..\3rdparty\libcubemapgen-1.4\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Physics\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Cooking\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Foundation\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\PhysXLoader\include;$(ProjectDir)..\..\..\3rdparty\AlienFX SDK\Unmanaged\includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -139,11 +139,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>CLIENT;USEZLIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SUBSTANCE_PLATFORM_OGLCG;FINAL;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CLIENT;USEZLIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SUBSTANCE_PLATFORM_OGLCG;_WINSOCK_DEPRECATED_NO_WARNINGS;FINAL;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\3rdparty\nvdxt;$(ProjectDir)..\..\..\3rdparty\nvcpl;$(ProjectDir)..\..\..\3rdparty\nvperf\inc;$(ProjectDir)..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\oggvorbis\include;$(ProjectDir)..\..\..\3rdparty\glew-2.1.0\include;$(ProjectDir)..\..\..\3rdparty\jpgdlib-0.93b\include;$(ProjectDir)..\..\..\3rdparty\libcubemapgen-1.4\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Physics\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Cooking\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Foundation\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\PhysXLoader\include;$(ProjectDir)..\..\..\3rdparty\AlienFX SDK\Unmanaged\includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -164,11 +164,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>CLIENT;USEZLIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SUBSTANCE_PLATFORM_OGLCG;FINAL;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CLIENT;USEZLIB;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SUBSTANCE_PLATFORM_OGLCG;_WINSOCK_DEPRECATED_NO_WARNINGS;FINAL;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\3rdparty\nvdxt;$(ProjectDir)..\..\..\3rdparty\nvcpl;$(ProjectDir)..\..\..\3rdparty\nvperf\inc;$(ProjectDir)..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\3rdparty\freetype\include;$(ProjectDir)..\..\..\3rdparty\zlib-1.2.11\include;$(ProjectDir)..\..\..\3rdparty\oggvorbis\include;$(ProjectDir)..\..\..\3rdparty\glew-2.1.0\include;$(ProjectDir)..\..\..\3rdparty\jpgdlib-0.93b\include;$(ProjectDir)..\..\..\3rdparty\libcubemapgen-1.4\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Physics\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Cooking\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\Foundation\include;$(ProjectDir)..\..\..\3rdparty\PhysX\SDKs\PhysXLoader\include;$(ProjectDir)..\..\..\3rdparty\AlienFX SDK\Unmanaged\includes</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

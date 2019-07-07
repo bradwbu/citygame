@@ -1,7 +1,7 @@
 #ifndef _xOGL_H
 #define _xOGL_H
 
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 
 #define GLEW_STATIC
 #include "gl/glew.h"

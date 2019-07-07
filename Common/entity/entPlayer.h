@@ -6,7 +6,7 @@
 #ifdef SERVER
 
 #include "gameData/arenaref.h"  // ArenaRef
-#include "EntityRef.h"
+#include "entity/entityRef.h"
 #include "chatdefs.h"
 #include "MARTY.h"
 #ifndef PL_STATS_H__
@@ -15,12 +15,12 @@
 #endif
 
 #include "chatdefs.h"
-#include "chatSettings.h"
+#include "entity/chatSettings.h"
 #include "player/badges.h"
-#include "gametypes.h"
-#include "attrib_description.h"
+#include "entity/gametypes.h"
+#include "entity/attrib_description.h"
 #include "account/AccountData.h"
-#include "RewardToken.h"
+#include "entity/rewardtoken.h"
 #include "auth/auth.h"
 #include "turnstile/turnstileservercommon.h"
 

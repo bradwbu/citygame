@@ -1,22 +1,22 @@
-#include "uiAutomap.h"
-#include "uiAutomapFog.h"
-#include "tex_gen.h"
-#include "tex.h"
-#include "textureatlas.h"
-#include "clientcomm.h"
-#include "netio.h"
-#include "entVarUpdate.h"
-#include "sprite_base.h"
-#include "groupnetrecv.h"
-#include "player.h"
-#include "cmdgame.h"
-#include "error.h"
-#include "entity.h"
-#include "file.h"
-#include "teamCommon.h"
-#include "Supergroup.h"
-#include "uiMissionReview.h"
-#include "entPlayer.h"
+#include "UI/uiAutomap.h"
+#include "UI/uiAutoMapFog.h"
+#include "render/tex_gen.h"
+#include "render/tex.h"
+#include "graphics/textureatlas.h"
+#include "clientcomm/clientcomm.h"
+#include <utilitieslib/network/netio.h>
+#include "entity/entVarUpdate.h"
+#include "UI/sprite/sprite_base.h"
+#include "group/groupnetrecv.h"
+#include "player/player.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/error.h>
+#include "entity/entity.h"
+#include <utilitieslib/utils/file.h>
+#include "entity/teamCommon.h"
+#include "entity/Supergroup.h"
+#include "UI/uiMissionReview.h"
+#include "entity/EntPlayer.h"
 
 typedef struct
 {
@@ -255,7 +255,7 @@ void mapfogInit( Vec3 min, Vec3 max, int base )
     map_fog.bitmap = 0;
     map_fog.bind = 0;
 }
-#include "font.h"
+#include "graphics/font.h"
 void mapfogDrawZoneFog(F32 scale,AtlasTex *map,F32 wz,int oudoor_indoor)
 {
     int        fog_color = 0x000000c0;
@@ -267,8 +267,8 @@ void mapfogDrawZoneFog(F32 scale,AtlasTex *map,F32 wz,int oudoor_indoor)
     {
         int        bw,bh;
 
-        bw = 1 << log2(map_fog.cells_width-1);
-        bh = 1 << log2(map_fog.cells_height);
+        bw = 1 << log2i(map_fog.cells_width-1);
+        bh = 1 << log2i(map_fog.cells_height);
         map_fog.bind = texGenNew(bw,bh,"AutomapFog");
         map_fog.bitmap = calloc(bw*bh*4,1);
         updateFogBitmap();

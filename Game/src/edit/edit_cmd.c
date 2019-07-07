@@ -1,45 +1,45 @@
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "string.h"
-#include "cmdoldparse.h"
-#include "cmdgame.h"
-#include "cmdcommon.h"
-#include "edit_cmd.h"
-#include "edit_library.h"
-#include "uiConsole.h"
-#include "clientcomm.h"
-#include "edit_net.h"
-#include "win_init.h"
-#include "entity.h"
-#include "player.h"
-#include "uiKeybind.h"
-#include "cmdoldparse.h"
-#include "StashTable.h"
-#include "EString.h"
+#include <utilitieslib/utils/cmdoldparse.h>
+#include "cmdparse/cmdgame.h"
+#include "cmdparse/cmdcommon.h"
+#include "edit/edit_cmd.h"
+#include "edit/edit_library.h"
+#include "UI/uiConsole.h"
+#include "clientcomm/clientcomm.h"
+#include "edit/edit_net.h"
+#include "win/win_init.h"
+#include "entity/entity.h"
+#include "player/player.h"
+#include "UI/uiKeybind.h"
+#include <utilitieslib/utils/cmdoldparse.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/estring.h>
 
-#include "npc.h"        // For NPC structure defintion
-#include "seqGraphics.h"
-#include "input.h"
-#include "groupProperties.h"
+#include "gameComm/npc.h"        // For NPC structure defintion
+#include "graphics/seqgraphics.h"
+#include "win/input.h"
+#include "group/groupproperties.h"
 #include "edit_info.h"
-#include "edit_select.h"
+#include "edit/edit_select.h"
 #include "edit_errcheck.h"
-#include "texWords.h"
-#include "groupnetrecv.h"
-#include "tex.h"
-#include "seq.h"
-#include "fileutil.h"
+#include "render/texWords.h"
+#include "group/groupnetrecv.h"
+#include "render/tex.h"
+#include "seq/seq.h"
+#include <utilitieslib/utils/fileutil.h>
 
-#include "group.h"
-#include "utils.h"
-#include "mathutil.h"
-#include "anim.h"
+#include "group/group.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "seq/anim.h"
 
-#include "MRUList.h"
+#include <utilitieslib/components/MRUList.h>
 
-#include "sysutil.h"
-#include "ClickToSource.h"
+#include <utilitieslib/utils/sysutil.h>
+#include "edit/ClickToSource.h"
 #include "edit_lods.h"
-#include "camera.h"
+#include "graphics/camera.h"
 
 KeyBindProfile edit_binds_profile;
 EditState    edit_state;
@@ -413,7 +413,7 @@ int editCmdParse(char *str, int x, int y)
                 s = strrchr(buffer, '/');
                 if (s)
                     *s = 0;
-                ShellExecute(NULL, "explore", buffer, NULL, NULL, SW_SHOW);
+                ShellExecuteA(NULL, "explore", buffer, NULL, NULL, SW_SHOW);
             }
 
         xcase CMD_EDITTRICK:
@@ -463,7 +463,7 @@ int editCmdParse(char *str, int x, int y)
                     sprintf(buffer, "texture_library/%s", tex->dirname);
                     fileLocateWrite(buffer, buffer2);
                     strstriReplace(buffer2, "/data/", "/src/");
-                    ShellExecute(NULL, "explore", buffer2, NULL, buffer2, SW_SHOW);
+                    ShellExecuteA(NULL, "explore", buffer2, NULL, buffer2, SW_SHOW);
                 }
             }
         }
@@ -1003,6 +1003,6 @@ void editTrickFile(const char *filename, const char *trickname, int is_texture)
     }
     else
     {
-        ShellExecute(NULL, "open", filename, NULL, NULL, SW_SHOW);
+        ShellExecuteA(NULL, "open", filename, NULL, NULL, SW_SHOW);
     }
 }

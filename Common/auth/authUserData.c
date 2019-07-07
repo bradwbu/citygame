@@ -3,7 +3,7 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "authUserData.h"
+#include "auth/authUserData.h"
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/components/estring.h>
 
@@ -1727,9 +1727,9 @@ static char* strPrintAuthUserData(U32 *data, int base)
 #define CON_PRINT_F(...) conPrintf(client,__VA_ARGS__)
 #define LOCALIZED_F(...) localizedPrintf(e,__VA_ARGS__)
 #else
-#include "uiConsole.h"
+#include "UI/uiConsole.h"
 #include <utilitieslib/language/MessageStoreUtil.h>
-#include "dbclient.h"
+#include "clientcomm/dbclient.h"
 #define CON_PRINT_F(...) conPrintf(__VA_ARGS__)
 #define LOCALIZED_F(...) textStd(__VA_ARGS__)
 #endif

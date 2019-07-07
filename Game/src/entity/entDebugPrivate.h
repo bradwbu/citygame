@@ -1,8 +1,8 @@
 #ifndef ENTDEBUGPRIVATE_H
 #define ENTDEBUGPRIVATE_H
 
-#include "stdtypes.h"
-#include "group.h"
+#include <utilitieslib/stdtypes.h>
+#include "group/group.h"
 
 #define ENCOUNTER_HIST_LENGTH 250
 #define MAX_ENCOUNTER_BEACONS 200

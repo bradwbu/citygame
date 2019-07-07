@@ -1,40 +1,40 @@
-#include "cubemap.h"
+#include "render/cubemap.h"
 
-#include <assert.h>
-#include "viewport.h"
-#include "gfx.h"
-#include "cmdgame.h"
-#include "tex.h"
-#include "ogl.h"
-#include "rt_init.h"
-#include "sprite_base.h"
-#include "mathutil.h"
-#include "camera.h"
-#include "renderutil.h"
-#include "wcw_statemgmt.h"
-#include "failtext.h"
-#include "seq.h" //MAX_LODS
-#include "renderssao.h"
-#include "gfxsettings.h"
-#include "rt_cubemap.h"
+#include <utilitieslib/assert/assert.h>
+#include "graphics/viewport.h"
+#include "graphics/gfx.h"
+#include "cmdparse/cmdgame.h"
+#include "render/tex.h"
+#include "render/thread/ogl.h"
+#include "render/thread/rt_init.h"
+#include "UI/sprite/sprite_base.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "graphics/camera.h"
+#include "render/renderUtil.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "graphics/failtext.h"
+#include "seq/seq.h" //MAX_LODS
+#include "render/renderSSAO.h"
+#include "graphics/gfxSettings.h"
+#include "render/thread/rt_cubemap.h"
 #include "demo.h"
-#include "player.h"
-#include "entity.h"
-#include "win_init.h"
-#include "gfxwindow.h"
-#include "gfxDebug.h"
-#include "file.h"
+#include "player/player.h"
+#include "entity/entity.h"
+#include "win/win_init.h"
+#include "graphics/gfxwindow.h"
+#include "graphics/gfxDebug.h"
+#include <utilitieslib/utils/file.h>
 #include "shlobj.h"
-#include "utils.h"
-#include "sun.h" //isIndoors()
-#include "renderprim.h"
+#include <utilitieslib/utils/utils.h>
+#include "graphics/sun.h" //isIndoors()
+#include "render/renderprim.h"
 #include "cubemap_filter.h"
-#include "tga.h"
-#include "group.h"
-#include "font.h"
-#include "cmdcommon.h"
-#include "edit_cmd.h"
-#include "edit_select.h"
+#include <utilitieslib/utils/tga.h>
+#include "group/group.h"
+#include "graphics/font.h"
+#include "cmdparse/cmdcommon.h"
+#include "edit/edit_cmd.h"
+#include "edit/edit_select.h"
 
 #define CUBEMAP_FOV            90
 
@@ -511,7 +511,7 @@ static void saveCubemap(const char* dirName, const char *name, void *filteredFac
         strcpy(parentDir, "c:/temp");
 
     if (!dirExists(parentDir))
-        SHCreateDirectoryEx(NULL, parentDir, NULL);
+        SHCreateDirectoryExA(NULL, parentDir, NULL);
 
     for (i = 0; i < 6; ++i)
     {

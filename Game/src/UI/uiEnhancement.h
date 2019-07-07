@@ -9,7 +9,7 @@ typedef struct Power Power;
 typedef struct BasePower BasePower;
 typedef struct Boost Boost;
 
-#include "uiTooltip.h"
+#include "UI/uiToolTip.h"
 
 // structure used for drawing an enhancement
 typedef struct uiEnhancement {

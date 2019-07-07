@@ -1,11 +1,11 @@
 #ifndef _GFXTREE_H
 #define _GFXTREE_H
 
-#include "animtrack.h"
+#include "seq/animtrack.h"
 #include "render/thread/rt_state.h"
 #include "render/texEnums.h"
 
-//#include "splat.h"
+//#include "graphics/splat.h"
 
 #define CLOTH_HACK 1
 

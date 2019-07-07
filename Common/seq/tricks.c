@@ -1,21 +1,21 @@
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/components/earray.h>
-#include "tricks.h"
+#include "seq/tricks.h"
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
-#include "seqsequence.h"
+#include "seq/seqsequence.h"
 #include <string.h>
 #include <utilitieslib/assert/assert.h>
-#include "animtrackanimate.h"
+#include "seq/animtrackanimate.h"
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/components/SharedHeap.h>
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/utils/FolderCache.h>
 #include <utilitieslib/utils/timing.h>
 #include "group/groupfileload.h"
-#include "seqstate.h"
-#include "anim.h"
+#include "seq/seqstate.h"
+#include "seq/anim.h"
 #include "render/thread/rt_state.h"
 #include "render/rendercgfx.h"
 #include "seq/AutoLOD.h"
@@ -23,13 +23,13 @@
 #include <utilitieslib/components/StringCache.h>
 
 #if CLIENT
-#include "tex.h"
-#include "seqgraphics.h"
-#include "entclient.h"
-#include "fog.h"
+#include "render/tex.h"
+#include "graphics/seqgraphics.h"
+#include "entity/entclient.h"
+#include "graphics/fog.h"
 #include "clientError.h"
-#include "win_init.h" // For winMsgAlert
-#include "groupMiniTrackers.h"
+#include "win/win_init.h" // For winMsgAlert
+#include "graphics/groupMiniTrackers.h"
 #include "LWC.h"
 #endif
 

@@ -1,88 +1,88 @@
 
 
 
-#include "wdwbase.h"
-#include "utils.h"
+#include "gameComm/wdwbase.h"
+#include <utilitieslib/utils/utils.h>
 #include "comm_game.h"
-#include "EString.h"
-#include "StashTable.h"
-#include "file.h"
-#include "sysutil.h"
-#include "player.h"
-#include "entity.h"
-#include "entPlayer.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/sysutil.h>
+#include "player/player.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
 
-#include "textureatlas.h"
-#include "input.h"
-#include "cmdGame.h"
-#include "uiWindows.h"
-#include "uiBox.h"
-#include "uiUtil.h"
-#include "uiGame.h"
-#include "uiUtilGame.h"
-#include "uiFocus.h"
-#include "uiScrollbar.h"
-#include "uiTabControl.h"
-#include "uiUtilMenu.h"
-#include "uiInput.h"
+#include "graphics/textureatlas.h"
+#include "win/input.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiWindows.h"
+#include "UI/uiBox.h"
+#include "UI/uiUtil.h"
+#include "UI/uiGame.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiFocus.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiTabControl.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiInput.h"
 #include "uiEdit.h"
-#include "uiPetition.h"
-#include "uiClipper.h"
-#include "uiOptions.h"
-#include "uiChat.h"
-#include "uiNet.h"
-#include "uiTarget.h"
-#include "uiLogin.h"
-#include "uiDialog.h"
+#include "UI/uiPetition.h"
+#include "UI/uiClipper.h"
+#include "UI/uiOptions.h"
+#include "UI/uiChat.h"
+#include "UI/uiNet.h"
+#include "UI/uiTarget.h"
+#include "UI/uiLogin.h"
+#include "UI/uidialog.h"
 #include "uiScrollSelector.h"
-#include "uiLogin.h"
-#include "uiNet.h"
-#include "uiComboBox.h"
-#include "uiMissionMaker.h"
-#include "uiToolTip.h"
-#include "uiCursor.h"
-#include "uiTray.h"
-#include "uiMissionSearch.h"
+#include "UI/uiLogin.h"
+#include "UI/uiNet.h"
+#include "UI/uiComboBox.h"
+#include "UI/uiMissionMaker.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiCursor.h"
+#include "UI/uiTray.h"
+#include "UI/uiMissionSearch.h"
 
-#include "entVarUpdate.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "EString.h"
-#include "earray.h"
-#include "MessageStoreUtil.h"
-#include "textparser.h"
-#include "textparserUtils.h"
-#include "tokenstore.h"
-#include "Npc.h"
-#include "pnpcCommon.h"
-#include "seqgraphics.h"
-#include "SimpleParser.h"
-#include "structDefines.h"
+#include "entity/entVarUpdate.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/textparserUtils.h>
+#include <utilitieslib/utils/tokenstore.h>
+#include "gameComm/npc.h"
+#include "storyarc/pnpcCommon.h"
+#include "graphics/seqgraphics.h"
+#include <utilitieslib/utils/SimpleParser.h>
+#include <utilitieslib/utils/structDefines.h>
 
-#include "smf_main.h"
-#include "entClient.h"
-#include "ttFontUtil.h"
-#include "uiTeam.h"
+#include "formatter/smf_main.h"
+#include "entity/entclient.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/uiTeam.h"
 
-#include "playerCreatedStoryArc.h"
-#include "playerCreatedStoryArcValidate.h"
+#include "storyarc/playerCreatedStoryarc.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
 
-#include "PCC_Critter.h"
-#include "PCC_Critter_Client.h"
+#include "entity/PCC_Critter.h"
+#include "entity/PCC_Critter_Client.h"
 
-#include "CustomVillainGroup.h"
-#include "CustomVillainGroup_Client.h"
+#include "entity/CustomVillainGroup.h"
+#include "entity/CustomVillainGroup_Client.h"
 #include "filter/profanity.h"
 
-#include "uiBox.h"
-#include "uiClipper.h"
-#include "uiMissionMakerScrollSet.h"
-#include "uiPictureBrowser.h"
+#include "UI/uiBox.h"
+#include "UI/uiClipper.h"
+#include "UI/uiMissionMakerScrollSet.h"
+#include "UI/uiPictureBrowser.h"
 #include "uiHelpButton.h"
-#include "file.h"
-#include "AppLocale.h"
-#include "zlib.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/language/AppLocale.h>
+#include <zlib/zlib.h>
 
 #include "AutoGen/playerCreatedStoryArcValidate_h_ast.h"
 #include "AutoGen/uiMissionMakerScrollSet_h_ast.h"
@@ -1392,7 +1392,7 @@ void mmscrollsetViewList( char * indexPath, int toggle_region )
     if(EAINRANGE(idx,ppRegion))
     {
         MMRegion * pRegion = ppRegion[idx];
-        MMElementList **ppList;
+        MMElementList **ppList = NULL;
 
         if( toggle_region )
         {

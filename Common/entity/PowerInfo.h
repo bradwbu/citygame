@@ -9,7 +9,7 @@
 
 typedef struct Packet Packet;
 typedef struct Character Character;
-#include "powers.h"
+#include "entity/powers.h"
 
 //-------------------------------------------------------------------------------------------
 // PowerRechargeTimer

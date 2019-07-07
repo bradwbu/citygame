@@ -1,6 +1,6 @@
 
-#include "stdtypes.h"
-#include "Color.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/Color.h>
 
 typedef struct AtlasTex AtlasTex;
 typedef struct GroupDef GroupDef;

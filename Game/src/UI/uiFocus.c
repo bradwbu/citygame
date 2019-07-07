@@ -1,6 +1,6 @@
-#include "uiFocus.h"
-#include "stdtypes.h"
-#include "cmdcommon.h"
+#include <utilitieslib/stdtypes.h>
+#include "UI/uiFocus.h"
+#include "cmdparse/cmdcommon.h"
 
 typedef struct 
 {

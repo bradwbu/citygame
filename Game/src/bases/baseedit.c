@@ -3,32 +3,32 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "earray.h"
-#include "mathutil.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/mathutil.h>
 
-#include "gfxwindow.h"
+#include "graphics/gfxwindow.h"
 
-#include "input.h"
-#include "cmdgame.h"         // for game_state
-#include "uiBaseInput.h"
+#include "win/input.h"
+#include "cmdparse/cmdgame.h"         // for game_state
+#include "UI/uiBaseInput.h"
 
-#include "bases.h"
-#include "baseclientsend.h"
-#include "basedata.h"
-#include "baseinv.h"
-#include "baseedit.h"
-#include "basesend.h"
+#include "bases/bases.h"
+#include "bases/baseclientsend.h"
+#include "bases/basedata.h"
+#include "bases/baseinv.h"
+#include "bases/baseedit.h"
+#include "bases/basesend.h"
 
-#include "entity.h"
-#include "player.h"
-#include "uiNet.h"
-#include "timing.h"
-#include "uiDialog.h"
-#include "sprite_text.h"
-#include "ArrayOld.h"
-#include "MessageStore.h"
+#include "entity/entity.h"
+#include "player/player.h"
+#include "UI/uiNet.h"
+#include <utilitieslib/utils/timing.h>
+#include "UI/uidialog.h"
+#include "UI/sprite/sprite_text.h"
+#include <utilitieslib/components/ArrayOld.h>
+#include <utilitieslib/language/MessageStore.h>
 #include "language/langClientUtil.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 /**********************************************************************func*
  * baseedit_Mode

@@ -1,33 +1,33 @@
-#include "PCC_Critter.h"
-#include "PCC_Critter_Client.h"
+#include "entity/PCC_Critter.h"
+#include "entity/PCC_Critter_Client.h"
 #include "uiPCCProfile.h"
 #include "uiPCCRank.h"
-#include "uiGame.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"
-#include "uiClipper.h"
-#include "uiBox.h"                    //    for uiBox
+#include "UI/uiGame.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiClipper.h"
+#include "UI/uiBox.h"                    //    for uiBox
 
-#include "smf_main.h"                //    text editing
-#include "sprite_base.h"            //    display things
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
-#include "EString.h"                //    estrings
+#include "formatter/smf_main.h"                //    text editing
+#include "UI/sprite/sprite_base.h"            //    display things
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/components/estring.h>                //    estrings
 
-#include "cmdgame.h"                //    game commands
-#include "sound.h"                    //    to play sounds
-#include "MessageStoreUtil.h"        //    for    textStd
-#include "player.h"                    //    for playerPtr
-#include "entity.h"                    //    for pchar
-#include "character_base.h"            //    for pclass
-#include "uiAvatar.h"                //    AVATAR genders
-#include "entPlayer.h"                //    for pl
-#include "powers.h"
+#include "cmdparse/cmdgame.h"                //    game commands
+#include "sound/sound.h"                    //    to play sounds
+#include <utilitieslib/language/MessageStoreUtil.h>        //    for    textStd
+#include "player/player.h"                    //    for playerPtr
+#include "entity/entity.h"                    //    for pchar
+#include "entity/character_base.h"            //    for pclass
+#include "UI/uiAvatar.h"                //    AVATAR genders
+#include "entity/EntPlayer.h"                //    for pl
+#include "entity/powers.h"
 #include "uiPCCCreationNLM.h"        //    for pcc creation menu
-#include "costume_client.h"
-#include "uiCostume.h"
+#include "entity/costume_client.h"
+#include "UI/uiCostume.h"
 
 extern int PCCselectedPowerSets[3];
 extern int PCCselectedPowers[2];

@@ -1,11 +1,11 @@
 #ifndef TTFONTMANAGER_H
 #define TTFONTMANAGER_H
 
-#include "ArrayOld.h"
-#include "ttFont.h"
+#include <utilitieslib/components/ArrayOld.h>
+#include "graphics/ttFont.h"
 
-#include "truetype/ttFontBitmap.h"
-#include "rt_font.h"
+#include "graphics/truetype/ttFontBitmap.h"
+#include "render/thread/rt_font.h"
 
 typedef struct AtlasTex AtlasTex;
 typedef struct StashTableImp *StashTable;

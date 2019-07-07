@@ -3,31 +3,31 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "wdwbase.h"
-#include "utils.h"
+#include "gameComm/wdwbase.h"
+#include <utilitieslib/utils/utils.h>
 #include "comm_game.h"
-#include "EString.h"
-#include "osdependent.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/osdependent.h>
 
-#include "textureatlas.h"
-#include "input.h"
-#include "cmdGame.h"
-#include "uiWindows.h"
-#include "uiBox.h"
-#include "uiUtil.h"
-#include "uiGame.h"
-#include "uiUtilGame.h"
-#include "uiFocus.h"
-#include "uiScrollbar.h"
-#include "uiUtilMenu.h"
-#include "uiInput.h"
+#include "graphics/textureatlas.h"
+#include "win/input.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiWindows.h"
+#include "UI/uiBox.h"
+#include "UI/uiUtil.h"
+#include "UI/uiGame.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiFocus.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiInput.h"
 #include "uiEdit.h"
-#include "entVarUpdate.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "sprite_base.h"
+#include "entity/entVarUpdate.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
 
-#include "uiPetition.h"
+#include "UI/uiPetition.h"
 
 #define TEXTAREA_LEN_SUMMARY    256
 #define TEXTAREA_LEN_DESC        512

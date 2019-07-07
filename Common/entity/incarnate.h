@@ -1,8 +1,8 @@
 #ifndef __INCARNATE_H
 #define __INCARNATE_H
 
-#include "entity.h"
-#include "powers.h"
+#include "entity/entity.h"
+#include "entity/powers.h"
 
 ///////////////////////////////////////////////////////////
 // Incarnate Slots

@@ -1,14 +1,14 @@
-#include "utils.h"
-#include "uiutil.h"
-#include "uiwindows.h"
-#include "sprite_font.h"
-#include "wdwbase.h"
-#include "uidialog.h"
-#include "smf_format.h"
+#include <utilitieslib/utils/utils.h>
+#include "UI/uiUtil.h"
+#include "UI/uiWindows.h"
+#include "UI/sprite/sprite_font.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uidialog.h"
+#include "formatter/smf_format.h"
 #include "uiSMFView.h"
-#include "uiutilgame.h"
-#include "earray.h"
-#include "uiChat.h"
+#include "UI/uiUtilGame.h"
+#include <utilitieslib/components/Earray.h>
+#include "UI/uiChat.h"
 
 static char** plaqueStrings = NULL;
 static SMFView* plaqueViewer = NULL;

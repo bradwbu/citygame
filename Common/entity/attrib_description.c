@@ -1,22 +1,22 @@
 
 #include <utilitieslib/utils/textparser.h>
-#include "attrib_description.h"
-#include "attrib_names.h"
+#include "entity/attrib_description.h"
+#include "entity/attrib_names.h"
 #include <utilitieslib/network/netio.h>
 #include <utilitieslib/network/net_packetutil.h>
 #include <utilitieslib/network/net_packet.h>
 #include <utilitieslib/components/earray.h>
-#include "entity.h"
-#include "character_base.h"
-#include "powers.h"
+#include "entity/entity.h"
+#include "entity/character_base.h"
+#include "entity/powers.h"
 #include <utilitieslib/components/StringCache.h>
 #include "attribmod.h"
-#include "character_net.h"
+#include "entity/character_net.h"
 #include "gameComm/Npc.h"
 #include "character_attribs.h"
-#include "character_level.h"
+#include "entity/character_level.h"
 #include <utilitieslib/utils/error.h>
-#include "entPlayer.h"
+#include "entity/EntPlayer.h"
 #include "comm_game.h"
 #include <utilitieslib/components/StashTable.h>
 #include "gameComm/wdwbase.h"
@@ -841,9 +841,9 @@ void updateCombatMonitorStats( Entity *e )
 
 #elif CLIENT
 
-#include "entclient.h"
-#include "wdwbase.h"
-#include "uiWindows.h"
+#include "entity/entclient.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiWindows.h"
 
 AttribContributer *findMatchingMod(AttribDescription *pDesc, AttribContributer *pContrib)
 {

@@ -1,25 +1,25 @@
-#include "groupgrid.h"
+#include "group/groupgrid.h"
 #include <float.h>
 #include <stdlib.h>
 #include <string.h>
 #include <utilitieslib/stdtypes.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "group.h"
-#include "grouptrack.h"
+#include "group/group.h"
+#include "group/grouptrack.h"
 #include "gridcoll/gridcoll.h"
 #include "seq/anim.h"
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/utils.h>
-#include "grouputil.h"
-#include "groupfileload.h"
+#include "group/grouputil.h"
+#include "group/groupfileload.h"
 #include "gridcoll/gridfind.h"
 #include "bases/bases.h"
 
 #if CLIENT
 #include <utilitieslib/utils/timing.h>
-#include "groupdraw.h"
-#include "vistraygrid.h"
+#include "graphics/groupdraw.h"
+#include "graphics/vistraygrid.h"
 #endif
 
 extern GroupInfo    *group_ptr;

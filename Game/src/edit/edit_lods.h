@@ -1,7 +1,7 @@
 #ifndef _EDIT_LODS_H_
 #define _EDIT_LODS_H_
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 
 void editLODsUI(void);

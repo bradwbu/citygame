@@ -1,21 +1,21 @@
 #define RT_PRIVATE
-#include "model_cache.h"
+#include "render/model_cache.h"
 #include <stdio.h>
-#include "utils.h"
-#include "error.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/error.h>
 #include "assert.h" 
-#include "mathutil.h"
-#include "render.h"
-#include "cmdgame.h"
-#include "groupfileload.h"
-#include "uiConsole.h"
-#include "rt_perf.h"
-#include "renderperf.h"
-#include "group.h"
-#include "ogl.h"
-#include "sun.h"
-#include "gfxDebug.h"
-#include "file.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/render.h"
+#include "cmdparse/cmdgame.h"
+#include "group/groupfileload.h"
+#include "UI/uiConsole.h"
+#include "render/thread/rt_perf.h"
+#include "render/renderperf.h"
+#include "group/group.h"
+#include "render/thread/ogl.h"
+#include "graphics/sun.h"
+#include "graphics/gfxDebug.h"
+#include <utilitieslib/utils/file.h>
 
 #define MILLION 1000000.f
 

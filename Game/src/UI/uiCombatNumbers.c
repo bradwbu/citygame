@@ -1,36 +1,36 @@
 
 
 
-#include "earray.h"         // for StructGetNum
-#include "player.h"
-#include "entity.h"         // for entity
-#include "powers.h"
-#include "character_base.h" // for pchar
-#include "entPlayer.h"
-#include "attrib_description.h"
+#include <utilitieslib/components/Earray.h>         // for StructGetNum
+#include "player/player.h"
+#include "entity/entity.h"         // for entity
+#include "entity/powers.h"
+#include "entity/character_base.h" // for pchar
+#include "entity/EntPlayer.h"
+#include "entity/attrib_description.h"
 
-#include "sprite_font.h"    // for font definitions
-#include "sprite_text.h"    // for font functions
-#include "sprite_base.h"    // for sprites
-#include "textureatlas.h"
+#include "UI/sprite/sprite_font.h"    // for font definitions
+#include "UI/sprite/sprite_text.h"    // for font functions
+#include "UI/sprite/sprite_base.h"    // for sprites
+#include "graphics/textureatlas.h"
 
-#include "uiWindows.h"
-#include "uiInput.h"
-#include "uiUtilGame.h"     // for draw frame
-#include "uiUtilMenu.h"     //
-#include "uiUtil.h"         // for color definitions
-#include "uiGame.h"         // for start_menu
-#include "uiScrollbar.h"
-#include "uiNet.h"
-#include "uiToolTip.h"
-#include "uiContextMenu.h"
-#include "uiClipper.h"
+#include "UI/uiWindows.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilGame.h"     // for draw frame
+#include "UI/uiUtilMenu.h"     //
+#include "UI/uiUtil.h"         // for color definitions
+#include "UI/uiGame.h"         // for start_menu
+#include "UI/uiScrollBar.h"
+#include "UI/uiNet.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiContextMenu.h"
+#include "UI/uiClipper.h"
 
-#include "MessageStoreUtil.h"
-#include "ttFontUtil.h"
-#include "file.h"
-#include "AppLocale.h"
-#include "cmdgame.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "graphics/ttFontUtil.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/language/AppLocale.h>
+#include "cmdparse/cmdgame.h"
 
 static ContextMenu * s_CombatNumberCM = 0;
 static bool bHidePowers;
@@ -144,7 +144,7 @@ char * attribDesc_GetString( AttribDescription *pDesc, F32 fVal, Character *pcha
     static char buffer[128];
 
     // Apply base defense modification to all defense types
-    if(pDesc->eType == kAttribType_Cur && pDesc->offAttrib>=offsetof(CharacterAttributes, fDefenseType) && pDesc->offAttrib<offsetof(CharacterAttributes, fDefense))
+    if(pDesc->eType == kAttribType_Cur && pDesc->offAttrib >= (int)offsetof(CharacterAttributes, fDefenseType) && pDesc->offAttrib < (int)offsetof(CharacterAttributes, fDefense))
     {
         AttribDescription * pBase = attribDescriptionGet( offsetof(CharacterAttributes, fDefense) );
         fVal += pBase->fVal;
@@ -436,7 +436,7 @@ F32 displayAllAttribs(F32 x, F32 y, F32 wd, F32 z, F32 sc, Character * pchar)
         {
             AttribDescription * pDesc = pCat->ppAttrib[j];
             int k, contribsize = eaSize(&pDesc->ppContributers);
-            bool bDefenseType = pDesc->eType == kAttribType_Cur && pDesc->offAttrib>=offsetof(CharacterAttributes, fDefenseType) && pDesc->offAttrib<offsetof(CharacterAttributes, fDefense);
+            bool bDefenseType = pDesc->eType == kAttribType_Cur && pDesc->offAttrib >= (int)offsetof(CharacterAttributes, fDefenseType) && pDesc->offAttrib < (int)offsetof(CharacterAttributes, fDefense);
 
             if( num_wd < x+25*sc+str_wd(&game_12,sc,sc,pDesc->pchDisplayName) )
                 num_wd = x+25*sc+str_wd(&game_12,sc,sc,pDesc->pchDisplayName);

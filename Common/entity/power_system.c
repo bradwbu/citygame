@@ -8,7 +8,7 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/textparser.h>
 
-#include "power_system.h"
+#include "entity/power_system.h"
 
 TokenizerParseInfo ParseSchedule[] =
 {

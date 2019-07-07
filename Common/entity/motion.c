@@ -1,28 +1,28 @@
 #include <math.h>
 #include <string.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "entity.h"
-#include "entPlayer.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
 #include "gridcoll/gridcoll.h"
 #include "graphics/camera.h"
 #include "varutils.h"
-#include "motion.h"
+#include "entity/motion.h"
 #include "utils/Position.h"
 #include "entworldcoll.h"
-#include "character_base.h"
+#include "entity/character_base.h"
 #include "gridcoll/gridcache.h"
 #include "group/groupscene.h"
 #include "seq/seqstate.h"
 #include "render/model.h"
 #include "seq/seq.h"
-#include "gametypes.h"
+#include "entity/gametypes.h"
 #include "gridcoll/megaGrid.h"
 #include "seq/anim.h"
 #include "group/group.h"
 #include <utilitieslib/utils/qsortG.h>
 #include "group/groupfileload.h"
 #include <utilitieslib/utils/Quat.h>
-#include "character_target.h"
+#include "entity/character_target.h"
 
 #ifdef CLIENT
     #include "graphics/font.h"
@@ -37,7 +37,7 @@
     #include "cmdparse/cmdcontrols.h"
     #include "player/pmotion.h"
     #include "beacon/beaconpath.h"
-    #include "character_target.h"
+    #include "entity/character_target.h"
 #endif
 
 #ifdef CLIENT
@@ -1135,14 +1135,14 @@ void entMotionUpdateCollGrid(Entity *e)
 }
 
 #ifdef CLIENT
-#include "groupdraw.h"
-#include "gfx.h"
-#include "tricks.h"
-#include "zOcclusion.h"
-#include "gfxwindow.h"
-#include "renderprim.h"
-#include "edit_drawlines.h"
-#include "grouptrack.h"
+#include "graphics/groupdraw.h"
+#include "graphics/gfx.h"
+#include "seq/tricks.h"
+#include "graphics/zOcclusion.h"
+#include "graphics/gfxwindow.h"
+#include "render/renderprim.h"
+#include "edit/edit_drawlines.h"
+#include "group/grouptrack.h"
 
 static void jiggleMat4(Mat4 mat){
     mat[3][0] += ((rand() % 101) - 50) * 0.0005;

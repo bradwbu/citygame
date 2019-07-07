@@ -3,22 +3,22 @@
 #include <utilitieslib/components/earray.h>
 
 #ifdef CLIENT
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 #include <utilitieslib/utils/timing.h>
-#include "player.h"
+#include "player/player.h"
 #include <utilitieslib/utils/FolderCache.h>
 #include <utilitieslib/utils/fileutil.h>
-#include "entClient.h"
-#include "costume_client.h"
-#include "tga.h"
-#include "seqgraphics.h"
+#include "entity/entclient.h"
+#include "entity/costume_client.h"
+#include <utilitieslib/utils/tga.h>
+#include "graphics/seqgraphics.h"
 #include <utilitieslib/utils/FolderCache.h>
-#include "tex.h"
-#include "textureatlas.h"
+#include "render/tex.h"
+#include "graphics/textureatlas.h"
 #include "game.h"
-#include "anim.h"
+#include "seq/anim.h"
 #include "fxinfo.h"
-#include "jpeg.h"
+#include "graphics/jpeg.h"
 #endif
 
 #include "imageServer.h"
@@ -32,9 +32,9 @@
 #include <utilitieslib/utils/error.h>
 
 #if CLIENT
-#include "cmdgame.h"
-#include "rt_init.h"
-#include "rt_queue.h"
+#include "cmdparse/cmdgame.h"
+#include "render/thread/rt_init.h"
+#include "render/thread/rt_queue.h"
 #endif
 
 #define COSTUME_STRING_LEN 512

@@ -1,9 +1,9 @@
 #ifndef _VIEW_CACHE_H
 #define _VIEW_CACHE_H
 
-#include "cmdgame.h"
-#include "gfx.h"
-#include "groupdraw.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/gfx.h"
+#include "graphics/groupdraw.h"
 
 #define VIEWCACHEDISABLED 1
 

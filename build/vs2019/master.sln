@@ -73,6 +73,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RaidServer", "..\..\RaidSer
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nvparse", "..\..\3rdparty\nvparse\build\vs2019\nvparse.vcxproj", "{A70C9B90-9574-4831-B622-EE05365C1D94}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jpgdlib", "..\..\3rdparty\jpgdlib-0.93b\build\vs2019\jpgdlib.vcxproj", "{CA16F444-2A89-4F8E-B4AB-C0D397D64B6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -337,6 +339,14 @@ Global
 		{A70C9B90-9574-4831-B622-EE05365C1D94}.Release|x64.Build.0 = Release|x64
 		{A70C9B90-9574-4831-B622-EE05365C1D94}.Release|x86.ActiveCfg = Release|Win32
 		{A70C9B90-9574-4831-B622-EE05365C1D94}.Release|x86.Build.0 = Release|Win32
+		{CA16F444-2A89-4F8E-B4AB-C0D397D64B6D}.Debug|x64.ActiveCfg = Debug|x64
+		{CA16F444-2A89-4F8E-B4AB-C0D397D64B6D}.Debug|x64.Build.0 = Debug|x64
+		{CA16F444-2A89-4F8E-B4AB-C0D397D64B6D}.Debug|x86.ActiveCfg = Debug|Win32
+		{CA16F444-2A89-4F8E-B4AB-C0D397D64B6D}.Debug|x86.Build.0 = Debug|Win32
+		{CA16F444-2A89-4F8E-B4AB-C0D397D64B6D}.Release|x64.ActiveCfg = Release|x64
+		{CA16F444-2A89-4F8E-B4AB-C0D397D64B6D}.Release|x64.Build.0 = Release|x64
+		{CA16F444-2A89-4F8E-B4AB-C0D397D64B6D}.Release|x86.ActiveCfg = Release|Win32
+		{CA16F444-2A89-4F8E-B4AB-C0D397D64B6D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -361,6 +371,7 @@ Global
 		{A54F2941-F15E-40CC-94CC-AE551F95BA33} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{494EE6BF-16C7-4457-8759-AF93033293A7} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{A70C9B90-9574-4831-B622-EE05365C1D94} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
+		{CA16F444-2A89-4F8E-B4AB-C0D397D64B6D} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}

@@ -3,30 +3,30 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "netio.h"
-#include "earray.h"
-#include "error.h"
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/error.h>
 
-#include "entity.h"
-#include "player.h"
-#include "classes.h"
-#include "origins.h"
-#include "powers.h"
+#include "entity/entity.h"
+#include "player/player.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
+#include "entity/powers.h"
 
-#include "character_base.h"
-#include "character_level.h"
-#include "character_net.h"
-#include "character_net_client.h"
-#include "sprite_text.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "entity/character_net.h"
+#include "entity/character_net_client.h"
+#include "UI/sprite/sprite_text.h"
 
-#include "uiInspiration.h"
-#include "uiTrade.h"
-#include "uiBuff.h"
-#include "uiRecipeInventory.h"
-#include "MessageStoreUtil.h"
-#include "attrib_description.h"
+#include "UI/uiInspiration.h"
+#include "UI/uiTrade.h"
+#include "UI/uiBuff.h"
+#include "UI/uiRecipeInventory.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "entity/attrib_description.h"
 
 /**********************************************************************func*
  * character_SendCreate

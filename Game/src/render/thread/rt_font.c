@@ -1,14 +1,14 @@
 #define RT_PRIVATE
-#include "ogl.h"
-#include "stringutil.h"
-#include "wcw_statemgmt.h"
-#include "rt_font.h" 
-#include "rt_model_cache.h"
-#include "rt_tex.h"
-#include "timing.h"
-#include "rt_state.h"
+#include "render/thread/ogl.h"
+#include <utilitieslib/utils/StringUtil.h>
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_font.h" 
+#include "render/thread/rt_model_cache.h"
+#include "render/thread/rt_tex.h"
+#include <utilitieslib/utils/timing.h>
+#include "render/thread/rt_state.h"
 #include "rt_stats.h"
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 
 void rdrSimpleTextDirect(RdrDbgFont *pkg)
 {

@@ -11,7 +11,7 @@
 #ifndef MISSIONCLIENT_H
 #define MISSIONCLIENT_H
 
-#include "contactClient.h"
+#include "storyarc/contactclient.h"
 
 typedef struct Packet Packet;
 

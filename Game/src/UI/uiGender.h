@@ -1,8 +1,8 @@
 #ifndef UIGENDER_H
 #define UIGENDER_H
 
-#include "uiInclude.h"
-#include "costume.h"
+#include "UI/uiInclude.h"
+#include "entity/costume.h"
 
 typedef struct BodyConfigScales
 {

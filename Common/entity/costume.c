@@ -3,14 +3,14 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "costume.h"
-#include "RewardToken.h"
-#include "Supergroup.h"
-#include "entity.h"                // for Entity
-#include "entPlayer.h"
-#include "character_base.h"
-#include "character_level.h"    // for tailor_setCurrent
-#include "character_inventory.h"
+#include "entity/costume.h"
+#include "entity/rewardtoken.h"
+#include "entity/Supergroup.h"
+#include "entity/entity.h"                // for Entity
+#include "entity/EntPlayer.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"    // for tailor_setCurrent
+#include "entity/character_inventory.h"
 #include <utilitieslib/network/net_packet.h>            // for pkt.. functions
 #include "gameData/BodyPart.h"  // for BodyPart
 #include "gameData/costume_data.h"
@@ -21,7 +21,7 @@
 #include <utilitieslib/utils/Color.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/timing.h>
-#include "entVarUpdate.h"
+#include "entity/entVarUpdate.h"
 #include "GameData/costume_data.h"
 #include <utilitieslib/utils/mathutil.h>
 #include "seq/seq.h"
@@ -29,19 +29,19 @@
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/language/MessageStoreUtil.h>
 #include "auth/authUserData.h"
-#include "powers.h"                // for PowerSet
+#include "entity/powers.h"                // for PowerSet
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/components/StringCache.h>
 #include "gameComm/Npc.h"
-#include "character_net.h"
-#include "power_customization.h"
+#include "entity/character_net.h"
+#include "entity/power_customization.h"
 #include "account/AccountData.h"
 #include <utilitieslib/components/estring.h>
-#include "character_level.h"
+#include "entity/character_level.h"
 
 #ifdef SERVER
     #include "dbcomm/dbcomm.h"
-    #include "entVarUpdate.h"
+    #include "entity/entVarUpdate.h"
     #include "gamecomm/svr_chat.h"
     #include "language/langServerUtil.h"
     #include "entity/entGameActions.h"

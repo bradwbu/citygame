@@ -1,34 +1,34 @@
-#include "group.h"
-#include "edit_cmd.h"
-#include "edit_select.h"
-#include "mathutil.h"
-#include "grouptrack.h"
-#include "win_init.h"
-#include "utils.h"
-#include "edit_net.h"
+#include "group/group.h"
+#include "edit/edit_cmd.h"
+#include "edit/edit_select.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "group/grouptrack.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/utils.h>
+#include "edit/edit_net.h"
 #include "edit_errcheck.h"
-#include "edit_pickcolor.h"
-#include "edit_drawlines.h"
-#include "input.h"
-#include "camera.h"
-#include "cmdgame.h"
-#include "gridcoll.h"
-#include "groupProperties.h"
-#include "sun.h"
-#include "edit_cmd_select.h"
-#include "position.h"
-#include "sound.h"
-#include "player.h"
+#include "edit/edit_pickcolor.h"
+#include "edit/edit_drawlines.h"
+#include "win/input.h"
+#include "graphics/camera.h"
+#include "cmdparse/cmdgame.h"
+#include "gridcoll/gridcoll.h"
+#include "group/groupproperties.h"
+#include "graphics/sun.h"
+#include "edit/edit_cmd_select.h"
+#include "utils/position.h"
+#include "sound/sound.h"
+#include "player/player.h"
 #include "resource.h"
-#include "grouputil.h"
-#include "tex.h"
-#include "entity.h"
-#include "edit_cmd_adjust.h"
-#include "StashTable.h"
+#include "group/grouputil.h"
+#include "render/tex.h"
+#include "entity/entity.h"
+#include "edit/edit_cmd_adjust.h"
+#include <utilitieslib/components/StashTable.h>
 #include "editorUI.h"
-#include "Color.h"
-#include "basedraw.h"
-#include "groupfileload.h"
+#include <utilitieslib/utils/Color.h>
+#include "bases/basedraw.h"
+#include "group/groupfileload.h"
 #include "edit_cubemap.h"
 
 void getFogDist()
@@ -135,14 +135,14 @@ LRESULT CALLBACK editPropertyDialog(HWND hDlg, UINT msg, WPARAM wp, LPARAM lp)
             */
             // set up the drop-down
             for (i = 0; EnterTextStrings[i][0]; i++)
-                SendMessage(GetDlgItem(hDlg, IDC_EDIT), CB_ADDSTRING, 0, (LPARAM)EnterTextStrings[i]);
+                SendMessageA(GetDlgItem(hDlg, IDC_EDIT), CB_ADDSTRING, 0, (LPARAM)EnterTextStrings[i]);
 
             //ActivateScenarios;Generator;Generator Group;MarkerAI;MarkerItem;Marke
             if (ptd->property && ptd->property[0])
-                SetWindowText(GetDlgItem(hDlg, IDC_EDIT), ptd->property);
+                SetWindowTextA(GetDlgItem(hDlg, IDC_EDIT), ptd->property);
 
             if (ptd->value && ptd->value[0])
-                SetWindowText(GetDlgItem(hDlg, IDC_EDIT1), ptd->value);
+                SetWindowTextA(GetDlgItem(hDlg, IDC_EDIT1), ptd->value);
 
             return 1;
         }
@@ -157,8 +157,8 @@ LRESULT CALLBACK editPropertyDialog(HWND hDlg, UINT msg, WPARAM wp, LPARAM lp)
             }
             else if (LOWORD(wp) == IDOK || LOWORD(wp) == IDC_ANOTHER)
             {
-                GetWindowText(GetDlgItem(hDlg, IDC_EDIT), ptd->property, 256); 
-                GetWindowText(GetDlgItem(hDlg, IDC_EDIT1), ptd->value, 256); 
+                GetWindowTextA(GetDlgItem(hDlg, IDC_EDIT), ptd->property, 256); 
+                GetWindowTextA(GetDlgItem(hDlg, IDC_EDIT1), ptd->value, 256); 
                 // 256 == HACK, but similar to WinGetFileName
                 EndDialog(hDlg, 0);
                 if (LOWORD(wp) == IDOK ) {
@@ -201,7 +201,7 @@ void editAddProperty(){
             sprintf(buffer2, "0");
             ptd.property = buffer;
             ptd.value = buffer2;
-            another = DialogBoxParam(glob_hinstance, MAKEINTRESOURCE(IDD_NEWPROP), hwnd, (DLGPROC)editPropertyDialog, (LPARAM)&ptd);
+            another = DialogBoxParamA(glob_hinstance, MAKEINTRESOURCEA(IDD_NEWPROP), hwnd, (DLGPROC)editPropertyDialog, (LPARAM)&ptd);
             inpClear();
             // check for cancel
             if (another == 2) {

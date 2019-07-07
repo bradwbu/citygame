@@ -1,7 +1,7 @@
 #ifndef _AUTORESUMEINFO_H
 #define _AUTORESUMEINFO_H
 
-#include "gfxSettings.h"
+#include "graphics/gfxSettings.h"
 
 void saveAutoResumeInfoCryptic(void);
 void saveAutoResumeInfoToRegistry(void);

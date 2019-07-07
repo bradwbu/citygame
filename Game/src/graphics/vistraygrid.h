@@ -1,8 +1,8 @@
 #ifndef _VISTRAYGRID_H_
 #define _VISTRAYGRID_H_
 
-#include "stdtypes.h"
-#include "mathutil.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
 
 typedef struct DefTracker DefTracker;
 

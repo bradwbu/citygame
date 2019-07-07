@@ -1,26 +1,27 @@
 #include <string.h>
-#include "renderstats.h"
-#include "font.h"
-#include "cmdgame.h"
-#include "memcheck.h"
-#include "tex.h"
-#include "entDebug.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "mathutil.h"
-#include "renderprim.h"
-#include "win_init.h"
-#include "edit_cmd.h"
-#include "timing.h"
-#include "textureatlas.h"
-#include "utils.h"
-#include "perfcounter.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/renderstats.h"
+#include "graphics/font.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/memcheck.h>
+#include "render/tex.h"
+#include "entity/entDebug.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/renderprim.h"
+#include "win/win_init.h"
+#include "edit/edit_cmd.h"
+#include <utilitieslib/utils/timing.h>
+#include "graphics/textureatlas.h"
+#include <utilitieslib/utils/utils.h>
+#include "render/perfcounter.h"
 
 #if RDRSTATS_ON
 
 #define RT_ALLOW_VBO
-#include "rt_model_cache.h"
+#include "render/thread/rt_model_cache.h"
 
 #define MAX_COST (12000.f)
 #define MAX_COST_TOTAL (14000.f)

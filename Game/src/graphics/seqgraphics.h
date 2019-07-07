@@ -1,9 +1,9 @@
 #ifndef _SEQGRAPHICS_H
 #define _SEQGRAPHICS_H
 
-#include "stdtypes.h"
-#include "npc.h"
-#include "seqskeleton.h"
+#include <utilitieslib/stdtypes.h>
+#include "gameComm/npc.h"
+#include "seq/seqskeleton.h"
 
 
 typedef struct SeqInst SeqInst;

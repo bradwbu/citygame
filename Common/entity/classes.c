@@ -14,8 +14,8 @@
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/utils/SuperAssert.h>
 
-#include "powers.h"
-#include "classes.h"
+#include "entity/powers.h"
+#include "entity/classes.h"
 
 // The central buckets for all the classes used in the game.
 SHARED_MEMORY CharacterClasses g_CharacterClasses;

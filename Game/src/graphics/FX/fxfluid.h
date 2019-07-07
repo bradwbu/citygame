@@ -1,12 +1,12 @@
 #ifndef _FXFLUID_H
 #define _FXFLUID_H
 
-#include "NwWrapper.h"
+#include "NovodeX/NwWrapper.h"
 
 #if NOVODEX
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
-#include "particle.h"
+#include "graphics/FX/particle.h"
 
 
 typedef struct FxFluid 

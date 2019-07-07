@@ -1,8 +1,8 @@
 #ifndef _MODEL_CACHE_H
 #define _MODEL_CACHE_H
 
-#include "anim.h"
-#include "rt_state.h"
+#include "seq/anim.h"
+#include "render/thread/rt_state.h"
 
 typedef struct VBO VertexBufferObject;
 

@@ -1,7 +1,7 @@
 #ifndef _FONTDATA_H
 #define _FONTDATA_H
 
-#include "font.h"
+#include "graphics/font.h"
 
 extern FontInfo sysfont_info;
 

@@ -6,22 +6,22 @@
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/assert/assert.h>
-#include "animtrack.h"
+#include "seq/animtrack.h"
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/utils/textparser.h>
-#include "seqstate.h"
-#include "seq.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
 #include <utilitieslib/components/genericlist.h>
 #include "graphics/font.h"
 #include "time.h"
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/components/HashFunctions.h>
 #ifdef CLIENT
-#include "cmdgame.h"
-#include "fx.h"
-#include "clothnode.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/FX/fx.h"
+#include "graphics/clothnode.h"
 #else
 #include "cmdparse/cmdserver.h"
 #endif

@@ -1,8 +1,8 @@
 #include <utilitieslib/components/earray.h>
 #include "entity/entity.h"
 #include "entity/entPlayer.h"
-#include "AccountCatalog.h"
-#include "AccountData.h"
+#include "account/AccountCatalog.h"
+#include "account/AccountData.h"
 #include "AccountInventory.h"
 #include <utilitieslib/network/net_packetutil.h>
 #include <utilitieslib/components/EString.h>

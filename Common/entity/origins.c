@@ -7,8 +7,8 @@
 #include <string.h>
 
 #include <utilitieslib/components/earray.h>
-#include "classes.h"
-#include "origins.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
 
 // The central buckets for all the origins used in the game.
 SHARED_MEMORY CharacterOrigins g_CharacterOrigins;

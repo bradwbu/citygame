@@ -1,11 +1,11 @@
 #ifndef UI_NET
 #define UI_NET
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
-#include "net_typedefs.h"
+#include <utilitieslib/network/net_typedefs.h>
 #ifndef POWER_SYSTEM_H__
-#include "power_system.h"
+#include "entity/power_system.h"
 #endif
 // uiDock
 // uiChat
@@ -256,7 +256,8 @@ void auction_getAmtStored(int auction_id);
 void auction_batchRequestItemStatus(int startIdx, int reqSize);
 void uiAuctionHandleBannedUpdate(Packet *pak);
 
-#include "MissionSearch.h" // enums
+#include "mission/MissionSearch.h" // enums
+
 void missionserver_game_publishArc(int arcid, char *arcstr);
 void missionserver_game_unpublishArc(int arcid);
 void missionserver_game_voteForArc(int arcid, MissionRating vote);

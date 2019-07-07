@@ -26,8 +26,8 @@
 #include "cmdparse/cmdgame.h"
 #endif
 
-#include "basedata.h"
-#include "baseparse.h"
+#include "bases/basedata.h"
+#include "bases/baseparse.h"
 
 #define PARSE_NAME_AND_HELP(structname) \
     { "Name",               TOK_STRUCTPARAM | TOK_STRING(structname, pchName,0)              }, \

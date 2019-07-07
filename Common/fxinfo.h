@@ -6,7 +6,7 @@
 #include <utilitieslib/utils/textparser.h>
 
 #if CLIENT
-#include "NwWrapper.h"
+#include "NovodeX/NwWrapper.h"
 #endif
 
 typedef struct FxBhvr FxBhvr;

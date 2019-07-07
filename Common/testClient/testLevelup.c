@@ -1,20 +1,20 @@
 #include "testLevelup.h"
-#include "player.h"
-#include "character_base.h"
-#include "character_level.h"
-#include "origins.h"
-#include "utils.h"
-#include "Powers.h"
-#include "earray.h"
+#include "player/player.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "entity/origins.h"
+#include <utilitieslib/utils/utils.h>
+#include "entity/powers.h"
+#include <utilitieslib/components/Earray.h>
 #include "gamedata/randomCharCreate.h"
-#include "uiNet.h"
-#include "clientcomm.h"
-#include "entClient.h"
-#include "netio.h"
-#include "entVarUpdate.h"
-#include "dooranimcommon.h"
-#include "entity.h"
-#include "character_eval.h"
+#include "UI/uiNet.h"
+#include "clientcomm/clientcomm.h"
+#include "entity/entclient.h"
+#include <utilitieslib/network/netio.h>
+#include "entity/entVarUpdate.h"
+#include "gameComm/dooranimcommon.h"
+#include "entity/entity.h"
+#include "entity/character_eval.h"
 #ifdef TEST_CLIENT
 #include "testUtil.h"
 #define TC_BROADCAST(fmt, s) \
@@ -435,7 +435,7 @@ static const BasePower* testLevelup_addPower( int randomize )
     {
         int iChoice = randomize ? randInt2(eaSize(s_options)) : 0;    // pick first available choice unless we randomize
         Option* opt = s_options_data[iChoice];
-        Power *ppow;
+        Power *ppow = NULL;
 
         switch (opt->type)
         {

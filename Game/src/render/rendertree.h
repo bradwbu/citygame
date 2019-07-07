@@ -1,10 +1,10 @@
 #ifndef _RENDERTREE_H
 #define _RENDERTREE_H
 
-#include "gfxtree.h"
-#include "model.h"
-#include "rendermodel.h"
-#include "texEnums.h"
+#include "seq/gfxtree.h"
+#include "render/model.h"
+#include "render/rendermodel.h"
+#include "render/texEnums.h"
 
 typedef struct BasicTexture BasicTexture;
 typedef struct TexBind TexBind;

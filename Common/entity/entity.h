@@ -7,10 +7,10 @@
 #define ENTITY_H__
 
 #include <utilitieslib/stdtypes.h>
-#include "gametypes.h"
+#include "entity/gametypes.h"
 #include "seq/TriggeredMove.h"
 #include "entity_enum.h"
-#include "entityRef.h"
+#include "entity/entityRef.h"
 #include "group/groupgrid.h"
 #include "chatdefs.h"
 

@@ -1,32 +1,32 @@
 
 
-#include "wdwbase.h"
-#include "uiWindows.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiScrollBar.h"
-#include "uiNet.h"
-#include "uiInput.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiNet.h"
+#include "UI/uiInput.h"
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 
-#include "textureatlas.h"
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "MessageStoreUtil.h"
-#include "cmdgame.h"
-#include "StashTable.h"
-#include "uiHybridMenu.h"
-#include "uiCursor.h"
-#include "uiOptions.h"
-#include "ttFontUtil.h"
-#include "uiChat.h"
-#include "EString.h"
+#include "graphics/textureatlas.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/components/StashTable.h>
+#include "UI/Hybrid/uiHybridMenu.h"
+#include "UI/uiCursor.h"
+#include "UI/uiOptions.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/uiChat.h"
+#include <utilitieslib/components/estring.h>
 #include "uiSalvage.h"
-#include "salvage.h"
+#include "entity/salvage.h"
 
 //------------------------------------------------------------------------------------------------------------------------
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

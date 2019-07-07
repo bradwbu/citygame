@@ -13,16 +13,16 @@
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/components/StashTable.h>
 
-#include "powers.h"
+#include "entity/powers.h"
 #include "attribmod.h"
-#include "boostset.h"
+#include "entity/boostset.h"
 #include "gameComm/VillainDef.h"
 
-#include "character_eval.h"
-#include "character_combat_eval.h"
+#include "entity/character_eval.h"
+#include "entity/character_combat_eval.h"
 #include "character_attribs.h"
-#include "character_inventory.h"
-#include "loaddefcommon.h"
+#include "entity/character_inventory.h"
+#include "entity/LoadDefCommon.h"
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/utils/FolderCache.h>

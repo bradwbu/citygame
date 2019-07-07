@@ -1,14 +1,14 @@
 
-#include "fxdebris.h"
-#include "fxgeo.h"
-#include "gridfind.h"
-#include "timing.h"
-#include "groupnovodex.h"
-#include "entity.h"
-#include "light.h"
-#include "player.h"
-#include "fx.h"
-#include "fxlists.h"
+#include "graphics/FX/fxdebris.h"
+#include "graphics/FX/fxgeo.h"
+#include "gridcoll/gridfind.h"
+#include <utilitieslib/utils/timing.h>
+#include "group/groupnovodex.h"
+#include "entity/entity.h"
+#include "graphics/light.h"
+#include "player/player.h"
+#include "graphics/FX/fx.h"
+#include "graphics/FX/fxlists.h"
 
 #if NOVODEX
 

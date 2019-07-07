@@ -1,52 +1,52 @@
 #include "texWordsEdit.h"
 #include "texWordsPrivate.h"
-#include "texWords.h"
-#include "tex.h"
-#include "Color.h"
-#include "mathutil.h"
-//#include "earray.h"
-#include "input.h"
-#include "entclient.h"
-#include "font.h"
-#include "ttFontUtil.h"
-#include "StashTable.h"
-#include "uiKeybind.h"
-#include "uiConsole.h"
-#include "uiCursor.h"
-#include "uiInput.h"
-#include "RegistryReader.h"
-#include "error.h"
-#include "utils.h"
-#include "renderUtil.h"
-#include "win_init.h"
-#include "gfxwindow.h"
-#include "FolderCache.h"
-#include "cmdgame.h"
-#include "gfx.h"
-#include "gfxLoadScreens.h"
-#include "MessageStore.h"
-#include "truetype/ttFontDraw.h"
+#include "render/texWords.h"
+#include "render/tex.h"
+#include <utilitieslib/utils/Color.h>
+#include <utilitieslib/utils/mathutil.h>
+//#include <utilitieslib/components/Earray.h>
+#include "win/input.h"
+#include "entity/entclient.h"
+#include "graphics/font.h"
+#include "graphics/ttFontUtil.h"
+#include <utilitieslib/components/StashTable.h>
+#include "UI/uiKeybind.h"
+#include "UI/uiConsole.h"
+#include "UI/uiCursor.h"
+#include "UI/uiInput.h"
+#include <utilitieslib/utils/RegistryReader.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
+#include "render/renderUtil.h"
+#include "win/win_init.h"
+#include "graphics/gfxwindow.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include "cmdparse/cmdgame.h"
+#include "graphics/gfx.h"
+#include "graphics/gfxLoadScreens.h"
+#include <utilitieslib/language/MessageStore.h>
+#include "graphics/truetype/ttFontDraw.h"
 #include "language/langClientUtil.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "StringCache.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include <utilitieslib/components/StringCache.h>
 #include <sys/stat.h>
-#include "fileutil.h"
-#include "StringUtil.h"
-#include "AppLocale.h"
-#include "MRUList.h"
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/StringUtil.h>
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/components/MRUList.h>
 
-#include "edit_pickcolor.h"
-#include "edit_select.h"
-#include "edit_cmd.h"
-#include "renderprim.h"
+#include "edit/edit_pickcolor.h"
+#include "edit/edit_select.h"
+#include "edit/edit_cmd.h"
+#include "render/renderprim.h"
 
-#include "textureatlas.h"
-#include "timing.h"
-#include "entDebugPrivate.h"
-#include "entDebug.h"
-#include "StashTable.h"
-#include "strings_opt.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/utils/timing.h>
+#include "entity/entDebugPrivate.h"
+#include "entity/entDebug.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/strings_opt.h>
 
 // 0 - white
 // 1 - red
@@ -1392,12 +1392,12 @@ void texWordsEdit_size(int x, int y)
 
     if (x!=-1) {
         if (x)
-            x = 1 << log2(x);
+            x = 1 << log2i(x);
         tweditor_state.texWord->width = x;
     }
     if (y!=-1) {
         if (y)
-            y = 1 << log2(y);
+            y = 1 << log2i(y);
         tweditor_state.texWord->height = y;
     }
 }

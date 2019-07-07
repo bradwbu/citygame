@@ -1,14 +1,14 @@
-#include "power_customization.h"
-#include "cmdgame.h"
-#include "uiNet.h"
-#include "powers.h"
-#include "classes.h"
-#include "player.h"
-#include "entity.h"
-#include "earray.h"
-#include "character_base.h"
-#include "StashTable.h"
-#include "fileutil.h"
+#include "entity/power_customization.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiNet.h"
+#include "entity/powers.h"
+#include "entity/classes.h"
+#include "player/player.h"
+#include "entity/entity.h"
+#include <utilitieslib/components/Earray.h>
+#include "entity/character_base.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/fileutil.h>
 
 StashTable g_hashPowerCustRewards;
 extern StashTable powerCustReward_HashTable;

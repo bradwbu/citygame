@@ -1,6 +1,6 @@
-#include "Cloth.h"
-#include "ClothPrivate.h"
-#include "ClothMesh.h"
+#include "Cloth/Cloth.h"
+#include "Cloth/ClothPrivate.h"
+#include "Cloth/ClothMesh.h"
 
 //============================================================================
 // ClothLOD and ClothObject Organization

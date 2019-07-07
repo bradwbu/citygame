@@ -7,8 +7,8 @@
 
 #include <stdio.h>
 
-#include "Nxf.h"      // Definitions for all Nx types used here.
-#include "NxStream.h" // Parent class.
+#include <Nxf.h>      // Definitions for all Nx types used here.
+#include <NxStream.h> // Parent class.
 // -------------------------------------------------------------------------------------------------------------------
 class NwStream : public NxStream
 {

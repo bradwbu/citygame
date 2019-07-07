@@ -7,7 +7,7 @@
 #define CHARACTER_TARGET_H__
 
 #ifndef POWERS_H__
-#include "powers.h" // for TargetType
+#include "entity/powers.h" // for TargetType
 #endif
 
 typedef struct Character Character;

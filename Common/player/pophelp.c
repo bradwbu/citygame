@@ -9,7 +9,7 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/language/MessageStoreUtil.h>
 #include <utilitieslib/components/StashTable.h>
-#include "pophelp.h"
+#include "player/pophelp.h"
 #include "clienterror.h"
 #include "entity/LoadDefCommon.h"
 #ifdef SERVER

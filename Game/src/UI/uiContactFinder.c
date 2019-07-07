@@ -1,18 +1,19 @@
-#include "uiContactFinder.h"
-#include "wdwbase.h"
-#include "uiWindows.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "smf_main.h"
-#include "uiScrollBar.h"
-#include "cmdgame.h"
-#include "MessageStoreUtil.h"
-#include "estring.h"
-#include "textureatlas.h"
-#include "sprite_base.h"
-#include "npc.h"
-#include "playerCreatedStoryarcClient.h"
-#include "seqgraphics.h"
+#include <utilitieslib/stdtypes.h>
+#include "UI/uiContactFinder.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "formatter/smf_main.h"
+#include "UI/uiScrollBar.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/components/estring.h>
+#include "graphics/textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "gameComm/npc.h"
+#include "storyarc/playerCreatedStoryarcClient.h"
+#include "graphics/seqgraphics.h"
 
 static int s_contactFinder_imageNumber = 0;
 static char *s_contactFinder_displayName = NULL;

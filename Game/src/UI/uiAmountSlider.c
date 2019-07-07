@@ -1,18 +1,18 @@
 #include "uiAmountSlider.h"
-#include "stdtypes.h"
-#include "earray.h"
-#include "uiWindows.h"
-#include "wdwbase.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/Earray.h>
+#include "UI/uiWindows.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
 #include "uiSlider.h"
 #include "uiEdit.h"
-#include "uiInput.h"
-#include "input.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "MessageStoreUtil.h"
+#include "UI/uiInput.h"
+#include "win/input.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 #define TEXT_OFFSET_Y 18
 #define TEXT_OFFSET_X 15

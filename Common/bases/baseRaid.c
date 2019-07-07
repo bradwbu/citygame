@@ -5,7 +5,7 @@
  ***************************************************************************/
 
 #include "group/group.h"
-#include "bases.h"
+#include "bases/bases.h"
 #include <utilitieslib/components/earray.h>
 #include "entity/entity.h"
 #include "entity/character_target.h"

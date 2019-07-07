@@ -1,7 +1,7 @@
-#include "Cloth.h"
-#include "ClothCollide.h"
-#include "ClothMesh.h"
-#include "ClothPrivate.h"
+#include "Cloth/Cloth.h"
+#include "Cloth/ClothCollide.h"
+#include "Cloth/ClothMesh.h"
+#include "Cloth/ClothPrivate.h"
 
 //============================================================================
 // CLOTH COLLISION CODE

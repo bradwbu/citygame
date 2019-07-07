@@ -1,7 +1,7 @@
 #ifndef ACCOUNTINVENTORY_H
 #define ACCOUNTINVENTORY_H
 
-#include "AccountTypes.h"
+#include "account/AccountTypes.h"
 
 typedef struct AccountInventory AccountInventory;
 

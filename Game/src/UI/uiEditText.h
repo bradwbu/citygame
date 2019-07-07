@@ -1,7 +1,7 @@
 #ifndef _UIEDITTEXT_H
 #define _UIEDITTEXT_H
 
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
 typedef struct TTDrawContext TTDrawContext;
 

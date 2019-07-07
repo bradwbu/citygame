@@ -7,7 +7,7 @@
 #define AUTHUSERDATA_H__
 
 #include <utilitieslib/stdtypes.h>
-#include "auth.h"
+#include "auth/auth.h"
 
 typedef enum
 {

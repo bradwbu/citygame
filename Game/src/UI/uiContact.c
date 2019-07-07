@@ -3,53 +3,53 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "stdtypes.h"
-#include "earray.h"
-#include "wdwbase.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/Earray.h>
+#include "gameComm/wdwbase.h"
 #include "storyarc/contactClient.h"
-#include "cmdcommon.h"
-#include "mathutil.h"
-#include "timing.h"
-#include "npc.h"
-#include "player.h"
-#include "entity.h"
-#include "character_base.h"
-#include "entPlayer.h"
-#include "utils.h"
+#include "cmdparse/cmdcommon.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/timing.h>
+#include "gameComm/npc.h"
+#include "player/player.h"
+#include "entity/entity.h"
+#include "entity/character_base.h"
+#include "entity/EntPlayer.h"
+#include <utilitieslib/utils/utils.h>
 
-#include "seqgraphics.h"
+#include "graphics/seqgraphics.h"
 
-#include "uiUtil.h"
-#include "uiTabControl.h"
-#include "uiInput.h"
-#include "uiCompass.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"
-#include "uiWindows.h"
-#include "uiContact.h"
-#include "uiScrollBar.h"
-#include "uiComboBox.h"
-#include "uiContextMenu.h"
-#include "uiAutomap.h"
-#include "uiToolTip.h"
-#include "uiGame.h"
-#include "uiNet.h"
-#include "uiOptions.h"
+#include "UI/uiUtil.h"
+#include "UI/uiTabControl.h"
+#include "UI/uiInput.h"
+#include "UI/uiCompass.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiWindows.h"
+#include "UI/uiContact.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiComboBox.h"
+#include "UI/uiContextMenu.h"
+#include "UI/uiAutomap.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiGame.h"
+#include "UI/uiNet.h"
+#include "UI/uiOptions.h"
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
 
-#include "cmdgame.h"
-#include "groupnetrecv.h"
-#include "ClickToSource.h"
-#include "MessageStoreUtil.h"
-#include "playerCreatedStoryarcClient.h"
-#include "authUserData.h"
-#include "StringCache.h"
+#include "cmdparse/cmdgame.h"
+#include "group/groupnetrecv.h"
+#include "edit/ClickToSource.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "storyarc/playerCreatedStoryarcClient.h"
+#include "auth/authUserData.h"
+#include <utilitieslib/components/StringCache.h>
 
 void ContactSendCellCall(int handle);
 
@@ -730,7 +730,10 @@ void displayAlignmentStatus(Entity *e, int x, float *y, int z, int wd, float sca
     static AtlasTex *smallHeroIcon = 0, *smallVigilanteIcon = 0, *smallVillainIcon = 0, *smallRogueIcon = 0, *glowIcon = 0;
     AtlasTex *bar = white_tex_atlas;
     AtlasTex *cap = atlasLoadTexture("healthbar_framemain_R.tga");
-    AtlasTex *icon, *topIcon, *midIcon, *botIcon;
+    AtlasTex* icon = NULL;
+    AtlasTex* topIcon = NULL;
+    AtlasTex* midIcon = NULL;
+    AtlasTex* botIcon = NULL;
     int heroPoints, vigilantePoints, villainPoints, roguePoints;
     int topValue = 0, topMax = 0;
     float topPerc = 0;
@@ -738,7 +741,9 @@ void displayAlignmentStatus(Entity *e, int x, float *y, int z, int wd, float sca
     float midPerc = 0;
     int botValue = 0, botMax = 0;
     float botPerc = 0;
-    char *topAlignmentName, *midAlignmentName, *botAlignmentName;
+    char* topAlignmentName = NULL;
+    char* midAlignmentName = NULL;
+    char* botAlignmentName = NULL;
     static CBox alignBox_self, alignBox_other;
     static CBox topBox_self, topBox_other;
     static CBox midBox_self, midBox_other;

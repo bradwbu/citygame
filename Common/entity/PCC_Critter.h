@@ -2,7 +2,7 @@
 #define PCC_Critter_H__
 
 #include <utilitieslib/utils/textparser.h>
-#include "costume.h"
+#include "entity/costume.h"
 
 typedef struct Entity Entity;
 typedef struct PCC_Critter

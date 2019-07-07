@@ -1,23 +1,23 @@
 
 
-#include "uiCostume.h"
-#include "uiScrollBar.h"
+#include "UI/uiCostume.h"
+#include "UI/uiScrollBar.h"
 
-#include "earray.h"
-#include "cmdcommon.h"
-#include "sound.h"
+#include <utilitieslib/components/Earray.h>
+#include "cmdparse/cmdcommon.h"
+#include "sound/sound.h"
 
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"
 
-#include "wdwbase.h"
-#include "textparser.h"
+#include "gameComm/wdwbase.h"
+#include <utilitieslib/utils/textparser.h>
 
 #include "uiScrollSet.h"
 #include "uiScrollSelector.h"
 
-#include "sprite_font.h"
+#include "UI/sprite/sprite_font.h"
 // Acsii Art to visualize heirarchy
 //-----------------------
 //    (ScrollSetRegion)

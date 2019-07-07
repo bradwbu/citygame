@@ -1,104 +1,105 @@
-#include "uiLogin.h"
-#include "rsa.h"
-#include "applocale.h"
-#include "uiQuit.h"
-#include "estring.h"
-#include "ttFont.h"
-#include "StringUtil.h"
-#include "initClient.h"
-#include "uiEditText.h"
-#include "uiDialog.h"
-#include "uiComboBox.h"
-#include "uiInclude.h"
-#include "uiInput.h"
-#include "uiFocus.h"
-#include "cmdgame.h"
-#include "inventory_client.h"
+#include <utilitieslib/stdtypes.h>
+#include "UI/uiLogin.h"
+#include <utilitieslib/network/rsa.h>
+#include <utilitieslib/language/AppLocale.h>
+#include "UI/uiQuit.h"
+#include <utilitieslib/components/estring.h>
+#include "graphics/ttFont.h"
+#include <utilitieslib/utils/StringUtil.h>
+#include "gameComm/initClient.h"
+#include "UI/uiEditText.h"
+#include "UI/uidialog.h"
+#include "UI/uiComboBox.h"
+#include "UI/uiInclude.h"
+#include "UI/uiInput.h"
+#include "UI/uiFocus.h"
+#include "cmdparse/cmdgame.h"
+#include "player/inventory_client.h"
 #include "language/langClientUtil.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "textureatlas.h"
-#include "tex.h"
-#include "uiUtilMenu.h"
-#include "uiUtil.h"
-#include "ttFontUtil.h"
-#include "uiChat.h"
-#include "player.h"
-#include "classes.h"
-#include "origins.h"
-#include "powers.h"
-#include "entclient.h"
-#include "costume_client.h"
-#include "uiGame.h"
-#include "entVarUpdate.h"
-#include "clientcomm.h"
-#include "gfx.h"
-#include "win_init.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include "graphics/textureatlas.h"
+#include "render/tex.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiUtil.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/uiChat.h"
+#include "player/player.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
+#include "entity/powers.h"
+#include "entity/entclient.h"
+#include "entity/costume_client.h"
+#include "UI/uiGame.h"
+#include "entity/entVarUpdate.h"
+#include "clientcomm/clientcomm.h"
+#include "graphics/gfx.h"
+#include "win/win_init.h"
 #include "varutils.h"
-#include "sound.h"
-#include "input.h"
-#include "autoResumeInfo.h"
-#include "authclient.h"
-#include "dbclient.h"
-#include "earray.h"
+#include "sound/sound.h"
+#include "win/input.h"
+#include "clientcomm/autoResumeInfo.h"
+#include "clientComm/authclient.h"
+#include "clientcomm/dbclient.h"
+#include <utilitieslib/components/Earray.h>
 #include "uiPowers.h"
-#include "uiCostume.h"
-#include "uiAvatar.h"
-#include "uiGender.h"
-#include "uiUtilGame.h"
+#include "UI/uiCostume.h"
+#include "UI/uiAvatar.h"
+#include "UI/uiGender.h"
+#include "UI/uiUtilGame.h"
 #include "uiListView.h"
-#include "uiToolTip.h"
-#include "uiServerTransfer.h"
-#include "utils.h"
-#include "costume_client.h"
-#include "seq.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "file.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiServerTransfer.h"
+#include <utilitieslib/utils/utils.h>
+#include "entity/costume_client.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include <utilitieslib/utils/file.h>
 #include "demo.h"
 #include "auth/authUserData.h"
-#include "uiReticle.h"
-#include "uiRegister.h"
-#include "AccountData.h"
-#include "uiWindows.h"
-#include "uiClipper.h"
-#include "uiBox.h"
-#include "uiScrollbar.h"
-#include "uiCursor.h"
-#include "uiContextMenu.h"
-#include "uiTray.h"
-#include "uiPlayerNote.h"
-#include "trayCommon.h"
-#include "file.h"
-#include "sysutil.h"
-#include "uiWindows_init.h"
-#include "osdependent.h"
+#include "UI/uiReticle.h"
+#include "UI/Hybrid/uiRegister.h"
+#include "account/AccountData.h"
+#include "UI/uiWindows.h"
+#include "UI/uiClipper.h"
+#include "UI/uiBox.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiCursor.h"
+#include "UI/uiContextMenu.h"
+#include "UI/uiTray.h"
+#include "UI/uiPlayerNote.h"
+#include "gameComm/trayCommon.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/sysutil.h>
+#include "UI/uiWindows_init.h"
+#include <utilitieslib/utils/osdependent.h>
 
-#include "AccountCatalog.h"
-#include "AccountData.h"
+#include "account/AccountCatalog.h"
+#include "account/AccountData.h"
 
-#include "smf_parse.h"
-#include "smf_main.h"
+#include "formatter/smf_parse.h"
+#include "formatter/smf_main.h"
 #include "uiSMFView.h"
 
-#include "MessageStoreUtil.h"
-#include "HashFunctions.h"
-#include "AppRegCache.h"
-#include "AppVersion.h"
-#include "crypt.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/components/HashFunctions.h>
+#include <utilitieslib/version/AppRegCache.h>
+#include <utilitieslib/version/AppVersion.h>
+#include <utilitieslib/network/crypt.h>
 
 #include "comm_backend.h"
-#include "gfxSettings.h"
-#include "rt_init.h"
+#include "graphics/gfxSettings.h"
+#include "render/thread/rt_init.h"
 
-#include "uiHybridMenu.h"
-#include "uiLoyaltyTree.h"
-#include "uiWebStoreFrame.h"
+#include "UI/Hybrid/uiHybridMenu.h"
+#include "UI/Hybrid/uiLoyaltyTree.h"
+#include "UI/Hybrid/uiWebStoreFrame.h"
 
 #include "LWC.h"
 #include "LWC_common.h"
-#include "gfxLoadScreens.h"
+#include "graphics/gfxLoadScreens.h"
 
 #define MAX_SERVER_COUNT 50
 #define MAX_PASSWORD_LEN 32
@@ -3301,7 +3302,7 @@ void handleRejectOk(void *unused)
 // Used for both EULA's and NDA's.
 int handleURLs(char *url)
 {
-    ShellExecute(NULL,NULL,url,NULL,NULL,0);
+    ShellExecuteA(NULL,NULL,url,NULL,NULL,0);
     return 1;
 }
 
@@ -4200,7 +4201,7 @@ static chooseUltraModeHigh(void*data)
     gfxApplySettings( &gfxSettings, 1, 0 );
 }
 
-#include "rand.h"
+#include <utilitieslib/utils/rand.h>
 
 #define RETRIEVING_CHARACTER_LIST_SCREEN_DELAY_MS 1000
 

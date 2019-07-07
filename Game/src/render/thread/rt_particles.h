@@ -1,7 +1,7 @@
 #ifndef _RT_PARTICLES_H
 #define _RT_PARTICLES_H
 
-#include "rt_tex.h"
+#include "render/thread/rt_tex.h"
 
 typedef struct
 {

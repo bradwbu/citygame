@@ -1,12 +1,12 @@
-#include "font.h"
-#include "input.h"
-#include "edit_cmd.h"
-#include "cmdcommon.h"
-#include "mathutil.h"
+#include "graphics/font.h"
+#include "win/input.h"
+#include "edit/edit_cmd.h"
+#include "cmdparse/cmdcommon.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "edit_uiscroll.h"
-#include "win_init.h"
+#include "win/win_init.h"
 #include "edit_cmd_group.h"
-#include "uiInput.h"
+#include "UI/uiInput.h"
 #include "Menu.h"
 
 static char *simpleName(char *name)

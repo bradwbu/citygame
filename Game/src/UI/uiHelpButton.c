@@ -1,24 +1,25 @@
 
+#include <utilitieslib/stdtypes.h>
 #include "uiHelpButton.h"
 
-#include "uiClipper.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiInput.h"
-#include "uiBox.h"
-#include "uiGame.h"
+#include "UI/uiClipper.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiInput.h"
+#include "UI/uiBox.h"
+#include "UI/uiGame.h"
 
-#include "win_init.h"
-#include "messageStoreUtil.h"
+#include "win/win_init.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "language/langClientUtil.h"
 
-#include "smf_main.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
-#include "Cbox.h"
-#include "ttFontUtil.h"
+#include "formatter/smf_main.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/utils/CBox.h>
+#include "graphics/ttFontUtil.h"
 
 #define IDEAL_WD 300
 #define BORDER_WD 10

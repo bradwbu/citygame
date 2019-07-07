@@ -7,10 +7,10 @@
 #include "bases/DetailRecipe.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/textparser.h>
-#include "RewardItemType.h"
-#include "Salvage.h"
-#include "Concept.h"
-#include "Proficiency.h"
+#include "entity/RewardItemType.h"
+#include "entity/salvage.h"
+#include "entity/concept.h"
+#include "entity/Proficiency.h"
 
 StaticDefineInt RewardItemTypeEnum[] =
 {

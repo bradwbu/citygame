@@ -1,8 +1,8 @@
 #ifndef _UIAUTOMAPFOG_H
 #define _UIAUTOMAPFOG_H
 
-#include "stdtypes.h"
-#include "uiInclude.h"
+#include <utilitieslib/stdtypes.h>
+#include "UI/uiInclude.h"
 
 void mapfogDrawZoneFog(F32 scale,AtlasTex *map,F32 wz, int outdoor_indoor);
 void mapfogInit( Vec3 min, Vec3 max, int base );

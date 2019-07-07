@@ -1,13 +1,13 @@
-#include "chatSettings.h"
-#include "Entity.h"
-#include "EntPlayer.h"
+#include "entity/chatSettings.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/network/netio.h>
 #include <utilitieslib/language/MessageStore.h>
-#include "entVarUpdate.h"
+#include "entity/entVarUpdate.h"
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/components/bitfield.h>
-#include "character_base.h"
+#include "entity/character_base.h"
 #if SERVER
 #include "gameComm/automapServer.h"
 #endif

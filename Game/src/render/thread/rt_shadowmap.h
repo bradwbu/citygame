@@ -6,8 +6,8 @@
 #ifndef __rt_shadowmap_h__
 #define __rt_shadowmap_h__
 
-#include "rendershadowmap.h"
-#include "viewport.h"
+#include "../rendershadowmap.h"
+#include "graphics/viewport.h"
 
 #define SHADOWMAP_MAX_SHADOWS 4
 

@@ -1,15 +1,15 @@
 #define RT_PRIVATE
 #define RT_ALLOW_BINDTEXTURE
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "error.h"
-#include "renderprim.h"
-#include "mipmap.h"
-#include "tex.h"
-#include "rt_tex.h"
-#include "rt_state.h"
-#include "SuperAssert.h"
-#include "rt_pbuffer.h"
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include <utilitieslib/utils/error.h>
+#include "render/renderprim.h"
+#include "render/thread/mipmap.h"
+#include "render/tex.h"
+#include "render/thread/rt_tex.h"
+#include "render/thread/rt_state.h"
+#include <utilitieslib/utils/SuperAssert.h>
+#include "render/thread/rt_pbuffer.h"
 
 int            boundTextures[MAX_TEXTURE_UNITS_TOTAL];
 bool        texCoordPointersEnabled[MAX_TEXTURE_UNITS_TOTAL];
@@ -18,7 +18,7 @@ int            texCoordStrides[MAX_TEXTURE_UNITS_TOTAL];
 bool        g_renderstate_dirty = true;
 int            texBindCalls;
 
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 
 void texCopyDirect(RdrTexParams *rtex)
 {

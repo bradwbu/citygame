@@ -12,14 +12,14 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/utils/textparser.h> // for TokenizerParseInfo
-#include "character_inventory.h"
-#include "salvage.h"
+#include "entity/character_inventory.h"
+#include "entity/salvage.h"
 #include "bases/basedata.h"
 #include "bases/baseparse.h"
 #include "gameComm/trayCommon.h"
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/components/SharedHeap.h>
-#include "character_eval.h"
+#include "entity/character_eval.h"
 
 // ------------------------------------------------------------
 // globals

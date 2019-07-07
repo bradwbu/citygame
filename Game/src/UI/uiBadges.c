@@ -3,52 +3,52 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "utils.h"
-#include "earray.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/Earray.h>
 
-#include "entity.h"
-#include "entplayer.h"
-#include "badges.h"
-#include "badges_client.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "player/badges.h"
+#include "player/badges_client.h"
 
-#include "wdwbase.h"
-#include "uiUtil.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiUtil.h"
 #include "uiSMFView.h"
-#include "uiWindows.h"
-#include "uiUtilGame.h"
-#include "uiScrollBar.h"
-#include "uiInput.h"
-#include "uiToolTip.h"
-#include "uiGame.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "player.h"
-#include "cmdgame.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiInput.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiGame.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "player/player.h"
+#include "cmdparse/cmdgame.h"
 
-#include "uiBadges.h"
-#include "badges_client.h"
+#include "UI/uiBadges.h"
+#include "player/badges_client.h"
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
-#include "mathutil.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/utils/mathutil.h>
 
-#include "MessageStore.h"
-#include "timing.h"
-#include "Supergroup.h"
+#include <utilitieslib/language/MessageStore.h>
+#include <utilitieslib/utils/timing.h>
+#include "entity/Supergroup.h"
 
-#include "clicktosource.h"
-#include "commonLangUtil.h"
-#include "MessageStoreUtil.h"
-#include "uiContextMenu.h"
-#include "uiComboBox.h"
-#include "pophelp.h"
-#include "uiPopHelp.h"
-#include "clientcomm.h"
-#include "inventory_client.h"
+#include "edit/ClickToSource.h"
+#include "language/commonLangUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "UI/uiContextMenu.h"
+#include "UI/uiComboBox.h"
+#include "player/pophelp.h"
+#include "UI/uiPopHelp.h"
+#include "clientcomm/clientcomm.h"
+#include "player/inventory_client.h"
 
 #define FORCE_OPACITY        0xE6
 #define NO_OPACITY            0xffffff00

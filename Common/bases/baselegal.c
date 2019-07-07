@@ -1,7 +1,7 @@
 
-#include "bases.h"
-#include "basedata.h"
-#include "baselegal.h"
+#include "bases/bases.h"
+#include "bases/basedata.h"
+#include "bases/baselegal.h"
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/utils/textparser.h>

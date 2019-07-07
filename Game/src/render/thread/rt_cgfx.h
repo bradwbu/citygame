@@ -8,14 +8,14 @@
 #ifndef __rt_cgfx_h__
 #define __rt_cgfx_h__
 
-#include "ogl.h"
+#include "render/thread/ogl.h"
 #include <cg/cgGL.h>
-#include "tricks.h"
-#include "rt_tricks.h"
-#include "rt_model.h"
-#include "cmdgame.h"
+#include "seq/tricks.h"
+#include "render/thread/rt_tricks.h"
+#include "render/thread/rt_model.h"
+#include "cmdparse/cmdgame.h"
 #include "../rendercgfx.h"
-#include "wcw_statemgmt.h"
+#include "render/thread/wcw_statemgmt.h"
 
 typedef enum
 {

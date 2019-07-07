@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h> 
-#include "error.h"
-#include "memcheck.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/memcheck.h>
 #include "assert.h" 
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 #include "assert.h"   
-#include "font.h"
-#include "ReferenceList.h"
+#include "graphics/font.h"
+#include <utilitieslib/components/ReferenceList.h>
 
 //#define USE_REFERENCELIST  defining this will disable all of this file and just pass through to ReferenceList.c/h
 

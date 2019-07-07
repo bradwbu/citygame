@@ -1,34 +1,34 @@
-#include "smf_util.h"
-#include "smf_parse.h" // for sm_ParseTagName
-#include "smf_interact.h"
-#include "smf_main.h"
+#include "formatter/smf_util.h"
+#include "formatter/smf_parse.h" // for sm_ParseTagName
+#include "formatter/smf_interact.h"
+#include "formatter/smf_main.h"
 
-#include "earray.h"
-#include "estring.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/components/estring.h>
 
-#include "sprite_base.h"
-#include "uiInput.h"
-#include "uiScrollBar.h"
-#include "uiWindows.h"
-#include "uiFocus.h"
-#include "uiContextMenu.h"
-#include "Cbox.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/uiInput.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiWindows.h"
+#include "UI/uiFocus.h"
+#include "UI/uiContextMenu.h"
+#include <utilitieslib/utils/CBox.h>
 
-#include "cmdgame.h"
-#include "uiGame.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiGame.h"
 
-#include "MemoryMonitor.h"
-#include "timing.h"
+#include <utilitieslib/utils/MemoryMonitor.h>
+#include <utilitieslib/utils/timing.h>
 
-#include "sound.h"
+#include "sound/sound.h"
 
-#include "win_init.h"
+#include "win/win_init.h"
 
-#include "uiUtilGame.h" // for drawBox debugging
-#include "uiClipper.h" // for ClipperPop() for cprnt debugging
-#include "sprite_text.h" // cprnt debugging
-#include "StringUtil.h"
-#include "utils.h"
+#include "UI/uiUtilGame.h" // for drawBox debugging
+#include "UI/uiClipper.h" // for ClipperPop() for cprnt debugging
+#include "UI/sprite/sprite_text.h" // cprnt debugging
+#include <utilitieslib/utils/StringUtil.h>
+#include <utilitieslib/utils/utils.h>
 
 static int smf_Interact_selectionStartRawIndex;
 static int smf_Interact_selectionEndRawIndex;

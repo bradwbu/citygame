@@ -9,23 +9,23 @@
  */
 
 #include "sgraidClient.h"
-#include "uiSGRaidList.h"
-#include "clientcomm.h"
-#include "timing.h"
-#include "netio.h"
-#include "sprite_text.h"
-#include "raidstruct.h"
-#include "StashTable.h"
-#include "uidialog.h"
-#include "uichat.h"
-#include "cmdgame.h"
-#include "earray.h"
-#include "entity.h"
-#include "player.h"
-#include "uiFx.h"
-#include "textureatlas.h"
-#include "uistatus.h"
-#include "MessageStoreUtil.h"
+#include "UI/uiSGRaidList.h"
+#include "clientcomm/clientcomm.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/network/netio.h>
+#include "UI/sprite/sprite_text.h"
+#include "gameData/raidstruct.h"
+#include <utilitieslib/components/StashTable.h>
+#include "UI/uidialog.h"
+#include "UI/uiChat.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/components/Earray.h>
+#include "entity/entity.h"
+#include "player/player.h"
+#include "UI/uiFx.h"
+#include "graphics/textureatlas.h"
+#include "UI/uiStatus.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 static int g_showRaidString = 0;
 static char* g_raidString;

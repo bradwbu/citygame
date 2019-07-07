@@ -1,4 +1,4 @@
-#include "font.h"
+#include "graphics/font.h"
 
 FontLetter sysfont_letters[] = {
 /*{ch,  W,   X ,  Y} => LETTER COORDINANTS */

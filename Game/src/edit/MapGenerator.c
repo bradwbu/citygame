@@ -1,19 +1,19 @@
-#include "MapGenerator.h"
+#include "edit/MapGenerator.h"
 #include "stdio.h"
-#include "earray.h"
+#include <utilitieslib/components/Earray.h>
 #include "string.h"
-#include "edit_select.h"
-#include "anim.h"
-#include "mathutil.h"
-#include "groupdraw.h"
-#include "anim.h"
-#include "utils.h"
-#include "groupfilelib.h"
-#include "edit_net.h"
-#include "cmdgame.h"
+#include "edit/edit_select.h"
+#include "seq/anim.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "graphics/groupdraw.h"
+#include "seq/anim.h"
+#include <utilitieslib/utils/utils.h>
+#include "group/groupfilelib.h"
+#include "edit/edit_net.h"
+#include "cmdparse/cmdgame.h"
 #include "menu.h"
-#include "win_init.h"
-#include "edit_cmd_file.h"
+#include "win/win_init.h"
+#include "edit/edit_cmd_file.h"
 
 // the zlib version of fscanf is not working, so this file specifically does not include file.h
 #undef fopen
@@ -152,8 +152,9 @@ void initGenerators2() {
     int count=objectLibraryCount();
     int i;
     g_generators=0;    //should have some sort of destroy function here
-    for (i=0;i<count;i++) {
-        MapSetGenerator * msg;
+    for (i=0;i<count;i++)
+    {
+        MapSetGenerator* msg = NULL;
         char path[512];
         strcpy(path,objectLibraryPathFromIdx(i));
         strcpy(strrchr(path,'/')+1,objectLibraryNameFromIdx(i));
@@ -738,7 +739,7 @@ int preprocessGenerators() {
             for (j=0;j<eaSize(&g_generators[i]->pieces);j++) {
                 MapPiece * mp=g_generators[i]->pieces[j];
                 fprintf(fout,"%s %s\n",g_generators[i]->mapSet,mp->name);
-                fprintf(fout,"%\t%d\n",eaSize((F32 ***)&mp->convexHull));
+                fprintf(fout,"\t%d\n",eaSize((F32 ***)&mp->convexHull));
                 for (k=0;k<eaSize((F32 ***)&mp->convexHull);k++)
                     fprintf(fout,"\t\t%f %f\n",(*(mp->convexHull[k]))[0],(*(mp->convexHull[k]))[1]);
                 fprintf(fout," %f ",mp->area);

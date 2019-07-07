@@ -1,7 +1,7 @@
 #ifndef _RT_STATS_H
 #define _RT_STATS_H
 
-#include "renderstats.h"
+#include "render/renderstats.h"
 
 #if RDRSTATS_ON
 

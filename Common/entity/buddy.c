@@ -8,11 +8,11 @@
 
 #include <utilitieslib/utils/mathutil.h>
 
-#include "entity.h"
-#include "character_base.h"
-#include "character_level.h"
-#include "teamCommon.h"
-#include "Supergroup.h"
+#include "entity/entity.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "entity/teamCommon.h"
+#include "entity/Supergroup.h"
 
 
 /**********************************************************************func*

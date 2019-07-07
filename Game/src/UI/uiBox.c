@@ -1,13 +1,13 @@
-#include "uiBox.h"
-#include "mathutil.h"
+#include "UI/uiBox.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "assert.h"
-#include "wdwbase.h"
-#include "uiInput.h"
-#include "uiUtilGame.h"
-#include "uiUtil.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtil.h"
 #include <stdlib.h>
-#include "MemoryPool.h"
-#include "sprite_base.h"
+#include <utilitieslib/components/memorypool.h>
+#include "UI/sprite/sprite_base.h"
 
 MP_DEFINE(UIBox);
 UIBox* uiBoxCreate(void)

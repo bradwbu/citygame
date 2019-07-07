@@ -1,7 +1,7 @@
-#include "incarnate.h"
+#include "entity/incarnate.h"
 #include "player/badges.h"
-#include "entPlayer.h"
-#include "character_base.h"
+#include "entity/EntPlayer.h"
+#include "entity/character_base.h"
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/language/MessageStoreUtil.h>
 #include <utilitieslib/utils/structDefines.h>

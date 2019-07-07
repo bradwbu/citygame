@@ -1,18 +1,18 @@
 #include "rt_win_init.h"
-#include "ogl.h"
-#include "timing.h"
-#include "fpmacros.h"
-#include "file.h"
-#include "gfxSettings.h"
-#include "win_init.h"
+#include "render/thread/ogl.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/fpmacros.h>
+#include <utilitieslib/utils/file.h>
+#include "graphics/gfxSettings.h"
+#include "win/win_init.h"
 #include "assert.h"
-#include "mathutil.h"
-#include "NvPanelApi.h"
-#include "renderUtil.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <NvPanelApi.h>
+#include "render/renderUtil.h"
 #define RT_PRIVATE
-#include "rt_pbuffer.h"
-#include "rt_cgfx.h"
-#include "rt_state.h"
+#include "render/thread/rt_pbuffer.h"
+#include "render/thread/rt_cgfx.h"
+#include "render/thread/rt_state.h"
 #include "rt_graphfps.h"
 
 static HGLRC        glRC = 0;
@@ -172,7 +172,7 @@ void nvidiaBeforeSetupGL()
     fNvCplGetDataInt NvCplGetDataInt;
     fNvCplIsExternalPowerConnectorAttached NvCplIsExternalPowerConnectorAttached;
     fNvCplSetDataInt NvCplSetDataInt;
-    HINSTANCE hLib = LoadLibrary("NVCPL.dll");
+    HINSTANCE hLib = LoadLibraryA("NVCPL.dll");
 
     if (!hLib)
         return;
@@ -246,8 +246,7 @@ void windowInitDisplayContextsDirect()
             nvidiaBeforeSetupGL();
         hDC  = GetDC(hwnd);
         if ( !setupGL(false) ) {
-            MessageBox( 0, "Failed to Create OpenGL Rendering Context.",
-                "", MB_ICONERROR );
+            MessageBoxA(0, "Failed to Create OpenGL Rendering Context.", "", MB_ICONERROR );
             gfxResetGfxSettings();
             DestroyWindow( hwnd );
             windowExit(0);
@@ -295,8 +294,7 @@ void windowReInitDisplayContextsDirect(void)
     {
         hDC  = GetDC(hwnd);
         if ( !setupGL(true) ) {
-            MessageBox( 0, "Failed to Create OpenGL Rendering Context.",
-                "", MB_ICONERROR );
+            MessageBoxA( 0, "Failed to Create OpenGL Rendering Context.", "", MB_ICONERROR );
             gfxResetGfxSettings();
             DestroyWindow( hwnd );
             windowExit(0);

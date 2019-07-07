@@ -6,7 +6,7 @@
 #ifndef UISTATUS_H__
 #define UISTATUS_H__
 
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
 enum
 {

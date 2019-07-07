@@ -1,5 +1,5 @@
 
-#include "commonLangUtil.h"
+#include "language/commonLangUtil.h"
 #include <utilitieslib/components/ArrayOld.h>
 #include <utilitieslib/language/MessageStore.h>
 #include <utilitieslib/language/MessageStoreUtil.h>
@@ -15,7 +15,7 @@
     #if CLIENT
         #include <utilitieslib/language/MessageStoreUtil.h>
         #include "language/langClientUtil.h"
-        #include "cmdgame.h"
+        #include "cmdparse/cmdgame.h"
     #elif SERVER
         #include "language/langServerUtil.h"
         #include "dbcomm/dbnamecache.h"

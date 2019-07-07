@@ -1,5 +1,5 @@
-#include "uiWebStoreFrame.h"
-#include "cmdgame.h"
+#include "UI/Hybrid/uiWebStoreFrame.h"
+#include "cmdparse/cmdgame.h"
 
 #include "../../../Common/account/AccountCatalog.h"
 #include "../../clientcomm/authclient.h"

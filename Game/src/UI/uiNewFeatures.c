@@ -1,19 +1,19 @@
 #include "uiNewFeatures.h"
-#include "Cbox.h"
-#include "wdwbase.h"
-#include "uiWindows.h"
-#include "uiInput.h"
-#include "uiWebStoreFrame.h"
-#include "uiUtilGame.h"
-#include "uiUtil.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "StringCache.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "player.h"
-#include "uiNet.h"
-#include "timing.h"
+#include <utilitieslib/utils/CBox.h>
+#include "gameComm/wdwbase.h"
+#include "UI/uiWindows.h"
+#include "UI/uiInput.h"
+#include "UI/Hybrid/uiWebStoreFrame.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtil.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include <utilitieslib/components/StringCache.h>
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "player/player.h"
+#include "UI/uiNet.h"
+#include <utilitieslib/utils/timing.h>
 
 typedef enum WebDataState
 {

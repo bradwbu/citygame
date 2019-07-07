@@ -7,67 +7,69 @@
  * 
  ***************************************************************************/
 
-#include "stringutil.h"
-#include "utils.h"
-#include "earray.h"
-#include "entity.h"
-#include "player.h"
-#include "seq.h"
-#include "seqstate.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/StringUtil.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/Earray.h>
+#include "entity/entity.h"
+#include "player/player.h"
+#include "seq/seq.h"
+#include "seq/seqstate.h"
 
-#include "MessageStoreUtil.h"
-#include "cmdgame.h"
-#include "costume.h"
-#include "entPlayer.h"
-#include "entclient.h"
-#include "costume_client.h"
-#include "character_base.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "cmdparse/cmdgame.h"
+#include "entity/costume.h"
+#include "entity/EntPlayer.h"
+#include "entity/entclient.h"
+#include "entity/costume_client.h"
+#include "entity/character_base.h"
 #include "gameData/costume_data.h"
 #include "language/langClientUtil.h"
 
 #include "imageServer.h"
 
-#include "uiGame.h"
-#include "uiUtil.h"
-#include "uiInput.h"
-#include "uiAvatar.h"
-#include "uiTailor.h"
-#include "uiCostume.h"
+#include "UI/uiGame.h"
+#include "UI/uiUtil.h"
+#include "UI/uiInput.h"
+#include "UI/uiAvatar.h"
+#include "UI/uiTailor.h"
+#include "UI/uiCostume.h"
 #include "uiLoadCostume.h"
-#include "uiGender.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"  
+#include "UI/uiGender.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"  
 #include "uiWindows.h"
-#include "uiSupercostume.h"
-#include "uiSuperRegistration.h"
-#include "uiEditText.h"
-#include "uiNet.h"
+#include "UI/uiWindows.h"
+#include "UI/uiSuperRegistration.h"
+#include "UI/uiEditText.h"
+#include "UI/uiNet.h"
+#include "UI/uiSupercostume.h"
 
-#include "smf_main.h"
-#include "ttFontUtil.h"
-#include "sprite_base.h" 
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "tex.h"
+#include "formatter/smf_main.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/sprite/sprite_base.h" 
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "render/tex.h"
 
 #include "uiListView.h"
-#include "uiClipper.h"
-#include "uiTailor.h"
+#include "UI/uiClipper.h"
+#include "UI/uiTailor.h"
 #include "uiEdit.h"
-#include "uiFocus.h"
-#include "validate_name.h"
-#include "EString.h"
-#include "uiDialog.h"
-#include "sound.h"
-#include "file.h"
-#include "ConvertUtf.h"
-#include "font.h"
-#include "StringCache.h"
-#include "textureatlas.h"    //    for force load button
-#include "authUserData.h"
-#include "uiUtilMenu.h"
+#include "UI/uiFocus.h"
+#include "filter/validate_name.h"
+#include <utilitieslib/components/estring.h>
+#include "UI/uidialog.h"
+#include "sound/sound.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/ConvertUtf.h>
+#include "graphics/font.h"
+#include <utilitieslib/components/StringCache.h>
+#include "graphics/textureatlas.h"    //    for force load button
+#include "auth/authUserData.h"
+#include "UI/uiUtilMenu.h"
 #include "uiPCCCreationNLM.h"
-#include "uiHybridMenu.h"
+#include "UI/Hybrid/uiHybridMenu.h"
 
 #include <direct.h> //for getcwd()
 
@@ -521,7 +523,7 @@ static int loadCostumeFromFile(char * filename, int *costumeValid, int **badPart
 void loadCostume_next()
 {
     Entity *e = playerPtr();
-    Costume *plCostume;
+    Costume *plCostume = NULL;
     texEnableThreadedLoading();
     costume_destroy( costume_as_mutable_cast(prevCostume) );
     prevCostume = 0;

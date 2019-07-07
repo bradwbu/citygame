@@ -1,11 +1,12 @@
-#include "jpegdecoder.h"
+#include <utilitieslib/stdtypes.h>
+#include <jpgdlib/jpegdecoder.h>
 
 extern "C" {
-#include "jpeg.h"
-#include "file.h"
-#include "tex.h"
-#include "ogl.h"
-#include "stdtypes.h"
+#include "graphics/jpeg.h"
+#include <utilitieslib/utils/file.h>
+#include "render/tex.h"
+#include "render/thread/ogl.h"
+#include <utilitieslib/stdtypes.h>
 }
 
 extern "C" {
@@ -21,7 +22,9 @@ void cryptic_jpeg_free(void* mem)
 
 int jpegLoad(char *mem,int size,TexReadInfo *info)
 {
-    int        success = 0;
+    int success = 0;
+    int lines_decoded = 0;
+    uchar* Pbuf = NULL;
 
     Pjpeg_decoder_file_stream Pinput_stream = new jpeg_decoder_file_stream();
     Pinput_stream->set_mem_ptr(mem,size);
@@ -36,18 +39,20 @@ int jpegLoad(char *mem,int size,TexReadInfo *info)
     }
 
     if (Pd->get_num_components() != 3)
+    {
         goto fail_exit;
+    }
 
     if (Pd->begin())
+    {
         goto fail_exit;
-
-    uchar *Pbuf = NULL;
+    }
 
     Pbuf = (uchar *)malloc(Pd->get_width() * 3 * Pd->get_height());
     if (!Pbuf)
+    {
         goto fail_exit;
-
-    int lines_decoded = 0;
+    }
 
     for ( ; ; )
     {
@@ -55,7 +60,9 @@ int jpegLoad(char *mem,int size,TexReadInfo *info)
         uint scan_line_len;
 
         if (Pd->decode(&Pscan_line_ofs, &scan_line_len))
+        {
             break;
+        }
 
         uchar *Psb = (uchar *)Pscan_line_ofs;
         uchar *Pdb = &Pbuf[lines_decoded * Pd->get_width() * 3];
@@ -70,7 +77,9 @@ int jpegLoad(char *mem,int size,TexReadInfo *info)
         lines_decoded++;
     }
     if (Pd->get_error_code())
+    {
         goto fail_exit;
+    }
 
 #if 0
     printf("Lines decoded: %i\n", lines_decoded);
@@ -95,9 +104,9 @@ fail_exit:
 //########################################################################################
 //########################################################################################
 //########################################################################################
-#include "utils.h"
-#include "file.h"
-#include "fileutil.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/fileutil.h>
 // From 3rdpart/IJGwin32/example.c
 /*
  * example.c

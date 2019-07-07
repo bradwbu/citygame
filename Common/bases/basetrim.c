@@ -1,7 +1,7 @@
-#include "bases.h"
+#include "bases/bases.h"
 #include "basetrim.h"
-#include "basetogroup.h"
-#include "basedata.h"
+#include "bases/basetogroup.h"
+#include "bases/basedata.h"
 #include "group/group.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/mathutil.h>

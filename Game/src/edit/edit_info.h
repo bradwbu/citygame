@@ -1,9 +1,9 @@
 #ifndef _EDIT_INFO
 #define _EDIT_INFO
 
-#include "stdtypes.h"
-#include "model.h"
-#include "group.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/model.h"
+#include "group/group.h"
 
 typedef struct
 {

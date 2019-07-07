@@ -1,8 +1,8 @@
 #ifndef _RT_CURSOR_H
 #define _RT_CURSOR_H
 
-#include "rt_pbuffer.h"
-#include "rt_sprite.h"
+#include "render/thread/rt_pbuffer.h"
+#include "render/thread/rt_sprite.h"
 
 extern PBuffer    cursor_pbuf;
 

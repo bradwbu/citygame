@@ -5,22 +5,22 @@
  ***************************************************************************/
 #define SMFVIEW_PRIVATE
 
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "wdwbase.h"
-#include "sprite_base.h"
+#include "gameComm/wdwbase.h"
+#include "UI/sprite/sprite_base.h"
 
-#include "uiWindows.h"
-#include "uiUtil.h"
-#include "uiGame.h"
-#include "uiUtilGame.h"
-#include "uiScrollbar.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtil.h"
+#include "UI/uiGame.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiScrollBar.h"
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 #include "uiSMFView.h"
 
-#include "earray.h"
-#include "uitabcontrol.h"
+#include <utilitieslib/components/Earray.h>
+#include "UI/uiTabControl.h"
 
 #define MARGIN 5
 

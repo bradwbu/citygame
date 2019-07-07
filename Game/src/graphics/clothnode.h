@@ -2,7 +2,7 @@
 #define _CLOTHNODE_H
 
 #include "render/model.h"
-#include "gfxtree.h"
+#include "seq/gfxtree.h"
 
 typedef enum ClothType {
     CLOTH_TYPE_CAPE = 1,

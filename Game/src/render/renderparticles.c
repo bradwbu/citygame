@@ -1,17 +1,17 @@
 #define RT_PRIVATE
-#include "wininclude.h"
-#include "camera.h" //mm temp
-#include "particle.h"
-#include "renderparticles.h"
-#include "gfxwindow.h"
-#include "cmdgame.h"
-#include "timing.h"
+#include <utilitieslib/utils/wininclude.h>
+#include "graphics/camera.h" //mm temp
+#include "graphics/FX/particle.h"
+#include "render/renderparticles.h"
+#include "graphics/gfxwindow.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/timing.h>
 #include "assert.h"
-#include "utils.h"
-#include "font.h"
-#include "model_cache.h"
-#include "rt_queue.h"
-#include "tex.h"
+#include <utilitieslib/utils/utils.h>
+#include "graphics/font.h"
+#include "render/model_cache.h"
+#include "render/thread/rt_queue.h"
+#include "render/tex.h"
 
 int particleCount[160];
 

@@ -1,13 +1,13 @@
-#include "renderEffects.h"
-#include "rt_queue.h"
-#include "rt_effects.h"
-#include "tex_gen.h"
-#include "tex.h"
-#include "timing.h"
-#include "mathutil.h"
-#include "gfxtree.h"
-#include "anim.h"
-#include "camera.h"
+#include "render/renderEffects.h"
+#include "render/thread/rt_queue.h"
+#include "render/thread/rt_effects.h"
+#include "render/tex_gen.h"
+#include "render/tex.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "seq/gfxtree.h"
+#include "seq/anim.h"
+#include "graphics/camera.h"
 
 void rdrPostprocessing(PBuffer *pbFrameBuffer)
 {

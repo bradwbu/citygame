@@ -3,7 +3,7 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "SgrpBasePermissions.h"
+#include "entity/SgrpBasePermissions.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/error.h>

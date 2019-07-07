@@ -1,14 +1,14 @@
 #include "fxutil.h"
-#include "Color.h"
-#include "camera.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/Color.h>
+#include "graphics/camera.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "assert.h"
-#include "player.h"
+#include "player/player.h"
 #include <stdlib.h>
-#include "utils.h"
-#include "particle.h"
-#include "genericlist.h"
-#include "rgb_hsv.h"
+#include <utilitieslib/utils/utils.h>
+#include "graphics/FX/particle.h"
+#include <utilitieslib/components/genericlist.h>
+#include <utilitieslib/utils/rgb_hsv.h>
 
 
 //// Tools ############################################## many may be moved out

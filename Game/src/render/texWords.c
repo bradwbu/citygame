@@ -1,45 +1,45 @@
 #define RT_PRIVATE    // Only for jimb's debug stuff
-#include "ogl.h"
-#include "texWords.h"
+#include "render/thread/ogl.h"
+#include "render/texWords.h"
 #include "texWordsPrivate.h"
 #include "texWordsEdit.h"
-#include "textparser.h"
-#include "tex.h"
-#include "rt_tex.h"
-#include "utils.h"
+#include <utilitieslib/utils/textparser.h>
+#include "render/tex.h"
+#include "render/thread/rt_tex.h"
+#include <utilitieslib/utils/utils.h>
 #include "assert.h"
-#include "StashTable.h"
-#include "renderUtil.h"
-#include "pbuffer.h"
-#include "seqgraphics.h"
-#include "win_init.h"
-#include "wcw_statemgmt.h"
-#include "gfxwindow.h"
-#include "FolderCache.h"
-#include "fileutil.h"
-#include "cmdgame.h"
-#include "gfx.h"
-#include "MessageStore.h"
-#include "truetype/ttFontDraw.h"
-#include "truetype/ttFontManager.h"
+#include <utilitieslib/components/StashTable.h>
+#include "render/renderUtil.h"
+#include "render/pbuffer.h"
+#include "graphics/seqgraphics.h"
+#include "win/win_init.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "graphics/gfxwindow.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
+#include "cmdparse/cmdgame.h"
+#include "graphics/gfx.h"
+#include <utilitieslib/language/MessageStore.h>
+#include "graphics/truetype/ttFontDraw.h"
+#include "graphics/truetype/ttFontManager.h"
 #include "language/langClientUtil.h"
-#include "StringUtil.h"
-#include "sprite_font.h"
-#include "Color.h"
-#include "error.h"
-#include "rgb_hsv.h"
+#include <utilitieslib/utils/StringUtil.h>
+#include "UI/sprite/sprite_font.h"
+#include <utilitieslib/utils/Color.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/rgb_hsv.h>
 #include "dxtlibwrapper.h"
 #include "rotoZoom.h"
-#include "memlog.h"
-#include "timing.h"
-#include "genericlist.h"
-#include "AppLocale.h"
-#include "mipmap.h"
-#include "renderprim.h"
-#include "rt_tex.h"
-#include "AppRegCache.h"
-#include "gfxLoadScreens.h"
-#include "cpu_count.h"
+#include <utilitieslib/utils/memlog.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/components/genericlist.h>
+#include <utilitieslib/language/AppLocale.h>
+#include "render/thread/mipmap.h"
+#include "render/renderprim.h"
+#include "render/thread/rt_tex.h"
+#include <utilitieslib/version/AppRegCache.h>
+#include "graphics/gfxLoadScreens.h"
+#include <utilitieslib/utils/cpu_count.h>
 
 #define lsprintf if (game_state.texWordVerbose) loadstart_printf
 #define leprintf if (game_state.texWordVerbose) loadend_printf
@@ -2390,8 +2390,8 @@ static void texWordDoComposition(TexWord *texWord, BasicTexture *texBindParent, 
     }
     ULx = 0;
     ULy = 0;
-    actualSizeX = 1 << log2(sizeX);
-    actualSizeY = 1 << log2(sizeY);
+    actualSizeX = 1 << log2i(sizeX);
+    actualSizeY = 1 << log2i(sizeY);
 
     if (texWords_useGl) {
         lsprintf("Initializing...");
@@ -2426,8 +2426,8 @@ static void texWordDoComposition(TexWord *texWord, BasicTexture *texBindParent, 
                 // TODO: trickle a scale down
             }
 
-            actualSizeX = 1 << log2(sizeX);
-            actualSizeY = 1 << log2(sizeY);
+            actualSizeX = 1 << log2i(sizeX);
+            actualSizeY = 1 << log2i(sizeY);
         }
 
         glClearColor(0,0,0,0); CHECKGL;

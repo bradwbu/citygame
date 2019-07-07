@@ -1,22 +1,22 @@
 #define RT_PRIVATE
 #define RT_ALLOW_BINDTEXTURE
-#include "rt_water.h"
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "rt_state.h"
-#include "rt_tex.h"
-#include "mathutil.h"
-#include "rt_font.h"
+#include "render/thread/rt_water.h"
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_state.h"
+#include "render/thread/rt_tex.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/thread/rt_font.h"
 #include "rt_stats.h"
-#include "rt_model.h"
-#include "rt_pbuffer.h"
+#include "render/thread/rt_model.h"
+#include "render/thread/rt_pbuffer.h"
 #include "assert.h"
-#include "cmdgame.h"
-#include "timing.h"
-#include "renderWater.h"
-#include "rt_cgfx.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/timing.h>
+#include "render/renderWater.h"
+#include "render/thread/rt_cgfx.h"
 
-#include "font.h"
+#include "graphics/font.h"
 
 // Change this for extra debugging
 #if 0

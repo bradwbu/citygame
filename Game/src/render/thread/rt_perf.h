@@ -1,8 +1,8 @@
 #ifndef _RT_PERF_H
 #define _RT_PERF_H
 
-#include "stdtypes.h"
-#include "rt_model.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/thread/rt_model.h"
 
 typedef struct
 {

@@ -1,9 +1,9 @@
 #ifndef FXCAPES_H
 #define FXCAPES_H
 
-#include "stdtypes.h"
-#include "gfxtree.h"
-#include "clothnode.h"
+#include <utilitieslib/stdtypes.h>
+#include "seq/gfxtree.h"
+#include "graphics/clothnode.h"
 
 typedef struct ClothWindInfo ClothWindInfo;
 

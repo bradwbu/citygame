@@ -6,7 +6,7 @@
 #ifndef UICONTACTDIALOG_H__
 #define UICONTACTDIALOG_H__
 
-#include "contactCommon.h"
+#include "storyarc/contactCommon.h"
 
 typedef struct ContactResponseOption ContactResponseOption;
 

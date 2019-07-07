@@ -1,7 +1,7 @@
 #ifndef TEXWORDS_H
 #define TEXWORDS_H
 
-#include "texEnums.h"
+#include "render/texEnums.h"
 
 typedef struct TexThreadPackage TexThreadPackage;
 

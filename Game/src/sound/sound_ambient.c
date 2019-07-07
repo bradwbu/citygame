@@ -1,17 +1,18 @@
+#include <utilitieslib/stdtypes.h>
 #include "sound_ambient.h"
-#include "sound.h"
-#include "group.h"
-#include "grouptrack.h"
-#include "cmdgame.h"
-#include "font.h"
-#include "utils.h"
-#include "timing.h"
-#include "groupdraw.h"
-#include "groupgrid.h"
-#include "win_init.h"
-#include "file.h"
-#include "StashTable.h"
-#include "vistray.h"
+#include "sound/sound.h"
+#include "group/group.h"
+#include "group/grouptrack.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/font.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
+#include "graphics/groupdraw.h"
+#include "group/groupgrid.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/StashTable.h>
+#include "graphics/vistray.h"
 
 #define        MAX_SOUND_SPHERES_PER_AREA    200
 #define        WHITESPACE_CHARS " \n\r\t"
@@ -515,12 +516,16 @@ void setAmbientInfo(int count,AmbInfo *sounds, bool bMerged)
 
 void mergeSameSounds(int *count_ptr,AmbInfo *sounds,const Mat4 head_mat)
 {
-    int                i,merge_count,count;
-    static AmbInfo    *merge_sounds;
-    static int        merge_max;
-    AmbInfo            *curr;
-    Vec3            rel_pos,dv,secondMoment;
-    F32                volume;
+    int i;
+    int merge_count;
+    int count;
+    static AmbInfo* merge_sounds;
+    static int merge_max;
+    AmbInfo* curr = NULL;
+    Vec3 rel_pos;
+    Vec3 dv;
+    Vec3 secondMoment;
+    F32 volume;
 
     count = *count_ptr;
     if (!count)

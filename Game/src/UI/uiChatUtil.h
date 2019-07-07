@@ -1,12 +1,12 @@
 #ifndef UICHATUTIL_H__
 #define UICHATUTIL_H__
 
-#include "uiScrollBar.h"
-#include "ArrayOld.h"
-#include "uiTabControl.h"
-#include "chatSettings.h"
+#include "UI/uiScrollBar.h"
+#include <utilitieslib/components/ArrayOld.h>
+#include "UI/uiTabControl.h"
+#include "entity/chatSettings.h"
 #include "chatdb.h"
-#include "smf_util.h"
+#include "formatter/smf_util.h"
 
 
 

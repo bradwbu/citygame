@@ -12,32 +12,32 @@
 #include <string.h> // strlen
 #include <math.h>
 
-#include "smf_util.h"
-#include "smf_format.h"
+#include "formatter/smf_util.h"
+#include "formatter/smf_format.h"
 
-#include "stdtypes.h"
-#include "earray.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/Earray.h>
 
-#include "truetype/ttFontDraw.h"
-#include "ttFontUtil.h"
-#include "powers.h"
-#include "tex.h"
-#include "textureatlas.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "cmdgame.h"
-#include "timing.h"
-#include "EString.h"
-#include "StringUtil.h"
-#include "entclient.h"
+#include "graphics/truetype/ttFontDraw.h"
+#include "graphics/ttFontUtil.h"
+#include "entity/powers.h"
+#include "render/tex.h"
+#include "graphics/textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/StringUtil.h>
+#include "entity/entclient.h"
 
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 //to get the mm texture right
-#include "costume.h"
-#include "npc.h"
-#include "seqgraphics.h"
-#include "uiPictureBrowser.h"
-#include "entity.h"
+#include "entity/costume.h"
+#include "gameComm/npc.h"
+#include "graphics/seqgraphics.h"
+#include "UI/uiPictureBrowser.h"
+#include "entity/entity.h"
 
 #ifdef DEBUG
 #define DBG_PRINTF(x) printf x

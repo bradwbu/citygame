@@ -1,6 +1,6 @@
 
 #include "entity/character_base.h"
-#include "costume_data.h"
+#include "gameData/costume_data.h"
 #include "entity/entity.h"
 #include "varutils.h"
 #include <utilitieslib/utils/textparser.h>
@@ -9,7 +9,7 @@
 #include "player/player.h"
 #include "time.h"
 #include <utilitieslib/utils/error.h>
-#include "BodyPart.h"
+#include "gameData/BodyPart.h"
 #include <utilitieslib/components/SharedMemory.h>
 #include "string.h"
 #include "entity/entPlayer.h"
@@ -25,22 +25,22 @@
 #include "account/AccountCatalog.h"
 
 #if CLIENT
-    #include "cmdgame.h"
-    #include "uiCostume.h"
-    #include "uiTailor.h"
-    #include "uiDialog.h"
-    #include "uiSupercostume.h"
+    #include "cmdparse/cmdgame.h"
+    #include "UI/uiCostume.h"
+    #include "UI/uiTailor.h"
+    #include "UI/uidialog.h"
+    #include "UI/uiSupercostume.h"
     #include "imageServer.h"
-    #include "costume_client.h"
+    #include "entity/costume_client.h"
     #include <utilitieslib/utils/FolderCache.h>
     #include <utilitieslib/utils/fileutil.h>
-    #include "uiGame.h"
-    #include "tricks.h"
+    #include "UI/uiGame.h"
+    #include "seq/tricks.h"
     #include <utilitieslib/utils/strings_opt.h>
-    #include "entclient.h"
+    #include "entity/entclient.h"
     #include <utilitieslib/utils/utils.h>
-    #include "uiHybridMenu.h"
-    #include "inventory_client.h"
+    #include "UI/Hybrid/uiHybridMenu.h"
+    #include "player/inventory_client.h"
 #elif SERVER
     #include "Reward.h"
     #include "cmdparse/cmdserver.h"

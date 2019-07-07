@@ -3,19 +3,19 @@
 #include <stdio.h>
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/network/netcomp.h>
-#include "group.h"
+#include "group/group.h"
 #include <utilitieslib/utils/utils.h>
-#include "groupProperties.h"
+#include "group/groupproperties.h"
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/assert/assert.h>
-#include "groupfilelib.h"
+#include "group/groupfilelib.h"
 #include "time.h"
 #include <float.h>
 #include <utilitieslib/components/estring.h>
 #include "bases/bases.h"
 #include "bases/baseparse.h"
 #include <utilitieslib/components/StashTable.h>
-#include "grouputil.h"
+#include "group/grouputil.h"
 
 #ifdef SERVER
 #include "group/groupnetdb.h"

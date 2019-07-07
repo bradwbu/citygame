@@ -2,13 +2,13 @@
 #define _DBCLIENT_H
 
 #ifndef COSTUME_H__
-#include "costume.h"
+#include "entity/costume.h"
 #endif
 #ifndef POWER_CUSTOMIZATION_H__
-#include "power_customization.h"
+#include "entity/power_customization.h"
 #endif
-#include "auth.h"
-#include "AccountData.h"
+#include "auth/auth.h"
+#include "account/AccountData.h"
 
 #define DB_CONNECTION_TIMEOUT 40 // warn user if havent heard from db in this time
 

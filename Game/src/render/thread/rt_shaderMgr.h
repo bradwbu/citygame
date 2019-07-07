@@ -1,7 +1,7 @@
 #ifndef RT_SHADER_MGR_H
 #define RT_SHADER_MGR_H
 
-#include "rt_state.h"
+#include "render/thread/rt_state.h"
 
 // tables of gl/cg generated gpu program names (ids)
 extern int shaderMgrVertexPrograms[];            // Index: DrawModeType enum type. DRAWMODE_SPRITE, etc.

@@ -1,22 +1,22 @@
-#include "group.h"
+#include "group/group.h"
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/utils/error.h>
-#include "groupfileload.h"
-#include "groupProperties.h"
+#include "group/groupfileload.h"
+#include "group/groupproperties.h"
 #include <string.h>
 #include <utilitieslib/utils/utils.h>
-#include "groupfileloadutil.h"
+#include "group/groupfileloadutil.h"
 #include <utilitieslib/utils/fileutil.h>
 #include "gridcoll/gridcoll.h"
-#include "groupfilelib.h"
+#include "group/groupfilelib.h"
 #include <utilitieslib/components/earray.h>
-#include "grouputil.h"
-#include "grouptrack.h"
+#include "group/grouputil.h"
+#include "group/grouptrack.h"
 #include "seq/tricks.h"
 #include <utilitieslib/utils/timing.h>
 #include "gridcoll/gridcache.h"
-#include "groupgrid.h"
-#include "groupdyn.h"
+#include "group/groupgrid.h"
+#include "group/groupdyn.h"
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/utils/FolderCache.h>
 #include "seq/anim.h"
@@ -32,13 +32,13 @@
 
 
 #ifdef CLIENT
-#include "cmdgame.h"
-#include "groupdraw.h"
-#include "basedraw.h"
-#include "tex.h"
-#include "vistray.h"
-#include "groupnetrecv.h"
-#include "imageCapture.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/groupdraw.h"
+#include "bases/basedraw.h"
+#include "render/tex.h"
+#include "graphics/vistray.h"
+#include "group/groupnetrecv.h"
+#include "graphics/imageCapture.h"
 #define SERVER_OR_GAMESTATE game_state
 
 #endif
@@ -47,7 +47,7 @@
 #define SERVER_OR_GAMESTATE server_state
 #include "cmdparse/cmdserver.h"  //Temp
 #include "group/groupdb_util.h"
-#include "groupfilesave.h"
+#include "group/groupfilesave.h"
 #include "storyarc/missiongeoCommon.h"
 #endif
 

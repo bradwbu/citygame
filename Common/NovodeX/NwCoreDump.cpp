@@ -1,4 +1,4 @@
-#include "NwWrapper.h"
+#include "NovodeX/NwWrapper.h"
 #if NOVODEX
 
 #include <stdio.h>
@@ -7,12 +7,12 @@
 #include <stdarg.h>
 
 //#include "NxVersionNumber.h"
-#include "NxPhysics.h"
-#include "NxPMap.h"
-#include "NxSceneStats.h"
+#include <NxPhysics.h>
+#include <NxPMap.h>
+#include <NxSceneStats.h>
 #include "NxCooking.h"
-#include "NxStream.h"
-#include "NxCCDSkeleton.h"
+#include <NxStream.h>
+#include <NxCCDSkeleton.h>
 
 #undef fopen
 

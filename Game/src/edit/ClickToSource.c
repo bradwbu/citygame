@@ -1,23 +1,23 @@
-#include "win_init.h"
-#include "uiinput.h"
-#include "file.h"
-#include "uiutil.h"
-#include "font.h"
-#include "wdwbase.h"
-#include "clicktosource.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "utils.h"
-#include "entdebug.h"
-#include "uicontextmenu.h"
-#include "stashtable.h"
-#include "timing.h"
-#include "renderprim.h"
-#include "textureatlas.h"
-#include "earray.h"
-#include "gfxwindow.h"
-#include "camera.h"
+#include "win/win_init.h"
+#include "UI/uiInput.h"
+#include <utilitieslib/utils/file.h>
+#include "UI/uiUtil.h"
+#include "graphics/font.h"
+#include "gameComm/wdwbase.h"
+#include "edit/ClickToSource.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include <utilitieslib/utils/utils.h>
+#include "entity/entDebug.h"
+#include "UI/uiContextMenu.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/timing.h>
+#include "render/renderprim.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/components/Earray.h>
+#include "graphics/gfxwindow.h"
+#include "graphics/camera.h"
 
 #define CTS_LENGTH_OF_STATUS 8
 #define CTS_STATUS_TICK 25
@@ -78,12 +78,12 @@ static void ctsOpenFile()
 {
     if (fileExists(currentFile))
     {
-        int ret = (int)ShellExecute(NULL, "open", currentFile, NULL, NULL, SW_SHOW);
+        int ret = (int)ShellExecuteA(NULL, "open", currentFile, NULL, NULL, SW_SHOW);
         if (ret <= 32)
         {
-            ret = (int)ShellExecute(NULL, "edit", currentFile, NULL, NULL, SW_SHOW);
+            ret = (int)ShellExecuteA(NULL, "edit", currentFile, NULL, NULL, SW_SHOW);
             if (ret <= 32)
-                ret = (int)ShellExecute(NULL, "EditPlus", currentFile, NULL, NULL, SW_SHOW);
+                ret = (int)ShellExecuteA(NULL, "EditPlus", currentFile, NULL, NULL, SW_SHOW);
         }
         if (ret <= 32)
             ctsUpdateStatus(currentFile, "Failed to open the file, tell Lincoln.");
@@ -98,7 +98,7 @@ static void ctsOpenDirectory()
 {
     char* directory = strrchr(currentFile, '/');
     *directory = '\0';
-    ShellExecute(NULL, "open", currentFile, NULL, NULL, SW_SHOW);
+    ShellExecuteA(NULL, "open", currentFile, NULL, NULL, SW_SHOW);
     ctsUpdateStatus(currentFile, "Opening the directory containing this file.");
 }
 
@@ -355,11 +355,11 @@ int ClickToSourceDisplay(F32 x, F32 y, F32 z, F32 yShift, int color, const char*
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 /// Output a object costume
-#include "NPC.h"
-#include "seq.h"
-#include "seqtype.h"
-#include "costume.h"
-#include "foldercache.h"
+#include "gameComm/npc.h"
+#include "seq/seq.h"
+#include "seq/seqtype.h"
+#include "entity/costume.h"
+#include <utilitieslib/utils/FolderCache.h>
 
 int WriteAnObject( const char * libraryPieceName )
 {

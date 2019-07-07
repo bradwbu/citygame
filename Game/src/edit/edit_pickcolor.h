@@ -1,7 +1,7 @@
 #ifndef _EDIT_GETVALUE_H
 #define _EDIT_GETVALUE_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 void getPickedColor(Vec3 rgbOut);
 void edit_colorPicker_close(void);

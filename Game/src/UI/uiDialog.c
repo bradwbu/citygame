@@ -4,44 +4,44 @@
 //-----------------------------------------------------------------------------------------------------
 
 
-#include "win_init.h"
-#include "gfx.h"
-#include "earray.h"
-#include "entVarUpdate.h"
+#include "win/win_init.h"
+#include "graphics/gfx.h"
+#include <utilitieslib/components/Earray.h>
+#include "entity/entVarUpdate.h"
 #include "language/langClientUtil.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 
-#include "wdwbase.h"
-#include "uiWindows.h"
-#include "uiInput.h"
-#include "uiGame.h"
-#include "uiDialog.h"
-#include "uiUtil.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiWindows.h"
+#include "UI/uiInput.h"
+#include "UI/uiGame.h"
+#include "UI/uidialog.h"
+#include "UI/uiUtil.h"
 #include "uiSMFView.h"
-#include "uiUtilMenu.h"
-#include "uiUtilGame.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "cmdcommon.h"
-#include "validate_name.h"
-#include "estring.h"
-#include "cmdgame.h"
-#include "uiNet.h"
-#include "uiChat.h"
-#include "uiOptions.h"
-#include "uiMissionMaker.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiUtilGame.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "cmdparse/cmdcommon.h"
+#include "filter/validate_name.h"
+#include <utilitieslib/components/estring.h>
+#include "cmdparse/cmdgame.h"
+#include "UI/uiNet.h"
+#include "UI/uiChat.h"
+#include "UI/uiOptions.h"
+#include "UI/uiMissionMaker.h"
 
-#include "entity.h"
-#include "entPlayer.h"
-#include "player.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "player/player.h"
 
-#include "ttFontUtil.h"
-#include "smf_main.h"
-#include "textureatlas.h"
-#include "AppLocale.h"
-#include "MessageStoreUtil.h"
-#include "sound.h"
+#include "graphics/ttFontUtil.h"
+#include "formatter/smf_main.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "sound/sound.h"
 
 
 static TextAttribs gTextAttr =

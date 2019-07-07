@@ -3,27 +3,30 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
+#include <utilitieslib/stdtypes.h>
 #include "uiEdit.h"
-#include "uiBox.h"
-#include "uiUtilGame.h"
-#include "uiUtil.h"
-#include "sprite_font.h"
-#include "win_init.h"
-#include "utils.h"
-#include "mathutil.h"
-#include "assert.h"
-#include "earray.h"
-#include "EString.h"
-#include "ttFontUtil.h"
-#include "StringUtil.h"
-#include "wdwbase.h"
-#include "sprite_text.h"
-#include "uiclipper.h"
-#include "renderprim.h"
+#include "UI/uiBox.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtil.h"
+#include "UI/sprite/sprite_font.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/components/estring.h>
+#include "graphics/ttFontUtil.h"
+#include <utilitieslib/utils/StringUtil.h>
+#include "gameComm/wdwbase.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/uiClipper.h"
+#include "render/renderprim.h"
 
 #include "uiIME.h"
-#include "input.h"
+#include "win/input.h"
 #include "dimm.h"
+
+#pragma warning(disable:4996)
 
 // ------------------------------------------------------------
 // types

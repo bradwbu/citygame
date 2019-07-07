@@ -1,26 +1,26 @@
-#include "truetype/ttFontDraw.h"
-#include "truetype/ttFontCore.h"
-#include "truetype/ttFontManager.h"
+#include "graphics/truetype/ttFontDraw.h"
+#include "graphics/truetype/ttFontCore.h"
+#include "graphics/truetype/ttFontManager.h"
 
-//#include "wcw_statemgmt.h"    // WCW_BindTexture()
-#include "StringUtil.h"
-#include "StringTable.h"
-#include "MemoryPool.h"
-#include "HashFunctions.h"
-#include "rt_queue.h"
-#include "StashTable.h"
+//#include "render/thread/wcw_statemgmt.h"    // WCW_BindTexture()
+#include <utilitieslib/utils/StringUtil.h>
+#include <utilitieslib/components/StringTable.h>
+#include <utilitieslib/components/memorypool.h>
+#include <utilitieslib/components/HashFunctions.h>
+#include "render/thread/rt_queue.h"
+#include <utilitieslib/components/StashTable.h>
 
-#include "sprite_base.h"    // for applyToScreenScalingFactorf()
-#include "sprite_font.h"
-#include "sprite_list.h"
-#include "cmdgame.h"
-#include "utils.h"
-#include "uiGame.h"            // for shell_menu()
-#include "tex.h"
-#include "textureatlas.h"
+#include "UI/sprite/sprite_base.h"    // for applyToScreenScalingFactorf()
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_list.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/utils.h>
+#include "UI/uiGame.h"            // for shell_menu()
+#include "render/tex.h"
+#include "graphics/textureatlas.h"
 
-#include "timing.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/mathutil.h>
 
 typedef struct Clipper2D Clipper2D;
 
@@ -604,8 +604,8 @@ int ttDrawText2DWithScalingSoftwareHandler(TTDrawTextParamSoftware* param)
 *        rgba - {left-bottom, left-top, right-top, right-bottom}
 *
 */
-#include "uiClipper.h"
-#include "win_init.h"
+#include "UI/uiClipper.h"
+#include "win/win_init.h"
 
 void ttDrawText2DWithScalingSprite(TTDrawContext* context, float x, float orig_y, float z, float xScale, float yScale, int rgba[4], unsigned short* text, int textLength){
     TTDrawTextParam drawParam;

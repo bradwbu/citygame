@@ -1,20 +1,20 @@
-#include "fxfluid.h"
+#include "graphics/FX/fxfluid.h"
 #include <string.h>
-#include "fx.h"
-#include "genericlist.h"
-#include "utils.h"
-#include "earray.h"
-#include "cmdgame.h"
-#include "font.h"
+#include "graphics/FX/fx.h"
+#include <utilitieslib/components/genericlist.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/Earray.h>
+#include "cmdparse/cmdgame.h"
+#include "graphics/font.h"
 #include "time.h"
-#include "fileutil.h"
-#include "error.h"
-#include "tricks.h"
-#include "tex.h"
-#include "textparser.h"
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/error.h>
+#include "seq/tricks.h"
+#include "render/tex.h"
+#include <utilitieslib/utils/textparser.h>
 
 
-#include "strings_opt.h"
+#include <utilitieslib/utils/strings_opt.h>
 
 #if NOVODEX
 

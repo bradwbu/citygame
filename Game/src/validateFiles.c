@@ -4,29 +4,29 @@
  *     Confidential Property of Paragon Studios
  */
 #include "game.h"
-#include "utils.h"
-#include "SuperAssert.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/SuperAssert.h>
 #include "clienterror.h"
-#include "FolderCache.h"
-#include "autoResumeInfo.h"
-#include "cmdgame.h"
-#include "textparser.h"
-#include "uiAutomap.h"
-#include "file.h"
-#include "AppRegCache.h"
-#include "RegistryReader.h"
-#include "piglib.h"
-#include "sysutil.h"
-#include "genericDialog.h"
-#include "crypt.h"
-#include "StringUtil.h"
-#include "RegistryReader.h"
-#include "AppVersionDefines.h" // CHECKSUMFILE_VERSION
+#include <utilitieslib/utils/FolderCache.h>
+#include "clientcomm/autoResumeInfo.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/textparser.h>
+#include "UI/uiAutomap.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/version/AppRegCache.h>
+#include <utilitieslib/utils/RegistryReader.h>
+#include <utilitieslib/utils/piglib.h>
+#include <utilitieslib/utils/sysutil.h>
+#include <utilitieslib/utils/genericDialog.h>
+#include <utilitieslib/network/crypt.h>
+#include <utilitieslib/utils/StringUtil.h>
+#include <utilitieslib/utils/RegistryReader.h>
+#include <utilitieslib/AppVersionDefines.h> // CHECKSUMFILE_VERSION
 #include <sys/stat.h>
-#include "winfiletime.h"
-#include "win_init.h"
-#include "AppLocale.h"
-#include "osdependent.h"
+#include <utilitieslib/utils/winfiletime.h>
+#include "win/win_init.h"
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/utils/osdependent.h>
 
 extern void *extractFromFS(const char *name, U32 *count);
 extern HWND hlogo;

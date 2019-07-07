@@ -1,34 +1,34 @@
-#include "seqsequence.h"
+#include "seq/seqsequence.h"
 #include <utilitieslib/utils/wininclude.h>  // JS: Can't find where this file includes <windows.h> so I'm just sticking this include here.
 #include <string.h>
 #include <time.h>
-#include "seq.h"
+#include "seq/seq.h"
 #include "cmdparse/cmdcommon.h"
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>
-#include "anim.h"
+#include "seq/anim.h"
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "gfxtree.h"
-#include "seqstate.h"
+#include "seq/gfxtree.h"
+#include "seq/seqstate.h"
 #include "entity/entity.h"
 #include <utilitieslib/utils/strings_opt.h>
-#include "seqload.h"
+#include "seq/seqload.h"
 #if SERVER
 #include "cmdparse/cmdserver.h"
 #include "entity/entsend.h" //Debug: Just so showstate will work
 #include "entity/entserver.h" //Debug: Just so showstate will work
 #endif
 #if CLIENT
-#include "camera.h"
-#include "render.h"
-#include "sound.h"
-#include "font.h"
-#include "cmdgame.h"
-#include "fx.h"
-#include "light.h"
-#include "entclient.h" //so showstate will work
+#include "graphics/camera.h"
+#include "render/render.h"
+#include "sound/sound.h"
+#include "graphics/font.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/FX/fx.h"
+#include "graphics/light.h"
+#include "entity/entclient.h" //so showstate will work
 #include "comm_game.h"
 extern void BugReport(const char * desc, int mode);
 #endif
@@ -37,7 +37,7 @@ extern void BugReport(const char * desc, int mode);
 #include "fxinfo.h"
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/components/SharedMemory.h>
-#include "tricks.h" // GFXNODE_HIDE
+#include "seq/tricks.h" // GFXNODE_HIDE
 #include <utilitieslib/utils/prefetch.h>
 
 int     uniform_random_number = 0;

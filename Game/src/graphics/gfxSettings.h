@@ -1,6 +1,6 @@
 #pragma once
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 #define WORLD_DETAIL_LIMIT 4.0f
 #define GFXSETTINGS_VERSION 5

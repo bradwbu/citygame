@@ -1,6 +1,6 @@
 
-#include "AccountData.h"
-#include "AccountCatalog.h"
+#include "account/AccountData.h"
+#include "account/AccountCatalog.h"
 #include <utilitieslib/utils/SuperAssert.h>
 #include <utilitieslib/components/MemoryPool.h>
 #include <utilitieslib/components/earray.h>
@@ -14,9 +14,9 @@
 #include <utilitieslib/utils/utils.h>
 
 #ifdef CLIENT
-#include "dbclient.h"
-#include "clientcomm.h"
-#include "inventory_client.h"
+#include "clientcomm/dbclient.h"
+#include "clientcomm/clientcomm.h"
+#include "player/inventory_client.h"
 #endif
 
 #if defined(CLIENT) || defined(SERVER)

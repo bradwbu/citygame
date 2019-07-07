@@ -3,25 +3,25 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 
-#include "uiUtil.h"
-#include "uiUtilGame.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
 #include "uiTree.h"
-#include "uiInput.h"
+#include "UI/uiInput.h"
 
-#include "MemoryPool.h"
+#include <utilitieslib/components/memorypool.h>
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 
-#include "textureatlas.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
+#include "graphics/textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
 
-#include "earray.h"
-#include "Cbox.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/CBox.h>
 
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 static TextAttribs s_taDefaults =
 {

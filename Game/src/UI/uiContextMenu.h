@@ -1,8 +1,8 @@
 #ifndef UICONTEXTMENU_H
 #define UICONTEXTMENU_H
 
-#include "stdtypes.h"
-#include "uiInclude.h"
+#include <utilitieslib/stdtypes.h>
+#include "UI/uiInclude.h"
 
 typedef struct ContextMenu ContextMenu;
 typedef struct KeyBindProfile KeyBindProfile;

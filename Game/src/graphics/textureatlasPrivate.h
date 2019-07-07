@@ -1,13 +1,13 @@
 #ifndef _TEXTUREATLASPRIVATE_H
 #define _TEXTUREATLASPRIVATE_H
 
-#include "stdtypes.h"
-#include "tex.h"
-#include "tex_gen.h"
-#include "textureatlas.h"
-#include "MemoryPool.h"
-#include "truetype/ttFontManager.h"
-#include "EString.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/tex.h"
+#include "render/tex_gen.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/components/memorypool.h>
+#include "graphics/truetype/ttFontManager.h"
+#include <utilitieslib/components/estring.h>
 #include <windows.h>
 
 #define BORDER_1 1
@@ -241,10 +241,10 @@ static INLINEDBG void atlasTexToBasicTextureFromPixData(AtlasTex *tex, U8 *bitma
 {
     AtlasTexInternal *data = tex->data;
     int pixel_format, bpp;
-    int new_width = 1 << log2(src_width);
-    int new_height = 1 << log2(src_height);
+    int new_width = 1 << log2i(src_width);
+    int new_height = 1 << log2i(src_height);
     BasicTexture *btex = texGenNew(new_width, new_height, tex->name);
-    U8 *buffer = NULL;
+    U8* buffer = NULL;
 
     if ((pixel_type & PIX_MASK) == PIX_LA)
     {

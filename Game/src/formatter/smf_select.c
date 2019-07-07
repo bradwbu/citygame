@@ -1,15 +1,15 @@
-#include "smf_util.h"
+#include "formatter/smf_util.h"
 #include "smf_select.h"
 
-#include "earray.h"
-#include "estring.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/components/estring.h>
 
-#include "uiInput.h"
-#include "Cbox.h"
+#include "UI/uiInput.h"
+#include <utilitieslib/utils/CBox.h>
 
-#include "MemoryMonitor.h"
-#include "timing.h"
-#include "SuperAssert.h"
+#include <utilitieslib/utils/MemoryMonitor.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/SuperAssert.h>
 
 static char *smf_selectionString = 0;
 

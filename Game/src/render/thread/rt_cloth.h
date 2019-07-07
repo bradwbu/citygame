@@ -1,9 +1,9 @@
 #ifndef _RT_CLOTH_H
 #define _RT_CLOTH_H
 
-#include "rt_model.h"
-#include "texEnums.h"
-#include "Cloth.h"
+#include "render/thread/rt_model.h"
+#include "render/texEnums.h"
+#include "Cloth/Cloth.h"
 
 typedef struct TrickNode    TrickNode;
 typedef struct ClothMesh    ClothMesh;

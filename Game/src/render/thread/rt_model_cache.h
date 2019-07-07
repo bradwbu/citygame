@@ -72,8 +72,8 @@ int modelBindBuffer(VBO *vbo);
 void modelBindDefaultBuffer(void);
 void modelFreeVboDirect(VBO **vbo_p);
 
-#include "rt_init.h"
-#include "wcw_statemgmt.h"
+#include "render/thread/rt_init.h"
+#include "render/thread/wcw_statemgmt.h"
 
 static INLINEDBG int modelBindBuffer(VBO *vbo)
 {

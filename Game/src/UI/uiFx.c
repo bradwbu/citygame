@@ -1,27 +1,27 @@
 
-#include "stdtypes.h"
-#include "utils.h"
-#include "uiUtil.h"
-#include "uiFx.h"
-#include "uiBox.h"
-#include "uiClipper.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/utils.h>
+#include "UI/uiUtil.h"
+#include "UI/uiFx.h"
+#include "UI/uiBox.h"
+#include "UI/uiClipper.h"
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
 
-#include "cmdcommon.h"
-#include "ttFontUtil.h"
-#include "sound.h"
-#include "earray.h"
-#include "uiWindows.h"
-#include "uiGame.h"
-#include "wdwbase.h"
-#include "win_init.h"
-#include "timing.h"
-#include "MemoryPool.h"
-#include "player.h"
+#include "cmdparse/cmdcommon.h"
+#include "graphics/ttFontUtil.h"
+#include "sound/sound.h"
+#include "UI/uiWindows.h"
+#include "UI/uiGame.h"
+#include "gameComm/wdwbase.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/components/memorypool.h>
+#include <utilitieslib/components/earray.h>
+#include "player/player.h"
 
 int gElectricAction = 0;
 

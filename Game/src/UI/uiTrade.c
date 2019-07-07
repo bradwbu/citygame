@@ -1,55 +1,55 @@
 
-#include "uiTrade.h"
-#include "uiNet.h"
-#include "uiChat.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"
-#include "uiGame.h"
-#include "uiCursor.h"
-#include "uiWindows.h"
-#include "uiReticle.h"
-#include "uiScrollBar.h"
-#include "uiEditText.h"
-#include "uiTray.h"
-#include "uiInspiration.h"
-#include "uiEnhancement.h"
-#include "uiRecipeInventory.h"
-#include "uiInput.h"
-#include "uiInfo.h"
-#include "uiDialog.h"
-#include "uiContextMenu.h"
+#include "UI/uiTrade.h"
+#include "UI/uiNet.h"
+#include "UI/uiChat.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiGame.h"
+#include "UI/uiCursor.h"
+#include "UI/uiWindows.h"
+#include "UI/uiReticle.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiEditText.h"
+#include "UI/uiTray.h"
+#include "UI/uiInspiration.h"
+#include "UI/uiEnhancement.h"
+#include "UI/uiRecipeInventory.h"
+#include "UI/uiInput.h"
+#include "UI/uiInfo.h"
+#include "UI/uidialog.h"
+#include "UI/uiContextMenu.h"
 #include "uiCombineSpec.h"
 #include "uiAmountSlider.h"
-#include "uiOptions.h"
-#include "win_init.h"
+#include "UI/uiOptions.h"
+#include "win/win_init.h"
 
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "ttFontUtil.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "graphics/ttFontUtil.h"
 
-#include "wdwbase.h"
-#include "entity.h"
-#include "powers.h"
-#include "cmdgame.h"
-#include "character_net.h"
-#include "earray.h"
-#include "costume.h"
+#include "gameComm/wdwbase.h"
+#include "entity/entity.h"
+#include "entity/powers.h"
+#include "cmdparse/cmdgame.h"
+#include "entity/character_net.h"
+#include <utilitieslib/components/Earray.h>
+#include "entity/costume.h"
 #include "comm_game.h"
-#include "origins.h"
-#include "classes.h"
-#include "player.h"
-#include "strings_opt.h"
-#include "entVarUpdate.h"
-#include "character_base.h"
-#include "textureatlas.h"
-#include "mathutil.h"
-#include "character_inventory.h"
+#include "entity/origins.h"
+#include "entity/classes.h"
+#include "player/player.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include "entity/entVarUpdate.h"
+#include "entity/character_base.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "entity/character_inventory.h"
 #include "uiSalvage.h"
 #include "UIEdit.h"
-#include "input.h"
-#include "MessageStoreUtil.h"
+#include "win/input.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 #define NUM_WD  11
 #define NUM_HT  20
@@ -679,7 +679,7 @@ static void tpowRemoveFromTrade( int iset, int ipow )
 static void tpowMarkForTrade( Entity *e, int i, int j )
 {
     int idx;
-    Power * pow;
+    Power* pow = NULL;
 
     if( i >= 0 && i < eaSize(&e->pchar->ppPowerSets) &&
         j >= 0 && j < eaSize(&e->pchar->ppPowerSets[i]->ppPowers) )
@@ -744,7 +744,7 @@ static void trade_inspirationElement( const void * insp, float x, float y, float
     Entity      *e = playerPtr();
     const TradeObj    *to = 0;
     const BasePower   *ppow;
-    AtlasTex     *icon;
+    AtlasTex* icon = NULL;
     CBox        box;
 
     drawFadeBar( x, y, z, wd, ht, 0xffffff22 );
@@ -808,7 +808,7 @@ static void trade_enhancementElements( void * spec, float x, float y, float z, f
     CBox        box;
     int         iLevel;
     int         iNumCombines;
-    AtlasTex     *icon;
+    AtlasTex* icon = NULL;
     Entity        *e = playerPtr();
 
     drawFadeBar( x, y, z, wd, ht, 0xffffff22 );
@@ -889,7 +889,7 @@ static void trade_salvageElement(void * salvage, float x, float y, float z, floa
 {
     Entity      *e = playerPtr();
     TradeObj    *to = 0;
-    AtlasTex     *icon;
+    AtlasTex* icon = NULL;
     CBox        box;
     const SalvageItem *sal;
     int count;
@@ -959,7 +959,7 @@ static void trade_recipeElement(void * recipe, float x, float y, float z, float 
 {
     Entity      *e = playerPtr();
     TradeObj    *to = 0;
-    AtlasTex     *icon;
+    AtlasTex* icon = NULL;
     CBox        box;
     const DetailRecipe *pRec;
     int count;
@@ -1031,7 +1031,7 @@ static void trade_tempPowElement( void * tpow, float x, float y, float z, float 
     Entity      *e = playerPtr();
     TradeObj    *to = 0;
     const BasePower   *ppow;
-    AtlasTex     *icon;
+    AtlasTex* icon = NULL;
     CBox        box;
 
     drawFadeBar( x, y, z, wd, ht, 0xffffff22 );

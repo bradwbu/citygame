@@ -3,53 +3,53 @@
 *     All Rights Reserved
 *     Confidential Property of Cryptic Studios
 ***************************************************************************/
-#include "stdtypes.h"
-#include "utils.h"
-#include "earray.h"
-#include "mathutil.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/mathutil.h>
 
-#include "entity.h"
-#include "supergroup.h"
+#include "entity/entity.h"
+#include "entity/Supergroup.h"
 
-#include "wdwbase.h"
-#include "sprite.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
+#include "gameComm/wdwbase.h"
+#include "render/sprite.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
 
-#include "player.h"
-#include "cmdgame.h"
-#include "camera.h"
-#include "uiBox.h"
-#include "uiUtil.h"
-#include "uiInput.h"
-#include "uiWindows.h"
-#include "uiClipper.h"
-#include "uiUtilGame.h"
-#include "uiTabControl.h"
+#include "player/player.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/camera.h"
+#include "UI/uiBox.h"
+#include "UI/uiUtil.h"
+#include "UI/uiInput.h"
+#include "UI/uiWindows.h"
+#include "UI/uiClipper.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiTabControl.h"
 #include "uiSlider.h"
-#include "uiScrollBar.h"
-#include "uiBaseInput.h"
-#include "uiBaseRoom.h"
-#include "uiBaseInventory.h"
-#include "uiToolTip.h"
-#include "uiGame.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiBaseInput.h"
+#include "UI/uiBaseRoom.h"
+#include "UI/uiBaseInventory.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiGame.h"
 #include "uiColorPicker.h"
-#include "uiNet.h"
+#include "UI/uiNet.h"
 
-#include "bases.h"
-#include "basedata.h"
-#include "baseedit.h"
-#include "baseinv.h"
-#include "basesystems.h"
-#include "baseclientsend.h"
+#include "bases/bases.h"
+#include "bases/basedata.h"
+#include "bases/baseedit.h"
+#include "bases/baseinv.h"
+#include "bases/basesystems.h"
+#include "bases/baseclientsend.h"
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 #include "uiSMFView.h"
 
-#include "ttFontUtil.h"
-#include "groupThumbnail.h"
-#include "MessageStoreUtil.h"
+#include "graphics/ttFontUtil.h"
+#include "graphics/groupThumbnail.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 TextAttribs gTextTitleAttr =
 {

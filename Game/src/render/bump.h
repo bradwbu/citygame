@@ -1,8 +1,8 @@
 #ifndef _BUMP_H
 #define _BUMP_H
 
-#include "stdtypes.h"
-#include "rt_model_cache.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/thread/rt_model_cache.h"
 typedef struct Model Model;
 typedef struct TexReadInfo TexReadInfo;
 

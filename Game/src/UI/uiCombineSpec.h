@@ -1,7 +1,7 @@
 #ifndef UICOMBINESPEC_H
 #define UICOMBINESPEC_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 void combineSpecMenu();
 

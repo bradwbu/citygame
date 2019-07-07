@@ -1,5 +1,5 @@
-#include "uiWindows.h"
-#include "wdwbase.h"
+#include "UI/uiWindows.h"
+#include "gameComm/wdwbase.h"
 
 int trialReminderWindow(void)
 {

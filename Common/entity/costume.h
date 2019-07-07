@@ -8,7 +8,7 @@
 
 #include <utilitieslib/utils/Color.h>
 #include <utilitieslib/stdtypes.h>
-#include "character_base.h"
+#include "entity/character_base.h"
 
 typedef struct Packet Packet;
 typedef struct Entity Entity;

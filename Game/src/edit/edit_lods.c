@@ -1,22 +1,22 @@
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "assert.h"
-#include "error.h"
-#include "mathutil.h"
-#include "textparser.h"
-#include "utils.h"
-#include "fileutil.h"
-#include "RegistryReader.h"
-#include "FolderCache.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/RegistryReader.h>
+#include <utilitieslib/utils/FolderCache.h>
 #include "editorUI.h"
-#include "edit_select.h"
-#include "anim.h"
-#include "edit_cmd_select.h"
-#include "groupfileload.h"
-#include "modelReload.h"
-#include "AppRegCache.h"
-#include "groupfilelib.h"
-#include "AutoLOD.h"
-#include "cmdgame.h"
+#include "edit/edit_select.h"
+#include "seq/anim.h"
+#include "edit/edit_cmd_select.h"
+#include "group/groupfileload.h"
+#include "seq/modelReload.h"
+#include <utilitieslib/version/AppRegCache.h>
+#include "group/groupfilelib.h"
+#include "seq/AutoLOD.h"
+#include "cmdparse/cmdgame.h"
 
 //////////////////////////////////////////////////////////////////////////
 // LOD Editor Window
@@ -25,7 +25,7 @@
 
 static void editLODsSetLODValues(Model *model, GroupDef *def);
 
-typedef enum
+enum
 {
     LOD_MODE_SPECIFY=0,
     LOD_MODE_TRICOUNT=1,

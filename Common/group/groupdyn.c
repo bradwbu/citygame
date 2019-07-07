@@ -1,11 +1,11 @@
-#include "groupdyn.h"
-#include "group.h"
-#include "grouputil.h"
+#include "group/groupdyn.h"
+#include "group/group.h"
+#include "group/grouputil.h"
 #include <utilitieslib/utils/utils.h>
-#include "grouptrack.h"
+#include "group/grouptrack.h"
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "groupfileload.h"
+#include "group/groupfileload.h"
 
 DynGroup        *dyn_groups;
 int                dyn_group_count,dyn_group_max;

@@ -1,9 +1,9 @@
-#include "groupdyn.h"
-#include "groupdynrecv.h"
-#include "utils.h"
-#include "zlib.h"
-#include "groupdraw.h"
-#include "netcomp.h"
+#include "group/groupdyn.h"
+#include "group/groupdynrecv.h"
+#include <utilitieslib/utils/utils.h>
+#include <zlib/zlib.h>
+#include "graphics/groupdraw.h"
+#include <utilitieslib/network/netcomp.h>
 #include "demo.h"
 
 

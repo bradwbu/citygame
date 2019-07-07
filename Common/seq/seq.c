@@ -1,5 +1,5 @@
 #include <utilitieslib/stdtypes.h>
-#include "seq.h"
+#include "seq/seq.h"
 #include <utilitieslib/utils/wininclude.h>  // JS: Can't find where this file includes <windows.h> so I'm just sticking this include here.
 #include <string.h>
 #include <time.h>
@@ -7,12 +7,12 @@
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>
-#include "anim.h"
+#include "seq/anim.h"
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/mathutil.h>
 
-#include "seqanimate.h"
-#include "seqsequence.h"
+#include "seq/seqanimate.h"
+#include "seq/seqsequence.h"
 #include <utilitieslib/components/earray.h>
 #include "group/groupfileload.h"
 #include "group/group.h"
@@ -20,40 +20,40 @@
 #include <utilitieslib/components/StringCache.h>
 #if SERVER
 #include "cmdparse/cmdserver.h"
-#include "seqskeleton.h"
+#include "seq/seqskeleton.h"
 #endif
 #if CLIENT
-#include "seqgraphics.h"
-#include "camera.h"
-#include "render.h"
-#include "sound.h"
-#include "font.h"
-#include "cmdgame.h"
-#include "fx.h"
-#include "light.h"
-#include "model_cache.h"
-#include "rendershadow.h"
-#include "costume.h"
-#include "costume_client.h"
-#include "player.h"
-#include "clothnode.h"
-#include "fxlists.h"
-#include "fxcapes.h"
+#include "graphics/seqgraphics.h"
+#include "graphics/camera.h"
+#include "render/render.h"
+#include "sound/sound.h"
+#include "graphics/font.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/FX/fx.h"
+#include "graphics/light.h"
+#include "render/model_cache.h"
+#include "render/rendershadow.h"
+#include "entity/costume.h"
+#include "entity/costume_client.h"
+#include "player/player.h"
+#include "graphics/clothnode.h"
+#include "graphics/FX/fxlists.h"
+#include "graphics/FX/fxcapes.h"
 #endif
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/strings_opt.h>
-#include "gfxtree.h"
-#include "seqtype.h"
+#include "seq/gfxtree.h"
+#include "seq/seqtype.h"
 #include "render/tex.h"
-#include "seqstate.h"
+#include "seq/seqstate.h"
 #include "entity/entity.h"
 #include "entity/entPlayer.h"
 #include "entity/character_base.h"
 #include "entity/motion.h"
 #include "fxinfo.h"
 #include <utilitieslib/components/StashTable.h>
-#include "AnimBitList.h"
+#include "seq/AnimBitList.h"
 #include <utilitieslib/utils/Quat.h>
 
 #define NO_PARTICULAR_VOLUME 0

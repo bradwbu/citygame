@@ -3,23 +3,23 @@
 #include <string.h> // memset
 #include <sys/stat.h>
 
-#include "smf_util.h"
-#include "StringUtil.h"
+#include "formatter/smf_util.h"
+#include <utilitieslib/utils/StringUtil.h>
 
-#include "stdtypes.h"
-#include "earray.h"
-#include "estring.h"
-#include "error.h"
-#include "timing.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/timing.h>
 
-#include "truetype/ttFontDraw.h"
-#include "sprite_base.h"
+#include "graphics/truetype/ttFontDraw.h"
+#include "UI/sprite/sprite_base.h"
 
-#include "uiFocus.h"
-#include "uiUtil.h"
+#include "UI/uiFocus.h"
+#include "UI/uiUtil.h"
 
-#include "MemoryPool.h"
-#include "MemoryMonitor.h"
+#include <utilitieslib/components/memorypool.h>
+#include <utilitieslib/utils/MemoryMonitor.h>
 
 static SMFSelectionCommand smf_selectionCommand = SMFSelectionCommand_None;
 static char *smf_selectionPreTag = NULL;

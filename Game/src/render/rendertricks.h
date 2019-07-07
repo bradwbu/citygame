@@ -1,9 +1,9 @@
 #ifndef _RENDERTRICKS_H
 #define _RENDERTRICKS_H
 
-#include "mathutil.h"
-#include "gfxtree.h"
-#include "animtrackanimate.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "seq/gfxtree.h"
+#include "seq/animtrackanimate.h"
 
 typedef struct TrickNode TrickNode;
 

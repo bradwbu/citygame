@@ -1,15 +1,15 @@
-#include "tex.h"
-#include "ogl.h"
-#include "rt_tex.h"
-#include "rt_queue.h"
-#include "renderprim.h"
-#include "tex_gen.h"
-#include "SuperAssert.h"
-#include "MemoryMonitor.h"
-#include "StringCache.h"
-#include "osdependent.h"
-#include "mathutil.h"    // for pow2
-#include "rt_init.h"    // for rdr_caps
+#include "render/tex.h"
+#include "render/thread/ogl.h"
+#include "render/thread/rt_tex.h"
+#include "render/thread/rt_queue.h"
+#include "render/renderprim.h"
+#include "render/tex_gen.h"
+#include <utilitieslib/utils/SuperAssert.h>
+#include <utilitieslib/utils/MemoryMonitor.h>
+#include <utilitieslib/components/StringCache.h>
+#include <utilitieslib/utils/osdependent.h>
+#include <utilitieslib/utils/mathutil.h>    // for pow2
+#include "render/thread/rt_init.h"    // for rdr_caps
 
 static const char TEXGEN_MEMMONITOR_NAME[] = "tex_gen";
 

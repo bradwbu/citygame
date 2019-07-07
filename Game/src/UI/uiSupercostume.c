@@ -1,43 +1,43 @@
 
-#include "utils.h"  // for strstri
-#include "earray.h"
-#include "player.h"
-#include "cmdgame.h"
-#include "entPlayer.h"
-#include "entclient.h"  // for entSetAlpha
-#include "costume_client.h"
+#include <utilitieslib/utils/utils.h>  // for strstri
+#include <utilitieslib/components/Earray.h>
+#include "player/player.h"
+#include "cmdparse/cmdgame.h"
+#include "entity/EntPlayer.h"
+#include "entity/entclient.h"  // for entSetAlpha
+#include "entity/costume_client.h"
 
 #include "gameData/costume_data.h"
 #include "language/langClientUtil.h"
 
-#include "uiGame.h"
-#include "uiUtil.h"
-#include "uiInput.h"
-#include "uiAvatar.h"
-#include "uiCostume.h"
-#include "uiTailor.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"
-#include "uiSupercostume.h"
-#include "uiSuperRegistration.h"
-#include "uiEditText.h"
-#include "uiNet.h"
-#include "uiScrollBar.h"
+#include "UI/uiGame.h"
+#include "UI/uiUtil.h"
+#include "UI/uiInput.h"
+#include "UI/uiAvatar.h"
+#include "UI/uiCostume.h"
+#include "UI/uiTailor.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiSupercostume.h"
+#include "UI/uiSuperRegistration.h"
+#include "UI/uiEditText.h"
+#include "UI/uiNet.h"
+#include "UI/uiScrollBar.h"
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
-#include "tex.h"
-#include "uiBox.h"
-#include "sound.h"
-#include "ttFontUtil.h"
-#include "seqstate.h"
-#include "seq.h"
-#include "entity.h"
-#include "MessageStoreUtil.h"
-#include "character_base.h"
-#include "clientcomm.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
+#include "render/tex.h"
+#include "UI/uiBox.h"
+#include "sound/sound.h"
+#include "graphics/ttFontUtil.h"
+#include "seq/seqstate.h"
+#include "seq/seq.h"
+#include "entity/entity.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "entity/character_base.h"
+#include "clientcomm/clientcomm.h"
 
 #define RING_WD     30              // Width for a single color ring
 #define PICKER_X    72              // All picker rows start at this x
@@ -51,7 +51,7 @@
 #define SUPER_COLOR1_OFFSET 64      // x coordinates of the first supergroup color ring relative to beginning of column.
 #define SUPER_COLOR2_OFFSET 98      // x coordinates of the 2nd   supergroup color ring relative to beginning of column.
 #define SUPER_COLOR_SPACING 4
-#include "Supergroup.h"
+#include "entity/Supergroup.h"
 
 static char gSuperEmblemName[256];
 

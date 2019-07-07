@@ -1,8 +1,9 @@
-#include "hwlight.h"
+#include <utilitieslib/stdtypes.h>
+#include "win/hwlight.h"
 
 // Normally I'd put app #includes after system #includes, but Windows headers are order-sensitive.
 //  Caveat refactoror.
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 
 #include "windows.h"
 
@@ -10,17 +11,17 @@
 #include "LFX2.h"
 #undef _IMPORTING
 
-#include "character_base.h"
-#include "clientcomm.h"
-#include "entity.h"
-#include "entplayer.h"
-#include "font.h"
-#include "gfxLoadScreens.h"
-#include "player.h"
-#include "sprite_base.h"
-#include "textureatlas.h"
-#include "uiStatus.h"
-#include "win_init.h"
+#include "entity/character_base.h"
+#include "clientcomm/clientcomm.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "graphics/font.h"
+#include "graphics/gfxLoadScreens.h"
+#include "player/player.h"
+#include "UI/sprite/sprite_base.h"
+#include "graphics/textureatlas.h"
+#include "UI/uiStatus.h"
+#include "win/win_init.h"
 
 static bool s_hwlightInitialized = false;
 static bool s_colorSet = false;
@@ -46,7 +47,7 @@ LFX2UPDATE cbLFX_Update;
 LFX2RELEASE cbLFX_Release;
 
 static bool doInitialization() {
-    HINSTANCE lfxLib = LoadLibrary(LFX_DLL_NAME);
+    HINSTANCE lfxLib = LoadLibraryA(LFX_DLL_NAME);
 
     if (!lfxLib)
         return false;

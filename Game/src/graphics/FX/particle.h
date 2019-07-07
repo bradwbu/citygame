@@ -1,7 +1,7 @@
 #ifndef _PARTICLE_H
 #define _PARTICLE_H
 
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "fxutil.h"
 
 #define MAX_PARTICLES        50000     //unneeded hard limit, should be limited by number updated or number drawn

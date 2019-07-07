@@ -1,32 +1,33 @@
+#include <utilitieslib/stdtypes.h>
 #include "uiListView.h"
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <stddef.h>
 #include <string.h>
-#include "strings_opt.h"
-#include "textureatlas.h"
-#include "sprite_base.h"
-#include "uiUtil.h"
-#include "sprite_text.h"
-#include "ttFontUtil.h"
-#include "mathutil.h"
-#include "sprite_text.h"
-#include "contextQsort.h"
-#include "uiInput.h"
-#include "uiClipper.h"
-#include "uiUtilGame.h"
-#include "uiTarget.h"
-#include "Color.h"
-#include "entity.h"
-#include "uiCursor.h"
-#include "win_init.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include "graphics/textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/uiUtil.h"
+#include "UI/sprite/sprite_text.h"
+#include "graphics/ttFontUtil.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "UI/sprite/sprite_text.h"
+#include <utilitieslib/utils/contextQsort.h>
+#include "UI/uiInput.h"
+#include "UI/uiClipper.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiTarget.h"
+#include <utilitieslib/utils/Color.h>
+#include "entity/entity.h"
+#include "UI/uiCursor.h"
+#include "win/win_init.h"
 #include "winuser.h"
-#include "uiGame.h"
+#include "UI/uiGame.h"
 
-#include "uiSupergroup.h"
-#include "uiEmail.h"
-#include "uiFriend.h"
-#include "uiLfg.h"
-#include "uiNet.h"
+#include "UI/uiSupergroup.h"
+#include "UI/uiEmail.h"
+#include "UI/uiFriend.h"
+#include "UI/uiLfg.h"
+#include "UI/uiNet.h"
 
 extern TTDrawContext* font_grp;
 
@@ -197,7 +198,7 @@ Widget3Part ColumnSelectedHeaderParts =
 //--------------------------------------------------------------------------------------------------------------------
 // UIColumnHeader 
 //--------------------------------------------------------------------------------------------------------------------
-#include "earray.h"
+#include <utilitieslib/components/Earray.h>
 
 UIColumnHeader* uiCHCreate(void)
 {

@@ -1,7 +1,7 @@
 #ifndef _SEQ_H
 #define _SEQ_H
  
-#include "gfxtree.h"
+#include "seq/gfxtree.h"
 #ifdef CLIENT
 #include <utilitieslib/components/earray.h>
 #endif

@@ -1,10 +1,10 @@
 #ifndef _UISCRIPT_H
 #define    _UISCRIPT_H
 
-#include "uiInclude.h"
-#include "stdtypes.h"
-#include "scriptuienum.h"
-#include "uiCompass.h" // For ScriptUIClientWidget
+#include "UI/uiInclude.h"
+#include <utilitieslib/stdtypes.h>
+#include "storyarc/ScriptUIEnum.h"
+#include "UI/uiCompass.h" // For ScriptUIClientWidget
 
 extern int scriptUIIsDetached;
 

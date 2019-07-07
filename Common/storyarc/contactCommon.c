@@ -1,6 +1,6 @@
 // ContactCommon.c - contact dialog links and other stuff server and client have to agree on
 
-#include "contactCommon.h"
+#include "storyarc/contactCommon.h"
 
 // contact response options -
 //    dialog links given in text should be passed through

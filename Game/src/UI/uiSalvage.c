@@ -4,72 +4,72 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "uiSalvage.h"
-#include "basestorage.h"
+#include "bases/basestorage.h"
 #include "uiGrowBig.h"
-#include "Salvage.h"
-#include "utils.h"
-#include "earray.h"
-#include "EString.h"
-#include "DetailRecipe.h"
-#include "authUserData.h"
+#include "entity/salvage.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/components/estring.h>
+#include "bases/DetailRecipe.h"
+#include "auth/authUserData.h"
 
-#include "entity.h"
-#include "entplayer.h"
-#include "badges.h"
-#include "badges_client.h"
-#include "inventory_client.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "player/badges.h"
+#include "player/badges_client.h"
+#include "player/inventory_client.h"
 
-#include "wdwbase.h"
-#include "uiUtil.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiUtil.h"
 #include "uiSMFView.h"
-#include "uiWindows.h"
-#include "uiUtilGame.h"
-#include "uiScrollBar.h"
-#include "uiTabControl.h"
-#include "uiInput.h"
-#include "uiInfo.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "player.h"
-#include "cmdgame.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiTabControl.h"
+#include "UI/uiInput.h"
+#include "UI/uiInfo.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "player/player.h"
+#include "cmdparse/cmdgame.h"
 
-#include "uiBadges.h"
-#include "badges_client.h"
+#include "UI/uiBadges.h"
+#include "player/badges_client.h"
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "tex.h"
-#include "textureatlas.h"
-#include "mathutil.h"
-#include "StashTable.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "render/tex.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/StashTable.h>
 
-#include "MessageStore.h"
-#include "Salvage.h"
-#include "character_base.h"
-#include "character_inventory.h"
-#include "character_eval.h"
-#include "uiComboBox.h"
-#include "uiContextMenu.h"
-#include "uiNet.h"
-#include "Error.h"
-#include "uiCursor.h"
-#include "uiTray.h"
-#include "uiTrade.h"
-#include "entVarUpdate.h"
-#include "uiChat.h"
+#include <utilitieslib/language/MessageStore.h>
+#include "entity/salvage.h"
+#include "entity/character_base.h"
+#include "entity/character_inventory.h"
+#include "entity/character_eval.h"
+#include "UI/uiComboBox.h"
+#include "UI/uiContextMenu.h"
+#include "UI/uiNet.h"
+#include <utilitieslib/utils/error.h>
+#include "UI/uiCursor.h"
+#include "UI/uiTray.h"
+#include "UI/uiTrade.h"
+#include "entity/entVarUpdate.h"
+#include "UI/uiChat.h"
 #include "uiBaseStorage.h"
 #include "uiGift.h"
-#include "bases.h"
-#include "uiDialog.h"
-#include "uiOptions.h"
-#include "sound.h"
-#include "MessageStoreUtil.h"
+#include "bases/bases.h"
+#include "UI/uidialog.h"
+#include "UI/uiOptions.h"
+#include "sound/sound.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 #include "uiAmountSlider.h"
-#include "uiStoredSalvage.h"
-#include "Salvage.h"
+#include "UI/uiStoredSalvage.h"
+#include "entity/salvage.h"
 
 typedef struct salvageSMF
 {
@@ -951,7 +951,7 @@ static void salvagewindowstate_Init(SalvageWindowState *state)
             }
             else // determine if this tab has more than one 'type' and rarity
             {
-                const char *type;
+                const char *type = NULL;
                 SalvageRarity rarity;
                 int j;
 

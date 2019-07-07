@@ -1,8 +1,8 @@
 #ifndef UIFX_H
 #define UIFX_H
 
-#include "stdtypes.h"
-#include "uiInclude.h"
+#include <utilitieslib/stdtypes.h>
+#include "UI/uiInclude.h"
 
 void electric_initEx( float x, float y, float z, float scale, int light, int duration, int destwdw, int id, int *offset);
 int electric_init( float x, float y, float z, float scale, int light, int duration, int count, int *offset );

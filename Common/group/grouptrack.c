@@ -1,23 +1,23 @@
 #include <utilitieslib/stdtypes.h>
-#include "grouptrack.h"
+#include "group/grouptrack.h"
 #include <stdlib.h>
-#include "group.h"
-#include "groupgrid.h"
+#include "group/group.h"
+#include "group/groupgrid.h"
 #include <utilitieslib/utils/mathutil.h>
 #include <memory.h>
 #include <utilitieslib/utils/utils.h>
 #include "string.h"
 #include <utilitieslib/utils/timing.h>
 #ifdef CLIENT
-#include "edit_select.h"
-#include "model_cache.h"
-#include "vistray.h"
-#include "NwWrapper.h"
-#include "edit_net.h"
-#include "camera.h"
-#include "basedraw.h"
+#include "edit/edit_select.h"
+#include "render/model_cache.h"
+#include "graphics/vistray.h"
+#include "NovodeX/NwWrapper.h"
+#include "edit/edit_net.h"
+#include "graphics/camera.h"
+#include "bases/basedraw.h"
 #endif
-#include "groupfileload.h"
+#include "group/groupfileload.h"
 #include <utilitieslib/assert/assert.h>
 
 int tracker_count;
@@ -261,8 +261,8 @@ void trackerOpenEdit(DefTracker *tracker)
 }
 
 #if CLIENT
-#include "edit_select.h"
-#include "fx.h"
+#include "edit/edit_select.h"
+#include "graphics/FX/fx.h"
 
 void trackerCloseEdit(DefTracker *tracker)
 {

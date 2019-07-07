@@ -1,6 +1,6 @@
-#include "truetype/ttAppleMapping.h"
-#include "StashTable.h"
-#include "stdtypes.h"    // for ARRAY_SIZE()
+#include "graphics/truetype/ttAppleMapping.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/stdtypes.h>    // for ARRAY_SIZE()
 
 typedef struct{
     unsigned short unicode;

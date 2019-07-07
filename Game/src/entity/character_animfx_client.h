@@ -6,8 +6,8 @@
 #ifndef CHARACTER_ANIMFX_CLIENT_H__
 #define CHARACTER_ANIMFX_CLIENT_H__
 
-#include "character_animfx_common.h"
-#include "Color.h"
+#include "entity/character_animfx_common.h"
+#include <utilitieslib/utils/Color.h>
 
 void character_SetAnimClientBits(struct Character *p, int *piList);
 void character_SetAnimClientStanceBits(struct Character *p, int *piList);

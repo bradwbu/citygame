@@ -1,18 +1,18 @@
-#include "entity.h"
-#include "player.h"
-#include "teamCommon.h"
-#include "uiCursor.h"
-#include "uiContextMenu.h"
-#include "uiChat.h"
-#include "uiTarget.h"
-#include "MessageStoreUtil.h"
-#include "wdwbase.h"
-#include "cmdgame.h"
-#include "uiWindows.h"
-#include "uiGroupWindow.h"
-#include "earray.h"
+#include "entity/entity.h"
+#include "player/player.h"
+#include "entity/teamCommon.h"
+#include "UI/uiCursor.h"
+#include "UI/uiContextMenu.h"
+#include "UI/uiChat.h"
+#include "UI/uiTarget.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "gameComm/wdwbase.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiWindows.h"
+#include "UI/uiGroupWindow.h"
+#include <utilitieslib/components/Earray.h>
 #include "uiLeague.h"
-#include "teamup.h"
+#include "entity/teamup.h"
 
 int league_CanOfferMembership(void *foo)
 {

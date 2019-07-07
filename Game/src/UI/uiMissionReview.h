@@ -1,6 +1,6 @@
 #ifndef UIMISSIONREVIEW_H
 #define UIMISSIONREVIEW_H
-#include "uiScrollBar.h"
+#include "UI/uiScrollBar.h"
 
 
 int missionReviewWindow(void);

@@ -1,5 +1,6 @@
-#include "sprite.h"
-#include "utils.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/sprite.h"
+#include <utilitieslib/utils/utils.h>
 #include "assert.h"
 
 typedef struct SpriteIndexElement {

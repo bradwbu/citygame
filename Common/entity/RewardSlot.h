@@ -6,7 +6,7 @@
 #ifndef REWARDSLOT_H
 #define REWARDSLOT_H
 
-#include "RewardItemType.h"
+#include "entity/RewardItemType.h"
 
 typedef struct Packet Packet;
 

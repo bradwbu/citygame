@@ -1,37 +1,37 @@
-#include "gridcoll.h"
-#include "edit_select.h"
-#include "mathutil.h"
-#include "win_init.h"
-#include "grouptrack.h"
-#include "camera.h"
-#include "edit_cmd.h"
-#include "input.h"
-#include "font.h"
-#include "edit_drawlines.h"
-#include "groupdraw.h"
-#include "cmdgame.h"
-#include "gfx.h"
+#include "gridcoll/gridcoll.h"
+#include "edit/edit_select.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "win/win_init.h"
+#include "group/grouptrack.h"
+#include "graphics/camera.h"
+#include "edit/edit_cmd.h"
+#include "win/input.h"
+#include "graphics/font.h"
+#include "edit/edit_drawlines.h"
+#include "graphics/groupdraw.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/gfx.h"
 #include "edit_info.h"
-#include "edit_net.h"
-#include "gfxwindow.h"
-#include "edit_cmd_select.h"
-#include "sound.h"
-#include "grouputil.h"
+#include "edit/edit_net.h"
+#include "graphics/gfxwindow.h"
+#include "edit/edit_cmd_select.h"
+#include "sound/sound.h"
+#include "group/grouputil.h"
 #include "edit_cmd_group.h"
-#include "uiInput.h"
-#include "gfxtree.h"
-#include "groupgrid.h"
-#include "anim.h"
+#include "UI/uiInput.h"
+#include "seq/gfxtree.h"
+#include "group/groupgrid.h"
+#include "seq/anim.h"
 #include "edit_errcheck.h"
-#include "edit_cmd_adjust.h"
+#include "edit/edit_cmd_adjust.h"
 #include "resource.h"
-#include "utils.h"
-#include "StashTable.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/StashTable.h>
 #include "editorUI.h"
 #include "properties.h"
-#include "edit_library.h"
-#include "groupfileload.h"
-#include "estring.h"
+#include "edit/edit_library.h"
+#include "group/groupfileload.h"
+#include <utilitieslib/components/estring.h>
 
 Vec3        quickPlacementRotateNormal;
 
@@ -802,8 +802,8 @@ static void selDrawHelper(DefTracker * tracker,Mat4 mat)
         groupDrawDefTracker(tracker->def,0,mat,0,0,1,0,-1);
 }
 
-#include "groupMiniTrackers.h"
-#include "groupdrawinline.h"
+#include "graphics/groupMiniTrackers.h"
+#include "graphics/groupdrawinline.h"
 void selDraw(void)
 {
     Mat4        mat,matx,viewmat;

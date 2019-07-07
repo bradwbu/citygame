@@ -1,30 +1,30 @@
 
-#include "uiKeybind.h"
-#include "input.h"
-#include "uiNet.h"
+#include "UI/uiKeybind.h"
+#include "win/input.h"
+#include "UI/uiNet.h"
 #include "time.h"
-#include "error.h"
-#include "textparser.h"
-#include "earray.h"
-#include "player.h"
-#include "entPlayer.h"
-#include "cmdgame.h"
-#include "uiConsole.h"
-#include "uiKeymapping.h"
-#include "entVarUpdate.h"
-#include "uiChat.h"
-#include "utils.h"
-#include "sysutil.h"
-#include "uiChat.h"
-#include "sprite_text.h"
-#include "entity.h"
-#include "file.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/Earray.h>
+#include "player/player.h"
+#include "entity/EntPlayer.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiConsole.h"
+#include "UI/uiKeymapping.h"
+#include "entity/entVarUpdate.h"
+#include "UI/uiChat.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/sysutil.h>
+#include "UI/uiChat.h"
+#include "UI/sprite/sprite_text.h"
+#include "entity/entity.h"
+#include <utilitieslib/utils/file.h>
 #include "winuser.h"
-#include "uiFocus.h"
-#include "AppLocale.h"
-#include "MessageStoreUtil.h"
-#include "estring.h"
-#include "smf_main.h"
+#include "UI/uiFocus.h"
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/components/estring.h>
+#include "formatter/smf_main.h"
 
 // holder for parsed data list - bad structure naming here
 KeyBindProfiles data_kbp = {0};

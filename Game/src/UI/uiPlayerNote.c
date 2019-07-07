@@ -1,44 +1,44 @@
-#include "wdwbase.h"
-#include "utils.h"
+#include "gameComm/wdwbase.h"
+#include <utilitieslib/utils/utils.h>
 #include "comm_game.h"
-#include "EString.h"
-#include "StashTable.h"
-#include "file.h"
-#include "sysutil.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/sysutil.h>
 
-#include "textureatlas.h"
-#include "input.h"
-#include "cmdGame.h"
-#include "uiWindows.h"
-#include "uiBox.h"
-#include "uiUtil.h"
-#include "uiGame.h"
-#include "uiUtilGame.h"
-#include "uiFocus.h"
-#include "uiScrollbar.h"
-#include "uiTabControl.h"
-#include "uiUtilMenu.h"
-#include "uiInput.h"
+#include "graphics/textureatlas.h"
+#include "win/input.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiWindows.h"
+#include "UI/uiBox.h"
+#include "UI/uiUtil.h"
+#include "UI/uiGame.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiFocus.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiTabControl.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiInput.h"
 #include "uiEdit.h"
-#include "uiPetition.h"
-#include "uiClipper.h"
-#include "uiOptions.h"
-#include "uiChat.h"
-#include "uiNet.h"
-#include "uiTarget.h"
-#include "uiLogin.h"
+#include "UI/uiPetition.h"
+#include "UI/uiClipper.h"
+#include "UI/uiOptions.h"
+#include "UI/uiChat.h"
+#include "UI/uiNet.h"
+#include "UI/uiTarget.h"
+#include "UI/uiLogin.h"
 
-#include "entVarUpdate.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "EString.h"
-#include "earray.h"
-#include "MessageStoreUtil.h"
+#include "entity/entVarUpdate.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
 
-#include "smf_main.h"
-#include "entClient.h"
-#include "ttFontUtil.h"
+#include "formatter/smf_main.h"
+#include "entity/entclient.h"
+#include "graphics/ttFontUtil.h"
 
 
 static TextAttribs s_taChatHistory =
@@ -528,7 +528,7 @@ int playerNoteWindow()
     static uiTabControl * tc;
     static ScrollBar sb = { WDW_PLAYERNOTE };
     static int save;
-    int * showPrivate;
+    int * showPrivate = NULL;
     
     int text_ht;
     UIBox box;

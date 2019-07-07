@@ -1,6 +1,6 @@
-#include "stdtypes.h"
-#include "wininclude.h"
-#include "Color.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/wininclude.h>
+#include <utilitieslib/utils/Color.h>
 
 typedef struct CDXSurface // wrapper hack
 {

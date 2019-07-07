@@ -1,7 +1,7 @@
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include "frustum_c.h"
 
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 
 // build a view frustum based on the supplied arguments
 // this function builds the frustum planes as follows:

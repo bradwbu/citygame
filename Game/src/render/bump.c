@@ -1,20 +1,20 @@
 #define RT_ALLOW_VBO
-#include "mathutil.h"
-#include "model.h"
-#include "file.h"
-#include "renderUtil.h"
-#include "rt_state.h"
-#include "bump.h"
-#include "tex.h"
-#include "camera.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/model.h"
+#include <utilitieslib/utils/file.h>
+#include "render/renderUtil.h"
+#include "render/thread/rt_state.h"
+#include "render/bump.h"
+#include "render/tex.h"
+#include "graphics/camera.h"
 #include "assert.h"
-#include "rendermodel.h"
-#include "renderbonedmodel.h"
-#include "rendermodel.h"
-#include "error.h"
-#include "model_cache.h"
-#include "cmdgame.h"
-#include "gfxDebug.h"
+#include "render/rendermodel.h"
+#include "render/renderbonedmodel.h"
+#include "render/rendermodel.h"
+#include <utilitieslib/utils/error.h>
+#include "render/model_cache.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/gfxDebug.h"
 
 #define EPSILON 0.00001f
 

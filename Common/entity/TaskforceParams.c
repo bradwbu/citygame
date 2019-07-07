@@ -4,10 +4,10 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include <utilitieslib/stdtypes.h>
-#include "TaskforceParams.h"
+#include "entity/TaskforceParams.h"
 #include <utilitieslib/utils/SuperAssert.h>
-#include "teamCommon.h"
-#include "Entity.h"
+#include "entity/teamCommon.h"
+#include "entity/entity.h"
 #include <utilitieslib/utils/eval.h>
 
 #if defined(SERVER)
@@ -17,9 +17,9 @@
 #include "player/badges_server.h"
 #include "dbcomm/dbcomm.h"
 #include <utilitieslib/utils/structDefines.h>
-#include "character_base.h"
-#include "powers.h"
-#include "powerInfo.h"
+#include "entity/character_base.h"
+#include "entity/powers.h"
+#include "entity/PowerInfo.h"
 #include <utilitieslib/components/earray.h>
 #include "entity/character_combat.h"
 #include "storyarc/taskforce.h"
@@ -28,12 +28,12 @@
 #include "gamecomm/VillainDef.h"
 #include "ai/entai.h"
 #include <utilitieslib/utils/textparser.h>
-#include "LoadDefCommon.h"
+#include "entity/LoadDefCommon.h"
 #include "storyarc/storyarcprivate.h"
 #include "comm_game.h"
 #include "gameData/miningaccumulator.h"
 #include "dbcomm/logcomm.h"
-#include "character_level.h"
+#include "entity/character_level.h"
 
 #define TIME_LIMIT_DEF_FILENAME        "defs/TFTimeLimits.def"
 #endif

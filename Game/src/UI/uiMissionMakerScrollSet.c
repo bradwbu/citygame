@@ -1,85 +1,85 @@
 
 
-#include "uiCostume.h"
-#include "uiScrollBar.h"
+#include "UI/uiCostume.h"
+#include "UI/uiScrollBar.h"
 
-#include "earray.h"
-#include "cmdcommon.h"
-#include "sound.h"
-#include "EString.h"
-#include "MessageStoreUtil.h"
-#include "file.h"
+#include <utilitieslib/components/Earray.h>
+#include "cmdparse/cmdcommon.h"
+#include "sound/sound.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/file.h>
 
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"
-#include "uiInput.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiInput.h"
 #include "uiPCCRank.h"
-#include "uiWindows.h"
-#include "uiTray.h"
-#include "uiCursor.h"
-#include "trayCommon.h"
+#include "UI/uiWindows.h"
+#include "UI/uiTray.h"
+#include "UI/uiCursor.h"
+#include "gameComm/trayCommon.h"
 
-#include "wdwbase.h"
-#include "textparser.h"
-#include "VillainDef.h"
-#include "pnpcCommon.h"
-#include "NPC.h"
-#include "seqgraphics.h"
-#include "error.h"
-#include "entclient.h"
-#include "itemselect.h"
-#include "entity.h"
-#include "PCC_Critter.h"
-#include "PCC_Critter_Client.h"
-#include "CustomVillainGroup_Client.h"
-#include "costume_client.h"
-#include "player.h"
-#include "costume.h"
-#include "classes.h"
-#include "powers.h"
-#include "profanity.h"
+#include "gameComm/wdwbase.h"
+#include <utilitieslib/utils/textparser.h>
+#include "gameComm/villainDef.h"
+#include "storyarc/pnpcCommon.h"
+#include "gameComm/npc.h"
+#include "graphics/seqgraphics.h"
+#include <utilitieslib/utils/error.h>
+#include "entity/entclient.h"
+#include "gameComm/itemselect.h"
+#include "entity/entity.h"
+#include "entity/PCC_Critter.h"
+#include "entity/PCC_Critter_Client.h"
+#include "entity/CustomVillainGroup_Client.h"
+#include "entity/costume_client.h"
+#include "player/player.h"
+#include "entity/costume.h"
+#include "entity/classes.h"
+#include "entity/powers.h"
+#include "filter/profanity.h"
 
 #include "uiNPCCostume.h"
-#include "uiCustomVillainGroupWindow.h"
-#include "uiMissionMakerScrollSet.h"
+#include "UI/uiCustomVillainGroupWindow.h"
+#include "UI/uiMissionMakerScrollSet.h"
 #include "uiScrollSelector.h"
-#include "uiComboBox.h"
-#include "uiToolTip.h"
-#include "uiGame.h"
-#include "uiDialog.h"
-#include "uiClipper.h"
-#include "uiBox.h"
-#include "uiMissionMaker.h"
+#include "UI/uiComboBox.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiGame.h"
+#include "UI/uidialog.h"
+#include "UI/uiClipper.h"
+#include "UI/uiBox.h"
+#include "UI/uiMissionMaker.h"
 #include "uiHelpButton.h"
 #include "uiMissionComment.h"
-#include "uiMissionReview.h"
+#include "UI/uiMissionReview.h"
 
-#include "playerCreatedStoryarc.h"
-#include "playerCreatedStoryarcValidate.h"
+#include "storyarc/playerCreatedStoryarc.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
 
-#include "textureatlas.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "ttFontUtil.h"
+#include "graphics/textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "graphics/ttFontUtil.h"
 
-#include "missionMapCommon.h"
-#include "StashTable.h"
-#include "textparser.h"
+#include "storyarc/missionMapCommon.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/textparser.h>
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 #define SMFVIEW_PRIVATE
 #include "uiSMFView.h"
-#include "uiPictureBrowser.h"
+#include "UI/uiPictureBrowser.h"
 
 #include "AutoGen/playerCreatedStoryarcValidate_h_ast.h"
 #include "AutoGen/uiMissionMakerScrollSet_h_ast.h"
 #include "AutoGen/uiMissionMakerScrollSet_h_ast.c"
 #include "uiMMMapViewer.h"
-#include "CustomVillainGroup.h"
-#include "cmdgame.h"
-#include "uiMissionMakerScrollSet.h"
+#include "entity/CustomVillainGroup.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiMissionMakerScrollSet.h"
 
 MMRegion *pStoryArcTemplateRegion;
 MMRegion **ppNewMissionTemplates;
@@ -1147,9 +1147,9 @@ void updateCustomCrittersElementList( MMElementList *pList )
 {
     int i, j, k,n;
     int createdCritterString = 0;
-    char *originalCritterString;
+    char *originalCritterString = NULL;
     int createdString = 0;
-    char *originalCurrentElementString;
+    char *originalCurrentElementString = NULL;
     if( !pList->eSpecialAction || 
         (pList->eSpecialAction != kAction_BuildCustomCritterList &&
          pList->eSpecialAction != kAction_BuildCustomCritterAndContactList &&

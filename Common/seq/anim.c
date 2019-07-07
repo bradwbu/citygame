@@ -14,29 +14,29 @@
 #include "NovodeX/NwWrapper.h"
 #endif
 #ifdef CLIENT
-#include "model.h"
-#include "groupfileload.h"
-#include "renderprim.h"
+#include "render/model.h"
+#include "group/groupfileload.h"
+#include "render/renderprim.h"
 #endif
-#include "anim.h"
+#include "seq/anim.h"
 #include "gridcoll/ctri.h"
 #include <utilitieslib/components/genericlist.h>
 #include <utilitieslib/components/StashTable.h>
 #include <zlib/zlib.h>
 #include <utilitieslib/utils/memcheck.h>
 #include "render/tex.h"
-#include "tricks.h"
-#include "AutoLOD.h"
+#include "seq/tricks.h"
+#include "seq/AutoLOD.h"
 
 #ifdef CLIENT
-#include "cmdgame.h"
-#include "gfx.h"
-#include "gfxLoadScreens.h"
-#include "model_cache.h"
-#include "zOcclusion.h"
-#include "rt_init.h"
-#include "groupdrawutil.h"
-#include "groupfilelib.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/gfx.h"
+#include "graphics/gfxLoadScreens.h"
+#include "render/model_cache.h"
+#include "graphics/zOcclusion.h"
+#include "render/thread/rt_init.h"
+#include "graphics/groupdrawutil.h"
+#include "group/groupfilelib.h"
 #endif
 
 #include <utilitieslib/utils/strings_opt.h>

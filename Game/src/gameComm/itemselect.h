@@ -1,9 +1,9 @@
 #ifndef _ITEMSELECT_H
 #define _ITEMSELECT_H
 
-#include "mathutil.h"
-#include "group.h"
-#include "entityref.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "group/group.h"
+#include "entity/entityRef.h"
 
 typedef struct Entity Entity;
 typedef struct DefTracker DefTracker;

@@ -4,8 +4,8 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "uiGrowBig.h"
-#include "utils.h"
-#include "assert.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
 
 void uigrowbig_Init(uiGrowBig *growbig, F32 max, U32 numSteps)
 {

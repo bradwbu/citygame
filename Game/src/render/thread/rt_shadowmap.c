@@ -2,23 +2,25 @@
 
 #define RT_ALLOW_BINDTEXTURE
 #define RT_PRIVATE
-#include "rendershadowmap.h"
-#include "superassert.h"
-#include "failtext.h"
-#include "gfx.h"
-#include "mathutil.h"
-#include "camera.h"
-#include "rt_shadowmap.h"
-#include "rt_tune.h"
-#include "rt_tex.h"
-#include "renderutil.h"
-#include "rt_cgfx.h"
+
+#include <utilitieslib/stdtypes.h>
+#include "render/rendershadowmap.h"
+#include <utilitieslib/utils/SuperAssert.h>
+#include "graphics/failtext.h"
+#include "graphics/gfx.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "graphics/camera.h"
+#include "render/thread/rt_shadowmap.h"
+#include "render/thread/rt_tune.h"
+#include "render/thread/rt_tex.h"
+#include "render/renderUtil.h"
+#include "render/thread/rt_cgfx.h"
 #include "rt_stats.h"
-#include "wcw_statemgmt.h"
+#include "render/thread/wcw_statemgmt.h"
 #include "rt_shaderMgr.h"
 
-#include "gfxwindow.h"
-#include "player.h"
+#include "graphics/gfxwindow.h"
+#include "player/player.h"
 #include "newfeature.h"
 
 typedef enum RTShadowOverrideID {

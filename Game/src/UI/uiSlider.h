@@ -1,7 +1,7 @@
 #ifndef UISLIDER_H
 #define UISLIDER_H
 
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
 typedef enum SliderType
 {

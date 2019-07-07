@@ -1,7 +1,7 @@
-#include "CustomVillainGroup.h"
-#include "costume.h"                        //    for custom critter costume
+#include "entity/CustomVillainGroup.h"
+#include "entity/costume.h"                        //    for custom critter costume
 #include <utilitieslib/components/earray.h>                            //    for earrays
-#include "PCC_Critter.h"                    //    for custom critters
+#include "entity/PCC_Critter.h"                    //    for custom critters
 #include "gameComm/VillainDef.h"                        //    for ev validation
 #include <utilitieslib/language/MessageStoreUtil.h>                //    for textStd
 #include "storyarc/playerCreatedStoryarcValidate.h"    //    for validating villains

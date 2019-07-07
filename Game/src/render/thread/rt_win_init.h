@@ -1,4 +1,4 @@
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 
 void wglMakeCurrentSafeDirect( HDC hdc, HGLRC glRC, F32 timeout);
 void makeCurrentCBDirect(void);

@@ -4,7 +4,7 @@
 #include <utilitieslib/stdtypes.h>
 #include "render/thread/rt_pbuffer.h"        // for PBuffer
 #include "render/thread/rt_queue.h"        // for ClearScreenFlags
-//#include "gfxSettings.h"    // for OptionRenderScale
+//#include "graphics/gfxSettings.h"    // for OptionRenderScale
 
 typedef struct AtlasTex AtlasTex;
 

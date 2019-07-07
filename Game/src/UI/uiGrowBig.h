@@ -6,7 +6,7 @@
 #ifndef UIGROWBIG_H
 #define UIGROWBIG_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 //------------------------------------------------------------
 //  a helper for making the 'over' icon grow bigger

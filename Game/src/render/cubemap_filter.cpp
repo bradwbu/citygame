@@ -3,7 +3,7 @@
 
 #include "cubemap_filter.h"
 
-#include "CCubeMapProcessor.h"
+#include <libcubemapgen/CCubeMapProcessor.h>
 
 void filterCubemap(void *outputFaces[], int outputSize, void *captureFaces[], 
                    int captureSize, float blurAngle) {

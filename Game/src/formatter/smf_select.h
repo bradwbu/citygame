@@ -2,10 +2,10 @@
 #define SMF_SELECT_H__
 
 #ifndef _STDTYPES_H
-#include "stdtypes.h" // for bool
+#include <utilitieslib/stdtypes.h> // for bool
 #endif
 
-#include "smf_util.h"
+#include "formatter/smf_util.h"
 
 void smf_ResetSelectedBlocks(SMBlock *pBlock);
 void smf_RebuildPartialSelectionFromSMFBlock(SMFBlock *pSMFBlock, int x, int y, int z);

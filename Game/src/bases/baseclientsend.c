@@ -1,15 +1,15 @@
-#include "bases.h"
-#include "basesend.h"
-#include "baseclientsend.h"
-#include "clientcomm.h"
-#include "entVarUpdate.h"
-#include "mathutil.h"
-#include "cmdgame.h"
-#include "netcomp.h"
-#include "uiConsole.h"
-#include "basedata.h"
+#include "bases/bases.h"
+#include "bases/basesend.h"
+#include "bases/baseclientsend.h"
+#include "clientcomm/clientcomm.h"
+#include "entity/entVarUpdate.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/network/netcomp.h>
+#include "UI/uiConsole.h"
+#include "bases/basedata.h"
 
-#include "edit_select.h"
+#include "edit/edit_select.h"
 #define START_BASE_PACKET START_INPUT_PACKET(pak, CLIENTINP_BASE_EDIT);
 #define END_BASE_PACKET END_INPUT_PACKET; editWaitingForServer(1, 0);;
 

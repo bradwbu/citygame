@@ -1,37 +1,37 @@
 //***********************************************
 
-#include "estring.h"
-#include "chatClient.h"
-#include "chatClient.h"
-#include "StashTable.h"
-#include "uiFriend.h"
-#include "uiChatUtil.h"
-#include "uiChat.h"
+#include <utilitieslib/components/estring.h>
+#include "gameComm/chatClient.h"
+#include "gameComm/chatClient.h"
+#include <utilitieslib/components/StashTable.h>
+#include "UI/uiFriend.h"
+#include "UI/uiChatUtil.h"
+#include "UI/uiChat.h"
 #include "assert.h"
-#include "cmdgame.h"
-#include "EArray.h"
-#include "uiConsole.h"
-#include "utils.h"
-#include "uiDialog.h"
-#include "sprite_text.h"
-#include "timing.h"
-#include "uiChannel.h"
-#include "uiTarget.h"
-#include "uiEmail.h"
-#include "tex.h"
-#include "textureatlas.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/components/Earray.h>
+#include "UI/uiConsole.h"
+#include <utilitieslib/utils/utils.h>
+#include "UI/uidialog.h"
+#include "UI/sprite/sprite_text.h"
+#include <utilitieslib/utils/timing.h>
+#include "UI/uiChannel.h"
+#include "UI/uiTarget.h"
+#include "UI/uiEmail.h"
+#include "render/tex.h"
+#include "graphics/textureatlas.h"
 
-#include "entPlayer.h"
-#include "player.h"
+#include "entity/EntPlayer.h"
+#include "player/player.h"
 #include "chatdb.h"
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 #include "arena/arenagame.h"
-#include "uiChannelSearch.h"
-#include "uiWindows.h"
-#include "uiPlaque.h"
-#include "uiPlayerNote.h"
-#include "MessageStoreUtil.h"
-#include "Entity.h"
+#include "UI/uiChannelSearch.h"
+#include "UI/uiWindows.h"
+#include "UI/uiPlaque.h"
+#include "UI/uiPlayerNote.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "entity/entity.h"
 
 static char **gPendingInvites;
 static int gChatServerRunning;

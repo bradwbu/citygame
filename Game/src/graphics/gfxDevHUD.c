@@ -1,23 +1,23 @@
 // Graphics Development HUD and debug shader control
-#include "gfxDevHUD.h"
-#include "gfxDebug.h"
-#include "cmdgame.h"
-#include "gfx.h"
-#include "font.h"
-#include "tex.h"
-#include "tex_gen.h"
-#include "StashTable.h"
-#include "uiInput.h"
-#include "rt_util.h"
-#include "input.h"
-#include "file.h" // for isDevelopmentOrQAMode
-#include "renderUtil.h"
-#include "sprite_base.h"
-#include "textureatlas.h"
-#include "Cbox.h"
-#include "win_init.h"
-#include "uiGame.h"
-#include "uiCursor.h"
+#include "graphics/gfxDevHUD.h"
+#include "graphics/gfxDebug.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/gfx.h"
+#include "graphics/font.h"
+#include "render/tex.h"
+#include "render/tex_gen.h"
+#include <utilitieslib/components/StashTable.h>
+#include "UI/uiInput.h"
+#include "render/thread/rt_util.h"
+#include "win/input.h"
+#include <utilitieslib/utils/file.h> // for isDevelopmentOrQAMode
+#include "render/renderUtil.h"
+#include "UI/sprite/sprite_base.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/utils/CBox.h>
+#include "win/win_init.h"
+#include "UI/uiGame.h"
+#include "UI/uiCursor.h"
 
 #ifndef FINAL
 

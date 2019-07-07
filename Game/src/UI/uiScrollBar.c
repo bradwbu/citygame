@@ -1,28 +1,28 @@
 
-#include "win_init.h" // for windowClientSize
+#include "win/win_init.h" // for windowClientSize
 
-#include "uiUtil.h"
-#include "uiGame.h"
-#include "uiInput.h"
-#include "uiWindows.h"
-#include "uiUtilMenu.h"
-#include "uiUtilGame.h"
-#include "uiScrollBar.h"
+#include "UI/uiUtil.h"
+#include "UI/uiGame.h"
+#include "UI/uiInput.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiScrollBar.h"
 
-#include "sprite_base.h"
-#include "textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "graphics/textureatlas.h"
 
-#include "wdwbase.h"
-#include "mathutil.h"
-#include "cmdcommon.h"
-#include "win_init.h"
+#include "gameComm/wdwbase.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "cmdparse/cmdcommon.h"
+#include "win/win_init.h"
 
-#include "uiUtilGame.h"
-#include "uiOptions.h"
-#include "uiBox.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiOptions.h"
+#include "UI/uiBox.h"
 #include "uiSlider.h"
-#include "uiLogin.h"
-#include "cmdgame.h"
+#include "UI/uiLogin.h"
+#include "cmdparse/cmdgame.h"
 
 int gScrollBarDragging = 0;
 int gScrollBarDraggingLastFrame = 0;

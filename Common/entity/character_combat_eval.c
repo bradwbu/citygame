@@ -5,23 +5,24 @@
  ***************************************************************************/
 #include <float.h>
 
-#include "eval.h"
-#include "earray.h"
-#include "estring.h"
-#include "timing.h"
-#include "mathutil.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/eval.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/mathutil.h>
 
-#include "entity.h"
-#include "entplayer.h"
-#include "villainDef.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "gameComm/villainDef.h"
 
-#include "origins.h"
-#include "classes.h"
-#include "character_base.h"
-#include "character_eval.h"
-#include "character_target.h"
-#include "character_combat_eval.h"
-#include "powers.h"
+#include "entity/origins.h"
+#include "entity/classes.h"
+#include "entity/character_base.h"
+#include "entity/character_eval.h"
+#include "entity/character_target.h"
+#include "entity/character_combat_eval.h"
+#include "entity/powers.h"
 
 #include "assert.h"
 

@@ -3,40 +3,40 @@
 #include <string.h> // memset
 #include <sys/stat.h>
 
-#include "smf_main.h"
-#include "smf_util.h"
-#include "smf_interact.h"
-#include "smf_parse.h"
-#include "smf_format.h"
+#include "formatter/smf_main.h"
+#include "formatter/smf_util.h"
+#include "formatter/smf_interact.h"
+#include "formatter/smf_parse.h"
+#include "formatter/smf_format.h"
 #include "smf_select.h"
-#include "smf_render.h"
+#include "formatter/smf_render.h"
 
-#include "stdtypes.h"
-#include "earray.h"
-#include "estring.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/components/estring.h>
 
-#include "sprite_base.h" // for the scissors calls
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "crypt.h"
+#include "UI/sprite/sprite_base.h" // for the scissors calls
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include <utilitieslib/network/crypt.h>
 
-#include "cmdcommon.h" // for TIMESTEP
+#include "cmdparse/cmdcommon.h" // for TIMESTEP
 
-#include "timing.h"
-#include "file.h"
-#include "input.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/file.h>
+#include "win/input.h"
 
-#include "MemoryMonitor.h"
+#include <utilitieslib/utils/MemoryMonitor.h>
 
-#include "sound.h"
+#include "sound/sound.h"
 
-#include "uiUtilGame.h" // for drawBox debugging
-#include "uiScrollBar.h" // gScrollBarDraggingLastFrame
-#include "uiClipper.h"
-#include "uiInput.h"
+#include "UI/uiUtilGame.h" // for drawBox debugging
+#include "UI/uiScrollBar.h" // gScrollBarDraggingLastFrame
+#include "UI/uiClipper.h"
+#include "UI/uiInput.h"
 
-#include "win_init.h"
-#include "StringUtil.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/StringUtil.h>
 
 TextAttribs gTextAttr_Gray12 =
 {

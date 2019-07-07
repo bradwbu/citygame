@@ -1,14 +1,15 @@
-#include "renderssao.h"
-#include "rt_ssao.h"
-#include "rt_tune.h"
-#include "rt_queue.h"
-#include "rt_init.h"
-#include "win_init.h"
-#include "cmdgame.h"
-#include "gfxSettings.h"
-#include "input.h"
-#include "mathutil.h"
-#include "file.h" // for isDevelopmentOrQAMode
+#include <utilitieslib/stdtypes.h>
+#include "render/renderSSAO.h"
+#include "render/thread/rt_ssao.h"
+#include "render/thread/rt_tune.h"
+#include "render/thread/rt_queue.h"
+#include "render/thread/rt_init.h"
+#include "win/win_init.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/gfxSettings.h"
+#include "win/input.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/file.h> // for isDevelopmentOrQAMode
 
 static RdrSsaoParams ssao_params = {0,0,0.0f,0,0,0,0,0};
 #define MAX_TUNE_COMMANDS 32

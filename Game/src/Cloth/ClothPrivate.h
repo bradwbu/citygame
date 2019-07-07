@@ -1,6 +1,6 @@
 // Shared macros and prototypes for cloth library
 
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #pragma warning (disable:4101)
 
 // Creation

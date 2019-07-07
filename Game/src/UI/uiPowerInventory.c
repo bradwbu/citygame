@@ -5,53 +5,53 @@
  ***************************************************************************/
 // Abandon hope all ye who enter
 
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "earray.h"         // for StructGetNum
-#include "mathutil.h"
-#include "sound.h"
-#include "player.h"
-#include "entity.h"         // for entity
-#include "powers.h"
-#include "uiFx.h"
-#include "origins.h"
-#include "character_base.h" // for pchar
-#include "character_level.h"
-#include "cmdcommon.h"      // for TIMESTEP
-#include "attrib_names.h"
-#include "DetailRecipe.h"
+#include <utilitieslib/components/Earray.h>         // for StructGetNum
+#include <utilitieslib/utils/mathutil.h>
+#include "sound/sound.h"
+#include "player/player.h"
+#include "entity/entity.h"         // for entity
+#include "entity/powers.h"
+#include "UI/uiFx.h"
+#include "entity/origins.h"
+#include "entity/character_base.h" // for pchar
+#include "entity/character_level.h"
+#include "cmdparse/cmdcommon.h"      // for TIMESTEP
+#include "entity/attrib_names.h"
+#include "bases/DetailRecipe.h"
 #include "language\langClientUtil.h"
 
-#include "sprite_font.h"    // for font definitions
-#include "sprite_text.h"    // for font functions
-#include "sprite_base.h"    // for sprites
-#include "textureatlas.h"
+#include "UI/sprite/sprite_font.h"    // for font definitions
+#include "UI/sprite/sprite_text.h"    // for font functions
+#include "UI/sprite/sprite_base.h"    // for sprites
+#include "graphics/textureatlas.h"
 
-#include "uiWindows.h"
-#include "uiInput.h"
-#include "uiInfo.h"
-#include "uiUtilGame.h"     // for draw frame
-#include "uiUtilMenu.h"     //
-#include "uiUtil.h"         // for color definitions
-#include "uiGame.h"         // for start_menu
-#include "uiTray.h"
-#include "uiChat.h"
-#include "uiCursor.h"
-#include "uiScrollbar.h"
-#include "uiNet.h"
-#include "uiToolTip.h"
-#include "uiContextMenu.h"
-#include "uiPet.h"
+#include "UI/uiWindows.h"
+#include "UI/uiInput.h"
+#include "UI/uiInfo.h"
+#include "UI/uiUtilGame.h"     // for draw frame
+#include "UI/uiUtilMenu.h"     //
+#include "UI/uiUtil.h"         // for color definitions
+#include "UI/uiGame.h"         // for start_menu
+#include "UI/uiTray.h"
+#include "UI/uiChat.h"
+#include "UI/uiCursor.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiNet.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiContextMenu.h"
+#include "UI/uiPet.h"
 #include "uiGift.h"
 
-#include "uiPowerInventory.h"
-#include "clientcomm.h"
-#include "trayCommon.h"
-#include "input.h"
-#include "entity_power_client.h"
-#include "MessageStoreUtil.h"
-#include "badges.h"
-#include "entPlayer.h"
+#include "UI/uiPowerInventory.h"
+#include "clientcomm/clientcomm.h"
+#include "gameComm/trayCommon.h"
+#include "win/input.h"
+#include "entity/entity_power_client.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "player/badges.h"
+#include "entity/EntPlayer.h"
 
 //------------------------------------------------------------------------------------------------------------
 // Definitions ///////////////////////////////////////////////////////////////////////////////////////////////

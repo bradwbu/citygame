@@ -2,33 +2,33 @@
 // clothnode.c
 // Written by Steven Bennetts (stevenjb@yahoo.com) for Cryptic Studios, May 2004
 
-#include "clothnode.h"
-#include "mathutil.h"
-#include "stdtypes.h"
-#include "cmdgame.h"
-#include "player.h"
-#include "textparser.h"
-#include "seqload.h"
-#include "fileutil.h"
-#include "FolderCache.h"
-#include "fxcapes.h"
-#include "StringCache.h"
-#include "particle.h"
-#include "StashTable.h"
+#include "graphics/clothnode.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/stdtypes.h>
+#include "cmdparse/cmdgame.h"
+#include "player/player.h"
+#include <utilitieslib/utils/textparser.h>
+#include "seq/seqload.h"
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include "graphics/FX/fxcapes.h"
+#include <utilitieslib/components/StringCache.h>
+#include "graphics/FX/particle.h"
+#include <utilitieslib/components/StashTable.h>
 
-#include "Cloth.h"
-#include "ClothCollide.h"
-#include "ClothMesh.h"
-#include "ClothPrivate.h"
-#include "Wind.h"
-#include "tex.h"
-#include "tricks.h"
-#include "entity.h"
-#include "anim.h"
+#include "Cloth/Cloth.h"
+#include "Cloth/ClothCollide.h"
+#include "Cloth/ClothMesh.h"
+#include "Cloth/ClothPrivate.h"
+#include "Cloth/Wind.h"
+#include "render/tex.h"
+#include "seq/tricks.h"
+#include "entity/entity.h"
+#include "seq/anim.h"
 
-#include "rt_queue.h"
+#include "render/thread/rt_queue.h"
 
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 #if CLOTH_HACK
 #pragma warning (disable:4101)

@@ -1,7 +1,7 @@
 #ifndef UICLIPPER_H
 #define UICLIPPER_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct Clipper2D Clipper2D;
 typedef struct UIBox UIBox;

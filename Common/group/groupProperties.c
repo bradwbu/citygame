@@ -1,4 +1,4 @@
-#include "GroupProperties.h"
+#include "group/groupproperties.h"
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/network/netio.h>
 #include <utilitieslib/components/MemoryPool.h>

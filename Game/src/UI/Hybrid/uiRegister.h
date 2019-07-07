@@ -1,7 +1,7 @@
 #ifndef UIREGISTER_H
 #define UIREGISTER_H
 
-#include "entity.h"
+#include "entity/entity.h"
 int gWaitingToEnterGame;
 int gLoggingIn;
 

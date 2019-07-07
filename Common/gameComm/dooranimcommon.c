@@ -1,4 +1,4 @@
-#include "dooranimcommon.h"
+#include "gameComm/dooranimcommon.h"
 #include "entity/entity.h"
 #include "cmdparse/cmdcommon.h"
 #include "seq/seqstate.h"

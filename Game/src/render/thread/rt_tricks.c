@@ -1,18 +1,18 @@
 #define RT_PRIVATE
-#include "rt_tricks.h"
+#include "render/thread/rt_tricks.h"
 #include "rt_prim.h"
-#include "rt_model.h"
-#include "rt_cgfx.h"
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "rt_state.h"
-#include "mathutil.h"
-#include "tricks.h"
-#include "animtrackanimate.h"
-#include "HashFunctions.h"
-#include "Quat.h"
-#include "failtext.h"
-#include "cmdgame.h"
+#include "render/thread/rt_model.h"
+#include "render/thread/rt_cgfx.h"
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_state.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "seq/tricks.h"
+#include "seq/animtrackanimate.h"
+#include <utilitieslib/components/HashFunctions.h>
+#include <utilitieslib/utils/Quat.h>
+#include "graphics/failtext.h"
+#include "cmdparse/cmdgame.h"
 
 Vec4    tex_scrolls[4];
 

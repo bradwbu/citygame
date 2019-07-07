@@ -1,11 +1,13 @@
+
+#include <utilitieslib/stdtypes.h>
 #include "edit_cubemap.h"
 
-#include "AppRegCache.h"
-#include "edit_net.h"
-#include "edit_select.h"
+#include <utilitieslib/version/AppRegCache.h>
+#include "edit/edit_net.h"
+#include "edit/edit_select.h"
 #include "editorUI.h"
-#include "mathutil.h"
-#include "RegistryReader.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/RegistryReader.h>
 
 static int s_dialogID = -1;
 

@@ -1,9 +1,9 @@
 #ifndef _WCW_STATE_MANAGEMENT
 #define _WCW_STATE_MANAGEMENT
 
-#include "renderUtil.h"
-#include "rt_tex.h"
-#include "ogl.h"
+#include "render/renderUtil.h"
+#include "render/thread/rt_tex.h"
+#include "render/thread/ogl.h"
 #include <cg/cgGL.h>
 
 // Remove this when we no longer need to set ARB registers
@@ -454,7 +454,7 @@ void        WCW_SetParamDirtyFlags( bool bVertexPgm, bool bFragmentPgm );
     // The shader debug logging logic enables SHADER_DBG_PRINTF() message spew for one frame
     // when you hold the Alt key down.
     //
-    #include "file.h"
+    #include <utilitieslib/utils/file.h>
     extern FILE* gSHADER_DBG_LOG_FILE;
     #define SHADER_DBG_LOG_FILE_NAME                        "SHADER_DBG_LOG.txt"
     #define SHADER_DBG_LOGGING_THIS_FRAME()                    ( gSHADER_DBG_LOG_FILE != NULL )

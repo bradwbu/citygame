@@ -3,25 +3,25 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "error.h"
-#include "earray.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/Earray.h>
 
-#include "entity.h"
-#include "seqstate.h"      // for SeqStateNames
+#include "entity/entity.h"
+#include "seq/seqstate.h"      // for SeqStateNames
 
-#include "character_base.h"
-#include "character_animfx_client.h"
-#include "seq.h"
-#include "netfx.h"
-#include "entrecv.h"
-#include "cmdgame.h"
+#include "entity/character_base.h"
+#include "entity/character_animfx_client.h"
+#include "seq/seq.h"
+#include "entity/netfx.h"
+#include "entity/entrecv.h"
+#include "cmdparse/cmdgame.h"
 #include "demo.h"
-#include "entclient.h"
-#include "entrecv.h"
-#include "StringCache.h"
-#include "fx.h"
+#include "entity/entclient.h"
+#include "entity/entrecv.h"
+#include <utilitieslib/components/StringCache.h>
+#include "graphics/FX/fx.h"
 
 /**********************************************************************func*
  * character_SetAnimBits

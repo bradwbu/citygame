@@ -1,7 +1,7 @@
 #ifndef _OGG_DECODE_H
 #define _OGG_DECODE_H
 
-#include "sound_sys.h"
+#include "sound/sound_sys.h"
 
 extern CodecFuncs ogg_funcs,pcm_funcs;
 

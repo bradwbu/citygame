@@ -1,7 +1,7 @@
 #include <memory.h>
-#include "Cloth.h"
-#include "ClothMesh.h"
-#include "ClothPrivate.h"
+#include "Cloth/Cloth.h"
+#include "Cloth/ClothMesh.h"
+#include "Cloth/ClothPrivate.h"
 
 //////////////////////////////////////////////////////////////////////////////
 // ClothCreateMeshIndices() builds a list of vertex indices describing a

@@ -1,7 +1,7 @@
 #include "cmdparse/cmdcommon.h"
 #include "entity/entity.h"
 #include "entity/entplayer.h"
-#include "pmotion.h"
+#include "player/pmotion.h"
 #include <utilitieslib/utils/memcheck.h>
 #include "entity/motion.h"
 #include "graphics/font.h"
@@ -25,11 +25,11 @@
 #include <utilitieslib/components/estring.h>
 
 #if CLIENT
-    #include "cmdgame.h"
-    #include "fx.h"
-    #include "uiArenaJoin.h"
-    #include "sun.h"
-    #include "uiPopHelp.h"
+    #include "cmdparse/cmdgame.h"
+    #include "graphics/FX/fx.h"
+    #include "UI/uiArenaJoin.h"
+    #include "graphics/sun.h"
+    #include "UI/uiPopHelp.h"
 #endif
 
 #if SERVER

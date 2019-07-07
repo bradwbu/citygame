@@ -1,7 +1,7 @@
 #ifndef UIKEYBIND_H
 #define UIKEYBIND_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 #define BIND_MAX 256
 

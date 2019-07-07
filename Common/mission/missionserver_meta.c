@@ -1758,8 +1758,8 @@ void missionserver_setGuestBio(int arcid, char *author, char *bio, char *image)
 #endif // SERVER
 
 #if CLIENT
-#include "clientcomm.h"
-#include "entVarUpdate.h"
+#include "clientcomm/clientcomm.h"
+#include "entity/entVarUpdate.h"
 
 void missionserver_unpublishArc(int arcid, int auth_id, int accesslevel)
 {

@@ -1,32 +1,32 @@
-#include "group.h"
-#include "groupfilelib.h" //added by HA as requested by Don Pham 4/11/12
-#include "edit_cmd.h"
-#include "edit_select.h"
-#include "mathutil.h"
-#include "grouptrack.h"
-#include "win_init.h"
-#include "gridcoll.h"
-#include "edit_drawlines.h"
-#include "input.h"
+#include "group/group.h"
+#include "group/groupfilelib.h" //added by HA as requested by Don Pham 4/11/12
+#include "edit/edit_cmd.h"
+#include "edit/edit_select.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "group/grouptrack.h"
+#include "win/win_init.h"
+#include "gridcoll/gridcoll.h"
+#include "edit/edit_drawlines.h"
+#include "win/input.h"
 #include "edit_errcheck.h"
-#include "edit_net.h"
-#include "edit_library.h"
+#include "edit/edit_net.h"
+#include "edit/edit_library.h"
 #include "edit_cmd_group.h"
-#include "camera.h"
-#include "StashTable.h"
-#include "gfxtree.h"
-#include "gfxWindow.h"
-#include "uiInput.h"
-#include "utils.h"
-#include "anim.h"
+#include "graphics/camera.h"
+#include <utilitieslib/components/StashTable.h>
+#include "seq/gfxtree.h"
+#include "graphics/gfxwindow.h"
+#include "UI/uiInput.h"
+#include <utilitieslib/utils/utils.h>
+#include "seq/anim.h"
 #include "editorUI.h"
-#include "groupdraw.h"
-#include "cmdgame.h"
-#include "qsortG.h"
-#include "groupdrawutil.h"
-#include "groupMiniTrackers.h"
-#include "tex.h"
-#include "file.h"
+#include "graphics/groupdraw.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/qsortG.h>
+#include "graphics/groupdrawutil.h"
+#include "graphics/groupMiniTrackers.h"
+#include "render/tex.h"
+#include <utilitieslib/utils/file.h>
 
 void editSnapToTrackers(DefTracker** trackers)
 {

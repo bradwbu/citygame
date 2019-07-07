@@ -1,16 +1,16 @@
 #if CLIENT
 
 #include "MissionControl.h"
-#include "group.h"
-#include "groupproperties.h"
+#include "group/group.h"
+#include "group/groupproperties.h"
 #include <utilitieslib/components/StashTable.h>
-#include "grouptrack.h"
+#include "group/grouptrack.h"
 #include <utilitieslib/utils/mathutil.h>
-#include "renderprim.h"
-#include "camera.h"
-#include "cmdgame.h"
+#include "render/renderprim.h"
+#include "graphics/camera.h"
+#include "cmdparse/cmdgame.h"
 #include <utilitieslib/utils/Color.h>
-#include "edit_cmd.h"
+#include "edit/edit_cmd.h"
 #include <utilitieslib/utils/cmdoldparse.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/network/netcomp.h>
@@ -337,8 +337,8 @@ void handlePatrolsOrBeaconsInDef(GroupDef * def,Mat4 mat) {
                 //between them
                 int j;
                 int spawnPoint=0;
-                RouteNode * rn;
-                PatrolRoute * pr=malloc(sizeof(PatrolRoute));
+                RouteNode* rn = NULL;
+                PatrolRoute* pr = malloc(sizeof(PatrolRoute));
                 if (strcmp(prop->value_str,"PingPong")==0)
                     pr->type=RouteTypePingPong;
                 else

@@ -1,14 +1,14 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <math.h>
-#include "timing.h"
-#include "cmdgame.h"
-#include "renderUtil.h"
+#include <utilitieslib/utils/timing.h>
+#include "cmdparse/cmdgame.h"
+#include "render/renderUtil.h"
 
-#include "Cloth.h"
-#include "ClothPrivate.h"
-#include "ClothCollide.h"
-#include "Wind.h"
+#include "Cloth/Cloth.h"
+#include "Cloth/ClothPrivate.h"
+#include "Cloth/ClothCollide.h"
+#include "Cloth/Wind.h"
 
 //============================================================================
 // Stuff for debugging ClothCheckMaxMotion()

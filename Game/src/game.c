@@ -1,144 +1,144 @@
 // support functions for main.c 
 
-#include "win_init.h"
-#include "winutil.h"
-#include "uiConsole.h"
-#include "input.h"
-#include "camera.h"
-#include "gfxwindow.h"
-#include "fontdata.h"
-#include "timing.h"
-#include "sound.h"
-#include "sun.h"
-#include "edit.h"
-#include "clientcomm.h"
-#include "entrecv.h"
-#include "player.h"
-#include "edit_cmd.h"
-#include "fx.h"
-#include "render.h"
-#include "error.h"
-#include "assert.h"
-#include "uiGame.h"
-#include "uiQuit.h"
-#include "utils.h"
-#include "fileutil.h"
-#include "win_cursor.h"
-#include "profanity.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/winutil.h>
+#include "UI/uiConsole.h"
+#include "win/input.h"
+#include "graphics/camera.h"
+#include "graphics/gfxwindow.h"
+#include "graphics/fontdata.h"
+#include <utilitieslib/utils/timing.h>
+#include "sound/sound.h"
+#include "graphics/sun.h"
+#include "edit/edit.h"
+#include "clientcomm/clientcomm.h"
+#include "entity/entrecv.h"
+#include "player/player.h"
+#include "edit/edit_cmd.h"
+#include "graphics/FX/fx.h"
+#include "render/render.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/assert/assert.h>
+#include "UI/uiGame.h"
+#include "UI/uiQuit.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/fileutil.h>
+#include "win/win_cursor.h"
+#include "filter/profanity.h"
 #include "gameData/store.h"
-#include "AppRegCache.h"
-#include "edit_net.h"
-#include ".\cerrno" // Hacky way to check to make sure someone doesn't add an invalid include path
-#include "light.h"
-#include "entclient.h"
-#include "initCommon.h"
-#include "initClient.h"
-#include "sock.h"
-#include "sprite_font.h"
-#include "load_def.h" // for load_AllDefs
+#include <utilitieslib/version/AppRegCache.h>
+#include "edit/edit_net.h"
+//#include ".\cerrno" // Hacky way to check to make sure someone doesn't add an invalid include path
+#include "graphics/light.h"
+#include "entity/entclient.h"
+#include "gameComm/initCommon.h"
+#include "gameComm/initClient.h"
+#include <utilitieslib/network/sock.h>
+#include "UI/sprite/sprite_font.h"
+#include "entity/load_def.h" // for load_AllDefs
 #include "gameData/costume_data.h" // for loadCostume
 #include "gameData/menudef.h"  // for load_MenuDefs
-#include "cmdgame.h"
-#include "FolderCache.h"
-#include "uiLogin.h"
-#include "language/AppLocale.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include "UI/uiLogin.h"
+#include <utilitieslib/language/AppLocale.h>
 #include "language/langClientUtil.h"
-#include "autoResumeInfo.h"
-#include "dbclient.h"
+#include "clientcomm/autoResumeInfo.h"
+#include "clientcomm/dbclient.h"
 #include "gameData/randomCharCreate.h"
-#include "uiReticle.h" // for neighborhoodCheck
-#include "uiAutomap.h"
-#include "AppVersion.h"
+#include "UI/uiReticle.h" // for neighborhoodCheck
+#include "UI/uiAutomap.h"
+#include <utilitieslib/version/AppVersion.h>
 #include "demo.h"
 #include "clientError.h"
-#include "dooranimclient.h"
-#include "uiKeybind.h"
-#include "uiKeymapping.h"
-#include "sysutil.h"
-#include "uiHelp.h"
-#include "titles.h"
-#include "seqgraphics.h"
-#include "edit_drawlines.h" //for sphere drawing
-#include "clothnode.h"
-#include "gridcache.h"
-#include "uiChat.h"
-#include "chatClient.h"
-#include "uiWindows_init.h"
-#include "sprite_text.h"
-#include "uiDialog.h"
-#include "texWords.h"
-#include "textureatlas.h"
-#include "tex.h"
-#include "texUnload.h"
-#include "uiGender.h" // for disabling of bone scale sliders
+#include "gameComm/dooranimclient.h"
+#include "UI/uiKeybind.h"
+#include "UI/uiKeymapping.h"
+#include <utilitieslib/utils/sysutil.h>
+#include "UI/uiHelp.h"
+#include "filter/titles.h"
+#include "graphics/seqgraphics.h"
+#include "edit/edit_drawlines.h" //for sphere drawing
+#include "graphics/clothnode.h"
+#include "gridcoll/gridcache.h"
+#include "UI/uiChat.h"
+#include "gameComm/chatClient.h"
+#include "UI/uiWindows_init.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/uidialog.h"
+#include "render/texWords.h"
+#include "graphics/textureatlas.h"
+#include "render/tex.h"
+#include "render/texUnload.h"
+#include "UI/uiGender.h" // for disabling of bone scale sliders
 #include "imageServer.h"
-#include "renderprim.h"
-#include "modelReload.h"
-#include "entity.h"
-#include "cmdcontrols.h"
-#include "anim.h"
-#include "SharedMemory.h"
-#include "NwWrapper.h"
-#include "baseedit.h"
-#include "basedata.h"
-#include "gfx.h"
-#include "gfxDebug.h"
-#include "sprite_base.h"
-#include "gfxLoadScreens.h"
-#include "authuserdata.h"
-#include "uiUtilMenu.h"
-#include "uiBaseInput.h"
-#include "seqstate.h"
-#include "groupfilelib.h"
-#include "strings_opt.h"
-#include "dxtlibwrapper.h"
-#include "DetailRecipe.h"
-#include "cpu_count.h"
-#include "osdependent.h"
-#include "character_inventory.h"
-#include "powers.h"
+#include "render/renderprim.h"
+#include "seq/modelReload.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcontrols.h"
+#include "seq/anim.h"
+#include <utilitieslib/components/SharedMemory.h>
+#include "NovodeX/NwWrapper.h"
+#include "bases/baseedit.h"
+#include "bases/basedata.h"
+#include "graphics/gfx.h"
+#include "graphics/gfxDebug.h"
+#include "UI/sprite/sprite_base.h"
+#include "graphics/gfxLoadScreens.h"
+#include "auth/authUserData.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiBaseInput.h"
+#include "seq/seqstate.h"
+#include "group/groupfilelib.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include "render/dxtlibwrapper.h"
+#include "bases/DetailRecipe.h"
+#include <utilitieslib/utils/cpu_count.h>
+#include <utilitieslib/utils/osdependent.h>
+#include "entity/character_inventory.h"
+#include "entity/powers.h"
 #include "MissionControl.h"
-#include "fxlists.h"
+#include "graphics/FX/fxlists.h"
 #include "fxinfo.h"
 #include "editorUI.h"
-#include "group.h"
-#include "mutex.h"
-#include "filewatch.h"
-#include "fxdebris.h"
-#include "uiWindows.h"
-#include "AutoLOD.h"
-#include "MessageStoreUtil.h"
-#include "AccountCatalog.h"
-#include "utils.h"
-#include "uiOptions.h"
-#include "uiPlayerNote.h"
-#include "uiLoadingTip.h"
-#include "missionMapCommon.h"
-#include "pnpcCommon.h"
-#include "uiMissionMakerScrollSet.h"
-#include "renderssao.h"
-#include "rendershadowmap.h"
-#include "cubemap.h"
-#include "renderstats.h"
-#include "perfcounter.h"
+#include "group/group.h"
+#include <utilitieslib/utils/mutex.h>
+#include <utilitieslib/utils/filewatch.h>
+#include "graphics/FX/fxdebris.h"
+#include "UI/uiWindows.h"
+#include "seq/AutoLOD.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "account/AccountCatalog.h"
+#include <utilitieslib/utils/utils.h>
+#include "UI/uiOptions.h"
+#include "UI/uiPlayerNote.h"
+#include "UI/uiLoadingTip.h"
+#include "storyarc/missionMapCommon.h"
+#include "storyarc/pnpcCommon.h"
+#include "UI/uiMissionMakerScrollSet.h"
+#include "render/renderSSAO.h"
+#include "render/rendershadowmap.h"
+#include "render/cubemap.h"
+#include "render/renderstats.h"
+#include "render/perfcounter.h"
 #include "ui/uiPopHelp.h"
-#include "rendershadowmap.h"
-#include "UtilsNew/profiler.h"
-#include "ssemath.h"
-#include "uiAuction.h"
-#include "uiSalvageOpen.h"
-#include "zowieClient.h"
-#include "hwlight.h"
-#include "inventory_client.h"
-#include "log.h"
+#include "render/rendershadowmap.h"
+#include <utilitieslib/UtilsNew/profiler.h>
+#include <utilitieslib/utils/ssemath.h>
+#include "UI/uiAuction.h"
+#include "UI/uiSalvageOpen.h"
+#include "storyarc/zowieClient.h"
+#include "win/hwlight.h"
+#include "player/inventory_client.h"
+#include <utilitieslib/utils/log.h>
 #include "LWC.h"
-#include "RegistryReader.h"
-#include "uiCursor.h"
-#include "crypt.h"
+#include <utilitieslib/utils/RegistryReader.h>
+#include "UI/uiCursor.h"
+#include <utilitieslib/network/crypt.h>
 #include "game.h"
-#include "costume_client.h"
-#include "character_eval.h"
-#include "character_combat_eval.h"
+#include "entity/costume_client.h"
+#include "entity/character_eval.h"
+#include "entity/character_combat_eval.h"
 
 extern int    g_win_ignore_popups;
 extern int do_map_xfer;
@@ -520,7 +520,7 @@ static void runServeEditorMenus()
     }
 }
 
-#include "groupfileload.h"
+#include "group/groupfileload.h"
 
 
 void engine_update()
@@ -947,8 +947,8 @@ void checkOddball()
 #endif
 }
 
-#include "uiUtil.h"
-#include "sprite_text.h"
+#include "UI/uiUtil.h"
+#include "UI/sprite/sprite_text.h"
 void checkLogoutProgress()
 {
     Entity *p = playerPtr();
@@ -1482,7 +1482,7 @@ static DWORD WINAPI keepMemoryThread(void* unusedParam){
 static void AttachConsoleIfAvail(void)
 {
     HMODULE mod;
-    mod = LoadLibrary("kernel32.dll");
+    mod = LoadLibraryA("kernel32.dll");
     if(mod) {
         FARPROC func = GetProcAddress(mod, "AttachConsole");
         if(func) {
@@ -1600,7 +1600,7 @@ static void checkForCrash()
                 mbtype |= MB_OK;
 
 
-            mbresult = MessageBox(0, textStd(progressUserString), textStd("CrashDialogTitle"), mbtype );
+            mbresult = MessageBoxA(0, textStd(progressUserString), textStd("CrashDialogTitle"), mbtype );
 
             if (type == PROGRESSDIALOGTYPE_SAFEMODE && mbresult == IDYES)
             {

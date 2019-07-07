@@ -3,17 +3,17 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "ttFont.h"
-#include "ttFontUtil.h"
+#include "graphics/ttFont.h"
+#include "graphics/ttFontUtil.h"
 
-#include "sprite_font.h"
+#include "UI/sprite/sprite_font.h"
 
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
-#include "file.h"
-#include "cmdgame.h"
+#include <utilitieslib/utils/file.h>
+#include "cmdparse/cmdgame.h"
 
-#include "AppLocale.h"
+#include <utilitieslib/language/AppLocale.h>
 
 /*****************************************************
  * True type font stuff

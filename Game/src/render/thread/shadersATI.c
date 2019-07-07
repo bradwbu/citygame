@@ -1,10 +1,10 @@
 // These routines are the ATI specific 'register combiner' programs for old ATI cards
 // when ARBFP is not available
-#include "ogl.h"
-#include "shadersATI.h"
-#include "renderUtil.h"
+#include "render/thread/ogl.h"
+#include "render/thread/shadersATI.h"
+#include "render/renderUtil.h"
 #include "assert.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 
     //
     // Fragment shaders
@@ -325,7 +325,7 @@
                                 GL_PRIMARY_COLOR_ARB, GL_NONE, GL_NONE); CHECKGL;
     }
 
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 #define CHECK {result = gldGetError(); if(result!=0) { printf("%s: Error Compiling\n", timerGetTimeString());} }
     void atiFSBumpColorBlend(void)
     {

@@ -1,17 +1,17 @@
-#include "group.h"
+#include "group/group.h"
 #include "edit_errcheck.h"
-#include "edit_net.h"
-#include "edit_cmd.h"
-#include "edit_select.h"
-#include "win_init.h"
-#include "utils.h"
-#include "input.h"
-#include "cmdGame.h"
-#include "grouputil.h"
-#include "groupfilelib.h"
-#include "anim.h"
-#include "edit_cmd_select.h"
-#include "StashTable.h"
+#include "edit/edit_net.h"
+#include "edit/edit_cmd.h"
+#include "edit/edit_select.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/utils.h>
+#include "win/input.h"
+#include "cmdparse/cmdgame.h"
+#include "group/grouputil.h"
+#include "group/groupfilelib.h"
+#include "seq/anim.h"
+#include "edit/edit_cmd_select.h"
+#include <utilitieslib/components/StashTable.h>
 static char    obj_defnamedir[1024];
 
 void editCmdUngroup()

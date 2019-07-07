@@ -1,5 +1,5 @@
-#include "AuctionData.h"
-#include "Auction.h"
+#include "auction/AuctionData.h"
+#include "auction/auction.h"
 #include "account/AccountCatalog.h"
 #include <utilitieslib/components/EArray.h>
 #include <utilitieslib/components/StashTable.h>

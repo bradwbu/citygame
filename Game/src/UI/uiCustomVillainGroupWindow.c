@@ -1,43 +1,43 @@
-#include "uiCustomVillainGroupWindow.h"
-#include "wdwbase.h"    //    for window defines
-#include "uiUtil.h"        //    for constants like PIX3 and R10
-#include "uiWindows.h"    //    for window functions
-#include "uiUtilGame.h"    //    for drawFrame
-#include "uiUtilMenu.h"    //    for textWithDot
-#include "uiDialog.h"    //    for dialog windows
+#include "UI/uiCustomVillainGroupWindow.h"
+#include "gameComm/wdwbase.h"    //    for window defines
+#include "UI/uiUtil.h"        //    for constants like PIX3 and R10
+#include "UI/uiWindows.h"    //    for window functions
+#include "UI/uiUtilGame.h"    //    for drawFrame
+#include "UI/uiUtilMenu.h"    //    for textWithDot
+#include "UI/uidialog.h"    //    for dialog windows
 #include "uiHelpButton.h"
-#include "cmdcommon.h"
+#include "cmdparse/cmdcommon.h"
 
-#include "playerCreatedStoryarcValidate.h"    //    for villain group list
+#include "storyarc/playerCreatedStoryarcValidate.h"    //    for villain group list
 #include "uiScrollSelector.h"                //    for scroll selectors            
-#include "earray.h"                            //    earray functions
-#include "MessageStoreUtil.h"                //    for textStd
-#include "error.h"
-#include "uiClipper.h"                        //    for clipping
-#include "uiBox.h"                            //    for uiBox
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "ttFontUtil.h"
-#include "VillainDef.h"                        //    for villainDef
-#include "EString.h"                        //    for estrings
-#include "uiPictureBrowser.h"                //    for picture browser
-#include "smf_main.h"                        //    for smf
-#include "SuperAssert.h"                    //    for assert
-#include "PCC_Critter.h"                    //    for custom critters
-#include "PCC_Critter_Client.h"                //    for custom critter creation/edit
+#include <utilitieslib/components/Earray.h>                            //    earray functions
+#include <utilitieslib/language/MessageStoreUtil.h>                //    for textStd
+#include <utilitieslib/utils/error.h>
+#include "UI/uiClipper.h"                        //    for clipping
+#include "UI/uiBox.h"                            //    for uiBox
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/ttFontUtil.h"
+#include "gameComm/villainDef.h"                        //    for villainDef
+#include <utilitieslib/components/estring.h>                        //    for estrings
+#include "UI/uiPictureBrowser.h"                //    for picture browser
+#include "formatter/smf_main.h"                        //    for smf
+#include <utilitieslib/utils/SuperAssert.h>                    //    for assert
+#include "entity/PCC_Critter.h"                    //    for custom critters
+#include "entity/PCC_Critter_Client.h"                //    for custom critter creation/edit
 #include "uiPCCRank.h"
-#include "sprite_base.h"                    //    for display_sprite
-#include "powers.h"                            //    for villain powers
-#include "CustomVillainGroup.h"
-#include "CustomVillainGroup_Client.h"
-#include "uiMissionMakerScrollSet.h"        //    for updateCustomCritterList
-#include "player.h"                            //    for player ptr to validate
-#include "validate_name.h"                    //    for filename/displayname validation
-#include "file.h"                        //    for open test
-#include "stdtypes.h"                    //    for open test
-#include "uiInput.h"                    //    for mouse Collision
-#include "uiTabControl.h"                //    for tabs
-#include "uiContextMenu.h"                //    for right clickies
+#include "UI/sprite/sprite_base.h"                    //    for display_sprite
+#include "entity/powers.h"                            //    for villain powers
+#include "entity/CustomVillainGroup.h"
+#include "entity/CustomVillainGroup_Client.h"
+#include "UI/uiMissionMakerScrollSet.h"        //    for updateCustomCritterList
+#include "player/player.h"                            //    for player ptr to validate
+#include "filter/validate_name.h"                    //    for filename/displayname validation
+#include <utilitieslib/utils/file.h>                        //    for open test
+#include <utilitieslib/stdtypes.h>                    //    for open test
+#include "UI/uiInput.h"                    //    for mouse Collision
+#include "UI/uiTabControl.h"                //    for tabs
+#include "UI/uiContextMenu.h"                //    for right clickies
 #include "uiNPCCostume.h"
 
 static int init = 0;

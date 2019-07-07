@@ -1,41 +1,41 @@
-#include "gfxDebug.h"
-#include "Model.h"
-#include "mathutil.h"
-#include "renderUtil.h"
-#include "cmdgame.h"
-#include "renderprim.h"
-#include "gfx.h"
-#include "font.h"
-#include "groupdraw.h"
-#include "timing.h"
-#include "file.h"
-#include "tga.h"
-#include "tiff.h"
-#include "gfxSettings.h"
-#include "win_init.h"
-#include "utils.h"
-#include "edit_cmd.h"
+#include "graphics/gfxDebug.h"
+#include "render/model.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/renderUtil.h"
+#include "cmdparse/cmdgame.h"
+#include "render/renderprim.h"
+#include "graphics/gfx.h"
+#include "graphics/font.h"
+#include "graphics/groupdraw.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/tga.h>
+#include <utilitieslib/utils/tiff.h>
+#include "graphics/gfxSettings.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/utils.h>
+#include "edit/edit_cmd.h"
 #include "clientError.h"
-#include "seqgraphics.h"
-#include "textureatlas.h"
-#include "zOcclusion.h"
-#include "groupThumbnail.h"
-#include "sprite_base.h"
-#include "uiWindows.h"
-#include "wdwbase.h"
-#include "uiConsole.h"
-#include "player.h"
-#include "uiGame.h"
-#include "pbuffer.h"
-#include "debuglocation.h"
-#include "tex.h"
-#include "tex_gen.h"
-#include "GenericPoly.h"
-#include "camera.h"
-#include "jpeg.h"
-#include "StashTable.h"
-#include "renderssao.h"
-#include "gfxDevHUD.h"
+#include "graphics/seqgraphics.h"
+#include "graphics/textureatlas.h"
+#include "graphics/zOcclusion.h"
+#include "graphics/groupThumbnail.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/uiWindows.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiConsole.h"
+#include "player/player.h"
+#include "UI/uiGame.h"
+#include "render/pbuffer.h"
+#include "edit/DebugLocation.h"
+#include "render/tex.h"
+#include "render/tex_gen.h"
+#include <utilitieslib/components/GenericPoly.h>
+#include "graphics/camera.h"
+#include "graphics/jpeg.h"
+#include <utilitieslib/components/StashTable.h>
+#include "render/renderSSAO.h"
+#include "graphics/gfxDevHUD.h"
 
 //##########################################################################
 //Odds and ends
@@ -97,7 +97,7 @@ void gfxDump360()
 }
 
 //Debug
-#include "rt_state.h"
+#include "render/thread/rt_state.h"
 //ENd Debug
 
 void printGeneralDebug()

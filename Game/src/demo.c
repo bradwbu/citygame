@@ -1,66 +1,67 @@
 #include <stdarg.h>
-#include "entrecv.h"
-#include "sun.h"
-#include "baseclientrecv.h"
-#include "basetogroup.h"
-#include "basedata.h"
-#include "baseedit.h"
-#include "estring.h"
+#include <utilitieslib/stdtypes.h>
+#include "entity/entrecv.h"
+#include "graphics/sun.h"
+#include "bases/baseclientrecv.h"
+#include "bases/basetogroup.h"
+#include "bases/basedata.h"
+#include "bases/baseedit.h"
+#include <utilitieslib/components/estring.h>
 #include <stdio.h>
 #include <string.h>
 #include "demo.h"
-#include "file.h"
-#include "utils.h"
-#include "groupnetrecv.h"
-#include "entity.h"
-#include "entclient.h"
-#include "costume_client.h"
-#include "NPC.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/utils.h>
+#include "group/groupnetrecv.h"
+#include "entity/entity.h"
+#include "entity/entclient.h"
+#include "entity/costume_client.h"
+#include "gameComm/npc.h"
 #include "varutils.h"
-#include "timing.h"
-#include "seqsequence.h"
-#include "StringCache.h"
-#include "entrecv.h"
-#include "win_init.h"
-#include "cmdcommon.h"
-#include "uiAutomap.h"
-#include "camera.h"
-#include "font.h"
-#include "cmdgame.h"
-#include "input.h"
-#include "uiGame.h"
-#include "player.h"
-#include "Npc.h"
-#include "EArray.h"
-#include "gfx.h"
-#include "gfxDebug.h"
-#include "uiChat.h"
-#include "clientcommreceive.h"
-#include "playerState.h"
-#include "renderUtil.h"
-#include "gfx.h"
-#include "gfxSettings.h"
-#include "uiConsole.h"
-#include "FolderCache.h"
-#include "netfx.h"
-#include "tex.h"
-#include "texUnload.h"
-#include "character_base.h"
-#include "anim.h"
-#include "edit_cmd.h"
-#include "gfxLoadScreens.h"
-#include "origins.h"
-#include "entDebug.h"
-#include "entDebugPrivate.h"
-#include "uiInput.h"
-#include "itemselect.h"
-#include "cpu_count.h"
-#include "groupdyn.h"
-#include "uiOptions.h"
+#include <utilitieslib/utils/timing.h>
+#include "seq/seqsequence.h"
+#include <utilitieslib/components/StringCache.h>
+#include "entity/entrecv.h"
+#include "win/win_init.h"
+#include "cmdparse/cmdcommon.h"
+#include "UI/uiAutomap.h"
+#include "graphics/camera.h"
+#include "graphics/font.h"
+#include "cmdparse/cmdgame.h"
+#include "win/input.h"
+#include "UI/uiGame.h"
+#include "player/player.h"
+#include "gameComm/npc.h"
+#include <utilitieslib/components/Earray.h>
+#include "graphics/gfx.h"
+#include "graphics/gfxDebug.h"
+#include "UI/uiChat.h"
+#include "clientcomm/clientcommreceive.h"
+#include "player/playerState.h"
+#include "render/renderUtil.h"
+#include "graphics/gfx.h"
+#include "graphics/gfxSettings.h"
+#include "UI/uiConsole.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include "entity/netfx.h"
+#include "render/tex.h"
+#include "render/texUnload.h"
+#include "entity/character_base.h"
+#include "seq/anim.h"
+#include "edit/edit_cmd.h"
+#include "graphics/gfxLoadScreens.h"
+#include "entity/origins.h"
+#include "entity/entDebug.h"
+#include "entity/entDebugPrivate.h"
+#include "UI/uiInput.h"
+#include "gameComm/itemselect.h"
+#include <utilitieslib/utils/cpu_count.h>
+#include "group/groupdyn.h"
+#include "UI/uiOptions.h"
 
 #ifndef TEST_CLIENT
-#    include "bases.h"
-#    include "baseparse.h"
+#include "bases/bases.h"
+#include "bases/baseparse.h"
 #endif
 
 extern Entity* current_target;
@@ -730,8 +731,8 @@ int demoLoad(char *fname)
     int                i,count,ent_idx,unique_id=1;
     U32                abs_time=1;
     EntFrame        *ent=0;
-    DemoCostume        *costume;
-    NetFx            *fx;
+    DemoCostume* costume = NULL;
+    NetFx* fx = NULL;
     int                lineNum = 0;
     int                wasCostume = 0;
     #define            ID_OFFSET 0
@@ -1714,15 +1715,15 @@ void demoStartRecord(char *fname)
 
 static char *getCpuName(char *cpu_name,int cpu_name_size)
 {
-    int        result,namesize = cpu_name_size;
-    HKEY    hKey;
+    int result,namesize = cpu_name_size;
+    HKEY hKey;
 
     strcpy_s(cpu_name, cpu_name_size, "Unknown");
-    result = RegOpenKeyEx (HKEY_LOCAL_MACHINE,"Hardware\\Description\\System\\CentralProcessor\\0", 0, KEY_QUERY_VALUE, &hKey);
+    result = RegOpenKeyExA(HKEY_LOCAL_MACHINE,"Hardware\\Description\\System\\CentralProcessor\\0", 0, KEY_QUERY_VALUE, &hKey);
     if (result != ERROR_SUCCESS)
         return cpu_name;
-    result = RegQueryValueEx (hKey, "ProcessorNameString", NULL, NULL, (LPBYTE)cpu_name, &namesize);
-    RegCloseKey (hKey);
+    result = RegQueryValueExA(hKey, "ProcessorNameString", NULL, NULL, (LPBYTE)cpu_name, &namesize);
+    RegCloseKey(hKey);
     if (result != ERROR_SUCCESS)
         return cpu_name;
     return cpu_name;

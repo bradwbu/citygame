@@ -4,32 +4,32 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include <stdarg.h>
-#include "EString.h"
+#include <utilitieslib/components/estring.h>
 
-#include "ttFont.h"
-#include "MessageStore.h" // for msvaPrintf
-#include "StringUtil.h"   // for UTF8ToWideStrConvert
-#include "ttFontUtil.h"   // for printBasic
+#include "graphics/ttFont.h"
+#include <utilitieslib/language/MessageStore.h> // for msvaPrintf
+#include <utilitieslib/utils/StringUtil.h>   // for UTF8ToWideStrConvert
+#include "graphics/ttFontUtil.h"   // for printBasic
 #include "language/langClientUtil.h"    // for menuMessages
-#include "mathutil.h"
-#include "uiGame.h"
-#include "win_init.h"
-#include "timing.h"
-#include "strings_opt.h"
-#include "utils.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "UI/uiGame.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/utils/utils.h>
 
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
 #include "assert.h"
-#include "AppLocale.h"
-#include "MessageStoreUtil.h"
-#include "playerCreatedStoryarcValidate.h"
-#include "player.h"
-#include "Entity.h"
-#include "EntPlayer.h"
-#include "authUserData.h"
-#include "cmdgame.h"
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "storyarc/playerCreatedStoryarcValidate.h"
+#include "player/player.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "auth/authUserData.h"
+#include "cmdparse/cmdgame.h"
 
 typedef enum
 {

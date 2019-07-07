@@ -1,25 +1,25 @@
 
-#include "uiUtil.h"
-#include "uiGame.h"
-#include "uiInput.h"
-#include "ttFontUtil.h"
-#include "uiEditText.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"
-#include "uiComboBox.h"
-#include "uiScrollBar.h"
-#include "uiWindows.h"
-#include "uiClipper.h"
-#include "uiToolTip.h"
+#include "UI/uiUtil.h"
+#include "UI/uiGame.h"
+#include "UI/uiInput.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/uiEditText.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiComboBox.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiWindows.h"
+#include "UI/uiClipper.h"
+#include "UI/uiToolTip.h"
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
 
-#include "cmdgame.h"
-#include "earray.h"
-#include "mathutil.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/mathutil.h>
 
 enum
 {

@@ -1,8 +1,8 @@
 #ifndef _RT_BONEDMODEL_H
 #define _RT_BONEDMODEL_H
 
-#include "rt_model_cache.h"
-#include "rt_model.h"
+#include "render/thread/rt_model_cache.h"
+#include "render/thread/rt_model.h"
 
 typedef struct Model Model;
 

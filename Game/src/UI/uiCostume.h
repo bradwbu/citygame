@@ -6,13 +6,13 @@
 #ifndef UICOSTUME_H__
 #define UICOSTUME_H__
 
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
-#include "Color.h"
-#include "costume_data.h"
-#include "costume.h"
-#include "uiAvatar.h"
-#include "uiWebStoreFrame.h"
+#include <utilitieslib/utils/Color.h>
+#include "gameData/costume_data.h"
+#include "entity/costume.h"
+#include "UI/uiAvatar.h"
+#include "UI/Hybrid/uiWebStoreFrame.h"
 
 typedef enum CostumeEditMode
 {

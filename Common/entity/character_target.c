@@ -7,23 +7,23 @@
 
 #include <utilitieslib/components/earray.h>
 
-#include "entity.h"
-#include "entPlayer.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
 #include "gridcoll/gridcoll.h"
-#include "powers.h"
-#include "character_base.h"
+#include "entity/powers.h"
+#include "entity/character_base.h"
 
 #if SERVER
-#include "character_combat_eval.h"
+#include "entity/character_combat_eval.h"
 #include "player/pmotion.h" // for entMode
 #include "cmdparse/cmdserver.h"
 #include "dbcomm/logcomm.h"
 #else
-#include "camera.h"
+#include "graphics/camera.h"
 #endif
 
-#include "teamup.h"
-#include "character_target.h"
+#include "entity/teamup.h"
+#include "entity/character_target.h"
 #include "group/groupscene.h"
 #include <utilitieslib/utils/mathutil.h>
 

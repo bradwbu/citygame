@@ -1,24 +1,24 @@
 #define RT_PRIVATE
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "rt_cloth.h"
-#include "rt_state.h"
-#include "rt_model_cache.h"
-#include "rt_tricks.h"
-#include "rt_tex.h"
-#include "rt_model.h"
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_cloth.h"
+#include "render/thread/rt_state.h"
+#include "render/thread/rt_model_cache.h"
+#include "render/thread/rt_tricks.h"
+#include "render/thread/rt_tex.h"
+#include "render/thread/rt_model.h"
 #include "rt_stats.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "assert.h"
-#include "rt_shadow.h"
+#include "render/thread/rt_shadow.h"
 
-#include "clothnode.h"
-#include "Cloth.h"
-#include "ClothCollide.h"
-#include "ClothMesh.h"
-#include "ClothPrivate.h"
+#include "graphics/clothnode.h"
+#include "Cloth/Cloth.h"
+#include "Cloth/ClothCollide.h"
+#include "Cloth/ClothMesh.h"
+#include "Cloth/ClothPrivate.h"
 
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 void modelDrawClothObjectDirect( RdrCloth *rc )
 {
     ClothMesh        *mesh = rc->renderData.currentMesh;

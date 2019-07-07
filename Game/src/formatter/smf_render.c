@@ -8,36 +8,36 @@
 #include <string.h> // memset
 #include <sys/stat.h>
 
-#include "smf_util.h"
-#include "smf_render.h"
+#include "formatter/smf_util.h"
+#include "formatter/smf_render.h"
 
-#include "stdtypes.h"
-#include "earray.h"
-#include "powers.h"
-#include "costume.h"
-#include "DetailRecipe.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/Earray.h>
+#include "entity/powers.h"
+#include "entity/costume.h"
+#include "bases/DetailRecipe.h"
 
-#include "npc.h"
-#include "truetype/ttFontDraw.h"
-#include "ttFontUtil.h"
-#include "sprite_base.h"
-#include "uiUtil.h"
-#include "uiRecipeInventory.h"
-#include "uiEnhancement.h"
-#include "uiGame.h"
-#include "seqgraphics.h"
+#include "gameComm/npc.h"
+#include "graphics/truetype/ttFontDraw.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/uiUtil.h"
+#include "UI/uiRecipeInventory.h"
+#include "UI/uiEnhancement.h"
+#include "UI/uiGame.h"
+#include "graphics/seqgraphics.h"
 
-#include "textureatlas.h"
-#include "timing.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/utils/timing.h>
 
-#include "MemoryMonitor.h"
-#include "estring.h"
-#include "StringUtil.h"
-#include "uiPictureBrowser.h"
-#include "win_init.h"
+#include <utilitieslib/utils/MemoryMonitor.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/StringUtil.h>
+#include "UI/uiPictureBrowser.h"
+#include "win/win_init.h"
 
-#include "entity.h"
-#include "entclient.h"
+#include "entity/entity.h"
+#include "entity/entclient.h"
 
 #define TAG_MATCHES(y) (smf_aTagDefs[pBlock->iType].id==k_##y)
 #define SM_BLOAT (-1)

@@ -7,9 +7,9 @@
 #include <utilitieslib/utils/fileutil.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
-#include "animtrack.h"
+#include "seq/animtrack.h"
 #include <utilitieslib/components/StashTable.h>
-//#include "animtrackanimate.h"
+//#include "seq/animtrackanimate.h"
 #include <utilitieslib/utils/strings_opt.h> //    For faster stricmp calls
 #include <utilitieslib/assert/assert.h>
 #include "cmdparse/cmdcommon.h"

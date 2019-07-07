@@ -1,7 +1,7 @@
 #ifndef _ZOCCLUSIONTYPES_H_
 #define _ZOCCLUSIONTYPES_H_
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 #define ZO_SAFE                0
 

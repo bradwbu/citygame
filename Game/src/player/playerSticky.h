@@ -2,7 +2,7 @@
 #ifndef PLAYERSTICKY_H
 #define PLAYERSTICKY_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct Entity Entity;
 typedef struct GroupDef GroupDef;

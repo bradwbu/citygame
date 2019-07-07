@@ -1,50 +1,50 @@
-#include "uiPower.h"
-#include "uiGame.h"                // for start_menu
+#include "UI/Hybrid/uiPower.h"
+#include "UI/uiGame.h"                // for start_menu
 
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
 
-#include "input.h"
-#include "earray.h"
-#include "win_init.h" // for windowClientSize
-#include "player.h"      // for playerPtr
-#include "font.h"
-#include "ttFontUtil.h"
-#include "sound.h"
+#include "win/input.h"
+#include <utilitieslib/components/Earray.h>
+#include "win/win_init.h" // for windowClientSize
+#include "player/player.h"      // for playerPtr
+#include "graphics/font.h"
+#include "graphics/ttFontUtil.h"
+#include "sound/sound.h"
 #include "language/langClientUtil.h"
-#include "textureatlas.h"
-#include "cmdgame.h"  // for timestep
-#include "inventory_client.h"
+#include "graphics/textureatlas.h"
+#include "cmdparse/cmdgame.h"  // for timestep
+#include "player/inventory_client.h"
 
-#include "smf_parse.h"
-#include "smf_format.h"
-#include "smf_main.h"
+#include "formatter/smf_parse.h"
+#include "formatter/smf_format.h"
+#include "formatter/smf_main.h"
 
-#include "uiInput.h"
-#include "uiUtilMenu.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiHybridMenu.h"
-#include "uiArchetype.h"
-#include "uiOrigin.h"
-#include "uiCostume.h"
-#include "uiRedirect.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/Hybrid/uiHybridMenu.h"
+#include "UI/Hybrid/uiArchetype.h"
+#include "UI/Hybrid/uiOrigin.h"
+#include "UI/uiCostume.h"
+#include "UI/Hybrid/uiRedirect.h"
 
-#include "classes.h"
-#include "powers.h"
-#include "costume.h"
-#include "character_base.h"
-#include "entity.h"
-#include "entPlayer.h"
+#include "entity/classes.h"
+#include "entity/powers.h"
+#include "entity/costume.h"
+#include "entity/character_base.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
 
-#include "uiPowerInfo.h"
-#include "authclient.h"
-#include "dbclient.h"
-#include "uiWebStoreFrame.h"
-#include "uiClipper.h"
-#include "uiDialog.h"
-#include "AccountCatalog.h"
+#include "UI/uiPowerInfo.h"
+#include "clientComm/authclient.h"
+#include "clientcomm/dbclient.h"
+#include "UI/Hybrid/uiWebStoreFrame.h"
+#include "UI/uiClipper.h"
+#include "UI/uidialog.h"
+#include "account/AccountCatalog.h"
 
 #define NUM_POWERS_SHOWING 9
 

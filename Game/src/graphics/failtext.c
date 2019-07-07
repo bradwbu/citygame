@@ -1,9 +1,9 @@
-#include "failtext.h"
-#include "stdtypes.h"
-#include "font.h"
-#include "mathutil.h"
-#include "superassert.h"
-#include "file.h" // for isDevelopmentOrQAMode
+#include "graphics/failtext.h"
+#include <utilitieslib/stdtypes.h>
+#include "graphics/font.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/SuperAssert.h>
+#include <utilitieslib/utils/file.h> // for isDevelopmentOrQAMode
 #include <time.h>
 #include <windows.h>
 

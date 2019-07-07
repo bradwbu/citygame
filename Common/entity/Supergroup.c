@@ -4,14 +4,14 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include <utilitieslib/stdtypes.h>
-#include "Entity.h"
-#include "EntPlayer.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
 #include <utilitieslib/utils/eval.h>
-#include "Supergroup.h"
-#include "RewardToken.h"
+#include "entity/Supergroup.h"
+#include "entity/rewardtoken.h"
 #include <utilitieslib/components/MemoryPool.h>
 #include <utilitieslib/components/earray.h>
-#include "teamup.h"
+#include "entity/teamup.h"
 #include <utilitieslib/components/bitfield.h>
 #include <utilitieslib/components/StashTable.h>
 #include "bases/basedata.h"

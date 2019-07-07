@@ -4,32 +4,32 @@
 //-------------------------------------------------------------------
 
 
-#include "uiUtil.h"
-#include "uiWindows.h"
-#include "uiUtilGame.h"
+#include "UI/uiUtil.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtilGame.h"
 #include "uiHelpButton.h"
-#include "uiCompass.h"
+#include "UI/uiCompass.h"
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "ttfontutil.h"
-#include "textureatlas.h"
-#include "net_packet.h"
-#include "timing.h"
-#include "player.h"
-#include "entity.h"
-#include "earray.h"
-#include "wdwbase.h"
-#include "applocale.h"
-#include "messagestoreutil.h"
-#include "superassert.h"
-#include "uiInput.h"
-#include "uiCursor.h"
-#include "entclient.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/ttFontUtil.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/network/net_packet.h>
+#include <utilitieslib/utils/timing.h>
+#include "player/player.h"
+#include "entity/entity.h"
+#include <utilitieslib/components/Earray.h>
+#include "gameComm/wdwbase.h"
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/SuperAssert.h>
+#include "UI/uiInput.h"
+#include "UI/uiCursor.h"
+#include "entity/entclient.h"
 
-#include "uiwindows_init.h"
-#include "uiscript.h"
+#include "UI/uiWindows_init.h"
+#include "UI/uiScript.h"
 
 // Control whether the script UI is within the compass or detached in its own window
 int scriptUIIsDetached = 0;

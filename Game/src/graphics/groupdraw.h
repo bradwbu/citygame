@@ -1,9 +1,9 @@
 #ifndef _GROUPDRAW_H
 #define _GROUPDRAW_H
 
-#include "group.h"
-#include "mathutil.h"
-#include "texEnums.h"
+#include "group/group.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/texEnums.h"
 #include "frustum_c.h"
 
 typedef struct FxMiniTracker FxMiniTracker;

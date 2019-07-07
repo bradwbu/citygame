@@ -1,6 +1,6 @@
 #define RT_ALLOW_VBO
-#include "model_cache.h"
-#include "mathutil.h"
+#include "render/model_cache.h"
+#include <utilitieslib/utils/mathutil.h>
 
 #include "zOcclusionClip.h"
 #include "zOcclusionDraw.h"

@@ -1,13 +1,13 @@
 #include <utilitieslib/stdtypes.h>
-#include "seqskeleton.h"
+#include "seq/seqskeleton.h"
 #include <utilitieslib/utils/mathutil.h>
-#include "anim.h"
-#include "seq.h"
+#include "seq/anim.h"
+#include "seq/seq.h"
 #include "entity/entity.h"
 #include "entity/costume.h"
 #include "seq/tricks.h"
 #include <utilitieslib/utils/SuperAssert.h>
-#include "animtrackanimate.h"
+#include "seq/animtrackanimate.h"
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/file.h>
 #include "entity/teamCommon.h"
@@ -19,14 +19,14 @@
 #include <utilitieslib/utils/Quat.h>
 
 #ifdef CLIENT 
-#include "cmdgame.h"
-#include "player.h"
-#include "seqgraphics.h"
-#include "font.h"
-#include "render.h"
-#include "fx.h"
-#include "sprite_text.h"
-#include "model.h"
+#include "cmdparse/cmdgame.h"
+#include "player/player.h"
+#include "graphics/seqgraphics.h"
+#include "graphics/font.h"
+#include "render/render.h"
+#include "graphics/FX/fx.h"
+#include "UI/sprite/sprite_text.h"
+#include "render/model.h"
 #endif
 
 #ifdef SERVER

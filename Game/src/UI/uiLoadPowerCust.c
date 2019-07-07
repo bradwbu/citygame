@@ -1,37 +1,37 @@
 #include "uiLoadPowerCust.h"
-#include "uiGame.h"                //    for start_menu
-#include "uiUtilMenu.h"            //    for drawBackground
-#include "uiUtil.h"                //    for colors/others
-#include "MessageStoreUtil.h"    //    for textStd
-#include "sound.h"
-#include "cmdgame.h"
-#include "uiCostume.h"            //    for spin button
-#include "power_customization.h"
-#include "player.h"
-#include "entity.h"
-#include "textparser.h"
-#include "EString.h"
-#include "file.h"
-#include "FolderCache.h"
-#include "uiPowerCust.h"
-#include "earray.h"
-#include "smf_util.h"
-#include "smf_main.h"
-#include "uiInput.h"
-#include "uiUtilGame.h"
-#include "powers.h"
-#include "textureatlas.h"
-#include "sprite_base.h"
-#include "uiScrollBar.h"
-#include "uiClipper.h"
-#include "uiUtilMenu.h"
-#include "ttFontUtil.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "character_base.h"
-#include "uiDialog.h"
-#include "uiAvatar.h"
-#include "uiHybridMenu.h"
+#include "UI/uiGame.h"                //    for start_menu
+#include "UI/uiUtilMenu.h"            //    for drawBackground
+#include "UI/uiUtil.h"                //    for colors/others
+#include <utilitieslib/language/MessageStoreUtil.h>    //    for textStd
+#include "sound/sound.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiCostume.h"            //    for spin button
+#include "entity/power_customization.h"
+#include "player/player.h"
+#include "entity/entity.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include "UI/uiPowerCust.h"
+#include <utilitieslib/components/Earray.h>
+#include "formatter/smf_util.h"
+#include "formatter/smf_main.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilGame.h"
+#include "entity/powers.h"
+#include "graphics/textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiClipper.h"
+#include "UI/uiUtilMenu.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "entity/character_base.h"
+#include "UI/uidialog.h"
+#include "UI/uiAvatar.h"
+#include "UI/Hybrid/uiHybridMenu.h"
 
 static SMFBlock SM_fileListItem;
 static SMFBlock SM_powerCustListItem;
@@ -44,13 +44,14 @@ typedef enum PowerCustFilerEnum
 {
     PCF_NONE = 0,
     PCF_HIDE_NON_APPLICABLE = 1,
-};
+} PowerCustFilerEnum;
+
 typedef struct PowerCustListItem
 {
     char *fileName;
     __time32_t timeAge;
     PowerCustomizationList *listData;
-}PowerCustListItem;
+} PowerCustListItem;
 PowerCustListItem **s_powerCustList = NULL;
 static PowerCustomizationList *previousPowerCust = NULL;
 static TextAttribs gTextAttr =

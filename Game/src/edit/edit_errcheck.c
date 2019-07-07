@@ -1,10 +1,10 @@
-#include "group.h"
-#include "edit_select.h"
-#include "utils.h"
-#include "win_init.h"
-#include "edit_cmd.h"
+#include "group/group.h"
+#include "edit/edit_select.h"
+#include <utilitieslib/utils/utils.h>
+#include "win/win_init.h"
+#include "edit/edit_cmd.h"
 #include "edit_errcheck.h"
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 
 int selIsLights(int checkall)
 {

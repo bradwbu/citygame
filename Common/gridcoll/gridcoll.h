@@ -2,8 +2,8 @@
 #define _GRIDCOLL_H
 
 #include <utilitieslib/stdtypes.h>
-#include "ctri.h"
-#include "grid.h"
+#include "gridcoll/ctri.h"
+#include "gridcoll/grid.h"
 
 typedef struct DefTracker DefTracker;
 

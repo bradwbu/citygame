@@ -1,19 +1,19 @@
-#include <wininclude.h>
+#include <utilitieslib/utils/wininclude.h>
 #include <winuser.h>
-#include "pbuffer.h"
-#include "tex.h"
-#include "rt_state.h"
-#include "renderUtil.h"
-#include "win_init.h"
-#include "cmdgame.h"
-#include "timing.h"
-#include "win_cursor.h"
-#include "textureatlas.h"
-#include "Color.h"
-#include "osdependent.h"
-#include "utils.h"
-#include "dd.h"
-#include "file.h" // for isDevelopmentMode()
+#include "render/pbuffer.h"
+#include "render/tex.h"
+#include "render/thread/rt_state.h"
+#include "render/renderUtil.h"
+#include "win/win_init.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/timing.h>
+#include "win/win_cursor.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/utils/Color.h>
+#include <utilitieslib/utils/osdependent.h>
+#include <utilitieslib/utils/utils.h>
+#include "render/dd.h"
+#include <utilitieslib/utils/file.h> // for isDevelopmentMode()
 
 #define CURSOR_SWBLENDING
 //#define CURSOR_SWBLENDING_DUMP "C:\\temp\\swcursor\\"
@@ -21,6 +21,8 @@
 #ifdef CURSOR_SWBLENDING_DUMP
 #include <file.h>
 #endif
+
+#pragma warning (disable:4996)
 
 #define RGBA_R(rgba) ((unsigned char) (((rgba) >> 24) & 0xff))
 #define RGBA_G(rgba) ((unsigned char) (((rgba) >> 16) & 0xff))

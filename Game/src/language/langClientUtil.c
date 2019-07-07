@@ -1,15 +1,15 @@
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 #include "language/langClientUtil.h"
-#include "language/AppLocale.h"
-#include "mathutil.h"
-#include "FolderCache.h"
-#include "fileutil.h"
-#include "MessageStoreUtil.h"
-#include "commonLangUtil.h"
-#include "EString.h"
-#include "earray.h"
-#include "authUserData.h"
-#include "osdependent.h"
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "language/commonLangUtil.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/Earray.h>
+#include "auth/authUserData.h"
+#include <utilitieslib/utils/osdependent.h>
 
 MessageStore* cmdMessages;
 MessageStore* texWordsMessages;

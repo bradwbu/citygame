@@ -1,7 +1,7 @@
 #ifndef _UIRENDERSTATS_H
 #define _UIRENDERSTATS_H
 
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
 int rdrStatsWindow(void);
 

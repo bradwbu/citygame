@@ -1,8 +1,8 @@
 #include <utilitieslib/stdtypes.h>
-#include "seqregistration.h"
+#include "seq/seqregistration.h"
 #include <utilitieslib/utils/mathutil.h>
-#include "gfxtree.h"
-#include "seq.h"
+#include "seq/gfxtree.h"
+#include "seq/seq.h"
 #include "graphics/gfx.h"
 #include "graphics/gfxDebug.h"
 #include "graphics/font.h"
@@ -13,9 +13,9 @@
 
 #ifdef CLIENT
 #include "fxutil.h"
-#include "uiUtil.h" // debug only
-#include "camera.h" // debug only
-#include "cmdgame.h"
+#include "UI/uiUtil.h" // debug only
+#include "graphics/camera.h" // debug only
+#include "cmdparse/cmdgame.h"
 #endif
 
 #include <utilitieslib/utils/timing.h>

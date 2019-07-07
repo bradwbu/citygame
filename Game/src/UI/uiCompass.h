@@ -1,11 +1,11 @@
 #ifndef _COMPASS_H
 #define    _COMPASS_H
 
-#include "uiInclude.h"
-#include "stdtypes.h"
-#include "scriptuienum.h"
-#include "pnpcCommon.h"
-#include "contactCommon.h"
+#include "UI/uiInclude.h"
+#include <utilitieslib/stdtypes.h>
+#include "storyarc/ScriptUIEnum.h"
+#include "storyarc/pnpcCommon.h"
+#include "storyarc/contactCommon.h"
 
 typedef struct StashTableImp *StashTable;
 typedef const struct StashTableImp *cStashTable;

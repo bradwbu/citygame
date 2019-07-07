@@ -1,8 +1,8 @@
 #ifndef _AUTHCLIENT_H
 #define _AUTHCLIENT_H
 
-#include "auth.h"
-#include "authconn.h"
+#include "auth/auth.h"
+#include "auth/authconn.h"
 
 #define AUTH_SERVER_PORT      2106
 

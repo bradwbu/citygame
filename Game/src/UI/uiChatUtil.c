@@ -1,27 +1,28 @@
-#include "uiChatUtil.h"
-#include "StashTable.h"
-#include "EArray.h"
+#include <utilitieslib/stdtypes.h>
+#include "UI/uiChatUtil.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/Earray.h>
 #include "assert.h"
-#include "wdwbase.h"
-#include "clientcomm.h"
-#include "uiConsole.h"
+#include "gameComm/wdwbase.h"
+#include "clientcomm/clientcomm.h"
+#include "UI/uiConsole.h"
 #include "uiChatOptions.h"
-#include "ttFontUtil.h"
-#include "entplayer.h"
-#include "uiWindows.h"
-#include "uiChat.h"
-#include "uiChannel.h"
-#include "uiDialog.h"
-#include "cmdgame.h"
-#include "sprite_text.h"
-#include "uiUtil.h"
-#include "mathutil.h"
+#include "graphics/ttFontUtil.h"
+#include "entity/EntPlayer.h"
+#include "UI/uiWindows.h"
+#include "UI/uiChat.h"
+#include "UI/uiChannel.h"
+#include "UI/uidialog.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/uiUtil.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "chatdb.h"
-#include "uiContextMenu.h"
-#include "MessageStoreUtil.h"
-#include "smf_render.h"
-#include "player.h"
-#include "entity.h"
+#include "UI/uiContextMenu.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "formatter/smf_render.h"
+#include "player/player.h"
+#include "entity/entity.h"
 
 static ContextMenu *tabContextMenu = 0;
 
@@ -1184,7 +1185,7 @@ void ChatWindowInit(int windowIdx)
 // -----------------------------------------------------------------------
 // Chat Handle Dialogs (used to display & change)
 // -----------------------------------------------------------------------
-#include "chatClient.h"
+#include "gameComm/chatClient.h"
 
 static void changeChatHandleDlgHandler(void * data)
 {

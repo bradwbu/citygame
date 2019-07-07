@@ -6,7 +6,7 @@
 #ifndef UITREE_H
 #define UITREE_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 
 struct uiTreeNode;

@@ -1,7 +1,7 @@
 #ifndef UIINSPIRATION_H
 #define UIINSPIRATION_H
 
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
 void fixInspirationTrayToDealWithRealWidthAndHeight(void);
 

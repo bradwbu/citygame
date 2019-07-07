@@ -1,9 +1,9 @@
 #ifndef _FXDEBRIS_H
 #define _FXDEBRIS_H
 
-#include "Queue.h"
-#include "MemoryPool.h"
-#include "NwWrapper.h"
+#include <utilitieslib/components/Queue.h>
+#include <utilitieslib/components/memorypool.h>
+#include "NovodeX/NwWrapper.h"
 
 #if NOVODEX
 typedef struct NwEmissaryData NwEmissaryData;

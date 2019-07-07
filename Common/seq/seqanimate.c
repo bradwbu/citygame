@@ -1,31 +1,31 @@
 #include <utilitieslib/utils/wininclude.h>  // JS: Can't find where this file includes <windows.h> so I'm just sticking this include here.
 #include <string.h>
 #include <time.h>
-#include "seq.h"
+#include "seq/seq.h"
 #include "cmdparse/cmdcommon.h"
 #include <utilitieslib/utils/memcheck.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>
-#include "anim.h"
+#include "seq/anim.h"
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/mathutil.h> 
-#include "gfxtree.h"
+#include "seq/gfxtree.h"
 
-#include "animtrack.h"
-#include "animtrackanimate.h"
+#include "seq/animtrack.h"
+#include "seq/animtrackanimate.h"
 #include "graphics/font.h"
 #include "gridcoll/gridcoll.h"
 #include "graphics/gfx.h" //for debug info
 #include "player/player.h" //for debug info
-#include "seqregistration.h"
-#include "tricks.h"
+#include "seq/seqregistration.h"
+#include "seq/tricks.h"
 #include "entity/entity.h"
 #include <utilitieslib/utils/Quat.h>
 
 #ifdef CLIENT 
-#include "cmdgame.h"
-#include "uiCursor.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiCursor.h"
 #include "fxutil.h"
 #endif
 
@@ -436,7 +436,7 @@ void calcHeadTurn(SeqInst * seq)
 #endif
 
 #ifdef CLIENT
-#include "uiUtil.h" // debug only
+#include "UI/uiUtil.h" // debug only
 void drawWorldLine(Vec3 a, Vec3 b, UINT color, float width);
 
 void doHeadTurn(SeqInst * seq)
@@ -557,7 +557,7 @@ static int countNonHidChildren(GfxNode * pNode, int seqHandle)
 //Another debug only function
 #include "player/player.h"
 #ifdef CLIENT
-#include "entclient.h"
+#include "entity/entclient.h"
 void printBonesAnimated( SeqInst * seq, GfxNode * node )
 {
     Entity * e;

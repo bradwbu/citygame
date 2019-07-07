@@ -1,8 +1,8 @@
 
 
-#include "entity.h"
+#include "entity/entity.h"
 #include <utilitieslib/network/netio.h>
-#include "entStrings.h"
+#include "entity/entStrings.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/components/MemoryPool.h>
 

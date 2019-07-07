@@ -1,45 +1,45 @@
 
 
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"
 #include "uiScrollSelector.h"
-#include "uiClipper.h"
-#include "uiInput.h"
-#include "uiBox.h"
-#include "uiCostume.h"
-#include "uiGame.h"  
-#include "uiWindows.h"
-#include "uiScrollBar.h"
-#include "uiDialog.h"
-#include "uiHybridMenu.h"
+#include "UI/uiClipper.h"
+#include "UI/uiInput.h"
+#include "UI/uiBox.h"
+#include "UI/uiCostume.h"
+#include "UI/uiGame.h"  
+#include "UI/uiWindows.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uidialog.h"
+#include "UI/Hybrid/uiHybridMenu.h"
 
-#include "uiMissionMakerScrollSet.h"
-#include "playerCreatedStoryarcValidate.h"
+#include "UI/uiMissionMakerScrollSet.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
 
-#include "costume.h"
-#include "uiTailor.h"
-#include "power_customization.h"
-#include "uiPowerCust.h"
-#include "costume_data.h"
-#include "player.h"
-#include "earray.h"
-#include "cmdgame.h"
-#include "mathutil.h"
-#include "file.h"
-#include "win_init.h"
-#include "entity.h"
-#include "sound.h"
+#include "entity/costume.h"
+#include "UI/uiTailor.h"
+#include "entity/power_customization.h"
+#include "UI/uiPowerCust.h"
+#include "gameData/costume_data.h"
+#include "player/player.h"
+#include <utilitieslib/components/Earray.h>
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/file.h>
+#include "win/win_init.h"
+#include "entity/entity.h"
+#include "sound/sound.h"
 
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
-#include "costume_client.h"
-#include "ttFontUtil.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
+#include "entity/costume_client.h"
+#include "graphics/ttFontUtil.h"
 
-#include "Npc.h" // costume sets
-#include "powers.h" // customizable powers
+#include "gameComm/npc.h" // costume sets
+#include "entity/powers.h" // customizable powers
 
 //---------------------------------------------------------------------------------------------
 ///////////////////////////////////////////////////////////////////////////////////////////////

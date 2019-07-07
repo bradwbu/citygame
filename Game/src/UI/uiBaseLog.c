@@ -1,25 +1,25 @@
 
 
-#include "wdwbase.h"
-#include "uiGame.h"
-#include "uiWindows.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"
-#include "bases.h"
-#include "basedata.h"
-#include "uiBaseProps.h"
-#include "uiScrollBar.h"
-#include "uiTabControl.h"
-#include "MessageStoreUtil.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiGame.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"
+#include "bases/bases.h"
+#include "bases/basedata.h"
+#include "UI/uibaseprops.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiTabControl.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 
-#include "earray.h"
+#include <utilitieslib/components/Earray.h>
 
 // from uiBaseProps.c
 extern TextAttribs gTextTitleAttr;

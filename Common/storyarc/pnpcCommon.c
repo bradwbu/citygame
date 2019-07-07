@@ -1,6 +1,6 @@
 
 #include <utilitieslib/stdtypes.h>
-#include "pnpcCommon.h"
+#include "storyarc/pnpcCommon.h"
 #include "comm_game.h"
 #include "gameComm/Npc.h"
 #include <utilitieslib/components/ArrayOld.h>

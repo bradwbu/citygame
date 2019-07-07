@@ -1,48 +1,48 @@
-#include "uiArchetype.h"
-#include "uiGame.h"                // for start_menu
-#include "uiClipper.h"
+#include "UI/Hybrid/uiArchetype.h"
+#include "UI/uiGame.h"                // for start_menu
+#include "UI/uiClipper.h"
 
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
 
-#include "input.h"
-#include "earray.h"
-#include "win_init.h" // for windowClientSize
-#include "player.h"      // for playerPtr
-#include "font.h"
-#include "ttFontUtil.h"
-#include "sound.h"
+#include "win/input.h"
+#include <utilitieslib/components/Earray.h>
+#include "win/win_init.h" // for windowClientSize
+#include "player/player.h"      // for playerPtr
+#include "graphics/font.h"
+#include "graphics/ttFontUtil.h"
+#include "sound/sound.h"
 #include "language/langClientUtil.h"
-#include "textureatlas.h"
-#include "cmdgame.h"  // for timestep
-#include "inventory_client.h"
+#include "graphics/textureatlas.h"
+#include "cmdparse/cmdgame.h"  // for timestep
+#include "player/inventory_client.h"
 
-#include "smf_parse.h"
-#include "smf_format.h"
-#include "smf_main.h"
+#include "formatter/smf_parse.h"
+#include "formatter/smf_format.h"
+#include "formatter/smf_main.h"
 
-#include "uiInput.h"
-#include "uiUtilMenu.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiClipper.h"
-#include "uiHybridMenu.h"
-#include "uiPlaystyle.h"
-#include "uiPower.h"
-#include "uiOrigin.h"
-#include "uiRedirect.h"
-#include "uiDialog.h"
-#include "origins.h"
-#include "character_base.h"
-#include "entity.h"
-#include "EntPlayer.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiClipper.h"
+#include "UI/Hybrid/uiHybridMenu.h"
+#include "UI/Hybrid/uiPlaystyle.h"
+#include "UI/Hybrid/uiPower.h"
+#include "UI/Hybrid/uiOrigin.h"
+#include "UI/Hybrid/uiRedirect.h"
+#include "UI/uidialog.h"
+#include "entity/origins.h"
+#include "entity/character_base.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
 
-#include "classes.h"
-#include "authclient.h"
-#include "dbclient.h"
-#include "uiWebStoreFrame.h"
-#include "AccountData.h"
+#include "entity/classes.h"
+#include "clientComm/authclient.h"
+#include "clientcomm/dbclient.h"
+#include "UI/Hybrid/uiWebStoreFrame.h"
+#include "account/AccountData.h"
 
 #define MAX_ARCHETYPES_VISIBLE 7
 #define NUM_ARCHETYPE_IMAGES 3 //how many images we will cycle through - this may be dynamic later (hardcoded for now)

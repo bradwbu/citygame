@@ -1,8 +1,8 @@
 #ifndef _RT_MODEL_H
 #define _RT_MODEL_H
 
-#include "rt_model_cache.h"
-#include "tricks.h"
+#include "render/thread/rt_model_cache.h"
+#include "seq/tricks.h"
 
 typedef struct Model Model;
 typedef struct EntLight EntLight;

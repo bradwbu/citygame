@@ -4,7 +4,7 @@
 // Box collision code works, but has not proven useful
 // and requires some additional memory, so disable for now
 #define CLOTH_SUPPORT_BOX_COL 1
-#include "Cloth.h"
+#include "Cloth/Cloth.h"
 
 typedef enum CLOTH_COLTYPE
 {

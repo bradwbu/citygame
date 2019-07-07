@@ -1,37 +1,37 @@
 
-#include "mathutil.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "entVarUpdate.h"   // for TIMESTEP
+#include <utilitieslib/utils/mathutil.h>
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "entity/entVarUpdate.h"   // for TIMESTEP
 #include "language/langClientUtil.h"
-#include "uiInput.h"
-#include "ttFontUtil.h"
-#include "uiUtil.h"
-#include "uiUtilMenu.h"
-#include "sound.h"
-#include "timing.h"
-#include "input.h"
-#include "uiGame.h"
-#include "cmdcommon.h"
-#include "textureatlas.h"
-#include "cmdgame.h"
-#include "AppLocale.h"
-#include "MessageStoreUtil.h"
-#include "utils.h"
-#include "uiUtilGame.h"
-#include "earray.h"
-#include "uiWindows.h"
-#include "authUserData.h"
-#include "uiLogin.h"
-#include "win_init.h"
-#include "uiDialog.h"
-#include "AppRegCache.h"
-#include "entity.h"
-#include "player.h"
-#include "dbclient.h"
-#include "uiQuit.h"
-#include "uiWebStoreFrame.h"
+#include "UI/uiInput.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilMenu.h"
+#include "sound/sound.h"
+#include <utilitieslib/utils/timing.h>
+#include "win/input.h"
+#include "UI/uiGame.h"
+#include "cmdparse/cmdcommon.h"
+#include "graphics/textureatlas.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/utils.h>
+#include "UI/uiUtilGame.h"
+#include <utilitieslib/components/Earray.h>
+#include "UI/uiWindows.h"
+#include "auth/authUserData.h"
+#include "UI/uiLogin.h"
+#include "win/win_init.h"
+#include "UI/uidialog.h"
+#include <utilitieslib/version/AppRegCache.h>
+#include "entity/entity.h"
+#include "player/player.h"
+#include "clientcomm/dbclient.h"
+#include "UI/uiQuit.h"
+#include "UI/Hybrid/uiWebStoreFrame.h"
 
 #define BACKGROUND_GLOW_SPEED        .025f
 
@@ -535,8 +535,16 @@ int drawCheckBox( float x, float y, float z, float scale, int color, int isDown,
 {
      int clrBase, clrFill, clrHigh, retValue = D_NONE;
     CBox box;
-    AtlasTex *cbase, *cfill, *cbhigh, *cblow, *cring, *crds, *crhigh, *crlow, *cmark_outer;
-    AtlasTex *cbunder;
+    AtlasTex* cbase;
+    AtlasTex* cfill = NULL;
+    AtlasTex* cbhigh;
+    AtlasTex* cblow;
+    AtlasTex* cring;
+    AtlasTex* crds;
+    AtlasTex* crhigh;
+    AtlasTex* crlow;
+    AtlasTex* cmark_outer;
+    AtlasTex* cbunder = NULL;
 
     cbase    = atlasLoadTexture( "checkbox_base.tga" );
     cbhigh    = atlasLoadTexture( "checkbox_base_highlight.tga" );
@@ -662,7 +670,7 @@ int drawCheckBox( float x, float y, float z, float scale, int color, int isDown,
             display_sprite( cmark_outer, x, y,  z+10, scale, scale, CLR_WHITE );
         else
         {
-               display_sprite( cmark_outer, x + (cbase->width - cmark_outer->width*.25)*scale/2, y + (cbase->height - cmark_outer->height*.25)*scale/2,  z+3, .25*scale, .25*scale, clrBase );
+             display_sprite( cmark_outer, x + (cbase->width - cmark_outer->width*.25)*scale/2, y + (cbase->height - cmark_outer->height*.25)*scale/2,  z+3, .25*scale, .25*scale, clrBase );
              display_sprite( cfill, x, y, z+4, scale, scale, clrFill );
         }
     }
@@ -688,7 +696,9 @@ int drawCheckBarEx( float x, float y, float z, float scale, float wd, const char
     char sz[4] = "lg", sl[32] = {0}, tmp[128];
 
     AtlasTex *meat, *meatHi, *meatLo, *meatR, *meatHiR, *meatLoR, *frameL, *frameMID, *frameR;
-    AtlasTex *meatUnder, *meatUnderL, *meatUnderR;
+    AtlasTex* meatUnder = NULL;
+    AtlasTex* meatUnderL = NULL;
+    AtlasTex* meatUnderR = NULL;
      int clrBase, clrText, clrText2, clrHigh, clrFrame, offset = 0, retValue = D_NONE;
     CBox box;
 
@@ -852,7 +862,9 @@ int drawMenuBarSquished( float x, float y, float z, float sc, float wd, const ch
     char sl[32] = {0}, tmp[128];
     int clrText, clrBase, retValue = D_NONE;
     AtlasTex *meat, *meatHi, *meatLo, *meatL, *meatHiL, *meatLoL, *meatR, *meatHiR, *meatLoR, *frameL, *frameMID, *frameR;
-    AtlasTex *meatUnderL, *meatUnder, *meatUnderR;
+    AtlasTex* meatUnderL = NULL;
+    AtlasTex* meatUnder = NULL;
+    AtlasTex* meatUnderR = NULL;
 
     float w;
     CBox box;
@@ -1336,12 +1348,14 @@ void setupUIColors(void)
         setElemColors(&uiColors.unselectable, CLR_BASE_GREY, CLR_FRAME_GREY, CLR_CFILL_GREY, CLR_WHITE, CLR_TXT_GREY, 0xffffff22, CLR_GREY);
     }
 }
-typedef enum{
+
+enum{
     NLM_SELECTED,
     NLM_MOUSE,
     NLM_BLOCKED,
     NLM_DEFAULT,
 };
+
 int drawNonLinearMenu(NonLinearMenu * nlm, float startx, float y, float z, float wd, float ht, float sc, int currentMenu, int displayCurrentMenu, int locked)
 {
     int i, oneCreated = 0;
@@ -1350,7 +1364,10 @@ int drawNonLinearMenu(NonLinearMenu * nlm, float startx, float y, float z, float
     AtlasTex *OnClickArrowL, *OnClickArrowR, *OnClickMid, *OnClickRound;
     AtlasTex *SelectedArrowL, *SelectedArrowR, *SelectedMid, *SelectedRound;
     AtlasTex *NonSelectedArrowL, *NonSelectedArrowR, *NonSelectedMid, *NonSelectedRound;
-    AtlasTex *ArrowL, *ArrowR, *Mid, *Round;
+    AtlasTex* ArrowL;
+    AtlasTex* ArrowR;
+    AtlasTex* Mid;
+    AtlasTex* Round = NULL;
     TTDrawContext *currentFont = &title_12;
     int currentStatus = NLM_DEFAULT, prevStatus = NLM_DEFAULT;
     int indexOfClicked = -1;
@@ -1668,7 +1685,7 @@ int drawNonLinearMenu(NonLinearMenu * nlm, float startx, float y, float z, float
     }
 
     display_sprite(Round, currentX, y+((ht-(currentButtonScaleY*DefaultMid->height))/2), z, currentButtonScaleX, currentButtonScaleY, CLR_WHITE);
-    display_sprite(OnClickRound, currentX, y+((ht-(currentButtonScaleY*DefaultMid->height))/2), z+1, currentButtonScaleX, currentButtonScaleY, pulseAlpha);
+    display_sprite(OnClickRound, currentX, y + ((ht - (currentButtonScaleY * DefaultMid->height)) / 2), z + 1, currentButtonScaleX, currentButtonScaleY, pulseAlpha);
     
     if (indexOfClicked != -1)
     {

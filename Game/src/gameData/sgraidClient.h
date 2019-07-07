@@ -11,7 +11,7 @@
 #ifndef SGRAIDCLIENT_H
 #define SGRAIDCLIENT_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct Packet Packet;
 typedef struct SupergroupRaidInfo SupergroupRaidInfo;

@@ -1,60 +1,61 @@
 
-#include "uiGame.h"            // for start_menu
-#include "uiUtil.h"
-#include "uiFx.h"
-#include "uiInput.h"
-#include "uiGender.h"
+#include "UI/uiGame.h"            // for start_menu
+#include "UI/uiUtil.h"
+#include "UI/uiFx.h"
+#include "UI/uiInput.h"
+#include "UI/uiGender.h"
 #include "uiSlider.h"
-#include "uiAvatar.h"
-#include "uiUtilMenu.h"
+#include "UI/uiAvatar.h"
+#include "UI/uiUtilMenu.h"
 #include "uiPCCCreationNLM.h"
-#include "uiUtilGame.h"
+#include "UI/uiUtilGame.h"
 #include "uiPowers.h"
 
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "textureatlas.h"
-#include "tex.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "graphics/textureatlas.h"
+#include "render/tex.h"
 
-#include "font.h"
-#include "ttFont.h"
-#include "ttFontUtil.h"
+#include "graphics/font.h"
+#include "graphics/ttFont.h"
+#include "graphics/ttFontUtil.h"
 
-#include "cmdgame.h"    // for editnpc
-#include "cmdcommon.h"  // for timestep
-#include "character_base.h"
+#include "cmdparse/cmdgame.h"    // for editnpc
+#include "cmdparse/cmdcommon.h"  // for timestep
+#include "entity/character_base.h"
 
-#include "fx.h"
-#include "player.h"
-#include "entity.h"
-#include "win_init.h"     // for windowClientSize
-#include "initClient.h"
-#include "costume_client.h"   // for setGender
-#include "sound.h"
-#include "textparser.h"
+#include "graphics/FX/fx.h"
+#include "player/player.h"
+#include "entity/entity.h"
+#include "win/win_init.h"     // for windowClientSize
+#include "gameComm/initClient.h"
+#include "entity/costume_client.h"   // for setGender
+#include "sound/sound.h"
+#include <utilitieslib/utils/textparser.h>
 
 // for temporary default body type selections (development only)
-#include "uiDialog.h"    
-#include "uiComboBox.h"
-#include "utils.h"
-#include "uiCostume.h"
-#include "uiTailor.h"
+#include "UI/uidialog.h"    
+#include "UI/uiComboBox.h"
+#include <utilitieslib/utils/utils.h>
+#include "UI/uiCostume.h"
+#include "UI/uiTailor.h"
 
-#include "input.h"
-#include "seqstate.h"
+#include "win/input.h"
+#include "seq/seqstate.h"
 #include "gameData/costume_critter.h"
 
-#include "AppLocale.h"
-#include "file.h"
-#include "PCC_Critter.h"
-#include "uiNet.h"
-#include "entPlayer.h"
-#include "uiSupercostume.h"
-#include "authUserData.h"
-#include "LoadDefCommon.h"
-#include "FolderCache.h"
-#include "fileutil.h"
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/utils/file.h>
+#include "entity/PCC_Critter.h"
+#include "UI/uiNet.h"
+#include "entity/EntPlayer.h"
+#include "UI/uiSupercostume.h"
+#include "auth/authUserData.h"
+#include "entity/LoadDefCommon.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/fileutil.h>
 
 extern int gLoadRandomPresetCostume;
 extern int pccCritterRank;

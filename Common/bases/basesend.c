@@ -1,11 +1,11 @@
-#include "bases.h"
-#include "baseparse.h"
-#include "basesend.h"
+#include "bases/bases.h"
+#include "bases/baseparse.h"
+#include "bases/basesend.h"
 #include <utilitieslib/network/netio.h>
 #include <utilitieslib/network/netcomp.h>
 #include <utilitieslib/components/EArray.h>
 #include <utilitieslib/components/EString.h>
-#include "basedata.h"
+#include "bases/basedata.h"
 #include <utilitieslib/network/bindiff.h>
 #include <utilitieslib/network/netcomp.h>
 #include <utilitieslib/utils/utils.h>

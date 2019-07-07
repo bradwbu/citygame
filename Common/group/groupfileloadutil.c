@@ -1,11 +1,11 @@
 #include <utilitieslib/components/StashTable.h>
-#include "group.h"
+#include "group/group.h"
 #include <utilitieslib/utils/utils.h>
 #include <ctype.h>
 #include <utilitieslib/utils/error.h>
 #include <string.h>
 #include <utilitieslib/utils/strings_opt.h>
-#include "groupfileloadutil.h"
+#include "group/groupfileloadutil.h"
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/timing.h>
 

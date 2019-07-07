@@ -6,7 +6,7 @@
 #ifndef SUPERGROUP_H
 #define SUPERGROUP_H
 
-#include "teamCommon.h"
+#include "entity/teamCommon.h"
 
 #define SG_NAME_LEN        64
 #define SG_TITLE_LEN    64
@@ -15,7 +15,7 @@
 #define SG_DESCRIPTION_LEN 512
 #define MAX_SG_INVRECIPEID 1024 // db limit. need new row after that
 #include "player/badges.h"
-#include "SgrpBasePermissions.h" // enum SgrpBaseEntryPermission
+#include "entity/SgrpBasePermissions.h" // enum SgrpBaseEntryPermission
 
 typedef struct Detail Detail;
 typedef struct DetailRecipe DetailRecipe;

@@ -1,8 +1,8 @@
 #ifndef _GFX_WINDOW_H
 #define _GFX_WINDOW_H
 
-#include "stdtypes.h"
-#include "mathutil.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
 
 enum
 {

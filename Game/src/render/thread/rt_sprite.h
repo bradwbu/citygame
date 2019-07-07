@@ -1,7 +1,7 @@
 #ifndef _RT_SPRITE_H
 #define _RT_SPRITE_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct
 {

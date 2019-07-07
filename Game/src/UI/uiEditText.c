@@ -2,27 +2,28 @@
 //
 // editText.c - a file that deals with text entry and editting
 //--------------------------------------------------------------------------
-#include "sprite.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "uiEditText.h"
-#include "uiChat.h"
-#include "sound.h"
-#include "input.h"
-#include "StringUtil.h"
-#include "uiGame.h"
-#include "uiUtil.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/sprite.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/uiEditText.h"
+#include "UI/uiChat.h"
+#include "sound/sound.h"
+#include "win/input.h"
+#include <utilitieslib/utils/StringUtil.h>
+#include "UI/uiGame.h"
+#include "UI/uiUtil.h"
 #include "language/langClientUtil.h"
-#include "ttFontUtil.h"
-#include "win_init.h"
-#include "earray.h"
-#include "ttFont.h"
-#include "uiBox.h"
-#include "uiClipper.h"
-#include "cmdcommon.h"
-#include "validate_name.h"
-#include "MessageStoreUtil.h"
+#include "graphics/ttFontUtil.h"
+#include "win/win_init.h"
+#include <utilitieslib/components/Earray.h>
+#include "graphics/ttFont.h"
+#include "UI/uiBox.h"
+#include "UI/uiClipper.h"
+#include "cmdparse/cmdcommon.h"
+#include "filter/validate_name.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 Clip clip;
 

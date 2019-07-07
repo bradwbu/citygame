@@ -1,44 +1,44 @@
 
 
-#include "wdwbase.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"
-#include "uiWindows.h"
-#include "uiComboBox.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiWindows.h"
+#include "UI/uiComboBox.h"
 #include "uiSlider.h"
-#include "uiScrollBar.h"
+#include "UI/uiScrollBar.h"
 #include "uiListView.h"
-#include "uiClipper.h"
-#include "uiTabControl.h"
-#include "uiNet.h"
+#include "UI/uiClipper.h"
+#include "UI/uiTabControl.h"
+#include "UI/uiNet.h"
 #include "uiHelp.h"
-#include "estring.h"
-#include "uiInput.h"
-#include "uiGame.h"
-#include "smf_main.h"
+#include <utilitieslib/components/estring.h>
+#include "UI/uiInput.h"
+#include "UI/uiGame.h"
+#include "formatter/smf_main.h"
 
-#include "ttFontUtil.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "arenastruct.h"
-#include "player.h"
-#include "earray.h"
-#include "textureatlas.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "gameData/arenastruct.h"
+#include "player/player.h"
+#include <utilitieslib/components/Earray.h>
+#include "graphics/textureatlas.h"
 #include "arena/ArenaGame.h"
-#include "cmdgame.h"
-#include "timing.h"
-#include "character_base.h"
-#include "character_level.h"
-#include "uiToolTip.h"
-#include "timing.h"
-#include "entity.h"
-#include "authUserData.h"
-#include "dbclient.h"
-#include "MessageStoreUtil.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/timing.h>
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "UI/uiToolTip.h"
+#include <utilitieslib/utils/timing.h>
+#include "entity/entity.h"
+#include "auth/authUserData.h"
+#include "clientcomm/dbclient.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
-#include "uiUtilGame.h" // for drawBox debugging
+#include "UI/uiUtilGame.h" // for drawBox debugging
 
 //--------------------------------------------------------------------------------------------------------------------------
 // Globals and Defines /////////////////////////////////////////////////////////////////////////////////////////////////////

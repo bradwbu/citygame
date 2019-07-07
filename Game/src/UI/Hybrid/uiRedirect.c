@@ -1,35 +1,35 @@
 
 
+#include <utilitieslib/stdtypes.h>
+#include "UI/Hybrid/uiRedirect.h"
+#include "UI/uiGame.h"                // for start_menu
 
-#include "uiRedirect.h"
-#include "uiGame.h"                // for start_menu
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
 
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
-
-#include "input.h"
-#include "earray.h"
-#include "win_init.h" // for windowClientSize
-#include "player.h"      // for playerPtr
-#include "font.h"
-#include "ttFontUtil.h"
-#include "sound.h"
+#include "win/input.h"
+#include <utilitieslib/components/Earray.h>
+#include "win/win_init.h" // for windowClientSize
+#include "player/player.h"      // for playerPtr
+#include "graphics/font.h"
+#include "graphics/ttFontUtil.h"
+#include "sound/sound.h"
 #include "language/langClientUtil.h"
-#include "textureatlas.h"
-#include "cmdgame.h"  // for timestep
-#include "EString.h"
-#include "MessageStoreUtil.h"
+#include "graphics/textureatlas.h"
+#include "cmdparse/cmdgame.h"  // for timestep
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
 
-#include "smf_parse.h"
-#include "smf_format.h"
-#include "smf_main.h"
+#include "formatter/smf_parse.h"
+#include "formatter/smf_format.h"
+#include "formatter/smf_main.h"
 
-#include "uiInput.h"
-#include "uiUtilMenu.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiHybridMenu.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/Hybrid/uiHybridMenu.h"
 
 int g_redirectedFrom;
 F32 s_blinkTimer;

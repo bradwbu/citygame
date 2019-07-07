@@ -1,12 +1,12 @@
-#include "rt_queue.h"
-#include "renderprim.h"
-#include "mathutil.h"
-#include "utils.h"
-#include "cmdgame.h"
-#include "win_init.h"
-#include "rt_state.h"
-#include "gfx.h"
-#include "ogl.h"
+#include "render/thread/rt_queue.h"
+#include "render/renderprim.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/utils.h>
+#include "cmdparse/cmdgame.h"
+#include "win/win_init.h"
+#include "render/thread/rt_state.h"
+#include "graphics/gfx.h"
+#include "render/thread/ogl.h"
 
 
 static RdrLineBox    *queuedlines;

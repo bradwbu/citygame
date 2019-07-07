@@ -7,20 +7,20 @@
 #define CHARACTER_BASE_H__
 
 #include <utilitieslib/stdtypes.h>
-#include "RewardItemType.h"
-#include "classes.h"   // for kCategory_...
+#include "entity/RewardItemType.h"
+#include "entity/classes.h"   // for kCategory_...
 #include "attribmod.h" // for AttribModList and PowerEvent
-#include "EntityRef.h" // for EntityRef
+#include "entity/entityRef.h" // for EntityRef
 #include "buddy.h"     // for Buddy
-#include "salvage.h"   // for kSalvageRarity_Count
-#include "gametypes.h" // for PlayerType
+#include "entity/salvage.h"   // for kSalvageRarity_Count
+#include "entity/gametypes.h" // for PlayerType
 
 #ifdef SERVER
 #include "character_karma.h"
 #endif
 
 #ifndef POWER_SYSTEM_H__
-#include "power_system.h"
+#include "entity/power_system.h"
 #endif
 
 // forward decls

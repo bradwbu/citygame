@@ -5,13 +5,13 @@
  ***************************************************************************/
 #include <utilitieslib/network/net_packet.h>
 #include "entity/entVarUpdate.h"
-#include "wdwbase.h"
+#include "gameComm/wdwbase.h"
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/components/earray.h>
 
 #if CLIENT
-    #include "clientcomm.h"
+    #include "clientcomm/clientcomm.h"
 #endif
 
 Wdw winDefs[MAX_WINDOW_COUNT+MAX_CUSTOM_WINDOW_COUNT] = {0};

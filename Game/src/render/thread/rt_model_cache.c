@@ -4,11 +4,11 @@
 *     Confidential Property of Cryptic Studios
 */
 #define RT_PRIVATE
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "rt_model_cache.h"
-#include "MemoryPool.h"
-#include "rt_shadow.h"
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_model_cache.h"
+#include <utilitieslib/components/memorypool.h>
+#include "render/thread/rt_shadow.h"
 
 static const char MODELCACHE_VBO[] = "OpenGL ModelCache_VBO";
 static const char RGB_VBO[] = "OpenGL RGB_VBO";

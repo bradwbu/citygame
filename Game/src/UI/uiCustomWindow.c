@@ -1,38 +1,39 @@
 
-#include "earray.h"
-#include "textparser.h"
-#include "wdwbase.h"
-#include "win_init.h"
-#include "file.h"
-#include "fileutil.h"
-#include "error.h"
-#include "FolderCache.h"
-#include "cmdgame.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/textparser.h>
+#include "gameComm/wdwbase.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include "cmdparse/cmdgame.h"
 
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiScrollBar.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiWindows.h"
 #include "uiWindows.h"
-#include "uiWindows_init.h"
-#include "uiClipper.h"
-#include "uiBox.h"
-#include "uiContextMenu.h"
-#include "uiDialog.h"
-#include "uiInput.h"
-#include "uiCursor.h"
-#include "uiTray.h"
-#include "trayCommon.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "ttFontUtil.h"
-#include "textureatlas.h"
+#include "UI/uiWindows_init.h"
+#include "UI/uiClipper.h"
+#include "UI/uiBox.h"
+#include "UI/uiContextMenu.h"
+#include "UI/uidialog.h"
+#include "UI/uiInput.h"
+#include "UI/uiCursor.h"
+#include "UI/uiTray.h"
+#include "gameComm/trayCommon.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/ttFontUtil.h"
+#include "graphics/textureatlas.h"
+#include "UI/uiScrollBar.h"
 
 typedef struct CustomWindowItem
 {
     char * pchName;
     char * pchCommand;
-}CustomWindowItem;
+} CustomWindowItem;
 
 typedef struct CustomWindow
 {
@@ -46,12 +47,12 @@ typedef struct CustomWindow
     int id;
     int opened;
     ScrollBar sb;
-}CustomWindow;
+} CustomWindow;
 
 typedef struct CustomWindowList
 {
     CustomWindow **ppWindow;
-}CustomWindowList;
+} CustomWindowList;
 
 TokenizerParseInfo ParseCustomWindowButton[] =
 {

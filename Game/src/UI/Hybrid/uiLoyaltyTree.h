@@ -1,9 +1,9 @@
 #ifndef UILOYALTYTREE_H
 #define UILOYALTYTREE_H
 
-#include "uiInclude.h"
-#include "stdtypes.h"
-#include "character_base.h"
+#include "UI/uiInclude.h"
+#include <utilitieslib/stdtypes.h>
+#include "entity/character_base.h"
 
 void loyaltyTreeMenuTick(F32 sc);
 int loyaltyTreeWindow();

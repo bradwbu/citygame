@@ -17,9 +17,9 @@
 #include "group/groupProperties.h"
 
 #include "comm_game.h"
-#include "missionMapCommon.h"
-#include "missionMapCommon.h"
-#include "missiongeoCommon.h"
+#include "storyarc/missionMapCommon.h"
+#include "storyarc/missionMapCommon.h"
+#include "storyarc/missiongeoCommon.h"
 
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/utils/error.h>

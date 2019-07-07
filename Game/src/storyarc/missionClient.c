@@ -1,13 +1,13 @@
 #include "storyarc/missionClient.h"
-#include "netio.h"
-#include "timing.h"
-#include "sprite_text.h"
-#include "uiAutomap.h"
-#include "cmdgame.h"
-#include "bases.h"
-#include "earray.h"
-#include "MessageStoreUtil.h"
-#include "utils.h"
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/utils/timing.h>
+#include "UI/sprite/sprite_text.h"
+#include "UI/uiAutomap.h"
+#include "cmdparse/cmdgame.h"
+#include "bases/bases.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/utils.h>
 
 // *********************************************************************************
 //  Current mission and task status

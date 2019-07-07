@@ -8,7 +8,7 @@
 #include <utilitieslib/components/earray.h>
  
 #include "character_attribs.h"
-#include "attrib_names.h"
+#include "entity/attrib_names.h"
 
 SHARED_MEMORY AttribNames g_AttribNames;
 int g_offHealAttrib = -1;

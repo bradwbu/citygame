@@ -1,10 +1,10 @@
 // This file now only contains TTFont test functions.
 // Todo - Make more useful test functions!
 
-#include "ttFont.h"
-#include "input.h"
-#include "tex.h"
-#include "ttFontUtil.h"
+#include "graphics/ttFont.h"
+#include "win/input.h"
+#include "render/tex.h"
+#include "graphics/ttFontUtil.h"
 
 TTFontManager* fontManager;
 TTDrawContext* drawContext;

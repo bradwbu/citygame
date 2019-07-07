@@ -1,22 +1,22 @@
-#include "stdtypes.h"
-#include "font.h"
-#include "edit_select.h"
-#include "edit_cmd.h"
-#include "win_init.h"
-#include "mathutil.h"
-#include "input.h"
+#include <utilitieslib/stdtypes.h>
+#include "graphics/font.h"
+#include "edit/edit_select.h"
+#include "edit/edit_cmd.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "win/input.h"
 #include "edit_errcheck.h"
-#include "renderUtil.h"
-#include "edit_net.h"
-#include "sprite_base.h"
-#include "uiInput.h"
-#include "rgb_hsv.h"
-#include "tex.h"
-#include "textureatlas.h"
-#include "AppRegCache.h"
-#include "RegistryReader.h"
+#include "render/renderUtil.h"
+#include "edit/edit_net.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/uiInput.h"
+#include <utilitieslib/utils/rgb_hsv.h>
+#include "render/tex.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/version/AppRegCache.h>
+#include <utilitieslib/utils/RegistryReader.h>
 
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 #include "editorUI.h"
 
 static int inBox(int x,int y,int px,int py,int width,int height)

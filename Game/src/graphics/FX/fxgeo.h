@@ -1,10 +1,10 @@
 #ifndef _FXGEO_H
 #define _FXGEO_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "fxinfo.h"
 #include "fxbhvr.h"
-#include "fxfluid.h"
+#include "graphics/FX/fxfluid.h"
 
 #define MAX_FXMINITRACKERS 50 //pretty rare, so can be too big, but I ought to dynamically alloc them
 typedef struct FxMiniTracker 

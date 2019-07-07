@@ -14,7 +14,7 @@
 #define __MISSIONGEO_H
 
 #include <utilitieslib/components/earray.h>
-#include "missionMapCommon.h"
+#include "storyarc/missionMapCommon.h"
 #include "entity/entity.h"
 #include "stdio.h"
 

@@ -6,7 +6,7 @@ typedef struct Entity Entity;
 
 #include <utilitieslib/stdtypes.h>
 #include "chatdefs.h"
-#include "entvarupdate.h"
+#include "entity/entVarUpdate.h"
 
 #define MAX_CHAT_WINDOWS        5
 #define MAX_CHAT_CHANNELS        15        // # of USER channels

@@ -21,15 +21,15 @@
 #include <utilitieslib/components/MemoryPool.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/network/net_packet.h>
-#include "entity.h"
-#include "character_base.h"
-#include "character_inventory.h"
-#include "character_net.h"
-#include "Concept.h"
-#include "Invention.h"
+#include "entity/entity.h"
+#include "entity/character_base.h"
+#include "entity/character_inventory.h"
+#include "entity/character_net.h"
+#include "entity/concept.h"
+#include "entity/Invention.h"
 #include "bases/DetailRecipe.h"
-#include "Boost.h"
-#include "Powers.h"
+#include "entity/boost.h"
+#include "entity/powers.h"
 
 #if SERVER 
 #include "dbcomm/logcomm.h"

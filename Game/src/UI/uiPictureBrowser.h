@@ -1,4 +1,4 @@
-#include "imageCapture.h"
+#include "graphics/imageCapture.h"
 #ifndef UIPICTUREBROWSER_H
 #define UIPICTUREBROWSER_H
 

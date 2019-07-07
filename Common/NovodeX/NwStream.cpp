@@ -2,7 +2,7 @@
 // NOVODEX SDK STREAM INTERFACE
 // Written by Tom Lassanske, 03-01-05
 // -------------------------------------------------------------------------------------------------------------------
-#include "NwWrapper.h"
+#include "NovodeX/NwWrapper.h"
 #if NOVODEX
 
 #include "NwStream.h"

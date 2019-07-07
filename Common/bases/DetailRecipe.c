@@ -3,7 +3,7 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "DetailRecipe.h"
+#include "bases/DetailRecipe.h"
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/utils/structdefines.h>
 #include "entity/entity.h"
@@ -11,12 +11,12 @@
 #include <utilitieslib/utils/eval.h>
 #include "entity/Salvage.h"
 #include "entity/powers.h"
-#include "basedata.h"
+#include "bases/basedata.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/MemoryPool.h>
-#include "baseparse.h"
+#include "bases/baseparse.h"
 #include "entity/Supergroup.h"
 #include "entity/Salvage.h"
 #include "entity/character_base.h"

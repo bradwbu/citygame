@@ -1,25 +1,25 @@
-#include "font.h"
+#include "graphics/font.h"
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdarg.h>
-#include "input.h"
-#include "gfx.h"
-#include "memcheck.h"
-#include "win_init.h"
-#include "uiConsole.h"
-#include "uiChat.h"
-#include "uiFocus.h"
-#include "renderUtil.h"
-#include "MRUList.h"
-#include "AppRegCache.h"
-#include "renderprim.h"
-#include "mathutil.h"
+#include "win/input.h"
+#include "graphics/gfx.h"
+#include <utilitieslib/utils/memcheck.h>
+#include "win/win_init.h"
+#include "UI/uiConsole.h"
+#include "UI/uiChat.h"
+#include "UI/uiFocus.h"
+#include "render/renderUtil.h"
+#include <utilitieslib/components/MRUList.h>
+#include <utilitieslib/version/AppRegCache.h>
+#include "render/renderprim.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "demo.h"
-#include "uiCursor.h"
-#include "Estring.h"
-#include "sysutil.h"
+#include "UI/uiCursor.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/sysutil.h>
 
 int show_console=0;
 
@@ -88,7 +88,7 @@ static int subLine(int line,int amt)
     return line;
 }
 
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 void conPrint(char *s)
 {
     if (!curr_con)

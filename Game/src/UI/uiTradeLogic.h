@@ -1,11 +1,11 @@
 #ifndef UITRADELOGIC_H
 #define UITRADELOGIC_H
 
-#include "net_structdefs.h"
-#include "powers.h"
-#include "character_base.h"
-#include "salvage.h"
-#include "DetailRecipe.h"
+#include <utilitieslib/network/net_structdefs.h>
+#include "entity/powers.h"
+#include "entity/character_base.h"
+#include "entity/salvage.h"
+#include "bases/DetailRecipe.h"
 
 int     canTradeWithTarget(void *foo);
 void tradeWithTarget(void *foo);

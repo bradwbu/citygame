@@ -11,16 +11,16 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/utils/textparser.h> // for TokenizerParseInfo
-#include "Concept.h"
-#include "character_inventory.h"
+#include "entity/concept.h"
+#include "entity/character_inventory.h"
 #include <utilitieslib/components/earray.h>
 
-#include "origins.h"
-#include "powers.h"
-#include "boost.h"
-#include "character_base.h"
+#include "entity/origins.h"
+#include "entity/powers.h"
+#include "entity/boost.h"
+#include "entity/character_base.h"
 #include <utilitieslib/components/MemoryPool.h>
-#include "Proficiency.h"
+#include "entity/Proficiency.h"
 
 // compile time checks.
 STATIC_ASSERT(IS_GENERICINVENTORYTYPE_COMPATIBLE(ProficiencyItem,id,name));

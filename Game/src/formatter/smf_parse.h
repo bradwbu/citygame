@@ -6,7 +6,7 @@
 #ifndef SMF_PARSE_H__
 #define SMF_PARSE_H__
 
-#include "smf_util.h"
+#include "formatter/smf_util.h"
 
 
 int sm_ParseTagName(char *tagName, int tagNameLength, SMTagDef aTagDefs[]);

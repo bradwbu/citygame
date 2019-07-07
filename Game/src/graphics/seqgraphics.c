@@ -3,67 +3,67 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  */
-#include "seqgraphics.h"
-#include "wininclude.h"
+#include "graphics/seqgraphics.h"
+#include <utilitieslib/utils/wininclude.h>
 #include <string.h>
 #include <time.h>
-#include "seq.h"
-#include "cmdcommon.h"
-#include "memcheck.h"
-#include "error.h"
-#include "utils.h"
+#include "seq/seq.h"
+#include "cmdparse/cmdcommon.h"
+#include <utilitieslib/utils/memcheck.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
 #include "assert.h"
-#include "anim.h"
-#include "file.h"
-#include "mathutil.h"
-#include "HashFunctions.h"
-#include "font.h"
-#include "animtrack.h"
-#include "seqanimate.h"
-#include "animtrackanimate.h"
-#include "strings_opt.h"
-#include "costume.h"
-#include "tricks.h"
-#include "tex.h"
-#include "StashTable.h"
-#include "entity.h"
-#include "motion.h"
-#include "gfxwindow.h"
-#include "fxlists.h"
-#include "camera.h"
-#include "render.h"
-#include "sound.h"
-#include "font.h"
-#include "cmdgame.h"
-#include "fx.h"
-#include "light.h"
-#include "timing.h"
-#include "model_cache.h"
-#include "win_init.h" //moving
-#include "gfx.h"
-#include "tex_gen.h"
-#include "textureatlas.h"
-#include "player.h"
-#include "sun.h"
-#include "FolderCache.h"
-#include "gfxtree.h"
-#include "npc.h"        // For NPC structure defintion
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "seqregistration.h"
-#include "renderprim.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "ttFontUtil.h"
-#include "group.h"
-#include "groupMiniTrackers.h"
-#include "EString.h"
-#include "imageCapture.h"
-#include "uiPictureBrowser.h"
-#include "entPlayer.h"
-#include "viewport.h"
-#include "jpeg.h"
-#include "rt_state.h"
+#include "seq/anim.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/HashFunctions.h>
+#include "graphics/font.h"
+#include "seq/animtrack.h"
+#include "seq/seqanimate.h"
+#include "seq/animtrackanimate.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include "entity/costume.h"
+#include "seq/tricks.h"
+#include "render/tex.h"
+#include <utilitieslib/components/StashTable.h>
+#include "entity/entity.h"
+#include "entity/motion.h"
+#include "graphics/gfxwindow.h"
+#include "graphics/FX/fxlists.h"
+#include "graphics/camera.h"
+#include "render/render.h"
+#include "sound/sound.h"
+#include "graphics/font.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/FX/fx.h"
+#include "graphics/light.h"
+#include <utilitieslib/utils/timing.h>
+#include "render/model_cache.h"
+#include "win/win_init.h" //moving
+#include "graphics/gfx.h"
+#include "render/tex_gen.h"
+#include "graphics/textureatlas.h"
+#include "player/player.h"
+#include "graphics/sun.h"
+#include <utilitieslib/utils/FolderCache.h>
+#include "seq/gfxtree.h"
+#include "gameComm/npc.h"        // For NPC structure defintion
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "seq/seqregistration.h"
+#include "render/renderprim.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/ttFontUtil.h"
+#include "group/group.h"
+#include "graphics/groupMiniTrackers.h"
+#include <utilitieslib/components/estring.h>
+#include "graphics/imageCapture.h"
+#include "UI/uiPictureBrowser.h"
+#include "entity/EntPlayer.h"
+#include "graphics/viewport.h"
+#include "graphics/jpeg.h"
+#include "render/thread/rt_state.h"
 
 // Used by takePicture()
 #define NUM_TAKEPICTURE_INFOS 16
@@ -1166,14 +1166,14 @@ int seqSetStaticLight(SeqInst * seq, DefTracker * lighttracker)
 //#############################################################################################
 //######## Where should this live? ###################################
 
-#include "tga.h"
-#include "entclient.h"
-#include "costume_client.h"
-#include "gfxwindow.h"
-#include "entrecv.h"
-#include "pbuffer.h"
-#include "renderprim.h"
-#include "renderUtil.h"
+#include <utilitieslib/utils/tga.h>
+#include "entity/entclient.h"
+#include "entity/costume_client.h"
+#include "graphics/gfxwindow.h"
+#include "entity/entrecv.h"
+#include "render/pbuffer.h"
+#include "render/renderprim.h"
+#include "render/renderUtil.h"
 
 extern int glob_have_camera_pos;
 extern void engine_update();

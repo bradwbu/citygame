@@ -1,15 +1,15 @@
 #define RT_ALLOW_BINDTEXTURE
 #define RT_PRIVATE
-#include "ogl.h"
-#include "mathutil.h"
-#include "rt_queue.h"
+#include "render/thread/ogl.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/thread/rt_queue.h"
 #include "rt_prim.h"
-#include "wcw_statemgmt.h"
-#include "rt_state.h"
-#include "rt_tex.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_state.h"
+#include "render/thread/rt_tex.h"
 #include "rt_stats.h"
-#include "rt_pbuffer.h"
-#include "cmdgame.h"
+#include "render/thread/rt_pbuffer.h"
+#include "cmdparse/cmdgame.h"
 
 #define SET_COLOR(x)                        \
     WCW_Color4_Force(    ((x) & 0xff0000) >> 16,        \
@@ -105,7 +105,7 @@ void drawLine2DDirect(RdrLineBox *line)
     RT_STAT_DRAW_TRIS(1)
 }
 
-//#include "camera.h"
+//#include "graphics/camera.h"
 void drawLine3DDirect(RdrLineBox *line)
 {
     // Draw.

@@ -2,7 +2,7 @@
 #define    windows_h
 
 #include <utilitieslib/stdtypes.h>
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
 typedef struct Wdw Wdw;
 

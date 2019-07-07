@@ -1,36 +1,36 @@
 
 
 //
-#include "earray.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
+#include <utilitieslib/components/Earray.h>
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
 
-#include "entVarUpdate.h"   // for TIMESTEP
+#include "entity/entVarUpdate.h"   // for TIMESTEP
 
-#include "uiInput.h"
-#include "ttFont.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
+#include "UI/uiInput.h"
+#include "graphics/ttFont.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
 #include "language/langClientUtil.h"
-#include "mathutil.h"
-#include "uiBox.h"
-#include "uiFriend.h"
-#include "uiSupergroup.h"
-#include "cmdcommon.h"
-#include "strings_opt.h"
-#include "ttFontUtil.h"
-#include "uiWindows.h"
-#include "uiToolTip.h"
-#include "uiGame.h"
-#include "textureatlas.h"
-#include "uiClipper.h"
-#include "renderprim.h"
-#include "MessageStoreUtil.h"
-#include "playerCreatedStoryarcValidate.h"
-#include "uiPictureBrowser.h"
-#include "uiCursor.h"
-#include "uiPowerCust.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "UI/uiBox.h"
+#include "UI/uiFriend.h"
+#include "UI/uiSupergroup.h"
+#include "cmdparse/cmdcommon.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include "graphics/ttFontUtil.h"
+#include "UI/uiWindows.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiGame.h"
+#include "graphics/textureatlas.h"
+#include "UI/uiClipper.h"
+#include "render/renderprim.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "storyarc/playerCreatedStoryarcValidate.h"
+#include "UI/uiPictureBrowser.h"
+#include "UI/uiCursor.h"
+#include "UI/uiPowerCust.h"
 
 int drawCloseButton( F32 x, F32 y, F32 z, F32 sc, int back_color )
 {

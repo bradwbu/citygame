@@ -1,8 +1,9 @@
-#include "rt_tune.h"
-#include "mathutil.h"
-#include "font.h"
-#include "superassert.h"
-#include "failtext.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/thread/rt_tune.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "graphics/font.h"
+#include <utilitieslib/utils/SuperAssert.h>
+#include "graphics/failtext.h"
 
 #define TUNE_MAX_DEPTH 5
 

@@ -1,6 +1,6 @@
-#include "texenums.h"
-#include "rt_state.h"
-#include "seq.h" // MAX_LODS
+#include "render/texEnums.h"
+#include "render/thread/rt_state.h"
+#include "seq/seq.h" // MAX_LODS
 
 typedef struct GfxNode GfxNode;
 typedef struct GroupDef GroupDef;

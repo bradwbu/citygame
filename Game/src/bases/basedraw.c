@@ -3,27 +3,27 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "mathutil.h"
-#include "bases.h"
-#include "group.h"
-#include "camera.h"
-#include "utils.h"
-#include "basedraw.h"
-#include "timing.h"
-#include "renderprim.h"
-#include "gfx.h"
-#include "groupdraw.h"
-#include "StashTable.h"
-#include "model_cache.h"
-#include "groupdrawutil.h"
-#include "baseedit.h"
-#include "basedata.h"
-#include "rendertree.h"
-#include "groupThumbnail.h"
-#include "grouptrack.h"
-#include "cmdgame.h"
-#include "groupdrawinline.h"
-#include "groupMiniTrackers.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "bases/bases.h"
+#include "group/group.h"
+#include "graphics/camera.h"
+#include <utilitieslib/utils/utils.h>
+#include "bases/basedraw.h"
+#include <utilitieslib/utils/timing.h>
+#include "render/renderprim.h"
+#include "graphics/gfx.h"
+#include "graphics/groupdraw.h"
+#include <utilitieslib/components/StashTable.h>
+#include "render/model_cache.h"
+#include "graphics/groupdrawutil.h"
+#include "bases/baseedit.h"
+#include "bases/basedata.h"
+#include "render/rendertree.h"
+#include "graphics/groupThumbnail.h"
+#include "group/grouptrack.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/groupdrawinline.h"
+#include "graphics/groupMiniTrackers.h"
 
 static int clip_height[2];
 static int fade_timer[2];

@@ -1,9 +1,9 @@
 #ifndef UIPET_H
 #define UIPET_H
 
-#include "uiInclude.h"
-#include "stdtypes.h"
-#include "petCommon.h"
+#include "UI/uiInclude.h"
+#include <utilitieslib/stdtypes.h>
+#include "gameComm/petCommon.h"
 
 #define MAX_PETNAME_LENGTH 15
 

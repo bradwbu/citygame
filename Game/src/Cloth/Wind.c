@@ -1,10 +1,10 @@
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <stdlib.h>
 #include <math.h>
-#include "stdtypes.h"
-#include "mathutil.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
 
-#include "Wind.h"
+#include "Cloth/Wind.h"
 
 //////////////////////////////////////////////////////////////////////////////
 // WIND

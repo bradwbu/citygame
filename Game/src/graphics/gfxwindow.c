@@ -1,16 +1,16 @@
-#include "stdtypes.h"
-#include "mathutil.h"
-#include "gfxwindow.h"
-#include "memcheck.h"
-#include "camera.h"
-#include "cmdgame.h"
-#include "win_init.h"
-#include "render.h"
-#include "edit_cmd.h"
-#include "uiGame.h"
-#include "renderUtil.h"
-#include "viewport.h"
-#include "gfx.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "graphics/gfxwindow.h"
+#include <utilitieslib/utils/memcheck.h>
+#include "graphics/camera.h"
+#include "cmdparse/cmdgame.h"
+#include "win/win_init.h"
+#include "render/render.h"
+#include "edit/edit_cmd.h"
+#include "UI/uiGame.h"
+#include "render/renderUtil.h"
+#include "graphics/viewport.h"
+#include "graphics/gfx.h"
 
 GfxWindow gfx_window;
 extern PBuffer pbRenderTexture;

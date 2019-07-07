@@ -1,11 +1,11 @@
 #ifndef _AUTOMAP_H
 #define _AUTOMAP_H
 
-#include "mathutil.h"
-#include "uiInclude.h"
-#include "imageCapture.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "UI/uiInclude.h"
+#include "graphics/imageCapture.h"
 #ifndef TEST_CLIENT
-#include "groupMetaMinimap.h"
+#include "group/groupMetaMinimap.h"
 #endif
 typedef struct VisitedMap VisitedMap;
 typedef struct Thumbtack

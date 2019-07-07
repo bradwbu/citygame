@@ -1,8 +1,8 @@
 #ifndef UIWEBSTOREFRAME_H
 #define UIWEBSTOREFRAME_H
 
-#include "stdtypes.h"
-#include "AccountTypes.h"
+#include <utilitieslib/stdtypes.h>
+#include "account/AccountTypes.h"
 
 typedef struct ShoppingCart
 {

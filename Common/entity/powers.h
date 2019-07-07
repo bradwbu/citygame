@@ -8,7 +8,7 @@
 
 #include <stdlib.h> // for offsetof
 
-#include "boost.h"
+#include "entity/boost.h"
 #include <utilitieslib/utils/color.h>
 #include "entity/power_system.h"
 

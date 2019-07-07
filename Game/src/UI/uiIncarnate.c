@@ -1,39 +1,39 @@
-#include "uiIncarnate.h"
+#include "UI/uiIncarnate.h"
 
-#include "incarnate.h"
-#include "uiWindows.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiInput.h"
-#include "uiScrollbar.h"
-#include "uiClipper.h"
-#include "wdwbase.h"
-#include "smf_main.h"
+#include "entity/incarnate.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiInput.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiClipper.h"
+#include "gameComm/wdwbase.h"
+#include "formatter/smf_main.h"
 
-#include "entity.h"
-#include "entPlayer.h"
-#include "player.h"
-#include "character_base.h"
-#include "badges.h"
-#include "earray.h"
-#include "cmdgame.h"
-#include "clientcomm.h"
-#include "MessageStoreUtil.h"
-#include "authUserData.h"
-#include "sprite_base.h"
-#include "textureatlas.h"
-#include "uiTabControl.h"
-#include "uiRecipeInventory.h"
-#include "DetailRecipe.h"
-#include "Proficiency.h"
-#include "character_workshop.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "uiTray.h"
-#include "uiContextMenu.h"
-#include "trayCommon.h"
-#include "uiInfo.h"
-#include "simpleparser.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "player/player.h"
+#include "entity/character_base.h"
+#include "player/badges.h"
+#include <utilitieslib/components/Earray.h>
+#include "cmdparse/cmdgame.h"
+#include "clientcomm/clientcomm.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "auth/authUserData.h"
+#include "UI/sprite/sprite_base.h"
+#include "graphics/textureatlas.h"
+#include "UI/uiTabControl.h"
+#include "UI/uiRecipeInventory.h"
+#include "bases/DetailRecipe.h"
+#include "entity/Proficiency.h"
+#include "entity/character_workshop.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/uiTray.h"
+#include "UI/uiContextMenu.h"
+#include "gameComm/trayCommon.h"
+#include "UI/uiInfo.h"
+#include <utilitieslib/utils/SimpleParser.h>
 
 typedef struct RecipeTreeNode RecipeTreeNode;
 static IncarnateSlot currentlySelectedSlot = kIncarnateSlot_Count; // nothing selected
@@ -136,14 +136,15 @@ typedef enum IncarnateRecipeEnum
     IRE_CREATION,
     IRE_CONVERSION,
     IRE_COUNT,
-};
+} IncarnateRecipeEnum;
+
 typedef enum IncarnateVisibilityEnum
 {
     IVE_OWNED_NEVER,
     IVE_OWNED_PREVIOUSLY,
     IVE_OWNED_CURRENTLY,
     IVE_COUNT,
-};
+} IncarnateVisibilityEnum;
 
 typedef enum IncarnateTabEnum
 {

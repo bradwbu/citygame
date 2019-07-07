@@ -1,9 +1,9 @@
 #ifndef _RENDERBONEDMODEL_H
 #define _RENDERBONEDMODEL_H
 
-#include "gfxtree.h" 
-#include "rt_queue.h" 
-#include "rt_bonedmodel.h" 
+#include "seq/gfxtree.h" 
+#include "render/thread/rt_queue.h" 
+#include "render/thread/rt_bonedmodel.h" 
 
 typedef struct BoneInfo BoneInfo;
 

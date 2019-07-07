@@ -1,4 +1,4 @@
-#include "friendCommon.h"
+#include "entity/friendCommon.h"
 #include <utilitieslib/stdtypes.h>
 #include <utilitieslib/utils/memcheck.h>
 

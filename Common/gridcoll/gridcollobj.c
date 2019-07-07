@@ -1,7 +1,7 @@
 #include "group/group.h"
-#include "gridcoll.h"
+#include "gridcoll/gridcoll.h"
 #include <utilitieslib/utils/mathutil.h>
-#include "gridcache.h"
+#include "gridcoll/gridcache.h"
 #include "gridcollobj.h"
 #include <utilitieslib/utils/utils.h>
 #include "seq/tricks.h"

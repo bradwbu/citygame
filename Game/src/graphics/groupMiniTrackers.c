@@ -1,17 +1,17 @@
-#include "groupMiniTrackers.h"
-#include "groupdrawutil.h"
-#include "anim.h"
-#include "rendermodel.h"
-#include "StashTable.h"
-#include "MemoryPool.h"
-#include "tex.h"
-#include "AutoLOD.h"
-#include "rt_model.h"
-#include "rt_init.h"
-#include "model.h"
-#include "error.h"
-#include "gfxtree.h"
-#include "utils.h"
+#include "graphics/groupMiniTrackers.h"
+#include "graphics/groupdrawutil.h"
+#include "seq/anim.h"
+#include "render/rendermodel.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/components/memorypool.h>
+#include "render/tex.h"
+#include "seq/AutoLOD.h"
+#include "render/thread/rt_model.h"
+#include "render/thread/rt_init.h"
+#include "render/model.h"
+#include <utilitieslib/utils/error.h>
+#include "seq/gfxtree.h"
+#include <utilitieslib/utils/utils.h>
 
 #define DO_CACHING 1
 

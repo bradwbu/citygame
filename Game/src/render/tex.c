@@ -1,45 +1,45 @@
 #include <stdio.h>
 #include <search.h>
 #include <fcntl.h>
-#include "ogl.h"
-#include "file.h"
-#include "tex.h"
-#include "jpeg.h"
-#include "cmdgame.h"
-#include "uiConsole.h"
-#include "tricks.h"
-#include "error.h"
-#include "memcheck.h"
+#include "render/thread/ogl.h"
+#include <utilitieslib/utils/file.h>
+#include "render/tex.h"
+#include "graphics/jpeg.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiConsole.h"
+#include "seq/tricks.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/memcheck.h>
 #include "dd.h"
-#include "utils.h"
-#include "sysutil.h"
-#include "gfx.h"
-#include "gfxSettings.h"
-#include "gfxLoadScreens.h"
-#include "render.h"
-#include "bump.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/sysutil.h>
+#include "graphics/gfx.h"
+#include "graphics/gfxSettings.h"
+#include "graphics/gfxLoadScreens.h"
+#include "render/render.h"
+#include "render/bump.h"
 #include "assert.h"
-#include "genericlist.h"
-#include "timing.h"
-#include "sun.h"
-#include "earray.h"
-#include "fileutil.h"
-#include "FolderCache.h"
-#include "strings_opt.h"
-#include "MemoryMonitor.h"
-#include "memlog.h"
-#include "texUnload.h"
-#include "texWords.h"
-#include "renderprim.h"
-#include "rt_tex.h"
-#include "renderstats.h"
-#include "anim.h"
-#include "textureatlas.h"
-#include "StringCache.h"
-#include "StashTable.h"
-#include "tex_gen.h"
-#include "osdependent.h"
-#include "osdependent.h"
+#include <utilitieslib/components/genericlist.h>
+#include <utilitieslib/utils/timing.h>
+#include "graphics/sun.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/utils/MemoryMonitor.h>
+#include <utilitieslib/utils/memlog.h>
+#include "render/texUnload.h"
+#include "render/texWords.h"
+#include "render/renderprim.h"
+#include "render/thread/rt_tex.h"
+#include "render/renderstats.h"
+#include "seq/anim.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/components/StringCache.h>
+#include <utilitieslib/components/StashTable.h>
+#include "render/tex_gen.h"
+#include <utilitieslib/utils/osdependent.h>
+#include <utilitieslib/utils/osdependent.h>
 #include "LWC.h"
 
 static const char TEXTURE_MEMMONITOR_NAME[] = "OpenGL Textures";
@@ -275,8 +275,8 @@ static void makeTexPow2(TexReadInfo *info)
     int    i,w,h;
     U8    *data;
 
-    w = 1 << log2(info->width);
-    h = 1 << log2(info->height);
+    w = 1 << log2i(info->width);
+    h = 1 << log2i(info->height);
     if (w == info->width && h == info->height)
         return;
     data = calloc(w*h,3);
@@ -1368,8 +1368,8 @@ int texFillInBind(char *filename, BasicTexture *bind) {
     assert((tfh.flags & TEXOPT_JPEG) || !(bind->flags & TEX_JPEG)); // If the texture was built with TEXOPT_JPEG, then the flags should include TEX_JPEG
     bind->height = tfh.height;
     bind->width = tfh.width;
-    bind->realHeight = 1 << log2(bind->height);
-    bind->realWidth = 1 << log2(bind->width);
+    bind->realHeight = 1 << log2i(bind->height);
+    bind->realWidth = 1 << log2i(bind->width);
 
     assert(bind->height <= bind->realHeight);
     assert(bind->width <= bind->realWidth);

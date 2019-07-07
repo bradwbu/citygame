@@ -16,7 +16,7 @@
 #include "entity/origins.h"
 #include "entity/classes.h"
 #include "entity/character_base.h"
-#include "badges.h"
+#include "player/badges.h"
 #include <utilitieslib/language/MessageStore.h>
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/mathutil.h>

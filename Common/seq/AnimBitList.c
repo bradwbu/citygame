@@ -1,4 +1,4 @@
-#include "AnimBitList.h"
+#include "seq/AnimBitList.h"
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/fileutil.h>
@@ -7,7 +7,7 @@
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "seqstate.h"
+#include "seq/seqstate.h"
 
 typedef struct AllAnimLists{
     AnimBitList** lists;

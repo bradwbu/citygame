@@ -6,13 +6,13 @@
 #include <utilitieslib/utils/file.h>
 #include "cmdparse/cmdcommon.h"
 #include <utilitieslib/assert/assert.h>
-#include "gfxtree.h"
+#include "seq/gfxtree.h"
 #include "graphics/camera.h" 
 #include "graphics/font.h"
-#include "gfxtree.h"
+#include "seq/gfxtree.h"
 #include "render/model.h"
-#include "tricks.h"
-#include "anim.h"
+#include "seq/tricks.h"
+#include "seq/anim.h"
 #include <utilitieslib/components/MemoryPool.h>
 
 #if CLOTH_HACK
@@ -20,11 +20,11 @@
 #endif
 
 #if CLIENT
-    #include "splat.h"
-    #include "cmdgame.h" 
+    #include "graphics/splat.h"
+    #include "cmdparse/cmdgame.h" 
     #include "fxinfo.h"
-    #include "sun.h"
-    #include "groupMiniTrackers.h"
+    #include "graphics/sun.h"
+    #include "graphics/groupMiniTrackers.h"
 #endif
 
 #define GFXDEBUG 0
@@ -163,8 +163,8 @@ void gfxTreeInitSkyTree()
 
 #if 0 // fpe for test
 #include <utilitieslib/utils/fileutil.h>
-#include "model_cache.h"
-#include "tex.h"
+#include "render/model_cache.h"
+#include "render/tex.h"
 #include <utilitieslib/components/StashTable.h>
 
 bool gbFoundZeroTangent, gbFoundZeroTangentInThisFile;

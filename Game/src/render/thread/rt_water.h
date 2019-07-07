@@ -1,8 +1,8 @@
 #ifndef RT_WATER_H
 #define RT_WATER_H
 
-#include "stdtypes.h"
-#include "rt_pbuffer.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/thread/rt_pbuffer.h"
 
 typedef struct VBO VBO;
 typedef struct RdrTexList RdrTexList;

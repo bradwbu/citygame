@@ -4,7 +4,7 @@
 #ifndef SHADERSTEXENV_H
 #define SHADERSTEXENV_H
 
-#include "rt_state.h"
+#include "render/thread/rt_state.h"
 
 int renderTexEnvparse(char *filename, BlendModeShader blendMode);
 void preRenderTexEnvSetupBlendmode(BlendModeShader type);

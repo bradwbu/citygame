@@ -13,7 +13,7 @@
  *
  ***************************************************************************/
 #include "Xact.h"
-#include "auction.h"
+#include "auction/auction.h"
 #include "gameComm/trayCommon.h"
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/utils/textparser.h>

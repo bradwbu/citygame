@@ -4,7 +4,7 @@
 #include <utilitieslib/stdtypes.h>
 #include <stdio.h>
 #include "render/thread/rt_state.h"
-#include "texEnums.h"
+#include "render/texEnums.h"
 
 
 #define MAX_TEX_SIZE 1024

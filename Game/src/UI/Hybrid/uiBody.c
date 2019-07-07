@@ -1,48 +1,49 @@
-#include "uiBody.h"
-#include "uiGame.h"                // for start_menu
+#include <utilitieslib/stdtypes.h>
+#include "UI/Hybrid/uiBody.h"
+#include "UI/uiGame.h"                // for start_menu
 
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
 
-#include "input.h"
-#include "earray.h"
-#include "win_init.h" // for windowClientSize
-#include "player.h"      // for playerPtr
-#include "font.h"
-#include "ttFontUtil.h"
-#include "sound.h"
+#include "win/input.h"
+#include <utilitieslib/components/Earray.h>
+#include "win/win_init.h" // for windowClientSize
+#include "player/player.h"      // for playerPtr
+#include "graphics/font.h"
+#include "graphics/ttFontUtil.h"
+#include "sound/sound.h"
 #include "language/langClientUtil.h"
-#include "textureatlas.h"
-#include "cmdgame.h"  // for timestep
+#include "graphics/textureatlas.h"
+#include "cmdparse/cmdgame.h"  // for timestep
 
-#include "smf_parse.h"
-#include "smf_format.h"
-#include "smf_main.h"
+#include "formatter/smf_parse.h"
+#include "formatter/smf_format.h"
+#include "formatter/smf_main.h"
 
-#include "uiInput.h"
-#include "uiUtilMenu.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiClipper.h"
-#include "uiHybridMenu.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiClipper.h"
+#include "UI/Hybrid/uiHybridMenu.h"
 
-#include "uiGender.h"
-#include "uiAvatar.h"
-#include "uiCostume.h"
-#include "uiTailor.h"
+#include "UI/uiGender.h"
+#include "UI/uiAvatar.h"
+#include "UI/uiCostume.h"
+#include "UI/uiTailor.h"
 
-#include "costume.h"
-#include "costume_client.h"
-#include "entity.h"
-#include "seq.h"
-#include "tex.h"
-#include "uiDialog.h"
-#include "AccountData.h"
-#include "entPlayer.h"
-#include "dbclient.h"
-#include "AppLocale.h"
-#include "uiComboBox.h"
+#include "entity/costume.h"
+#include "entity/costume_client.h"
+#include "entity/entity.h"
+#include "seq/seq.h"
+#include "render/tex.h"
+#include "UI/uidialog.h"
+#include "account/AccountData.h"
+#include "entity/EntPlayer.h"
+#include "clientcomm/dbclient.h"
+#include <utilitieslib/language/AppLocale.h>
+#include "UI/uiComboBox.h"
 
 #define HEIGHT_WD    910 // width of the police line up area
 #define HEIGHT_X    57  // x coordinate

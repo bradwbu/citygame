@@ -1,4 +1,5 @@
-#include "perfcounter.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/perfcounter.h"
 #include <GL/glew.h>
 #include <GL/wglew.h>
 
@@ -14,9 +15,9 @@ void (* s_fpDisplay )(int, int, int) = NULL;
 
 #if defined(WIN32)
 
-#include "utils.h"
-#include "SuperAssert.h"
-#include "entDebug.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/SuperAssert.h>
+#include "entity/entDebug.h"
 
 enum { MAX_COUNTERS = 128 };
 static int s_maxValidIdx = 0;
@@ -27,7 +28,7 @@ static SPerfCounter s_counters[MAX_COUNTERS];
 // NVidia routines for performance counters
 //////////////////////////////////////////////////////////////////////////
 
-#include "NVPerfSDK.h"
+#include <NVPerfSDK.h>
 
 int nvEnumFuncCountersCB(UINT unCounterIndex, char *pcCounterName)
 {

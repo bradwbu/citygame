@@ -11,7 +11,7 @@
 #ifndef SCRIPTDEBUGCLIENT_H
 #define SCRIPTDEBUGCLIENT_H
 
-#include "net_typedefs.h"
+#include <utilitieslib/network/net_typedefs.h>
 
 void receiveScriptDebugInfo(Packet *pak);
 void ScriptDebugSet(int on);

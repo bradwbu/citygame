@@ -1,31 +1,31 @@
 
-#include "wdwbase.h"
+#include "gameComm/wdwbase.h"
 
-#include "uiGame.h"
-#include "uiUtil.h"
-#include "uiChat.h"
-#include "uiInput.h"
-#include "uiWindows.h"
-#include "uiUtilGame.h"
-#include "uiContextMenu.h"
+#include "UI/uiGame.h"
+#include "UI/uiUtil.h"
+#include "UI/uiChat.h"
+#include "UI/uiInput.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiContextMenu.h"
 
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "sprite_text.h"
-#include "textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_text.h"
+#include "graphics/textureatlas.h"
 
-#include "input.h"
-#include "earray.h"
-#include "estring.h"
-#include "cmdgame.h"
-#include "mathutil.h"
-#include "win_init.h"
-#include "uiKeybind.h"
-#include "player.h"
+#include "win/input.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/components/estring.h>
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "win/win_init.h"
+#include "UI/uiKeybind.h"
+#include "player/player.h"
 #include "language/langClientUtil.h"
-#include "ttFontUtil.h"
-#include "StringUtil.h"
-#include "MessageStoreUtil.h"
+#include "graphics/ttFontUtil.h"
+#include <utilitieslib/utils/StringUtil.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
 //----------------------------------------------------------------------------------------
 
 // these enums are only used internally, but declared in header for structure definition

@@ -1,10 +1,10 @@
 #ifndef _CURSOR_H
 #define    _CURSOR_H
 
-#include "uiInclude.h"
-#include "stdtypes.h"
-#include "trayCommon.h"
-#include "entityRef.h"
+#include "UI/uiInclude.h"
+#include <utilitieslib/stdtypes.h>
+#include "gameComm/trayCommon.h"
+#include "entity/entityRef.h"
 
 typedef    struct DefTracker    DefTracker;
 typedef struct GroupDef GroupDef;

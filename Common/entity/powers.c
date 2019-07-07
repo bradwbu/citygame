@@ -15,20 +15,20 @@
 #include <utilitieslib/components/genericlist.h>
 #include <utilitieslib/components/MemoryPool.h>
 
-#include "costume.h"
-#include "power_customization.h"
+#include "entity/costume.h"
+#include "entity/power_customization.h"
 #include <utilitieslib/utils/eval.h>
-#include "entity.h"
-#include "powers.h"
-#include "powerinfo.h"
-#include "character_base.h"
-#include "character_level.h"
-#include "character_eval.h"
-#include "character_inventory.h"
+#include "entity/entity.h"
+#include "entity/powers.h"
+#include "entity/PowerInfo.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "entity/character_eval.h"
+#include "entity/character_inventory.h"
 #include <utilitieslib/components/StringCache.h>
 #include <utilitieslib/utils/textparser.h>
 #include "gameData/mininghelper.h"
-#include "boostset.h"
+#include "entity/boostset.h"
 #include <utilitieslib/utils/log.h>
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/components/SharedMemory.h>
@@ -47,7 +47,7 @@
 #include "dbghelper.h"
 #include "ai/entai.h"     // For aiAdd/RemovePower
 #include "cmdparse/cmdservercsr.h"
-#include "character_combat_eval.h"
+#include "entity/character_combat_eval.h"
 #endif
 
 

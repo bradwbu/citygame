@@ -4,81 +4,81 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 
-#include "uiGame.h"
-#include "player.h"
-#include "costume_client.h"
-#include "uiUtilGame.h"
-#include "uiUtil.h"
-#include "sysutil.h"
-#include "sprite_base.h" // only for interp_rgba
-#include "uiUtilMenu.h"  // only for do_gbut and doGbutScaled
+#include "UI/uiGame.h"
+#include "player/player.h"
+#include "entity/costume_client.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtil.h"
+#include <utilitieslib/utils/sysutil.h>
+#include "UI/sprite/sprite_base.h" // only for interp_rgba
+#include "UI/uiUtilMenu.h"  // only for do_gbut and doGbutScaled
 #include "uiPCCCreationNLM.h"
-#include "cmdcommon.h"   // only for TIMESTEP
-#include "uiGender.h"
-#include "fx.h"
-#include "uiAvatar.h"
-#include "uiCostume.h"
+#include "cmdparse/cmdcommon.h"   // only for TIMESTEP
+#include "UI/uiGender.h"
+#include "graphics/FX/fx.h"
+#include "UI/uiAvatar.h"
+#include "UI/uiCostume.h"
 #include "uiLoadCostume.h"
 #include "uiSaveCostume.h"
-#include "uiTailor.h"
-#include "uiInput.h"
-#include "uiSupercostume.h"
-#include "earray.h"
-#include "timing.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
-#include "tex.h"
-#include "font.h"
-#include "utils.h"
-#include "initClient.h"
-#include "animtrack.h"  //for MAX_BONES
+#include "UI/uiTailor.h"
+#include "UI/uiInput.h"
+#include "UI/uiSupercostume.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/timing.h>
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
+#include "render/tex.h"
+#include "graphics/font.h"
+#include <utilitieslib/utils/utils.h>
+#include "gameComm/initClient.h"
+#include "seq/animtrack.h"  //for MAX_BONES
 #include "gameData/costume_data.h"
-#include "cmdgame.h"
-#include "Color.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/Color.h>
 #include "language/langClientUtil.h"
-#include "sound.h"
-#include "character_base.h"
-#include "entplayer.h"
+#include "sound/sound.h"
+#include "entity/character_base.h"
+#include "entity/EntPlayer.h"
 #include "uiSlider.h"
-#include "ttFontUtil.h"
-#include "uiComboBox.h"
-#include "seqstate.h"
-#include "file.h"
-#include "entity.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/uiComboBox.h"
+#include "seq/seqstate.h"
+#include <utilitieslib/utils/file.h>
+#include "entity/entity.h"
 #include "uiScrollSelector.h"
-#include "Npc.h"
-#include "uiScrollBar.h"
-#include "uiNet.h"
-#include "power_customization.h"
+#include "gameComm/npc.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiNet.h"
+#include "entity/power_customization.h"
 #include "gameData/costume_critter.h"
-#include "input.h"
-#include "entclient.h"
+#include "win/input.h"
+#include "entity/entclient.h"
 #include "auth/authUserData.h"
-#include "dbclient.h"
-#include "AppLocale.h"
-#include "MessageStoreUtil.h"
-#include "uiPowerCust.h"
-#include "powers.h" // Power types
-#include "win_init.h"
-#include "uiHybridMenu.h"
+#include "clientcomm/dbclient.h"
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "UI/uiPowerCust.h"
+#include "entity/powers.h" // Power types
+#include "win/win_init.h"
+#include "UI/Hybrid/uiHybridMenu.h"
 #include "malloc.h"
-#include "uiOrigin.h"
-#include "uiArchetype.h"
-#include "uiPower.h"
-#include "uiCostume.h"
-#include "uiBody.h"
-#include "inventory_client.h"
-#include "AccountData.h"
-#include "AccountCatalog.h"
-#include "uiDialog.h"
+#include "UI/Hybrid/uiOrigin.h"
+#include "UI/Hybrid/uiArchetype.h"
+#include "UI/Hybrid/uiPower.h"
+#include "UI/uiCostume.h"
+#include "UI/Hybrid/uiBody.h"
+#include "player/inventory_client.h"
+#include "account/AccountData.h"
+#include "account/AccountCatalog.h"
+#include "UI/uidialog.h"
 
 #ifdef TEST_CLIENT
 Costume *pccFixupCostume = NULL;
 void *rdrGetTex(int texid, int *width, int *height, int get_color, int get_alpha, int floating_point) {    return NULL;}
 #else
 extern Costume *pccFixupCostume;
-#include "renderprim.h"
+#include "render/renderprim.h"
 #endif
 int gLoadRandomPresetCostume = 1;
 static CostumeGeoSet *s_selectedGeoSet = NULL;
@@ -2412,7 +2412,7 @@ static void drawCostumeFrame(F32 x, F32 y, F32 z, F32 ysc, F32 ht, int selectedT
 static void costume_manageColors( int mode, F32 x, F32 y, F32 z, float scale )
 {
     int result, drawTwo = FALSE, selected, clrSkin, color1, color2, color3, color4, fourColor = FALSE, whichColor;
-    const CostumeTexSet * tset;
+    const CostumeTexSet * tset = NULL;
     const CostumeGeoSet* selectedGeoSet;
     Color newSelectedColor;
     const ColorPalette* palette;

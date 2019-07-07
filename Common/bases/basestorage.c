@@ -17,16 +17,16 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/components/MemoryPool.h>
-#include "bases.h"
-#include "basedata.h"
+#include "bases/bases.h"
+#include "bases/basedata.h"
 #include "entity/entity.h"
 #include "entity/character_base.h"
 #include "entity/Supergroup.h"
 #include "entity/powers.h"
-#include "DetailRecipe.h"
+#include "bases/DetailRecipe.h"
 
 #if SERVER
-#include "basetogroup.h"
+#include "bases/basetogroup.h"
 #include "dbcomm/logcomm.h"
 #include "language/langServerUtil.h"
 #include <utilitieslib/utils/timing.h>

@@ -1,8 +1,8 @@
 #ifndef _SOUND_SYS_H
 #define _SOUND_SYS_H
 
-#include "stdtypes.h"
-#include "sound.h"
+#include <utilitieslib/stdtypes.h>
+#include "sound/sound.h"
 
 #define MAX_EVER_SOUND_CHANNELS        128
 

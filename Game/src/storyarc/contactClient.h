@@ -1,14 +1,14 @@
 #ifndef CONTACTCLIENT_H
 #define CONTACTCLIENT_H
 
-#include "gametypes.h"
-#include "contactCommon.h"
-#include "uiCompass.h"
-#include "storyarcCommon.h"
-#include "zowieCommon.h"
+#include "entity/gametypes.h"
+#include "storyarc/contactCommon.h"
+#include "UI/uiCompass.h"
+#include "storyarc/storyarcCommon.h"
+#include "storyarc/zowieCommon.h"
 
 #ifndef TEST_CLIENT
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 #else
 typedef struct SMFBlock SMFBlock;
 #endif

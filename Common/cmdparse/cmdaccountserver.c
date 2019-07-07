@@ -13,7 +13,7 @@
  *
  ***************************************************************************/
 #include <utilitieslib/stdtypes.h>
-#include "cmdaccountserver.h"
+#include "cmdparse/cmdaccountserver.h"
 #include "AppServerCmd.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/assert/assert.h>
@@ -24,7 +24,7 @@
 #include <utilitieslib/components/MemoryPool.h>
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/cmdoldparse.h>
-#include "cmdcommon_enum.h"
+#include "cmdparse/cmdcommon_enum.h"
 #include "comm_backend.h"
 
 #define TMP_STR {CMDSTR(g_appserver_cmd_state.strs[0])}

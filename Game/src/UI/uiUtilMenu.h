@@ -4,7 +4,7 @@
 // This file contains drawing routines for common character creation elements
 //--------------------------------------------------------------------------------------------------
 
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
 typedef struct TTDrawContext TTDrawContext;
 // Displays the city background with moving glow

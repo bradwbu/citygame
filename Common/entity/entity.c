@@ -1,8 +1,8 @@
 #include <string.h>
 #include <utilitieslib/components/estring.h>
-#include "character_base.h"
-#include "entity.h"
-#include "motion.h"
+#include "entity/character_base.h"
+#include "entity/entity.h"
+#include "entity/motion.h"
 #include "cmdparse/cmdcommon.h"
 #include "cmdparse/cmdcontrols.h"
 #include <utilitieslib/network/netcomp.h>
@@ -15,16 +15,16 @@
 #include <utilitieslib/components/StashTable.h>
 #include <utilitieslib/utils/mathutil.h>
 #include "seq/seqskeleton.h"
-#include "teamCommon.h"
-#include "teamup.h"
+#include "entity/teamCommon.h"
+#include "entity/teamup.h"
 #include "float.h"
 #include <utilitieslib/utils/Quat.h>
 #include "auth/authUserData.h"
-#include "entPlayer.h"
+#include "entity/EntPlayer.h"
 #include <utilitieslib/components/earray.h>
 #include "storyarc/playerCreatedStoryarc.h"
 #include <utilitieslib/utils/log.h>
-#include "costume.h"
+#include "entity/costume.h"
 #include "gameData/BodyPart.h"
 
 #if SERVER
@@ -41,7 +41,7 @@
 #include "ai/entaiVars.h"
 #include "entity/entServer.h"
 #include "entity/entsend.h"
-#include "entPlayer.h"
+#include "entity/EntPlayer.h"
 #include "player/badges_server.h"
 #include <utilitieslib/utils/log.h>
 #else

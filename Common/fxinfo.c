@@ -30,12 +30,12 @@
 #endif
 
 #if CLIENT
-    #include "fx.h"
-    #include "cmdgame.h"
-    #include "particle.h"
-    #include "rgb_hsv.h"
-    #include "sound.h"
-    #include "anim.h"
+    #include "graphics/FX/fx.h"
+    #include "cmdparse/cmdgame.h"
+    #include "graphics/FX/particle.h"
+    #include <utilitieslib/utils/rgb_hsv.h>
+    #include "sound/sound.h"
+    #include "seq/anim.h"
 #endif
 
 // global lists of parsed objects

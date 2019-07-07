@@ -1,20 +1,20 @@
 #define RT_PRIVATE
 #define RT_ALLOW_BINDTEXTURE
-#include "rt_effects.h"
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "rt_state.h"
-#include "rt_tex.h"
-#include "rt_font.h"
-#include "rt_cgfx.h"
-#include "mathutil.h"
-#include "rt_model.h"
+#include "render/thread/rt_effects.h"
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_state.h"
+#include "render/thread/rt_tex.h"
+#include "render/thread/rt_font.h"
+#include "render/thread/rt_cgfx.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "render/thread/rt_model.h"
 #include "assert.h"
-#include "cmdgame.h"
-#include "rt_pbuffer.h"
+#include "cmdparse/cmdgame.h"
+#include "render/thread/rt_pbuffer.h"
 #include "rt_prim.h"
-#include "timing.h"
-#include "font.h"
+#include <utilitieslib/utils/timing.h>
+#include "graphics/font.h"
 #include "rt_shaderMgr.h"
 
 

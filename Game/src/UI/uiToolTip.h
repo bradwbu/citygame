@@ -1,7 +1,7 @@
 #ifndef UITOOLTIP_H
 #define UITOOLTIP_H
 
-#include "wdwbase.h"
+#include "gameComm/wdwbase.h"
 
 // A tool tip parent is a bounding box where tool tips will continue to persist while the mouse
 // is over the bounds

@@ -1,7 +1,7 @@
 #ifndef _LIGHT_H
 #define _LIGHT_H
 
-#include "mathutil.h"
+#include <utilitieslib/utils/mathutil.h>
 
 #define COLOR_SCALEUB(x) (x >> 2)
 

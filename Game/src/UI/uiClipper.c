@@ -1,13 +1,13 @@
-#include "uiClipper.h"
-#include "MemoryPool.h"
-#include "earray.h"
+#include "UI/uiClipper.h"
+#include <utilitieslib/components/memorypool.h>
+#include <utilitieslib/components/Earray.h>
 #include "uiListView.h"        // For UIBox stuff.  Move it out of that file.
-#include "win_init.h"
-#include "sprite_base.h"
-#include <assert.h>
-#include "sprite.h"
-#include "mathutil.h"
-#include "uiGame.h"
+#include "win/win_init.h"
+#include "UI/sprite/sprite_base.h"
+#include <utilitieslib/assert/assert.h>
+#include "render/sprite.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "UI/uiGame.h"
 
 //-----------------------------------------------------------------------------------------------------------------
 // Clipper2D

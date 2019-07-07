@@ -1,33 +1,33 @@
 //---------------------------------------------------------------------------------------------------------------
 // UIEdit: MultiLine edit control
 //---------------------------------------------------------------------------------------------------------------
-#include "wininclude.h"
-#include "uiUtilMenu.h"
-#include "validate_name.h"
+#include <utilitieslib/utils/wininclude.h>
+#include "UI/uiUtilMenu.h"
+#include "filter/validate_name.h"
 #include "UIEdit.h"
-#include "EString.h"
-#include "uiFocus.h"
-#include "earray.h"
-#include "StringUtil.h"
-#include "sprite_text.h"
-#include "input.h"
-#include "uiUtil.h"
-#include "uiClipper.h"
-#include "ttFont.h"
-#include "ttFontUtil.h"
-#include <assert.h>
-#include "mathutil.h"
-#include "cmdcommon.h"
-#include "uiInput.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
-#include "sound.h"
-#include "utils.h"
-#include "uiUtilGame.h"
+#include <utilitieslib/components/estring.h>
+#include "UI/uiFocus.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/StringUtil.h>
+#include "UI/sprite/sprite_text.h"
+#include "win/input.h"
+#include "UI/uiUtil.h"
+#include "UI/uiClipper.h"
+#include "graphics/ttFont.h"
+#include "graphics/ttFontUtil.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "cmdparse/cmdcommon.h"
+#include "UI/uiInput.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
+#include "sound/sound.h"
+#include <utilitieslib/utils/utils.h>
+#include "UI/uiUtilGame.h"
 #include "uiIME.h"
-#include "MemoryPool.h"
-#include "error.h"
+#include <utilitieslib/components/memorypool.h>
+#include <utilitieslib/utils/error.h>
 
 static unsigned short* newlineCharacter = L"\n";
 
@@ -1305,7 +1305,7 @@ void uiedit_Backspace(UIEdit *edit, U32 amount)
 
 
 
-#include "win_init.h"
+#include "win/win_init.h"
 void uiEditDefaultKeyboardHandler(UIEdit* edit, KeyInput* input)
 {
     if(!edit || !input)

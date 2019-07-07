@@ -1,9 +1,9 @@
 #ifndef _GRIDCACHE_H
 #define _GRIDCACHE_H
 
-#include "grid.h"
-#include "gridcoll.h"
-#include "ctri.h"
+#include "gridcoll/grid.h"
+#include "gridcoll/gridcoll.h"
+#include "gridcoll/ctri.h"
 
 typedef struct
 {

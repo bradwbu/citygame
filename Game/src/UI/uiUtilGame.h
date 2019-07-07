@@ -1,7 +1,7 @@
 #ifndef UIUTILGAME_H
 #define UIUTILGAME_H
 
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
 // This file contains drawing routines for common in game elements
 //--------------------------------------------------------------------------------------------------

@@ -4,20 +4,20 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 
-#include "player.h"
-#include "cmdcommon.h"        // for TIMESTEP
-#include "uiAvatar.h"
-#include "uiCostume.h"        // for gSelectedGeoSet
-#include "costume_data.h"    // for CostumeGeoSet internals
-#include "cmdgame.h"        // for toggle3Dmode enums
-#include "uiGame.h"            // for isMenu()
-#include "fx.h"                // for green blobby fx functions
-#include "costume_client.h" // for scaleHero
-#include "camera.h"
-#include "win_init.h"
-#include "entity.h"
-#include "gfxwindow.h"        // gfx_window
-#include "sprite_base.h"
+#include "player/player.h"
+#include "cmdparse/cmdcommon.h"        // for TIMESTEP
+#include "UI/uiAvatar.h"
+#include "UI/uiCostume.h"        // for gSelectedGeoSet
+#include "gameData/costume_data.h"    // for CostumeGeoSet internals
+#include "cmdparse/cmdgame.h"        // for toggle3Dmode enums
+#include "UI/uiGame.h"            // for isMenu()
+#include "graphics/FX/fx.h"                // for green blobby fx functions
+#include "entity/costume_client.h" // for scaleHero
+#include "graphics/camera.h"
+#include "win/win_init.h"
+#include "entity/entity.h"
+#include "graphics/gfxwindow.h"        // gfx_window
+#include "UI/sprite/sprite_base.h"
 
 //----------------------------------------------------------------------------------------------
 

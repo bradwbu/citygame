@@ -1,12 +1,12 @@
 #include "storyarc\storyarcClient.h"
-#include "netio.h"
-#include "earray.h"
-#include "clientcomm.h"
-#include "entVarUpdate.h"
-#include "uiConsole.h"
-#include "uiClue.h"
-#include "uiNet.h"
-#include "file.h"
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/components/Earray.h>
+#include "clientcomm/clientcomm.h"
+#include "entity/entVarUpdate.h"
+#include "UI/uiConsole.h"
+#include "UI/uiClue.h"
+#include "UI/uiNet.h"
+#include <utilitieslib/utils/file.h>
 
 //------------------------------------------------------------------
 //------------------------------------------------------------------

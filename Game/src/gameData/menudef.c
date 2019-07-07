@@ -5,26 +5,26 @@
  ***************************************************************************/
 #include <string.h>
 
-#include "earray.h"
-#include "error.h"
-#include "textparser.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/textparser.h>
 
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 
-#include "AppLocale.h"
-#include "uicontextmenu.h"
-#include "uiinput.h"
+#include <utilitieslib/language/AppLocale.h>
+#include "UI/uiContextMenu.h"
+#include "UI/uiInput.h"
 
 #include "menudef.h"
-#include "entity.h"
-#include "entplayer.h"
-#include "authUserData.h"
-#include "badges.h"
-#include "RewardToken.h"
-#include "player.h"
-#include "costume_client.h"
-#include "AccountData.h"
-#include "inventory_client.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "auth/authUserData.h"
+#include "player/badges.h"
+#include "entity/rewardtoken.h"
+#include "player/player.h"
+#include "entity/costume_client.h"
+#include "account/AccountData.h"
+#include "player/inventory_client.h"
 
 typedef enum MenuItemType
 {

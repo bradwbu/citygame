@@ -1,13 +1,13 @@
 #define RT_PRIVATE
-#include "rt_queue.h"
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "rt_state.h"
-#include "rt_pbuffer.h"
-#include "rt_tex.h"
-#include "rt_cursor.h"
+#include "render/thread/rt_queue.h"
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_state.h"
+#include "render/thread/rt_pbuffer.h"
+#include "render/thread/rt_tex.h"
+#include "render/thread/rt_cursor.h"
 #include "rt_stats.h"
-#include "cmdgame.h"
+#include "cmdparse/cmdgame.h"
 
 PBuffer    cursor_pbuf;
 

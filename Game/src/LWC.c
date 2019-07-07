@@ -1,21 +1,21 @@
 
 #include "LWC.h"
-#include "timing.h"
-#include "scriptvars.h"
-#include "MessageStore.h"
-#include "MessageStoreUtil.h"
-#include "uiDialog.h"
-#include "mathutil.h"
-#include "file.h"
-#include "font.h"  // for xyprintf
-#include "cmdgame.h"
-#include "player.h"
-#include "entity.h"
-#include "entPlayer.h"
-#include "piglib.h"
-#include "utils.h"
-#include "uiWebStoreFrame.h"
-#include "clientcomm.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/scriptvars.h>
+#include <utilitieslib/language/MessageStore.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "UI/uidialog.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/file.h>
+#include "graphics/font.h"  // for xyprintf
+#include "cmdparse/cmdgame.h"
+#include "player/player.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include <utilitieslib/utils/piglib.h>
+#include <utilitieslib/utils/utils.h>
+#include "UI/Hybrid/uiWebStoreFrame.h"
+#include "clientcomm/clientcomm.h"
 #include "game.h"
 
 #include <windows.h>
@@ -62,7 +62,7 @@ static void LWC_InitPipe()
     if (s_pipeInited)
         return;
 
-    s_pipe_handle = CreateNamedPipe("\\\\.\\pipe\\Coh_NCLauncher_Pipe",
+    s_pipe_handle = CreateNamedPipeA("\\\\.\\pipe\\Coh_NCLauncher_Pipe",
                                     PIPE_ACCESS_DUPLEX | FILE_FLAG_FIRST_PIPE_INSTANCE,
                                     PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_NOWAIT,
                                     PIPE_UNLIMITED_INSTANCES ,
@@ -73,9 +73,9 @@ static void LWC_InitPipe()
 
     if (s_pipe_handle == INVALID_HANDLE_VALUE)
     {
-        TCHAR cBuf[1000];
+        char cBuf[1000];
         char cFullErrorMessage[1000];
-        FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, GetLastError(), 0, cBuf, 1000, NULL);
+        FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM, NULL, GetLastError(), 0, cBuf, 1000, NULL);
         strcpy(cFullErrorMessage, "Failed to open named pipe . Windows system error message: ");
         strcat(cFullErrorMessage, cBuf);
         Errorf(cFullErrorMessage);
@@ -220,9 +220,9 @@ static void sendReply(const char *message)
     }
     else
     {
-        TCHAR cBuf[1000];
+        char cBuf[1000];
         char cFullErrorMessage[1000];
-        FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, GetLastError(), 0, cBuf, 1000, NULL);
+        FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM, NULL, GetLastError(), 0, cBuf, 1000, NULL);
         strcpy(cFullErrorMessage, "Failed to write to named pipe . Windows system error message: ");
         strcat(cFullErrorMessage, cBuf);
         Errorf(cFullErrorMessage);

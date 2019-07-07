@@ -1,12 +1,12 @@
 #ifndef _RENDERCLOTH_H
 #define _RENDERCLOTH_H
 
-#include "model.h"
-#include "gfxtree.h"
-#include "Cloth.h"
-#include "ClothMesh.h"
+#include "render/model.h"
+#include "seq/gfxtree.h"
+#include "Cloth/Cloth.h"
+#include "Cloth/ClothMesh.h"
 
-#include "rt_cloth.h"
+#include "render/thread/rt_cloth.h"
 
 void modelDrawClothObject( GfxNode * node, BlendModeType blend_mode );
 void modelDrawClothObjectDirect( RdrCloth *rc );

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "grid.h"
+#include "gridcoll/grid.h"
 #include "stdlib.h"
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/utils/memcheck.h>

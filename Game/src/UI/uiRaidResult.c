@@ -1,17 +1,17 @@
-#include "uiRaidResult.h"
-#include "net_packet.h"
-#include "net_packetutil.h"
-#include "wdwbase.h"
-#include "uiWindows.h"
-#include "uiUtilGame.h"
-#include "uiUtil.h"
-#include "qsortG.h"
-#include "gametypes.h"
-#include "earray.h"
-#include "sprite_text.h"
-#include "sprite_base.h"
-#include "sprite_font.h"
-#include "uiScrollBar.h"
+#include "UI/uiRaidResult.h"
+#include <utilitieslib/network/net_packet.h>
+#include <utilitieslib/network/net_packetutil.h>
+#include "gameComm/wdwbase.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtil.h"
+#include <utilitieslib/utils/qsortG.h>
+#include "entity/gametypes.h"
+#include <utilitieslib/components/Earray.h>
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/uiScrollBar.h"
 
 // strings used in this window (excluding the why string sent from the server)
 static char * attackersString        = "RaidAttackersString";

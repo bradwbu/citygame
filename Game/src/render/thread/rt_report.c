@@ -31,10 +31,10 @@
 ** stcl     = # bits of stencil
 */
 
-#include "ogl.h"
-#include "file.h"
-#include "estring.h"
-#include "osdependent.h"
+#include "render/thread/ogl.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/osdependent.h>
 
 static void VisualInfo(HDC dc);
 static void PrintExtensions(const char* s);
@@ -51,7 +51,7 @@ const char *makeReportFile()
     /* open file */
     //strcpy_s(fileName, sizeof(fileName), fileTempName());
     // Use a fixed file name instead of a generated temporary name so the old files don't accumulate in the temp folder
-    if (GetTempPath(MAX_PATH, fileName))
+    if (GetTempPathA(MAX_PATH, fileName))
         strcat_s(fileName, MAX_PATH, "opengl.txt");
 
     file = fopen(fileName, "w");

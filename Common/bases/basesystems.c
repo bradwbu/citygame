@@ -10,9 +10,9 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/error.h>
 
-#include "bases.h"
-#include "basedata.h"
-#include "basesystems.h"
+#include "bases/bases.h"
+#include "bases/basedata.h"
+#include "bases/basesystems.h"
 
 #if SERVER
 #include "ailib/aiBehaviorPublic.h"
@@ -32,10 +32,10 @@
 #include "entity/supergroup.h"
 #include "gameSys/raidmapserver.h"
 #include "bases/baseserverrecv.h"
-#include "basetogroup.h"
+#include "bases/basetogroup.h"
 #include "gridcoll/gridcache.h"
 #include "entity/sgrpServer.h"
-#include "baseupkeep.h"
+#include "bases/baseupkeep.h"
 #include "gamesys/sgraid.h"
 #include "gameComm/svr_chat.h"
 #include "language/langServerUtil.h"

@@ -1,8 +1,8 @@
 #ifndef _SPRITE_H
 #define _SPRITE_H
 
-#include "sprite_base.h"
-#include "stdtypes.h"
+#include "UI/sprite/sprite_base.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct AtlasTex AtlasTex;
 typedef struct BasicTexture BasicTexture;

@@ -1,5 +1,5 @@
 //// Code Set Bits
-#include "seqstate.h"
+#include "seq/seqstate.h"
 #include "string.h"
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/utils/structDefines.h>

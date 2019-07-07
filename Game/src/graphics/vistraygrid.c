@@ -1,17 +1,17 @@
 #include <float.h>
 #include <stdlib.h>
 #include <string.h>
-#include "stdtypes.h"
-#include "error.h"
-#include "mathutil.h"
-#include "group.h"
-#include "grouptrack.h"
-#include "gridcoll.h"
-#include "grouputil.h"
-#include "gridfind.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "group/group.h"
+#include "group/grouptrack.h"
+#include "gridcoll/gridcoll.h"
+#include "group/grouputil.h"
+#include "gridcoll/gridfind.h"
 #include "assert.h"
-#include "utils.h"
-#include "anim.h"
+#include <utilitieslib/utils/utils.h>
+#include "seq/anim.h"
 
 static Grid            *tray_grid = 0;
 

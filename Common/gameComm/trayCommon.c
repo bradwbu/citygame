@@ -8,7 +8,7 @@
 #include <utilitieslib/utils/wininclude.h>
 #include <utilitieslib/components/earray.h>
 
-#include "trayCommon.h"
+#include "gameComm/trayCommon.h"
 #include "entity/character_base.h"
 #include "entity/powers.h"
 #include "entity/entity.h"

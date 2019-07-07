@@ -8,14 +8,14 @@
 #include <utilitieslib/network/netio.h>
 #include <utilitieslib/components/earray.h>
 
-#include "powers.h"
+#include "entity/powers.h"
 #include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/utils.h> // INRANGE
 
-#include "character_base.h"
-#include "character_net.h"
-#include "character_level.h"
-#include "character_inventory.h"
+#include "entity/character_base.h"
+#include "entity/character_net.h"
+#include "entity/character_level.h"
+#include "entity/character_inventory.h"
 
 #ifdef SERVER
 #include "cmdparse/cmdserver.h"
@@ -27,13 +27,13 @@
 #include "UI/uiRecipeInventory.h"
 #include "UI/uiIncarnate.h"
 #include "UI/uiTray.h"
-#include "clientcomm.h"
+#include "clientcomm/clientcomm.h"
 #include "comm_game.h"
 #endif
-#include "Entity.h"
+#include "entity/entity.h"
 #include "gameComm/villaindef.h"
-#include "salvage.h"
-#include "concept.h"
+#include "entity/salvage.h"
+#include "entity/concept.h"
 
 
 /**********************************************************************func*

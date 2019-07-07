@@ -1,5 +1,5 @@
-#include "groupnovodex.h"
-#include "group.h"
+#include "group/groupnovodex.h"
+#include "group/group.h"
 #include "NovodeX/NwWrapper.h"
 #include "seq/anim.h"
 #include "seq/tricks.h"
@@ -11,9 +11,9 @@
 #include <utilitieslib/utils/strings_opt.h>
 #include "gridcoll/gridfind.h"
 #include <utilitieslib/utils/timing.h>
-#include "grouptrack.h"
-#include "groupfileload.h"
-#include "grouputil.h"
+#include "group/grouptrack.h"
+#include "group/groupfileload.h"
+#include "group/grouputil.h"
 #include "entity/entity.h"
 #include "gridcoll/gridcache.h"
 #include "NovodeX/NwRagdoll.h"
@@ -21,8 +21,8 @@
 #include <utilitieslib/utils/Quat.h>
 
 #ifdef CLIENT 
-#include "player.h"
-#include "gfxLoadScreens.h"
+#include "player/player.h"
+#include "graphics/gfxLoadScreens.h"
 #endif
 #ifdef SERVER 
 #include "svr/svr_player.h"

@@ -16,9 +16,9 @@
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/utils/error.h>
 #include "player/badges.h"
-#include "Concept.h"
-#include "salvage.h"
-#include "Proficiency.h"
+#include "entity/concept.h"
+#include "entity/salvage.h"
+#include "entity/Proficiency.h"
 #include "bases/DetailRecipe.h"
 #include "auction/Auction.h"
 #include "account/AccountCatalog.h"
@@ -27,10 +27,10 @@
 #include "player/pophelp.h"
 
 #define BOOST_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
-#include "boost.h"
+#include "entity/boost.h"
 
 #define POWERS_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
-#include "powers.h"
+#include "entity/powers.h"
 
 #if SERVER
 #define COMBAT_MOD_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
@@ -47,23 +47,23 @@
 #endif
 
 #define CLASSES_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
-#include "classes.h"
+#include "entity/classes.h"
 
 #define ORIGINS_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
-#include "origins.h"
+#include "entity/origins.h"
 
 #define CHARACTER_BASE_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
-#include "character_base.h"
+#include "entity/character_base.h"
 
 #define SCHEDULES_PARSE_INFO_DEFINITIONS  // to get the ParseInfos for reading
 #define EXPERIENCE_TABLE_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
-#include "character_level.h"
+#include "entity/character_level.h"
 
 #define ATTRIB_NAMES_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
-#include "attrib_names.h"
+#include "entity/attrib_names.h"
 
 #define BOOSTSET_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
-#include "boostset.h"
+#include "entity/boostset.h"
 
 #if SERVER
 #define DAMAGEDECAY_PARSE_INFO_DEFINITIONS // to get the ParseInfos for reading
@@ -79,18 +79,18 @@
 #endif
 
 #include "load_def.h"
-#include "LoadDefCommon.h"
-#include "character_eval.h"
+#include "entity/LoadDefCommon.h"
+#include "entity/character_eval.h"
 #include <utilitieslib/utils/eval.h>
-#include "PCC_Critter.h"
+#include "entity/PCC_Critter.h"
 #if SERVER
-#include "character_combat_eval.h"
+#include "entity/character_combat_eval.h"
 #include "Reward.h"
 #include "gameComm/NewFeatures.h"
 #endif
 
-#include "attrib_description.h"
-#include "character_inventory.h"
+#include "entity/attrib_description.h"
+#include "entity/character_inventory.h"
 #include <utilitieslib/components/estring.h>
 #include "bases/basedata.h"
 #include "storyarc/pnpcCommon.h"

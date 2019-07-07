@@ -1,13 +1,13 @@
-#include "truetype/ttFontManager.h"
-#include "wininclude.h"
-#include "StashTable.h"    // for hashCalc()
-#include <assert.h>
-#include "mathutil.h"
-#include "Color.h"
-#include "utils.h"
-#include "textureatlas.h"
-#include "timing.h"
-#include "HashFunctions.h"
+#include "graphics/truetype/ttFontManager.h"
+#include <utilitieslib/utils/wininclude.h>
+#include <utilitieslib/components/StashTable.h>    // for hashCalc()
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/Color.h>
+#include <utilitieslib/utils/utils.h>
+#include "graphics/textureatlas.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/components/HashFunctions.h>
 
 CRITICAL_SECTION CriticalSectionFontManager;
 bool CriticalSectionFontManager_inited=false;

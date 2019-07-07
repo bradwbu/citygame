@@ -2,7 +2,7 @@
 #define _ZOCCLUSIONCLIP_H_
 
 #include "zOcclusionTypes.h"
-#include "SuperAssert.h"
+#include <utilitieslib/utils/SuperAssert.h>
 
 void drawZTriangleClip(ZBufferPoint *p0, ZBufferPoint *p1, ZBufferPoint *p2, int clip_bit);
 

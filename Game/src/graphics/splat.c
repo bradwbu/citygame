@@ -1,17 +1,17 @@
-#include "splat.h"
-#include "mathutil.h"
-#include "stdtypes.h"
-#include "gridcoll.h"
-#include "font.h"
-#include "cmdcommon.h"
+#include "graphics/splat.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/stdtypes.h>
+#include "gridcoll/gridcoll.h"
+#include "graphics/font.h"
+#include "cmdparse/cmdcommon.h"
 #include "fxutil.h"
-#include "cmdgame.h"
-#include "tex.h"
-#include "model.h"
-#include "tricks.h"
-#include "anim.h"
-#include "utils.h"
-#include "renderprim.h"
+#include "cmdparse/cmdgame.h"
+#include "render/tex.h"
+#include "render/model.h"
+#include "seq/tricks.h"
+#include "seq/anim.h"
+#include <utilitieslib/utils/utils.h>
+#include "render/renderprim.h"
 //Debug 
 
 Line    lightlines[1000];
@@ -500,7 +500,7 @@ static int applySplat( Splat * splat, CollInfo * coll, Vec3 center, Vec3 normal,
 
 //############################################################################
 //############# Splat Shadows 
-#include "seq.h"
+#include "seq/seq.h"
 
 //#define FALL_OFF_TO_MAX 100 //as you get to the MAX_SHADOW_TRIS, turn down the alpha so it won't pop out
 //Debug 

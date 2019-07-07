@@ -4,39 +4,39 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 #include "assert.h"
-#include "earray.h"
-#include "cmdcommon.h"
-#include "mathutil.h"
+#include <utilitieslib/components/Earray.h>
+#include "cmdparse/cmdcommon.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "storyarc\storyarcClient.h"
 
-#include "wdwbase.h"
+#include "gameComm/wdwbase.h"
 
-#include "uiUtil.h"
-#include "uiClue.h"
-#include "uiInput.h"
-#include "uiUtilGame.h"
-#include "uiUtilMenu.h"
-#include "uiWindows.h"
-#include "uiContact.h"
-#include "uiScrollBar.h"
-#include "uiBox.h"
-#include "uiClipper.h"
-#include "uiConsole.h"
-#include "uiDialog.h"
-#include "MessageStoreUtil.h"
+#include "UI/uiUtil.h"
+#include "UI/uiClue.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiWindows.h"
+#include "UI/uiContact.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiBox.h"
+#include "UI/uiClipper.h"
+#include "UI/uiConsole.h"
+#include "UI/uidialog.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
 
-#include "smf_main.h"
-#include "clicktosource.h"
-#include "textparser.h"
-#include "EString.h"
-#include "sysutil.h"
-#include "cmdgame.h"
-#include "playerCreatedStoryarcValidate.h"
+#include "formatter/smf_main.h"
+#include "edit/ClickToSource.h"
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/sysutil.h>
+#include "cmdparse/cmdgame.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
 
 
 typedef enum

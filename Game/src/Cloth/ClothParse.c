@@ -1,8 +1,8 @@
-#include "Cloth.h"
-#include "ClothPrivate.h"
+#include "Cloth/Cloth.h"
+#include "Cloth/ClothPrivate.h"
 #include <string.h>
 #include <stdlib.h>
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 
 //////////////////////////////////////////////////////////////////////////////
 // Cloth Parse Code

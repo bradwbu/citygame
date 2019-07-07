@@ -1,7 +1,7 @@
 #ifndef _VISTRAY_H
 #define _VISTRAY_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct DefTracker DefTracker;
 typedef struct DrawParams DrawParams;

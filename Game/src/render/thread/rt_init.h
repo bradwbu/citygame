@@ -2,7 +2,7 @@
 #define _RT_INIT_H
 
 #ifdef RT_PRIVATE
-#include "rt_queue.h"
+#include "render/thread/rt_queue.h"
 #endif
 
 // "chipset"/hw capability/generation identifier bit flags (used with rdr_caps.chip)

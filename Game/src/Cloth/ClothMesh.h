@@ -1,9 +1,9 @@
 #ifndef _CLOTHMESH_H
 #define _CLOTHMESH_H
 
-#include "stdtypes.h"
-#include "mathutil.h"
-#include "texEnums.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "render/texEnums.h"
 
 typedef struct ClothMesh ClothMesh;
 typedef struct ClothStrip ClothStrip;
@@ -34,7 +34,7 @@ extern void ClothMeshPrimitiveCreateBalloon(ClothMesh *mesh, F32 rad, F32 hlen, 
 extern void ClothMeshPrimitiveCreateCylinder(ClothMesh *mesh, F32 rad, F32 hlen, int detail);
 extern void ClothMeshPrimitiveCreateSphere(ClothMesh *mesh, F32 rad, int detail);
 
-#include "rt_cloth.h"
+#include "render/thread/rt_cloth.h"
 
 
 #endif // _CLOTHMESH_H

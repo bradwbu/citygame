@@ -1,7 +1,7 @@
 #ifndef _CMDCONTROLS_H
 #define _CMDCONTROLS_H
 
-#include "cmdcommon.h"
+#include "cmdparse/cmdcommon.h"
 #include "entity/motion.h"
 
 typedef struct ControlStateChange    ControlStateChange;

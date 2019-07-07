@@ -1,10 +1,10 @@
 #ifndef UIGROUPWINDOW_H
 #define UIGROUPWINDOW_H
 
-#include "uiInclude.h"
-#include "stdtypes.h"
-#include "character_base.h"
-#include "teamCommon.h"
+#include "UI/uiInclude.h"
+#include <utilitieslib/stdtypes.h>
+#include "entity/character_base.h"
+#include "entity/teamCommon.h"
 
 int groupWindow();
 

@@ -1,41 +1,41 @@
-#include "wininclude.h" 
+#include <utilitieslib/utils/wininclude.h> 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h> 
-#include "mathutil.h"
-#include "error.h"
-#include "cmdgame.h"
-#include "model.h"
-#include "memcheck.h" 
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/error.h>
+#include "cmdparse/cmdgame.h"
+#include "render/model.h"
+#include <utilitieslib/utils/memcheck.h> 
 #include "assert.h" 
-#include "utils.h"
-#include "particle.h"  
-#include "render.h"
-#include "cmdcommon.h"
-#include "camera.h"
+#include <utilitieslib/utils/utils.h>
+#include "graphics/FX/particle.h"  
+#include "render/render.h"
+#include "cmdparse/cmdcommon.h"
+#include "graphics/camera.h"
 #include "assert.h"
-#include "font.h"
+#include "graphics/font.h"
 #include "fxutil.h"
-#include "genericlist.h"
-#include "textparser.h"
-#include "earray.h"
+#include <utilitieslib/components/genericlist.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/components/Earray.h>
 #include "time.h"
-#include "timing.h"
-#include "strings_opt.h"
-#include "gfxwindow.h"
-#include "fileutil.h"
-#include "edit_drawlines.h" //for sphere drawing
-#include "fx.h"
-#include "player.h"
-#include "tex.h"
-#include "entity.h"
-#include "fx.h"
-#include "edit_cmd.h"
-#include "zOcclusion.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include "graphics/gfxwindow.h"
+#include <utilitieslib/utils/fileutil.h>
+#include "edit/edit_drawlines.h" //for sphere drawing
+#include "graphics/FX/fx.h"
+#include "player/player.h"
+#include "render/tex.h"
+#include "entity/entity.h"
+#include "graphics/FX/fx.h"
+#include "edit/edit_cmd.h"
+#include "graphics/zOcclusion.h"
 #include "demo.h"
-#include "fxlists.h"
-#include "fxgeo.h"
-#include "rgb_hsv.h"
+#include "graphics/FX/fxlists.h"
+#include "graphics/FX/fxgeo.h"
+#include <utilitieslib/utils/rgb_hsv.h>
 
 extern FxEngine fx_engine;
 static int partialSystemRun_inited = 0;
@@ -1870,7 +1870,7 @@ F32 interpolatedNoise(float x)
   end function*/
 
 
-#include "gridcoll.h"
+#include "gridcoll/gridcoll.h"
 void adjustForTerrain(Vec3 position)
 {
     Vec3 start;
@@ -2798,7 +2798,7 @@ void partBuildParticleArray( ParticleSystem * system, F32 total_alpha, F32 * ver
                 idx = MIN(itemp1, itemp2);
             }
             else //sysInfo->colorchangetype == PARTICLE_COLORLOOP
-                idx = (round(particle->age-timestep)) % system->effectiveColorPath->length;
+                idx = (round32(particle->age-timestep)) % system->effectiveColorPath->length;
             if (idx<0)
                 idx = 0;
             rgb = &(system->effectiveColorPath->path[idx * 3]);

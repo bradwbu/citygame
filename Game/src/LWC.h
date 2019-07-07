@@ -1,7 +1,7 @@
 #ifndef LWC_H
 #define LWC_H
 // Header file for Light Weight Client
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "LWC_common.h"
 
 typedef enum

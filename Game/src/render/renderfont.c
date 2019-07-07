@@ -1,10 +1,10 @@
-#include "truetype/ttDebug.h"
-#include "rt_font.h"
-#include "sprite.h"
-#include "cmdgame.h"
-#include "rt_queue.h"
-#include "timing.h"
-#include "uiGame.h"
+#include "graphics/truetype/ttDebug.h"
+#include "render/thread/rt_font.h"
+#include "render/sprite.h"
+#include "cmdparse/cmdgame.h"
+#include "render/thread/rt_queue.h"
+#include <utilitieslib/utils/timing.h>
+#include "UI/uiGame.h"
 
 void rdrRenderEditor( FontMessage messages[], S32 message_count, int textbuf_count, char *textbuf )
 {

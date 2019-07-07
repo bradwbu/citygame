@@ -11,16 +11,16 @@
 
 #include <utilitieslib/components/earray.h>
 
-#include "origins.h"
-#include "powers.h"
-#include "boost.h"
-#include "character_base.h"
+#include "entity/origins.h"
+#include "entity/powers.h"
+#include "entity/boost.h"
+#include "entity/character_base.h"
 #include <utilitieslib/components/MemoryPool.h>
-#include "boostset.h"
+#include "entity/boostset.h"
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/utils/scriptvars.h>
-#include "Entity.h"
-#include "EntPlayer.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
 #include "account/AccountData.h"
 
 #if CLIENT

@@ -1,10 +1,10 @@
 #include "UI.h"
-#include "ArrayOld.h"
-#include "HashTableStack.h"
+#include <utilitieslib/components/ArrayOld.h>
+#include <utilitieslib/components/HashTableStack.h>
 
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 
 
 
@@ -357,13 +357,13 @@
 // **************************************************************************/
 
 
-#include "font.h"
-#include "input.h"
-#include "edit_cmd.h"
-#include "cmdcommon.h"
-#include "mathutil.h"
+#include "graphics/font.h"
+#include "win/input.h"
+#include "edit/edit_cmd.h"
+#include "cmdparse/cmdcommon.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "edit_uiscroll.h"
-#include "win_init.h"
+#include "win/win_init.h"
 
 static char* uiScroll2SimpleName(char* name)
 {

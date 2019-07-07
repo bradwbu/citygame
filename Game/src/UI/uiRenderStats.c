@@ -1,22 +1,22 @@
 #include "uiRenderStats.h"
-#include "uiWindows.h"
-#include "uiUtilGame.h"
-#include "uiUtil.h"
-#include "uiInput.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiUtil.h"
+#include "UI/uiInput.h"
 
-#include "mathutil.h"
-#include "win_init.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "win/win_init.h"
 
-#include "tex.h"
-#include "textureatlas.h"
-#include "ttFontUtil.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
+#include "render/tex.h"
+#include "graphics/textureatlas.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
 
-#include "cmdgame.h"
-#include "renderstats.h"
-#include "timing.h"
+#include "cmdparse/cmdgame.h"
+#include "render/renderstats.h"
+#include <utilitieslib/utils/timing.h>
 
 #if RDRSTATS_ON
 

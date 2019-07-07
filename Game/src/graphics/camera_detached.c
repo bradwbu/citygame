@@ -1,11 +1,11 @@
-#include "input.h"
-#include "cmdgame.h"
-#include "uiInput.h"
-#include "uiKeybind.h"
-#include "uiOptions.h"
-#include "mathutil.h"
-#include "camera.h"
-#include "uiConsole.h"
+#include "win/input.h"
+#include "cmdparse/cmdgame.h"
+#include "UI/uiInput.h"
+#include "UI/uiKeybind.h"
+#include "UI/uiOptions.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "graphics/camera.h"
+#include "UI/uiConsole.h"
 
 KeyBindProfile        detachedCam_binds_profile;
 S32                    detachedCam_input_state;

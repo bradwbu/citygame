@@ -1,5 +1,5 @@
-#include "grid.h"
-#include "gridfind.h"
+#include "gridcoll/grid.h"
+#include "gridcoll/gridfind.h"
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/assert/assert.h>
 

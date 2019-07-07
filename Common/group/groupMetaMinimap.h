@@ -2,7 +2,7 @@
 #define GROUPMETAMINIMAP_H
 
 #include <utilitieslib/stdtypes.h>
-#include "grouputil.h"
+#include "group/grouputil.h"
 ///////////////////////
 #define MAX_EXTENTS 20
 

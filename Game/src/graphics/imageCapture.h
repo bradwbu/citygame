@@ -8,7 +8,7 @@
 #include "seq/seq.h"
 #include "gameComm/npc.h"
 #include "seq/seqskeleton.h"
-#include "textureatlas.h"
+#include "graphics/textureatlas.h"
 #include "render/pbuffer.h"
 
 typedef struct MMPinPData

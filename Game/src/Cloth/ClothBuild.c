@@ -1,7 +1,7 @@
 #include <stdlib.h>
-#include "Cloth.h"
-#include "ClothPrivate.h"
-#include "cmdgame.h"
+#include "Cloth/Cloth.h"
+#include "Cloth/ClothPrivate.h"
+#include "cmdparse/cmdgame.h"
 
 //////////////////////////////////////////////////////////////////////////////
 // This module contains utility functions for creating Cloth structure

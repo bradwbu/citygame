@@ -1,6 +1,6 @@
-#include "Cloth.h"
-#include "ClothMesh.h"
-#include "ClothPrivate.h"
+#include "Cloth/Cloth.h"
+#include "Cloth/ClothMesh.h"
+#include "Cloth/ClothPrivate.h"
 
 ////////////////////////////////////////////////////////
 // Some Debug functions for creating meshes out of primitives

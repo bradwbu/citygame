@@ -7,7 +7,7 @@
 #define BASEDRAW_H__
 
 #ifndef COLOR_H
-#include "color.h"
+#include <utilitieslib/utils/Color.h>
 #endif
 
 typedef struct GroupDef GroupDef;

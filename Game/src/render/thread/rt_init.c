@@ -1,21 +1,21 @@
 #define RT_PRIVATE
 #define WCW_STATEMANAGER
 
-#include "error.h"
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "utils.h"
-#include "fileutil.h"
-#include "rt_state.h"
-#include <assert.h>
-#include "texEnums.h"
-#include "mathutil.h"
-#include "win_init.h" // For winMsgAlert
-#include "cmdgame.h"
-#include "osdependent.h"
-#include "rt_cgfx.h"
+#include <utilitieslib/utils/error.h>
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/fileutil.h>
+#include "render/thread/rt_state.h"
+#include <utilitieslib/assert/assert.h>
+#include "render/texEnums.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "win/win_init.h" // For winMsgAlert
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/osdependent.h>
+#include "render/thread/rt_cgfx.h"
 #include "rt_shaderMgr.h"
-#include "perfcounter.h"
+#include "render/perfcounter.h"
 #include "rt_report.h"
 
 RenderCaps    rdr_caps;
@@ -479,7 +479,7 @@ void rdrInitExtensionsDirect()
 
 extern FogContext main_fog_context;
 
-#include "win_init.h"
+#include "win/win_init.h"
 void rdrInitOnceDirect()
 {
     // Clear the shader cache on disk if safemode is enabled

@@ -1,69 +1,69 @@
 #define RT_ALLOW_VBO    // RDRFIX
-#include "fxgeo.h"
+#include "graphics/FX/fxgeo.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h> 
-#include "stdtypes.h"
-#include "mathutil.h"
-#include "error.h"
-#include "model.h"
-#include "model_cache.h"
-#include "memcheck.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/error.h>
+#include "render/model.h"
+#include "render/model_cache.h"
+#include <utilitieslib/utils/memcheck.h>
 #include "assert.h" 
-#include "utils.h"
-#include "gfxtree.h"
-#include "particle.h" 
-#include "cmdcommon.h" //TIMESTEP
-#include "camera.h" 
+#include <utilitieslib/utils/utils.h>
+#include "seq/gfxtree.h"
+#include "graphics/FX/particle.h" 
+#include "cmdparse/cmdcommon.h" //TIMESTEP
+#include "graphics/camera.h" 
 #include "assert.h"   
-#include "player.h" 
-#include "file.h"
-#include "font.h"
+#include "player/player.h" 
+#include <utilitieslib/utils/file.h>
+#include "graphics/font.h"
 #include "fxutil.h"
-#include "fxlists.h"
-#include "groupfilelib.h"
-#include "rendertricks.h"
-#include "rendertree.h"
-#include "fx.h"
-#include "genericlist.h"
-#include "light.h"
-#include "seqanimate.h"
-#include "sound.h"
-#include "memorypool.h"
-#include "cmdgame.h"
-#include "earray.h"
-#include "gridcoll.h"
-#include "strings_opt.h"
-#include "gfx.h" //for gfxsetviewmat
-#include "groupdraw.h"
-#include "rendershadow.h"
-#include "fxcapes.h"
-#include "renderbonedmodel.h"
-#include "clothnode.h"
-#include "rgb_hsv.h"
-#include "gfxtree.h"
-#include "seqsequence.h"
-#include "tricks.h"
-#include "texwords.h"
-#include "tex.h"
-#include "entity.h"
-#include "seqskeleton.h"
-#include "seqgraphics.h"
-#include "grouptrack.h"
-#include "groupfileload.h"
-#include "groupMiniTrackers.h"
-#include "fxdebris.h"
-#include "textparserUtils.h"
-#include "uiOptions.h"
-#include "StashTable.h"
-#include "BodyPart.h"
+#include "graphics/FX/fxlists.h"
+#include "group/groupfilelib.h"
+#include "render/rendertricks.h"
+#include "render/rendertree.h"
+#include "graphics/FX/fx.h"
+#include <utilitieslib/components/genericlist.h>
+#include "graphics/light.h"
+#include "seq/seqanimate.h"
+#include "sound/sound.h"
+#include <utilitieslib/components/memorypool.h>
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/components/Earray.h>
+#include "gridcoll/gridcoll.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include "graphics/gfx.h" //for gfxsetviewmat
+#include "graphics/groupdraw.h"
+#include "render/rendershadow.h"
+#include "graphics/FX/fxcapes.h"
+#include "render/renderbonedmodel.h"
+#include "graphics/clothnode.h"
+#include <utilitieslib/utils/rgb_hsv.h>
+#include "seq/gfxtree.h"
+#include "seq/seqsequence.h"
+#include "seq/tricks.h"
+#include "render/texWords.h"
+#include "render/tex.h"
+#include "entity/entity.h"
+#include "seq/seqskeleton.h"
+#include "graphics/seqgraphics.h"
+#include "group/grouptrack.h"
+#include "group/groupfileload.h"
+#include "graphics/groupMiniTrackers.h"
+#include "graphics/FX/fxdebris.h"
+#include <utilitieslib/utils/textparserUtils.h>
+#include "UI/uiOptions.h"
+#include <utilitieslib/components/StashTable.h>
+#include "gameData/BodyPart.h"
 
 #ifdef NOVODEX_FLUIDS
-#include "renderprim.h"
-#include "renderparticles.h"
+#include "render/renderprim.h"
+#include "render/renderparticles.h"
 #endif
 
-#include "timing.h"
+#include <utilitieslib/utils/timing.h>
 
 //##############################################################################
 // Fx Geos##################################################
@@ -562,7 +562,7 @@ int fxGeoCreate(void ** fxgeolist, int * fxgeo_count, GfxNode * key, Mat4 offset
     Mat4        realoffset;
     Mat4        result;
     FxGeo     * fxgeo;
-    GfxNode   * parent;
+    GfxNode   * parent = NULL;
     Model     * model;
     const FxBhvr * bhvr;
     static int fxgeo_id_pool = SOUND_FX_BASE;
@@ -2405,7 +2405,7 @@ int fxGeoUpdate( FxGeo * fxgeo, int * fxobject_flags, U8 inheritedAlpha, F32 ani
     PERFINFO_AUTO_STOP_START("Lookat", 1);
     if( !fxgeo->hasCollided && ((hdlGetPtrFromHandle(fxgeo->lookatid) || fxgeo->fxgeo_flags & FXGEO_LOOKAT_CAMERA)) && fxgeo->fxgeo_flags != 16)
     {    
-        Mat4Ptr        mat;
+        Mat4Ptr mat = NULL;
 
         //Maybe change to FxGeos so I can use world spot?
         if( hdlGetPtrFromHandle(fxgeo->lookatid) )

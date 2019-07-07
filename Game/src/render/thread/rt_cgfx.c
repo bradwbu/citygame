@@ -6,23 +6,23 @@
     Author: LStLezin, 01/2009
 ****************************************************************************/
 
-#include "ogl.h"
-#include "SuperAssert.h"
-#include "Error.h"
-#include "StashTable.h"
-#include "file.h"
-#include "mathutil.h"
+#include "render/thread/ogl.h"
+#include <utilitieslib/utils/SuperAssert.h>
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/mathutil.h>
 #include <Cg/cg.h>
 #include <Cg/cgGL.h>
-#include "textparser.h"
-#include "wcw_statemgmt.h"
+#include <utilitieslib/utils/textparser.h>
+#include "render/thread/wcw_statemgmt.h"
 #include "rt_cgfx_statemgmt.h"
-#include "rt_cgfx.h"
-#include "rt_ssao.h"
+#include "render/thread/rt_cgfx.h"
+#include "render/thread/rt_ssao.h"
 #include "rt_shaderMgr.h"
 #include "rt_filter.h"
-#include "utils.h"
-#include "failtext.h"
+#include <utilitieslib/utils/utils.h>
+#include "graphics/failtext.h"
 
 //---------------------------------------------------------------------------
 //

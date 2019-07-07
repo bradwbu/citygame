@@ -1,30 +1,29 @@
 
-#include "uiDock.h"
-#include "uiWindows.h"
-#include "uiInput.h"
-#include "uiUtilGame.h"        // for draw frame
-#include "uiUtil.h"            // for color definitions
-#include "uiGame.h"            // for start_menu
-#include "sprite_font.h"    // for font definitions
-#include "sprite_text.h"    // for font functions
-#include "sprite_base.h"    // for sprites
-#include "cmdcommon.h"        // for TIMESTEP
-#include "mathutil.h"        // for ceil()
-#include "entVarUpdate.h"    // for CLIENT_INP
-#include "clientcomm.h"        // for input_pak
-#include "uiNet.h"
-#include "uiToolTip.h"
-#include "uiContextMenu.h"
+#include "UI/uiWindows.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilGame.h"        // for draw frame
+#include "UI/uiUtil.h"            // for color definitions
+#include "UI/uiGame.h"            // for start_menu
+#include "UI/sprite/sprite_font.h"    // for font definitions
+#include "UI/sprite/sprite_text.h"    // for font functions
+#include "UI/sprite/sprite_base.h"    // for sprites
+#include "cmdparse/cmdcommon.h"        // for TIMESTEP
+#include <utilitieslib/utils/mathutil.h>        // for ceil()
+#include "entity/entVarUpdate.h"    // for CLIENT_INP
+#include "clientcomm/clientcomm.h"        // for input_pak
+#include "UI/uiNet.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiContextMenu.h"
 #include "assert.h"
-#include "chatClient.h"
-#include "uiChatUtil.h"
-#include "earray.h"
-#include "uiFriend.h"
-#include "uiInfo.h"
-#include "player.h"
-#include "cmdgame.h"
-#include "AccountData.h"
-#include "inventory_client.h"
+#include "gameComm/chatClient.h"
+#include "UI/uiChatUtil.h"
+#include <utilitieslib/components/Earray.h>
+#include "UI/uiFriend.h"
+#include "UI/uiInfo.h"
+#include "player/player.h"
+#include "cmdparse/cmdgame.h"
+#include "account/AccountData.h"
+#include "player/inventory_client.h"
 
 //------------------------------------------------------------------------------------------------------
 // Init ////////////////////////////////////////////////////////////////////////////////////////////////

@@ -9,9 +9,9 @@
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/MemoryPool.h>
 #include <utilitieslib/components/StashTable.h>
-#include "LoadDefCommon.h"
+#include "entity/LoadDefCommon.h"
 #include <utilitieslib/utils/textparser.h>
-#include "attrib_names.h"
+#include "entity/attrib_names.h"
 #include <utilitieslib/components/SharedMemory.h>
 #include <utilitieslib/utils/file.h>
 

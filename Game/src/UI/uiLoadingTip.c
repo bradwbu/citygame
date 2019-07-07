@@ -1,22 +1,22 @@
 
 #include "language/langClientUtil.h"
-#include "sprite_font.h"    // for font definitions
-#include "sprite_text.h"    // for font functions
-#include "sprite_base.h"    // for sprites
-#include "textureatlas.h"
-#include "MessageStoreUtil.h"
-#include "ttFontUtil.h"
+#include "UI/sprite/sprite_font.h"    // for font definitions
+#include "UI/sprite/sprite_text.h"    // for font functions
+#include "UI/sprite/sprite_base.h"    // for sprites
+#include "graphics/textureatlas.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "graphics/ttFontUtil.h"
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 #include "uiSMFView.h"
 
-#include "AppRegCache.h"
-#include "EString.h"
-#include "error.h"
-#include "win_init.h"
+#include <utilitieslib/version/AppRegCache.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/error.h>
+#include "win/win_init.h"
 
-#include "uiUtil.h"
-#include "uiUtilGame.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
 
 // Data structures
 //---------------------------------------------------------------------

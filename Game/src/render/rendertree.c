@@ -1,49 +1,49 @@
 #define RT_ALLOW_VBO // Needs access to check model sanity.
 #include <string.h>
 #include <stdlib.h>
-#include "utils.h"
-#include "mathutil.h"
-#include "gfxwindow.h"
-#include "error.h"
-#include "file.h"
-#include "cmdcommon.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "graphics/gfxwindow.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/file.h>
+#include "cmdparse/cmdcommon.h"
 #include "assert.h"
-#include "memcheck.h"
-#include "gfxtree.h"
-#include "camera.h" 
-#include "cmdgame.h" 
-#include "font.h"
-#include "seq.h"
-#include "render.h"
-#include "rendertricks.h"
-#include "edit_cmd.h"
-#include "groupdraw.h"
-#include "utils.h"
-#include "timing.h"
-#include "uiCursor.h"
+#include <utilitieslib/utils/memcheck.h>
+#include "seq/gfxtree.h"
+#include "graphics/camera.h" 
+#include "cmdparse/cmdgame.h" 
+#include "graphics/font.h"
+#include "seq/seq.h"
+#include "render/render.h"
+#include "render/rendertricks.h"
+#include "edit/edit_cmd.h"
+#include "graphics/groupdraw.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
+#include "UI/uiCursor.h"
 #if CLOTH_HACK
-#include "rendercloth.h"
-#include "clothnode.h"
+#include "render/rendercloth.h"
+#include "graphics/clothnode.h"
 #endif
-#include "qsortG.h"
-#include "renderprim.h"
-#include "tex.h"
-#include "tricks.h"
-#include "model_cache.h"
-#include "renderstats.h"
-#include "entity.h"
-#include "uiConsole.h"
-#include "gfx.h"
-#include "NwWrapper.h"
-#include "sun.h"
-#include "groupMiniTrackers.h"
-#include "viewport.h"
-#include "gfxSettings.h"
-#include "cubemap.h"
-#include "view_cache.h"
-#include "rendershadowmap.h"
-#include "rt_shadowmap.h"
-#include "gfxDebug.h"
+#include <utilitieslib/utils/qsortG.h>
+#include "render/renderprim.h"
+#include "render/tex.h"
+#include "seq/tricks.h"
+#include "render/model_cache.h"
+#include "render/renderstats.h"
+#include "entity/entity.h"
+#include "UI/uiConsole.h"
+#include "graphics/gfx.h"
+#include "NovodeX/NwWrapper.h"
+#include "graphics/sun.h"
+#include "graphics/groupMiniTrackers.h"
+#include "graphics/viewport.h"
+#include "graphics/gfxSettings.h"
+#include "render/cubemap.h"
+#include "graphics/view_cache.h"
+#include "render/rendershadowmap.h"
+#include "render/thread/rt_shadowmap.h"
+#include "graphics/gfxDebug.h"
 
 #define HQ_BUMP_DIST 25
 
@@ -1297,7 +1297,8 @@ void addViewSortNodeSkinned(void)
     // Toss yourself into the right bin 
     {
         F32 dist = avsn_params.mid[2];
-        SortThing st={0}, *stp;
+        SortThing st = { 0 };
+        SortThing* stp = NULL;
 
         // Setup SortThing
         if( sortType == SORT_BY_DIST )
@@ -1576,7 +1577,8 @@ void addViewSortNodeWorldModel(void)
     // Toss yourself into the right bin 
     {
         F32 dist = avsn_params.mid[2];
-        SortThing st={0}, *stp;
+        SortThing st = { 0 };
+        SortThing* stp = NULL;
 
         // Setup SortThing
         if( sortType == SORT_BY_DIST )
@@ -2349,8 +2351,8 @@ extern int totalNodesRejected;
 
 
 //Another debug only function
-#include "player.h"
-#include "entclient.h"
+#include "player/player.h"
+#include "entity/entclient.h"
 
 void printNodesProcessed( int seqHandle, GfxNode * node, int type)
 {
@@ -3218,7 +3220,7 @@ static void rdr_shadowmap_populate_bone_xforms( void* dst, GfxNode *node, Mat4 s
     }
 }
 
-#include "rt_shadowmap.h"    // for RdrShadowmapModel,etc types
+#include "render/thread/rt_shadowmap.h"    // for RdrShadowmapModel,etc types
 
 static bool isValidAlphaTestWorldModel(SortThing* st) {
     return st->modelSource == SORTTHING_WORLDMODEL && 

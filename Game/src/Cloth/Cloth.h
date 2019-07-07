@@ -1,8 +1,8 @@
 #ifndef _CLOTH_H
 #define _CLOTH_H
 
-#include "stdtypes.h"
-#include "mathutil.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
 #include "ClothDefs.h"
 
 //============================================================================

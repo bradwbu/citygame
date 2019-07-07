@@ -1,16 +1,16 @@
 #define RT_ALLOW_BINDTEXTURE
 #define RT_PRIVATE
-#include "ogl.h"
-#include "wcw_statemgmt.h"
-#include "rt_model.h"
-#include "rt_shadow.h"
-#include "rt_state.h"
-#include "rt_tex.h"
-#include "rt_tricks.h"
+#include "render/thread/ogl.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "render/thread/rt_model.h"
+#include "render/thread/rt_shadow.h"
+#include "render/thread/rt_state.h"
+#include "render/thread/rt_tex.h"
+#include "render/thread/rt_tricks.h"
 #include "rt_stats.h"
-#include "cmdgame.h"
-#include "mathutil.h"
-#include "splat.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "graphics/splat.h"
 
 typedef struct ShadowInfo
 {

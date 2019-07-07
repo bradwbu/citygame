@@ -2,29 +2,29 @@
 // keymapping.c -- the name says it all
 //----------------------------------------------------------------------------------
 
-#include "uiNet.h"
-#include "uiUtil.h"
-#include "uiComboBox.h"
-#include "uiUtilMenu.h"
-#include "uiKeybind.h"
-#include "uiKeymapping.h"
-#include "uiBox.h"
+#include "UI/uiNet.h"
+#include "UI/uiUtil.h"
+#include "UI/uiComboBox.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiKeybind.h"
+#include "UI/uiKeymapping.h"
+#include "UI/uiBox.h"
 
-#include "input.h"
-#include "cmdgame.h"
-#include "player.h"
-#include "entPlayer.h"
+#include "win/input.h"
+#include "cmdparse/cmdgame.h"
+#include "player/player.h"
+#include "entity/EntPlayer.h"
 
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "UI/sprite/sprite_base.h"
 
-#include "earray.h"
-#include "textparser.h"
-#include "utils.h"
-#include "entity.h"
-#include "uiInput.h"
-#include "MessageStoreUtil.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/utils.h>
+#include "entity/entity.h"
+#include "UI/uiInput.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 //-----------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------

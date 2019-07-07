@@ -1,17 +1,17 @@
 #include "ttDebug.h"
-#include "cmdgame.h"
-#include "renderprim.h"
-#include "color.h"
-#include <assert.h>
-#include "StringUtil.h"
-#include "truetype/ttFontDraw.h"
-#include "truetype/ttFontBitmap.h"
-#include "truetype/ttFontCore.h"
-#include "truetype/ttFontManager.h"
-#include "ttFontUtil.h"
-#include "earray.h"
-#include "input.h"
-#include "tex.h"
+#include "cmdparse/cmdgame.h"
+#include "render/renderprim.h"
+#include <utilitieslib/utils/Color.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/StringUtil.h>
+#include "graphics/truetype/ttFontDraw.h"
+#include "graphics/truetype/ttFontBitmap.h"
+#include "graphics/truetype/ttFontCore.h"
+#include "graphics/truetype/ttFontManager.h"
+#include "graphics/ttFontUtil.h"
+#include <utilitieslib/components/Earray.h>
+#include "win/input.h"
+#include "render/tex.h"
 
 //-------------------------------------------------------------------------------
 // TT box drawing functions

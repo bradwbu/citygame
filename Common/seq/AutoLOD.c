@@ -9,14 +9,14 @@
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/FolderCache.h>
 
-#include "AutoLOD.h"
-#include "anim.h"
-#include "tricks.h"
+#include "seq/AutoLOD.h"
+#include "seq/anim.h"
+#include "seq/tricks.h"
 #include "group/groupfileload.h"
 
 #if CLIENT
 #include "clientError.h"
-#include "groupfilelib.h"
+#include "group/groupfilelib.h"
 #endif
 
 

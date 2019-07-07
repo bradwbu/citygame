@@ -1,30 +1,32 @@
-#include "stdtypes.h"
-#include "wininclude.h"
-#include "font.h" // temporary
-#include "input.h"
-#include "win_init.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/wininclude.h>
+#include "graphics/font.h" // temporary
+#include "win/input.h"
+#include "win/win_init.h"
 #include <ctype.h>
-#include "timing.h"
-#include "uiConsole.h"
-#include "cmdgame.h"
-#include "utils.h"
-#include "memcheck.h"
-#include "mathutil.h"
+#include <utilitieslib/utils/timing.h>
+#include "UI/uiConsole.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/memcheck.h>
+#include <utilitieslib/utils/mathutil.h>
 #include "winuser.h"
-#include <assert.h>
-#include "uiInput.h"
-#include "uiChat.h"
-#include "uiCursor.h"
-#include "uiWindows.h"
-#include "uiKeybind.h"
-#include "uiFocus.h"
-#include "sprite_text.h"
+#include <utilitieslib/assert/assert.h>
+#include "UI/uiInput.h"
+#include "UI/uiChat.h"
+#include "UI/uiCursor.h"
+#include "UI/uiWindows.h"
+#include "UI/uiKeybind.h"
+#include "UI/uiFocus.h"
+#include "UI/sprite/sprite_text.h"
 #include <windows.h>
 #include <basetsd.h>
-#include "uiGame.h"
-#include "StashTable.h"
-#include "MessageStoreUtil.h"
-#include "uiOptions.h"
+#include "UI/uiGame.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "UI/uiOptions.h"
+
+#pragma warning (disable:4996)
 
 #define DIRECTINPUT_VERSION 0x0800
 #include "..\..\directx\include\Dinput.h"
@@ -546,7 +548,8 @@ int        x,y;
     return !inpMousePos(&x,&y);
 }
 
-#include "Stackdump.h"
+#include <utilitieslib/utils/Stackdump.h>
+
 void inpClear()
 {
     memset(inp_levels,0,sizeof(inp_levels));

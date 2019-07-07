@@ -1,12 +1,12 @@
-#include "truetype/ttFontBitmap.h"
-#include "ttFont.h"
-#include <assert.h>
-#include "mathutil.h"    // for MAX() + MIN()
+#include "graphics/truetype/ttFontBitmap.h"
+#include "graphics/ttFont.h"
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/utils/mathutil.h>    // for MAX() + MIN()
 
 #include "ft2build.h"
 #include <freetype/freetype.h>  // freetype library interface
-#include "truetype/ttFontDraw.h"
-#include "file.h"
+#include "graphics/truetype/ttFontDraw.h"
+#include <utilitieslib/utils/file.h>
 
 //------------------------------------------------------------------------------
 // TTFontBitmap

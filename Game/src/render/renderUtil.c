@@ -3,59 +3,61 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  */
-#include "mathutil.h"
-#include "win_init.h"
-#include "error.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "win/win_init.h"
+#include <utilitieslib/utils/error.h>
 #include <stdio.h>
-#include "font.h"
-#include "gfxwindow.h"
-#include "cmdgame.h"
-#include "cmdcommon.h"
-#include "render.h"
+#include "graphics/font.h"
+#include "graphics/gfxwindow.h"
+#include "cmdparse/cmdgame.h"
+#include "cmdparse/cmdcommon.h"
+#include "render/render.h"
 #include "assert.h"
-#include "sysutil.h" //For specs
-#include "timing.h" //for specs
-#include "font.h" //dumb to be here
-#include "uiWindows.h"
-#include "wdwbase.h"
+#include <utilitieslib/utils/sysutil.h> //For specs
+#include <utilitieslib/utils/timing.h> //for specs
+#include "graphics/font.h" //dumb to be here
+#include "UI/uiWindows.h"
+#include "gameComm/wdwbase.h"
 #include "clientError.h"
-#include "fileutil.h"
-#include "FolderCache.h"
-#include "utils.h"
-#include "sprite_text.h"
-#include "rt_queue.h"
-#include "renderprim.h"
-#include "file.h"
-#include "FolderCache.h"
-#include "tex.h"
-#include "AppRegCache.h"
-#include "groupscene.h"
-#include "gfx.h"
-#include "renderEffects.h"
-#include "groupfileload.h"
-#include "gfxSettings.h"
-#include "anim.h"
-#include "SharedMemory.h"
-#include "SharedHeap.h"
-#include "modelReload.h"
-#include "grouptrack.h"
-#include "cpu_count.h"
+#include <utilitieslib/utils/fileutil.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/utils.h>
+#include "UI/sprite/sprite_text.h"
+#include "render/thread/rt_queue.h"
+#include "render/renderprim.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include "render/tex.h"
+#include <utilitieslib/version/AppRegCache.h>
+#include "group/groupscene.h"
+#include "graphics/gfx.h"
+#include "render/renderEffects.h"
+#include "group/groupfileload.h"
+#include "graphics/gfxSettings.h"
+#include "seq/anim.h"
+#include <utilitieslib/components/SharedMemory.h>
+#include <utilitieslib/components/SharedHeap.h>
+#include "seq/modelReload.h"
+#include "group/grouptrack.h"
+#include <utilitieslib/utils/cpu_count.h>
 #include "NvPanelApi.h"
-#include "groupdraw.h"
-#include "entclient.h"
-#include "groupgrid.h"
+#include "graphics/groupdraw.h"
+#include "entity/entclient.h"
+#include "group/groupgrid.h"
 #include "videoMemory.h"
-#include "StashTable.h"
-#include "sun.h"
-#include "MessageStoreUtil.h"
-#include "osdependent.h"
-#include "RegistryReader.h"
-#include "rt_pbuffer.h"
-#include "uiConsole.h"
-#include "gfxLoadScreens.h"
-#include "gfxDebug.h"
-#include "AppLocale.h"
-#include "AppVersion.h"
+#include <utilitieslib/components/StashTable.h>
+#include "graphics/sun.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/osdependent.h>
+#include <utilitieslib/utils/RegistryReader.h>
+#include "render/thread/rt_pbuffer.h"
+#include "UI/uiConsole.h"
+#include "graphics/gfxLoadScreens.h"
+#include "graphics/gfxDebug.h"
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/version/AppVersion.h>
+
+#pragma warning(disable:4996)
 
 extern int g_win_ignore_popups;
 extern char g_GameArguments[2048];    // main.c
@@ -66,12 +68,13 @@ void rdrInit(void)
     rdrQueueCmd(DRAWCMD_INITDEFAULTS);
 }
 
-static int FindPrimaryDisplayDevice(DISPLAY_DEVICE *dd) {
+static int FindPrimaryDisplayDevice(DISPLAY_DEVICEA* dd)
+{
     int i = 0;
     dd->DeviceID[0] = 0;
-    dd->cb = sizeof(DISPLAY_DEVICE);
+    dd->cb = sizeof(DISPLAY_DEVICEA);
 
-    while (EnumDisplayDevices(NULL, i, dd, 0) && !(dd->StateFlags & DISPLAY_DEVICE_PRIMARY_DEVICE))
+    while (EnumDisplayDevicesA(NULL, i, dd, 0) && !(dd->StateFlags & DISPLAY_DEVICE_PRIMARY_DEVICE))
         i++;
 
     return (dd->StateFlags & DISPLAY_DEVICE_PRIMARY_DEVICE) != 0;
@@ -80,7 +83,7 @@ static int FindPrimaryDisplayDevice(DISPLAY_DEVICE *dd) {
 // N.B. This gets information on the primary adapter of the system.
 // That may not be the adapter used by the gl context in the renderer
 // so take this information with a grain of salt.
-static int GetVideoCardIdentification( char * deviceString, int * vendorID, int * deviceID, DISPLAY_DEVICE *dd )
+static int GetVideoCardIdentification( char * deviceString, int * vendorID, int * deviceID, DISPLAY_DEVICEA* dd)
 {
     char * id = 0;
 
@@ -121,7 +124,7 @@ SystemSpecs systemSpecs={0};
 
 void getNVidiaSystemSpecs(SystemSpecs * systemSpecs)
 {
-    HINSTANCE hLib = LoadLibrary("NVCPL.dll");
+    HINSTANCE hLib = LoadLibraryA("NVCPL.dll");
     fNvCplGetDataInt NvCplGetDataInt;
     fNvGetDisplayInfo NvGetDisplayInfo;
     if (hLib == 0) {
@@ -155,11 +158,11 @@ void getNVidiaSystemSpecs(SystemSpecs * systemSpecs)
     FreeLibrary(hLib);
 }
 
-OSVERSIONINFOEX osinfo;
+OSVERSIONINFOEXA osinfo;
 
 static time_t getVideoDriverDate(int vendorID) 
 {
-    DISPLAY_DEVICE dd;
+    DISPLAY_DEVICEA dd;
     char driverDateString[128];
     time_t result = 0;
 
@@ -241,7 +244,7 @@ static time_t getVideoDriverDate(int vendorID)
         char winDirName[1024];
         char dllPathName[1024];
 
-        char **names;
+        char **names = NULL;
         int i, array_size = 0;
 
         if(vendorID == VENDOR_NV )
@@ -270,7 +273,7 @@ static time_t getVideoDriverDate(int vendorID)
             array_size = ARRAY_SIZE(SIS_DLLs);
         }
         
-        GetSystemDirectory(winDirName, 1024);
+        GetSystemDirectoryA(winDirName, 1024);
 
         for (i=0; i<array_size; i++)
         {
@@ -302,7 +305,7 @@ bool rdrGetFileVersion(char *fileName, int *v1, int *v2, int *v3, int *v4)
 
     devassert(v1 && v2 && v3 && v4);
 
-    fileVersionInfoSize = GetFileVersionInfoSize(moduleFilename, 0);
+    fileVersionInfoSize = GetFileVersionInfoSizeA(moduleFilename, 0);
 
     // If the file doesn't have any version information...
     if(!fileVersionInfoSize)
@@ -310,11 +313,11 @@ bool rdrGetFileVersion(char *fileName, int *v1, int *v2, int *v3, int *v4)
 
     // Allocate some buffer space and retrieve version information.
     fileVersionInfo = calloc(1, fileVersionInfoSize);
-    result = GetFileVersionInfo(moduleFilename, 0, fileVersionInfoSize, fileVersionInfo);
+    result = GetFileVersionInfoA(moduleFilename, 0, fileVersionInfoSize, fileVersionInfo);
     if (!result)
         return false;
 
-    result = VerQueryValue(fileVersionInfo, "\\", &fileInfo, &fileInfoSize);
+    result = VerQueryValueA(fileVersionInfo, "\\", &fileInfo, &fileInfoSize);
     if (!result)
         return false;
 
@@ -461,7 +464,7 @@ void rdrExamineDriversEarly(SystemSpecs * systemSpecs)
 // the GL context with regard to video device information and capabilities
 void rdrGetSystemSpecs( SystemSpecs * systemSpecs )
 {
-    DISPLAY_DEVICE dd;
+    DISPLAY_DEVICEA dd;
     RegReader rr;
     char *s;
 
@@ -473,16 +476,16 @@ void rdrGetSystemSpecs( SystemSpecs * systemSpecs )
 
     // OS version:
     ZeroMemory(&osinfo, sizeof(osinfo));
-    osinfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-    if (GetVersionEx((LPOSVERSIONINFO) &osinfo))
+    osinfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFOA);
+    if (GetVersionExA((LPOSVERSIONINFOA) &osinfo))
     {
         if ((osinfo.dwPlatformId == VER_PLATFORM_WIN32_NT) &&
             (osinfo.dwMajorVersion >= 5))
         {
             // get extended version info for 2000 and later
             ZeroMemory(&osinfo, sizeof(osinfo));
-            osinfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-            GetVersionEx((LPOSVERSIONINFO) &osinfo);
+            osinfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEXA);
+            GetVersionExA((LPOSVERSIONINFOA) &osinfo);
         }
     }
     systemSpecs->highVersion = osinfo.dwMajorVersion;
@@ -1200,7 +1203,7 @@ static void setupOldDriverWarning()
         char buf[2000];
         sprintf_s(buf, sizeof(buf), "%s\n\n%s\n\n%s", game_state.oldDriverMessage[0],
             game_state.oldDriverMessage[1], game_state.oldDriverMessage[2]);
-        MessageBox(0, buf, "Warning - Old Video Card Driver", MB_ICONWARNING );
+        MessageBoxA(0, buf, "Warning - Old Video Card Driver", MB_ICONWARNING );
     }
 }
 

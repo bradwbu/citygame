@@ -1,9 +1,9 @@
 #ifndef _WIN_INIT_H
 #define _WIN_INIT_H
 
-#include "wininclude.h"
-#include "baseparse.h"
-#include "textparser.h"
+#include <utilitieslib/utils/wininclude.h>
+#include "bases/baseparse.h"
+#include <utilitieslib/utils/textparser.h>
 
 typedef struct GfxResolution
 {    

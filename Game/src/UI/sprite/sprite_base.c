@@ -3,24 +3,24 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-
-#include "sprite.h"
-#include "sprite_list.h"
-#include "cmdgame.h"
-#include "textureatlas.h"
-#include "win_init.h"
-#include "uiGame.h"
-#include "gfx.h"            // for loadingScreenVisible()
-#include "wdwbase.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/sprite.h"
+#include "UI/sprite/sprite_list.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/textureatlas.h"
+#include "win/win_init.h"
+#include "UI/uiGame.h"
+#include "graphics/gfx.h"            // for loadingScreenVisible()
+#include "gameComm/wdwbase.h"
 #include <crtdbg.h>
-#include "uiClipper.h"
-#include "uiBox.h"
-#include "ttFont.h"
-#include "seqgraphics.h"
-#include "texWords.h"
-#include "tex.h"
-#include "gfxLoadScreens.h"
-#include "timing.h"
+#include "UI/uiClipper.h"
+#include "UI/uiBox.h"
+#include "graphics/ttFont.h"
+#include "graphics/seqgraphics.h"
+#include "render/texWords.h"
+#include "render/tex.h"
+#include "graphics/gfxLoadScreens.h"
+#include <utilitieslib/utils/timing.h>
 
 // from sprite_list.c
 extern int sprites_count;

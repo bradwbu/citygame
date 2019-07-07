@@ -1,7 +1,7 @@
 #ifndef _ZOCCLUSION_H_
 #define _ZOCCLUSION_H_
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct Model Model;
 typedef struct BasicTexture BasicTexture;

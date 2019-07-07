@@ -1,18 +1,18 @@
 #include "Menu.h"
 #include <stdlib.h>
 #include <string.h>
-#include "font.h"
-#include "input.h"
-#include "uiInput.h"
-#include "cmdcommon.h"
-#include "group.h"
-#include "mathutil.h"
-#include "edit_select.h"
-#include "edit_net.h"
-#include "edit_cmd.h"
-#include "win_init.h"
-#include "utils.h"
-#include "timing.h"
+#include "graphics/font.h"
+#include "win/input.h"
+#include "UI/uiInput.h"
+#include "cmdparse/cmdcommon.h"
+#include "group/group.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "edit/edit_select.h"
+#include "edit/edit_net.h"
+#include "edit/edit_cmd.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
 
 Menu * newMenu(int x,int y,int width,int height,const char * name) {
     Menu * m=(Menu *)malloc(sizeof(Menu));

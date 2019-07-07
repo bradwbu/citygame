@@ -7,7 +7,7 @@
 #define CHARACTER_LEVEL_H__
 
 #ifndef POWER_SYSTEM_H__
-#include "power_system.h"
+#include "entity/power_system.h"
 #endif
 
 typedef struct Character Character;

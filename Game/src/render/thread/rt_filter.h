@@ -1,7 +1,7 @@
 #ifndef RT_FILTER_H
 #define RT_FILTER_H
 
-#include "rt_pbuffer.h"
+#include "render/thread/rt_pbuffer.h"
 
 typedef enum OptionFilterBlur {
     FILTER_NO_BLUR,

@@ -1,46 +1,46 @@
-#include "earray.h"         // for StructGetNum
-#include "player.h"
-#include "entity.h"         // for entity
-#include "powers.h"
-#include "entPlayer.h"
-#include "character_base.h" // for pchar
-#include "attrib_description.h"
-#include "attrib_names.h"
-#include "file.h"
-#include "EString.h"
-#include "structDefines.h"
-#include "input.h"
+#include <utilitieslib/components/Earray.h>         // for StructGetNum
+#include "player/player.h"
+#include "entity/entity.h"         // for entity
+#include "entity/powers.h"
+#include "entity/EntPlayer.h"
+#include "entity/character_base.h" // for pchar
+#include "entity/attrib_description.h"
+#include "entity/attrib_names.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/structDefines.h>
+#include "win/input.h"
 
-#include "sprite_font.h"    // for font definitions
-#include "sprite_text.h"    // for font functions
-#include "sprite_base.h"    // for sprites
-#include "textureatlas.h"
-#include "MessageStoreUtil.h"
-#include "ttFontUtil.h"
+#include "UI/sprite/sprite_font.h"    // for font definitions
+#include "UI/sprite/sprite_text.h"    // for font functions
+#include "UI/sprite/sprite_base.h"    // for sprites
+#include "graphics/textureatlas.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "graphics/ttFontUtil.h"
 
-#include "uiWindows.h"
+#include "UI/uiWindows.h"
 
-#include "uiInput.h"
-#include "uiUtilGame.h"     // for draw frame
-#include "uiUtilMenu.h"     //
-#include "uiUtil.h"         // for color definitions
-#include "uiNet.h"
-#include "uiContextMenu.h"
-#include "uiClipper.h"
-#include "uiCombatNumbers.h"
-#include "uiToolTip.h"
-#include "uiScrollBar.h"
-#include "uiClipper.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilGame.h"     // for draw frame
+#include "UI/uiUtilMenu.h"     //
+#include "UI/uiUtil.h"         // for color definitions
+#include "UI/uiNet.h"
+#include "UI/uiContextMenu.h"
+#include "UI/uiClipper.h"
+#include "UI/uiCombatNumbers.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiClipper.h"
 #include "uiCombineSpec.h"
-#include "AppLocale.h"
-#include "PowerNameRef.h"
-#include "VillainDef.h"
-#include "uiPowerInfo.h"
+#include <utilitieslib/language/AppLocale.h>
+#include "gameData/PowerNameRef.h"
+#include "gameComm/villainDef.h"
+#include "UI/uiPowerInfo.h"
 #include "uiSlider.h"
-#include "uiGame.h"
-#include "uiHybridMenu.h"
+#include "UI/uiGame.h"
+#include "UI/Hybrid/uiHybridMenu.h"
 
-#include "smf_main.h"
+#include "formatter/smf_main.h"
 #define SMFVIEW_PRIVATE
 #include "uiSMFView.h"
 
@@ -721,7 +721,7 @@ static void markAllTypes(const BasePower *ppow, const char * pchClass, const cha
 
                     if( y == eType )
                     {
-                        if(kGroupType_Damage == x && offset>=offsetof(CharacterAttributes, fDamageType) && offset<offsetof(CharacterAttributes, fHitPoints))
+                        if(kGroupType_Damage == x && offset >= (int)offsetof(CharacterAttributes, fDamageType) && offset < (int)offsetof(CharacterAttributes, fHitPoints))
                         {
                             if(!equalForAllTypes[w][x][y] )
                                 equalForAllTypes[w][x][y] = ppow->ppTemplates[i]->fMagnitude+ppow->ppTemplates[i]->fScale;
@@ -729,7 +729,7 @@ static void markAllTypes(const BasePower *ppow, const char * pchClass, const cha
                                 break;
                             check |= (1<<(offset/4));
                         }
-                        else if(kGroupType_Defense == x && offset>=offsetof(CharacterAttributes, fDefenseType)    && offset<offsetof(CharacterAttributes, fDefense))
+                        else if(kGroupType_Defense == x && offset >= (int)offsetof(CharacterAttributes, fDefenseType)    && offset < (int)offsetof(CharacterAttributes, fDefense))
                         {
                             if(!equalForAllTypes[w][x][y] )
                                 equalForAllTypes[w][x][y] = ppow->ppTemplates[i]->fMagnitude+ppow->ppTemplates[i]->fScale;
@@ -1086,7 +1086,7 @@ static void addAttribValue(char **str, AttribType eType, const AttribModTemplate
     {
         estrConcatStaticCharArray(str, "<color #ffed61>"); // ToHit
     }
-    else if(offset>=offsetof(CharacterAttributes, fDamageType) && offset<offsetof(CharacterAttributes, fHitPoints))
+    else if(offset>= (int)offsetof(CharacterAttributes, fDamageType) && offset < (int)offsetof(CharacterAttributes, fHitPoints))
     {
         if( eType == kAttribType_Res) // Resistance
             estrConcatStaticCharArray(str, "<color #ff944e>");
@@ -1098,13 +1098,13 @@ static void addAttribValue(char **str, AttribType eType, const AttribModTemplate
         }
     }
     // DEFENSE TYPES
-    else if(offset>=offsetof(CharacterAttributes, fDefenseType)    && offset<=offsetof(CharacterAttributes, fDefense))
+    else if(offset >= (int)offsetof(CharacterAttributes, fDefenseType)    && offset <= (int)offsetof(CharacterAttributes, fDefense))
     {
         estrConcatStaticCharArray(str, "<color #bd54d9>"); // Defense
     }
     // STATUS EFFECTS
-    else if( (offset>=offsetof(CharacterAttributes, fConfused) && offset<=offsetof(CharacterAttributes, fOnlyAffectsSelf)) ||
-             (offset>=offsetof(CharacterAttributes, fKnockup) && offset<=offsetof(CharacterAttributes, fRepel)) )
+    else if( (offset >= (int)offsetof(CharacterAttributes, fConfused) && offset <= (int)offsetof(CharacterAttributes, fOnlyAffectsSelf)) ||
+             (offset >= (int)offsetof(CharacterAttributes, fKnockup) && offset <= (int)offsetof(CharacterAttributes, fRepel)) )
     {
         estrConcatStaticCharArray(str, "<color #b594ff>");
         
@@ -1116,7 +1116,7 @@ static void addAttribValue(char **str, AttribType eType, const AttribModTemplate
             return;
         }
     }
-    else if( offset>=offsetof(CharacterAttributes, fPerceptionRadius) )
+    else if( offset >= (int)offsetof(CharacterAttributes, fPerceptionRadius) )
     {
         if( bBoth )
             estrConcatf(str, "<color #ffffff>%+.2f%%%% (%+.2f%%%%)<color #aaaaaa> ", fMag*100*(1+fBoosted), fMag*100 );
@@ -1421,7 +1421,7 @@ static void power_AddEffects( const BasePower *ppow, const CharacterAttributes *
         if( fChance != 100.f && (!pTemplate->fDuration || !pTemplate->bCancelOnMiss) )
             pchChanceForMiss = textStd("ChanceForMiss", fChance);
 
-        if(offset>=offsetof(CharacterAttributes, fDamageType) && offset<offsetof(CharacterAttributes, fHitPoints))
+        if(offset >= (int)offsetof(CharacterAttributes, fDamageType) && offset < (int)offsetof(CharacterAttributes, fHitPoints))
         {
 
             if( equalForAllTypes[eTarget][kGroupType_Damage][eType] > 1  )
@@ -1458,7 +1458,7 @@ static void power_AddEffects( const BasePower *ppow, const CharacterAttributes *
                 }
             }
         }
-        else if(offset>=offsetof(CharacterAttributes, fDefenseType)    && offset<offsetof(CharacterAttributes, fDefense))
+        else if(offset >= (int)offsetof(CharacterAttributes, fDefenseType)    && offset < (int)offsetof(CharacterAttributes, fDefense))
         {
             if( equalForAllTypes[eTarget][kGroupType_Defense][eType] > 1  )
             {
@@ -1484,7 +1484,7 @@ static void power_AddEffects( const BasePower *ppow, const CharacterAttributes *
         addAttribValue(&pchValue, eType, pTemplate, fMag, fBoosted?*fBoosted:0, bShowEnhance, pchMag );
 
         // DAMAGE TYPES
-        if(offset>=offsetof(CharacterAttributes, fDamageType) && offset<offsetof(CharacterAttributes, fHitPoints))
+        if(offset >= (int)offsetof(CharacterAttributes, fDamageType) && offset < (int)offsetof(CharacterAttributes, fHitPoints))
         {
             switch(eType)
             {
@@ -1519,7 +1519,7 @@ static void power_AddEffects( const BasePower *ppow, const CharacterAttributes *
             }
         }
         // DEFENSE TYPES
-        else if(offset>=offsetof(CharacterAttributes, fDefenseType)    && offset<offsetof(CharacterAttributes, fDefense))
+        else if(offset >= (int)offsetof(CharacterAttributes, fDefenseType)    && offset < (int)offsetof(CharacterAttributes, fDefense))
         {
             switch(eType)
             {
@@ -1540,8 +1540,8 @@ static void power_AddEffects( const BasePower *ppow, const CharacterAttributes *
             }
         }
         // STATUS EFFECTS
-        else if( (offset>=offsetof(CharacterAttributes, fConfused) && offset<=offsetof(CharacterAttributes, fOnlyAffectsSelf)) ||
-                 (offset>=offsetof(CharacterAttributes, fKnockup) && offset<=offsetof(CharacterAttributes, fRepel)) )
+        else if( (offset >= (int)offsetof(CharacterAttributes, fConfused) && offset <= (int)offsetof(CharacterAttributes, fOnlyAffectsSelf)) ||
+                 (offset >= (int)offsetof(CharacterAttributes, fKnockup) && offset <= (int)offsetof(CharacterAttributes, fRepel)) )
         {
             switch(eType)
             {
@@ -1610,7 +1610,7 @@ static void power_AddEffects( const BasePower *ppow, const CharacterAttributes *
         {
             estrCreate(&pchDuration);
             if( bShowEnhance && fBoosted && eType == kAttribType_Cur && // Boosted hold effects increase the duration not magnitude
-                (offset>=offsetof(CharacterAttributes, fConfused) && offset<=offsetof(CharacterAttributes, fOnlyAffectsSelf)) )
+                (offset >= (int)offsetof(CharacterAttributes, fConfused) && offset <= (int)offsetof(CharacterAttributes, fOnlyAffectsSelf)) )
             {
                 estrConcatCharString(&pchDuration, textStd("ForDurationBoosted", getPrettyDuration(fDuration*(1+*fBoosted))));
                 estrConcatf( &pchDuration, "(%s)<color #aaaaaa>", getPrettyDuration(fDuration) );
@@ -2101,7 +2101,7 @@ int power_addEnhanceStats( const BasePower * pPowBase, F32 baseVal, F32 combineV
         if(pTemplate->offAspect==offsetof(CharacterAttribSet, pattrAbsolute))
             eType = kAttribType_Abs;
 
-        if(iOff>=offsetof(CharacterAttributes, fDamageType) && iOff<offsetof(CharacterAttributes, fHitPoints))
+        if(iOff >= (int)offsetof(CharacterAttributes, fDamageType) && iOff < (int)offsetof(CharacterAttributes, fHitPoints))
         {
             if( equalForAllTypes[eTarget][kGroupType_Damage][eType] > 1  )
                 continue;
@@ -2115,7 +2115,7 @@ int power_addEnhanceStats( const BasePower * pPowBase, F32 baseVal, F32 combineV
             if(eType == kAttribType_Abs && offset!=offsetof(CharacterAttributes, fDamageType[7]) )
                 continue;
         }
-        else if(offset>=offsetof(CharacterAttributes, fDefenseType)    && offset<offsetof(CharacterAttributes, fDefense))
+        else if(offset >= (int)offsetof(CharacterAttributes, fDefenseType) && offset < (int)offsetof(CharacterAttributes, fDefense))
         {
             if( equalForAllTypes[eTarget][kGroupType_Defense][eType] > 1  )
                 continue;
@@ -2127,16 +2127,16 @@ int power_addEnhanceStats( const BasePower * pPowBase, F32 baseVal, F32 combineV
         modGetMagnitudeAndDuration(pTemplate, pClass, iLevel, &fMag, &fDuration );
 
         // flip damage for readability
-         if(iOff>=offsetof(CharacterAttributes, fDamageType) && iOff<offsetof(CharacterAttributes, fHitPoints) && (eType == kAttribType_Abs) && iOff!=offsetof(CharacterAttributes, fDamageType[7]) )
+         if(iOff >= (int)offsetof(CharacterAttributes, fDamageType) && iOff < (int)offsetof(CharacterAttributes, fHitPoints) && (eType == kAttribType_Abs) && iOff!= offsetof(CharacterAttributes, fDamageType[7]) )
             fMag = -fMag;
 
         // status effects use duration
-         if( iOff>=offsetof(CharacterAttributes, fTaunt) && iOff<=offsetof(CharacterAttributes, fOnlyAffectsSelf) )
+         if( iOff >= (int)offsetof(CharacterAttributes, fTaunt) && iOff <= (int)offsetof(CharacterAttributes, fOnlyAffectsSelf) )
         {
             fMag = fDuration;
             found_attrib |= addEnhanceStatLine( str, pchAttrib,  0, "s", fMag, baseVal, replaceVal, combineVal, noPlus, 0, 1 );
         }
-        else if(iOff>=offsetof(CharacterAttributes, fKnockup) && iOff<=offsetof(CharacterAttributes, fRepel))
+        else if(iOff >= (int)offsetof(CharacterAttributes, fKnockup) && iOff <= (int)offsetof(CharacterAttributes, fRepel))
         {
             found_attrib |= addEnhanceStatLine( str, pchAttrib, 0, 0, fMag, baseVal, replaceVal, combineVal, noPlus, 0, 0 );
         }

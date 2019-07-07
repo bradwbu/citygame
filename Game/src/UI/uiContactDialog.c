@@ -5,45 +5,45 @@
  ***************************************************************************/
 #include <stdio.h>
 
-#include "earray.h"
-#include "EString.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/components/estring.h>
 
-#include "contactCommon.h"
+#include "storyarc/contactCommon.h"
 
-#include "truetype/ttfontdraw.h"
-#include "entity.h"
-#include "player.h"
-#include "entPlayer.h"
-#include "entclient.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiWindows.h"
-#include "uiCursor.h"
-#include "uiInput.h"
+#include "graphics/truetype/ttFontDraw.h"
+#include "entity/entity.h"
+#include "player/player.h"
+#include "entity/EntPlayer.h"
+#include "entity/entclient.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiWindows.h"
+#include "UI/uiCursor.h"
+#include "UI/uiInput.h"
 #include "uiStore.h"
-#include "uiScrollbar.h"
+#include "UI/uiScrollBar.h"
 #include "uiTree.h"
-#include "uiDialog.h"
-#include "uiComboBox.h"
-#include "smf_interact.h" // calls smf_Navigate directly
-#include "smf_main.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
-#include "MessageStoreUtil.h"
-#include "character_level.h"
-#include "character_eval.h"
-#include "teamCommon.h"
-#include "uiStatus.h"
-#include "uiBox.h"
-#include "uiToolTip.h"
-#include "uiClipper.h"
-#include "uiGame.h"
-#include "ttFontUtil.h"
-#include "uiContactDialog.h"
-#include "playerCreatedStoryarcValidate.h"
-#include "commonLangUtil.h"
+#include "UI/uidialog.h"
+#include "UI/uiComboBox.h"
+#include "formatter/smf_interact.h" // calls smf_Navigate directly
+#include "formatter/smf_main.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "entity/character_level.h"
+#include "entity/character_eval.h"
+#include "entity/teamCommon.h"
+#include "UI/uiStatus.h"
+#include "UI/uiBox.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiClipper.h"
+#include "UI/uiGame.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/uiContactDialog.h"
+#include "storyarc/playerCreatedStoryarcValidate.h"
+#include "language/commonLangUtil.h"
 
 // #define DEBUG_FLASHBACK_DISPLAY 1
 
@@ -379,7 +379,7 @@ static int uiContactDialogGetCost(StoryarcFlashbackHeader *pHeader)
 void uiContactDialogAddTaskDetail(char *pID, char *pText, char *pAccept)
 {
     int count, i, j;
-    FlashbackSADetails *pState;
+    FlashbackSADetails* pState = NULL;
     int found = false;
 
     // Search through all buckets for the storyarc

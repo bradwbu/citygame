@@ -1,12 +1,12 @@
 
-#include "ogl.h"
-#include "error.h"
-#include "cmdgame.h"
-#include "renderutil.h"
-#include "sprite_text.h"
-#include "file.h"
-#include "MessageStoreUtil.h"
-#include "win_init.h" // For winMsgAlert
+#include "render/thread/ogl.h"
+#include <utilitieslib/utils/error.h>
+#include "cmdparse/cmdgame.h"
+#include "render/renderUtil.h"
+#include "UI/sprite/sprite_text.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "win/win_init.h" // For winMsgAlert
 
 int gl_clamp_val = GL_CLAMP_TO_EDGE;
 

@@ -1,10 +1,10 @@
 #include "entworldcoll.h"
 #include <string.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "entity.h"
+#include "entity/entity.h"
 #include "gridcoll/gridcoll.h"
 #include "varutils.h"
-#include "motion.h"
+#include "entity/motion.h"
 #include "group/groupscene.h"
 #include "group/group.h"
 #include <utilitieslib/utils/utils.h>

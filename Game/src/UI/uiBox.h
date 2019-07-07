@@ -1,7 +1,7 @@
 #ifndef UIBOX_H
 #define UIBOX_H
 
-#include "CBox.h"
+#include <utilitieslib/utils/CBox.h>
 
 typedef struct UIBox
 {

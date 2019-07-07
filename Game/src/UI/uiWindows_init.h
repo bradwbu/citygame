@@ -2,8 +2,8 @@
 #ifndef UIWINDOWS_INIT_H
 #define UIWINDOWS_INIT_H
 
-#include "wdwbase.h"
-#include "uiBox.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiBox.h"
 
 // This file handles the big messy initialization of windows
 #define WINDOW_ICON_SIZE    10

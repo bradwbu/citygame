@@ -6,7 +6,7 @@
 #ifndef INVENTORY_CLIENT_H
 #define INVENTORY_CLIENT_H
 
-#include "AccountData.h"
+#include "account/AccountData.h"
 
 typedef enum AccountServerStatus
 {

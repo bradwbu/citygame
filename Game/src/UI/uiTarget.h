@@ -1,7 +1,7 @@
 #ifndef TARGET_H
 #define TARGET_H
 
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
 int targetWindow( void );
 int targetOptionsWindow( void );

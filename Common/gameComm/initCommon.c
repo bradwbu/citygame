@@ -10,8 +10,8 @@
 #include "entity/entVarUpdate.h"
 #include <utilitieslib/utils/timing.h>
 #include "gameData\BodyPart.h"    // for bpReadBodyPartFiles()
-#include "Npc.h"
-#include "VillainDef.h"
+#include "gameComm/npc.h"
+#include "gameComm/villainDef.h"
 #include <utilitieslib/utils/error.h>
 #include "fxinfo.h"
 #include <utilitieslib/utils/FolderCache.h>
@@ -29,16 +29,16 @@
 
 
 #if CLIENT
-    #include "initClient.h"
-    #include "clientcomm.h"
-    #include "uiDialog.h"
-    #include "entclient.h"
-    #include "player.h"
-    #include "uiCostume.h"
+    #include "gameComm/initClient.h"
+    #include "clientcomm/clientcomm.h"
+    #include "UI/uidialog.h"
+    #include "entity/entclient.h"
+    #include "player/player.h"
+    #include "UI/uiCostume.h"
     #include "fxbhvr.h"
-    #include "fxfluid.h"
-    #include "fxcapes.h"
-    #include "cmdgame.h"
+    #include "graphics/FX/fxfluid.h"
+    #include "graphics/FX/fxcapes.h"
+    #include "cmdparse/cmdgame.h"
 #endif
 
 

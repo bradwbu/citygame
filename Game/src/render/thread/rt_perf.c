@@ -1,16 +1,16 @@
 #define RT_PRIVATE
-#include "rt_perf.h"
-#include "ogl.h"
-#include "timing.h"
-#include "rt_model_cache.h"
-#include "rt_model.h"
-#include "rt_tex.h"
-#include "mathutil.h"
+#include "render/thread/rt_perf.h"
+#include "render/thread/ogl.h"
+#include <utilitieslib/utils/timing.h>
+#include "render/thread/rt_model_cache.h"
+#include "render/thread/rt_model.h"
+#include "render/thread/rt_tex.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "assert.h"
-#include "wcw_statemgmt.h"
+#include "render/thread/wcw_statemgmt.h"
 #include "rt_shaderMgr.h"
 #include "rt_win_init.h"
-#include "gfxDebug.h"
+#include "graphics/gfxDebug.h"
 
 
 RdrPerfIO *g_perfio;

@@ -1,9 +1,9 @@
 #ifndef _EDIT_SELECT_H
 #define _EDIT_SELECT_H
 
-#include "group.h"
-#include "grid.h"
-#include "tricks.h"
+#include "group/group.h"
+#include "gridcoll/grid.h"
+#include "seq/tricks.h"
 typedef struct GfxNode GfxNode;
 
 typedef struct

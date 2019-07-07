@@ -1,9 +1,9 @@
 #ifndef _RENDERUTIL_H
 #define _RENDERUTIL_H
 
-#include "stdtypes.h"
-#include "rt_queue.h"
-#include "rt_init.h"
+#include <utilitieslib/stdtypes.h>
+#include "render/thread/rt_queue.h"
+#include "render/thread/rt_init.h"
 
 #define SPEC_BUF_SIZE 4096
 

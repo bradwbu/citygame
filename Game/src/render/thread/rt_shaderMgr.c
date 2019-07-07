@@ -1,28 +1,28 @@
 #define RT_PRIVATE
-#include "error.h"
-#include "file.h"
-#include "fileutil.h"
-#include "ogl.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/fileutil.h>
+#include "render/thread/ogl.h"
 #include "rt_shaderMgr.h"
-#include "rt_state.h"
-#include "rt_cgfx.h"
-#include "renderUtil.h"
-#include "wcw_statemgmt.h"
-#include "utils.h"
-#include "EString.h"
-#include "mathutil.h"
-#include "rt_effects.h"
-#include "cmdgame.h"
-#include "StashTable.h"
-#include "crypt.h"
-#include "anim.h"
-#include "rt_shadowmap.h"
+#include "render/thread/rt_state.h"
+#include "render/thread/rt_cgfx.h"
+#include "render/renderUtil.h"
+#include "render/thread/wcw_statemgmt.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "render/thread/rt_effects.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/network/crypt.h>
+#include "seq/anim.h"
+#include "render/thread/rt_shadowmap.h"
 #include "shlobj.h"
-#include "osdependent.h"
-#include "rt_util.h"
-#include "rt_init.h"
+#include <utilitieslib/utils/osdependent.h>
+#include "render/thread/rt_util.h"
+#include "render/thread/rt_init.h"
 
-#include <assert.h>
+#include <utilitieslib/assert/assert.h>
 #include <stdio.h>
 #include <io.h>
 #include <sys/stat.h>
@@ -260,7 +260,7 @@ void shaderMgr_SetCgShaderPath( const char* szPath )
         int nPathsToPluck = 1;    // 1 for the module file name
         const char* szPathAdj = szPath;
         char* p;
-        GetModuleFileName(NULL,sShaderDirectory[kPathRoot_Custom],ARRAY_SIZE(sShaderDirectory[kPathRoot_Custom]));
+        GetModuleFileNameA(NULL,sShaderDirectory[kPathRoot_Custom],ARRAY_SIZE(sShaderDirectory[kPathRoot_Custom]));
 
         // Handle the single dot prefix: "." by itself or "./blah"        
         if ( szPathAdj[1] == '\0' )
@@ -359,11 +359,11 @@ const char* getShaderFileBaseDir(tShaderPathRootType pathRootType)
             char* buffer = sShaderDirectory[kPathRoot_GlobalAppDataPath];
             size_t buffSz = ARRAY_SIZE(sShaderDirectory[kPathRoot_GlobalAppDataPath]);
         
-            HRESULT hRes = SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA|CSIDL_FLAG_CREATE, NULL, 0, buffer);
+            HRESULT hRes = SHGetFolderPathA(NULL, CSIDL_LOCAL_APPDATA|CSIDL_FLAG_CREATE, NULL, 0, buffer);
             if (SUCCEEDED(hRes))
             {
                 strcat_s(buffer, buffSz, LOCAL_USER_DATA_SUBDIR );
-                SHCreateDirectoryEx(NULL, buffer, NULL);
+                SHCreateDirectoryExA(NULL, buffer, NULL);
                 forwardSlashes(buffer);
                 fixTrailingSlash( buffer, buffSz, '/' ); 
             }

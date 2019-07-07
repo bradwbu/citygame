@@ -3,19 +3,19 @@
 // Wrappers for looking at the mouse input buffer
 //--------------------------------------------------------------------------------
 
-#include "wininclude.h"
-#include "uiInput.h"
-#include "uiGame.h"
-#include "sprite_base.h"
-#include "cmdcommon.h"
-#include "entDebug.h"
-#include "font.h"
-#include "uiCursor.h"
-#include "uiWindows.h"
-#include "uiScrollBar.h"
-#include "input.h"
-#include "uiBaseInput.h"
-#include "uiOptions.h"
+#include <utilitieslib/utils/wininclude.h>
+#include "UI/uiInput.h"
+#include "UI/uiGame.h"
+#include "UI/sprite/sprite_base.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/entDebug.h"
+#include "graphics/font.h"
+#include "UI/uiCursor.h"
+#include "UI/uiWindows.h"
+#include "UI/uiScrollBar.h"
+#include "win/input.h"
+#include "UI/uiBaseInput.h"
+#include "UI/uiOptions.h"
 
 mouse_input gMouseInpBuf[MOUSE_INPUT_SIZE] = { 0 };
 mouse_input gMouseInpCur  = {0};

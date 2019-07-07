@@ -3,29 +3,29 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "character_workshop.h"
+#include "entity/character_workshop.h"
 #include <utilitieslib/utils/utils.h>
 #include <utilitieslib/utils/mathutil.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/components/MemoryPool.h>
-#include "character_base.h"
+#include "entity/character_base.h"
 #include "bases/DetailRecipe.h"
 #include <utilitieslib/network/netio.h>
-#include "entity.h"
-#include "character_inventory.h"
+#include "entity/entity.h"
+#include "entity/character_inventory.h"
 
 #if CLIENT
-#include "uiNet.h"
-#include "uiWindows.h"
-#include "wdwbase.h"
+#include "UI/uiNet.h"
+#include "UI/uiWindows.h"
+#include "gameComm/wdwbase.h"
 #endif // CLIENT
 
 #if SERVER
 #include "dbcomm/logcomm.h"
 #include "bases/bases.h"
 #include "bases/basedata.h"
-#include "entPlayer.h"
+#include "entity/EntPlayer.h"
 #include <utilitieslib/utils/mathutil.h>
 #include "bases/baseserver.h"
 #include "gameComm/svr_chat.h"

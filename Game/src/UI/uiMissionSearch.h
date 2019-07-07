@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MissionSearch.h"
+#include "mission/MissionSearch.h"
 
 // uiNet interface
 void missionsearch_TabClear(MissionSearchPage category, const char *context, int page, int pages);

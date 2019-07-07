@@ -1,18 +1,18 @@
 #define RT_ALLOW_BINDTEXTURE
 #include "rt_filter.h"
-#include "rt_cgfx.h"
-#include "rt_tune.h"
-#include "rt_init.h"
-#include "wcw_statemgmt.h"
-#include "gfx.h"
-#include "gfxSettings.h"
-#include "mathutil.h"
-#include "tiff.h"
-#include "failtext.h"
-#include <file.h>
+#include "render/thread/rt_cgfx.h"
+#include "render/thread/rt_tune.h"
+#include "render/thread/rt_init.h"
+#include "render/thread/wcw_statemgmt.h"
+#include "graphics/gfx.h"
+#include "graphics/gfxSettings.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/tiff.h>
+#include "graphics/failtext.h"
+#include <utilitieslib/utils/file.h>
 
 #define RT_PRIVATE
-#include "rt_pbuffer.h"
+#include "render/thread/rt_pbuffer.h"
 
 #define kFilter_EffectName "filter"
 

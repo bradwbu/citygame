@@ -1,7 +1,7 @@
 #ifndef UILEVELPOWER_H
 #define UILEVELPOWER_H
 
-#include "uiInclude.h"
+#include "UI/uiInclude.h"
 
 typedef struct PowerSet PowerSet;
 typedef struct BasePowerSet BasePowerSet;

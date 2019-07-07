@@ -4,67 +4,67 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 
-#include "entclient.h"      // for entfromid
-#include "entplayer.h"      // for entfromid
-#include "ttfont.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "win_init.h"
-#include "uiCursor.h"
-#include "uiTarget.h"
-#include "gfxwindow.h"  // for gfxScreenPos
-#include "player.h"
-#include "camera.h"
-#include "itemselect.h"
-#include "cmdgame.h"
-#include "edit_cmd.h"
-#include "uiGame.h"
-#include "teamup.h"
-#include "playerState.h"
+#include "entity/entclient.h"      // for entfromid
+#include "entity/EntPlayer.h"      // for entfromid
+#include "graphics/ttFont.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "win/win_init.h"
+#include "UI/uiCursor.h"
+#include "UI/uiTarget.h"
+#include "graphics/gfxwindow.h"  // for gfxScreenPos
+#include "player/player.h"
+#include "graphics/camera.h"
+#include "gameComm/itemselect.h"
+#include "cmdparse/cmdgame.h"
+#include "edit/edit_cmd.h"
+#include "UI/uiGame.h"
+#include "entity/teamup.h"
+#include "player/playerState.h"
 #include "language/langClientUtil.h"
-#include "commonLangUtil.h"
-#include "pmotion.h"
-#include "character_base.h"
-#include "origins.h"
-#include "Npc.h"            // for npcDefList.npcDefs
-#include "uiReticle.h"
-#include "ttFontUtil.h"
-#include "uiUtil.h"
-#include "fx.h"
-#include "uiInput.h"
-#include "uicompass.h"
-#include "sound.h"        // for sndPlay
-#include "entVarUpdate.h" // for INF_NPC_SAYS
-#include "uiEditText.h"       // for dumpFormattedTextArray
-#include "uiCompass.h"
-#include "uiChat.h" // addChatMsg
-#include "character_target.h" // character_targetMatchesType
-#include "badges.h"
-#include "titles.h"
-#include "utils.h"
-#include "textureatlas.h"
+#include "language/commonLangUtil.h"
+#include "player/pmotion.h"
+#include "entity/character_base.h"
+#include "entity/origins.h"
+#include "gameComm/npc.h"            // for npcDefList.npcDefs
+#include "UI/uiReticle.h"
+#include "graphics/ttFontUtil.h"
+#include "UI/uiUtil.h"
+#include "graphics/FX/fx.h"
+#include "UI/uiInput.h"
+#include "UI/uiCompass.h"
+#include "sound/sound.h"        // for sndPlay
+#include "entity/entVarUpdate.h" // for INF_NPC_SAYS
+#include "UI/uiEditText.h"       // for dumpFormattedTextArray
+#include "UI/uiCompass.h"
+#include "UI/uiChat.h" // addChatMsg
+#include "entity/character_target.h" // character_targetMatchesType
+#include "player/badges.h"
+#include "filter/titles.h"
+#include <utilitieslib/utils/utils.h>
+#include "graphics/textureatlas.h"
 #include "storyarc/missionClient.h"
-#include "uiUtilGame.h"
-#include "entity.h"
-#include "tricks.h"
-#include "timing.h"
-#include "teamCommon.h"
-#include "Supergroup.h"
-#include "uiPet.h"
-#include "uiOptions.h"
+#include "UI/uiUtilGame.h"
+#include "entity/entity.h"
+#include "seq/tricks.h"
+#include <utilitieslib/utils/timing.h>
+#include "entity/teamCommon.h"
+#include "entity/Supergroup.h"
+#include "UI/uiPet.h"
+#include "UI/uiOptions.h"
 #include "demo.h"
-#include "uicompass.h"
-#include "uiautomap.h"
-#include "clicktosource.h"
-#include "uibuff.h"
-#include "bases.h"
-#include "MessageStoreUtil.h"
-#include "uiPlayerNote.h"
-#include "groupnetrecv.h"
-#include "uiStatus.h"
+#include "UI/uiCompass.h"
+#include "UI/uiAutomap.h"
+#include "edit/ClickToSource.h"
+#include "UI/uiBuff.h"
+#include "bases/bases.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "UI/uiPlayerNote.h"
+#include "group/groupnetrecv.h"
+#include "UI/uiStatus.h"
 #ifndef TEST_CLIENT
-#include "character_animfx_client.h"
+#include "entity/character_animfx_client.h"
 #endif
 
 static Entity *s_eAssist = NULL;
@@ -680,7 +680,7 @@ int drawChatBubble(EBubbleType type, EBubbleLocation location, char *pch, int x,
     static char *s_pchBuff = NULL;
     static unsigned int s_uiSize = 0;
 
-    AtlasTex *pTexTail;
+    AtlasTex *pTexTail = NULL;
 
     if(pch==NULL)  
     {
@@ -2212,10 +2212,10 @@ void drawStuffOnEntities(void)
     }
 }
 
-#include "timing.h"
-#include "sound.h"
-#include "input.h"
-#include "utils.h"
+#include <utilitieslib/utils/timing.h>
+#include "sound/sound.h"
+#include "win/input.h"
+#include <utilitieslib/utils/utils.h>
 void neighborhoodCheck()
 {
     char        *name,*music;

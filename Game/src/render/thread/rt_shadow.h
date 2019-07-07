@@ -1,7 +1,7 @@
 #ifndef _RT_SHADOW_H
 #define _RT_SHADOW_H
 
-#include "rt_model_cache.h"
+#include "render/thread/rt_model_cache.h"
 
 typedef struct VBO        VBO;
 typedef struct Splat    Splat;

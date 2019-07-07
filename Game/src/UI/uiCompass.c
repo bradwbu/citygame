@@ -4,63 +4,63 @@
 //-------------------------------------------------------------------
 
 
-#include "uiGame.h"
-#include "uiUtil.h"
-#include "uiTeam.h"
-#include "uiInput.h"
-#include "uiCursor.h"
-#include "uiContact.h"
-#include "uiTarget.h"
-#include "uiMission.h"
-#include "uiAutomap.h"
-#include "uiWindows.h"
-#include "uiToolTip.h"
-#include "uiCompass.h"
-#include "uiUtilGame.h"
-#include "uiGroupWindow.h"
-#include "uiContextMenu.h"
-#include "uiOptions.h"
-#include "uiScript.h"
+#include "UI/uiGame.h"
+#include "UI/uiUtil.h"
+#include "UI/uiTeam.h"
+#include "UI/uiInput.h"
+#include "UI/uiCursor.h"
+#include "UI/uiContact.h"
+#include "UI/uiTarget.h"
+#include "UI/uiMission.h"
+#include "UI/uiAutomap.h"
+#include "UI/uiWindows.h"
+#include "UI/uiToolTip.h"
+#include "UI/uiCompass.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiGroupWindow.h"
+#include "UI/uiContextMenu.h"
+#include "UI/uiOptions.h"
+#include "UI/uiScript.h"
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
 
 #include "language/langClientUtil.h"
 #include "storyarc/contactClient.h"
-#include "dooranimclient.h"
-#include "entVarUpdate.h"
-#include "groupnetrecv.h"
-#include "cmdcommon.h"
-#include "gfxwindow.h"
-#include "clientcomm.h"
-#include "win_init.h"
-#include "timing.h"
-#include "player.h"
-#include "camera.h"
-#include "uiBox.h"
-#include "cmdgame.h"
-#include "ttFontUtil.h"
-#include "utils.h"
-#include "entity.h"
-#include "uiMissionSummary.h"
-#include "input.h"
-#include "teamCommon.h"
-#include "estring.h"
-#include "StashTable.h"
-#include "mathutil.h"
-#include "zowieClient.h"
+#include "gameComm/dooranimclient.h"
+#include "entity/entVarUpdate.h"
+#include "group/groupnetrecv.h"
+#include "cmdparse/cmdcommon.h"
+#include "graphics/gfxwindow.h"
+#include "clientcomm/clientcomm.h"
+#include "win/win_init.h"
+#include <utilitieslib/utils/timing.h>
+#include "player/player.h"
+#include "graphics/camera.h"
+#include "UI/uiBox.h"
+#include "cmdparse/cmdgame.h"
+#include "graphics/ttFontUtil.h"
+#include <utilitieslib/utils/utils.h>
+#include "entity/entity.h"
+#include "UI/uiMissionSummary.h"
+#include "win/input.h"
+#include "entity/teamCommon.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/mathutil.h>
+#include "storyarc/zowieClient.h"
 
 #include "arena/arenagame.h"
 #include "gameData/sgraidClient.h"
-#include "bases.h"
+#include "bases/bases.h"
 
-#include "AppLocale.h"
-#include "MessageStoreUtil.h"
-#include "entPlayer.h"
+#include <utilitieslib/language/AppLocale.h>
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "entity/EntPlayer.h"
 
-#include "uiAutomap.h"
+#include "UI/uiAutomap.h"
 
 
 
@@ -319,7 +319,7 @@ void updateTrialStatus(TrialStatus status)
 
 #ifndef TEST_CLIENT // Put all graphics-related compass functions below this point =)
 
-#include "smf_util.h"
+#include "formatter/smf_util.h"
 
 static TextAttribs s_taCompassTask =
 {

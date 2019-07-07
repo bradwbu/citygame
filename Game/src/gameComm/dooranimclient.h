@@ -7,8 +7,8 @@
 #ifndef __DOORANIMCLIENT_H
 #define __DOORANIMCLIENT_H
 
-#include "mathutil.h"
-#include "dooranimcommon.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "gameComm/dooranimcommon.h"
 
 typedef struct Packet Packet;
 

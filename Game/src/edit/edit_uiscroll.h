@@ -1,7 +1,7 @@
 #ifndef _EDIT_UISCROLL_H
 #define _EDIT_UISCROLL_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct
 {

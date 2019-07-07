@@ -1,7 +1,7 @@
 #ifndef _GROUPDRAWUTIL_H
 #define _GROUPDRAWUTIL_H
 
-#include "groupdraw.h"
+#include "graphics/groupdraw.h"
 
 void colorTracker(DefTracker *tracker,Mat4 mat,DefTracker *light_trkr,int force, F32 brightScale);
 void handleGlobFxMiniTracker( FxMiniTracker * globFxMiniTracker, GroupDef * def, Mat4 parent_mat, F32 draw_scale );

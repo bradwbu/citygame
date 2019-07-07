@@ -13,36 +13,36 @@
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/components/genericlist.h>
 
-#include "entity.h"
-#include "classes.h"
-#include "origins.h"
-#include "character_base.h"
+#include "entity/entity.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
+#include "entity/character_base.h"
 #include "character_mods.h"
-#include "character_level.h"
-#include "character_inventory.h"
-#include "character_eval.h"
-#include "powerinfo.h"
-#include "powers.h"
+#include "entity/character_level.h"
+#include "entity/character_inventory.h"
+#include "entity/character_eval.h"
+#include "entity/PowerInfo.h"
+#include "entity/powers.h"
 #include <utilitieslib/utils/error.h>
-#include "entPlayer.h"
+#include "entity/EntPlayer.h"
 #include "auth/authUserData.h"
-#include "motion.h"
+#include "entity/motion.h"
 #include "gameComm/trayCommon.h"
 #include <utilitieslib/components/MemoryPool.h>
-#include "Proficiency.h"
-#include "Concept.h"
+#include "entity/Proficiency.h"
+#include "entity/concept.h"
 #include "bases/DetailRecipe.h"
 #include "gameData/mininghelper.h"
-#include "boostset.h"
+#include "entity/boostset.h"
 #include <utilitieslib/utils/scriptvars.h>
 #include <utilitieslib/language/MessageStore.h>
 #include <utilitieslib/language/MessageStoreUtil.h>
-#include "costume.h"
+#include "entity/costume.h"
 #include <utilitieslib/utils/mathutil.h>
 #include "auction/Auction.h"
 #include <utilitieslib/utils/file.h>
-#include "PCC_Critter.h"
-#include "incarnate.h"
+#include "entity/PCC_Critter.h"
+#include "entity/incarnate.h"
 
 #if SERVER
 #include "entity/EntGameActions.h"
@@ -78,7 +78,7 @@ U32 g_uTimeCombatStatsStarted = 0;
 #endif // SERVER
 
 #if CLIENT
-#include "uiTray.h"
+#include "UI/uiTray.h"
 #endif // CLIENT
 
 char * g_smallInspirations[] = { "Luck", "Sturdy", "Insight", "Catch_a_Breath", "Respite", "Enrage", "Break_Free", "Awaken", 0 };

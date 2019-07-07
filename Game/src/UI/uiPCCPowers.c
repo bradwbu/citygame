@@ -1,39 +1,39 @@
 #include "uiPCCPowers.h"
-#include "uiGame.h"
-#include "uiUtil.h"
-#include "uiInput.h"
-#include "uiUtilMenu.h"
-#include "uiScrollBar.h"
-#include "uiClipper.h"
-#include "uiUtilGame.h"                //    for drawFrame
-#include "uiPowerInfo.h"
+#include "UI/uiGame.h"
+#include "UI/uiUtil.h"
+#include "UI/uiInput.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiClipper.h"
+#include "UI/uiUtilGame.h"                //    for drawFrame
+#include "UI/uiPowerInfo.h"
 #include "uiSlider.h"
 #include "uiHelpButton.h"
 
-#include "smf_main.h"                //    text editing
-#include "sprite_base.h"            //    display things
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
+#include "formatter/smf_main.h"                //    text editing
+#include "UI/sprite/sprite_base.h"            //    display things
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
 
-#include "win_init.h"
-#include "cmdgame.h"
-#include "character_base.h"            // character base
-#include "sound.h"                    //    sounds
-#include "powers.h"                    //    basepowersets
-#include "earray.h"                    //    earraygetsize
-#include "entity.h"                    //    entity def
-#include "entPlayer.h"                //    for PL
-#include "costume.h"                //    for costumeunawardparts
-#include "ttFontUtil.h"                //    for CENTER_Y
-#include "MessageStoreUtil.h"        //    for textStd
-#include "player.h"                    //    for playerPtr
-#include "entclient.h"                //    for entcreate
-#include "StashTable.h"                //    for stashTable
-#include "VillainDef.h"                //    for villain rank enum
-#include "EString.h"
-#include "PCC_Critter.h"
-#include "PCC_Critter_Client.h"
+#include "win/win_init.h"
+#include "cmdparse/cmdgame.h"
+#include "entity/character_base.h"            // character base
+#include "sound/sound.h"                    //    sounds
+#include "entity/powers.h"                    //    basepowersets
+#include <utilitieslib/components/Earray.h>                    //    earraygetsize
+#include "entity/entity.h"                    //    entity def
+#include "entity/EntPlayer.h"                //    for PL
+#include "entity/costume.h"                //    for costumeunawardparts
+#include "graphics/ttFontUtil.h"                //    for CENTER_Y
+#include <utilitieslib/language/MessageStoreUtil.h>        //    for textStd
+#include "player/player.h"                    //    for playerPtr
+#include "entity/entclient.h"                //    for entcreate
+#include <utilitieslib/components/StashTable.h>                //    for stashTable
+#include "gameComm/villainDef.h"                //    for villain rank enum
+#include <utilitieslib/components/estring.h>
+#include "entity/PCC_Critter.h"
+#include "entity/PCC_Critter_Client.h"
 #include "uiPCCCreationNLM.h"
 
 #define PCC_POWER_MENU_Y 140
@@ -88,7 +88,8 @@ static TextAttribs s_TextAttr_PCC_powers =
     /* piOutline     */  (int *)1,
     /* piShadow      */  (int *)0,
 };
-typedef enum{
+
+enum{
     PCC_BLASTER = 1<<1,
     PCC_CLASS_START = PCC_BLASTER,
     PCC_TANKER = 1<<2,
@@ -104,6 +105,7 @@ typedef enum{
     PCC_OTHER = 1 << 11,
     PCC_ALL = 1 << 12,
 };
+
 static int PCCPower_powerIsAvailable(const BasePower *power, int category, int conning, int difficulty, int selectedPowers, int powerIdx)
 {
 

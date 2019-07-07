@@ -3,23 +3,23 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "edit_drawlines.h"
-#include "model.h"
-#include "rendermodel.h"
-#include "mathutil.h"
-#include "camera.h"
+#include "edit/edit_drawlines.h"
+#include "render/model.h"
+#include "render/rendermodel.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "graphics/camera.h"
 #include "edit_info.h"
-#include "entclient.h"
-#include "edit_cmd.h"
-#include "edit_select.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "uiGame.h"
-#include "cmdgame.h"
-#include "renderprim.h"
-#include "grouptrack.h"
-#include "gfxwindow.h"
-#include "renderstats.h"
+#include "entity/entclient.h"
+#include "edit/edit_cmd.h"
+#include "edit/edit_select.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "UI/uiGame.h"
+#include "cmdparse/cmdgame.h"
+#include "render/renderprim.h"
+#include "group/grouptrack.h"
+#include "graphics/gfxwindow.h"
+#include "render/renderstats.h"
 
 Mat4 globalmatx;
 int globaledit_axisp[3];
@@ -634,7 +634,7 @@ void showGrid2(const Mat4 matx,int *edit_axisp,int *edit_axis)
     }
 }
 
-#include "sound.h"
+#include "sound/sound.h"
 
 void editDrawSoundSpheres()
 {

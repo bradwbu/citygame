@@ -7,13 +7,13 @@
 
 #include <utilitieslib/components/earray.h>
 
-#include "entity.h"
-#include "entPlayer.h"
-#include "classes.h"
-#include "origins.h"
-#include "character_base.h"
-#include "character_level.h"
-#include "powers.h"
+#include "entity/entity.h"
+#include "entity/EntPlayer.h"
+#include "entity/classes.h"
+#include "entity/origins.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "entity/powers.h"
 #include <utilitieslib/utils/mathutil.h>
 #include "account/AccountInventory.h"
 
@@ -22,9 +22,9 @@
 #include "entity/buddy_server.h"
 #include "dbcomm/dbcomm.h"    // for dbLog() messages
 #include "dbcomm/shardcomm.h"
-#include "entPlayer.h"
+#include "entity/EntPlayer.h"
 #include "auth/authUserData.h"
-#include "power_system.h"
+#include "entity/power_system.h"
 #include "player/pophelp.h"
 #include "storyarc/storyarcinterface.h"
 #include "dbcomm/logcomm.h"

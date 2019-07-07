@@ -3,11 +3,11 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "RewardSlot.h"
+#include "entity/RewardSlot.h"
 #include <utilitieslib/components/MemoryPool.h>
-#include "salvage.h"
-#include "concept.h"
-#include "proficiency.h"
+#include "entity/salvage.h"
+#include "entity/concept.h"
+#include "entity/Proficiency.h"
 #include <utilitieslib/network/net_packet.h>
 #include <utilitieslib/utils/textparser.h>
 

@@ -1,10 +1,10 @@
-#include "DebugLocation.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "renderprim.h"
-#include "net_packet.h"
-#include "camera.h"
-#include "rgb_hsv.h"
+#include "edit/DebugLocation.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/Earray.h>
+#include "render/renderprim.h"
+#include <utilitieslib/network/net_packet.h>
+#include "graphics/camera.h"
+#include <utilitieslib/utils/rgb_hsv.h>
 
 static DebugLocation** debugLocations = 0;
 static U32 currentId = 0;

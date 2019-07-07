@@ -4,7 +4,7 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 
-#include "Auction.h"
+#include "auction/auction.h"
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/components/stringcache.h>
 #include <utilitieslib/network/net_packet.h>

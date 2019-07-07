@@ -1,9 +1,9 @@
 #ifndef _EDIT_CMD_H
 #define _EDIT_CMD_H
 
-#include "stdtypes.h"
-//#include "cmdoldparse.h"
-#include "groupproperties.h"
+#include <utilitieslib/stdtypes.h>
+//#include <utilitieslib/utils/cmdoldparse.h>
+#include "group/groupproperties.h"
 #include "Menu.h"
 
 typedef struct DefTracker DefTracker;

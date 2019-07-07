@@ -1,24 +1,24 @@
-#include "edit_cmd_file.h"
-#include "edit_cmd.h"
-#include "win_init.h"
-#include "edit_net.h"
-#include "utils.h"
-#include "sun.h"
+#include "edit/edit_cmd_file.h"
+#include "edit/edit_cmd.h"
+#include "win/win_init.h"
+#include "edit/edit_net.h"
+#include <utilitieslib/utils/utils.h>
+#include "graphics/sun.h"
 #include <process.h>
-#include "cmdgame.h"
-#include "messageStore.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/language/MessageStore.h>
 #include "language/langClientUtil.h"
-#include "clientcomm.h"
+#include "clientcomm/clientcomm.h"
 #include "comm_game.h"
-#include "file.h"
-#include "tex.h"
-#include "group.h"
-#include "groupfilesave.h"
-#include "MessageStoreUtil.h"
-#include "GenericMesh.h"
-#include "edit_select.h"
-#include "anim.h"
-#include "file.h"
+#include <utilitieslib/utils/file.h>
+#include "render/tex.h"
+#include "group/group.h"
+#include "group/groupfilesave.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/components/GenericMesh.h>
+#include "edit/edit_select.h"
+#include "seq/anim.h"
+#include <utilitieslib/utils/file.h>
 
 extern char    map_loadsave_name[1024];
 

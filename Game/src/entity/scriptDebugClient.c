@@ -8,19 +8,19 @@
  *
  */
 
-#include "debugCommon.h"
-#include "scriptDebugClient.h" 
-#include "stdtypes.h"
-#include "earray.h"
-#include "netio.h"
-#include "utils.h"
-#include "cmdgame.h"
-#include "entDebug.h"
-#include "edit_cmd.h"
-#include "win_init.h"
-#include "input.h"
-#include "timing.h"
-#include "mathutil.h"
+#include "gameComm/debugCommon.h"
+#include "entity/scriptDebugClient.h" 
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/utils/utils.h>
+#include "cmdparse/cmdgame.h"
+#include "entity/entDebug.h"
+#include "edit/edit_cmd.h"
+#include "win/win_init.h"
+#include "win/input.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/mathutil.h>
 
 #define SCRIPT_NAME_LEN 100
 #define SCRIPT_VAR_DISPLAY 20
@@ -230,7 +230,7 @@ static int ignoreScriptVar(char* varname)
 static void displayScriptInfo(int x, int y, ScriptInfoClient* info, int running, int highlight, int active, int drawbox)
 {
     char buf[2000];
-    char *type;
+    char *type = NULL;
     int alpha = SCRIPTBAR_ALPHA << 24;
     int high, mid, low;
 

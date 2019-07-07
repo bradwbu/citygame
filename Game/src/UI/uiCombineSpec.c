@@ -2,73 +2,73 @@
 #include <limits.h>
 
 #include "uiPowers.h"
-#include "uiNet.h"
-#include "uiFx.h"
-#include "uiGame.h"
-#include "utils.h"
-#include "uiUtil.h"
-#include "uiTray.h"
-#include "uiInfo.h"
-#include "uiInput.h"
-#include "uiReSpec.h"
-#include "uiCursor.h"
-#include "uiDialog.h"
-#include "uiWindows.h"
-#include "uiUtilMenu.h"
-#include "uiEditText.h"
-#include "uiScrollBar.h"
-#include "uiLevelPower.h"
+#include "UI/uiNet.h"
+#include "UI/uiFx.h"
+#include "UI/uiGame.h"
+#include <utilitieslib/utils/utils.h>
+#include "UI/uiUtil.h"
+#include "UI/uiTray.h"
+#include "UI/uiInfo.h"
+#include "UI/uiInput.h"
+#include "UI/uiRespec.h"
+#include "UI/uiCursor.h"
+#include "UI/uidialog.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtilMenu.h"
+#include "UI/uiEditText.h"
+#include "UI/uiScrollBar.h"
+#include "UI/uiLevelPower.h"
 #include "uiCombineSpec.h"
-#include "uiPowerInventory.h"
-#include "uiToolTip.h"
-#include "uiHybridMenu.h"
-#include "uiTabControl.h"
+#include "UI/uiPowerInventory.h"
+#include "UI/uiToolTip.h"
+#include "UI/Hybrid/uiHybridMenu.h"
+#include "UI/uiTabControl.h"
 #include "uiEmote.h"
-#include "uiWebStoreFrame.h"
+#include "UI/Hybrid/uiWebStoreFrame.h"
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
 
 #include "language/langClientUtil.h"
-#include "cmdcommon.h"
-#include "win_init.h"
-#include "cmdgame.h"
-#include "earray.h"
-#include "EString.h"
-#include "StashTable.h"
-#include "player.h"
-#include "sound.h"
-#include "font.h"
-#include "mathutil.h"
+#include "cmdparse/cmdcommon.h"
+#include "win/win_init.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/StashTable.h>
+#include "player/player.h"
+#include "sound/sound.h"
+#include "graphics/font.h"
+#include <utilitieslib/utils/mathutil.h>
 
-#include "input.h"
-#include "sound.h"
-#include "powers.h"
-#include "boostset.h"
-#include "origins.h"
-#include "classes.h"
-#include "earray.h"
-#include "timing.h"
-#include "ttFontUtil.h"
-#include "attrib_names.h"
-#include "character_base.h"
-#include "character_level.h"
-#include "character_net_client.h"
-#include "pmotion.h"
-#include "uiUtilGame.h"
-#include "uiContextMenu.h"
-#include "uiEnhancement.h"
-#include "entity.h"
-#include "uiOptions.h"
-#include "MessageStoreUtil.h"
-#include "file.h"
-#include "uiPowerInfo.h"
+#include "win/input.h"
+#include "sound/sound.h"
+#include "entity/powers.h"
+#include "entity/boostset.h"
+#include "entity/origins.h"
+#include "entity/classes.h"
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/timing.h>
+#include "graphics/ttFontUtil.h"
+#include "entity/attrib_names.h"
+#include "entity/character_base.h"
+#include "entity/character_level.h"
+#include "entity/character_net_client.h"
+#include "player/pmotion.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiContextMenu.h"
+#include "UI/uiEnhancement.h"
+#include "entity/entity.h"
+#include "UI/uiOptions.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include <utilitieslib/utils/file.h>
+#include "UI/uiPowerInfo.h"
 #include "uiGrowBig.h"
 #include "uiSalvage.h"
 
-#include "VillainDef.h"
+#include "gameComm/villainDef.h"
 //-------------------------------------------------------------
 
 void TestDimReturns(Power *ppow);
@@ -1609,7 +1609,7 @@ static void combo_header( int type, int clr, char * txt, float screenScaleX, flo
     AtlasTex * streakL   = atlasLoadTexture( "EnhncComb_instruction_streak_L.tga" );
     AtlasTex * streakM   = atlasLoadTexture( "EnhncComb_instruction_streak_MID.tga" );
     AtlasTex * streakR   = atlasLoadTexture( "EnhncComb_instruction_streak_R.tga" );
-    AtlasTex * icon;
+    AtlasTex * icon = NULL;
 
     float sc = HEADER_SC;
     float screenScale = MIN(screenScaleX, screenScaleY);

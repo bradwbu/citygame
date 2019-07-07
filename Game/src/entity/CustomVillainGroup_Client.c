@@ -1,15 +1,15 @@
-#include "CustomVillainGroup.h"
-#include "CustomVillainGroup_Client.h"
-#include "file.h"                            //    for file writing
-#include "sysutil.h"                        //    for getting executable dir
-#include "utils.h"
-#include "PCC_Critter.h"
-#include "PCC_Critter_Client.h"                //    for client critter things
-#include "uiMissionMakerScrollSet.h"        //    for update custom critter list
-#include "earray.h"
-#include "MessageStoreUtil.h"                //    for textStd
-#include "FolderCache.h"
-#include "uiCustomVillainGroupWindow.h"
+#include "entity/CustomVillainGroup.h"
+#include "entity/CustomVillainGroup_Client.h"
+#include <utilitieslib/utils/file.h>                            //    for file writing
+#include <utilitieslib/utils/sysutil.h>                        //    for getting executable dir
+#include <utilitieslib/utils/utils.h>
+#include "entity/PCC_Critter.h"
+#include "entity/PCC_Critter_Client.h"                //    for client critter things
+#include "UI/uiMissionMakerScrollSet.h"        //    for update custom critter list
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/language/MessageStoreUtil.h>                //    for textStd
+#include <utilitieslib/utils/FolderCache.h>
+#include "UI/uiCustomVillainGroupWindow.h"
 
 extern MMScrollSet missionMaker;
 

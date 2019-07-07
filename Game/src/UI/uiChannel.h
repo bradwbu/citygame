@@ -1,7 +1,7 @@
 #ifndef UI_CHANNEL_H__
 #define UI_CHANNEL_H__
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 typedef struct ChatUser ChatUser;
 typedef struct ChatFilter ChatFilter;
 typedef struct ChatChannel ChatChannel;

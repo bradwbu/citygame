@@ -1,5 +1,5 @@
 #define EXCLUDE_LIBS
-#include "dxtlib.h"
+#include <dxtlib.h>
 #include <stdio.h>
 #include "assert.h"
 

@@ -3,7 +3,7 @@
 
 #include <utilitieslib/stdtypes.h>
 #include "graphics/viewport.h"
-#include "tex.h"
+#include "render/tex.h"
 
 #define NUM_CUBEMAP_FACES    6
 

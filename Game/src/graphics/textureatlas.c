@@ -1,27 +1,27 @@
-#include "textureatlas.h"
-#include "StashTable.h"
-#include "rt_queue.h"
-#include "tex.h"
-#include "MemoryPool.h"
-#include "earray.h"
-#include "font.h"
-#include "sprite.h"
-#include "tex_gen.h"
-#include "ogl.h"
-#include "mathutil.h"
+#include "graphics/textureatlas.h"
+#include <utilitieslib/components/StashTable.h>
+#include "render/thread/rt_queue.h"
+#include "render/tex.h"
+#include <utilitieslib/components/memorypool.h>
+#include <utilitieslib/components/Earray.h>
+#include "graphics/font.h"
+#include "render/sprite.h"
+#include "render/tex_gen.h"
+#include "render/thread/ogl.h"
+#include <utilitieslib/utils/mathutil.h>
 #include "textureatlasPrivate.h"
-#include "texWords.h"
-#include "cmdgame.h"
-#include "qsortG.h"
-#include "input.h"
-#include "utils.h"
-#include "HashFunctions.h"
-#include "pbuffer.h"
-#include "StringCache.h"
+#include "render/texWords.h"
+#include "cmdparse/cmdgame.h"
+#include <utilitieslib/utils/qsortG.h>
+#include "win/input.h"
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/components/HashFunctions.h>
+#include "render/pbuffer.h"
+#include <utilitieslib/components/StringCache.h>
 
 #include <windows.h>
-#include "timing.h"
-#include "authUserData.h"
+#include <utilitieslib/utils/timing.h>
+#include "auth/authUserData.h"
 
 #define DEBUG_SPRITE_DRAW_ORDER 0
 
@@ -191,9 +191,9 @@ static void addToAtlas(AtlasTex *tex)
 
     key.pixel_format = tex->data->pixdata.pixel_format;
 
-    width = 1 << log2(tex->width + BORDER_2);
-    height = 1 << log2(tex->height + BORDER_2);
-    rendersize = 1 << log2(key.font_param.renderSize + BORDER_2);
+    width = 1 << log2i(tex->width + BORDER_2);
+    height = 1 << log2i(tex->height + BORDER_2);
+    rendersize = 1 << log2i(key.font_param.renderSize + BORDER_2);
 
     key.cell_size = MAX(width, height);
     if (rendersize <= MAX_SLOT_HEIGHT)
@@ -271,7 +271,7 @@ static AtlasTex *addAtlasTex(const char *sprite_name, AtlasTex * tex, int dontUs
 {
 
     BasicTexture *tex_header=0;
-    const char * name_ptr;
+    const char * name_ptr = NULL;
     int skin = 0;
     char villain_sprite_name[1000] = {0};
 

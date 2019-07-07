@@ -1,30 +1,31 @@
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiGame.h"
-#include "wdwbase.h"
-#include "mathutil.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiGame.h"
+#include "gameComm/wdwbase.h"
+#include <utilitieslib/utils/mathutil.h>
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include "graphics/textureatlas.h"
 
-#include "entVarUpdate.h"   // for TIMESTEP
+#include "entity/entVarUpdate.h"   // for TIMESTEP
 
-#include "input.h"
-#include "uiInput.h"
-#include "ttFontUtil.h"
+#include "win/input.h"
+#include "UI/uiInput.h"
+#include "graphics/ttFontUtil.h"
 #include "language/langClientUtil.h"
 
-#include "sound.h"
-#include "timing.h"
+#include "sound/sound.h"
+#include <utilitieslib/utils/timing.h>
 
-#include "cmdcommon.h"
-#include "strings_opt.h"
-#include "cmdgame.h"
-#include "gametypes.h"
-#include "entity.h"
-#include "entPlayer.h"
+#include "cmdparse/cmdcommon.h"
+#include <utilitieslib/utils/strings_opt.h>
+#include "cmdparse/cmdgame.h"
+#include "entity/gametypes.h"
+#include "entity/entity.h"
+#include <utilitieslib/utils/timing.h>
+#include "entity/entPlayer.h"
 
 //
 //

@@ -1,10 +1,10 @@
-#include "ogl.h"
-#include <assert.h>
+#include "render/thread/ogl.h"
+#include <utilitieslib/assert/assert.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "mathutil.h"
-#include "memcheck.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/memcheck.h>
 
 #pragma comment (lib, "opengl32.lib")
 

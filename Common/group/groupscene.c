@@ -1,5 +1,5 @@
 #include <utilitieslib/stdtypes.h>
-#include "groupscene.h"
+#include "group/groupscene.h"
 #include <string.h>
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/components/earray.h>
@@ -10,15 +10,15 @@
 #include <utilitieslib/utils/file.h>
 #include <utilitieslib/utils/error.h>
 #include <utilitieslib/utils/timing.h>
-#include "group.h"
+#include "group/group.h"
 
 #if CLIENT
-#include "sun.h"
-#include "light.h"
-#include "tex.h"
+#include "graphics/sun.h"
+#include "graphics/light.h"
+#include "render/tex.h"
 #include "clientError.h"
-#include "groupMiniTrackers.h"
-#include "rt_queue.h"
+#include "graphics/groupMiniTrackers.h"
+#include "render/thread/rt_queue.h"
 #endif
 
 #define DEFAULT_MAX_HEIGHT 900

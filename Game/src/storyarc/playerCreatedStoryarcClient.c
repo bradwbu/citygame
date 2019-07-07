@@ -1,19 +1,19 @@
 
 
-#include "playerCreatedStoryarc.h"
-#include "playerCreatedStoryarcClient.h"
-#include "player.h"
+#include "storyarc/playerCreatedStoryarc.h"
+#include "storyarc/playerCreatedStoryarcClient.h"
+#include "player/player.h"
 
-#include "earray.h"
-#include "costume.h"
-#include "Npc.h"
-#include "entclient.h"
-#include "entity.h"
-#include "cmdcommon.h"
-#include "costume_client.h"
-#include "seqgraphics.h"
+#include <utilitieslib/components/Earray.h>
+#include "entity/costume.h"
+#include "gameComm/npc.h"
+#include "entity/entclient.h"
+#include "entity/entity.h"
+#include "cmdparse/cmdcommon.h"
+#include "entity/costume_client.h"
+#include "graphics/seqgraphics.h"
 
-#include "MessageStoreUtil.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 ClientSideMissionMakerContactCostume gMissionMakerContact;
 

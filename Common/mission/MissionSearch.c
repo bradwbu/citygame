@@ -1,6 +1,6 @@
 
 #include <utilitieslib/stdtypes.h>
-#include "MissionSearch.h"
+#include "mission/MissionSearch.h"
 #include <utilitieslib/components/estring.h>
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/utils.h>

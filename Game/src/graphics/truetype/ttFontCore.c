@@ -1,20 +1,20 @@
-#include "truetype/ttFontCore.h"
+#include "graphics/truetype/ttFontCore.h"
 #include "ft2build.h"
 #include <freetype/freetype.h>
 #include <freetype/ftmodule.h>
 
-#include "file.h"    // for fileOpen()
-#include <assert.h>
+#include <utilitieslib/utils/file.h>    // for fileOpen()
+#include <utilitieslib/assert/assert.h>
 
-#include "truetype/ttAppleMapping.h"
-#include "truetype/ttFontBitmap.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "memlog.h"
-#include "cmdgame.h"
+#include "graphics/truetype/ttAppleMapping.h"
+#include "graphics/truetype/ttFontBitmap.h"
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/components/Earray.h>
+#include <utilitieslib/utils/memlog.h>
+#include "cmdparse/cmdgame.h"
 
-#include "wininclude.h"
-#include "timing.h"
+#include <utilitieslib/utils/wininclude.h>
+#include <utilitieslib/utils/timing.h>
 
 //------------------------------------------------------------
 // Internal globals

@@ -1,4 +1,4 @@
-#include "Npc.h"        // For NPC structure defintion
+#include "gameComm/npc.h"        // For NPC structure defintion
 
 #include <utilitieslib/components/earray.h>
 #include <utilitieslib/utils/error.h>
@@ -22,8 +22,8 @@
 
 #if CLIENT
 #include "clienterror.h"
-#include "entclient.h"
-#include "playerCreatedStoryarcClient.h"
+#include "entity/entclient.h"
+#include "storyarc/playerCreatedStoryarcClient.h"
 #endif
 
 SERVER_SHARED_MEMORY NPCDefList npcDefList;
@@ -143,8 +143,8 @@ bool npcDefsReadFilesPostProcess(ParseTable pti[], NPCDefList * npclist)
 
 #if CLIENT
 #include "gameData/BodyPart.h"
-#include "costume_client.h"
-#include "cmdgame.h"
+#include "entity/costume_client.h"
+#include "cmdparse/cmdgame.h"
 int npcReadDefFilesVerifyTextures(void)
 {
     int NPCCursor;

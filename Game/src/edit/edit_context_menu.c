@@ -1,14 +1,14 @@
 #include "time.h"
-#include "edit_select.h"
-#include "edit_cmd.h"
+#include "edit/edit_select.h"
+#include "edit/edit_cmd.h"
 #include "edit_info.h"
-#include "anim.h"
-#include "uiContextMenu.h"
-#include "MRUList.h"
-#include "tex.h"
-#include "textparser.h"
-#include "cmdgame.h"
-#include "rt_model.h"
+#include "seq/anim.h"
+#include "UI/uiContextMenu.h"
+#include <utilitieslib/components/MRUList.h>
+#include "render/tex.h"
+#include <utilitieslib/utils/textparser.h>
+#include "cmdparse/cmdgame.h"
+#include "render/thread/rt_model.h"
 
 #define BORDER_COLOR 0xafafafff
 #define BACK_COLOR 0x000000ff

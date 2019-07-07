@@ -1,32 +1,32 @@
 
 
-#include "wdwbase.h"
-#include "utils.h"
-#include "cmdcommon.h"
-#include "mathutil.h"
-#include "textureatlas.h"
-#include "sprite_base.h"
-#include "color.h"
+#include "gameComm/wdwbase.h"
+#include <utilitieslib/utils/utils.h>
+#include "cmdparse/cmdcommon.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "graphics/textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include <utilitieslib/utils/Color.h>
 
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiInput.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiInput.h"
 #include "uiColorPicker.h"
 
-#include "uiWindows.h"
-#include "uiChat.h"
-#include "chatClient.h"
-#include "uiChatUtil.h"
-#include "ttFontUtil.h"
-#include "wdwbase.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiInput.h"
-#include "input.h"
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "MessageStoreUtil.h"
+#include "UI/uiWindows.h"
+#include "UI/uiChat.h"
+#include "gameComm/chatClient.h"
+#include "UI/uiChatUtil.h"
+#include "graphics/ttFontUtil.h"
+#include "gameComm/wdwbase.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiInput.h"
+#include "win/input.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/sprite/sprite_text.h"
+#include "UI/sprite/sprite_font.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
 
 void HSLFromRGB( int iR, int iG, int iB, float *hue, float *sat, float *lum)
 {

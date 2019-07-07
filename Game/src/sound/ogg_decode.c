@@ -1,16 +1,16 @@
 #include <vorbis/vorbisfile.h>
-#include "sound_sys.h"
+#include "sound/sound_sys.h"
 #include "stdlib.h"
 #include "memory.h"
 #include "assert.h"
-#include "timing.h"
-#include "stdtypes.h"
-#include "MemoryPool.h"
-#include "strings_opt.h"
-#include "wininclude.h"
-#include "utils.h"
-#include "file.h"
-#include "win_init.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/components/memorypool.h>
+#include <utilitieslib/utils/strings_opt.h>
+#include <utilitieslib/utils/wininclude.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/file.h>
+#include "win/win_init.h"
 
 typedef struct
 {

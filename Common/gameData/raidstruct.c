@@ -8,7 +8,7 @@
  *
  */
 
-#include "raidstruct.h"
+#include "gameData/raidstruct.h"
 #include <utilitieslib/utils/timing.h>
 #include <stdio.h>
 #include <time.h>

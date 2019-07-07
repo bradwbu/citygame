@@ -3,34 +3,34 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
-#include "wdwbase.h"
+#include "gameComm/wdwbase.h"
 #include "DoorStrings.h"
-#include "utils.h"
+#include <utilitieslib/utils/utils.h>
 
-#include "uiWindows.h"
-#include "uiUtil.h"
-#include "uiUtilGame.h"
-#include "uiScrollbar.h"
+#include "UI/uiWindows.h"
+#include "UI/uiUtil.h"
+#include "UI/uiUtilGame.h"
+#include "UI/uiScrollBar.h"
 #include "uiSMFView.h"
-#include "clientcomm.h"
-#include "entVarUpdate.h"
-#include "textureatlas.h"
-#include "sprite_base.h"
-#include "uiMapSelect.h"
-#include "mathutil.h"
-#include "player.h"
-#include "entPlayer.h"
+#include "clientcomm/clientcomm.h"
+#include "entity/entVarUpdate.h"
+#include "graphics/textureatlas.h"
+#include "UI/sprite/sprite_base.h"
+#include "UI/uiMapSelect.h"
+#include <utilitieslib/utils/mathutil.h>
+#include "player/player.h"
+#include "entity/EntPlayer.h"
 
-#include "smf_main.h"
-#include "entity.h"
-#include "character_base.h"
-#include "supergroup.h"
-#include "entPlayer.h"
-#include "estring.h"
-#include "earray.h"
-#include "sprite_text.h"
-#include "MessageStoreUtil.h"
-#include "cmdgame.h"
+#include "formatter/smf_main.h"
+#include "entity/entity.h"
+#include "entity/character_base.h"
+#include "entity/Supergroup.h"
+#include "entity/EntPlayer.h"
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/components/Earray.h>
+#include "UI/sprite/sprite_text.h"
+#include <utilitieslib/language/MessageStoreUtil.h>
+#include "cmdparse/cmdgame.h"
 #include "LWC.h"
 
 static TextAttribs gTextAttr =

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <utilitieslib/utils/mathutil.h>
-#include "ctri.h"
+#include "gridcoll/ctri.h"
 #include <utilitieslib/utils/mathutil.h>
 #include "tritri_isectline.h"
 

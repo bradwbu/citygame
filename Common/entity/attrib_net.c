@@ -6,8 +6,8 @@
 #include <stddef.h>   // for offsetof
 #include <utilitieslib/utils/textparser.h>
 #include "character_attribs.h"
-#include "character_base.h"
-#include "attrib_net.h"
+#include "entity/character_base.h"
+#include "entity/attrib_net.h"
 
 extern TokenizerParseInfo ParseCharacterAttributes[]; // in character_attribs.h
 
