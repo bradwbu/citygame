@@ -1,6 +1,6 @@
 # Project: Ouroboros
 
-[![Build Status](https://dev.azure.com/OuroDev/Source/_apis/build/status/Volume%202%20Source?branchName=develop)]()
+![Build Status](https://dev.azure.com/OuroDev/Source/_apis/build/status/Volume%202%20Source?branchName=develop)
 
 ## Prerequisite Software
 
@@ -41,4 +41,6 @@ Navigate to the `bin/` directory.
 
 Once all the services are up you should be able to connect using `Ouroboros.exe`. Keep an eye on things using ServerMonitor.
 
-And most importantly, defer to [the wiki](https://wiki.ourodev.com) or our <a href="https://wiki.ourodev.com/OuroDev_Discord"><img style="vertical-align:middle" src="https://discordapp.com/assets/fc0b01fe10a0b8c602fb0106d8189d9b.png" alt="Discord" height="30px" /></a> for help :)
+And most importantly, defer to [the wiki](https://wiki.ourodev.com) if you need in-depth instructions :)
+
+<a href="https://wiki.ourodev.com/OuroDev_Discord"><img style="vertical-align:middle" src="https://discordapp.com/assets/fc0b01fe10a0b8c602fb0106d8189d9b.png" alt="Discord" height="30px" /></a>
