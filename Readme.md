@@ -19,10 +19,6 @@ Skip to #2 if you use this option.
 ## 1) Building from Source
 
 - Open `build/vs2019/master.sln`. Build against your chosen target platform and configuration.
-- Copy `*/bin/{Platform}/{Configuration}/*.exe` to `bin/`.
-- Rename `bin/Game.exe` to `bin/Ouroboros.exe`.
-- Copy `Assets/ConfigFiles/*` to `bin/`.
-- Extract `data-v2i1.1.7z` and `piggs-v2i1.1.7z` to `bin/`.
 
 ## 2) Setting up SQL Server
 
@@ -34,6 +30,8 @@ Skip to #2 if you use this option.
 ## 3) Running the Servers
 
 Navigate to the `bin/` directory.
+- Copy `Assets/ConfigFiles/*` here.
+- Extract `data-v2i1.1.7z` and `piggs-v2i1.1.7z` here.
 - Edit all server configuration files in `data/server/db/`. You should update any SqlLogin entries and define any server-specific variables you wish to use
 - If using an AuthServer, run `AuthServer.exe`
 - Run `DBServer.exe -startall`.
