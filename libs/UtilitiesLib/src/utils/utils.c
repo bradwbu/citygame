@@ -457,6 +457,10 @@ void newConsoleWindow()
         fixStdio(0, STD_INPUT_HANDLE);
         fixStdio(1, STD_OUTPUT_HANDLE);
         fixStdio(2, STD_ERROR_HANDLE);
+
+        freopen("CONIN$", "r", stdin);
+        freopen("CONOUT$", "w", stdout);
+        freopen("CONOUT$", "w", stderr);
     }
 
     setvbuf( stdout, NULL, _IONBF, 0 );
