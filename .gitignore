@@ -39,12 +39,9 @@ AutoGen/
 logs/
 .moc/
 
-bin/*.exe
-
+bin/
 x86/
 x64/
 
 .vscode
 *.dsn
-
-bin/GlobalAuthError.txt
