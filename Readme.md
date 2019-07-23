@@ -33,6 +33,7 @@ Navigate to the `bin/` directory.
 - Copy `Assets/ConfigFiles/*` here.
 - Extract `data-v2i1.1.7z` and `piggs-v2i1.1.7z` here.
 - Edit all server configuration files in `data/server/db/`. You should update any SqlLogin entries and define any server-specific variables you wish to use
+- Run `MapServer.exe -productionmode -templates`
 - If using an AuthServer, run `AuthServer.exe`
 - Run `DBServer.exe -startall`.
 - Run `Launcher.exe`.
