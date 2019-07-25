@@ -14,6 +14,8 @@
 #include "WantedSocket.h"
 #include "IPList.h"
 
+#include <tchar.h>
+
 #define BUTTON_WIDTH    160
 
 #define RELOAD_BUTTON_ID    1
@@ -204,9 +206,9 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     tmpFlag |= _CRTDBG_LEAK_CHECK_DF;
     _CrtSetDbgFlag(tmpFlag);
 #endif
-    HWND prevHwnd = FindWindow(NULL, L"AuthServer");
+    HWND prevHwnd = FindWindow(NULL, _T("AuthServer"));
     if ( prevHwnd != NULL ){
-        MessageBox(NULL, L"An instance of Authserver is already running.", L"Error", MB_ICONERROR | MB_OK );
+        MessageBox(NULL, _T("An instance of Authserver is already running."), _T("Error"), MB_ICONERROR | MB_OK );
         exit(0);
     }
     
@@ -231,7 +233,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     wcx.hCursor = LoadCursor(NULL, IDC_ARROW);
     wcx.hbrBackground = (HBRUSH) NULL;
     wcx.lpszMenuName = NULL;
-    wcx.lpszClassName = L"AuthServer";
+    wcx.lpszClassName = _T("AuthServer");
     wcx.hIconSm = NULL;
     ATOM windowClass = RegisterClassEx(&wcx);
     g_instance = hInstance;
@@ -246,19 +248,19 @@ exception_init();
         return 0;
     }
 
-    mainWnd = CreateWindowEx(0, (LPCWSTR)windowClass, L"AuthServer", WS_OVERLAPPEDWINDOW,
+    mainWnd = CreateWindowEx(0, (LPCTSTR)windowClass, _T("AuthServer"), WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, 0, 860, 440, NULL, NULL, hInstance, NULL);
 
-    logWnd = CreateWindowEx(WS_EX_CLIENTEDGE, (LPCWSTR)windowClass, L"", WS_CHILD, 0, 30, 640, 720,
+    logWnd = CreateWindowEx(WS_EX_CLIENTEDGE, (LPCTSTR)windowClass, _T(""), WS_CHILD, 0, 30, 640, 720,
         mainWnd, NULL, hInstance, NULL);
 
-    reporterWnd = CreateWindowEx(WS_EX_CLIENTEDGE, (LPCWSTR)windowClass, L"", WS_CHILD, 0, 0, 640, 30,
+    reporterWnd = CreateWindowEx(WS_EX_CLIENTEDGE, (LPCTSTR)windowClass, _T(""), WS_CHILD, 0, 0, 640, 30,
         mainWnd, NULL, hInstance, NULL);
 
-    reloadServerButtonWnd = CreateWindowEx(0, L"BUTTON", L"Reload Server List", WS_CHILD|BS_PUSHBUTTON, 600, 0, 40, 30, mainWnd,
+    reloadServerButtonWnd = CreateWindowEx(0, _T("BUTTON"), _T("Reload Server List"), WS_CHILD|BS_PUSHBUTTON, 600, 0, 40, 30, mainWnd,
         (HMENU)RELOAD_BUTTON_ID, hInstance, NULL);
 
-    verboseLoggingButtonWnd = CreateWindowEx(0, L"BUTTON", L"Logging Level", WS_CHILD|BS_PUSHBUTTON, 600, 0, 40, 30, mainWnd,
+    verboseLoggingButtonWnd = CreateWindowEx(0, _T("BUTTON"), _T("Logging Level"), WS_CHILD|BS_PUSHBUTTON, 600, 0, 40, 30, mainWnd,
         (HMENU)LOGLEVEL_BUTTON_ID, hInstance, NULL);
         
     logger.SetWnd( logWnd );
