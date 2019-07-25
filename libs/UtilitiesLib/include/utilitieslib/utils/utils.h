@@ -8,6 +8,9 @@
 
 C_DECLARATIONS_BEGIN
 
+// Defined here so any software that depends on UtilitiesLib will include the networking library implicitly
+#pragma comment(lib, "Ws2_32.lib")
+
 typedef struct _CHAR_INFO CHAR_INFO;
 typedef struct _COORD COORD;
 
