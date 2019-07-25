@@ -496,8 +496,8 @@ int authLogin(char *name,char *password)
         Strncpyt(auth_info.servers[0].name,game_state.cs_address);
         return 1;
     }
-    loadstart_printf("Auth:Connecting to %s:%d (TCP)... ",game_state.auth_address,2106);
-    ret = authConnect(game_state.auth_address,2106);
+    loadstart_printf("Auth:Connecting to %s:%d (TCP)... ", game_state.auth_address, AUTH_SERVER_PORT);
+    ret = authConnect(game_state.auth_address, AUTH_SERVER_PORT);
     if (!ret)
     {
         loadend_printf("failed");
