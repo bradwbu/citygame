@@ -190,7 +190,7 @@
     <ClCompile Include="..\..\src\Account.cpp" />
     <ClCompile Include="..\..\src\AccountDB.cpp" />
     <ClCompile Include="..\..\src\Blowfish.cpp" />
-    <ClCompile Include="..\..\src\buildn.cpp" />
+    <ClCompile Include="..\..\src\buildVersion.cpp" />
     <ClCompile Include="..\..\src\Config.cpp" />
     <ClCompile Include="..\..\src\CSocketInt.cpp" />
     <ClCompile Include="..\..\src\CSocketServer.cpp" />
@@ -225,7 +225,6 @@
     <ClInclude Include="..\..\src\AccountDB.h" />
     <ClInclude Include="..\..\src\AuthType.h" />
     <ClInclude Include="..\..\src\Blowfish.h" />
-    <ClInclude Include="..\..\src\buildn.h" />
     <ClInclude Include="..\..\src\Config.h" />
     <ClInclude Include="..\..\src\DBConn.h" />
     <ClInclude Include="..\..\src\Des.h" />

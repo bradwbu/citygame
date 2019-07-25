@@ -335,43 +335,48 @@ exception_init();
             break;
         }
         // write the major loaded config environment
-        logger.AddLog(LOG_VERBOSE,   "LOADED Config");
-        ShowLoggingLevel();
-        logger.AddLog(LOG_DEBUG, "WorldPort:%d",        config.worldPort );
-        logger.AddLog(LOG_DEBUG, "ServerPort:%d",    config.serverPort );
-        logger.AddLog(LOG_DEBUG, "ServerIntPort:%d", config.serverIntPort );
-        logger.AddLog(LOG_DEBUG, "ServerExPort:%d",    config.serverExPort );
-        logger.AddLog(LOG_DEBUG, "Protocol Version:%d", config.ProtocolVer );
-        logger.AddLog(LOG_DEBUG, "Log Directory:%s", config.logDirectory );
-        logger.AddLog(LOG_DEBUG, "DBConnectionNum:%d,GameID:%d", config.numDBConn, config.gameId );
-        logger.AddLog(LOG_DEBUG, "ServerThread:%d", config.numServerThread );
+		logger.AddLog(LOG_VERBOSE, "Loaded configuration file");
+		ShowLoggingLevel();
+		logger.AddLog(LOG_DEBUG, "WorldPort: %d", config.worldPort);
+		logger.AddLog(LOG_DEBUG, "ServerPort: %d", config.serverPort);
+		logger.AddLog(LOG_DEBUG, "ServerIntPort: %d", config.serverIntPort);
+		logger.AddLog(LOG_DEBUG, "ServerExPort: %d", config.serverExPort);
+		logger.AddLog(LOG_DEBUG, "Protocol Version: %d", config.ProtocolVer);
+		logger.AddLog(LOG_DEBUG, "Log Directory: %s", config.logDirectory);
+		logger.AddLog(LOG_DEBUG, "DBConnectionNum: %d, GameID: %d", config.numDBConn, config.gameId);
+		logger.AddLog(LOG_DEBUG, "ServerThread: %d", config.numServerThread);
 
-        if ( config.encrypt )
-            logger.AddLog(LOG_DEBUG, "Encrypt:True" );
-        else
-            logger.AddLog(LOG_DEBUG, "Encrypt:False" );
+		if (config.encrypt) {
+			logger.AddLog(LOG_DEBUG, "Encrypt: True");
+		} else {
+			logger.AddLog(LOG_DEBUG, "Encrypt: False");
+		}
 
-        if ( config.DesApply )
-            logger.AddLog(LOG_DEBUG, "DesApply:True" );
-        else
-            logger.AddLog(LOG_DEBUG, "DesApply:False" );
+		if (config.DesApply) {
+			logger.AddLog(LOG_DEBUG, "DesApply: True");
+		} else {
+			logger.AddLog(LOG_DEBUG, "DesApply: False");
+		}
 
-        if ( config.OneTimeLogOut )
-            logger.AddLog(LOG_DEBUG, "OneTimeLogOut:True" );
-        else
-            logger.AddLog(LOG_DEBUG, "OneTimeLogOut:False" );
-        if ( config.RestrictGMIP )
-            logger.AddLog(LOG_DEBUG, "RestrictGMIP:True" );
-        else
-            logger.AddLog(LOG_DEBUG, "RestrictGMIP:False" );
+		if (config.OneTimeLogOut) {
+			logger.AddLog(LOG_DEBUG, "OneTimeLogOut: True");
+		} else {
+			logger.AddLog(LOG_DEBUG, "OneTimeLogOut: False");
+		}
 
-        logger.AddLog(LOG_DEBUG, "GMIP:%d.%d.%d.%d", 
-                                config.GMIP.S_un.S_un_b.s_b1, 
-                                config.GMIP.S_un.S_un_b.s_b2, 
-                                config.GMIP.S_un.S_un_b.s_b3, 
-                                config.GMIP.S_un.S_un_b.s_b4 );
-        logger.AddLog(LOG_DEBUG, "logdPort:%d, logdReconnectInterval:%d", config.LogDPort, config.LogDReconnectInterval );
-        logger.AddLog(LOG_NORMAL, "BuildNumber : %d", buildNumber );
+		if (config.RestrictGMIP) {
+			logger.AddLog(LOG_DEBUG, "RestrictGMIP: True");
+		} else {
+			logger.AddLog(LOG_DEBUG, "RestrictGMIP: False");
+		}
+
+		logger.AddLog(LOG_DEBUG, "GMIP: %d.%d.%d.%d",
+			config.GMIP.S_un.S_un_b.s_b1,
+			config.GMIP.S_un.S_un_b.s_b2,
+			config.GMIP.S_un.S_un_b.s_b3,
+			config.GMIP.S_un.S_un_b.s_b4);
+		logger.AddLog(LOG_DEBUG, "logdPort: %d, logdReconnectInterval: %d", config.LogDPort, config.LogDReconnectInterval);
+		logger.AddLog(LOG_NORMAL, "Git Commit Hash: %s", buildVersion);
         if ( config.AcceptCallNum == 0 ){
             logger.AddLog(LOG_ERROR, "AcceptCallNull" );
             config.AcceptCallNum = 1;
