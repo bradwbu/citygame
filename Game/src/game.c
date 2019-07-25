@@ -201,7 +201,7 @@ void parseArgs(int argc,char **argv)
         }
         //printf("%s\n",buf);
         if (!cmdParse(buf)) {
-            winMsgAlert(textStd("CommandLineErr", buf));
+            //winMsgAlert(textStd("CommandLineErr", buf));
         }
     }
     cmdAccessOverride(0);
@@ -1656,6 +1656,7 @@ void game_beforeParseArgs(int doLogging)
 
     // @todo ab: this should be enabled at some point, if it is safe.
 	//setlocale(LC_CTYPE,"");
+	writeConsole(OUTPUT_DEBUG, "Loading message stores");
 	if (game_state.create_bins) {
 		reloadClientMessageStores(LOCALE_ID_ENGLISH);
 	} else {

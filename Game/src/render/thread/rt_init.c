@@ -133,7 +133,7 @@ bool extInitCheck(const char *extension, bool windows_extension)
 
 void extInitFail(char *extension)
 {
-	writeConsole(OUTPUT_ERROR, "Your video driver is missing support for %s", extension);
+	writeConsole(OUTPUT_VERBOSE, "Your video driver is missing support for %s", extension);
 }
 
 void rebuildCachedShadersCallbackDirect(const char* relpath)

@@ -1372,7 +1372,7 @@ void rdrSetChipOptions()
     //Warn if the chip is just bad  ////////////////////////////////////////////
     if ( 0 == rdr_caps.chip || failure )
     {
-		writeConsole(OUTPUT_ERROR, "Your video driver is missing support for some extensions. Bailing");
+		writeConsole(OUTPUT_ERROR, "Your video driver is missing support for required extensions. Bailing");
         
         // Make sure this pop-up is not ignored
         if (!isGuiDisabled())
