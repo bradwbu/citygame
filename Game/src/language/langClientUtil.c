@@ -10,6 +10,7 @@
 #include <utilitieslib/components/Earray.h>
 #include "auth/authUserData.h"
 #include <utilitieslib/utils/osdependent.h>
+#include <utilitieslib/utils/utils.h>
 
 MessageStore* cmdMessages;
 MessageStore* texWordsMessages;
@@ -121,23 +122,40 @@ void reloadClientMessageStores(int localeID)
 
     push_estr(ppchTexWordsFiles,"textureWords.ms");        eaPush(&ppchTexWordsFiles,NULL);
     push_estr(ppchTexWordsFiles,"v_textureWords.ms");    eaPush(&ppchTexWordsFiles,NULL);
-    eaPush(&ppchTexWordsFiles,NULL);
 
     push_estr(ppchLoadingTipFiles,"loadingTips.ms");        eaPush(&ppchLoadingTipFiles,NULL);
-    eaPush(&ppchLoadingTipFiles,NULL);
 
     estr_print(pchCmdMessageFile,"cmdMessagesClient.ms");
 
+	writeConsole(OUTPUT_VERBOSE, "Loading message stores");
 
     // do the actual loading
     LoadMessageStore(&menuMessages,ppchMessageFiles,ppchMessageDirs,localeID,idPrepend,"clientmessages",NULL,flags);
     installCustomMessageStoreHandlers(menuMessages);
+	int i;
+	for (i = 0; i < sizeof(ppchMessageFiles); ++i) {
+		if (ppchMessageFiles[i]) {
+			writeConsole(OUTPUT_DEBUG, "\t%s", ppchMessageFiles[i]);
+		}
+	}
+	for (i = 0; i < sizeof(ppchMessageDirs); ++i) {
+		if (ppchMessageDirs[i]) {
+			writeConsole(OUTPUT_DEBUG, "\t%s\\", ppchMessageDirs[i]);
+		}
+	}
 
     LoadMessageStore(&texWordsMessages,ppchTexWordsFiles,NULL,localeID,idPrepend,NULL,NULL,MSLOAD_EXTENDED);
+	for (i = 0; i < sizeof(ppchTexWordsFiles); ++i) {
+		if (ppchTexWordsFiles[i]) {
+			writeConsole(OUTPUT_DEBUG, "\t%s", ppchTexWordsFiles[i]);
+		}
+	}
+
     LoadMessageStore(&loadingTipMessages,ppchLoadingTipFiles,NULL,localeID,idPrepend,"loadingtipmessages",NULL,flags);
+	writeConsole(OUTPUT_DEBUG, "\t%s", ppchLoadingTipFiles[0]);
 
     msCreateCmdMessageStore(pchCmdMessageFile,localeID);
-
+	writeConsole(OUTPUT_DEBUG, "\t%s", pchCmdMessageFile);
 
     // cleanup
     eaDestroyEx(&ppchMessageFiles,estrDestroyUnsafe);

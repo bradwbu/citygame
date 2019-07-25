@@ -203,15 +203,15 @@ static void windowPostInit(void)
     // and to the caps to aid in resolving configuration problems.
     // These are also recorded in the database with the users configuration information
     s = glGetString(GL_VENDOR);
-    printf("OpenGL vendor string: %s\n", s);
+    //printf("OpenGL vendor string: %s\n", s);
     strncpy_s(rdr_caps.gl_vendor, sizeof(rdr_caps.gl_vendor), s, _TRUNCATE );
 
     s = glGetString(GL_RENDERER);
-    printf("OpenGL renderer string: %s\n", s);
+    //printf("OpenGL renderer string: %s\n", s);
     strncpy_s(rdr_caps.gl_renderer, sizeof(rdr_caps.gl_renderer), s, _TRUNCATE );
 
     s = glGetString(GL_VERSION);
-    printf("OpenGL version string: %s\n", s);
+    //printf("OpenGL version string: %s\n", s);
     strncpy_s(rdr_caps.gl_version, sizeof(rdr_caps.gl_version), s, _TRUNCATE );
 
     // create ids for use by graphfps

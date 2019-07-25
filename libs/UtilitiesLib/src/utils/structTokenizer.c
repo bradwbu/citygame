@@ -112,7 +112,7 @@ static TokenizerContext* OpenTokenFile(const char* filename)
     ret->contextisstring = 0;
     if (!ret->handle)
     {
-        verbose_printf("Tokenizer: couldn't open %s\n", filename);
+        writeConsole(OUTPUT_VERBOSE, "Tokenizer: couldn't open %s\n", filename);
         memFree(ret);
         return NULL;
     }
