@@ -1919,8 +1919,6 @@ static void texDoThreadedQueuedTextureLoading( void )
     int pixelsStart=texWordGetTotalPixels();
     int count = 0;
 
-    loadstart_printf("loading textures..");
-
     // JE: Cannot sort trivially, as the TexWords system may have queued up dependencies to be
     //   loaded before doing compositing (could make a seperate queue for compositing after all
     //   textures are loaded)
@@ -1933,10 +1931,11 @@ static void texDoThreadedQueuedTextureLoading( void )
 
     // find end
     for (pkg = queuedTexLoads; pkg && ++count && pkg->next; pkg = pkg->next);
+
+	writeConsole(OUTPUT_DEBUG, "Loading %i textures", count);
     
-    printf("loading %d textures\n", count);
-    
-    for( ; pkg ; pkg = prevPkg, count-- )
+	int i = count;
+    for( ; pkg ; pkg = prevPkg, i-- )
     {
         bool addToFinalList=true;
         prevPkg = pkg->prev;
@@ -1965,9 +1964,9 @@ static void texDoThreadedQueuedTextureLoading( void )
         texCheckThreadLoader();
     }
     
-    assert(!queuedTexLoads && !count);
+    assert(!queuedTexLoads && !i);
 
-    loadend_printf(" (%.3f Mbytes %.3f TexWord MPixels)", totaldata / 1000000.f, (texWordGetTotalPixels()-pixelsStart)/1000000.f);
+    writeConsole(OUTPUT_INFO, "Loaded %i textures (%.3f Mbytes %.3f TexWord MPixels)", count, totaldata / 1000000.0f, (texWordGetTotalPixels() - pixelsStart) / 1000000.0f);
 };
 
 long texLoadsPending(int include_misc)

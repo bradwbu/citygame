@@ -1548,7 +1548,7 @@ void game_beforeFolderCacheIgnore(int timer, int argc, char **argv)
 
     windowInit();
 	writeConsole(OUTPUT_INFO, "Project: Ouroboros");
-	writeConsole(OUTPUT_VERBOSE, "Git Commit Hash: %s", build_version);
+	writeConsole(OUTPUT_INFO, "Git Commit Hash: %s", build_version);
     writeConsole(OUTPUT_INFO, "Running %s", argv[0]);
 
     acquireCountMutex();
@@ -2144,7 +2144,7 @@ void game_beforeLoop(int isCostumeCreator, int timer)
 
     server_visible_state.timestepscale = 1;
 
-	writeConsole(OUTPUT_INFO, "Loaded! Client should be at menu now");
+	writeConsole(OUTPUT_INFO, "Loaded all data!");
 
     if (!isCostumeCreator)
         windows_initDefaults(0);
@@ -2310,13 +2310,9 @@ int game_mainLoop(int timer)
         {
             static bool b=false;
             if (!b) {
-                char buf[1024];
-                //FILE *f;
+                /* char buf[1024];
                 sprintf(buf, "Time to load game and get into a map: %1.3gs\n", timerElapsed(timer));
-                printf("%s", buf);
-                //f=fopen("C:\\jimb.txt", "a");
-                //fprintf(f, "%s", buf);
-                //fclose(f);
+                printf("%s", buf); */
                 timerFree(timer);
                 b=true;
             }
