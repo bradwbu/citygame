@@ -6,11 +6,10 @@
 #include <crtdbg.h>
 #include <stdio.h>
 #include <time.h>
-#include <wininclude.h>
-
-#include "file.h"
-#include "StashTable.h"
-#include "Stackdump.h"        // for sdDumpStackToBuffer used by optional text output
+#include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/file.h"
+#include "utilitieslib/components/StashTable.h"
+#include "utilitieslib/utils/Stackdump.h"      // for sdDumpStackToBuffer used by optional text output
   
 #define TIGHT_CRTDBG_INTEGRATION 0
 

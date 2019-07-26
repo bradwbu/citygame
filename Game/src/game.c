@@ -2114,8 +2114,6 @@ void checkForStartupExec()
 
 void game_beforeLoop(int isCostumeCreator, int timer)
 {
-    int i;
-
     showBgReset();
 
     if (!isCostumeCreator)

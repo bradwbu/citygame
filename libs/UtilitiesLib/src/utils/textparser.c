@@ -2512,7 +2512,7 @@ bool ParserLoadFiles(const char* dir, const char* filemask, const char* persistf
         if (persistfile && !(flags & PARSER_OPTIONALFLAG)) {
             Errorf("ParserLoadFiles: couldn't find any files while creating %s", persistfile);
         } else {
-            writeConsole(OUTPUT_VERBOSE, "ParserLoadFiles: couldn't find any files");
+            writeConsole(OUTPUT_VERBOSE, "ParserLoadFiles: couldn't find any files in directory %s", dir);
         }
     }
     if (persistfile)

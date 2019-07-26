@@ -10,6 +10,7 @@
 #include "utilitieslib/components/SharedHeap.h"
 #include "utilitieslib/components/SharedMemory.h"
 #include "utilitieslib/utils/wininclude.h"
+#include "utilitieslib/utils/memcheck.h"
 
 //#define STASH_TABLE_TRACK
 #pragma warning(push)

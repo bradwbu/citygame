@@ -12,6 +12,9 @@
 
 
 #if MEMTRACK_BUILD
+
+#include "../stdtypes.h"
+
 void memtrack_init(void);
 bool memtrack_enabled(void);
 
