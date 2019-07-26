@@ -8,6 +8,7 @@
 #include "logserver.h"
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/log.h>
+#include <utilitieslib/utils/utils.h>
 #include "dbdispatch.h"
 
 extern NetLinkList    log_links;
@@ -235,7 +236,7 @@ void shardChatMonitor()
 			int connectResult = netConnectAsync(&shard_comm, server_cfg.chat_server, DEFAULT_CHATSERVER_PORT, NLT_TCP, 1);
 			if (connectResult != 1)
 			{
-				printf("Can't start connecting to chatserver - make sure it's running\n");
+				writeConsole(OUTPUT_WARNING, "Can't start connecting to chatserver - make sure it's running\n");
 			}
 			return;
 		}
@@ -244,13 +245,14 @@ void shardChatMonitor()
 		switch (result)
 		{
 		case -1: // Error; fall through
-			printf("Can't connect to chatserver - make sure it's running\n");
+			writeConsole(OUTPUT_WARNING, "Can't connect to chatserver - make sure it's running\n");
 			return;
 		case 0: // Still trying
 			return;
 		}
 
 		// Success
+		writeConsole(OUTPUT_INFO, "Successfully connected to chatserver!\n");
 		if (server_cfg.shard_name[0])
 		{
 			sprintf(buf, "ShardLogin \"%s\"", server_cfg.shard_name);
