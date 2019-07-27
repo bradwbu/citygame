@@ -552,8 +552,6 @@ static LineDesc badge_monitor_info_line_desc[] =
 {
     {{ PACKTYPE_INT,  SIZE_INT32, "iIdx", OFFSET(BadgeMonitorInfo, iIdx) },
         "Index of the badge"},
-    {{ PACKTYPE_INT,  SIZE_INT32, "iOrder", OFFSET(BadgeMonitorInfo, iOrder) },
-        "Order in the list"},
     { 0 },
 };
 
@@ -562,7 +560,7 @@ StructDesc badgeMonitor_desc[] =
     sizeof(BadgeMonitorInfo),
     {AT_STRUCT_ARRAY,OFFSET2_PTR(Entity, pl, EntPlayer, badgeMonitorInfo) },
     badge_monitor_info_line_desc,
-    "The badge monitor info is a list of pairs of badge indices and position"
+    "The badge monitor info is a list of badge indices"
     "in the display list for that badge's progress bar<br>"
     "Characters can have 0 to 10 of these."
 };
