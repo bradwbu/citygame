@@ -485,70 +485,65 @@ void msgAlert(HWND hwnd, char *str)
     DialogBoxIndirectParamA(winGetHInstance(), (LPDLGTEMPLATEA)ErrorResource, hwnd, ErrorDlg, (LPARAM)&params);
 }
 
-/**
- * Outputs a character to a bitmap in memory and returns a Windows-compatible icon.
- * This generally appears to be a black square with a colored letter overlaid in the center.
- *
- * @return A `sizeX` * `sizeY` icon in memory.
- *
- * @param letter A Unicode/UTF-16 character (ranges well beyond -127 through 127 for a typical character type) to write to the bitmap.
- * @param colorRGB Font color to use; for a human-readable format this can be sent as a hex number (i.e. 0xFFFFFF).
- * @param sizeX The bitmap width.
- * @param sizeY The bitmap height.
- */
- // TODO: A proper mask that has a transparent background with an outlined `letter` in the center.
+/// TODO: Render the letter with a black outlined font.
+///       Call TextOut twice, one with the font set to FW_HEAVY and another with the font set to FW_NORMAL? How would that look at 16x16 anyways?
+/// TODO: Add a conditional statement to pick between a plain black background or a proper monochromatic mask.
 HICON getIconColoredLetter(wchar_t letter, U32 colorRGB, U32 sizeX, U32 sizeY) {
-    // Check if GUI support is intended, skip wasting the processing power otherwise
+    // Check if GUI support is intended, skip wasting the processing power otherwise.
     if (isGuiDisabled()) {
         return NULL;
     }
 
-    // Create a device context covering compatible with all active monitors.
+    /// Set up our canvas.
+    // Create a device context compatible with all active monitors.
     HDC hDC = CreateDCA("DISPLAY", NULL, NULL, NULL);
-    // Create a device context in memory following the rules from `hDC`. `memDC` stores the equivalent of a 1-bit 1x1 image after this call.
+    // Create a device context in memory following the attributes from `hDC`. `memDC` is essentially a monochromatic 1x1 context until a bitmap is selected into it.
     HDC memDC = CreateCompatibleDC(hDC);
     // Create a bitmap to select the new working area into `memDC`.
     HBITMAP hBitmapColor = CreateCompatibleBitmap(hDC, sizeX, sizeY); // `hDC` must be used, `memDC` does not have the required attributes at this point.
-    // We can de-reference `hDC` now, all work is done in memory now (via `memDC`).
+    // We can de-reference `hDC` now, all work is done via `memDC` now.
     DeleteDC(hDC);
-    // Set `memDC`'s working area.
+    // Set `memDC`'s working area to `sizeX` * `sizeY`.
     SelectObject(memDC, hBitmapColor);
 
+    /// Write to our canvas.
     // Find the nearest compatible font based on these attributes.
-    HFONT hFont = CreateFontW(sizeY, 0, 0, 0, FW_ULTRABOLD, FALSE, FALSE, FALSE, ANSI_CHARSET,
+    HFONT hFont = CreateFontW(sizeY, 0, 0, 0, FW_HEAVY, FALSE, FALSE, FALSE, ANSI_CHARSET,
         OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_NATURAL_QUALITY, VARIABLE_PITCH, L"Segoe UI");
     // Set `memDC`'s default font.
     SelectObject(memDC, hFont);
+    // Apply `colorRGB` before writing `letter` to `memDC`.
+    SetTextColor(memDC, RGB((colorRGB >> 16) & 0xFF, (colorRGB >> 8) & 0xFF, colorRGB & 0xFF)); // `colorRGB` would be read as BGR without this conversion.
+    // Explicitly say to leave the background untouched before any draw operations.
+    SetBkMode(memDC, TRANSPARENT);
     // Get the size of `letter` so it can be positioned in the center.
     SIZE size = { 0 };
     GetTextExtentPoint32W(memDC, &letter, 1, &size);
-    // Explicitly say to leave the background untouched before any draw operations.
-    SetBkMode(memDC, TRANSPARENT);
-    // Apply `colorRGB` before writing `letter` to `memDC`.
-    SetTextColor(memDC, RGB((colorRGB >> 16) & 0xFF, (colorRGB >> 8) & 0xFF, colorRGB & 0xFF)); // `colorRGB` would be read as BGR without this conversion
     // Write `letter` to the center of the working area.
     TextOutW(memDC, (sizeX / 2) - (size.cx / 2), (sizeY / 2) - (size.cy / 2), &letter, 1);
-    // We no longer need the font, let's free a little working memory.
+    // We no longer need the font, let's free a little memory.
     DeleteObject(hFont);
     // Same with `memDC`. `hBitmapColor` stores all of our work that was just done.
     DeleteDC(memDC);
 
-    // Set up the default icon structure
+    /// Generate an icon based on our canvas' data.
+    // Set up the internal icon structure.
     ICONINFO info = { 0 };
-    info.fIcon = TRUE; // This means our ICONINFO structure describes an icon, not a cursor
-    U32 *buffer = calloc(sizeX * sizeY, sizeof(U32)); // The stack isn't large enough, allocate on the heap
-    // Create a monochromatic bitmap mask
-    HBITMAP hBitmapMask = CreateBitmap(sizeX, sizeY, 4, 8, buffer);
-    free(buffer); // We're guests. Might as well clean up after ourselves.
-    if (!hBitmapMask) {
-        // CreateBitmap seems to be a little inconsistent during my tests. Recursively return the function until a working icon can be returned.
-        return getIconColoredLetter(letter, colorRGB, sizeX, sizeY);
+    info.fIcon = TRUE; // This means our ICONINFO structure describes an icon, not a cursor.
+    U32 *buffer = calloc(sizeX * sizeY, sizeof(U32)); // The stack potentially isn't large enough, allocate on the heap.
+    // Create a monochromatic bitmap mask.
+    HBITMAP hBitmapMask = NULL;
+    while (!hBitmapMask) {
+        // I've seen hBitmapMask fail inconsistently for no good reason.
+        // Calling CreateBitmap in this loop ensures that by the time we go to generate the icon, a valid mask is in place.
+        hBitmapMask = CreateBitmap(sizeX, sizeY, 4, 8, buffer);
     }
+    free(buffer); // We're guests. Might as well clean up after ourselves.
     info.hbmMask = hBitmapMask;
     info.hbmColor = hBitmapColor;
     // It's finally time! Create an icon using our two bitmaps.
     HICON hIcon = CreateIconIndirect(&info);
-    // No longer referencing these bitmaps, return a little more memory to the system before we exit
+    // No longer referencing these bitmaps, return a little more memory to the system before we exit.
     DeleteObject(hBitmapColor);
     DeleteObject(hBitmapMask);
 
@@ -556,12 +551,6 @@ HICON getIconColoredLetter(wchar_t letter, U32 colorRGB, U32 sizeX, U32 sizeY) {
     return hIcon;
 }
 
-/**
- * Generates two icons (16x16 and 64x64) to use during the application's lifetime.
- *
- * @param letter A Unicode/UTF-16 character (ranges well beyond -127 through 127 for a typical character type) to write to the bitmap.
- * @param colorRGB Font color to use; for a human-readable format this can be sent as a hex number (i.e. 0xFFFFFF).
- */
 void setWindowIconColoredLetter(HWND hwnd, wchar_t letter, U32 colorRGB) {
     // This icon is used by various OS interfaces
     HICON hIcon = getIconColoredLetter(letter, colorRGB, 64, 64);
