@@ -901,6 +901,7 @@ int main(int argc,char **argv)
     }
 
     consoleInit(110, 128, 0);
+    setWindowIconColoredLetter(compatibleGetConsoleWindow(), 'C', 0xffff00);
 
     locOverrideIDInRegistryForServersOnly(0);
 
