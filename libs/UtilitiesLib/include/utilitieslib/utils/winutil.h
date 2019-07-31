@@ -19,8 +19,8 @@ void OffsetWindow(HWND hDlg, HWND hWnd, int xdelta, int ydelta);
 void errorDialog(HWND hwnd, char *str, char* title, char* fault, int highlight); // title & fault optional
 void msgAlert(HWND hwnd, char *str);
 
-HICON getIconColoredLetter(char letter, U32 colorRGB);
-void setWindowIconColoredLetter(HWND hwnd, char letter, U32 colorRGB);
+HICON getIconColoredLetter(wchar_t letter, U32 colorRGB, U32 sizeX, U32 sizeY);
+void setWindowIconColoredLetter(HWND hwnd, wchar_t letter, U32 colorRGB);
 char* getIconColoredLetterBytes(int letter, U32 colorRGB); // returns an achr array
 
 void winRegisterMe(const char *command, const char *extension); // Registers the current executable to handle files of the given extension
