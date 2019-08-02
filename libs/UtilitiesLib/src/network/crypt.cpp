@@ -207,7 +207,12 @@ void cryptSHA512Update(const U8 *data, int len)
 void cryptSHA512Final(U64 hash[8])
 {
     // cryptopp now does also transform so no need for endian swap
-    sha512->Final((byte *)hash);
+    sha512->Final((byte*)hash);
+    if (!isBigEndian())
+    {
+        for (int i = 0; i < 8; i++)
+            hash[i] = endianSwapU64(hash[i]);
+    }
 }
 
 HMAC_SHA1_Handle cryptHMAC_SHA1Create( const U8* key, int len )
