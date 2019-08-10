@@ -1062,7 +1062,7 @@ int dbConnect(char *server,int port,int user_id,int cookie,char *auth_name,int n
         Strncpyt(db_info.address, makeIpStr(ipFromString(server)));
         if (db_comm_link.socket)
             netSendDisconnect(&db_comm_link,1);
-        ret = netConnectEx(&db_comm_link,server,port,NLT_UDP,timeout,NULL,1);
+		ret = netConnectEx(&db_comm_link,server,port,NLT_UDP,timeout,NULL,1);
         if (!ret)
         {
             Strncpyt(db_info.error_msg,"CantConnectDbServer");
