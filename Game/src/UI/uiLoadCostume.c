@@ -449,8 +449,10 @@ static int loadCostumeFromFile(char * filename, int *costumeValid, int **badPart
         Costume *costume = &LoadCostumeForParser;
         int i = eaSize(&costume->parts);
         costume->appearance.iNumParts = GetBodyPartCount();
-        while (i < GetBodyPartCount())
-        {
+		// BW - For technical reasons, we need GetBodyPartCount() in appearance->iNumParts, but actually need MAX_COSTUME_PARTS entries in ->parts to pass validation checks later
+        //while (i < GetBodyPartCount())
+		while (i < MAX_COSTUME_PARTS)
+			{
             eaPush(&costume->parts, StructAllocRaw(sizeof(CostumePart)));
             costume_PartSetGeometry(costume, i, NULL);
             costume_PartSetTexture1(costume, i, NULL);
@@ -678,8 +680,23 @@ static void deleteCurrentCostume( void* data )
     if(EAINRANGE(selectedIndex, ppCostumeList) )
     {
         char fname[MAX_PATH];
-        sprintf(fname, "%s/%s.costume", getCustomCostumeDir(), ppCostumeList[selectedIndex]->text );
-        remove(fname);
+        //sprintf(fname, "%s/%s.costume", getCustomCostumeDir(), ppCostumeList[selectedIndex]->text );
+		
+		char* p;		
+		sprintf(fname, "%s/%s", getCustomCostumeDir(), ppCostumeList[selectedIndex]->text);
+		p = strchr(fname, '.');
+		if (p)
+		{
+			// Costume ends in '.', otherwise this can't be here, due to other code
+			*p = 0;
+			sprintf(fname, "%s.costume", fname);
+		}
+		else
+		{
+			sprintf(fname, "%s.v2costume", fname);
+		}
+		
+		remove(fname);
         refreshList = 1;
         selectedIndex = -1;
     }
@@ -688,7 +705,10 @@ static FileScanAction costumeInfoProcessor(char *dir, struct _finddata32_t *data
 {
     char fullpath[MAX_PATH];
     sprintf(fullpath, "%s/%s", dir, data->name);
-    if (simpleMatch("*.costume", fullpath))
+
+	// Standard (new-format) costume
+	//if (simpleMatch("*.costume", fullpath))
+	if (simpleMatch("*.v2costume", fullpath))
     {
         char *name = strdup(data->name);
 
@@ -706,7 +726,29 @@ static FileScanAction costumeInfoProcessor(char *dir, struct _finddata32_t *data
         free(name);
         sprintf(relpath, "/%s", data->name);
     }
-    return FSA_NO_EXPLORE_DIRECTORY;
+	// Legacy (old-format) costume
+	else if (simpleMatch("*.costume", fullpath))
+	{
+		char* name = strdup(data->name);
+		
+		char relpath[MAX_PATH];
+		char* p;
+		
+		p = strrchr(name, '.');
+		assert(p);
+		if (p)
+		{
+			*p = 0;
+		}
+
+		//The . here lets us know this is a .costume not a .v2costume latere
+		sprintf(name, "%s.", name);
+		
+		addCostumeToList(name);
+		free(name);
+		sprintf(relpath, "/%s", data->name);
+	}
+	return FSA_NO_EXPLORE_DIRECTORY;
 }
 
 #define LINK_Z 5000
@@ -857,6 +899,7 @@ void loadCostume_menu()
     if (reloadCostume && selectedIndex >= 0)
     {
         char fname[MAX_PATH];
+		char* p;
 
         //turn off "costume fix" after choosing a new costume
         if (newCostumeClicked)
@@ -865,7 +908,22 @@ void loadCostume_menu()
         }
         loadCost = 0;
         reloadCostume = 0;
-        sprintf(fname, "%s/%s.costume",getCustomCostumeDir(),ppCostumeList[selectedIndex]->text);            
+        //sprintf(fname, "%s/%s.costume",getCustomCostumeDir(),ppCostumeList[selectedIndex]->text);
+
+		// BW: There are two possible filenames here, if it ends in '.' we are a legacy, otherwise we are standard
+		sprintf(fname, "%s/%s", getCustomCostumeDir(), ppCostumeList[selectedIndex]->text);
+		p = strchr(fname, '.');
+		if (p)
+		{
+			// Costume ends in '.', otherwise this can't be here, due to other code
+			*p = 0;
+			sprintf(fname, "%s.costume", fname);
+		}
+		else
+		{
+			sprintf(fname, "%s.v2costume", fname);
+		}
+
         if (fname)
         {
             eaiDestroy(&badColorList);
