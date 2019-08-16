@@ -325,7 +325,7 @@ extern volatile int frames_buffered;
 extern CRITICAL_SECTION frame_check;
 extern HANDLE frame_done_signal;
 
-void    windowUpdateDirect()
+void windowUpdateDirect()
 {
     int framesInProgress = 0;
     U32 curSLI = (rdr_frame_state.curFrame % MAX_FRAMES);
@@ -338,11 +338,6 @@ void    windowUpdateDirect()
         HGLRC curr_glc = wglGetCurrentContext();
         assert(curr_glc == glRC);
     }
-
-    #ifdef USE_NVPERFKIT
-        if (isDevelopmentMode() && rdr_caps.chip & NV2X)
-            NVPerfHeartbeatOGL();
-    #endif
 
     rdrCpuFrameDone();
 

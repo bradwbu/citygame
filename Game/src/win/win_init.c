@@ -64,12 +64,6 @@ void windowReInitDisplayContexts(void);
 
 #define MOUSE_THRESHOLD 10
 
-#ifdef USE_NVPERFKIT
-// To use this, you must compile, and then run NVAppAuth CityOfHeroes.exe, then launch it without the debugger
-#pragma comment(lib, "../glh/nvperfkit/nv_perfauthMT.lib")
-#include "nvperfkit/nv_perfauth.h"
-#endif
-
 HWND            hwnd;
 POINT            initCursorPos;
 
