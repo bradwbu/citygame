@@ -134,15 +134,17 @@ Model * modelFind( const char *name, const char * filename, int load_type, int u
         assert(use_type & GEO_USE_MASK);
         if(!name || !filename || !name[0] || !filename[0] ) //debug
         {
-			char buf[256] = { NULL };
-			sprintf(buf, "Bad geometry request");
-			if (filename) {
-				sprintf(buf, " (Model: '%s')", name);
-			}
-			if (name) {
-				sprintf(buf, " (File: '%s')", filename);
-			}
-			writeConsole(OUTPUT_VERBOSE, "%s", buf);
+            char buf[256] = {0};
+            sprintf(buf, "Bad geometry request");
+            if (filename)
+            {
+                sprintf(buf, " (Model: '%s')", name);
+            }
+            if (name)
+            {
+                sprintf(buf, " (File: '%s')", filename);
+            }
+            writeConsole(OUTPUT_VERBOSE, "%s", buf);
             PERFINFO_AUTO_STOP();
             return 0; 
         }
