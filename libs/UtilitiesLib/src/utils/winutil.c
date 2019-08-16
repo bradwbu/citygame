@@ -530,22 +530,27 @@ HICON getIconColoredLetter(wchar_t letter, U32 colorRGB, U32 sizeX, U32 sizeY) {
     // Set up the internal icon structure.
     ICONINFO info = { 0 };
     info.fIcon = TRUE; // This means our ICONINFO structure describes an icon, not a cursor.
+    info.hbmColor = hBitmapColor;
+
+    HICON hIcon = NULL;
     U32 *buffer = calloc(sizeX * sizeY, sizeof(U32)); // The stack potentially isn't large enough, allocate on the heap.
     // Create a monochromatic bitmap mask.
-    HBITMAP hBitmapMask = NULL;
-    while (!hBitmapMask) {
-        // I've seen hBitmapMask fail inconsistently for no good reason.
+    for (int i = 0; i < 5; ++i)
+    {
+        // I've seen CreateBitmap fail inconsistently for no good reason.
         // Calling CreateBitmap in this loop ensures that by the time we go to generate the icon, a valid mask is in place.
-        hBitmapMask = CreateBitmap(sizeX, sizeY, 4, 8, buffer);
+        info.hbmMask = CreateBitmap(sizeX, sizeY, 4, 8, buffer);
+        if (info.hbmMask != NULL)
+        {
+            // It's finally time! Create an icon using our two bitmaps.
+            hIcon = CreateIconIndirect(&info);
+            DeleteObject(info.hbmMask);
+            break;
+        }
     }
     free(buffer); // We're guests. Might as well clean up after ourselves.
-    info.hbmMask = hBitmapMask;
-    info.hbmColor = hBitmapColor;
-    // It's finally time! Create an icon using our two bitmaps.
-    HICON hIcon = CreateIconIndirect(&info);
     // No longer referencing these bitmaps, return a little more memory to the system before we exit.
     DeleteObject(hBitmapColor);
-    DeleteObject(hBitmapMask);
 
     // By this point `hIcon` is a valid `sizeX` * `sizeY` icon.
     return hIcon;
