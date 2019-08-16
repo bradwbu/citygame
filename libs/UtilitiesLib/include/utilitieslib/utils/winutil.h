@@ -19,8 +19,25 @@ void OffsetWindow(HWND hDlg, HWND hWnd, int xdelta, int ydelta);
 void errorDialog(HWND hwnd, char *str, char* title, char* fault, int highlight); // title & fault optional
 void msgAlert(HWND hwnd, char *str);
 
-HICON getIconColoredLetter(char letter, U32 colorRGB);
-void setWindowIconColoredLetter(HWND hwnd, char letter, U32 colorRGB);
+/* Outputs a character to a bitmap in memory and returns a Windows-compatible icon.
+   This generally appears to be a black square with a colored letter overlaid in the center.
+
+ * @return A pointer to an icon in memory with a resolution of `sizeX` * `sizeY`.
+
+ * @param letter A Unicode/UTF-16 character (ranges well beyond -127 through 127 for a typical character type) to write to the bitmap.
+ * @param colorRGB Font color to use; for a human-readable format this can be sent as a hex number (i.e. 0xFFFFFF).
+ * @param sizeX The bitmap width.
+ * @param sizeY The bitmap height.
+*/
+HICON getIconColoredLetter(wchar_t letter, U32 colorRGB, U32 sizeX, U32 sizeY);
+
+/* Generates two icons (16x16 and 64x64) to use during the application's lifetime.
+
+ * @param letter A Unicode/UTF-16 character (ranges well beyond -127 through 127 for a typical character type) to write to the bitmap.
+ * @param colorRGB Font color to use; for a human-readable format this can be sent as a hex number (i.e. 0xFFFFFF).
+*/
+void setWindowIconColoredLetter(HWND hwnd, wchar_t letter, U32 colorRGB);
+
 char* getIconColoredLetterBytes(int letter, U32 colorRGB); // returns an achr array
 
 void winRegisterMe(const char *command, const char *extension); // Registers the current executable to handle files of the given extension

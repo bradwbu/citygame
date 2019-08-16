@@ -485,108 +485,90 @@ void msgAlert(HWND hwnd, char *str)
     DialogBoxIndirectParamA(winGetHInstance(), (LPDLGTEMPLATEA)ErrorResource, hwnd, ErrorDlg, (LPARAM)&params);
 }
 
-HICON getIconColoredLetter(char letter, U32 colorRGB)
-{
-    HBITMAP hBitmapColor;
-    HBITMAP hBitmapMask;
-    ICONINFO info = {0};
-    U32 buffer[16 * 16];
-    HDC hdc;
-    HICON hIcon;
-
-    if(isGuiDisabled()) return NULL;
-
-    memset(buffer, 0?0:0xff, sizeof(buffer));
-
-    if(0){
-        buffer[0 + 0 * 16] = 0;
-        buffer[0 + 15 * 16] = 0;
-        buffer[15 + 0 * 16] = 0;
-        buffer[15 + 15 * 16] = 0;
+/// TODO: Render the letter with a black outlined font.
+///       Call TextOut twice, one with the font set to FW_HEAVY and another with the font set to FW_NORMAL? How would that look at 16x16 anyways?
+/// TODO: Add a conditional statement to pick between a plain black background or a proper monochromatic mask.
+HICON getIconColoredLetter(wchar_t letter, U32 colorRGB, U32 sizeX, U32 sizeY) {
+    // Check if GUI support is intended, skip wasting the processing power otherwise.
+    if (isGuiDisabled()) {
+        return NULL;
     }
 
-    hBitmapMask = CreateBitmap(16, 16, 4, 8, buffer);
+    /// Set up our canvas.
+    // Create a device context compatible with all active monitors.
+    HDC hDC = CreateDCA("DISPLAY", NULL, NULL, NULL);
+    // Create a device context in memory following the attributes from `hDC`. `memDC` is essentially a monochromatic 1x1 context until a bitmap is selected into it.
+    HDC memDC = CreateCompatibleDC(hDC);
+    // Create a bitmap to select the new working area into `memDC`.
+    HBITMAP hBitmapColor = CreateCompatibleBitmap(hDC, sizeX, sizeY); // `hDC` must be used, `memDC` does not have the required attributes at this point.
+    // We can de-reference `hDC` now, all work is done via `memDC` now.
+    DeleteDC(hDC);
+    // Set `memDC`'s working area to `sizeX` * `sizeY`.
+    SelectObject(memDC, hBitmapColor);
 
-    //assert(hBitmapMask);
+    /// Write to our canvas.
+    // Find the nearest compatible font based on these attributes.
+    HFONT hFont = CreateFontW(sizeY, 0, 0, 0, FW_HEAVY, FALSE, FALSE, FALSE, ANSI_CHARSET,
+        OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_NATURAL_QUALITY, VARIABLE_PITCH, L"Segoe UI");
+    // Set `memDC`'s default font.
+    SelectObject(memDC, hFont);
+    // Apply `colorRGB` before writing `letter` to `memDC`.
+    SetTextColor(memDC, RGB((colorRGB >> 16) & 0xFF, (colorRGB >> 8) & 0xFF, colorRGB & 0xFF)); // `colorRGB` would be read as BGR without this conversion.
+    // Explicitly say to leave the background untouched before any draw operations.
+    SetBkMode(memDC, TRANSPARENT);
+    // Get the size of `letter` so it can be positioned in the center.
+    SIZE size = { 0 };
+    GetTextExtentPoint32W(memDC, &letter, 1, &size);
+    // Write `letter` to the center of the working area.
+    TextOutW(memDC, (sizeX / 2) - (size.cx / 2), (sizeY / 2) - (size.cy / 2), &letter, 1);
+    // We no longer need the font, let's free a little memory.
+    DeleteObject(hFont);
+    // Same with `memDC`. `hBitmapColor` stores all of our work that was just done.
+    DeleteDC(memDC);
 
-    ZeroArray(buffer);
-
-    if(0){
-        int i;
-        for(i = 0; i < ARRAY_SIZE(buffer); i++){
-            buffer[i] = 0x002020;//(rand() % 256) | ((rand() % 256) << 8);
-        }
-
-        hBitmapColor = CreateBitmap(16, 16, 4, 8, buffer);
-    }else{
-        HDC winHDC = CreateDCA("DISPLAY", NULL, NULL, NULL);
-
-        hdc = CreateCompatibleDC(winHDC);
-
-        hBitmapColor = CreateCompatibleBitmap(winHDC, 16, 16);
-
-        DeleteDC(winHDC);
-    }
-
-    SelectObject(hdc, hBitmapColor);
-
-    //Rectangle(hdc, 0, 0, 10, 10);
-
-    {
-        HFONT hFont = NULL;
-        S32 i;
-        S32 curSize = 16;
-        SIZE size = {0};
-
-        while(!hFont && curSize > 5){
-            hFont = CreateFontA(curSize, curSize * 10 / 16, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, ANTIALIASED_QUALITY, DEFAULT_PITCH | FF_SWISS, "Arial");
-            SelectObject(hdc, hFont);
-            GetTextExtentPointA(hdc, &letter, 1, &size);
-            if(curSize > 5 && (size.cx > 15 || size.cy > 15)){
-                DeleteObject(hFont);
-                hFont = NULL;
-                curSize--;
-            }
-        }
-
-        SetBkMode(hdc, TRANSPARENT);
-
-        for(i = 0; i < 9; i++){
-            SetTextColor(hdc, RGB(0, 0, 0));
-            TextOutA(hdc, 8 - size.cx / 2 + (i % 3) - 1, 8 - size.cy / 2 + (i / 3) - 1, &letter, 1);
-        }
-
-        SetTextColor(hdc, RGB((colorRGB >> 16) & 0xff, (colorRGB >> 8) & 0xff, (colorRGB >> 0) & 0xff));
-        TextOutA(hdc, 8 - size.cx / 2, 8 - size.cy / 2, &letter, 1);
-        DeleteObject(hFont);
-    }
-
-    DeleteDC(hdc);
-
-    info.fIcon = TRUE;
+    /// Generate an icon based on our canvas' data.
+    // Set up the internal icon structure.
+    ICONINFO info = { 0 };
+    info.fIcon = TRUE; // This means our ICONINFO structure describes an icon, not a cursor.
     info.hbmColor = hBitmapColor;
-    info.hbmMask = hBitmapMask;
-    info.xHotspot = 0;
-    info.yHotspot = 0;
 
-    hIcon = CreateIconIndirect(&info);
-
+    HICON hIcon = NULL;
+    U32 *buffer = calloc(sizeX * sizeY, sizeof(U32)); // The stack potentially isn't large enough, allocate on the heap.
+    // Create a monochromatic bitmap mask.
+    for (int i = 0; i < 5; ++i)
+    {
+        // I've seen CreateBitmap fail inconsistently for no good reason.
+        // Calling CreateBitmap in this loop ensures that by the time we go to generate the icon, a valid mask is in place.
+        info.hbmMask = CreateBitmap(sizeX, sizeY, 4, 8, buffer);
+        if (info.hbmMask != NULL)
+        {
+            // It's finally time! Create an icon using our two bitmaps.
+            hIcon = CreateIconIndirect(&info);
+            DeleteObject(info.hbmMask);
+            break;
+        }
+    }
+    free(buffer); // We're guests. Might as well clean up after ourselves.
+    // No longer referencing these bitmaps, return a little more memory to the system before we exit.
     DeleteObject(hBitmapColor);
-    DeleteObject(hBitmapMask);
 
+    // By this point `hIcon` is a valid `sizeX` * `sizeY` icon.
     return hIcon;
 }
 
-void setWindowIconColoredLetter(HWND hwnd, char letter, U32 colorRGB)
-{
-    HICON hIcon = getIconColoredLetter(letter, colorRGB);
-
-    if(hIcon){
-        SendMessageA(hwnd, WM_SETICON, (WPARAM)ICON_SMALL, (LPARAM)hIcon);
-        SendMessageA(hwnd, WM_SETICON, (WPARAM)ICON_BIG, (LPARAM)hIcon);
-
+void setWindowIconColoredLetter(HWND hwnd, wchar_t letter, U32 colorRGB) {
+    // This icon is used by various OS interfaces
+    HICON hIcon = getIconColoredLetter(letter, colorRGB, 64, 64);
+    if (hIcon) {
+        SendMessageW(hwnd, WM_SETICON, (WPARAM)ICON_BIG, (LPARAM)hIcon);
         DeleteObject(hIcon);
-        hIcon = NULL;
+    }
+
+    // This icon is used by the application directly and appears in the corner of the console
+    HICON hSmallIcon = getIconColoredLetter(letter, colorRGB, 16, 16);
+    if (hSmallIcon) {
+        SendMessageW(hwnd, WM_SETICON, (WPARAM)ICON_SMALL, (LPARAM)hSmallIcon);
+        DeleteObject(hSmallIcon);
     }
 }
 
@@ -622,7 +604,7 @@ char* getIconColoredLetterBytes(int letter, U32 colorRGB)
     int colorsize, masksize;
 
     HDC hdc = CreateDCA("DISPLAY", NULL, NULL, NULL);
-    HICON icon = getIconColoredLetter(letter, colorRGB);
+    HICON icon = getIconColoredLetter(letter, colorRGB, 16, 16);
     ICONINFO iconinfo;
     GetIconInfo(icon, &iconinfo);
 
