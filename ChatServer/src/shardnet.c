@@ -26,6 +26,8 @@
 #include <utilitieslib/language/AppLocale.h>
 #include "messagefile.h"
 #include <utilitieslib/utils/log.h>
+#include <utilitieslib/utils/winutil.h>
+#include <utilitieslib/utils/sysutil.h>
 #include "chatsqldb.h"
 #include <utilitieslib/utils/textparser.h>
 

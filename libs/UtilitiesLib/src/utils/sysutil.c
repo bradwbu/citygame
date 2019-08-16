@@ -260,32 +260,29 @@ const char *winCopyFromClipboard(void) // Returns pointer to static buffer
 static HWND hwnd=NULL;
 HWND compatibleGetConsoleWindow(void)
 {
-    if(isGuiDisabled() || IsUsingCider()) return NULL;
+    if (isGuiDisabled() || IsUsingCider())
+    {
+        return NULL;
+    }
 
-    if (!hwnd) {
-        typedef HWND (WINAPI *tGetConsoleWindow)(void);
-        tGetConsoleWindow pGetConsoleWindow = NULL;
-        HINSTANCE hKernel32Dll = LoadLibraryA( "kernel32.dll" );
-        if (hKernel32Dll)
+    if (hwnd == NULL)
+    {
+        hwnd = GetConsoleWindow();
+
+        if (hwnd == NULL) // Try manual way
         {
-            pGetConsoleWindow = (tGetConsoleWindow) GetProcAddress(hKernel32Dll, "GetConsoleWindow");
-            
-            // This FreeLibrary is okay, since if kernel32.dll exists, then its dynamically linked refcount is > 1 (I think).
-            
-            FreeLibrary(hKernel32Dll);
-        }
-        if (pGetConsoleWindow) {
-            hwnd = pGetConsoleWindow();
-        }
-        if (!hwnd) { // Try manual way
-            char buf[1024], buf2[1024];
+            char buf[1024];
+            char buf2[1024];
             int tries=6;
             sprintf_s(SAFESTR(buf), "TempConsoleTitle: %d", _getpid());
             GetConsoleTitleA(buf2, ARRAY_SIZE(buf2)-1);
             SetConsoleTitleA(buf);
-            while (hwnd==NULL && tries) {
+
+            while (hwnd == NULL && tries) 
+            {
                 hwnd = FindWindowA(NULL, buf);
-                if (!hwnd && tries == 1) {
+                if (hwnd == NULL && tries == 1)
+                {
                     printf("Warning: couldn't find window named %s\n", buf);
                     Sleep(100);
                 }
