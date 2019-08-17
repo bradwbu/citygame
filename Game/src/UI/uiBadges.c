@@ -22,6 +22,7 @@
 #include "UI/uiGame.h"
 #include "UI/sprite/sprite_base.h"
 #include "UI/sprite/sprite_text.h"
+#include "UI/uiClipper.h"
 #include "player/player.h"
 #include "cmdparse/cmdgame.h"
 
@@ -49,9 +50,11 @@
 #include "UI/uiPopHelp.h"
 #include "clientcomm/clientcomm.h"
 #include "player/inventory_client.h"
+#include "graphics/ttFontUtil.h"
 
-#define FORCE_OPACITY        0xE6
-#define NO_OPACITY            0xffffff00
+#define FORCE_OPACITY			0xE6
+#define NO_OPACITY				0xffffff00
+#define LINE_HT					17
 
 static TextAttribs s_taDefaults =
 {
@@ -127,6 +130,8 @@ static ContextMenu *badgeContextMenu = NULL;
 static ContextMenu *badgeTypeSelectMenu = NULL;
 static ContextMenu *badgeTypeSelectSubMenus[kCollectionType_Count];
 
+static ContextMenu* badgeMonitorContextMenu = NULL;
+
 //static ComboBox comboBadges;
 //static ComboCheckboxElement **cce = NULL;
 
@@ -142,6 +147,152 @@ static void openBadgeMonitorWindow(void *data)
     window_setMode(WDW_BADGEMONITOR, WINDOW_GROWING);
 }
 
+const BadgeDef* getBadgeDef(const BadgeMonitorInfo* badgeInfo)
+{
+	if (!badgeInfo || !badgeInfo->iIdx)
+	{
+		return NULL;
+	}
+
+	return badge_GetAnyBadgeByIdx(badgeInfo->iIdx);
+}
+
+static const char* badgeMonitorGetStopDisplayText(void *data)
+{
+	int badgeMonitorIdx = (int)data;
+
+	const Entity* entity = playerPtr();
+	const BadgeMonitorInfo* monitorList = entity->pl->badgeMonitorInfo;
+	const BadgeDef* badge = getBadgeDef(monitorList + badgeMonitorIdx);
+	if (!badge)
+	{
+		return "";
+	}
+
+	const char* title = printLocalizedEnt(badge->pchDisplayTitle[ENT_IS_HERO(entity) ? 0 : 1], entity);
+	return textStd("BadgeMonitorStopDisplayString", title);
+}
+
+static void badgeMonitor_Move(int badgeMonitorIdx, int step)
+{
+	if ( (badgeMonitorIdx + step < 0) || (badgeMonitorIdx + step >= MAX_BADGE_MONITOR_ENTRIES) )
+	{
+		return;
+	}
+	
+	// int i;
+	Entity* entity = playerPtr();
+	BadgeMonitorInfo* monitorList = entity->pl->badgeMonitorInfo;
+	BadgeMonitorInfo* monitoredBadge = monitorList + badgeMonitorIdx;
+	BadgeMonitorInfo* monitoredBadgeOther = monitoredBadge + step;
+
+	// Only replace with other if it's an existing badge (otherwise it's the end)
+	if (!monitoredBadgeOther->iIdx)
+	{
+		return;
+	}
+
+	// swap the badges indices
+	int tmp = monitoredBadgeOther->iIdx;
+	monitoredBadgeOther->iIdx = monitoredBadge->iIdx;
+	monitoredBadge->iIdx = tmp;
+
+	// Update server on new order
+	badgeMonitor_SendToServer(entity);
+}
+
+static void badgeMonitor_MoveUp(void* data)
+{
+	badgeMonitor_Move((int)data, -1);
+}
+
+static void badgeMonitor_MoveDown(void* data)
+{
+	badgeMonitor_Move((int)data, 1);
+}
+
+static void badgeMonitor_stopDisplay(void* data)
+{
+	int badgeMonitorIdx = (int)data;
+	Entity* entity = playerPtr();
+	BadgeMonitorInfo* monitorList = entity->pl->badgeMonitorInfo;
+
+	BadgeMonitorInfo* prev = monitorList + badgeMonitorIdx;
+	for (int i = badgeMonitorIdx + 1; i < MAX_BADGE_MONITOR_ENTRIES; i++)
+	{
+		BadgeMonitorInfo* next = monitorList + i;
+		if (!next->iIdx)
+		{
+			prev->iIdx = 0;
+			break;
+		}
+		prev->iIdx = next->iIdx;
+		prev = next;
+	}
+	badgeMonitor_SendToServer(entity);
+}
+
+static void badgeMonitor_stopDisplayAll(void *data)
+{
+	Entity* entity = playerPtr();
+
+	for (int i = 0; i < MAX_BADGE_MONITOR_ENTRIES; i++)
+	{
+		BadgeMonitorInfo* monitoredBadge = entity->pl->badgeMonitorInfo + i;
+		if (!monitoredBadge)
+		{
+			break;
+		}
+		monitoredBadge->iIdx = 0;
+	}
+	badgeMonitor_SendToServer(entity);
+}
+
+static void setCategory(CollectionType collectionType, BadgeType category)
+{
+	gSelectedCollection = collectionType;
+	gSelectedTab = category;
+	badgeReparse();
+}
+
+static void badgeMonitor_focusBadge(void* data)
+{
+	int badgeMonitorIdx = (int)data;
+	Entity* entity = playerPtr();
+	const BadgeMonitorInfo* monitoredBadge = entity->pl->badgeMonitorInfo + badgeMonitorIdx;
+	const BadgeDef* badgeDef = getBadgeDef(monitoredBadge);
+	if (!badgeDef)
+	{
+		return;
+	}
+
+	// 1. show the badges/collect window
+	window_setMode(WDW_BADGES, WINDOW_GROWING);
+	window_bringToFront(WDW_BADGES);
+
+	// 2. choose the category in it
+	setCategory(badgeDef->eCollection, badgeDef->eCategory);
+
+	// 3. scroll until the badgead
+	// TODO implement (how?)
+}
+
+static void initBadgeMonitorContextMenu()
+{
+	if (badgeMonitorContextMenu)
+	{
+		return;
+	}
+
+	badgeMonitorContextMenu = contextMenu_Create(0);
+	contextMenu_addTitle(badgeMonitorContextMenu, "BadgeMonitorString");
+	contextMenu_addCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_focusBadge, 0, "FocusBadgeMonitorString", 0);
+	contextMenu_addVariableTextCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_stopDisplay, 0, badgeMonitorGetStopDisplayText, 0, NULL);
+	contextMenu_addCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_MoveUp, 0, "MoveUpString", 0);
+	contextMenu_addCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_MoveDown, 0, "MoveDownString", 0);
+	contextMenu_addDivider(badgeMonitorContextMenu);
+	contextMenu_addCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_stopDisplayAll, 0, "StopDisplayAllString", 0);
+}
 
 static void addToBadgeMonitorWindow(void *data)
 {
@@ -202,15 +353,12 @@ static void setCollection(void *data)
     badgeReparse();
 }
 
-static void setCategory(void *data)
+static void setCategoryCallback(void* data)
 {
-    CollectionCategory cc;
+	CollectionCategory cc;
 
-    cc.voidPointer = data;
-
-    gSelectedCollection = (CollectionType) cc.data.collection;
-    gSelectedTab = (BadgeType) cc.data.category;
-    badgeReparse();
+	cc.voidPointer = data;
+	setCategory((CollectionType)cc.data.collection, (BadgeType)cc.data.category);
 }
 
 /**********************************************************************func*
@@ -428,12 +576,10 @@ static float badge_display( float x, float y, float z, float sc, float wd,
     BuildCBox( &box, x, y, wd, ht);
 
     // Menu and monitor window not ready yet
-#if 0
     if( mouseClickHit( &box, MS_RIGHT ) )
     {
         contextMenu_displayEx( badgeContextMenu, (void *)( badge->iIdx ) );
     }
-#endif
 
     // now we know the ht, check for mouse collision
     if( BADGE_IS_OWNED(badgeField))
@@ -539,9 +685,10 @@ int badgesWindow(void)
     {
         badgeContextMenu = contextMenu_Create(NULL);
         contextMenu_addTitle(badgeContextMenu, "BadgeMenuTitle");
-        contextMenu_addCode(badgeContextMenu, alwaysAvailable, 0, openBadgeMonitorWindow, 0, "BadgeMonitorOpen", NULL);
         contextMenu_addCode(badgeContextMenu, canBadgeBeAddedToMonitorWindow, 0, addToBadgeMonitorWindow, 0, "BadgeMonitorAdd", NULL);
     }
+
+	initBadgeMonitorContextMenu();
 
     if ((!e->supergroup_id || !e->supergroup || !e->supergroup->badgeStates.eaiStates) && 
             gSelectedCollection == kCollectionType_Supergroup)
@@ -602,52 +749,52 @@ int badgesWindow(void)
             {
                 case kCollectionType_Badge:
                     cc.data.category = kBadgeType_MostRecent;
-                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategory, cc.voidPointer, badge_CategoryGetName(e, i, kBadgeType_MostRecent), NULL);
+                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategoryCallback, cc.voidPointer, badge_CategoryGetName(e, i, kBadgeType_MostRecent), NULL);
                     cc.data.category = kBadgeType_NearCompletion;
-                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategory, cc.voidPointer, badge_CategoryGetName(e, i, kBadgeType_NearCompletion), NULL);
+                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategoryCallback, cc.voidPointer, badge_CategoryGetName(e, i, kBadgeType_NearCompletion), NULL);
                     for (j = kBadgeType_Tourism; j < kBadgeType_LastBadgeCategory; j++)
                     {
                         cc.data.category = j;
-                        contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategory, cc.voidPointer, badge_CategoryGetName(e, i, j), NULL);
+                        contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategoryCallback, cc.voidPointer, badge_CategoryGetName(e, i, j), NULL);
                     }
                     break;
                 case kCollectionType_Market:
                     cc.data.category = kMarketType_Content;
-                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategory, cc.voidPointer, 
+                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategoryCallback, cc.voidPointer,
                                             badge_CategoryGetName(e, i, kMarketType_Content), NULL);
                     cc.data.category = kMarketType_SignatureStoryArc1;
-                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategory, cc.voidPointer, 
+                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategoryCallback, cc.voidPointer,
                                             badge_CategoryGetName(e, i, kMarketType_SignatureStoryArc1), NULL);
                     cc.data.category = kMarketType_SignatureStoryArc2;
-                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategory, cc.voidPointer, 
+                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategoryCallback, cc.voidPointer,
                                             badge_CategoryGetName(e, i, kMarketType_SignatureStoryArc2), NULL);
                     break;
                 case kCollectionType_SuperPack:
                     cc.data.category = kSuperPackType_HeroesAndVillains;
-                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategory, cc.voidPointer,
+                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategoryCallback, cc.voidPointer,
                                             badge_CategoryGetName(e, i, kSuperPackType_HeroesAndVillains), NULL);
                     
                     //TODO: remove this if statement to not display this sub-menu until the release of Super Pack 2
                     if(AccountHasStoreProductOrIsPublished(inventoryClient_GetAcctInventorySet(), skuIdFromString("cosprovi")))
                     {
                         cc.data.category = kSuperPackType_RoguesAndVigilantes;
-                        contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategory, cc.voidPointer, 
+                        contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategoryCallback, cc.voidPointer,
                                                 badge_CategoryGetName(e, i, kSuperPackType_RoguesAndVigilantes), NULL);
                     }
                     break;
                 case kCollectionType_Incarnate:
                     cc.data.category = kIncarnateType_Empyrean;
-                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategory, cc.voidPointer, 
+                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategoryCallback, cc.voidPointer,
                                             badge_CategoryGetName(e, i, kIncarnateType_Empyrean), NULL);
                     cc.data.category = kIncarnateType_Astral;
-                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategory, cc.voidPointer, 
+                    contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategoryCallback, cc.voidPointer,
                                             badge_CategoryGetName(e, i, kIncarnateType_Astral), NULL);
                     break;
                 case kCollectionType_Supergroup:
                     for (j = kBadgeType_Tourism; j < kBadgeType_LastBadgeCategory; j++)
                     {
                         cc.data.category = j;
-                        contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategory, cc.voidPointer, badge_CategoryGetName(e, i, j), NULL);
+                        contextMenu_addCode(badgeTypeSelectSubMenus[i], alwaysAvailable, 0, setCategoryCallback, cc.voidPointer, badge_CategoryGetName(e, i, j), NULL);
                     }
                     availableFunction = superGroupVisible;
                     break;
@@ -817,20 +964,120 @@ int badgesWindow(void)
     return 0;
 }
 
+int countBadges(BadgeMonitorInfo *monitorList, int size)
+{
+	int count = 0;
+	for (int i = 0; i < size; ++i)
+	{
+		if (monitorList[i].iIdx)
+		{
+			count++;
+		}
+	}
+	return count;
+}
+
+F32 calculateBadgeMonitorWidth(Entity *player, BadgeMonitorInfo *monitorList, int size, float scale, float *outColWidth)
+{
+	float colWidth = 0;
+
+	for (int i = 0; i < size; i++)
+	{
+		const BadgeDef* badgeDef = getBadgeDef(monitorList + i);
+		if (badgeDef)
+		{
+			const char* title = printLocalizedEnt(badgeDef->pchDisplayTitle[ENT_IS_HERO(player) ? 0 : 1], player);
+			int name_wd = str_wd(&game_12, scale, scale, title);
+			colWidth = MAX(colWidth, name_wd + 10 * scale);
+		}
+	}
+	if (outColWidth)
+	{
+		*outColWidth = colWidth;
+	}
+
+	float wd = 0;
+	char descBuffer[BADGE_PROGRESS_STRING_BUFFER_SIZE];
+	for (int i = 0; i < size; i++)
+	{
+		const BadgeDef* badgeDef = getBadgeDef(monitorList + i);
+		if (badgeDef)
+		{
+			int progressStrWidth = str_wd(&game_12, scale, scale, "%s", badge_getProgressString(descBuffer, player, badgeDef));
+			wd = MAX(wd, 5 * scale + colWidth + progressStrWidth);
+		}
+	}
+	return wd;
+}
+
+void displayBadgeProgress(float x, float y, float width, float z, float scale, float colWidth, const Entity *entity, const BadgeDef* badgeDef, int badgeMonitorIdx)
+{
+	const char* title = printLocalizedEnt(badgeDef->pchDisplayTitle[ENT_IS_HERO(entity) ? 0 : 1], entity);
+
+	font(&game_12);
+	font_color(CLR_WHITE, CLR_WHITE);
+	cprntEx(x + 5 * scale, y + LINE_HT * scale, z, scale, scale, 0, title);
+
+	char buffer[BADGE_PROGRESS_STRING_BUFFER_SIZE];
+	badge_getProgressString(buffer, entity, badgeDef);
+
+	cprntEx(x + colWidth, y + LINE_HT * scale, z, scale, scale, NO_MSPRINT, "%s", buffer);
+
+	CBox box;
+	BuildCBox(&box, x, y, width, LINE_HT * scale);
+	if (mouseClickHit(&box, MS_RIGHT))
+	{
+		contextMenu_displayEx(badgeMonitorContextMenu, (void*)badgeMonitorIdx);
+	}
+}
+
 int badgeMonitorWindow(void)
 {
-    float x, y, z, wd, ht, sc;
+    float x, y, z, width, height, scale;
     U32 color, bcolor;
-    int count;
-    BadgeMonitorInfo *monitorList = NULL;
 
-    if( playerPtr() && playerPtr()->pl && window_getDims( WDW_BADGEMONITOR, &x, &y, &z, &wd, &ht, &sc, &color, &bcolor ) )
+	Entity *player = playerPtr();
+    if(player && player->pl)
     {
-        monitorList = playerPtr()->pl->badgeMonitorInfo;
+		window_getDims(WDW_BADGEMONITOR, &x, &y, &z, &width, &height, &scale, &color, &bcolor);
 
-        for( count = 0; count < MAX_BADGE_MONITOR_ENTRIES; count++)
-        {
-        }
+		BadgeMonitorInfo *monitorList = player->pl->badgeMonitorInfo;
+
+		// count current monitored badges
+		int count = countBadges(monitorList, MAX_BADGE_MONITOR_ENTRIES);
+		if (!count)
+		{
+			window_setMode(WDW_BADGEMONITOR, WINDOW_SHRINKING);
+		}
+		else
+		{
+			window_setMode(WDW_BADGEMONITOR, WINDOW_GROWING);
+
+			float colWidth;
+			float newWidth = calculateBadgeMonitorWidth(player, monitorList, MAX_BADGE_MONITOR_ENTRIES, scale, &colWidth);
+			window_setDims(WDW_BADGEMONITOR, -1, -1, newWidth, (count * LINE_HT + 4) * scale);
+
+			//
+			CBox box;
+			BuildCBox(&box, x, y, width, height);
+			drawFrame(PIX2, R4, x, y, z, width, height, scale, color, bcolor);
+			clipperPushCBox(&box);
+
+			y += 2 * scale;
+
+			for (int i = 0; i < count; i++)
+			{
+				const BadgeDef* badgeDef = getBadgeDef(monitorList + i);
+				if (badgeDef)
+				{
+					displayBadgeProgress(x, y + i * LINE_HT * scale, width, z, scale, colWidth, player, badgeDef, i);
+				}
+			}
+
+			clipperPop();
+
+			return 0;
+		}
     }
 
     return 0;

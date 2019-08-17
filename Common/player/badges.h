@@ -38,6 +38,9 @@ STATIC_ASSERT(BADGE_ENT_BITFIELD_BYTE_SIZE < (2303)); // that's 18,000+ badges, 
 #define BADGE_SG_BITFIELD_SIZE        ((BADGE_SG_MAX_BADGES+31)/32)    // for a U32 array
 #define BADGE_SG_BITFIELD_BYTE_SIZE    (BADGE_SG_BITFIELD_SIZE*4)        // 4 bytes per U32
 
+// String buffer size for badge progress string
+#define BADGE_PROGRESS_STRING_BUFFER_SIZE 128
+
 typedef struct SgrpBadges
 {
     U32 *eaiStates;                            // size is BADGE_MAX_BADGES, comes from StatServer
@@ -240,13 +243,34 @@ typedef struct RecentBadge
 typedef struct BadgeMonitorInfo
 {
     int iIdx;                // index as stored in badge defs array
-    int iOrder;                // Ordering in UI display list
 }BadgeMonitorInfo;
 
 int badge_LoadNames(StashTable hashNames, const char *fileName);
 
 char *badge_CategoryGetName(Entity *e, CollectionType collection, BadgeType category);
 char *badge_CollectionGetName(CollectionType collection);
+
+/**********************************************************************
+* badge_getProgressString: Get a string representing the entity
+*
+* Arg [buffer]: The buffer to put the progress string into. Size should be at least BADGE_PROGRESS_STRING_BUFFER_SIZE.
+* Arg [player]: The entity whose progress you want to check
+* Arg [badge]: The badge definition
+*
+* Return: The same buffer that was given in [buffer], to ease usage.
+**********************************************************************/
+const char* badge_getProgressString(char *buffer, const Entity* player, const BadgeDef* badge);
+
+
+/**********************************************************************
+* badge_GetAnyBadgeByIdx: Get any badge by index
+*
+* Arg [iIdx]: The index of the badge
+*
+* Return: BadgeDef of a badge by index. The index can be an index for a
+*         supergroup badge or a player badge.
+**********************************************************************/
+const BadgeDef* badge_GetAnyBadgeByIdx(int iIdx);
 
 bool badge_GetIdxFromName(const char *pch, int *pi);
 const BadgeDef *badge_GetBadgeByName(const char *pch);
