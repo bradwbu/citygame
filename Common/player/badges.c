@@ -349,41 +349,41 @@ const BadgeDef *badge_GetBadgeByName(const char *pch)
 ***********************************************************************/
 const char* badge_getProgressString(char* buffer, const Entity *entity, const BadgeDef* badge)
 {
-	assert(buffer);
-	assert(entity);
-	assert(badge);
-	if (!buffer || !entity || !badge)
-	{
-		return buffer;
-	}
+    assert(buffer);
+    assert(entity);
+    assert(badge);
+    if (!buffer || !entity || !badge)
+    {
+        return buffer;
+    }
 
-	// U32* badgeFields;
-	int isSG = badge->iIdx & BADGE_MONITOR_IDX_SGRP_FLAG;
-	U32* badgeFields = isSG ? (entity->supergroup->badgeStates.eaiStates) : (entity->pl->aiBadges);
-	int realBadgeIdx = badge->iIdx;
-	if (isSG)
-	{
-		realBadgeIdx &= ~BADGE_MONITOR_IDX_SGRP_FLAG;
-	}
-	int completedValue = BADGE_COMPLETION(badgeFields[realBadgeIdx]); // value is in millionths
+    // U32* badgeFields;
+    int isSG = badge->iIdx & BADGE_MONITOR_IDX_SGRP_FLAG;
+    U32* badgeFields = isSG ? (entity->supergroup->badgeStates.eaiStates) : (entity->pl->aiBadges);
+    int realBadgeIdx = badge->iIdx;
+    if (isSG)
+    {
+        realBadgeIdx &= ~BADGE_MONITOR_IDX_SGRP_FLAG;
+    }
+    int completedValue = BADGE_COMPLETION(badgeFields[realBadgeIdx]); // value is in millionths
 
-	if (badge->iProgressMaxValue > 0)
-	{
-		int value = (int)(0.5f + (((float)(completedValue) * (float)(badge->iProgressMaxValue)) / 1000000.0f));
-		int pct = completedValue / 10000.0f;
-		int maxValue = badge->iProgressMaxValue;
+    if (badge->iProgressMaxValue > 0)
+    {
+        int value = (int)(0.5f + (((float)(completedValue) * (float)(badge->iProgressMaxValue)) / 1000000.0f));
+        int pct = completedValue / 10000.0f;
+        int maxValue = badge->iProgressMaxValue;
 
-		// 35/70 (50%)
-		sprintf_s(buffer, BADGE_PROGRESS_STRING_BUFFER_SIZE, "%d/%d (%d%%)", value, maxValue, pct);
-	}
-	else
-	{
-		// 0%
-		int pct = completedValue / 10000.0f;
-		sprintf_s(buffer, BADGE_PROGRESS_STRING_BUFFER_SIZE, "%d%%", pct);
-	}
+        // 35/70 (50%)
+        sprintf_s(buffer, BADGE_PROGRESS_STRING_BUFFER_SIZE, "%d/%d (%d%%)", value, maxValue, pct);
+    }
+    else
+    {
+        // 0%
+        int pct = completedValue / 10000.0f;
+        sprintf_s(buffer, BADGE_PROGRESS_STRING_BUFFER_SIZE, "%d%%", pct);
+    }
 
-	return buffer;
+    return buffer;
 }
 
 /***********************************************************************
@@ -391,12 +391,12 @@ const char* badge_getProgressString(char* buffer, const Entity *entity, const Ba
 ***********************************************************************/
 const BadgeDef* badge_GetAnyBadgeByIdx(int iIdx)
 {
-	if (iIdx & BADGE_MONITOR_IDX_SGRP_FLAG)
-	{
-		int realIdx = iIdx & (!BADGE_MONITOR_IDX_SGRP_FLAG);
-		return badge_GetSgroupBadgeByIdx(realIdx);
-	}
-	return badge_GetBadgeByIdx(iIdx);
+    if (iIdx & BADGE_MONITOR_IDX_SGRP_FLAG)
+    {
+        int realIdx = iIdx & (!BADGE_MONITOR_IDX_SGRP_FLAG);
+        return badge_GetSgroupBadgeByIdx(realIdx);
+    }
+    return badge_GetBadgeByIdx(iIdx);
 }
 
 
@@ -800,7 +800,7 @@ static int badgeMonitorInfoCompare( const void *left, const void *right, const v
         }
         else
         {
-			retval = 0;
+            retval = 0;
         }
     }
 
@@ -823,7 +823,7 @@ void badgeMonitor_CheckAndSortInfo( Entity *e )
         }
 
         // Non-zero indices and orders take priority and then sort by order.
-		stableSort(e->pl->badgeMonitorInfo, MAX_BADGE_MONITOR_ENTRIES, sizeof(BadgeMonitorInfo), NULL, badgeMonitorInfoCompare);
+        stableSort(e->pl->badgeMonitorInfo, MAX_BADGE_MONITOR_ENTRIES, sizeof(BadgeMonitorInfo), NULL, badgeMonitorInfoCompare);
     }
 }
 
