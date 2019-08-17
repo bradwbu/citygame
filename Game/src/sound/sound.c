@@ -18,7 +18,7 @@
 #include "UI/uiGame.h"
 #include <utilitieslib/components/Earray.h>
 #include <utilitieslib/utils/FolderCache.h>
-#include "..\..\directx\include\dsound.h"
+#include <dsound.h>
 #include "player/player.h"
 #include "entity/entity.h"
 #include "entity/EntPlayer.h"
