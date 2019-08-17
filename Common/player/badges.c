@@ -344,6 +344,62 @@ const BadgeDef *badge_GetBadgeByName(const char *pch)
     return NULL;
 }
 
+/***********************************************************************
+* badge_getProgressString
+***********************************************************************/
+const char* badge_getProgressString(char* buffer, const Entity *entity, const BadgeDef* badge)
+{
+	assert(buffer);
+	assert(entity);
+	assert(badge);
+	if (!buffer || !entity || !badge)
+	{
+		return buffer;
+	}
+
+	// U32* badgeFields;
+	int isSG = badge->iIdx & BADGE_MONITOR_IDX_SGRP_FLAG;
+	U32* badgeFields = isSG ? (entity->supergroup->badgeStates.eaiStates) : (entity->pl->aiBadges);
+	int realBadgeIdx = badge->iIdx;
+	if (isSG)
+	{
+		realBadgeIdx &= ~BADGE_MONITOR_IDX_SGRP_FLAG;
+	}
+	int completedValue = BADGE_COMPLETION(badgeFields[realBadgeIdx]); // value is in millionths
+
+	if (badge->iProgressMaxValue > 0)
+	{
+		int value = (int)(0.5f + (((float)(completedValue) * (float)(badge->iProgressMaxValue)) / 1000000.0f));
+		int pct = completedValue / 10000.0f;
+		int maxValue = badge->iProgressMaxValue;
+
+		// 35/70 (50%)
+		sprintf_s(buffer, BADGE_PROGRESS_STRING_BUFFER_SIZE, "%d/%d (%d%%)", value, maxValue, pct);
+	}
+	else
+	{
+		// 0%
+		int pct = completedValue / 10000.0f;
+		sprintf_s(buffer, BADGE_PROGRESS_STRING_BUFFER_SIZE, "%d%%", pct);
+	}
+
+	return buffer;
+}
+
+/***********************************************************************
+* badge_GetAnyBadgeByIdx
+***********************************************************************/
+const BadgeDef* badge_GetAnyBadgeByIdx(int iIdx)
+{
+	if (iIdx & BADGE_MONITOR_IDX_SGRP_FLAG)
+	{
+		int realIdx = iIdx & (!BADGE_MONITOR_IDX_SGRP_FLAG);
+		return badge_GetSgroupBadgeByIdx(realIdx);
+	}
+	return badge_GetBadgeByIdx(iIdx);
+}
+
+
 /**********************************************************************func*
 * badge_GetBadgeByIdx
 *
@@ -620,7 +676,6 @@ void badgeMonitor_SendInfo( Entity *e, Packet *pak )
     for( count = 0; count < MAX_BADGE_MONITOR_ENTRIES; count++ )
     {
         pktSendIfSetBitsPack( pak, 8, e->pl->badgeMonitorInfo[count].iIdx );
-        pktSendIfSetBits( pak, 4, e->pl->badgeMonitorInfo[count].iOrder );
     }
 }
 
@@ -631,7 +686,6 @@ void badgeMonitor_ReceiveInfo( Entity *e, Packet *pak )
     for( count = 0; count < MAX_BADGE_MONITOR_ENTRIES; count++ )
     {
         e->pl->badgeMonitorInfo[count].iIdx = pktGetIfSetBitsPack( pak, 8 );
-        e->pl->badgeMonitorInfo[count].iOrder = pktGetIfSetBits( pak, 4 );
     }
 
     badgeMonitor_CheckAndSortInfo( e );
@@ -727,7 +781,7 @@ static bool badgeMonitorInfoIsMonitorable( Entity *e, int idx )
     return retval;
 }
 
-static int badgeMonitorInfoCompare( const void *left, const void *right )
+static int badgeMonitorInfoCompare( const void *left, const void *right, const void *context)
 {
     int retval = 0;
 
@@ -746,7 +800,7 @@ static int badgeMonitorInfoCompare( const void *left, const void *right )
         }
         else
         {
-            retval = ( bi_left->iOrder - bi_right->iOrder );
+			retval = 0;
         }
     }
 
@@ -765,23 +819,11 @@ void badgeMonitor_CheckAndSortInfo( Entity *e )
             {
                 // Blank out this invalid badge's monitoring info.
                 e->pl->badgeMonitorInfo[count].iIdx = 0;
-                e->pl->badgeMonitorInfo[count].iOrder = 0;
             }
         }
 
         // Non-zero indices and orders take priority and then sort by order.
-        qsort(e->pl->badgeMonitorInfo, MAX_BADGE_MONITOR_ENTRIES, sizeof(BadgeMonitorInfo), badgeMonitorInfoCompare );
-
-        // Now we have all the valid badges at the beginning of the array we
-        // can regularise their order numbering. We number from 1 to make the
-        // adding easier.
-        count = 0;
-
-        while( count < MAX_BADGE_MONITOR_ENTRIES && e->pl->badgeMonitorInfo[count].iIdx != 0 )
-        {
-            e->pl->badgeMonitorInfo[count].iOrder = count + 1;
-            count++;
-        }
+		stableSort(e->pl->badgeMonitorInfo, MAX_BADGE_MONITOR_ENTRIES, sizeof(BadgeMonitorInfo), NULL, badgeMonitorInfoCompare);
     }
 }
 
@@ -831,21 +873,11 @@ int badgeMonitor_AddInfo( Entity *e, int idx, bool is_supergroup )
                         pos = count;
                     }
                 }
-                else
-                {
-                    // Find the last (ie. highest) number in the ordering
-                    // sequence.
-                    if( max_order < e->pl->badgeMonitorInfo[count].iOrder )
-                    {
-                        max_order = e->pl->badgeMonitorInfo[count].iOrder;
-                    }
-                }
             }
 
             if( pos >= 0 && pos < MAX_BADGE_MONITOR_ENTRIES )
             {
                 e->pl->badgeMonitorInfo[pos].iIdx = idx_to_add;
-                e->pl->badgeMonitorInfo[pos].iOrder = max_order + 1;
 
                 retval = 1;
             }
