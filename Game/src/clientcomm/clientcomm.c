@@ -1479,9 +1479,9 @@ static int commHandleMessage(Packet *pak,int cmd,NetLink *link)
                     int pos = bsGetCursorBitPosition(&pak->stream);
                     int cmd = pktGetBitsPack(pak, 1);
                     bsSetCursorBitPosition(&pak->stream, pos);
-					if (cmd && cmd != SERVER_SEND_CHAT_MSG) {
-						writeConsole(OUTPUT_VERBOSE, "Message from server, %d ('%s'), was sent before receiving entity updates", cmd, getServerCmdName(cmd));
-					}
+                    if (cmd && cmd != SERVER_SEND_CHAT_MSG) {
+                        writeConsole(OUTPUT_VERBOSE, "Message from server, %d ('%s'), was sent before receiving entity updates", cmd, getServerCmdName(cmd));
+                    }
                     handleGameCmd(pak, -1);
                 }
             STOP_BIT_COUNT(pak);

@@ -1079,7 +1079,7 @@ void loadCostumes()
     costumeVerifyTextures( NULL, &gCostumeMaster );
 
     FolderCacheSetCallback(FOLDER_CACHE_CALLBACK_UPDATE, "menu/Costume/*.ctm", reloadCostumesCallback);
-	writeConsole(OUTPUT_INFO, "Loaded costume bins");
+    writeConsole(OUTPUT_INFO, "Loaded costume bins");
 }
 
 void reloadCostumes(void)

@@ -1066,7 +1066,7 @@ int dbConnect(char *server,int port,int user_id,int cookie,char *auth_name,int n
         if (!ret)
         {
             Strncpyt(db_info.error_msg,"CantConnectDbServer");
-			writeConsole(OUTPUT_ERROR, "Failed to connect to DBServer");
+            writeConsole(OUTPUT_ERROR, "Failed to connect to DBServer");
             PERFINFO_AUTO_STOP();
             return 0;
         }
@@ -1132,7 +1132,7 @@ int dbConnect(char *server,int port,int user_id,int cookie,char *auth_name,int n
 
         if (!(commandFound=dbWaitForStartOrQueue(timeout)))
         {
-			writeConsole(OUTPUT_ERROR, "Failed to connect to DBServer");
+            writeConsole(OUTPUT_ERROR, "Failed to connect to DBServer");
             PERFINFO_AUTO_STOP();
             return 0;
         }

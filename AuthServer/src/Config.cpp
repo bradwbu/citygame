@@ -216,7 +216,7 @@ bool Config::Load(const char *filename)
         enableVerboseLogging = GetBool("enableVerboseLogging", DEFAULT_VERBOSE_LOGGING );
         enableDebugLogging = GetBool("enableDebugLogging", DEFAULT_DEBUG_LOGGING );
 
-		connectionString = Get("connectionString");
+        connectionString = Get("connectionString");
     }
     
     return configFileLoaded;

@@ -1224,7 +1224,7 @@ void load_AllDefs(void)
 #endif
 
     // Must be done before making the ParsePowerDefines.
-	writeConsole(OUTPUT_DEBUG, "Loading attribute names");
+    writeConsole(OUTPUT_DEBUG, "Loading attribute names");
     load_AttribNames(&g_AttribNames, "defs/attrib_names.def", &bNewAttribs);
     writeConsole(OUTPUT_INFO, "Loaded attribute names");
 
@@ -1234,7 +1234,7 @@ void load_AllDefs(void)
         ErrorFilenamef("defs/visionPhases.def", "Too many vision phases in definition file!");
     }
 
-	writeConsole(OUTPUT_DEBUG, "Loading vision phase names");
+    writeConsole(OUTPUT_DEBUG, "Loading vision phase names");
     load_VisionPhaseNames(&g_exclusiveVisionPhaseNames, "defs/visionPhasesExclusive.def");
     // if we get near the four billion mark on exclusive vision phase names, we'll have to check here...
     writeConsole(OUTPUT_INFO, "Loaded vision phase names");
@@ -1242,25 +1242,25 @@ void load_AllDefs(void)
     // Sequencer state bits might be changed by Steve now
     bNewAttribs = bNewAttribs || seqStateBitsAreUpdated();
 
-	writeConsole(OUTPUT_DEBUG, "Loading hero origins");
+    writeConsole(OUTPUT_DEBUG, "Loading hero origins");
     load_CharacterOrigins(&g_CharacterOrigins, "defs/origins.def", bNewAttribs);
     writeConsole(OUTPUT_INFO, "Loaded hero origins");
 
 #ifndef TEST_CLIENT
-	writeConsole(OUTPUT_DEBUG, "Loading villain origins");
+    writeConsole(OUTPUT_DEBUG, "Loading villain origins");
     load_CharacterOrigins(&g_VillainOrigins, "defs/villain_origins.def", bNewAttribs);
     writeConsole(OUTPUT_INFO, "Loaded villain origins");
 #endif // TEST_CLIENT
     
     // NULL means use the static local version in badges.c. (backwards compatible)
-	writeConsole(OUTPUT_DEBUG, "Loading badges");
+    writeConsole(OUTPUT_DEBUG, "Loading badges");
     load_Badges(&g_BadgeDefs,
         "defs/badges.def", 0, "server/db/templates/badges.attribute",
         BADGE_ENT_MAX_BADGES);
     writeConsole(OUTPUT_INFO, "Loaded badges");
 
 #ifndef TEST_CLIENT
-	writeConsole(OUTPUT_DEBUG, "Loading supergroup badges and pophelp");
+    writeConsole(OUTPUT_DEBUG, "Loading supergroup badges and pophelp");
     load_Badges(&g_SgroupBadges,
         "defs/supergroup_badges.def", 0, "server/db/templates/supergroup_badges.attribute",
         BADGE_SG_MAX_BADGES);
@@ -1312,7 +1312,7 @@ void load_AllDefs(void)
     loadend_printf("done");
 #endif
 
-	writeConsole(OUTPUT_DEBUG, "Loading miscellaneous");
+    writeConsole(OUTPUT_DEBUG, "Loading miscellaneous");
     load_CustomCritterMods(&g_PCCRewardMods,"defs/CustomCritterRewardMods.def");
     load_PowerConversionTable(&g_PowerSetConversionTable, "defs/PowersetConversion.def");
     load_AuctionConfig(&g_AuctionConfig, "defs/auctionconfig.def");
@@ -1331,7 +1331,7 @@ void load_AllDefs(void)
     
     /**********************************************************************/
 
-	writeConsole(OUTPUT_DEBUG, "Adding defines");
+    writeConsole(OUTPUT_DEBUG, "Adding defines");
     if(g_pParsePowerDefines!=NULL)
     {
         DefineDestroy(g_pParsePowerDefines);
@@ -1354,7 +1354,7 @@ void load_AllDefs(void)
     /**********************************************************************/
     // Everything from here on needs ParsePowerDefines.
 
-	writeConsole(OUTPUT_DEBUG, "Loading power dictionary and boost sets");
+    writeConsole(OUTPUT_DEBUG, "Loading power dictionary and boost sets");
     load_DiminishingReturns( &g_DimReturnList, "defs/dim_returns.def", bNewAttribs ); // Must be before load_PowerDictionary
     load_PowerDictionary(&g_PowerDictionary, "defs/powers/", bNewAttribs, load_PowerDictionary_Callback);
     writeConsole(OUTPUT_INFO, "Loaded power dictionary and boost sets");
@@ -1364,25 +1364,25 @@ void load_AllDefs(void)
     LoadPetBattleCreatureInfos(); //"defs/petBattleCreatureInfo.def"
 #endif
 
-	writeConsole(OUTPUT_DEBUG, "Loading hero classes");
+    writeConsole(OUTPUT_DEBUG, "Loading hero classes");
     load_CharacterClasses(&g_CharacterClasses, "defs/classes.def", bNewAttribs);
     writeConsole(OUTPUT_INFO, "Loaded hero classes");
     
     // must be done before bases and inventory
-	writeConsole(OUTPUT_DEBUG, "Loaded inventory attribute files");
+    writeConsole(OUTPUT_DEBUG, "Loaded inventory attribute files");
     load_InventoryAttribFiles( bNewAttribs ); 
     writeConsole(OUTPUT_INFO, "Loaded inventory attribute files");
 
     // Must be done before salvage is loaded and after powers
-	writeConsole(OUTPUT_DEBUG, "Loading base data");
+    writeConsole(OUTPUT_DEBUG, "Loading base data");
     basedata_Load(); 
     writeConsole(OUTPUT_INFO, "Loaded base data");
 
-	writeConsole(OUTPUT_DEBUG, "Loading villain classes");
+    writeConsole(OUTPUT_DEBUG, "Loading villain classes");
     load_CharacterClasses(&g_VillainClasses, "defs/villain_classes.def", bNewAttribs);
     writeConsole(OUTPUT_INFO, "Loaded villain classes");
 
-	writeConsole(OUTPUT_DEBUG, "Loading salvage");
+    writeConsole(OUTPUT_DEBUG, "Loading salvage");
     load_SalvageDictionary( &g_SalvageDict, "defs/Invention/Salvage.salvage", bNewAttribs );
     load_ProficiencyDictionary( &g_ProficiencyDict, "defs/Invention/Proficiencies.proficiency", bNewAttribs );
 #if SERVER
@@ -1390,21 +1390,21 @@ void load_AllDefs(void)
 #endif
     writeConsole(OUTPUT_INFO, "Loaded salvage");
 
-	writeConsole(OUTPUT_DEBUG, "Loading recipes");
+    writeConsole(OUTPUT_DEBUG, "Loading recipes");
     detailrecipes_Load(); // Must be done after salvage and details are loaded
     writeConsole(OUTPUT_INFO, "Loaded recipes");
 
 #if CLIENT
-	//writeConsole(OUTPUT_DEBUG, "Loading text links");
+    //writeConsole(OUTPUT_DEBUG, "Loading text links");
     init_TextLinkStash();
     writeConsole(OUTPUT_INFO, "Loaded text links");
 
-	writeConsole(OUTPUT_DEBUG, "Loading arena maps list");
+    writeConsole(OUTPUT_DEBUG, "Loading arena maps list");
     arenaLoadMaps();
     writeConsole(OUTPUT_INFO, "Loaded arena maps list");
 
 #ifndef TEST_CLIENT
-	writeConsole(OUTPUT_DEBUG, "Loading costume weapon stance list");
+    writeConsole(OUTPUT_DEBUG, "Loading costume weapon stance list");
     load_CostumeWeaponStancePairList();
     writeConsole(OUTPUT_INFO, "Loaded costume weapon stance list");
 #endif

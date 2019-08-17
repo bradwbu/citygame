@@ -249,8 +249,8 @@ void cryptRSAEncrypt(const U8 *modBuf, U32 modlen, const U8 *expBuf, U32 explen,
 
     RSAES_OAEP_SHA_Encryptor encryptor( publicKey );
 
-	U32 plainBlockSize = encryptor.FixedMaxPlaintextLength();
-	U32 cipherBlockSize = encryptor.FixedCiphertextLength();
+    U32 plainBlockSize = encryptor.FixedMaxPlaintextLength();
+    U32 cipherBlockSize = encryptor.FixedCiphertextLength();
 
     assert( (plainSize + plainBlockSize-1) / plainBlockSize <= (*cipherSize/cipherBlockSize));
 

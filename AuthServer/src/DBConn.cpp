@@ -76,11 +76,11 @@ bool DBEnv::Login(bool reset)
 {
     SQLHDBC hDbc;
 
-	if (!LoadConnStrFromConfig()) {
-		if (!LoadConnStrFromReg()) {
-			DialogBoxParam(g_instance, MAKEINTRESOURCE(IDD_LOGIN), NULL, (DLGPROC)LoginDlgProc, (LPARAM)this);
-		}
-	}
+    if (!LoadConnStrFromConfig()) {
+        if (!LoadConnStrFromReg()) {
+            DialogBoxParam(g_instance, MAKEINTRESOURCE(IDD_LOGIN), NULL, (DLGPROC)LoginDlgProc, (LPARAM)this);
+        }
+    }
     SQLRETURN ret = SQLAllocHandle(SQL_HANDLE_DBC, m_henv, &hDbc);
     if (ret == SQL_SUCCESS || ret == SQL_SUCCESS_WITH_INFO) {
         if (reset == true ){
@@ -96,9 +96,9 @@ bool DBEnv::Login(bool reset)
                 complStr, sizeof(complStr), &complLen, SQL_DRIVER_NOPROMPT);
             if (ret == SQL_SUCCESS || ret == SQL_SUCCESS_WITH_INFO)
                 break;
-			if (!reset && (!config.connectionString || !config.connectionString[0])) {
-				DialogBoxParam(g_instance, MAKEINTRESOURCE(IDD_LOGIN), NULL, (DLGPROC)LoginDlgProc, (LPARAM)this);
-			}
+            if (!reset && (!config.connectionString || !config.connectionString[0])) {
+                DialogBoxParam(g_instance, MAKEINTRESOURCE(IDD_LOGIN), NULL, (DLGPROC)LoginDlgProc, (LPARAM)this);
+            }
         }
         SQLDisconnect(hDbc);
         SQLFreeHandle(SQL_HANDLE_DBC, hDbc);
@@ -187,12 +187,12 @@ void DBEnv::Destroy()
 }
 
 bool DBEnv::LoadConnStrFromConfig() {
-	if (!config.connectionString || !config.connectionString[0]) {
-		return false;
-	}
+    if (!config.connectionString || !config.connectionString[0]) {
+        return false;
+    }
 
-	strcpy((char *)m_connStr, config.connectionString);
-	return true;
+    strcpy((char *)m_connStr, config.connectionString);
+    return true;
 }
 
 bool DBEnv::LoadConnStrFromReg()

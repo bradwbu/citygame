@@ -2427,7 +2427,7 @@ bool ParserLoadFiles(const char* dir, const char* filemask, const char* persistf
     {
         char *path=NULL;
 
-		writeConsole(OUTPUT_DEBUG, "\tParsing %s from %s", filemask, persistfile);
+        writeConsole(OUTPUT_DEBUG, "\tParsing %s from %s", filemask, persistfile);
         path = fileLocateRead(persistfilepath, buf);
         if (path)
         {

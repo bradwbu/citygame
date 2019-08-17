@@ -242,7 +242,7 @@ void LoadProfanity(void)
 
     strcat(pchPath, "/");
     strcat(pchPath, "cebsnar.txt"); // "profane" rot13'd
-	writeConsole(OUTPUT_DEBUG, "\t%s", pchPath);
+    writeConsole(OUTPUT_DEBUG, "\t%s", pchPath);
 
     walk = mem = fileAlloc(pchPath, &len);
 
@@ -274,7 +274,7 @@ void LoadProfanity(void)
     strcat(pchPath, locGetName(locale));
     strcat(pchPath, "/");
     strcat(pchPath, "copyright.txt"); // "profane" rot13'd
-	writeConsole(OUTPUT_DEBUG, "\t%s", pchPath);
+    writeConsole(OUTPUT_DEBUG, "\t%s", pchPath);
 
     walk = mem = fileAlloc(pchPath, &len);
 

@@ -571,7 +571,7 @@ void objectLibraryLoadNames(int force_rebuild)
     for(i=eaSize(&group_names.group_libnames)-1; i>=0; i--)
         addLibNameToHashes(group_names.group_libnames[i], i);
 
-	writeConsole(OUTPUT_INFO, "Loaded grouplibs: %d files, %d names", eaSize(&group_names.group_files), eaSize(&group_names.group_libnames));
+    writeConsole(OUTPUT_INFO, "Loaded grouplibs: %d files, %d names", eaSize(&group_names.group_files), eaSize(&group_names.group_libnames));
 }
 
 void objectLibraryClearTags()

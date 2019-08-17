@@ -244,51 +244,51 @@ int isLocalIp(U32 ip)
 
 int setHostIpList(U32 ip_list[2])
 {
-	struct addrinfo hints;
-	memset(&hints, 0, sizeof(struct addrinfo));
-	hints.ai_family = AF_INET;
+    struct addrinfo hints;
+    memset(&hints, 0, sizeof(struct addrinfo));
+    hints.ai_family = AF_INET;
 
-	struct addrinfo *addr;
-	int result = getaddrinfo("localhost", NULL, &hints, &addr);
-	if (result != 0)
-	{
-		printf("setHostIpList, %s, %i: %d", __FILE__, __LINE__, result);
+    struct addrinfo *addr;
+    int result = getaddrinfo("localhost", NULL, &hints, &addr);
+    if (result != 0)
+    {
+        printf("setHostIpList, %s, %i: %d", __FILE__, __LINE__, result);
         return 0;
     }
 
-	//
-	devassert(addr->ai_family == AF_INET);
-	struct sockaddr_in* addr41 = (struct sockaddr_in*)(addr->ai_addr);
-	int ip_remote = addr41->sin_addr.S_un.S_addr;
-	
-	char str[INET_ADDRSTRLEN];
-	inet_ntop(AF_INET, &(addr41->sin_addr), str, INET_ADDRSTRLEN);
+    //
+    devassert(addr->ai_family == AF_INET);
+    struct sockaddr_in* addr41 = (struct sockaddr_in*)(addr->ai_addr);
+    int ip_remote = addr41->sin_addr.S_un.S_addr;
+    
+    char str[INET_ADDRSTRLEN];
+    inet_ntop(AF_INET, &(addr41->sin_addr), str, INET_ADDRSTRLEN);
 
-	//
-	addr = addr->ai_next;
-	int ip_local = ip_remote;
-	if (addr)
-	{
-		devassert(addr->ai_family == AF_INET);
-		struct sockaddr_in* addr42 = (struct sockaddr_in*)(addr->ai_addr);
-		ip_local = addr42->sin_addr.S_un.S_addr;
+    //
+    addr = addr->ai_next;
+    int ip_local = ip_remote;
+    if (addr)
+    {
+        devassert(addr->ai_family == AF_INET);
+        struct sockaddr_in* addr42 = (struct sockaddr_in*)(addr->ai_addr);
+        ip_local = addr42->sin_addr.S_un.S_addr;
 
-		char str2[INET_ADDRSTRLEN];
-		inet_ntop(AF_INET, &(addr42->sin_addr), str2, INET_ADDRSTRLEN);
+        char str2[INET_ADDRSTRLEN];
+        inet_ntop(AF_INET, &(addr42->sin_addr), str2, INET_ADDRSTRLEN);
 
-		if (isLocalIp(ip_remote))
-		{
-			int tmp = ip_remote;
-			ip_remote = ip_local;
-			ip_local = tmp;
-		}
-	}
+        if (isLocalIp(ip_remote))
+        {
+            int tmp = ip_remote;
+            ip_remote = ip_local;
+            ip_local = tmp;
+        }
+    }
 
-	ip_list[0] = ip_local;
-	ip_list[0] = ip_remote;
+    ip_list[0] = ip_local;
+    ip_list[0] = ip_remote;
 
-	//
-	freeaddrinfo(addr);
+    //
+    freeaddrinfo(addr);
 
     return 1;
 }

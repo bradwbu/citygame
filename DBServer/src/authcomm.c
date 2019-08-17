@@ -326,9 +326,9 @@ void authSendShardTransfer(int auth_id, int shard)
 
 static void handleVersion(AuthPacket *pak) {
     U32 protocol, reactivationActive;
-	const char *build;
+    const char *build;
 
-	build = authGetStr(pak);
+    build = authGetStr(pak);
     protocol = authGetU32(pak);
 
     printf("AuthServer Git Commit Hash: %s, Protocol: %d\n", build, protocol);

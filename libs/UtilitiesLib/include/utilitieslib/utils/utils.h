@@ -304,11 +304,11 @@ void reverse_bytes(U8 *s,int len);
 char *loadCmdline(char *cmdFname,char *buf,int bufsize); // for loading cmdline.txt
 
 typedef enum OutputLevel {
-	OUTPUT_INFO,
-	OUTPUT_VERBOSE,
-	OUTPUT_DEBUG,
-	OUTPUT_WARNING,
-	OUTPUT_ERROR
+    OUTPUT_INFO,
+    OUTPUT_VERBOSE,
+    OUTPUT_DEBUG,
+    OUTPUT_WARNING,
+    OUTPUT_ERROR
 } OutputLevel;
 void writeConsole(OutputLevel level, const char *format, ...);
 
