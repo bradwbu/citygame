@@ -3,6 +3,8 @@
 # For more info on EditorConfig check out https://EditorConfig.org
 ##################################################################
 
+root = true
+
 # Code files
 [*.{c,cc,cpp,h,hh,hpp}]
 trim_trailing_whitespace = true
