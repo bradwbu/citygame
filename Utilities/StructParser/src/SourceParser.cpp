@@ -873,11 +873,13 @@ int SourceParser::ParseSource(
     MakeStringAllAlphaNum(shortListFileName.data());
 
     fs::path listFileName{ m_srcDir };
-    listFileName.append(Formatter<>{}.format("%s.SPFileList", shortListFileName));
+    listFileName.append(Formatter<>{}.format("AutoGen\\%s.SPFileList", shortListFileName));
 
     sprintf(m_AutoGenFile1Name, "%s_AutoGen_1.c", m_shortenedPrjFileName.c_str());
     sprintf(m_AutoGenFile2Name, "%s_AutoGen_2.cpp", m_shortenedPrjFileName.c_str());
     sprintf(m_SpecialAutoRunFuncName, "_%s_AutoRun_SPECIALINTERNAL", m_shortenedPrjFileName.c_str());
+
+    MakeAutoGenDirectory();
 
     TRACE("About to start parsing... project %s config %s\n", m_shortenedPrjFileName.c_str(), m_configuration.c_str());
 
@@ -905,8 +907,6 @@ int SourceParser::ParseSource(
             }
         }
     }
-
-    MakeAutoGenDirectory();
 
     ProcessSolutionFile();
 
