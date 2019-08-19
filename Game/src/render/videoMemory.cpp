@@ -1,4 +1,4 @@
-#include "..\..\directx\include\ddraw.h"
+#include <ddraw.h>
 #include <stdio.h>
 
 #ifndef ABS

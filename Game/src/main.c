@@ -187,7 +187,7 @@ int main(int argc, char **argv)
     
     game_beforeFolderCacheIgnore(timer, argc, argv);
 
-	//writeConsole(OUTPUT_INFO, "CityOfHeroes client count: %d", game_runningCohClientCount());
+    //writeConsole(OUTPUT_INFO, "CityOfHeroes client count: %d", game_runningCohClientCount());
 
     // cov and dev file ignore
     FolderCacheIgnoreStdPrefixes();
@@ -263,10 +263,10 @@ int main(int argc, char **argv)
     if(game_state.ask_quick_login)
         game_state.quick_login = winMsgYesNo("Do you want to use QUICK LOGIN?");
 
-	if (game_state.enableHardwareLights) {
-		hwlightInitialize();
-		writeConsole(OUTPUT_INFO, "Initialized hardware lights");
-	}
+    if (game_state.enableHardwareLights) {
+        hwlightInitialize();
+        writeConsole(OUTPUT_INFO, "Initialized hardware lights");
+    }
 
     seqLoadStateBits();
 

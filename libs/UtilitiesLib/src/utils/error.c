@@ -614,7 +614,7 @@ void errorLogStart(void)
         if (num>1)
             strcat(str, ",");
     }
-	writeConsole(OUTPUT_INFO, "Initialized error log %s", fullpath);
+    writeConsole(OUTPUT_INFO, "Initialized error log %s", fullpath);
 }
 
 void errorLogFileHasError(const char *file)

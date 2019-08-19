@@ -120,21 +120,21 @@ static int setupContext()
         return 0;
     }
 
-	writeConsole(OUTPUT_VERBOSE, "Initializing GLEW %s", glewGetString(GLEW_VERSION));
-	glewExperimental = GL_TRUE;
-	GLenum err = glewInit();
-	if (GLEW_OK != err) {
-		writeConsole(OUTPUT_ERROR, "Failed to load GLEW %s: %s", glewGetString(GLEW_VERSION), glewGetErrorString(err));
-		return FALSE;
-	}
+    writeConsole(OUTPUT_VERBOSE, "Initializing GLEW %s", glewGetString(GLEW_VERSION));
+    glewExperimental = GL_TRUE;
+    GLenum err = glewInit();
+    if (GLEW_OK != err) {
+        writeConsole(OUTPUT_ERROR, "Failed to load GLEW %s: %s", glewGetString(GLEW_VERSION), glewGetErrorString(err));
+        return FALSE;
+    }
 
-	writeConsole(OUTPUT_VERBOSE, "OpenGL Vendor: %s", glGetString(GL_VENDOR));
-	writeConsole(OUTPUT_VERBOSE, "OpenGL Renderer: %s", glGetString(GL_RENDERER));
-	writeConsole(OUTPUT_VERBOSE, "OpenGL Version: %s", glGetString(GL_VERSION));
-	if (glGetString(GL_SHADING_LANGUAGE_VERSION)) {
-		writeConsole(OUTPUT_VERBOSE, "OpenGL Shading Language Version: %s", glGetString(GL_SHADING_LANGUAGE_VERSION));
-	}
-	return TRUE;
+    writeConsole(OUTPUT_VERBOSE, "OpenGL Vendor: %s", glGetString(GL_VENDOR));
+    writeConsole(OUTPUT_VERBOSE, "OpenGL Renderer: %s", glGetString(GL_RENDERER));
+    writeConsole(OUTPUT_VERBOSE, "OpenGL Version: %s", glGetString(GL_VERSION));
+    if (glGetString(GL_SHADING_LANGUAGE_VERSION)) {
+        writeConsole(OUTPUT_VERBOSE, "OpenGL Shading Language Version: %s", glGetString(GL_SHADING_LANGUAGE_VERSION));
+    }
+    return TRUE;
 }
 
 #if defined(_FINAL)
@@ -325,7 +325,7 @@ extern volatile int frames_buffered;
 extern CRITICAL_SECTION frame_check;
 extern HANDLE frame_done_signal;
 
-void    windowUpdateDirect()
+void windowUpdateDirect()
 {
     int framesInProgress = 0;
     U32 curSLI = (rdr_frame_state.curFrame % MAX_FRAMES);
@@ -338,11 +338,6 @@ void    windowUpdateDirect()
         HGLRC curr_glc = wglGetCurrentContext();
         assert(curr_glc == glRC);
     }
-
-    #ifdef USE_NVPERFKIT
-        if (isDevelopmentMode() && rdr_caps.chip & NV2X)
-            NVPerfHeartbeatOGL();
-    #endif
 
     rdrCpuFrameDone();
 

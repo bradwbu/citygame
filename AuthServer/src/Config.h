@@ -115,7 +115,7 @@ public:
     bool enableVerboseLogging;
     bool enableDebugLogging;
 
-	const char *connectionString;
+    const char *connectionString;
 
 private:
     StringMap map;

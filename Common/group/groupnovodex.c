@@ -250,7 +250,7 @@ int createNxWorldShapes()
     int i;
     int iTotalShapes = 0;
 
-	writeConsole(OUTPUT_DEBUG, "Loading PhysX objects");
+    writeConsole(OUTPUT_DEBUG, "Loading PhysX objects");
 
     // Create all of the shapes
     for(i = 0; i < group_info.ref_count; i++)
@@ -341,7 +341,7 @@ void destroyNxWorldShapes( )
         }
     }
 
-	writeConsole(OUTPUT_INFO, "Released %d PhysX objects", iFreeCount);
+    writeConsole(OUTPUT_INFO, "Released %d PhysX objects", iFreeCount);
 }
 
 

@@ -2143,21 +2143,21 @@ void MMScrollSet_Load(void)
 {
     int i;
 
-	writeConsole(OUTPUT_DEBUG, "Loading player created story arc data");
+    writeConsole(OUTPUT_DEBUG, "Loading player created story arc data");
     playerCreatedStoryarc_LoadData(game_state.create_bins);
     writeConsole(OUTPUT_INFO, "Loaded player created story arc data");
 
-	writeConsole(OUTPUT_DEBUG, "Loading custom critters");
+    writeConsole(OUTPUT_DEBUG, "Loading custom critters");
     loadPCCFromFiles();
-	writeConsole(OUTPUT_INFO, "Loaded custom critters");
+    writeConsole(OUTPUT_INFO, "Loaded custom critters");
 
-	writeConsole(OUTPUT_DEBUG, "Loading custom villain groups");
+    writeConsole(OUTPUT_DEBUG, "Loading custom villain groups");
     loadCVGFromFiles();
-	writeConsole(OUTPUT_INFO, "Loaded custom villain groups");
+    writeConsole(OUTPUT_INFO, "Loaded custom villain groups");
 
-	writeConsole(OUTPUT_DEBUG, "Loading mission comments");
+    writeConsole(OUTPUT_DEBUG, "Loading mission comments");
     loadMissionComments();
-	writeConsole(OUTPUT_INFO, "Loaded mission comments");
+    writeConsole(OUTPUT_INFO, "Loaded mission comments");
 
     if(game_state.create_bins)
         return;
@@ -2211,7 +2211,7 @@ void MMScrollSet_Load(void)
         if( mmScrollSet_template.ppButton[i]->pchSpecialAction && stricmp( mmScrollSet_template.ppButton[i]->pchSpecialAction, "AddButton" )==0 )
             eaPush(&ppAddButtonTemplate, mmScrollSet_template.ppButton[i]);
     }
-	writeConsole(OUTPUT_INFO, "Generated mission maker data");
+    writeConsole(OUTPUT_INFO, "Generated mission maker data");
 }
 
 

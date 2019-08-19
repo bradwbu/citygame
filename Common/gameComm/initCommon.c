@@ -43,7 +43,7 @@
 
 
 void cacheRelevantFolders() {
-	writeConsole(OUTPUT_DEBUG, "Caching relevant folders");
+    writeConsole(OUTPUT_DEBUG, "Caching relevant folders");
     FolderCacheRequestTree(folder_cache, "Defs"); // If we're in dynamic mode, this will load this tree for faster file access
     FolderCacheRequestTree(folder_cache, "Menu");
     if (!quickload) {
@@ -64,25 +64,25 @@ void init_menus()
     if (!write_templates)
 #endif
     {
-		writeConsole(OUTPUT_DEBUG, "Loading FX info");
+        writeConsole(OUTPUT_DEBUG, "Loading FX info");
         fxPreloadFxInfo();
         writeConsole(OUTPUT_INFO, "Loaded FX info");
 
-		writeConsole(OUTPUT_DEBUG, "Generating FX string handles");
+        writeConsole(OUTPUT_DEBUG, "Generating FX string handles");
         fxBuildFxStringHandles();
         writeConsole(OUTPUT_INFO, "Generated FX string handles");
     }
 
-	writeConsole(OUTPUT_DEBUG, "Loading loyalty reward tree");
+    writeConsole(OUTPUT_DEBUG, "Loading loyalty reward tree");
     accountLoyaltyRewardTreeLoad();
     writeConsole(OUTPUT_INFO, "Loaded loyalty reward tree");
 
 #ifdef CLIENT
-	writeConsole(OUTPUT_DEBUG, "Loaded FX behaviors");
+    writeConsole(OUTPUT_DEBUG, "Loaded FX behaviors");
     fxPreloadBhvrInfo();
     writeConsole(OUTPUT_INFO, "Loaded FX behaviors");
 
-	writeConsole(OUTPUT_DEBUG, "Loaded villain definitions");
+    writeConsole(OUTPUT_DEBUG, "Loaded villain definitions");
     villainReadDefFiles();
     writeConsole(OUTPUT_INFO, "Loaded villain definitions");
 
@@ -93,7 +93,7 @@ void init_menus()
 #endif
 
     if (!STATE_STRUCT.nofx) {
-		writeConsole(OUTPUT_DEBUG, "Loading cape FX");
+        writeConsole(OUTPUT_DEBUG, "Loading cape FX");
         fxPreloadCapeInfo();
         writeConsole(OUTPUT_INFO, "Loaded cape FX");
     }
@@ -101,26 +101,26 @@ void init_menus()
 
     // FIXME!!!
     //    Move these two somewhere else.
-	writeConsole(OUTPUT_DEBUG, "Loading body parts");
+    writeConsole(OUTPUT_DEBUG, "Loading body parts");
     bpReadBodyPartFiles();
-	writeConsole(OUTPUT_INFO, "Loaded body parts");
+    writeConsole(OUTPUT_INFO, "Loaded body parts");
 
 #ifdef SERVER
     if (!server_state.levelEditor)
 #endif
 
-	writeConsole(OUTPUT_DEBUG, "Loading NPC definitions");
+    writeConsole(OUTPUT_DEBUG, "Loading NPC definitions");
     npcReadDefFiles();
-	writeConsole(OUTPUT_INFO, "Loaded NPC definitions");
+    writeConsole(OUTPUT_INFO, "Loaded NPC definitions");
 
 
 #ifdef SERVER
     if (!server_state.tsr)
 #endif
     {
-		writeConsole(OUTPUT_DEBUG, "Loading ent_types");
+        writeConsole(OUTPUT_DEBUG, "Loading ent_types");
         seqTypeLoadFiles();
-		writeConsole(OUTPUT_INFO, "Loaded ent_types");
+        writeConsole(OUTPUT_INFO, "Loaded ent_types");
     }
 
 

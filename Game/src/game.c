@@ -1492,24 +1492,24 @@ static void AttachConsoleIfAvail(void)
 }
 
 void parseArgsForConsole(int argc, char** argv) {
-	int i;
+    int i;
 
-	for (i = 1; i < argc; i++) {
-		if (CHECKARG("-console")) { // Do this early!
-			newConsoleWindow();
-			consoleStarted = true;
-		} else if (CHECKARG("-nogui")) {
-			AttachConsoleIfAvail();
-			newConsoleWindow();
-			consoleStarted = true;
-			ShowWindow(compatibleGetConsoleWindow(), SW_SHOW);
+    for (i = 1; i < argc; i++) {
+        if (CHECKARG("-console")) { // Do this early!
+            newConsoleWindow();
+            consoleStarted = true;
+        } else if (CHECKARG("-nogui")) {
+            AttachConsoleIfAvail();
+            newConsoleWindow();
+            consoleStarted = true;
+            ShowWindow(compatibleGetConsoleWindow(), SW_SHOW);
 
-			setGuiDisable(true);
-			g_win_ignore_popups = 1;
-		} else if (CHECKARG("-showLoadMemUsage")) {
-			setShowLoadMemUsage(true);
-		}
-	}
+            setGuiDisable(true);
+            g_win_ignore_popups = 1;
+        } else if (CHECKARG("-showLoadMemUsage")) {
+            setShowLoadMemUsage(true);
+        }
+    }
 }
 
 void startHiddenConsole()
@@ -1547,8 +1547,8 @@ void game_beforeFolderCacheIgnore(int timer, int argc, char **argv)
     parseArgsForCovFlag(argc, argv);
 
     windowInit();
-	writeConsole(OUTPUT_INFO, "Project: Ouroboros");
-	writeConsole(OUTPUT_INFO, "Git Commit Hash: %s", build_version);
+    writeConsole(OUTPUT_INFO, "Project: Ouroboros");
+    writeConsole(OUTPUT_INFO, "Git Commit Hash: %s", build_version);
     writeConsole(OUTPUT_INFO, "Running %s", argv[0]);
 
     acquireCountMutex();
@@ -1655,14 +1655,14 @@ void game_beforeParseArgs(int doLogging)
         setCurrentLocale(locGetIDInRegistry());
 
     // @todo ab: this should be enabled at some point, if it is safe.
-	//setlocale(LC_CTYPE,"");
-	writeConsole(OUTPUT_DEBUG, "Loading message stores");
-	if (game_state.create_bins) {
-		reloadClientMessageStores(LOCALE_ID_ENGLISH);
-	} else {
-		reloadClientMessageStores(getCurrentLocale());
-	}
-	writeConsole(OUTPUT_INFO, "Loaded message stores");
+    //setlocale(LC_CTYPE,"");
+    writeConsole(OUTPUT_DEBUG, "Loading message stores");
+    if (game_state.create_bins) {
+        reloadClientMessageStores(LOCALE_ID_ENGLISH);
+    } else {
+        reloadClientMessageStores(getCurrentLocale());
+    }
+    writeConsole(OUTPUT_INFO, "Loaded message stores");
 
     // See if we crashed last time
     checkForCrash();
@@ -1782,7 +1782,7 @@ static void finalizeRenderer(void)
         // information.
         writeConsole(OUTPUT_WARNING, "Reduced Render Features: %s", rdrFeaturesString(false));
     }
-	writeConsole(OUTPUT_INFO, "Renderer initialization complete");
+    writeConsole(OUTPUT_INFO, "Renderer initialization complete");
 
     //**
     // Reapply graphics settings in case we forced something off
@@ -1816,19 +1816,19 @@ int game_loadSoundsTricksFonts(int argc, char **argv)
 
     if (!game_state.texWordEdit && FolderCacheGetMode() != FOLDER_CACHE_MODE_DEVELOPMENT_DYNAMIC) { // these don't get loaded/used for the texWordEditor
         cacheRelevantFolders();
-		writeConsole(OUTPUT_INFO, "Cached relevant folders");
+        writeConsole(OUTPUT_INFO, "Cached relevant folders");
 
         sndInit();
-		writeConsole(OUTPUT_INFO, "Loaded sounds");
+        writeConsole(OUTPUT_INFO, "Loaded sounds");
     }
-	writeConsole(OUTPUT_DEBUG, "Loading tricks");
+    writeConsole(OUTPUT_DEBUG, "Loading tricks");
     trickLoad();
-	writeConsole(OUTPUT_INFO, "Loaded tricks");
+    writeConsole(OUTPUT_INFO, "Loaded tricks");
     conCreate();
     texWordsAllowLoading(true);
-	writeConsole(OUTPUT_DEBUG, "Loading texWords");
+    writeConsole(OUTPUT_DEBUG, "Loading texWords");
     texWordsLoad(locGetName(getCurrentLocale())); // Before texLoadHeaders
-	writeConsole(OUTPUT_INFO, "Loaded texWords");
+    writeConsole(OUTPUT_INFO, "Loaded texWords");
 
     if (!game_state.create_bins) {
         game_setProgressString("INIT: before rdrInitTopOfFrame()", "CrashPromptSafeMode", PROGRESSDIALOGTYPE_SAFEMODE);
@@ -1935,9 +1935,9 @@ void game_loadData(int isCostumeCreator)
     {
         PERFINFO_AUTO_STOP_START("middle", 1);
         groupLoadLibs();    // Must be before FX and Sequencers
-		writeConsole(OUTPUT_DEBUG, "Loading LOD info");
+        writeConsole(OUTPUT_DEBUG, "Loading LOD info");
         lodinfoLoad();
-		writeConsole(OUTPUT_INFO, "Loaded LOD info");
+        writeConsole(OUTPUT_INFO, "Loaded LOD info");
         modelInitReload();
         makeBaseMakeReferenceArrays();
     }
@@ -1945,7 +1945,7 @@ void game_loadData(int isCostumeCreator)
     if (!game_state.minimal_loading)
     {
         //Preloading sequencers
-		writeConsole(OUTPUT_DEBUG, "Loading sequencers");
+        writeConsole(OUTPUT_DEBUG, "Loading sequencers");
         loadClothWindInfo(); // Must be before loading sequencers
         loadClothColInfo();
 
@@ -2068,20 +2068,20 @@ void game_loadData(int isCostumeCreator)
 
     if (!game_state.minimal_loading)
     {
-		writeConsole(OUTPUT_DEBUG, "Preloading character animations");
+        writeConsole(OUTPUT_DEBUG, "Preloading character animations");
         seqPreLoadPlayerCharacterAnimations( SEQ_LOAD_FULL ); //after PreloadSeqInfos
         writeConsole(OUTPUT_INFO, "Preloaded character animations");
 
         PERFINFO_AUTO_STOP_START("middle19", 1);
 
-		writeConsole(OUTPUT_DEBUG, "Preloading FX geometry");
+        writeConsole(OUTPUT_DEBUG, "Preloading FX geometry");
         fxPreloadGeometry();
         writeConsole(OUTPUT_INFO, "Preloaded FX geometry");
     }
     PERFINFO_AUTO_STOP();
 
     PERFINFO_AUTO_STOP_START("middle19", 1);
-	writeConsole(OUTPUT_DEBUG, "Creating auction data");
+    writeConsole(OUTPUT_DEBUG, "Creating auction data");
     auction_Init();
     writeConsole(OUTPUT_INFO, "Created auction data");
     PERFINFO_AUTO_STOP();
@@ -2143,7 +2143,7 @@ void game_beforeLoop(int isCostumeCreator, int timer)
 
     server_visible_state.timestepscale = 1;
 
-	writeConsole(OUTPUT_INFO, "Loaded all data!");
+    writeConsole(OUTPUT_INFO, "Loaded all data!");
 
     if (!isCostumeCreator)
         windows_initDefaults(0);

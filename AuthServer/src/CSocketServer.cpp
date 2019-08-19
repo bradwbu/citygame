@@ -754,7 +754,7 @@ void CSocketServer::OnCreate()
     if (config.ProtocolVer >= GR_REACTIVATION_PROTOCOL_VERSION)
     {
         AS_LOG_VERBOSE( "SND: SQ_VERSION buildVersion :%s, protocol version : %d, reactivation active: %d",
-			buildVersion, config.ProtocolVer, reactivationActive );
+            buildVersion, config.ProtocolVer, reactivationActive );
         Send( "csdd", SQ_VERSION, buildVersion, config.ProtocolVer, reactivationActive );
     }
     else

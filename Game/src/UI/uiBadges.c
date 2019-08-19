@@ -52,9 +52,9 @@
 #include "player/inventory_client.h"
 #include "graphics/ttFontUtil.h"
 
-#define FORCE_OPACITY			0xE6
-#define NO_OPACITY				0xffffff00
-#define LINE_HT					17
+#define FORCE_OPACITY           0xE6
+#define NO_OPACITY              0xffffff00
+#define LINE_HT                 17
 
 static TextAttribs s_taDefaults =
 {
@@ -149,149 +149,149 @@ static void openBadgeMonitorWindow(void *data)
 
 const BadgeDef* getBadgeDef(const BadgeMonitorInfo* badgeInfo)
 {
-	if (!badgeInfo || !badgeInfo->iIdx)
-	{
-		return NULL;
-	}
+    if (!badgeInfo || !badgeInfo->iIdx)
+    {
+        return NULL;
+    }
 
-	return badge_GetAnyBadgeByIdx(badgeInfo->iIdx);
+    return badge_GetAnyBadgeByIdx(badgeInfo->iIdx);
 }
 
 static const char* badgeMonitorGetStopDisplayText(void *data)
 {
-	int badgeMonitorIdx = (int)data;
+    int badgeMonitorIdx = (int)data;
 
-	const Entity* entity = playerPtr();
-	const BadgeMonitorInfo* monitorList = entity->pl->badgeMonitorInfo;
-	const BadgeDef* badge = getBadgeDef(monitorList + badgeMonitorIdx);
-	if (!badge)
-	{
-		return "";
-	}
+    const Entity* entity = playerPtr();
+    const BadgeMonitorInfo* monitorList = entity->pl->badgeMonitorInfo;
+    const BadgeDef* badge = getBadgeDef(monitorList + badgeMonitorIdx);
+    if (!badge)
+    {
+        return "";
+    }
 
-	const char* title = printLocalizedEnt(badge->pchDisplayTitle[ENT_IS_HERO(entity) ? 0 : 1], entity);
-	return textStd("BadgeMonitorStopDisplayString", title);
+    const char* title = printLocalizedEnt(badge->pchDisplayTitle[ENT_IS_HERO(entity) ? 0 : 1], entity);
+    return textStd("BadgeMonitorStopDisplayString", title);
 }
 
 static void badgeMonitor_Move(int badgeMonitorIdx, int step)
 {
-	if ( (badgeMonitorIdx + step < 0) || (badgeMonitorIdx + step >= MAX_BADGE_MONITOR_ENTRIES) )
-	{
-		return;
-	}
-	
-	// int i;
-	Entity* entity = playerPtr();
-	BadgeMonitorInfo* monitorList = entity->pl->badgeMonitorInfo;
-	BadgeMonitorInfo* monitoredBadge = monitorList + badgeMonitorIdx;
-	BadgeMonitorInfo* monitoredBadgeOther = monitoredBadge + step;
+    if ( (badgeMonitorIdx + step < 0) || (badgeMonitorIdx + step >= MAX_BADGE_MONITOR_ENTRIES) )
+    {
+        return;
+    }
+    
+    // int i;
+    Entity* entity = playerPtr();
+    BadgeMonitorInfo* monitorList = entity->pl->badgeMonitorInfo;
+    BadgeMonitorInfo* monitoredBadge = monitorList + badgeMonitorIdx;
+    BadgeMonitorInfo* monitoredBadgeOther = monitoredBadge + step;
 
-	// Only replace with other if it's an existing badge (otherwise it's the end)
-	if (!monitoredBadgeOther->iIdx)
-	{
-		return;
-	}
+    // Only replace with other if it's an existing badge (otherwise it's the end)
+    if (!monitoredBadgeOther->iIdx)
+    {
+        return;
+    }
 
-	// swap the badges indices
-	int tmp = monitoredBadgeOther->iIdx;
-	monitoredBadgeOther->iIdx = monitoredBadge->iIdx;
-	monitoredBadge->iIdx = tmp;
+    // swap the badges indices
+    int tmp = monitoredBadgeOther->iIdx;
+    monitoredBadgeOther->iIdx = monitoredBadge->iIdx;
+    monitoredBadge->iIdx = tmp;
 
-	// Update server on new order
-	badgeMonitor_SendToServer(entity);
+    // Update server on new order
+    badgeMonitor_SendToServer(entity);
 }
 
 static void badgeMonitor_MoveUp(void* data)
 {
-	badgeMonitor_Move((int)data, -1);
+    badgeMonitor_Move((int)data, -1);
 }
 
 static void badgeMonitor_MoveDown(void* data)
 {
-	badgeMonitor_Move((int)data, 1);
+    badgeMonitor_Move((int)data, 1);
 }
 
 static void badgeMonitor_stopDisplay(void* data)
 {
-	int badgeMonitorIdx = (int)data;
-	Entity* entity = playerPtr();
-	BadgeMonitorInfo* monitorList = entity->pl->badgeMonitorInfo;
+    int badgeMonitorIdx = (int)data;
+    Entity* entity = playerPtr();
+    BadgeMonitorInfo* monitorList = entity->pl->badgeMonitorInfo;
 
-	BadgeMonitorInfo* prev = monitorList + badgeMonitorIdx;
-	for (int i = badgeMonitorIdx + 1; i < MAX_BADGE_MONITOR_ENTRIES; i++)
-	{
-		BadgeMonitorInfo* next = monitorList + i;
-		if (!next->iIdx)
-		{
-			prev->iIdx = 0;
-			break;
-		}
-		prev->iIdx = next->iIdx;
-		prev = next;
-	}
-	badgeMonitor_SendToServer(entity);
+    BadgeMonitorInfo* prev = monitorList + badgeMonitorIdx;
+    for (int i = badgeMonitorIdx + 1; i < MAX_BADGE_MONITOR_ENTRIES; i++)
+    {
+        BadgeMonitorInfo* next = monitorList + i;
+        if (!next->iIdx)
+        {
+            prev->iIdx = 0;
+            break;
+        }
+        prev->iIdx = next->iIdx;
+        prev = next;
+    }
+    badgeMonitor_SendToServer(entity);
 }
 
 static void badgeMonitor_stopDisplayAll(void *data)
 {
-	Entity* entity = playerPtr();
+    Entity* entity = playerPtr();
 
-	for (int i = 0; i < MAX_BADGE_MONITOR_ENTRIES; i++)
-	{
-		BadgeMonitorInfo* monitoredBadge = entity->pl->badgeMonitorInfo + i;
-		if (!monitoredBadge)
-		{
-			break;
-		}
-		monitoredBadge->iIdx = 0;
-	}
-	badgeMonitor_SendToServer(entity);
+    for (int i = 0; i < MAX_BADGE_MONITOR_ENTRIES; i++)
+    {
+        BadgeMonitorInfo* monitoredBadge = entity->pl->badgeMonitorInfo + i;
+        if (!monitoredBadge)
+        {
+            break;
+        }
+        monitoredBadge->iIdx = 0;
+    }
+    badgeMonitor_SendToServer(entity);
 }
 
 static void setCategory(CollectionType collectionType, BadgeType category)
 {
-	gSelectedCollection = collectionType;
-	gSelectedTab = category;
-	badgeReparse();
+    gSelectedCollection = collectionType;
+    gSelectedTab = category;
+    badgeReparse();
 }
 
 static void badgeMonitor_focusBadge(void* data)
 {
-	int badgeMonitorIdx = (int)data;
-	Entity* entity = playerPtr();
-	const BadgeMonitorInfo* monitoredBadge = entity->pl->badgeMonitorInfo + badgeMonitorIdx;
-	const BadgeDef* badgeDef = getBadgeDef(monitoredBadge);
-	if (!badgeDef)
-	{
-		return;
-	}
+    int badgeMonitorIdx = (int)data;
+    Entity* entity = playerPtr();
+    const BadgeMonitorInfo* monitoredBadge = entity->pl->badgeMonitorInfo + badgeMonitorIdx;
+    const BadgeDef* badgeDef = getBadgeDef(monitoredBadge);
+    if (!badgeDef)
+    {
+        return;
+    }
 
-	// 1. show the badges/collect window
-	window_setMode(WDW_BADGES, WINDOW_GROWING);
-	window_bringToFront(WDW_BADGES);
+    // 1. show the badges/collect window
+    window_setMode(WDW_BADGES, WINDOW_GROWING);
+    window_bringToFront(WDW_BADGES);
 
-	// 2. choose the category in it
-	setCategory(badgeDef->eCollection, badgeDef->eCategory);
+    // 2. choose the category in it
+    setCategory(badgeDef->eCollection, badgeDef->eCategory);
 
-	// 3. scroll until the badgead
-	// TODO implement (how?)
+    // 3. scroll until the badgead
+    // TODO implement (how?)
 }
 
 static void initBadgeMonitorContextMenu()
 {
-	if (badgeMonitorContextMenu)
-	{
-		return;
-	}
+    if (badgeMonitorContextMenu)
+    {
+        return;
+    }
 
-	badgeMonitorContextMenu = contextMenu_Create(0);
-	contextMenu_addTitle(badgeMonitorContextMenu, "BadgeMonitorString");
-	contextMenu_addCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_focusBadge, 0, "FocusBadgeMonitorString", 0);
-	contextMenu_addVariableTextCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_stopDisplay, 0, badgeMonitorGetStopDisplayText, 0, NULL);
-	contextMenu_addCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_MoveUp, 0, "MoveUpString", 0);
-	contextMenu_addCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_MoveDown, 0, "MoveDownString", 0);
-	contextMenu_addDivider(badgeMonitorContextMenu);
-	contextMenu_addCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_stopDisplayAll, 0, "StopDisplayAllString", 0);
+    badgeMonitorContextMenu = contextMenu_Create(0);
+    contextMenu_addTitle(badgeMonitorContextMenu, "BadgeMonitorString");
+    contextMenu_addCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_focusBadge, 0, "FocusBadgeMonitorString", 0);
+    contextMenu_addVariableTextCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_stopDisplay, 0, badgeMonitorGetStopDisplayText, 0, NULL);
+    contextMenu_addCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_MoveUp, 0, "MoveUpString", 0);
+    contextMenu_addCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_MoveDown, 0, "MoveDownString", 0);
+    contextMenu_addDivider(badgeMonitorContextMenu);
+    contextMenu_addCode(badgeMonitorContextMenu, alwaysAvailable, 0, badgeMonitor_stopDisplayAll, 0, "StopDisplayAllString", 0);
 }
 
 static void addToBadgeMonitorWindow(void *data)
@@ -355,10 +355,10 @@ static void setCollection(void *data)
 
 static void setCategoryCallback(void* data)
 {
-	CollectionCategory cc;
+    CollectionCategory cc;
 
-	cc.voidPointer = data;
-	setCategory((CollectionType)cc.data.collection, (BadgeType)cc.data.category);
+    cc.voidPointer = data;
+    setCategory((CollectionType)cc.data.collection, (BadgeType)cc.data.category);
 }
 
 /**********************************************************************func*
@@ -688,7 +688,7 @@ int badgesWindow(void)
         contextMenu_addCode(badgeContextMenu, canBadgeBeAddedToMonitorWindow, 0, addToBadgeMonitorWindow, 0, "BadgeMonitorAdd", NULL);
     }
 
-	initBadgeMonitorContextMenu();
+    initBadgeMonitorContextMenu();
 
     if ((!e->supergroup_id || !e->supergroup || !e->supergroup->badgeStates.eaiStates) && 
             gSelectedCollection == kCollectionType_Supergroup)
@@ -966,69 +966,69 @@ int badgesWindow(void)
 
 int countBadges(BadgeMonitorInfo *monitorList, int size)
 {
-	int count = 0;
-	for (int i = 0; i < size; ++i)
-	{
-		if (monitorList[i].iIdx)
-		{
-			count++;
-		}
-	}
-	return count;
+    int count = 0;
+    for (int i = 0; i < size; ++i)
+    {
+        if (monitorList[i].iIdx)
+        {
+            count++;
+        }
+    }
+    return count;
 }
 
 F32 calculateBadgeMonitorWidth(Entity *player, BadgeMonitorInfo *monitorList, int size, float scale, float *outColWidth)
 {
-	float colWidth = 0;
+    float colWidth = 0;
 
-	for (int i = 0; i < size; i++)
-	{
-		const BadgeDef* badgeDef = getBadgeDef(monitorList + i);
-		if (badgeDef)
-		{
-			const char* title = printLocalizedEnt(badgeDef->pchDisplayTitle[ENT_IS_HERO(player) ? 0 : 1], player);
-			int name_wd = str_wd(&game_12, scale, scale, title);
-			colWidth = MAX(colWidth, name_wd + 10 * scale);
-		}
-	}
-	if (outColWidth)
-	{
-		*outColWidth = colWidth;
-	}
+    for (int i = 0; i < size; i++)
+    {
+        const BadgeDef* badgeDef = getBadgeDef(monitorList + i);
+        if (badgeDef)
+        {
+            const char* title = printLocalizedEnt(badgeDef->pchDisplayTitle[ENT_IS_HERO(player) ? 0 : 1], player);
+            int name_wd = str_wd(&game_12, scale, scale, title);
+            colWidth = MAX(colWidth, name_wd + 10 * scale);
+        }
+    }
+    if (outColWidth)
+    {
+        *outColWidth = colWidth;
+    }
 
-	float wd = 0;
-	char descBuffer[BADGE_PROGRESS_STRING_BUFFER_SIZE];
-	for (int i = 0; i < size; i++)
-	{
-		const BadgeDef* badgeDef = getBadgeDef(monitorList + i);
-		if (badgeDef)
-		{
-			int progressStrWidth = str_wd(&game_12, scale, scale, "%s", badge_getProgressString(descBuffer, player, badgeDef));
-			wd = MAX(wd, 5 * scale + colWidth + progressStrWidth);
-		}
-	}
-	return wd;
+    float wd = 0;
+    char descBuffer[BADGE_PROGRESS_STRING_BUFFER_SIZE];
+    for (int i = 0; i < size; i++)
+    {
+        const BadgeDef* badgeDef = getBadgeDef(monitorList + i);
+        if (badgeDef)
+        {
+            int progressStrWidth = str_wd(&game_12, scale, scale, "%s", badge_getProgressString(descBuffer, player, badgeDef));
+            wd = MAX(wd, 5 * scale + colWidth + progressStrWidth);
+        }
+    }
+    return wd;
 }
 
 void displayBadgeProgress(float x, float y, float width, float z, float scale, float colWidth, const Entity *entity, const BadgeDef* badgeDef, int badgeMonitorIdx)
 {
-	const char* title = printLocalizedEnt(badgeDef->pchDisplayTitle[ENT_IS_HERO(entity) ? 0 : 1], entity);
+    const char* title = printLocalizedEnt(badgeDef->pchDisplayTitle[ENT_IS_HERO(entity) ? 0 : 1], entity);
 
-	font(&game_12);
-	font_color(CLR_WHITE, CLR_WHITE);
-	cprntEx(x + 5 * scale, y + LINE_HT * scale, z, scale, scale, 0, title);
+    font(&game_12);
+    font_color(CLR_WHITE, CLR_WHITE);
+    cprntEx(x + 5 * scale, y + LINE_HT * scale, z, scale, scale, 0, title);
 
-	char buffer[BADGE_PROGRESS_STRING_BUFFER_SIZE];
-	badge_getProgressString(buffer, entity, badgeDef);
+    char buffer[BADGE_PROGRESS_STRING_BUFFER_SIZE];
+    badge_getProgressString(buffer, entity, badgeDef);
 
-	cprntEx(x + colWidth, y + LINE_HT * scale, z, scale, scale, NO_MSPRINT, "%s", buffer);
+    cprntEx(x + colWidth, y + LINE_HT * scale, z, scale, scale, NO_MSPRINT, "%s", buffer);
 
-	CBox box;
-	BuildCBox(&box, x, y, width, LINE_HT * scale);
-	if (mouseClickHit(&box, MS_RIGHT))
-	{
-		contextMenu_displayEx(badgeMonitorContextMenu, (void*)badgeMonitorIdx);
-	}
+    CBox box;
+    BuildCBox(&box, x, y, width, LINE_HT * scale);
+    if (mouseClickHit(&box, MS_RIGHT))
+    {
+        contextMenu_displayEx(badgeMonitorContextMenu, (void*)badgeMonitorIdx);
+    }
 }
 
 int badgeMonitorWindow(void)
@@ -1036,48 +1036,48 @@ int badgeMonitorWindow(void)
     float x, y, z, width, height, scale;
     U32 color, bcolor;
 
-	Entity *player = playerPtr();
+    Entity *player = playerPtr();
     if(player && player->pl)
     {
-		window_getDims(WDW_BADGEMONITOR, &x, &y, &z, &width, &height, &scale, &color, &bcolor);
+        window_getDims(WDW_BADGEMONITOR, &x, &y, &z, &width, &height, &scale, &color, &bcolor);
 
-		BadgeMonitorInfo *monitorList = player->pl->badgeMonitorInfo;
+        BadgeMonitorInfo *monitorList = player->pl->badgeMonitorInfo;
 
-		// count current monitored badges
-		int count = countBadges(monitorList, MAX_BADGE_MONITOR_ENTRIES);
-		if (!count)
-		{
-			window_setMode(WDW_BADGEMONITOR, WINDOW_SHRINKING);
-		}
-		else
-		{
-			window_setMode(WDW_BADGEMONITOR, WINDOW_GROWING);
+        // count current monitored badges
+        int count = countBadges(monitorList, MAX_BADGE_MONITOR_ENTRIES);
+        if (!count)
+        {
+            window_setMode(WDW_BADGEMONITOR, WINDOW_SHRINKING);
+        }
+        else
+        {
+            window_setMode(WDW_BADGEMONITOR, WINDOW_GROWING);
 
-			float colWidth;
-			float newWidth = calculateBadgeMonitorWidth(player, monitorList, MAX_BADGE_MONITOR_ENTRIES, scale, &colWidth);
-			window_setDims(WDW_BADGEMONITOR, -1, -1, newWidth, (count * LINE_HT + 4) * scale);
+            float colWidth;
+            float newWidth = calculateBadgeMonitorWidth(player, monitorList, MAX_BADGE_MONITOR_ENTRIES, scale, &colWidth);
+            window_setDims(WDW_BADGEMONITOR, -1, -1, newWidth, (count * LINE_HT + 4) * scale);
 
-			//
-			CBox box;
-			BuildCBox(&box, x, y, width, height);
-			drawFrame(PIX2, R4, x, y, z, width, height, scale, color, bcolor);
-			clipperPushCBox(&box);
+            //
+            CBox box;
+            BuildCBox(&box, x, y, width, height);
+            drawFrame(PIX2, R4, x, y, z, width, height, scale, color, bcolor);
+            clipperPushCBox(&box);
 
-			y += 2 * scale;
+            y += 2 * scale;
 
-			for (int i = 0; i < count; i++)
-			{
-				const BadgeDef* badgeDef = getBadgeDef(monitorList + i);
-				if (badgeDef)
-				{
-					displayBadgeProgress(x, y + i * LINE_HT * scale, width, z, scale, colWidth, player, badgeDef, i);
-				}
-			}
+            for (int i = 0; i < count; i++)
+            {
+                const BadgeDef* badgeDef = getBadgeDef(monitorList + i);
+                if (badgeDef)
+                {
+                    displayBadgeProgress(x, y + i * LINE_HT * scale, width, z, scale, colWidth, player, badgeDef, i);
+                }
+            }
 
-			clipperPop();
+            clipperPop();
 
-			return 0;
-		}
+            return 0;
+        }
     }
 
     return 0;

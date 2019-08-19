@@ -18,7 +18,7 @@
 #include "UI/uiGame.h"
 #include <utilitieslib/components/Earray.h>
 #include <utilitieslib/utils/FolderCache.h>
-#include "..\..\directx\include\dsound.h"
+#include <dsound.h>
 #include "player/player.h"
 #include "entity/entity.h"
 #include "entity/EntPlayer.h"
@@ -1535,7 +1535,7 @@ void sndInit()
     g_audio_state.maxSoundSpheres = game_state.maxSoundSpheres;
     sound_name_hashes = stashTableCreateWithStringKeys(1000,StashDeepCopyKeys);
     
-	writeConsole(OUTPUT_DEBUG, "Loading sounds");
+    writeConsole(OUTPUT_DEBUG, "Loading sounds");
     fileScanAllDataDirs("sound", soundLoadCallback);
     FolderCacheSetCallback(FOLDER_CACHE_CALLBACK_UPDATE_AND_DELETE, "sound/*", noteChangedSounds);
     LoadSoundDefs();

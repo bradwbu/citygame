@@ -105,7 +105,7 @@ void ParseBindings()
 
     finish = clock();
     duration = (double)(finish - start) / CLOCKS_PER_SEC;
-	writeConsole(OUTPUT_VERBOSE, "Loaded keybinds in %2.3fs", duration);
+    writeConsole(OUTPUT_VERBOSE, "Loaded keybinds in %2.3fs", duration);
 }
 
 

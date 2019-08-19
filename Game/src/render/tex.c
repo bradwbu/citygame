@@ -1669,7 +1669,7 @@ int texLoadHeaders(void)
     tex_load_header_count = 0;
     basefolder = "texture_library";
 
-	writeConsole(OUTPUT_DEBUG, "Loading texture headers");
+    writeConsole(OUTPUT_DEBUG, "Loading texture headers");
 
     // Load basic textures from disk
     g_basicTextures_ht = stashTableCreateWithStringKeys(estimatedBinds, StashDeepCopyKeys);
@@ -1680,7 +1680,7 @@ int texLoadHeaders(void)
     // Add callback for re-loading textures
     FolderCacheSetCallback(FOLDER_CACHE_CALLBACK_UPDATE_AND_DELETE, "texture_library/*.texture", reloadTextureCallback);
 
-	writeConsole(OUTPUT_INFO, "Loaded texture headers");
+    writeConsole(OUTPUT_INFO, "Loaded texture headers");
     
     return tex_load_header_count;
 }
@@ -1932,9 +1932,9 @@ static void texDoThreadedQueuedTextureLoading( void )
     // find end
     for (pkg = queuedTexLoads; pkg && ++count && pkg->next; pkg = pkg->next);
 
-	writeConsole(OUTPUT_DEBUG, "Loading %i textures", count);
+    writeConsole(OUTPUT_DEBUG, "Loading %i textures", count);
     
-	int i = count;
+    int i = count;
     for( ; pkg ; pkg = prevPkg, i-- )
     {
         bool addToFinalList=true;

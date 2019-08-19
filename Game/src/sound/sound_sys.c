@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include "..\..\directx\include\dsound.h"
+#include <dsound.h>
 #include <utilitieslib/utils/timing.h>
 #include <utilitieslib/utils/file.h>
 #include "ogg_decode.h"

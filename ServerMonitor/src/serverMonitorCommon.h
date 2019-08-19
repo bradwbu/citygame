@@ -9,16 +9,16 @@
 #include <commctrl.h>
 
 typedef enum VarMapFlags {
-	VMF_READ=1,		// Do not update, just grab
-	VMF_WRITE=2,	// Just update, don't grab
-	VMF_READWRITE=VMF_READ|VMF_WRITE,
+    VMF_READ=1,        // Do not update, just grab
+    VMF_WRITE=2,    // Just update, don't grab
+    VMF_READWRITE=VMF_READ|VMF_WRITE,
 } VarMapFlags;
 
 typedef struct VarMap {
-	int id;
-	VarMapFlags flags;
-	TokenizerParseInfo parse;
-	TokenizerParseInfo endtable; // leave NULL so that parse is correctly terminated
+    int id;
+    VarMapFlags flags;
+    TokenizerParseInfo parse;
+    TokenizerParseInfo endtable; // leave NULL so that parse is correctly terminated
 } VarMap;
 
 void initText(HWND hDlg, void *base, VarMap mapping[], int count);
@@ -48,4 +48,4 @@ void serverMonitorMessageLoop(void);
 bool serverMonitorExiting(void);
 
 
-#endif		// SERVER_MONITOR_COMMON_H
+#endif        // SERVER_MONITOR_COMMON_H
