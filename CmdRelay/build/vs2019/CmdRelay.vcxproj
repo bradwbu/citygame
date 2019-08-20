@@ -98,6 +98,7 @@
       <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;FULLDEBUG;_CRTDBG_MAP_ALLOC;_CRT_SECURE_NO_DEPRECATE;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -116,6 +117,7 @@
       <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;FULLDEBUG;_CRTDBG_MAP_ALLOC;_CRT_SECURE_NO_DEPRECATE;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,6 +138,7 @@
       <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;FINAL;_CRT_SECURE_NO_DEPRECATE;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,6 +161,7 @@
       <PreprocessorDefinitions>_CRT_NONSTDC_NO_DEPRECATE;FINAL;_CRT_SECURE_NO_DEPRECATE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Common;$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
