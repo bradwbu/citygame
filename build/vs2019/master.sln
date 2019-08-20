@@ -90,6 +90,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerMonitor", "..\..\Serv
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "freetype", "..\..\3rdparty\freetype-2.1.9\build\vs2019\freetype.vcxproj", "{AAE9BA47-F88C-473E-B48B-309ED1218D43}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChatClient", "..\..\Utilities\ChatClient\build\vs2019\ChatClient.vcxproj", "{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -398,6 +400,14 @@ Global
 		{AAE9BA47-F88C-473E-B48B-309ED1218D43}.Release|x64.Build.0 = Release|x64
 		{AAE9BA47-F88C-473E-B48B-309ED1218D43}.Release|x86.ActiveCfg = Release|Win32
 		{AAE9BA47-F88C-473E-B48B-309ED1218D43}.Release|x86.Build.0 = Release|Win32
+		{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A}.Debug|x64.ActiveCfg = Debug|x64
+		{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A}.Debug|x64.Build.0 = Debug|x64
+		{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A}.Debug|x86.ActiveCfg = Debug|Win32
+		{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A}.Debug|x86.Build.0 = Debug|Win32
+		{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A}.Release|x64.ActiveCfg = Release|x64
+		{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A}.Release|x64.Build.0 = Release|x64
+		{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A}.Release|x86.ActiveCfg = Release|Win32
+		{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -426,6 +436,7 @@ Global
 		{383E2826-9AE9-43C4-AD8A-91F8BE58E011} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{578B0BCE-B38B-4DCA-B653-24D0083D4B2B} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{AAE9BA47-F88C-473E-B48B-309ED1218D43} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
+		{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}
