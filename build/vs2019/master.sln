@@ -96,6 +96,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChatAdmin", "..\..\ChatAdmi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShardMonitor", "..\..\ShardMonitor\build\vs2019\ShardMonitor.vcxproj", "{F3041111-0B95-4DA8-938D-EE4BDDB76F6C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "html2smf", "..\..\Utilities\html2smf\build\vs2019\html2smf.vcxproj", "{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -428,6 +430,14 @@ Global
 		{F3041111-0B95-4DA8-938D-EE4BDDB76F6C}.Release|x64.Build.0 = Release|x64
 		{F3041111-0B95-4DA8-938D-EE4BDDB76F6C}.Release|x86.ActiveCfg = Release|Win32
 		{F3041111-0B95-4DA8-938D-EE4BDDB76F6C}.Release|x86.Build.0 = Release|Win32
+		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}.Debug|x64.ActiveCfg = Debug|x64
+		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}.Debug|x64.Build.0 = Debug|x64
+		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}.Debug|x86.ActiveCfg = Debug|Win32
+		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}.Debug|x86.Build.0 = Debug|Win32
+		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}.Release|x64.ActiveCfg = Release|x64
+		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}.Release|x64.Build.0 = Release|x64
+		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}.Release|x86.ActiveCfg = Release|Win32
+		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -457,6 +467,7 @@ Global
 		{578B0BCE-B38B-4DCA-B653-24D0083D4B2B} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{AAE9BA47-F88C-473E-B48B-309ED1218D43} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A} = {12A8C0CB-A6CD-4825-B496-70798183B350}
+		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}
