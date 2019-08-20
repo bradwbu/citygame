@@ -1,7 +1,7 @@
 #ifndef __CHAT_ADMIN_NET_H__
 #define __CHAT_ADMIN_NET_H__
 
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 
 typedef struct Packet Packet;
 
@@ -24,25 +24,25 @@ typedef struct CAChannel CAChannel;
 
 typedef struct AdminClient {
 
-	// for login purposes
-	char		server[256];
-	char		handle[100];
-	U32			hash[4];	// contains hash of password, used to verify identity on chatserver
+    // for login purposes
+    char        server[256];
+    char        handle[100];
+    U32            hash[4];    // contains hash of password, used to verify identity on chatserver
 
-	bool		wasConnected;
+    bool        wasConnected;
 
-	CAUser		*user;
-	int			accessLevel;
+    CAUser        *user;
+    int            accessLevel;
 
-	bool		canChangeHandle;
+    bool        canChangeHandle;
 
-	CAUser		** ignores;
-	CAUser		** friends;
+    CAUser        ** ignores;
+    CAUser        ** friends;
 
-	bool		disableFeedback;	// turn off feedback when receiving full update (via "Login" command)
-	bool		invisible;
+    bool        disableFeedback;    // turn off feedback when receiving full update (via "Login" command)
+    bool        invisible;
 
-	bool		uploadComplete;
+    bool        uploadComplete;
 
 } AdminClient;
 

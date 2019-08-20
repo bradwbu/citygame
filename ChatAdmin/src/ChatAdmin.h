@@ -2,7 +2,7 @@
 #define __CHAT_ADMIN_H__
 
 #define  WIN32_LEAN_AND_MEAN
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 #include "LangAdminUtil.h"
 
 void setStatusBar(int elem, const char *fmt, ...);
@@ -19,19 +19,19 @@ void EasyCheckMenuItem(int itemID, bool checked);
 
 void ChatAdminReset();
 
-extern HINSTANCE g_hInst;	// instance handle
-extern bool g_ChatDebug;			// print text commands sent to/from chatserver
+extern HINSTANCE g_hInst;    // instance handle
+extern bool g_ChatDebug;            // print text commands sent to/from chatserver
 extern bool g_bShowChatTimestamps;
 HWND g_hDlgMain;
 
 enum {
-	MSG_PRIVATE,
-	MSG_SYS,
-	MSG_DEBUG,
-	MSG_ERROR,
-	MSG_FEEDBACK,
-	MSG_CHANNEL,
-	MSG_ADMIN,
+    MSG_PRIVATE,
+    MSG_SYS,
+    MSG_DEBUG,
+    MSG_ERROR,
+    MSG_FEEDBACK,
+    MSG_CHANNEL,
+    MSG_ADMIN,
 };
 
 

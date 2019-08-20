@@ -1,24 +1,24 @@
 #ifndef __CHANNEL_LIST_H__
 #define __CHANNEL_LIST_H__
 
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "ChatAdmin.h"
 
 typedef struct CAUser CAUser;
 
 typedef struct CAChannelMember
 {
-	CAUser	*user;
-	int		flags;
+    CAUser    *user;
+    int        flags;
 
 }CAChannelMember;
 
 typedef struct CAChannel
 {
-	char			*name;
-	char			*filterName;	// contains only alphanumeric for faster filtering
-	int				flags;
-	CAChannelMember	**members;
+    char            *name;
+    char            *filterName;    // contains only alphanumeric for faster filtering
+    int                flags;
+    CAChannelMember    **members;
 
 }CAChannel;
 

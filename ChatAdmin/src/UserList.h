@@ -1,15 +1,15 @@
 #ifndef __USER_LIST_H__
 #define __USER_LIST_H__
 
-#include "StashTable.h"
+#include <utilitieslib/components/StashTable.h>
 #include "ChatAdmin.h"
 
 typedef struct CAUser{
 
-	char	*handle;
-	char	*filterHandle;	// used for fast filtering, contains no spaces, underscores, all lower case
-	bool	online;
-	U32		silenced;
+    char    *handle;
+    char    *filterHandle;    // used for fast filtering, contains no spaces, underscores, all lower case
+    bool    online;
+    U32        silenced;
 
 }CAUser;
 
@@ -30,7 +30,7 @@ LRESULT CALLBACK DlgUserListProc (HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lP
 
 void UserListFilter();
 
-void UserListUpdate();	// notify user list that it should update all items being displayed
+void UserListUpdate();    // notify user list that it should update all items being displayed
 void UserListUpdateCount();
 
 void UserListStatusUpdate(char * handle, char * auth_id, char * shard, char * silencedMins, char *args[], int count, char *channels[], int channel_count);
