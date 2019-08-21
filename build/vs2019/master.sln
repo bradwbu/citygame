@@ -98,6 +98,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShardMonitor", "..\..\Shard
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "html2smf", "..\..\Utilities\html2smf\build\vs2019\html2smf.vcxproj", "{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "publink", "..\..\Utilities\publink\build\vs2019\publink.vcxproj", "{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -438,6 +440,14 @@ Global
 		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}.Release|x64.Build.0 = Release|x64
 		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}.Release|x86.ActiveCfg = Release|Win32
 		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845}.Release|x86.Build.0 = Release|Win32
+		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}.Debug|x64.ActiveCfg = Debug|x64
+		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}.Debug|x64.Build.0 = Debug|x64
+		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}.Debug|x86.ActiveCfg = Debug|Win32
+		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}.Debug|x86.Build.0 = Debug|Win32
+		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}.Release|x64.ActiveCfg = Release|x64
+		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}.Release|x64.Build.0 = Release|x64
+		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}.Release|x86.ActiveCfg = Release|Win32
+		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -468,6 +478,7 @@ Global
 		{AAE9BA47-F88C-473E-B48B-309ED1218D43} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845} = {12A8C0CB-A6CD-4825-B496-70798183B350}
+		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}
