@@ -100,6 +100,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "html2smf", "..\..\Utilities
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "publink", "..\..\Utilities\publink\build\vs2019\publink.vcxproj", "{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "logfilter", "..\..\Utilities\logfilter\build\vs2019\logfilter.vcxproj", "{AC375456-3EC9-40E0-A9B7-EAE587A75F1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -448,6 +450,14 @@ Global
 		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}.Release|x64.Build.0 = Release|x64
 		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}.Release|x86.ActiveCfg = Release|Win32
 		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56}.Release|x86.Build.0 = Release|Win32
+		{AC375456-3EC9-40E0-A9B7-EAE587A75F1A}.Debug|x64.ActiveCfg = Debug|x64
+		{AC375456-3EC9-40E0-A9B7-EAE587A75F1A}.Debug|x64.Build.0 = Debug|x64
+		{AC375456-3EC9-40E0-A9B7-EAE587A75F1A}.Debug|x86.ActiveCfg = Debug|Win32
+		{AC375456-3EC9-40E0-A9B7-EAE587A75F1A}.Debug|x86.Build.0 = Debug|Win32
+		{AC375456-3EC9-40E0-A9B7-EAE587A75F1A}.Release|x64.ActiveCfg = Release|x64
+		{AC375456-3EC9-40E0-A9B7-EAE587A75F1A}.Release|x64.Build.0 = Release|x64
+		{AC375456-3EC9-40E0-A9B7-EAE587A75F1A}.Release|x86.ActiveCfg = Release|Win32
+		{AC375456-3EC9-40E0-A9B7-EAE587A75F1A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -479,6 +489,7 @@ Global
 		{D9ADACDE-CAC7-4CAA-B489-AD9907E5293A} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 		{2652C5A7-7086-4D60-9DD5-4DA0ABF78845} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 		{30D12032-721A-4BFD-B8C8-9FB4BCAC0A56} = {12A8C0CB-A6CD-4825-B496-70798183B350}
+		{AC375456-3EC9-40E0-A9B7-EAE587A75F1A} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}
