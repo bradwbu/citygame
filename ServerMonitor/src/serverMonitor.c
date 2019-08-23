@@ -1165,7 +1165,7 @@ LRESULT CALLBACK DlgSvrMonProc (HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lPar
                         } else {
                             SetBkMode(hdc, TRANSPARENT);
                         }
-                        return (BOOL)gdiobj;
+                        return (LRESULT)gdiobj;
                     }
                 }
             }
@@ -1180,7 +1180,7 @@ LRESULT CALLBACK DlgSvrMonProc (HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lPar
                     } else {
                         SetBkMode(hdc, TRANSPARENT);
                     }
-                    return (BOOL)gdiobj;
+                    return (LRESULT)gdiobj;
                 }
             } 
             if (idCtrl2==GetDlgItem(hDlg, IDC_TXT_STATSECS))
@@ -1193,7 +1193,7 @@ LRESULT CALLBACK DlgSvrMonProc (HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lPar
                     } else {
                         SetBkMode(hdc, TRANSPARENT);
                     }
-                    return (BOOL)gdiobj;
+                    return (LRESULT)gdiobj;
                 }
             }
             if (idCtrl2==GetDlgItem(hDlg, IDC_TXT_OVERLOADPROTECTION))
@@ -1202,7 +1202,7 @@ LRESULT CALLBACK DlgSvrMonProc (HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lPar
                     HGDIOBJ gdiobj = SelectObject(hdc,GetStockObject(DC_BRUSH));
                     SetTextColor(hdc, RGB(0,0,0));
                     SetBkColor(hdc, RGB(0xff, 0x20, 0x20));
-                    return (BOOL)gdiobj;
+                    return (LRESULT)gdiobj;
                 }
             }
 //         if (idCtrl2==GetDlgItem(hDlg, IDC_TXT_BEACONWAIT)) 
@@ -1215,7 +1215,7 @@ LRESULT CALLBACK DlgSvrMonProc (HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lPar
 //                     } else {
 //                        SetBkMode(hdc, TRANSPARENT);
 //                    }
-//                     return (BOOL)gdiobj;
+//                     return (LRESULT)gdiobj;
 //                 }
 //             } 
         }

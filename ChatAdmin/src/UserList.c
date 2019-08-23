@@ -212,7 +212,7 @@ void CAUserRemoveAll()
 
 void CAUserRename(CAUser * user, char * handle)
 {    
-    int len = strlen(handle) + 1;
+    int len = (int)strlen(handle) + 1;
 
     vListViewRemove(lvUserList, user);
     stashRemovePointer(gHandleToUserHash, user->handle, NULL);
@@ -479,7 +479,7 @@ LRESULT CALLBACK DlgUserListProc (HWND hDlg, UINT iMsg, WPARAM wParam, LPARAM lP
                 {
                     GetDlgItemText(hDlg, IDC_EDIT_USERLIST_FILTER, gUserListFilter, sizeof(gUserListFilter));
                     stripNonAlphaNumeric(gUserListFilter);
-                    gUserListFilterLength = strlen(gUserListFilter);
+                    gUserListFilterLength = (int)strlen(gUserListFilter);
                 //    if(gUserListFilterLength != strlen(gUserListFilter))
                 //        SetDlgItemText(hDlg, IDC_EDIT_USERLIST_FILTER, gUserListFilter);    // will trigger another EN_CHANGE msg
                 //    else
