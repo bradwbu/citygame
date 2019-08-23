@@ -3,20 +3,20 @@
 #include <windows.h>
 
 typedef struct MessageList {
-	struct MessageList *next;
-	struct MessageList *prev;
-	int uid;
-	char *data;
+    struct MessageList *next;
+    struct MessageList *prev;
+    int uid;
+    char *data;
 } MessageList;
 
 typedef struct PipeServer_t {
-	char *pipename; 
-	HANDLE hWatcherThread;
-	HANDLE hInstanceThread;
-	HANDLE **eaPipes; // Pipes to all clients
-	HANDLE *eaPipes_data;
-	CRITICAL_SECTION critsect;
-	MessageList *messagelist;
+    char *pipename; 
+    HANDLE hWatcherThread;
+    HANDLE hInstanceThread;
+    HANDLE **eaPipes; // Pipes to all clients
+    HANDLE *eaPipes_data;
+    CRITICAL_SECTION critsect;
+    MessageList *messagelist;
 } PipeServer_t;
 
 typedef PipeServer_t *PipeServer;

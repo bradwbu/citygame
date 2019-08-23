@@ -1,58 +1,58 @@
 #ifndef DLGTEXT_H
 #define DLGTEXT_H
 
-#include "ListView.h"
+#include <utilitieslib/utils/ListView.h>
 
 typedef struct DLGHDR_TAB {
-	HWND hwndDisplay;
-	DLGTEMPLATE *apRes; 
-	void * dlgProc;
-	TCHAR title[256];
-	BOOL isConnected;
-	ChildInfo *ci;
-	ListView *plv;
+    HWND hwndDisplay;
+    DLGTEMPLATE *apRes; 
+    void * dlgProc;
+    TCHAR title[256];
+    BOOL isConnected;
+    ChildInfo *ci;
+    ListView *plv;
 } DLGHDR_TAB;
 
 typedef struct tag_dlghdr { 
-	HWND hwndTab;       // tab control 
-	HWND hwndCurrent;   // current child dialog box
-	HWND hwndParent;	// Parent dialog box
-	DLGHDR_TAB **eaTabs;
+    HWND hwndTab;       // tab control 
+    HWND hwndCurrent;   // current child dialog box
+    HWND hwndParent;    // Parent dialog box
+    DLGHDR_TAB **eaTabs;
 } DLGHDR;
 
 typedef enum {
-	BMS_INACTIVE = 0,
-	BMS_INIT,
-	BMS_CONNECTING,
-	BMS_BATCH,
-	BMS_DONE,
+    BMS_INACTIVE = 0,
+    BMS_INIT,
+    BMS_CONNECTING,
+    BMS_BATCH,
+    BMS_DONE,
 } BatchModeState;
 
 
 typedef struct BatchModeData {
-	BatchModeState state;
-	int tabid;
-	int logouttimer;
-	HWND tabhandle;
-	bool debug;
-	TCHAR *auth;
-	TCHAR *pw;
-	TCHAR *server;
-	TCHAR *character;
-	TCHAR *batchfile;
-	TCHAR *logfile;
+    BatchModeState state;
+    int tabid;
+    int logouttimer;
+    HWND tabhandle;
+    bool debug;
+    TCHAR *auth;
+    TCHAR *pw;
+    TCHAR *server;
+    TCHAR *character;
+    TCHAR *batchfile;
+    TCHAR *logfile;
 } BatchModeData;
 
 BatchModeData batchmode;
 
 
 typedef struct {
-	TCHAR *servername;
-	TCHAR *serverauth;
-	TCHAR *loginname;
-	TCHAR *loginchar;
- 	TCHAR *clientpath; // DEPRECATED
-	TCHAR *password;
+    TCHAR *servername;
+    TCHAR *serverauth;
+    TCHAR *loginname;
+    TCHAR *loginchar;
+     TCHAR *clientpath; // DEPRECATED
+    TCHAR *password;
 } serverinfo_struct;
 
 #define MAX_SERVERS 32

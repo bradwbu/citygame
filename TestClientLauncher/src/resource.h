@@ -122,7 +122,7 @@
 #define IDC_CHK_AUCTIONSERVER           1083
 #define IDC_CHK_LEAGUE                  1084
 #define IDC_CHK_NOSHAREDMEM             1085
-#define IDC_CHK_TURNSTILE				1086
+#define IDC_CHK_TURNSTILE                1086
 #define IDLOGALLOUT                     1087
 
 // Next default values for new objects

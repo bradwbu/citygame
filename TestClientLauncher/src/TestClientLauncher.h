@@ -1,48 +1,48 @@
-#include "ListView.h"
-#include "textparser.h"
+#include <utilitieslib/utils/ListView.h>
+#include <utilitieslib/utils/textparser.h>
 
-extern HINSTANCE   g_hInst;			        // instance handle
-extern HWND        g_hWnd;				        // window handle
+extern HINSTANCE   g_hInst;                    // instance handle
+extern HWND        g_hWnd;                        // window handle
 
 typedef enum {
-	STATUS_TERMINATED = 0, //Process is not running
-	STATUS_LOADING, // Loading resources
-	STATUS_RUNNING, // Running in the game normally
-	STATUS_CONNECTING, // Connecting to a server
-	STATUS_QUEUED, // Waiting in queue
-	STATUS_ERROR, // Error has occured
-	STATUS_DEAD, // Character is dead (waiting to resurrect, etc)
-	STATUS_SLAVE_LAUNCHER,
-	STATUS_NOPIPE, // Pipe has been disconnected
-	STATUS_RANDOM_DISCONNECT, // Testclient intentionally randomly disconnected
-	STATUS_RECONNECTING, // Testclient intentionally disconnected and is reconnecting
-	STATUS_CRASH, // Crashed and exception caught
+    STATUS_TERMINATED = 0, //Process is not running
+    STATUS_LOADING, // Loading resources
+    STATUS_RUNNING, // Running in the game normally
+    STATUS_CONNECTING, // Connecting to a server
+    STATUS_QUEUED, // Waiting in queue
+    STATUS_ERROR, // Error has occured
+    STATUS_DEAD, // Character is dead (waiting to resurrect, etc)
+    STATUS_SLAVE_LAUNCHER,
+    STATUS_NOPIPE, // Pipe has been disconnected
+    STATUS_RANDOM_DISCONNECT, // Testclient intentionally randomly disconnected
+    STATUS_RECONNECTING, // Testclient intentionally disconnected and is reconnecting
+    STATUS_CRASH, // Crashed and exception caught
 } ChildStatus;
 
 #define BATCH_BUF_SIZE 0x100
 
 
 typedef struct ChildInfo {
-	HANDLE process_handle;
-	PROCESS_INFORMATION pinfo;
-	char *host; // Computer name if a remote host
-	int list_index;
-	int uid; // For communicating with the PipeServer
-	ChildStatus status;
-	char status_name[128];
-	char *player;
-	char *authname;
-	char *mapname;
-	float hp[2];
-	HWND hwnd;
-	char *target;
-	char *random_disconnect_stage;
-	int lost_sent, lost_recv; // network stats
-	HWND tab_hwnd;
-	FILE *batchFile;
-	char batchbuf[BATCH_BUF_SIZE];
-	int batchOffset;
-	int batchMaxOffset;
+    HANDLE process_handle;
+    PROCESS_INFORMATION pinfo;
+    char *host; // Computer name if a remote host
+    int list_index;
+    int uid; // For communicating with the PipeServer
+    ChildStatus status;
+    char status_name[128];
+    char *player;
+    char *authname;
+    char *mapname;
+    float hp[2];
+    HWND hwnd;
+    char *target;
+    char *random_disconnect_stage;
+    int lost_sent, lost_recv; // network stats
+    HWND tab_hwnd;
+    FILE *batchFile;
+    char batchbuf[BATCH_BUF_SIZE];
+    int batchOffset;
+    int batchMaxOffset;
 } ChildInfo;
 
 
