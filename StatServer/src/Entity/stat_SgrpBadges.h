@@ -6,7 +6,7 @@
 #ifndef STAT_SGRPBADGES_H
 #define STAT_SGRPBADGES_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct StashTableImp *StashTable;
 typedef const struct StashTableImp *cStashTable;

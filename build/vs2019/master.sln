@@ -82,11 +82,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vorbis", "..\..\3rdparty\vorbis-1.1.0\build\vs2019\vorbis.vcxproj", "{578B0BCE-B38B-4DCA-B653-24D0083D4B2B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerMonitor", "..\..\ServerMonitor\build\vs2019\ServerMonitor.vcxproj", "{D33415F7-5554-47A5-BF1B-39E152EA145D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{ACA8C226-EF10-49F2-8B3D-D9939EE4A4FE} = {ACA8C226-EF10-49F2-8B3D-D9939EE4A4FE}
-		{02B25697-0348-423C-8DF3-E1BDF89BB43D} = {02B25697-0348-423C-8DF3-E1BDF89BB43D}
-		{8426A8D3-2549-4523-B584-FCD81E89B7BC} = {8426A8D3-2549-4523-B584-FCD81E89B7BC}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "freetype", "..\..\3rdparty\freetype-2.1.9\build\vs2019\freetype.vcxproj", "{AAE9BA47-F88C-473E-B48B-309ED1218D43}"
 EndProject
@@ -117,6 +112,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nvmath", "..\..\3rdparty\nvidia-texture-tools-2.0.9\build\vs2019\nvmath.vcxproj", "{E3153E06-A7EC-4FC9-B11B-68381096FBCC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nvtt", "..\..\3rdparty\nvidia-texture-tools-2.0.9\build\vs2019\nvtt.vcxproj", "{0612F11E-C912-46EE-8073-BF6FB050ABC5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StatServer", "..\..\StatServer\build\vs2019\StatServer.vcxproj", "{C964D557-B12F-4456-8F60-D487D0469E47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -538,6 +535,14 @@ Global
 		{0612F11E-C912-46EE-8073-BF6FB050ABC5}.Release|x64.Build.0 = Release|x64
 		{0612F11E-C912-46EE-8073-BF6FB050ABC5}.Release|x86.ActiveCfg = Release|Win32
 		{0612F11E-C912-46EE-8073-BF6FB050ABC5}.Release|x86.Build.0 = Release|Win32
+		{C964D557-B12F-4456-8F60-D487D0469E47}.Debug|x64.ActiveCfg = Debug|x64
+		{C964D557-B12F-4456-8F60-D487D0469E47}.Debug|x64.Build.0 = Debug|x64
+		{C964D557-B12F-4456-8F60-D487D0469E47}.Debug|x86.ActiveCfg = Debug|Win32
+		{C964D557-B12F-4456-8F60-D487D0469E47}.Debug|x86.Build.0 = Debug|Win32
+		{C964D557-B12F-4456-8F60-D487D0469E47}.Release|x64.ActiveCfg = Release|x64
+		{C964D557-B12F-4456-8F60-D487D0469E47}.Release|x64.Build.0 = Release|x64
+		{C964D557-B12F-4456-8F60-D487D0469E47}.Release|x86.ActiveCfg = Release|Win32
+		{C964D557-B12F-4456-8F60-D487D0469E47}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

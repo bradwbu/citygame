@@ -6,7 +6,7 @@
 #ifndef STATDB_H
 #define STATDB_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 
 typedef struct Supergroup Supergroup;
 typedef struct Packet Packet;

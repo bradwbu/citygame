@@ -109,7 +109,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>UtilitiesLib.lib;psapi.lib;cryptopp.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\bin</Command>
@@ -127,7 +127,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>UtilitiesLib.lib;psapi.lib;cryptopp.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\bin</Command>
@@ -145,7 +145,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>UtilitiesLib.lib;psapi.lib;cryptopp.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\bin</Command>
@@ -167,7 +167,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>UtilitiesLib.lib;psapi.lib;cryptopp.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\bin</Command>
@@ -224,6 +224,17 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\..\src\ServerMonitor.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\3rdparty\cryptopp-8.3\build\vs2019\cryptopp.vcxproj">
+      <Project>{aca8c226-ef10-49f2-8b3d-d9939ee4a4fe}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\3rdparty\zlib-1.2.11\build\vs2019\zlib.vcxproj">
+      <Project>{8426a8d3-2549-4523-b584-fcd81e89b7bc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\libs\UtilitiesLib\build\vs2019\UtilitiesLib.vcxproj">
+      <Project>{02b25697-0348-423c-8df3-e1bdf89bb43d}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
