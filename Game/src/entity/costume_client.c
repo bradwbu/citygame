@@ -17,7 +17,7 @@
 #include "gameData/costume_data.h"
 #include "gameComm/npc.h"
 #include "clientcomm/clientcomm.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include <utilitieslib/utils/SimpleParser.h>
 #include "cmdparse/cmdgame.h"
 #include "render/tex.h"

@@ -1,4 +1,4 @@
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include "player/player.h"
 #include "entity/entity.h"
 #include "cmdparse/cmdgame.h"
