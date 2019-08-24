@@ -2,7 +2,7 @@
 #define _OUTPUTANIM_H
 
 #include "tree.h"
-#include "animtrack.h"
+#include "seq/animtrack.h"
 
 enum
 {

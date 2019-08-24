@@ -238,7 +238,7 @@ void outputAnimTrackToAnimFile( SkeletonAnimTrack * skeleton, char * targetFileP
     // #### write skeleton ######
     skeleton->headerSize = sizeof(SkeletonAnimTrack) + heirarchySize + mem_blocks[MEM_BONEANIMTRACKS].used;
 
-    skeleton->bone_tracks = (void *)( (uintptr_t)sizeof(SkeletonAnimTrack) + (uintptr_t)heirarchySize ); // how far into file bones block starts
+    skeleton->bone_tracks = (void*)(sizeof(SkeletonAnimTrack) + (size_t)heirarchySize); // how far into file bones block starts
             
     fwrite( skeleton, sizeof(SkeletonAnimTrack), 1, file );
 
@@ -255,8 +255,8 @@ void outputAnimTrackToAnimFile( SkeletonAnimTrack * skeleton, char * targetFileP
         assert( bt->rot_idx && bt->pos_idx );
 
         //pointer to this track, minus pointer to start of all track, plus size of header
-        bt->rot_idx    = (void *)((uintptr_t)skeleton->headerSize + ((uintptr_t)bt->rot_idx - (uintptr_t)mem_blocks[MEM_ANIMDATA].data ) );
-        bt->pos_idx    = (void *)((uintptr_t)skeleton->headerSize + ((uintptr_t)bt->pos_idx - (uintptr_t)mem_blocks[MEM_ANIMDATA].data ) );
+        bt->rot_idx = (void*)((size_t)skeleton->headerSize + ((size_t)bt->rot_idx - (size_t)mem_blocks[MEM_ANIMDATA].data));
+        bt->pos_idx = (void*)((size_t)skeleton->headerSize + ((size_t)bt->pos_idx - (size_t)mem_blocks[MEM_ANIMDATA].data));
     }
 
     fwrite( bts, mem_blocks[MEM_BONEANIMTRACKS].used, 1, file);

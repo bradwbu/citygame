@@ -28,7 +28,7 @@ void checkit(Node *node)
         FatalErrorf("gfxtree");
     if (node->child == node || node->parent == node || node->next == node || node->prev == node)
         FatalErrorf("gfxtree");
-    if ((intptr_t)node->child == -1 || (intptr_t)node->parent == -1 || (intptr_t)node->next == -1 || (intptr_t)node->prev == -1)
+    if ((size_t)node->child == -1 || (size_t)node->parent == -1 || (size_t)node->next == -1 || (size_t)node->prev == -1)
         FatalErrorf("gfxtree");
 }
 #endif
@@ -39,9 +39,9 @@ int        a=1,b=0;
 
     if (!node)
         return;
-        if (((intptr_t)node->parent < 0)
-        || ((intptr_t)node->prev < 0)
-        || ((intptr_t)node->nodeptr < 0))
+        if (((size_t)node->parent < 0)
+        || ((size_t)node->prev < 0)
+        || ((size_t)node->nodeptr < 0))
             a = a / b;
 }
 

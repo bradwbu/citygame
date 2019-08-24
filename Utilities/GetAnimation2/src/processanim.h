@@ -5,7 +5,7 @@ Utilities used by animation processing
 #define _PROCESSANIM_H
 
 #include "tree.h"
-#include "animtrack.h"
+#include "seq/animtrack.h"
 
 // Coordinate frame conversions
 void ConvertCoordsFrom3DSMAX( Vec3 vOut, const Vec3 vIn );
