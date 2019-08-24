@@ -121,6 +121,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestClient", "..\..\TestCli
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LogParser3", "..\..\Utilities\LogParser3\build\vs2019\LogParser3.vcxproj", "{D820E1F2-71EC-4442-A384-295746394D14}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LogParserMon", "..\..\Utilities\LogParserMon\build\vs2019\LogParserMon.vcxproj", "{CE9B3644-42AD-4BF5-9253-CAA636A06605}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -573,6 +575,14 @@ Global
 		{D820E1F2-71EC-4442-A384-295746394D14}.Release|x64.Build.0 = Release|x64
 		{D820E1F2-71EC-4442-A384-295746394D14}.Release|x86.ActiveCfg = Release|Win32
 		{D820E1F2-71EC-4442-A384-295746394D14}.Release|x86.Build.0 = Release|Win32
+		{CE9B3644-42AD-4BF5-9253-CAA636A06605}.Debug|x64.ActiveCfg = Debug|x64
+		{CE9B3644-42AD-4BF5-9253-CAA636A06605}.Debug|x64.Build.0 = Debug|x64
+		{CE9B3644-42AD-4BF5-9253-CAA636A06605}.Debug|x86.ActiveCfg = Debug|Win32
+		{CE9B3644-42AD-4BF5-9253-CAA636A06605}.Debug|x86.Build.0 = Debug|Win32
+		{CE9B3644-42AD-4BF5-9253-CAA636A06605}.Release|x64.ActiveCfg = Release|x64
+		{CE9B3644-42AD-4BF5-9253-CAA636A06605}.Release|x64.Build.0 = Release|x64
+		{CE9B3644-42AD-4BF5-9253-CAA636A06605}.Release|x86.ActiveCfg = Release|Win32
+		{CE9B3644-42AD-4BF5-9253-CAA636A06605}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -614,6 +624,7 @@ Global
 		{E3153E06-A7EC-4FC9-B11B-68381096FBCC} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{0612F11E-C912-46EE-8073-BF6FB050ABC5} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{D820E1F2-71EC-4442-A384-295746394D14} = {12A8C0CB-A6CD-4825-B496-70798183B350}
+		{CE9B3644-42AD-4BF5-9253-CAA636A06605} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}
