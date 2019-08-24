@@ -1,7 +1,7 @@
 #ifndef _GEO_H
 #define _GEO_H
 
-#include "GenericMesh.h"
+#include <utilitieslib/components/GenericMesh.h>
 #include "tree.h"
 
 //mm

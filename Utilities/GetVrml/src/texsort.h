@@ -1,10 +1,10 @@
 #ifndef _TEXSORT_H
 #define _TEXSORT_H
 
-#include "stdtypes.h"
+#include <utilitieslib/stdtypes.h>
 #include "tree.h"
 //#include "../GetTex/texloaddesc.h"
-#include "GenericMesh.h"
+#include <utilitieslib/components/GenericMesh.h>
 
 typedef struct TexInf TexInf;
 typedef struct
