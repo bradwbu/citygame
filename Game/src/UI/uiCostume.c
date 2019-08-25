@@ -5079,7 +5079,6 @@ char *getCustomCostumeDir()
     return path;
 }
 
-//const char *getCustomCostumeExt() {return ".costume";    }
 const char* getCustomCostumeExt() { return ".v2costume"; }
 
 int costume_isThereSkinEffect(const cCostume *costume)

@@ -13,7 +13,6 @@
 typedef struct Packet Packet;
 typedef struct Entity Entity;
 
-//#define MAX_COSTUME_PARTS    30
 #define MAX_COSTUME_PARTS    60
 
 #define ARM_GROW_SCALE 5.0
