@@ -28,23 +28,23 @@
 #if NVTT_SHARED
 
 #if defined _WIN32 || defined WIN32 || defined __NT__ || defined __WIN32__ || defined __MINGW32__
-#	ifdef NVTT_EXPORTS
-#		define NVTT_API __declspec(dllexport)
-#	else
-#		define NVTT_API __declspec(dllimport)
-#	endif
+#    ifdef NVTT_EXPORTS
+#        define NVTT_API __declspec(dllexport)
+#    else
+#        define NVTT_API __declspec(dllimport)
+#    endif
 #endif
 
 #if defined __GNUC__ >= 4
-#	ifdef NVTT_EXPORTS
-#		define NVTT_API __attribute__((visibility("default")))
-#	endif
+#    ifdef NVTT_EXPORTS
+#        define NVTT_API __attribute__((visibility("default")))
+#    endif
 #endif
 
 #endif // NVTT_SHARED
 
 #if !defined NVTT_API
-#	define NVTT_API
+#    define NVTT_API
 #endif
 
 #define NVTT_VERSION 200
@@ -64,105 +64,105 @@ typedef struct NvttCompressor NvttCompressor;
 /// Supported compression formats.
 typedef enum
 {
-	// No compression.
-	NVTT_Format_RGB,
-	NVTT_Format_RGBA = NVTT_Format_RGB,
+    // No compression.
+    NVTT_Format_RGB,
+    NVTT_Format_RGBA = NVTT_Format_RGB,
 
-	// DX9 formats.
-	NVTT_Format_DXT1,
-	NVTT_Format_DXT1a,
-	NVTT_Format_DXT3,
-	NVTT_Format_DXT5,
-	NVTT_Format_DXT5n,
-	
-	// DX10 formats.
-	NVTT_Format_BC1 = NVTT_Format_DXT1,
-	NVTT_Format_BC1a = NVTT_Format_DXT1a,
-	NVTT_Format_BC2 = NVTT_Format_DXT3,
-	NVTT_Format_BC3 = NVTT_Format_DXT5,
-	NVTT_Format_BC3n = NVTT_Format_DXT5n,
-	NVTT_Format_BC4,
-	NVTT_Format_BC5,
+    // DX9 formats.
+    NVTT_Format_DXT1,
+    NVTT_Format_DXT1a,
+    NVTT_Format_DXT3,
+    NVTT_Format_DXT5,
+    NVTT_Format_DXT5n,
+    
+    // DX10 formats.
+    NVTT_Format_BC1 = NVTT_Format_DXT1,
+    NVTT_Format_BC1a = NVTT_Format_DXT1a,
+    NVTT_Format_BC2 = NVTT_Format_DXT3,
+    NVTT_Format_BC3 = NVTT_Format_DXT5,
+    NVTT_Format_BC3n = NVTT_Format_DXT5n,
+    NVTT_Format_BC4,
+    NVTT_Format_BC5,
 } NvttFormat;
 
 /// Quality modes.
 typedef enum
 {
-	NVTT_Quality_Fastest,
-	NVTT_Quality_Normal,
-	NVTT_Quality_Production,
-	NVTT_Quality_Highest,
+    NVTT_Quality_Fastest,
+    NVTT_Quality_Normal,
+    NVTT_Quality_Production,
+    NVTT_Quality_Highest,
 } NvttQuality;
 
 /// Wrap modes.
 typedef enum
 {
-	NVTT_WrapMode_Clamp,
-	NVTT_WrapMode_Repeat,
-	NVTT_WrapMode_Mirror,
+    NVTT_WrapMode_Clamp,
+    NVTT_WrapMode_Repeat,
+    NVTT_WrapMode_Mirror,
 } NvttWrapMode;
 
 /// Texture types.
 typedef enum
 {
-	NVTT_TextureType_2D,
-	NVTT_TextureType_Cube,
+    NVTT_TextureType_2D,
+    NVTT_TextureType_Cube,
 } NvttTextureType;
 
 /// Input formats.
 typedef enum
 {
-	NVTT_InputFormat_BGRA_8UB,
+    NVTT_InputFormat_BGRA_8UB,
 } NvttInputFormat;
 
 /// Mipmap downsampling filters.
 typedef enum
 {
-	NVTT_MipmapFilter_Box,
-	NVTT_MipmapFilter_Triangle,
-	NVTT_MipmapFilter_Kaiser,
+    NVTT_MipmapFilter_Box,
+    NVTT_MipmapFilter_Triangle,
+    NVTT_MipmapFilter_Kaiser,
 } NvttMipmapFilter;
 
 /// Color transformation.
 typedef enum
 {
-	NVTT_ColorTransform_None,
-	NVTT_ColorTransform_Linear,
+    NVTT_ColorTransform_None,
+    NVTT_ColorTransform_Linear,
 } NvttColorTransform;
 
 /// Extents rounding mode.
 typedef enum
 {
-	NVTT_RoundMode_None,
-	NVTT_RoundMode_ToNextPowerOfTwo,
-	NVTT_RoundMode_ToNearestPowerOfTwo,
-	NVTT_RoundMode_ToPreviousPowerOfTwo,
+    NVTT_RoundMode_None,
+    NVTT_RoundMode_ToNextPowerOfTwo,
+    NVTT_RoundMode_ToNearestPowerOfTwo,
+    NVTT_RoundMode_ToPreviousPowerOfTwo,
 } NvttRoundMode;
 
 /// Alpha mode.
 typedef enum
 {
-	NVTT_AlphaMode_None,
-	NVTT_AlphaMode_Transparency,
-	NVTT_AlphaMode_Premultiplied,
+    NVTT_AlphaMode_None,
+    NVTT_AlphaMode_Transparency,
+    NVTT_AlphaMode_Premultiplied,
 } NvttAlphaMode;
 
 typedef enum
 {
-	NVTT_Error_Unknown,
-	NVTT_Error_InvalidInput,
+    NVTT_Error_Unknown,
+    NVTT_Error_InvalidInput,
 
-	NVTT_Error_UnsupportedFeature,
-	NVTT_Error_CudaError,
-	
-	NVTT_Error_FileOpen,
-	NVTT_Error_FileWrite,
+    NVTT_Error_UnsupportedFeature,
+    NVTT_Error_CudaError,
+    
+    NVTT_Error_FileOpen,
+    NVTT_Error_FileWrite,
 } NvttError;
 
 typedef enum
 {
-	NVTT_False,
-	NVTT_True,
+    NVTT_False,
+    NVTT_True,
 } NvttBoolean;
 
 

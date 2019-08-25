@@ -28,11 +28,11 @@
 
 namespace nv
 {
-	class Image;
+    class Image;
 
-	// Pixel format converter.
-	void compressRGB(const Image * image, const nvtt::OutputOptions::Private & outputOptions, const nvtt::CompressionOptions::Private & compressionOptions);
-	
+    // Pixel format converter.
+    void compressRGB(const Image * image, const nvtt::OutputOptions::Private & outputOptions, const nvtt::CompressionOptions::Private & compressionOptions);
+    
 } // nv namespace
 
 

@@ -26,18 +26,18 @@
 
 namespace nv
 {
-	
-	namespace cuda
-	{
-		bool isHardwarePresent();
-		int deviceCount();
-		int getFastestDevice();
-		bool isValidDevice(int i);
+    
+    namespace cuda
+    {
+        bool isHardwarePresent();
+        int deviceCount();
+        int getFastestDevice();
+        bool isValidDevice(int i);
 
-		bool initDevice(int * device_ptr);
-		void exitDevice();
-	};
-	
+        bool initDevice(int * device_ptr);
+        void exitDevice();
+    };
+    
 } // nv namespace
 
 

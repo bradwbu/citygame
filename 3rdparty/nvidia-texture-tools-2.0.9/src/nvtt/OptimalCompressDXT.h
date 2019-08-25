@@ -28,22 +28,22 @@
 
 namespace nv
 {
-	struct ColorBlock;
-	struct BlockDXT1;
-	struct BlockDXT3;
-	struct BlockDXT5;
-	struct AlphaBlockDXT3;
-	struct AlphaBlockDXT5;
+    struct ColorBlock;
+    struct BlockDXT1;
+    struct BlockDXT3;
+    struct BlockDXT5;
+    struct AlphaBlockDXT3;
+    struct AlphaBlockDXT5;
 
-	namespace OptimalCompress
-	{
-		void compressDXT1(Color32 rgba, BlockDXT1 * dxtBlock);
-		void compressDXT1a(Color32 rgba, BlockDXT1 * dxtBlock);
-		
-		void compressDXT1G(const ColorBlock & rgba, BlockDXT1 * block);
-		void compressDXT3A(const ColorBlock & rgba, AlphaBlockDXT3 * dxtBlock);
-		void compressDXT5A(const ColorBlock & rgba, AlphaBlockDXT5 * dxtBlock);
-	}
+    namespace OptimalCompress
+    {
+        void compressDXT1(Color32 rgba, BlockDXT1 * dxtBlock);
+        void compressDXT1a(Color32 rgba, BlockDXT1 * dxtBlock);
+        
+        void compressDXT1G(const ColorBlock & rgba, BlockDXT1 * block);
+        void compressDXT3A(const ColorBlock & rgba, AlphaBlockDXT3 * dxtBlock);
+        void compressDXT5A(const ColorBlock & rgba, AlphaBlockDXT5 * dxtBlock);
+    }
 } // nv namespace
 
 #endif // NV_TT_OPTIMALCOMPRESSDXT_H

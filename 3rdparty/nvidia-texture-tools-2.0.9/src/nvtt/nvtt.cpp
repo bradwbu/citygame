@@ -28,28 +28,28 @@ using namespace nvtt;
 /// Return a string for the given error.
 const char * nvtt::errorString(Error e)
 {
-	switch(e)
-	{
-		case Error_Unknown:
-			return "Unknown error";
-		case Error_InvalidInput:
-			return "Invalid input";
-		case Error_UnsupportedFeature:
-			return "Unsupported feature";
-		case Error_CudaError:
-			return "CUDA error";
-		case Error_FileOpen:
-			return "Error opening file";
-		case Error_FileWrite:
-			return "Error writing through output handler";
-	}
-	
-	return "Invalid error";
+    switch(e)
+    {
+        case Error_Unknown:
+            return "Unknown error";
+        case Error_InvalidInput:
+            return "Invalid input";
+        case Error_UnsupportedFeature:
+            return "Unsupported feature";
+        case Error_CudaError:
+            return "CUDA error";
+        case Error_FileOpen:
+            return "Error opening file";
+        case Error_FileWrite:
+            return "Error writing through output handler";
+    }
+    
+    return "Invalid error";
 }
 
 /// Return NVTT version.
 unsigned int nvtt::version()
 {
-	return NVTT_VERSION;
+    return NVTT_VERSION;
 }
 
