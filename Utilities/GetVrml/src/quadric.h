@@ -1,9 +1,9 @@
 #ifndef _QUADRIC_H_
 #define _QUADRIC_H_
 
-#include "stdtypes.h"
-#include "mathutil.h"
-#include "mathn.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/utils/mathn.h>
 
 //////////////////////////////////////////////////////////////////////////
 // Defines types and operations for types:

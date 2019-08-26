@@ -1,8 +1,8 @@
 #ifndef _UVUNWRAP_H_
 #define _UVUNWRAP_H_
 
-#include "stdtypes.h"
-#include "mathutil.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/mathutil.h>
 
 
 typedef struct _Prim Prim;

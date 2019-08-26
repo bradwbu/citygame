@@ -3,8 +3,8 @@
 /* Author: Sivan Toledo                                  */
 /*********************************************************/
 
-#include <taucs_config_tests.h>
-#include <taucs_config_build.h>
+#include "taucs_config_tests.h"
+#include "taucs_config_build.h"
 
 /*********************************************************/
 /* Cilk-related stuff                                    */
@@ -769,13 +769,13 @@ extern int sreadhb_(char*, int*, int*, int*, int*, int*, taucs_single*);
 extern int zreadhb_(char*, int*, int*, int*, int*, int*, taucs_dcomplex*);
 
 extern int amdexa_(int*, int*, int*, int*, int*, int*, int*, int*, int*, 
-			int*, int*, int*, int*, int*, int*);
+            int*, int*, int*, int*, int*, int*);
 extern int amdtru_(int*, int*, int*, int*, int*, int*, int*, int*, int*, 
-			int*, int*, int*, int*, int*, int*);
+            int*, int*, int*, int*, int*, int*);
 extern int amdbar_(int*, int*, int*, int*, int*, int*, int*, int*, int*, 
-			int*, int*, int*, int*, int*, int*);
+            int*, int*, int*, int*, int*, int*);
 extern int genmmd_(int*, int*, int*, int*, int*, int*, int*, int*, int*, 
-			int*, int*, int*);
+            int*, int*, int*);
 
 /*********************************************************/
 /*                                                       */
@@ -790,8 +790,8 @@ extern int genmmd_(int*, int*, int*, int*, int*, int*, int*, int*, int*,
 #elif defined(OSTYPE_win32)
 
 #include <float.h>
-#define isnan(x)  (_isnan(x))
-#define isinf(x)  (!(_finite(x)) && !(_isnan(x)))
+//#define isnan(x)  (_isnan(x))
+//#define isinf(x)  (!(_finite(x)) && !(_isnan(x)))
 #define finite(x) (_finite(x))
 
 #endif
@@ -813,17 +813,17 @@ extern int isinf(double);
 
 extern int taucs_potrf(char*, int*, taucs_datatype*, int*, int*);
 extern int taucs_trsm(char *, char *, char *, char *, 
-			int*, int*, taucs_datatype*, taucs_datatype*, int *, 
-			taucs_datatype*, int *);
+            int*, int*, taucs_datatype*, taucs_datatype*, int *, 
+            taucs_datatype*, int *);
 extern int taucs_gemm(char *, char *, int*, int*, int *,
-			taucs_datatype*, taucs_datatype*, int *, taucs_datatype*, int *, 
-			taucs_datatype*, taucs_datatype*, int*);
+            taucs_datatype*, taucs_datatype*, int *, taucs_datatype*, int *, 
+            taucs_datatype*, taucs_datatype*, int*);
 extern int taucs_herk(char *, char *, 
-		      int *, int *, 
-		      taucs_real_datatype*, 
-		      taucs_datatype*, int *, 
-		      taucs_real_datatype*, 
-		      taucs_datatype*, int *);
+              int *, int *, 
+              taucs_real_datatype*, 
+              taucs_datatype*, int *, 
+              taucs_real_datatype*, 
+              taucs_datatype*, int *);
 
 taucs_double taucs_blas_name(dnrm2)(int*, taucs_double*, int*);
 taucs_single taucs_blas_name(snrm2)(int*, taucs_single*, int*);

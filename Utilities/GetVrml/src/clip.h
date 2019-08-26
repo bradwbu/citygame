@@ -5,8 +5,8 @@
 
 typedef struct
 {
-	Vec3	pos;
-	Vec3	norm;
+    Vec3    pos;
+    Vec3    norm;
 } Plane;
 
 #define POLY_CUT 1
