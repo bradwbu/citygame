@@ -448,7 +448,7 @@ static int loadCostumeFromFile(char * filename, int *costumeValid, int **badPart
     {
         Costume *costume = &LoadCostumeForParser;
         int i = eaSize(&costume->parts);
-        costume->appearance.iNumParts = GetBodyPartCount();
+		costume->appearance.iNumParts = MAX_COSTUME_PARTS;	// Temporarily set this, or the debug client asserts in a few lines
 
 		// BW - For technical reasons, we need GetBodyPartCount() in appearance->iNumParts, but actually need MAX_COSTUME_PARTS entries in ->parts to pass validation checks later
 		while (i < MAX_COSTUME_PARTS)
@@ -460,7 +460,8 @@ static int loadCostumeFromFile(char * filename, int *costumeValid, int **badPart
             costume_PartSetFx(costume, i, NULL);
             i++;
         }
-    }
+		costume->appearance.iNumParts = GetBodyPartCount(); // Set this back to the correct value
+	}
 
     for(i=1;i<MAX_BODY_SCALES;i++)
     {
@@ -685,13 +686,13 @@ static void deleteCurrentCostume( void* data )
 		char *p = strchr(fname, '.');
 		if (p == NULL)
 		{
-			sprintf_s(fname, sizeof(fname), "%s.v2costume", fname);
+			strcat_s(fname, sizeof(fname), ".v2costume");
 		}
 		else
 		{
 			// Costume ends in '.', otherwise this can't be here, due to other code
 			*p = 0;
-			sprintf_s(fname, sizeof(fname), "%s.costume", fname);
+			strcat_s(fname, sizeof(fname), ".costume");
 		}
 		
 		remove(fname);
@@ -707,7 +708,10 @@ static FileScanAction costumeInfoProcessor(char *dir, struct _finddata32_t *data
 	// Standard (new-format) costume
 	if (simpleMatch("*.v2costume", fullpath))
     {
-        char *name = strdup(data->name);        
+		size_t size = strlen(data->name) + 2;	// zero terminator  one char for the end . if needed
+		char* name = (char*)_alloca(size);
+		strcpy_s(name, size, data->name);
+
         char *p = strrchr(name, '.');
         assert(p);
         if ( p != NULL )
@@ -716,13 +720,15 @@ static FileScanAction costumeInfoProcessor(char *dir, struct _finddata32_t *data
         }
 
         addCostumeToList(name);
-        free(name);
     }
 	// Legacy (old-format) costume
 	else if (simpleMatch("*.costume", fullpath))
 	{
-		char* name = strdup(data->name);
-		char* p = strrchr(name, '.');
+		size_t size = strlen(data->name) + 2;	// zero terminator  one char for the end . if needed
+		char* name = (char*)_alloca(size);
+		strcpy_s(name, size, data->name);
+
+		char *p = strrchr(name, '.');
 		assert(p);
 		if ( p != NULL )
 		{
@@ -730,10 +736,9 @@ static FileScanAction costumeInfoProcessor(char *dir, struct _finddata32_t *data
 		}
 
 		//The . here lets us know this is a .costume not a .v2costume later
-		sprintf_s(name, sizeof(name), "%s.", name);
-		
+		strcat_s(name, size, ".");
+
 		addCostumeToList(name);
-		free(name);
 	}
 	return FSA_NO_EXPLORE_DIRECTORY;
 }
@@ -899,13 +904,13 @@ void loadCostume_menu()
 		char *p = strchr(fname, '.');
 		if (p == NULL)
 		{
-			sprintf_s(fname, sizeof(fname), "%s.v2costume", fname);
+			strcat_s(fname, sizeof(fname), ".v2costume");
 		}
 		else
 		{
 			// Costume ends in '.', otherwise this can't be here, due to other code
 			*p = 0;
-			sprintf_s(fname, sizeof(fname), "%s.costume", fname);
+			strcat_s(fname, sizeof(fname), ".costume");
 		}
 
         if (fname)
