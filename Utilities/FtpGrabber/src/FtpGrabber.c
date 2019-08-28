@@ -8,38 +8,38 @@
  *  reports and delete them. so I made this.
  *
  ***************************************************************************/
-#include "file.h"
-#include "rsa.h"
-#include "bignum.h"
-#include "netio.h"
-#include "estring.h"
-#include "ftpclient.h"
+
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/network/rsa.h>
+#include <utilitieslib/network/bignum.h>
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/components/estring.h>
+#include <utilitieslib/network/ftpclient.h>
 #include "getopt.h"
-#include "net_packet.h"
-#include "net_masterlist.h"
-#include "sock.h"
-#include "memcheck.h"
-#include "error.h"
+#include <utilitieslib/network/net_packet.h>
+#include <utilitieslib/network/net_masterlist.h>
+#include <utilitieslib/network/sock.h>
+#include <utilitieslib/utils/memcheck.h>
+#include <utilitieslib/utils/error.h>
 #include <conio.h>
 #include <process.h>
-#include "timing.h"
-#include "mathutil.h"
-#include "netio_stats.h"
-#include "utils.h"
-#include "net_version.h"
-#include "wininclude.h"
-#include "osdependent.h"
-#include "utils.h"
-#include "assert.h"
-#include "error.h"
-#include "mathutil.h"
-#include "earray.h"
-#include "MemoryPool.h"
-#include "StashTable.h"
-#include "structNet.h"
-#include "netio_core.h"
-#include "net_linklist.h"
-#include "net_link.h"
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/mathutil.h>
+#include <utilitieslib/network/netio_stats.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/network/net_version.h>
+#include <utilitieslib/utils/wininclude.h>
+#include <utilitieslib/utils/osdependent.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/assert/assert.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/MemoryPool.h>
+#include <utilitieslib/components/StashTable.h>
+#include <utilitieslib/utils/structNet.h>
+#include <utilitieslib/network/netio_core.h>
+#include <utilitieslib/network/net_linklist.h>
+#include <utilitieslib/network/net_link.h>
 
 static BOOL g_verbose = FALSE;
 
@@ -78,7 +78,7 @@ BOOL FtpGrab(char *ipfrom, char *username, char *userpass, char *from_ftp_direct
     CR(FtpClient_LS(c,pathbuf));
     pprintf(g_verbose,"ls returned \n%s\n", c->data);    
     
-    estrCopy2(&ls_res,(char*)c->data);  
+    ls_res = estrCloneCharString((char*)c->data);
     cursor = ls_res;
     while(fn = strsep(&cursor,"\r\n"))
     {
@@ -154,20 +154,20 @@ int main(int argc, char *argv[])
     char *from_ftp_directory = NULL; // "CityOfHeroes";
     char *extension_to_match = "*";
 
-	int broadcastSize = 1024;
-	extern int g_assert_on_netlink_overflow;
+    int broadcastSize = 1024;
+    extern int g_assert_on_netlink_overflow;
     int i = 0;
     
-	memCheckInit();
+    memCheckInit();
 
-	sprintf(console_status, "%d: %s", GetCurrentProcessId(), argv[0]);
-	SetConsoleTitle(console_status);
+    sprintf(console_status, "%d: %s", GetCurrentProcessId(), argv[0]);
+    SetConsoleTitle(console_status);
 
-	printf("\n\n");
+    printf("\n\n");
 
-	pktSetDebugInfo();
-	bsAssertOnErrors(true);
-	disableLogging(true);
+    pktSetDebugInfo();
+    bsAssertOnErrors(true);
+    //disableLogging(true);
 
     // test area  
 //    printf("bignum had %i errors\n", BigNum_Test());
