@@ -123,6 +123,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GetAnimation2", "..\..\Util
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FtpGrabber", "..\..\Utilities\FtpGrabber\build\vs2019\FtpGrabber.vcxproj", "{69BAA79C-C46E-4C93-9904-71E7804B5025}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RemoteDebuggerer", "..\..\Utilities\RemoteDebuggerer\build\vs2019\RemoteDebuggerer.vcxproj", "{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -583,6 +585,14 @@ Global
 		{69BAA79C-C46E-4C93-9904-71E7804B5025}.Release|x64.Build.0 = Release|x64
 		{69BAA79C-C46E-4C93-9904-71E7804B5025}.Release|x86.ActiveCfg = Release|Win32
 		{69BAA79C-C46E-4C93-9904-71E7804B5025}.Release|x86.Build.0 = Release|Win32
+		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}.Debug|x64.ActiveCfg = Debug|x64
+		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}.Debug|x64.Build.0 = Debug|x64
+		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}.Debug|x86.ActiveCfg = Debug|Win32
+		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}.Debug|x86.Build.0 = Debug|Win32
+		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}.Release|x64.ActiveCfg = Release|x64
+		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}.Release|x64.Build.0 = Release|x64
+		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}.Release|x86.ActiveCfg = Release|Win32
+		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -625,6 +635,7 @@ Global
 		{62A36E2B-CD40-4BD5-9539-7931F908862A} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 		{9001D6F1-682A-4B2B-8059-FC716A8D3054} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 		{69BAA79C-C46E-4C93-9904-71E7804B5025} = {12A8C0CB-A6CD-4825-B496-70798183B350}
+		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}
