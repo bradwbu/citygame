@@ -16,12 +16,12 @@
 #include <windows.h>
 #include <dbgeng.h>
 
-#include "unzip.h"
+#include <minizip/unzip.h>
 
 #include "out.hpp"
 
-#pragma comment(lib, "lib/dbghelp.lib")
-#pragma comment(lib, "lib/dbgeng.lib")
+#pragma comment(lib, "dbghelp.lib")
+#pragma comment(lib, "dbgeng.lib")
 
 void cleanupTempFiles();
 
@@ -75,7 +75,7 @@ Exit(int Code, PCSTR Format, ...)
         va_end(Args);
     }
 
-	cleanupTempFiles();
+    cleanupTempFiles();
     
     exit(Code);
 }
@@ -178,31 +178,31 @@ ParseCommandLine(int Argc, char** Argv)
 
             g_SymbolPath = *Argv;
         }
-		else if (!strcmp(*Argv, "-f"))
-		{
-			if (Argc < 2)
-			{
-				Exit(1, "-f missing argument\n");
-			}
+        else if (!strcmp(*Argv, "-f"))
+        {
+            if (Argc < 2)
+            {
+                Exit(1, "-f missing argument\n");
+            }
 
-			Argv++;
-			Argc--;
+            Argv++;
+            Argc--;
 
-			g_DumpFile = *Argv;
-		}
-		else if (!strcmp(*Argv, "-z"))
-		{
-			if (Argc < 2)
-			{
-				Exit(1, "-z missing argument\n");
-			}
+            g_DumpFile = *Argv;
+        }
+        else if (!strcmp(*Argv, "-z"))
+        {
+            if (Argc < 2)
+            {
+                Exit(1, "-z missing argument\n");
+            }
 
-			Argv++;
-			Argc--;
+            Argv++;
+            Argc--;
 
-			g_DumpFile = *Argv;
-			g_DumpFileZipped = true;
-		}
+            g_DumpFile = *Argv;
+            g_DumpFileZipped = true;
+        }
         else
         {
             Exit(1, "Unknown command line argument '%s'\n", *Argv);
@@ -217,94 +217,94 @@ ParseCommandLine(int Argc, char** Argv)
 
 int strEndsWith(const char* str, const char* ending)
 {
-	size_t strLength;
-	size_t endingLength;
-	if(!str || !ending)
-		return 0;
+    size_t strLength;
+    size_t endingLength;
+    if(!str || !ending)
+        return 0;
 
-	strLength = strlen(str);
-	endingLength = strlen(ending);
+    strLength = strlen(str);
+    endingLength = strlen(ending);
 
-	if(endingLength > strLength)
-		return 0;
+    if(endingLength > strLength)
+        return 0;
 
-	if(_stricmp(str + strLength - endingLength, ending) == 0)
-		return 1;
-	else
-		return 0;
+    if(_stricmp(str + strLength - endingLength, ending) == 0)
+        return 1;
+    else
+        return 0;
 }
 
 char temp_fname[MAX_PATH]={0};
 
 void cleanupTempFiles()
 {
-	if (temp_fname[0]) {
-		remove(temp_fname);
-		temp_fname[0] = '\0';
-	}
+    if (temp_fname[0]) {
+        remove(temp_fname);
+        temp_fname[0] = '\0';
+    }
 }
 
 int extractZippedMinidump(char *zipfilename)
 {
-	unzFile zipfile;
-	int ret=0;
+    unzFile zipfile;
+    int ret=0;
 
-	zipfile = unzOpen(zipfilename);
-	if (!zipfile)
-		return 0;
+    zipfile = unzOpen(zipfilename);
+    if (!zipfile)
+        return 0;
 
-	if (UNZ_OK == unzGoToFirstFile(zipfile)) {
-		do {
-			char filename[MAX_PATH];
-			unz_file_info info;
-			unzGetCurrentFileInfo(zipfile,
-				&info,
-				filename,
-				sizeof(filename),
-				NULL,
-				0,
-				NULL,
-				0);
-			if (strEndsWith(filename, ".mdmp")) {
-				// Found the appropriate file!
-				// Extract it
-				char *data = (char*)malloc(info.uncompressed_size+1);
-				if (data) {
+    if (UNZ_OK == unzGoToFirstFile(zipfile)) {
+        do {
+            char filename[MAX_PATH];
+            unz_file_info info;
+            unzGetCurrentFileInfo(zipfile,
+                &info,
+                filename,
+                sizeof(filename),
+                NULL,
+                0,
+                NULL,
+                0);
+            if (strEndsWith(filename, ".mdmp")) {
+                // Found the appropriate file!
+                // Extract it
+                char *data = (char*)malloc(info.uncompressed_size+1);
+                if (data) {
 
-					if (UNZ_OK==unzOpenCurrentFile(zipfile)) {
-						int numread = unzReadCurrentFile(zipfile, data, info.uncompressed_size+1);
-						if (numread == info.uncompressed_size) {
-							// Write data to file and free!
-							GetTempFileName(".", "dp_", 0, temp_fname);
-							FILE *f = fopen(temp_fname, "wb");
-							if (f) {
-								fwrite(data, 1, numread, f);
-								fclose(f);
-								g_ZipFile = g_DumpFile;
-								g_DumpFile = temp_fname;
-								ret = 1;
-							} else {
-								printf("Failed to open temp file for writing: %s\n", temp_fname);
-							}
-						} else {
-							printf("Failed to read entire minidump file\n");
-						}
-					}
-					free(data);
-					data = NULL;
-				} else {
-					printf("Error allocating temporary memory buffer of size %d\n", info.uncompressed_size);
-				}
+                    if (UNZ_OK==unzOpenCurrentFile(zipfile)) {
+                        int numread = unzReadCurrentFile(zipfile, data, info.uncompressed_size+1);
+                        if (numread == info.uncompressed_size) {
+                            // Write data to file and free!
+                            GetTempFileName(".", "dp_", 0, temp_fname);
+                            FILE *f = fopen(temp_fname, "wb");
+                            if (f) {
+                                fwrite(data, 1, numread, f);
+                                fclose(f);
+                                g_ZipFile = g_DumpFile;
+                                g_DumpFile = temp_fname;
+                                ret = 1;
+                            } else {
+                                printf("Failed to open temp file for writing: %s\n", temp_fname);
+                            }
+                        } else {
+                            printf("Failed to read entire minidump file\n");
+                        }
+                    }
+                    free(data);
+                    data = NULL;
+                } else {
+                    printf("Error allocating temporary memory buffer of size %d\n", info.uncompressed_size);
+                }
 
-				unzClose(zipfile);
-				return ret;
-			}
-		} while (unzGoToNextFile(zipfile)==UNZ_OK);
-	}
-	printf("Could not find a .mdmp file in the .zip file: %s\n", zipfilename);
+                unzClose(zipfile);
+                return ret;
+            }
+        } while (unzGoToNextFile(zipfile)==UNZ_OK);
+    }
+    printf("Could not find a .mdmp file in the .zip file: %s\n", zipfilename);
 
-	unzClose(zipfile);
-	return ret;
+    unzClose(zipfile);
+    return ret;
 }
 
 
@@ -335,15 +335,15 @@ ApplyCommandLineArguments(void)
         }
     }
 
-	// If it's a zipped file, then extract a .mdmp file and open that instead
-	if (g_DumpFileZipped)
-	{
-		if (0==extractZippedMinidump(g_DumpFile)) {
-			Exit(1, "extractZippedMinidump failed\n");
-		}
-	}
+    // If it's a zipped file, then extract a .mdmp file and open that instead
+    if (g_DumpFileZipped)
+    {
+        if (0==extractZippedMinidump(g_DumpFile)) {
+            Exit(1, "extractZippedMinidump failed\n");
+        }
+    }
 
-	// Everything's set up so open the dump file.
+    // Everything's set up so open the dump file.
     if ((Status = g_Client->OpenDumpFile(g_DumpFile)) != S_OK)
     {
         Exit(1, "OpenDumpFile failed, 0x%X\n", Status);
@@ -405,7 +405,7 @@ DumpStack(void)
     delete[] Frames;
 }
 
-void __cdecl
+int __cdecl
 main(int Argc, char** Argv)
 {
     CreateInterfaces();
@@ -417,4 +417,5 @@ main(int Argc, char** Argv)
     DumpStack();
 
     Exit(0, NULL);
+    return 0;
 }
