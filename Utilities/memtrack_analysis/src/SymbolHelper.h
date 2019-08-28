@@ -8,10 +8,10 @@
 #ifndef SYMBOLHELPER_H
 #define SYMBOLHELPER_H
 
+#include <string>
 #include <vector>
 #include <atlbase.h>
 #include <dia2.h>
-
 
 //--------------------------------------------------------------------------------------
 // Name: class Sample
@@ -32,43 +32,43 @@ struct Module
     CComPtr <IDiaSession> m_psession;
 };
 
-struct AddressSymbol	// information for an address lookup
+struct AddressSymbol    // information for an address lookup
 {
-	DWORD	address;
-	CHAR	symbolName[1000];
-	ULONG	displacement;
-	CHAR	filename[500];
-	ULONG	lineNumber;
+    DWORD    address;
+    CHAR    symbolName[1000];
+    ULONG    displacement;
+    CHAR    filename[500];
+    ULONG    lineNumber;
 
-	AddressSymbol(void)
-	{}
+    AddressSymbol(void)
+    {}
 
-	AddressSymbol( DWORD anAddress )
-	{
-		memset( this, sizeof(*this), 0 );
-		address = anAddress;
-	}
+    AddressSymbol( DWORD anAddress )
+    {
+        memset( this, sizeof(*this), 0 );
+        address = anAddress;
+    }
 
-	std::string str()	// generate string representation of symbol information
-	{
-		std::string s;
-		char buffer[2048];
+    std::string str()    // generate string representation of symbol information
+    {
+        std::string s;
+        char buffer[2048];
 
-		// Print out the symbol name and the offset of the address from
-		// that symbol.
-		sprintf_s( buffer, sizeof(buffer), "    %8X: %s+%u", address, symbolName, displacement );
-		s += std::string(buffer);
+        // Print out the symbol name and the offset of the address from
+        // that symbol.
+        sprintf_s( buffer, sizeof(buffer), "    %8X: %s+%u", address, symbolName, displacement );
+        s += std::string(buffer);
 
-		// Now print out the filename/linenumber information if we have it.
-		if( filename[0] )
-		{
-			sprintf_s( buffer, sizeof(buffer), " - %s(%u)\n", filename, lineNumber );
-			s += std::string(buffer);
-		}
-		else
-			s += " - n\\a\n";
-		return s;
-	}
+        // Now print out the filename/linenumber information if we have it.
+        if( filename[0] )
+        {
+            sprintf_s( buffer, sizeof(buffer), " - %s(%u)\n", filename, lineNumber );
+            s += std::string(buffer);
+        }
+        else
+            s += " - n\\a\n";
+        return s;
+    }
 };
 
 //--------------------------------------------------------------------------------------
@@ -83,17 +83,17 @@ public:
             SymbolHelper();
             ~SymbolHelper();
 
-	// Walk module list and try to retrieve symbol information for the address in the
-	// address block, including the address, symbol name, offset, source file, line-number, etc.
-	bool    ResolveAddress( AddressSymbol& as );
+    // Walk module list and try to retrieve symbol information for the address in the
+    // address block, including the address, symbol name, offset, source file, line-number, etc.
+    bool    ResolveAddress( AddressSymbol& as );
 
     // Print a summary of the specified symbol including the address, symbol name and
     // offset, and source file(line-number).
     VOID    PrintSymbolSummary( DWORD address );
 
     // Attempt to load the symbols for the specified module.
-	// This function prints a success/failure message and returns true for success.
-	// @todo include looking on a symbol server. 
+    // This function prints a success/failure message and returns true for success.
+    // @todo include looking on a symbol server. 
     bool    LoadSymbolsForModule( const VOID* baseAddress,
                                   size_t size, DWORD timeStamp, const char* aModulePath );
 

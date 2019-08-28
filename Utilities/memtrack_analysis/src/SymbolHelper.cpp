@@ -25,7 +25,7 @@
 BOOL LoadDbgHelp()
 {
     // Get the app path
-	std::string path = "";	// assume there is an appropriate dbghelp.dll in working directory
+    std::string path = "";    // assume there is an appropriate dbghelp.dll in working directory
 
     // Create a fully specified path to the desired version of dbghelp.dll
     // This is necessary because symsrv.dll must be in the same directory
@@ -99,8 +99,8 @@ SymbolHelper::SymbolHelper()
     // Now build up a complete symbol search path to give to DbgHelp.
     std::string fullSearchPath;
 
-	// Add the current directory to the search path.
-	fullSearchPath += std::string( ";." );
+    // Add the current directory to the search path.
+    fullSearchPath += std::string( ";." );
 
     CHAR* ntSymbolPath;
     size_t symbolPathSize;
@@ -137,86 +137,86 @@ SymbolHelper::~SymbolHelper()
 // address block, including the address, symbol name, offset, source file, line-number, etc.
 bool    SymbolHelper::ResolveAddress( AddressSymbol& as )
 {
-	bool success = false;
-	CHAR symbolName[1000] = {0};
-	ULONG displacement = 0;
-	CHAR filename[500] = {0};
-	ULONG lineNumber = 0;
-	DWORD address = as.address;
+    bool success = false;
+    CHAR symbolName[1000] = {0};
+    ULONG displacement = 0;
+    CHAR filename[500] = {0};
+    ULONG lineNumber = 0;
+    DWORD address = as.address;
 
-	// Scan through the list of loaded modules to find the one that contains the
-	// requested address.
-	for( size_t i = 0; i < m_ModuleList.size(); ++i )
-	{
-		// Find what module's address range the address falls in.
-		if( address > m_ModuleList[i].m_Address &&
-			address < m_ModuleList[i].m_Address + m_ModuleList[i].m_Size )
-		{
-			CComPtr <IDiaSession>& pSession = m_ModuleList[i].m_psession;
+    // Scan through the list of loaded modules to find the one that contains the
+    // requested address.
+    for( size_t i = 0; i < m_ModuleList.size(); ++i )
+    {
+        // Find what module's address range the address falls in.
+        if( address > m_ModuleList[i].m_Address &&
+            address < m_ModuleList[i].m_Address + m_ModuleList[i].m_Size )
+        {
+            CComPtr <IDiaSession>& pSession = m_ModuleList[i].m_psession;
 
-			// Find the symbol using the virtual address--the raw address. This
-			// only works if you have previously told DIA where the module was
-			// loaded, using put_loadAddress.
-			// Specify SymTagPublicSymbol instead of SymTagFunction if you want
-			// the full decorated names.
-			IDiaSymbol* pFunc;
-			HRESULT result = pSession->findSymbolByVA( address, SymTagFunction, &pFunc );
-			if( SUCCEEDED( result ) && pFunc )
-			{
-				// Get the name of the function.
-				CComBSTR functionName = 0;
-				pFunc->get_name( &functionName );
-				if( functionName )
-				{
-					// Convert the function name from wide characters to char.
-					sprintf_s( symbolName, "%S", functionName );
+            // Find the symbol using the virtual address--the raw address. This
+            // only works if you have previously told DIA where the module was
+            // loaded, using put_loadAddress.
+            // Specify SymTagPublicSymbol instead of SymTagFunction if you want
+            // the full decorated names.
+            IDiaSymbol* pFunc;
+            HRESULT result = pSession->findSymbolByVA( address, SymTagFunction, &pFunc );
+            if( SUCCEEDED( result ) && pFunc )
+            {
+                // Get the name of the function.
+                CComBSTR functionName = 0;
+                pFunc->get_name( &functionName );
+                if( functionName )
+                {
+                    // Convert the function name from wide characters to char.
+                    sprintf_s( symbolName, "%S", functionName.m_str );
 
-					// Get the offset of the address from the symbol's address.
-					ULONGLONG symbolBaseAddress;
-					pFunc->get_virtualAddress( &symbolBaseAddress );
-					displacement = address - ( ULONG )symbolBaseAddress;
-					success = true;
+                    // Get the offset of the address from the symbol's address.
+                    ULONGLONG symbolBaseAddress;
+                    pFunc->get_virtualAddress( &symbolBaseAddress );
+                    displacement = address - ( ULONG )symbolBaseAddress;
+                    success = true;
 
-					// Now try to get the filename and line number.
-					// Get an enumerator that corresponds to this instruction.
-					CComPtr <IDiaEnumLineNumbers> pLines;
-					const DWORD instructionSize = 4;
-					if( SUCCEEDED( pSession->findLinesByVA( address, instructionSize, &pLines ) ) )
-					{
-						// We could loop over all of the source lines that map to this instruction,
-						// but there is probably at most one, and if there are multiple source
-						// lines we still only want one.
-						CComPtr <IDiaLineNumber> pLine;
-						DWORD celt;
-						if( SUCCEEDED( pLines->Next( 1, &pLine, &celt ) ) && celt == 1 )
-						{
-							// Get the line number.
-							pLine->get_lineNumber( &lineNumber );
+                    // Now try to get the filename and line number.
+                    // Get an enumerator that corresponds to this instruction.
+                    CComPtr <IDiaEnumLineNumbers> pLines;
+                    const DWORD instructionSize = 4;
+                    if( SUCCEEDED( pSession->findLinesByVA( address, instructionSize, &pLines ) ) )
+                    {
+                        // We could loop over all of the source lines that map to this instruction,
+                        // but there is probably at most one, and if there are multiple source
+                        // lines we still only want one.
+                        CComPtr <IDiaLineNumber> pLine;
+                        DWORD celt;
+                        if( SUCCEEDED( pLines->Next( 1, &pLine, &celt ) ) && celt == 1 )
+                        {
+                            // Get the line number.
+                            pLine->get_lineNumber( &lineNumber );
 
-							// Get the source file object, and then its name.
-							CComPtr <IDiaSourceFile> pSrc;
-							pLine->get_sourceFile( &pSrc );
-							CComBSTR sourceName = 0;
-							pSrc->get_fileName( &sourceName );
-							// Convert from wide characters to ASCII.
-							sprintf_s( filename, "%S", sourceName );
-						}
-					}
-				}
-			}
-		}
-	}
+                            // Get the source file object, and then its name.
+                            CComPtr <IDiaSourceFile> pSrc;
+                            pLine->get_sourceFile( &pSrc );
+                            CComBSTR sourceName = 0;
+                            pSrc->get_fileName( &sourceName );
+                            // Convert from wide characters to ASCII.
+                            sprintf_s( filename, "%S", sourceName.m_str );
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-	if( success )
-	{
-		// fill the resolve block for the caller
-		as.displacement = displacement;
-		as.lineNumber = lineNumber;
-		strcpy_s( as.symbolName, sizeof(as.symbolName), symbolName );
-		strcpy_s( as.filename, sizeof(as.filename), filename );
-	}
+    if( success )
+    {
+        // fill the resolve block for the caller
+        as.displacement = displacement;
+        as.lineNumber = lineNumber;
+        strcpy_s( as.symbolName, sizeof(as.symbolName), symbolName );
+        strcpy_s( as.filename, sizeof(as.filename), filename );
+    }
 
-	return success;
+    return success;
 }
 
 //--------------------------------------------------------------------------------------
@@ -228,7 +228,7 @@ bool    SymbolHelper::ResolveAddress( AddressSymbol& as )
 //--------------------------------------------------------------------------------------
 VOID SymbolHelper::PrintSymbolSummary( DWORD address )
 {
-	AddressSymbol as(address);
+    AddressSymbol as(address);
 
     bool success = ResolveAddress( as );
     if( success )
@@ -258,19 +258,19 @@ bool SymbolHelper::LoadSymbolsForModule( const VOID* baseAddress,
     if( FAILED( hr ) )
         return false;
 
-	// Convert the filename to wide characters for use with DIA2.
-	wchar_t wPdbPath[ _MAX_PATH ];
-	size_t convertedChars;
-	mbstowcs_s( &convertedChars, wPdbPath, aModulePath, _TRUNCATE );
+    // Convert the filename to wide characters for use with DIA2.
+    wchar_t wPdbPath[ _MAX_PATH ];
+    size_t convertedChars;
+    mbstowcs_s( &convertedChars, wPdbPath, aModulePath, _TRUNCATE );
 
-	pSource->loadDataForExe( wPdbPath, NULL, NULL );
-	if( FAILED( hr ) )
-	{
-		// Check the error code for details on why the load failed, which
-		// could be because the file doesn't exist, signature doesn't match,
-		// etc.
-		return false;
-	}
+    pSource->loadDataForExe( wPdbPath, NULL, NULL );
+    if( FAILED( hr ) )
+    {
+        // Check the error code for details on why the load failed, which
+        // could be because the file doesn't exist, signature doesn't match,
+        // etc.
+        return false;
+    }
 
     // Create a session for the just loaded PDB file.
     CComPtr <IDiaSession> psession;
