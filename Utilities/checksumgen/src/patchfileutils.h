@@ -1,40 +1,40 @@
 #ifndef _PATCHFILEUTILS_H
 #define _PATCHFILEUTILS_H
 
-#include "stdtypes.h"
-#include "piglib.h"
-#include "piglib_internal.h"
-#include "zlib.h"
+#include <utilitieslib/stdtypes.h>
+#include <utilitieslib/utils/piglib.h>
+#include <utilitieslib/utils/piglib_internal.h>
+#include <zlib/zlib.h>
 
 typedef struct StashTableImp *StashTable;
 typedef const struct StashTableImp *cStashTable;
 
 typedef struct
 {
-	char	*name;
-	PigFile	pig;
+    char    *name;
+    PigFile    pig;
 } PigEntry;
 
 typedef struct
 {
-	StashTable pig_entry_hashes;
-	PigEntry *pig_entries;
-	int pig_entry_count,pig_entry_max;
+    StashTable pig_entry_hashes;
+    PigEntry *pig_entries;
+    int pig_entry_count,pig_entry_max;
 } PigCache;
 
 typedef struct
 {
-	U8		*zip_data;
-	U32		pack_size;
-	U32		unpack_size;
+    U8        *zip_data;
+    U32        pack_size;
+    U32        unpack_size;
 } ZipData;
 
 typedef struct
 {
-	z_stream	z;
-	FILE		*file;
-	U8			*chunk;
-	U32			compress : 1;
+    z_stream    z;
+    FILE        *file;
+    U8            *chunk;
+    U32            compress : 1;
 } GzStream;
 #define GZ_CHUNK_SIZE (64 << 20)
 

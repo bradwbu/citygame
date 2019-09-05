@@ -133,6 +133,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dumpstk", "..\..\Utilities\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dumpandpack", "..\..\Utilities\dumpandpack\build\vs2019\dumpandpack.vcxproj", "{10728310-466B-4FA0-810B-4E504D4BC23E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "checksumgen", "..\..\Utilities\checksumgen\build\vs2019\checksumgen.vcxproj", "{C0A3FF68-DD11-4AEB-8949-9F166CA8F61A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -633,6 +635,14 @@ Global
 		{10728310-466B-4FA0-810B-4E504D4BC23E}.Release|x64.Build.0 = Release|x64
 		{10728310-466B-4FA0-810B-4E504D4BC23E}.Release|x86.ActiveCfg = Release|Win32
 		{10728310-466B-4FA0-810B-4E504D4BC23E}.Release|x86.Build.0 = Release|Win32
+		{C0A3FF68-DD11-4AEB-8949-9F166CA8F61A}.Debug|x64.ActiveCfg = Debug|x64
+		{C0A3FF68-DD11-4AEB-8949-9F166CA8F61A}.Debug|x64.Build.0 = Debug|x64
+		{C0A3FF68-DD11-4AEB-8949-9F166CA8F61A}.Debug|x86.ActiveCfg = Debug|Win32
+		{C0A3FF68-DD11-4AEB-8949-9F166CA8F61A}.Debug|x86.Build.0 = Debug|Win32
+		{C0A3FF68-DD11-4AEB-8949-9F166CA8F61A}.Release|x64.ActiveCfg = Release|x64
+		{C0A3FF68-DD11-4AEB-8949-9F166CA8F61A}.Release|x64.Build.0 = Release|x64
+		{C0A3FF68-DD11-4AEB-8949-9F166CA8F61A}.Release|x86.ActiveCfg = Release|Win32
+		{C0A3FF68-DD11-4AEB-8949-9F166CA8F61A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -680,6 +690,7 @@ Global
 		{61880C52-F8F6-4AE4-AE02-06693AA156BF} = {1E56C5E1-2E80-4E60-A308-5916863FBE84}
 		{48E1752A-8B81-4769-B40A-F2A0A5D8B6CE} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 		{10728310-466B-4FA0-810B-4E504D4BC23E} = {12A8C0CB-A6CD-4825-B496-70798183B350}
+		{C0A3FF68-DD11-4AEB-8949-9F166CA8F61A} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}
