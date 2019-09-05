@@ -22,8 +22,9 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>RemoteDebuggerer</RootNamespace>
+    <RootNamespace>RemoteDebugger</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>RemoteDebugger</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
