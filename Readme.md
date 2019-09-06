@@ -58,9 +58,9 @@ Naming conventions we use that are not automated include:
 5. Prefer `lower_snake_case` file names for headers and sources.
 6. Prefer full words for names over contractions (i.e. `memoryContext`, not
    `memCtx`).
-7. Use names with trailing underscores (`_`) to indicate internal and private fields
+7. Use names with one trailing underscores (`_`) to indicate internal and private fields
    (e.g. `privateField_`).
-8. Define variables as close as possible to their usage
+8. Define variables as close as possible to their usage.
 
 Above all, if a file happens to differ in style from these guidelines (e.g.
 private members are named `m_member` rather than `member_`), the existing style
