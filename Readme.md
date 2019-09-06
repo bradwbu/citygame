@@ -41,7 +41,7 @@ character column width consistently.
 Please stage the formatting changes with your commit, instead of making an extra
 "Format Code" commit.
 
-The [.clang-format](/.clang-format) file describes the style that is enforced
+The [.clang-format](./.clang-format) file describes the style that is enforced
 by invoking `clang-format`, which is based off the LLVM style with modifications closer to
 the default Visual Studio style. See [clang-format style options](
 http://releases.llvm.org/8.0.0/tools/clang/docs/ClangFormatStyleOptions.html)
@@ -53,47 +53,24 @@ Naming conventions we use that are not automated include:
 
 1. Don't use Hungarian notation (https://en.wikipedia.org/wiki/Hungarian_notation).
 2. Use `camelCase` for variable, member/field, and function names.
-3. Use `UPPER_SNAKE_CASE` for macro names and constants.
-4. Prefer `lower_snake_case` file names for headers and sources.
-5. Prefer full words for names over contractions (i.e. `memoryContext`, not
+3. Use `PascalCase` for user defined data types.
+4. Use `UPPER_SNAKE_CASE` for macro names and constants.
+5. Prefer `lower_snake_case` file names for headers and sources.
+6. Prefer full words for names over contractions (i.e. `memoryContext`, not
    `memCtx`).
-6. Prefix names with `_` to indicate internal and private fields or methods
-   (e.g. `_internal_field, _internal_method()`).
-7. The single underscore (`_` ) is reserved for local definitions (static,
-   file-scope definitions).
-   e.g. static oe_result_t _parse_sgx_report_body(..).
-8. Prefix `struct` definitions with `_`, and always create a `typedef` with the
-   suffix `_t`:
-```c
-typedef struct _oe_private_key
-{
-    uint64_t magic;
-    mbedtls_pk_context pk;
-} oe_private_key_t;
-```
-8. Prefix Open Enclave specific names in the global namespace with `oe_` (e.g.
-   `oe_result_t, oe_call_enclave`).
+7. Use names with trailing underscores (`_`) to indicate internal and private fields
+   (e.g. `privateField_`).
+8. Define variables as close as possible to their usage
 
 Above all, if a file happens to differ in style from these guidelines (e.g.
-private members are named `m_member` rather than `_member`), the existing style
+private members are named `m_member` rather than `member_`), the existing style
 in that file takes precedence.
-
-Note that we _no longer_ use `CamelCase` nor double underscores (`__`), but you
-may find remnants and so again should prefer the local style. This is especially
-the case for classes, which are still using `PascalCase`. For now, follow the
-existing style. The project maintainers prefer to fix style issues in bulk using
-automation, so avoid submitting PRs intended to fix only a few instances of the
-inconsistent style.
 
 For other files (`*.asm`, `*.S`, etc.) our current best guidance is consistency:
 
 - When editing files, keep new code and changes consistent with the style in the
   files.
 - For new files, it should conform to the style for that component.
-- For new components, any style that is broadly accepted is fine.
-
-### Example File
-
 
 Building Servers and Client
 =========================== 
