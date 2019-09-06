@@ -41,7 +41,7 @@ character column width consistently.
 Please stage the formatting changes with your commit, instead of making an extra
 "Format Code" commit.
 
-The [.clang-format](/.clang-format) file describes the style that is enforced
+The [.clang-format](./.clang-format) file describes the style that is enforced
 by invoking `clang-format`, which is based off the LLVM style with modifications closer to
 the default Visual Studio style. See [clang-format style options](
 http://releases.llvm.org/8.0.0/tools/clang/docs/ClangFormatStyleOptions.html)
