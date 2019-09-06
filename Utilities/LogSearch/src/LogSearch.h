@@ -4,11 +4,10 @@
 #pragma once
 
 #ifndef __AFXWIN_H__
-    #error "include 'stdafx.h' before including this file for PCH"
+#error "include 'stdafx.h' before including this file for PCH"
 #endif
 
-#include "resource.h"        // main symbols
-
+#include "resource.h" // main symbols
 
 // CLogSearchApp:
 // See LogSearch.cpp for the implementation of this class
@@ -21,28 +20,17 @@ public:
     DWORD startProcess(CString exeLocation, CString commandLine);
     void killProcess(DWORD processId);
     static BOOL CALLBACK CloseWindowsByProc(HWND hwnd, LPARAM pid);
-    static void makeCommandLineParams(CString &ret,
-        CString exeloc,
-        CString dir,
-        CString file,
-        CString out,
-        CString search,
-        CString start,
-        CString stop,
-        unsigned int threshold,
-        unsigned int maxLine,
-        unsigned int nThreads,
-        unsigned int bufferSize,
-        bool caseSensitive,
-        bool useWildcards);
+    static void makeCommandLineParams(CString& ret, CString exeloc, CString dir, CString file, CString out, CString search, CString start, CString stop,
+                                      unsigned int threshold, unsigned int maxLine, unsigned int nThreads, unsigned int bufferSize, bool caseSensitive,
+                                      bool useWildcards);
 
-    DWORD  procId;    //eventually replace this with an erray of open procids
+    DWORD procId; // eventually replace this with an erray of open procids
 
-// Overrides
-    public:
+    // Overrides
+public:
     virtual BOOL InitInstance();
 
-// Implementation
+    // Implementation
 
     DECLARE_MESSAGE_MAP()
 };

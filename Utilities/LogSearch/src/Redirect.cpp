@@ -24,34 +24,27 @@
 // Initial Release Feb 8, 1999
 //------------------------------------------------------------------------------
 
-
 #include "stdafx.h"
 #include <string.h>
 #include "Redirect.h"
 
 const int BUF_SIZE = 8192;
 
-CRedirect::CRedirect
-(
- LPCTSTR        szCommand,
- CEdit            *pEdit,
- CProgressCtrl    *pProgress,
- LPCTSTR        szCurrentDirectory
- )
+CRedirect::CRedirect(LPCTSTR szCommand, CEdit* pEdit, CProgressCtrl* pProgress, LPCTSTR szCurrentDirectory)
 {
-    m_bStopped                = false;
-    m_dwSleepMilliseconds    = 100;
-    m_pEdit                    = pEdit;
-    m_Progress                = pProgress;
-    m_szCommand                = szCommand;
-    m_szCurrentDirectory    = szCurrentDirectory;
+    m_bStopped = false;
+    m_dwSleepMilliseconds = 100;
+    m_pEdit = pEdit;
+    m_Progress = pProgress;
+    m_szCommand = szCommand;
+    m_szCurrentDirectory = szCurrentDirectory;
 }
 
 CRedirect::~CRedirect()
 {
 }
 
-void CRedirect::updatePercentDone(double done) 
+void CRedirect::updatePercentDone(double done)
 {
     m_done = done;
     m_Progress->SetPos((int)done);
@@ -59,68 +52,64 @@ void CRedirect::updatePercentDone(double done)
 
 void CRedirect::Run()
 {
-    HANDLE                    PipeReadHandle;
-    HANDLE                    PipeWriteHandle;
-    PROCESS_INFORMATION        ProcessInfo;
-    SECURITY_ATTRIBUTES        SecurityAttributes;
-    STARTUPINFO                StartupInfo;
-    BOOL                    Success;
+    HANDLE PipeReadHandle;
+    HANDLE PipeWriteHandle;
+    PROCESS_INFORMATION ProcessInfo;
+    SECURITY_ATTRIBUTES SecurityAttributes;
+    STARTUPINFO StartupInfo;
+    BOOL Success;
 
     //--------------------------------------------------------------------------
     //    Zero the structures.
     //--------------------------------------------------------------------------
-    ZeroMemory( &StartupInfo,            sizeof( StartupInfo ));
-    ZeroMemory( &ProcessInfo,            sizeof( ProcessInfo ));
-    ZeroMemory( &SecurityAttributes,    sizeof( SecurityAttributes ));
+    ZeroMemory(&StartupInfo, sizeof(StartupInfo));
+    ZeroMemory(&ProcessInfo, sizeof(ProcessInfo));
+    ZeroMemory(&SecurityAttributes, sizeof(SecurityAttributes));
 
     //--------------------------------------------------------------------------
     //    Create a pipe for the child's STDOUT.
     //--------------------------------------------------------------------------
-    SecurityAttributes.nLength              = sizeof(SECURITY_ATTRIBUTES);
-    SecurityAttributes.bInheritHandle       = TRUE;
+    SecurityAttributes.nLength = sizeof(SECURITY_ATTRIBUTES);
+    SecurityAttributes.bInheritHandle = TRUE;
     SecurityAttributes.lpSecurityDescriptor = NULL;
 
-    Success = CreatePipe
-        (
-        &PipeReadHandle,        // address of variable for read handle
-        &PipeWriteHandle,        // address of variable for write handle
-        &SecurityAttributes,    // pointer to security attributes
-        0                        // number of bytes reserved for pipe (use default size)
-        );
+    Success = CreatePipe(&PipeReadHandle,     // address of variable for read handle
+                         &PipeWriteHandle,    // address of variable for write handle
+                         &SecurityAttributes, // pointer to security attributes
+                         0                    // number of bytes reserved for pipe (use default size)
+    );
 
-    if ( !Success )
+    if (!Success)
     {
         ShowLastError(_T("Error creating pipe"));
         return;
-    }    
+    }
 
     //--------------------------------------------------------------------------
     //    Set up members of STARTUPINFO structure.
     //--------------------------------------------------------------------------
-    StartupInfo.cb           = sizeof(STARTUPINFO);
-    StartupInfo.dwFlags      = STARTF_USESHOWWINDOW | STARTF_USESTDHANDLES;
-    StartupInfo.wShowWindow  = SW_HIDE;
-    StartupInfo.hStdOutput   = PipeWriteHandle;
-    StartupInfo.hStdError    = PipeWriteHandle;
+    StartupInfo.cb = sizeof(STARTUPINFO);
+    StartupInfo.dwFlags = STARTF_USESHOWWINDOW | STARTF_USESTDHANDLES;
+    StartupInfo.wShowWindow = SW_HIDE;
+    StartupInfo.hStdOutput = PipeWriteHandle;
+    StartupInfo.hStdError = PipeWriteHandle;
 
     //----------------------------------------------------------------------------
     //    Create the child process.
     //----------------------------------------------------------------------------
-    Success = CreateProcess
-        ( 
-        NULL,                    // pointer to name of executable module
-        LPTSTR(m_szCommand),    // command line 
-        NULL,                    // pointer to process security attributes 
-        NULL,                    // pointer to thread security attributes (use primary thread security attributes)
-        TRUE,                    // inherit handles
-        0,                        // creation flags
-        NULL,                    // pointer to new environment block (use parent's)
-        m_szCurrentDirectory,    // pointer to current directory name
-        &StartupInfo,            // pointer to STARTUPINFO
-        &ProcessInfo            // pointer to PROCESS_INFORMATION
-        );                 
+    Success = CreateProcess(NULL,                 // pointer to name of executable module
+                            LPTSTR(m_szCommand),  // command line
+                            NULL,                 // pointer to process security attributes
+                            NULL,                 // pointer to thread security attributes (use primary thread security attributes)
+                            TRUE,                 // inherit handles
+                            0,                    // creation flags
+                            NULL,                 // pointer to new environment block (use parent's)
+                            m_szCurrentDirectory, // pointer to current directory name
+                            &StartupInfo,         // pointer to STARTUPINFO
+                            &ProcessInfo          // pointer to PROCESS_INFORMATION
+    );
 
-    if ( !Success )
+    if (!Success)
     {
         ShowLastError(_T("Error creating process"));
         return;
@@ -128,46 +117,42 @@ void CRedirect::Run()
     AppendText(m_szCommand);
     AppendText("\n");
 
-    if(m_Progress)
-        m_Progress->SetRange(0,100);
+    if (m_Progress)
+        m_Progress->SetRange(0, 100);
 
-    DWORD    BytesLeftThisMessage = 0;
-    DWORD    NumBytesRead;
-    TCHAR    PipeData[BUF_SIZE]; 
-    DWORD    TotalBytesAvailable = 0;
+    DWORD BytesLeftThisMessage = 0;
+    DWORD NumBytesRead;
+    TCHAR PipeData[BUF_SIZE];
+    DWORD TotalBytesAvailable = 0;
 
-    for ( ; ; )
-    { 
+    for (;;)
+    {
         NumBytesRead = 0;
 
-        Success = PeekNamedPipe
-            ( 
-            PipeReadHandle,                // handle to pipe to copy from 
-            PipeData,                    // pointer to data buffer 
-            1,                            // size, in bytes, of data buffer 
-            &NumBytesRead,                // pointer to number of bytes read 
-            &TotalBytesAvailable,        // pointer to total number of bytes available
-            &BytesLeftThisMessage        // pointer to unread bytes in this message 
-            );
+        Success = PeekNamedPipe(PipeReadHandle,       // handle to pipe to copy from
+                                PipeData,             // pointer to data buffer
+                                1,                    // size, in bytes, of data buffer
+                                &NumBytesRead,        // pointer to number of bytes read
+                                &TotalBytesAvailable, // pointer to total number of bytes available
+                                &BytesLeftThisMessage // pointer to unread bytes in this message
+        );
 
-        if ( !Success )
+        if (!Success)
         {
             ShowLastError(_T("PeekNamedPipe fialed"));
             break;
         }
 
-        if ( NumBytesRead )
+        if (NumBytesRead)
         {
-            Success = ReadFile
-                (
-                PipeReadHandle,        // handle to pipe to copy from 
-                PipeData,            // address of buffer that receives data
-                BUF_SIZE - 1,        // number of bytes to read
-                &NumBytesRead,        // address of number of bytes read
-                NULL                // address of structure for data for overlapped I/O
-                );
+            Success = ReadFile(PipeReadHandle, // handle to pipe to copy from
+                               PipeData,       // address of buffer that receives data
+                               BUF_SIZE - 1,   // number of bytes to read
+                               &NumBytesRead,  // address of number of bytes read
+                               NULL            // address of structure for data for overlapped I/O
+            );
 
-            if ( !Success )
+            if (!Success)
             {
                 ShowLastError(_T("ReadFile fialed"));
                 break;
@@ -181,20 +166,20 @@ void CRedirect::Run()
             //------------------------------------------------------------------
             //    Replace backspaces with spaces.
             //------------------------------------------------------------------
-            char * space = 0;
-            for ( DWORD ii = 0; ii < NumBytesRead; ii++ )
+            char* space = 0;
+            for (DWORD ii = 0; ii < NumBytesRead; ii++)
             {
-                if ( PipeData[ii] == _T('\b') )
+                if (PipeData[ii] == _T('\b'))
                 {
                     PipeData[ii] = ' ';
                 }
-                else if(PipeData[ii] == _T(' '))
+                else if (PipeData[ii] == _T(' '))
                 {
                     space = &PipeData[ii];
                 }
-                else if(PipeData[ii] == _T('%') && space)
+                else if (PipeData[ii] == _T('%') && space)
                 {
-                    char *percentStr = space+1;
+                    char* percentStr = space + 1;
                     PipeData[ii] = 0;
                     updatePercentDone(atof(percentStr));
                     PipeData[ii] = '%';
@@ -202,11 +187,11 @@ void CRedirect::Run()
             }
 
             //------------------------------------------------------------------
-            //    If we're running a batch file that contains a pause command, 
+            //    If we're running a batch file that contains a pause command,
             //    assume it is the last output from the batch file and remove it.
             //------------------------------------------------------------------
-            TCHAR  *ptr = _tcsstr(PipeData, _T("Press any key to continue . . ."));
-            if ( ptr )
+            TCHAR* ptr = _tcsstr(PipeData, _T("Press any key to continue . . ."));
+            if (ptr)
             {
                 *ptr = '\0';
             }
@@ -226,7 +211,7 @@ void CRedirect::Run()
             //------------------------------------------------------------------
             //    If the child process has completed, break out.
             //------------------------------------------------------------------
-            if ( WaitForSingleObject(ProcessInfo.hProcess, 0) == WAIT_OBJECT_0 )    //lint !e1924 (warning about C-style cast)
+            if (WaitForSingleObject(ProcessInfo.hProcess, 0) == WAIT_OBJECT_0) // lint !e1924 (warning about C-style cast)
             {
                 break;
             }
@@ -239,15 +224,11 @@ void CRedirect::Run()
             //------------------------------------------------------------------
             //    If the user cancelled the operation, terminate the process.
             //------------------------------------------------------------------
-            if ( m_bStopped )
+            if (m_bStopped)
             {
-                Success = TerminateProcess
-                    (
-                    ProcessInfo.hProcess,
-                    0
-                    );
+                Success = TerminateProcess(ProcessInfo.hProcess, 0);
 
-                if ( Success )
+                if (Success)
                 {
                     AppendText(_T("\r\nCancelled.\r\n\r\nProcess terminated successfully.\r\n"));
                 }
@@ -264,63 +245,53 @@ void CRedirect::Run()
             //------------------------------------------------------------------
             Sleep(m_dwSleepMilliseconds);
         }
-
     }
 
     //--------------------------------------------------------------------------
     //    Close handles.
     //--------------------------------------------------------------------------
     Success = CloseHandle(ProcessInfo.hThread);
-    if ( !Success )
+    if (!Success)
     {
         ShowLastError(_T("Error closing thread handle."));
     }
 
     Success = CloseHandle(ProcessInfo.hProcess);
-    if ( !Success )
+    if (!Success)
     {
         ShowLastError(_T("Error closing process handle."));
     }
 
     Success = CloseHandle(PipeReadHandle);
-    if ( !Success )
+    if (!Success)
     {
         ShowLastError(_T("Error closing pipe read handle."));
     }
 
     Success = CloseHandle(PipeWriteHandle);
-    if ( !Success )
+    if (!Success)
     {
         ShowLastError(_T("Error closing pipe write handle."));
     }
-
 }
-
 
 void CRedirect::ShowLastError(LPCTSTR szText)
 {
-    LPVOID        lpMsgBuf;
-    DWORD        Success;
+    LPVOID lpMsgBuf;
+    DWORD Success;
 
     //--------------------------------------------------------------------------
     //    Get the system error message.
     //--------------------------------------------------------------------------
-    Success = FormatMessage
-        (
-        FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM,
-        NULL,
-        GetLastError(),
-        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),    //lint !e1924 (warning about C-style cast)
-        LPTSTR(&lpMsgBuf),
-        0,
-        NULL
-        );
+    Success = FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM, NULL, GetLastError(),
+                            MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // lint !e1924 (warning about C-style cast)
+                            LPTSTR(&lpMsgBuf), 0, NULL);
 
-    CString    Msg;
+    CString Msg;
 
     Msg = szText;
     Msg += _T("\r\n");
-    if ( Success )
+    if (Success)
     {
         Msg += LPTSTR(lpMsgBuf);
     }
@@ -330,15 +301,14 @@ void CRedirect::ShowLastError(LPCTSTR szText)
     }
 
     AppendText(Msg);
-
 }
 
 void CRedirect::PeekAndPump()
 {
     MSG Msg;
-    while (::PeekMessage(&Msg, NULL, 0, 0, PM_NOREMOVE)) 
+    while (::PeekMessage(&Msg, NULL, 0, 0, PM_NOREMOVE))
     {
-        (void)AfxGetApp()->PumpMessage(); //lint !e1924 (warning about C-style cast)
+        (void)AfxGetApp()->PumpMessage(); // lint !e1924 (warning about C-style cast)
     }
 }
 
@@ -353,7 +323,7 @@ void CRedirect::AppendText(LPCTSTR Text)
 
     m_pEdit->SetSel(Length, Length);
     m_pEdit->ReplaceSel(Text);
-    m_pEdit->LineScroll( m_pEdit->GetLineCount() );
+    m_pEdit->LineScroll(m_pEdit->GetLineCount());
 }
 
 void CRedirect::SetSleepInterval(DWORD dwMilliseconds)

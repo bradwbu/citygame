@@ -5,30 +5,31 @@
 #include "afxwin.h"
 #include "afxcmn.h"
 
-
 // CLogSearchDlg dialog
 class CLogSearchDlg : public CDialog
 {
-// Construction
+    // Construction
 public:
-    CLogSearchDlg(CWnd* pParent = NULL);    // standard constructor
+    CLogSearchDlg(CWnd* pParent = NULL); // standard constructor
 
-// Dialog Data
-    enum { IDD = IDD_LOGSEARCH_DIALOG };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_LOGSEARCH_DIALOG
+    };
 
-    protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+protected:
+    virtual void DoDataExchange(CDataExchange* pDX); // DDX/DDV support
 
-
-// Implementation
+    // Implementation
 protected:
     HICON m_hIcon;
 
     // Generated message map functions
     virtual BOOL OnInitDialog();
     void saveSearch();
-    void getConfigValue(int id, CString name, CString defaultStr, CWinApp *app);
-    void setConfigValue(int id, CString name, CWinApp *app);
+    void getConfigValue(int id, CString name, CString defaultStr, CWinApp* app);
+    void setConfigValue(int id, CString name, CWinApp* app);
     afx_msg void OnPaint();
     afx_msg HCURSOR OnQueryDragIcon();
     afx_msg void OnOK(void);

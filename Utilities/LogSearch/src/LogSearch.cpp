@@ -9,13 +9,11 @@
 #define new DEBUG_NEW
 #endif
 
-
 // CLogSearchApp
 
 BEGIN_MESSAGE_MAP(CLogSearchApp, CWinApp)
-    ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
+ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
 END_MESSAGE_MAP()
-
 
 // CLogSearchApp construction
 
@@ -25,11 +23,9 @@ CLogSearchApp::CLogSearchApp()
     // Place all significant initialization in InitInstance
 }
 
-
 // The one and only CLogSearchApp object
 
 CLogSearchApp theApp;
-
 
 // CLogSearchApp initialization
 
@@ -70,23 +66,16 @@ DWORD CLogSearchApp::startProcess(CString exeLocation, CString commandLine)
     BOOL bWorked;
     STARTUPINFO suInfo;
     PROCESS_INFORMATION procInfo;
-    memset (&suInfo, 0, sizeof(suInfo));
+    memset(&suInfo, 0, sizeof(suInfo));
     suInfo.cb = sizeof(suInfo);
 
     bWorked = ::CreateProcess(exeLocation,
-        commandLine.GetBuffer(),      // can also be NULL
-        NULL,
-        NULL,
-        FALSE,
-        NORMAL_PRIORITY_CLASS,
-        NULL,
-        NULL,
-        &suInfo,
-        &procInfo);
+                              commandLine.GetBuffer(), // can also be NULL
+                              NULL, NULL, FALSE, NORMAL_PRIORITY_CLASS, NULL, NULL, &suInfo, &procInfo);
 
     if (procInfo.dwThreadId = NULL)
     {
-        //MessageBox("nope");
+        // MessageBox("nope");
     }
 
     return procInfo.dwProcessId;
@@ -97,8 +86,8 @@ BOOL CALLBACK CLogSearchApp::CloseWindowsByProc(HWND hwnd, LPARAM pid)
     DWORD wndPid;
     CString Title;
     GetWindowThreadProcessId(hwnd, &wndPid);
-    CWnd::FromHandle( hwnd )->GetWindowText(Title);
-    if ( wndPid == (DWORD)pid && Title.GetLength() != 0)
+    CWnd::FromHandle(hwnd)->GetWindowText(Title);
+    if (wndPid == (DWORD)pid && Title.GetLength() != 0)
     {
         //  Please kindly close this process
         ::PostMessage(hwnd, WM_CLOSE, 0, 0);
@@ -113,8 +102,7 @@ BOOL CALLBACK CLogSearchApp::CloseWindowsByProc(HWND hwnd, LPARAM pid)
 
 void CLogSearchApp::killProcess(DWORD pid)
 {
-    HANDLE ps = OpenProcess( SYNCHRONIZE|PROCESS_TERMINATE, 
-        FALSE, pid);
+    HANDLE ps = OpenProcess(SYNCHRONIZE | PROCESS_TERMINATE, FALSE, pid);
     // processPid = procInfo.dwProcessId;
 
     // This function enumerates all widows,
@@ -123,28 +111,16 @@ void CLogSearchApp::killProcess(DWORD pid)
     // you started earlier.
     EnumWindows(CloseWindowsByProc, pid);
 
-    CloseHandle(ps) ;
+    CloseHandle(ps);
 }
 
-void CLogSearchApp::makeCommandLineParams(CString &ret,
-                                          CString exeloc,
-                                          CString dir,
-                                          CString file,
-                                          CString out,
-                                          CString search,
-                                          CString start,
-                                          CString stop,
-                                          unsigned int threshold,
-                                          unsigned int maxLine,
-                                          unsigned int nThreads,
-                                          unsigned int bufferSize,
-                                          bool caseSensitive,
+void CLogSearchApp::makeCommandLineParams(CString& ret, CString exeloc, CString dir, CString file, CString out, CString search, CString start, CString stop,
+                                          unsigned int threshold, unsigned int maxLine, unsigned int nThreads, unsigned int bufferSize, bool caseSensitive,
                                           bool useWildcards)
 {
     ret.Format(_T("%s -directory \"%s\" -file \"%s\" -output \"%s\" \
                -search \"%s\" -start \"%s\" -end \"%s\" \
                -threshold %d -nthreads %d -maxline %d -buffer %d %s %s"),
-               exeloc, dir, file, out, search, start, stop, threshold, 
-               nThreads, maxLine, bufferSize,
-               caseSensitive?"-caseSensitive":"", useWildcards?"-wildCards":"");
+               exeloc, dir, file, out, search, start, stop, threshold, nThreads, maxLine, bufferSize, caseSensitive ? "-caseSensitive" : "",
+               useWildcards ? "-wildCards" : "");
 }

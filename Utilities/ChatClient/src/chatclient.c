@@ -4,7 +4,7 @@
 #include <conio.h>
 #include "windows.h"
 
-void main(int argc,char **argv)
+void main(int argc, char** argv)
 {
     if (argc < 3)
     {
@@ -13,20 +13,20 @@ void main(int argc,char **argv)
     }
     sockStart();
 
-    for( ; ; )
+    for (;;)
     {
         static const char* server = "localhost";
 
-        while(!cohConnect(server))
+        while (!cohConnect(server))
         {
-            printf("connecting to %s..\n",server);
+            printf("connecting to %s..\n", server);
             Sleep(1000);
         }
         if (!cohLogin(argv[1], argv[2]))
         {
             break;
         }
-        for( ; ; )
+        for (;;)
         {
             char* s = cohGetMsg();
             if (s != NULL)

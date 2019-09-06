@@ -10,14 +10,9 @@
 #define new DEBUG_NEW
 #endif
 
-
 // CLogSearchDlg dialog
 
-
-
-
-CLogSearchDlg::CLogSearchDlg(CWnd* pParent /*=NULL*/)
-    : CDialog(CLogSearchDlg::IDD, pParent)
+CLogSearchDlg::CLogSearchDlg(CWnd* pParent /*=NULL*/) : CDialog(CLogSearchDlg::IDD, pParent)
 {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -41,24 +36,22 @@ void CLogSearchDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CLogSearchDlg, CDialog)
-    ON_WM_PAINT()
-    ON_WM_QUERYDRAGICON()
-    //}}AFX_MSG_MAP
-    ON_BN_CLICKED(IDC_STARTSEARCH, &CLogSearchDlg::OnBnClickedStartSearch)
-    ON_BN_CLICKED(IDC_STOPSEARCH, &CLogSearchDlg::OnBnClickedStopSearch)
-    ON_BN_CLICKED(IDC_SAVESEARCH, &CLogSearchDlg::OnBnClickedSavesearch)
+ON_WM_PAINT()
+ON_WM_QUERYDRAGICON()
+//}}AFX_MSG_MAP
+ON_BN_CLICKED(IDC_STARTSEARCH, &CLogSearchDlg::OnBnClickedStartSearch)
+ON_BN_CLICKED(IDC_STOPSEARCH, &CLogSearchDlg::OnBnClickedStopSearch)
+ON_BN_CLICKED(IDC_SAVESEARCH, &CLogSearchDlg::OnBnClickedSavesearch)
 END_MESSAGE_MAP()
 
-
 // CLogSearchDlg message handlers
-void CLogSearchDlg::getConfigValue(int id, CString name, CString defaultStr, CWinApp *app)
+void CLogSearchDlg::getConfigValue(int id, CString name, CString defaultStr, CWinApp* app)
 {
     CString strValue;
-    CEdit *ce = reinterpret_cast<CEdit *>(GetDlgItem(id));
+    CEdit* ce = reinterpret_cast<CEdit*>(GetDlgItem(id));
     strValue = app->GetProfileString("config", name, defaultStr);
     ce->SetWindowText(strValue);
 }
-
 
 BOOL CLogSearchDlg::OnInitDialog()
 {
@@ -66,19 +59,19 @@ BOOL CLogSearchDlg::OnInitDialog()
 
     // Set the icon for this dialog.  The framework does this automatically
     //  when the application's main window is not a dialog
-    SetIcon(m_hIcon, TRUE);            // Set big icon
-    SetIcon(m_hIcon, FALSE);        // Set small icon
+    SetIcon(m_hIcon, TRUE);  // Set big icon
+    SetIcon(m_hIcon, FALSE); // Set small icon
 
-    CWinApp *pApp = AfxGetApp();
-    getConfigValue(IDC_EXENAME,        "exename",        "logParser3_64.exe",                pApp);
-    getConfigValue(IDC_DIRECTORY,    "directory",    "\\\\nccohbkup01\\cohlogs",            pApp);
-    getConfigValue(IDC_FILESPEC,    "fileSpec",        "entity_2011-##-##-##-##-##.log.gz", pApp);
-    getConfigValue(IDC_OUTPUT,        "outfile",        "mySearchOutput.txt",                pApp);
-    getConfigValue(IDC_SEARCH,        "searchStr",    "All Hail the Television",            pApp);
-    getConfigValue(IDC_START,        "startTime",    "110401 00:00:00",                     pApp);
-    getConfigValue(IDC_STOP,        "endTime",        "110501 00:00:00",                     pApp);
+    CWinApp* pApp = AfxGetApp();
+    getConfigValue(IDC_EXENAME, "exename", "logParser3_64.exe", pApp);
+    getConfigValue(IDC_DIRECTORY, "directory", "\\\\nccohbkup01\\cohlogs", pApp);
+    getConfigValue(IDC_FILESPEC, "fileSpec", "entity_2011-##-##-##-##-##.log.gz", pApp);
+    getConfigValue(IDC_OUTPUT, "outfile", "mySearchOutput.txt", pApp);
+    getConfigValue(IDC_SEARCH, "searchStr", "All Hail the Television", pApp);
+    getConfigValue(IDC_START, "startTime", "110401 00:00:00", pApp);
+    getConfigValue(IDC_STOP, "endTime", "110501 00:00:00", pApp);
 
-    return TRUE;  // return TRUE  unless you set the focus to a control
+    return TRUE; // return TRUE  unless you set the focus to a control
 }
 
 // If you add a minimize button to your dialog, you will need the code below
@@ -117,10 +110,10 @@ HCURSOR CLogSearchDlg::OnQueryDragIcon()
     return static_cast<HCURSOR>(m_hIcon);
 }
 
-CRedirect *app = 0;
+CRedirect* app = 0;
 void CLogSearchDlg::OnBnClickedStartSearch()
 {
-    if(app)
+    if (app)
         return;
 
     cbSearch.EnableWindow(false);
@@ -147,24 +140,24 @@ void CLogSearchDlg::OnBnClickedStartSearch()
     CString exeLoc;
     ceExeName.GetWindowText(exeLoc);
     ceExeName.UpdateData(true);
-    
 
     CString commandLine;
-    CLogSearchApp::makeCommandLineParams(commandLine, exeLoc, directory, fileSpec, outputFile, searchTerm, startDate, endDate, 6, 250, 6, 10000, cbCaseSensitive.GetCheck()==1, cbWildcards.GetCheck()==1);
-    //theApp.procId = theApp.startProcess(exeLoc, commandLine);
-    app= new CRedirect(commandLine, &ceStdOut, &cpPercentDone);
+    CLogSearchApp::makeCommandLineParams(commandLine, exeLoc, directory, fileSpec, outputFile, searchTerm, startDate, endDate, 6, 250, 6, 10000,
+                                         cbCaseSensitive.GetCheck() == 1, cbWildcards.GetCheck() == 1);
+    // theApp.procId = theApp.startProcess(exeLoc, commandLine);
+    app = new CRedirect(commandLine, &ceStdOut, &cpPercentDone);
     app->Run();
     delete app;
     app = 0;
     cbSearch.EnableWindow(true);
     cbStop.EnableWindow(false);
-    //ceDirectory.
+    // ceDirectory.
 }
 
 void CLogSearchDlg::OnBnClickedStopSearch()
 {
-    //theApp.killProcess(theApp.procId);
-    if(app)
+    // theApp.killProcess(theApp.procId);
+    if (app)
         app->Stop();
 
     cbSearch.EnableWindow(true);
@@ -176,10 +169,10 @@ void CLogSearchDlg::OnOK(void)
     OnBnClickedStartSearch();
 }
 
-void CLogSearchDlg::setConfigValue(int id, CString name, CWinApp *app)
+void CLogSearchDlg::setConfigValue(int id, CString name, CWinApp* app)
 {
     CString strValue;
-    CEdit *ce = reinterpret_cast<CEdit *>(GetDlgItem(id));
+    CEdit* ce = reinterpret_cast<CEdit*>(GetDlgItem(id));
     ce->GetWindowText(strValue);
     ce->UpdateData(true);
     app->WriteProfileString("config", name, strValue);
@@ -187,7 +180,7 @@ void CLogSearchDlg::setConfigValue(int id, CString name, CWinApp *app)
 
 void CLogSearchDlg::saveSearch(void)
 {
-    CWinApp *pApp = AfxGetApp();
+    CWinApp* pApp = AfxGetApp();
     setConfigValue(IDC_EXENAME, "exename", pApp);
     setConfigValue(IDC_DIRECTORY, "directory", pApp);
     setConfigValue(IDC_FILESPEC, "fileSpec", pApp);

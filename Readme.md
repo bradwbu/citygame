@@ -1,8 +1,10 @@
-# Project: Ouroboros
+**Project: Ouroboros**
+======================
 
 ![Build Status](https://dev.azure.com/OuroDev/Source/_apis/build/status/Volume%202%20Source?branchName=develop)
 
-## Prerequisite Software
+Prerequisite Software
+=====================
 
 Building requires [Visual Studio 2019](https://visualstudio.microsoft.com/vs/). The Community edition will work fine.
 
@@ -10,6 +12,91 @@ If you just to run a server, you will also need [SQL Server 2017](https://www.mi
 [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) should be installed as well to aid in setting up the database.
 
 Download the necessary data archives from [links posted on the wiki](https://wiki.ourodev.com/Magnet_Links). Specifically "Volume 2 Issue 1.1 Server Data" and "Volume 2 Issue 1.1 Server Piggs".
+
+Development Guide
+=================
+Coding Convention
+-----------------
+
+* **DO** use `const` and `static` and visibility modifiers to scope exposure of
+   variables and methods as much as possible.
+
+* **DON'T** use global variables where possible.
+
+Style Guide
+-----------
+
+### Automated Formatting with `clang-format`
+
+For all C/C++ files (`*.c`, `*.cpp`, `*.h`and `*.hpp`), we use `clang-format`
+to apply our code formatting rules to **NEW** files. After adding new C/C++ files and
+before merging, be sure to run `clang-format` by invoking it from the IDE of your choice.
+In case of Visual Studio 2019 formatting is performed by _`File->Advanced->Format Document`_
+or hitting _`Ctrl+K`_, _`Ctrl+D`_ (type _`Ctrl+K`_, AND THEN _`Ctrl+D`_ as it is a sequence).
+
+This allows us apply formatting choices such as the use of [Allman style](
+http://en.wikipedia.org/wiki/Indent_style#Allman_style) braces and the 160
+character column width consistently.
+
+Please stage the formatting changes with your commit, instead of making an extra
+"Format Code" commit.
+
+The [.clang-format](/.clang-format) file describes the style that is enforced
+by invoking `clang-format`, which is based off the LLVM style with modifications closer to
+the default Visual Studio style. See [clang-format style options](
+http://releases.llvm.org/8.0.0/tools/clang/docs/ClangFormatStyleOptions.html)
+for details.
+
+### Naming Conventions
+
+Naming conventions we use that are not automated include:
+
+1. Don't use Hungarian notation (https://en.wikipedia.org/wiki/Hungarian_notation).
+2. Use `camelCase` for variable, member/field, and function names.
+3. Use `UPPER_SNAKE_CASE` for macro names and constants.
+4. Prefer `lower_snake_case` file names for headers and sources.
+5. Prefer full words for names over contractions (i.e. `memoryContext`, not
+   `memCtx`).
+6. Prefix names with `_` to indicate internal and private fields or methods
+   (e.g. `_internal_field, _internal_method()`).
+7. The single underscore (`_` ) is reserved for local definitions (static,
+   file-scope definitions).
+   e.g. static oe_result_t _parse_sgx_report_body(..).
+8. Prefix `struct` definitions with `_`, and always create a `typedef` with the
+   suffix `_t`:
+```c
+typedef struct _oe_private_key
+{
+    uint64_t magic;
+    mbedtls_pk_context pk;
+} oe_private_key_t;
+```
+8. Prefix Open Enclave specific names in the global namespace with `oe_` (e.g.
+   `oe_result_t, oe_call_enclave`).
+
+Above all, if a file happens to differ in style from these guidelines (e.g.
+private members are named `m_member` rather than `_member`), the existing style
+in that file takes precedence.
+
+Note that we _no longer_ use `CamelCase` nor double underscores (`__`), but you
+may find remnants and so again should prefer the local style. This is especially
+the case for classes, which are still using `PascalCase`. For now, follow the
+existing style. The project maintainers prefer to fix style issues in bulk using
+automation, so avoid submitting PRs intended to fix only a few instances of the
+inconsistent style.
+
+For other files (`*.asm`, `*.S`, etc.) our current best guidance is consistency:
+
+- When editing files, keep new code and changes consistent with the style in the
+  files.
+- For new files, it should conform to the style for that component.
+- For new components, any style that is broadly accepted is fine.
+
+### Example File
+
+
+Building Servers and Client
+=========================== 
 
 ## Downloading a Pre-built Archive
 

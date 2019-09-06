@@ -9,7 +9,7 @@
 
 typedef struct category_tally_s
 {
-    char category[CATEGORY_MAX_LEN + 1];    // Need to hold the terminating NULL
+    char category[CATEGORY_MAX_LEN + 1]; // Need to hold the terminating NULL
     unsigned int tally[TALLY_MAX_LEVEL];
     struct category_tally_s* next;
 } category_tally;
@@ -103,7 +103,7 @@ int main(int argc, char* argv[])
             total_lines++;
 
             sscanf(fline, "%s level %d, %s %d, %d, %d", cname, &clevel, ccategory, &cmaxcontrib, &ctotalcontrib, &cparticipants);
-//            printf("Got %s : %d : %s : %d : %d : %d :\n", cname, clevel, ccategory, cmaxcontrib, ctotalcontrib, cparticipants);
+            // printf("Got %s : %d : %s : %d : %d : %d :\n", cname, clevel, ccategory, cmaxcontrib, ctotalcontrib, cparticipants);
 
             ccategory[CATEGORY_MAX_LEN] = '\0';
 

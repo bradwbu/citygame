@@ -2,10 +2,10 @@
 #define _COH_NET_H
 
 void sockStart();
-int cohConnect(const char *server_name);
+int cohConnect(const char* server_name);
 int cohLogin(char* username, char* password);
 void cohSendMsg(char* msg);
-char *cohGetMsg();
+char* cohGetMsg();
 int cohConnected();
 
 #endif

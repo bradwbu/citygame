@@ -5,20 +5,20 @@
 #include <string.h>
 #include <stdlib.h>
 
-static const char   *s_extensionStartString = "  <ext name=\"";
-static const size_t  s_extensionStartStringLength = 13;
+static const char* s_extensionStartString = "  <ext name=\"";
+static const size_t s_extensionStartStringLength = 13;
 
-static const char   *s_extensionEndString = "  </ext>";
-static const size_t  s_extensionEndStringLength = 8;
+static const char* s_extensionEndString = "  </ext>";
+static const size_t s_extensionEndStringLength = 8;
 
-static const char   *s_rendererString = "    <renderer vendor=\"";
-static const size_t  s_rendererStringLength = 22;
+static const char* s_rendererString = "    <renderer vendor=\"";
+static const size_t s_rendererStringLength = 22;
 
-static const char   *s_osWinString = "os=\"Win\"";
-static const size_t  s_osWinStringLength = 8;
+static const char* s_osWinString = "os=\"Win\"";
+static const size_t s_osWinStringLength = 8;
 
-static const char   *s_osMacString = "os=\"Mac\"";
-static const size_t  s_osMacStringLength = 8;
+static const char* s_osMacString = "os=\"Mac\"";
+static const size_t s_osMacStringLength = 8;
 
 typedef enum
 {
@@ -26,7 +26,7 @@ typedef enum
     PLATFORM_MAC,
 } PLATFORM;
 
-void usage(const char *command)
+void usage(const char* command)
 {
     printf("Usage: %s <platform> <card name> <extensions.xml path>\n\n", command);
     printf("This is a tool to quickly extact extensions for a given card\n");
@@ -39,10 +39,10 @@ void usage(const char *command)
 int main(int argc, char* argv[])
 {
     errno_t error;
-    const char *filename;
-    const char *cardname;
+    const char* filename;
+    const char* cardname;
     PLATFORM platform;
-    FILE *inFile;
+    FILE* inFile;
     char ext_buffer[1024];
     char card_buffer[1024];
     char card_name_search[1024];
@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
 
     // Build the string for searching for the card (name="<cardname>")
     _snprintf_s(card_name_search, _countof(card_name_search), _TRUNCATE, "name=\"%s\"", cardname);
-    
+
     error = fopen_s(&inFile, filename, "rtS");
 
     if (!inFile)
@@ -83,7 +83,7 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    while(1)
+    while (1)
     {
         // First, find an extension line
         //  <ext name="ARB_imaging" alias="" core="" spec="" req="" status="" cat="tex" depends="" affects="">
@@ -95,7 +95,7 @@ int main(int argc, char* argv[])
 
         extensionsFound++;
 
-        while(1)
+        while (1)
         {
             // Now, scan the renderer's for our card
             //    <renderer vendor="3Dlabs" name="Wildcat Realizm" version="1, 0, 0, 1" os="Win" />
@@ -120,11 +120,11 @@ int main(int argc, char* argv[])
                 continue;
 
             // Now, get the extension name from the extension buffer
-            char *extensionName = ext_buffer + s_extensionStartStringLength;
+            char* extensionName = ext_buffer + s_extensionStartStringLength;
             size_t extensionNameLen = strlen(extensionName);
             size_t i = 0;
 
-            while(i < extensionNameLen)
+            while (i < extensionNameLen)
             {
                 if (extensionName[i] == '\"')
                     break;
@@ -146,4 +146,3 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-
