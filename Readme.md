@@ -26,6 +26,12 @@ Coding Convention
 Style Guide
 -----------
 
+### Editor configuration with `EditorConfig`
+
+For all C/C++ and C# files (`*.c`, `*.cpp`, `*.h`, `*.hpp` and `*.cs`), we use [EditorConfig](https://editorconfig.org/)
+to apply our editor configuration rules to files. The Visual Studio 2019 IDE automatically picks
+up rules specified in [.editorconfig](./.editorconfig) and applies the settings to modified code.
+
 ### Automated Formatting with `clang-format`
 
 For all C/C++ files (`*.c`, `*.cpp`, `*.h`and `*.hpp`), we use `clang-format`
@@ -71,6 +77,120 @@ For other files (`*.asm`, `*.S`, etc.) our current best guidance is consistency:
 - When editing files, keep new code and changes consistent with the style in the
   files.
 - For new files, it should conform to the style for that component.
+
+### Example code:
+
+```c
+// C99 or higher
+#include <stdio.h>
+#include <stdbool.h>
+
+// Use PascalCase for user defined data types
+typedef struct Node
+{
+    struct Node* next;      // Use camelCase for members/fields
+    struct Node* prev;      // Use camelCase for members/fields
+} Node;
+
+// Use PascalCase for user defined data types
+typedef struct Head
+{
+    Node list;              // Use camelCase for members/fields
+    size_t count;           // Use camelCase for members/fields    
+} Head;
+
+// Use camelCase for function names
+inline Node* initializeNode(Node* node)
+{
+    node->next = node->prev = node;
+    return node;
+}
+
+// Use camelCase for function names
+Head* initializeHead(Head* head)
+{
+    initializeNode(&head->list);
+    head->count = 0;
+    return head;
+}
+
+// Use camelCase for function names
+inline size_t getSize(const Head* head)
+{
+    return head->count;
+}
+
+// Use camelCase for function names
+inline bool isEmpty(const Head* head)
+{
+    return head->count == 0;
+}
+
+// Use camelCase for function names
+Node* addNode(Head* head, Node* node)
+{
+    node->prev = head->list.prev;
+    node->next = &head->list;
+    head->list.prev->next = node;
+    head->list.prev = node;
+    ++head->count;
+    return node;
+}
+
+// Use camelCase for function names
+Node* removeNode(Head* head, Node* node)
+{
+    if (!isEmpty(head))
+    {
+        node->prev->next = node->next;
+        node->next->prev = node->prev;
+        initializeNode(node);
+        --head->count;
+    }
+    return node;
+}
+
+// Use PascalCase for user defined data types
+typedef struct Mender
+{
+    Node node;              // Use camelCase for members/fields
+    const char* name;       // Use camelCase for members/fields
+} Mender;
+
+int main()
+{
+    // Use camelCase for variables
+    Head listHead;
+    initializeHead(&listHead);
+
+    // Define variables as close as possible to their usage
+    Mender clowd = { .node = {&clowd.node, &clowd.node},.name = "clowd" };
+    addNode(&listHead, &clowd.node);
+
+    Mender pazaz = { .node = {&pazaz.node, &pazaz.node},.name = "Pazaz" };
+    addNode(&listHead, &pazaz.node);
+
+    Mender cattan = { .node = {&cattan.node, &cattan.node},.name = "Cattan" };
+    addNode(&listHead, &cattan.node);
+
+    printf("List contains %zu menders\n", getSize(&listHead));
+
+    for (const Node* current = listHead.list.next; current != &listHead.list; current = current->next)
+    {
+        const Mender* mender = (const Mender*)current;
+        printf("Mender name is: '%s'\n", mender->name);
+    }
+
+    while (!isEmpty(&listHead))
+    {
+        printf("Removed mender '%s'\n", ((const Mender*)removeNode(&listHead, listHead.list.next))->name);
+    }
+
+    printf("List is %s\n", isEmpty(&listHead) ? "empty" : "not empty");
+
+    return 0;
+}
+```
 
 Building Servers and Client
 =========================== 
