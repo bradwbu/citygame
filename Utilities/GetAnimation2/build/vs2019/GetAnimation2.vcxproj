@@ -99,7 +99,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\GetVrml\src;$(ProjectDir)..\..\..\..\Common;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\GetVrml\src;$(ProjectDir)..\..\..\..\Common;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -119,7 +119,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\GetVrml\src;$(ProjectDir)..\..\..\..\Common;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\GetVrml\src;$(ProjectDir)..\..\..\..\Common;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,7 +141,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\GetVrml\src;$(ProjectDir)..\..\..\..\Common;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\GetVrml\src;$(ProjectDir)..\..\..\..\Common;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -165,7 +165,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\GetVrml\src;$(ProjectDir)..\..\..\..\Common;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\GetVrml\src;$(ProjectDir)..\..\..\..\Common;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
