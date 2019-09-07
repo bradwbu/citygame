@@ -135,6 +135,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "checksumgen", "..\..\Utilit
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RemoteDebugger", "..\..\Utilities\RemoteDebugger\build\vs2019\RemoteDebugger.vcxproj", "{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DBQuery", "..\..\Utilities\DBQuery\build\vs2019\DBQuery.vcxproj", "{FDEA144D-9483-4BDE-B1AA-6CB2EC2420C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -643,6 +645,14 @@ Global
 		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}.Release|x64.Build.0 = Release|x64
 		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}.Release|x86.ActiveCfg = Release|Win32
 		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C}.Release|x86.Build.0 = Release|Win32
+		{FDEA144D-9483-4BDE-B1AA-6CB2EC2420C9}.Debug|x64.ActiveCfg = Debug|x64
+		{FDEA144D-9483-4BDE-B1AA-6CB2EC2420C9}.Debug|x64.Build.0 = Debug|x64
+		{FDEA144D-9483-4BDE-B1AA-6CB2EC2420C9}.Debug|x86.ActiveCfg = Debug|Win32
+		{FDEA144D-9483-4BDE-B1AA-6CB2EC2420C9}.Debug|x86.Build.0 = Debug|Win32
+		{FDEA144D-9483-4BDE-B1AA-6CB2EC2420C9}.Release|x64.ActiveCfg = Release|x64
+		{FDEA144D-9483-4BDE-B1AA-6CB2EC2420C9}.Release|x64.Build.0 = Release|x64
+		{FDEA144D-9483-4BDE-B1AA-6CB2EC2420C9}.Release|x86.ActiveCfg = Release|Win32
+		{FDEA144D-9483-4BDE-B1AA-6CB2EC2420C9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -691,6 +701,7 @@ Global
 		{10728310-466B-4FA0-810B-4E504D4BC23E} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 		{C0A3FF68-DD11-4AEB-8949-9F166CA8F61A} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 		{1D7FFF3B-3108-4E67-BB89-63450FEFF28C} = {12A8C0CB-A6CD-4825-B496-70798183B350}
+		{FDEA144D-9483-4BDE-B1AA-6CB2EC2420C9} = {12A8C0CB-A6CD-4825-B496-70798183B350}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F31F208-5695-4F81-AA7B-9654F31FD641}

@@ -18,6 +18,7 @@
 #define IDC_PATCHER_CHECK               1014
 #define IDC_DOWNLOAD_PROGRESS           1015
 #define IDC_DOWNLOAD_KB                 1017
+#define IDC_STATIC                      -1
 
 // Next default values for new objects
 // 

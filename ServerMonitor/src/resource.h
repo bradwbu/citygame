@@ -239,6 +239,7 @@
 #define IDC_TXT_MAPSTARTREQUEST_RATE    1178
 #define IDC_TXT_ENT_WAITING_PEAK        1179
 #define IDC_TXT_TURNSTILESECS2          1179
+#define IDC_STATIC                      -1
 
 // Next default values for new objects
 // 

@@ -97,7 +97,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FULLDEBUG;_CRTDBG_MAP_ALLOC;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\3rdparty\nvidia-texture-tools-2.0.9\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\Common</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\..\Common;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\..\3rdparty\nvidia-texture-tools-2.0.9\src</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -113,7 +113,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FULLDEBUG;_CRTDBG_MAP_ALLOC;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\3rdparty\nvidia-texture-tools-2.0.9\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\Common</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\..\Common;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\..\3rdparty\nvidia-texture-tools-2.0.9\src</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -131,7 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FINAL;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\3rdparty\nvidia-texture-tools-2.0.9\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\Common</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\..\Common;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\..\3rdparty\nvidia-texture-tools-2.0.9\src</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -151,7 +151,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FINAL;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\3rdparty\nvidia-texture-tools-2.0.9\src;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\Common</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(ProjectDir)..\..\..\..\Common;$(ProjectDir)..\..\..\..\Game\src;$(ProjectDir)..\..\..\..\3rdparty\cg\include;$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include;$(ProjectDir)..\..\..\..\3rdparty\nvidia-texture-tools-2.0.9\src</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>

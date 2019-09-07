@@ -124,6 +124,7 @@
 #define IDC_CHK_NOSHAREDMEM             1085
 #define IDC_CHK_TURNSTILE                1086
 #define IDLOGALLOUT                     1087
+#define IDC_STATIC                      -1
 
 // Next default values for new objects
 // 
