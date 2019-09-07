@@ -6,6 +6,7 @@
 #define IDD_CALLPROG                    101
 #define IDM_ABOUT                       104
 #define IDC_BUTTON1                     1001
+#define IDC_STATIC                      -1
 
 // Next default values for new objects
 // 

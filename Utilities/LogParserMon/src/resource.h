@@ -7,6 +7,7 @@
 #define IDC_SEARCHSTR                   1001
 #define IDSEARCH                        1002
 #define IDC_STATUS                      1003
+#define IDC_STATIC                      -1
 
 // Next default values for new objects
 // 

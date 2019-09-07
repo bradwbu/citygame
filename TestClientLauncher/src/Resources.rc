@@ -7,21 +7,17 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-// #include "afxres.h"
-#include "windows.h" // Fix for Community/Express
-#define IDC_STATIC -1
+#include "WinResrc.h"
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -36,7 +32,7 @@ END
 
 2 TEXTINCLUDE 
 BEGIN
-    "#include ""afxres.h""\r\n"
+    "#include ""WinResrc.h""\r\n"
     "\0"
 END
 
@@ -58,13 +54,14 @@ END
 // remains consistent on all systems.
 IDI_ICON1               ICON                    "TestClientLauncher.ico"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // DESIGNINFO
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_DLGMAIN, DIALOG
     BEGIN
@@ -232,7 +229,7 @@ BEGIN
     EDITTEXT        IDC_LOGFILE,426,228,67,14,ES_AUTOHSCROLL | NOT WS_TABSTOP
 END
 
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

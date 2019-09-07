@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by RemoteDebuggerDebugger.rc
+// Used by RemoteDebugger.rc
 //
 #define IDD_DIALOG1                     101
 #define IDI_ICON1                       102
@@ -15,6 +15,7 @@
 #define IDC_UNATTACH                    1010
 #define IDC_STATUS                      1011
 #define IDC_STEPS                       1012
+#define IDC_STATIC                      -1
 
 // Next default values for new objects
 // 

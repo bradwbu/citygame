@@ -75,6 +75,7 @@
 #define IDM_CONNECT                     40020
 #define IDM_EXIT                        40021
 #define IDM_STATUS_INVISIBLE            40023
+#define IDC_STATIC                      -1
 
 // Next default values for new objects
 // 

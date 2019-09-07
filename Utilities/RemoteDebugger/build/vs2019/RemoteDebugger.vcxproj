@@ -164,7 +164,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\..\src\RemoteDebuggerDebugger.rc" />
+    <ResourceCompile Include="..\..\src\RemoteDebugger.rc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\resource.h" />
