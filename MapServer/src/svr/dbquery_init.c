@@ -1,30 +1,30 @@
 #include <assert.h>
 #include <direct.h>
 
-#include "error.h"
-#include "utils.h"
-#include "timing.h"
-#include "fpmacros.h"
-#include "FolderCache.h"
-#include "sysutil.h"
-#include "sock.h"
-#include "file.h"
+#include <utilitieslib/utils/error.h>
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/timing.h>
+#include <utilitieslib/utils/fpmacros.h>
+#include <utilitieslib/utils/FolderCache.h>
+#include <utilitieslib/utils/sysutil.h>
+#include <utilitieslib/network/sock.h>
+#include <utilitieslib/utils/file.h>
 
-#include "dbcomm.h"
-#include "cmdserver.h"
+#include "dbcomm/dbcomm.h"
+#include "cmdparse/cmdserver.h"
 #include "svr_base.h"
 #include "svr_player.h"
 #include "svr_tick.h"
-#include "dbquery.h"
-#include "entity.h"
-#include "file.h"
-#include "log.h"
+#include "dbcomm/dbquery.h"
+#include "entity/entity.h"
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/utils/log.h>
 
-#include "characterRestore.h"
+#include "dbcomm/characterRestore.h"
 #include "comm_backend.h"
 
-#include "origins.h"
-#include "classes.h"
+#include "entity/origins.h"
+#include "entity/classes.h"
 
 
 #define loadstart_printf if (!server_state.silent) loadstart_printf
@@ -35,7 +35,7 @@ ServerState server_state;
 void setSignal()
 {
 #ifdef GNUC
-	signal(SIGPIPE,SIG_IGN);
+    signal(SIGPIPE,SIG_IGN);
 #endif
 }
 
@@ -43,266 +43,266 @@ static char program_parms[1000];
 
 static void __cdecl at_exit_func(void)
 {
-	extern int glob_assert_file_err;
+    extern int glob_assert_file_err;
 
-	printf_stderr("Quitting: %s\n", program_parms);
-	logShutdownAndWait();
-	if (glob_assert_file_err)
-		assert(0);
+    printf_stderr("Quitting: %s\n", program_parms);
+    logShutdownAndWait();
+    if (glob_assert_file_err)
+        assert(0);
 }
 
 static void svrInit()
 {
-	netLinkListAlloc(&net_links,100,sizeof(ClientLink),svrClientCallback);
-	net_links.destroyCallback = svrNetDisconnectCallback;
-	if (!server_state.noEncryption)
-		net_links.encrypted = 1;
-	if (server_state.udp_port < 0)
-	{
-		for(server_state.udp_port = BASE_MAPSERVER_PORT;;server_state.udp_port++)
-		{
-			if (netInit(&net_links,server_state.udp_port,server_state.tcp_port))
-				break;
-		}
-	}
-	else
-		netInit(&net_links,server_state.udp_port,server_state.tcp_port);
-	NMAddLinkList(&net_links, svrHandleClientMsg);
+    netLinkListAlloc(&net_links,100,sizeof(ClientLink),svrClientCallback);
+    net_links.destroyCallback = svrNetDisconnectCallback;
+    if (!server_state.noEncryption)
+        net_links.encrypted = 1;
+    if (server_state.udp_port < 0)
+    {
+        for(server_state.udp_port = BASE_MAPSERVER_PORT;;server_state.udp_port++)
+        {
+            if (netInit(&net_links,server_state.udp_port,server_state.tcp_port))
+                break;
+        }
+    }
+    else
+        netInit(&net_links,server_state.udp_port,server_state.tcp_port);
+    NMAddLinkList(&net_links, svrHandleClientMsg);
 
 }
 
 static void startupInfo(int argc,char **argv)
 {
-	int		i;
-	char	buf[1000],buffer[MAX_PATH];
+    int        i;
+    char    buf[1000],buffer[MAX_PATH];
 
-	for(i=0;i<argc;i++)
-	{
-		strcat(program_parms,argv[i]);
-		strcat(program_parms," ");
-	}
+    for(i=0;i<argc;i++)
+    {
+        strcat(program_parms,argv[i]);
+        strcat(program_parms," ");
+    }
 
-	getcwd(buffer, MAX_PATH);
+    getcwd(buffer, MAX_PATH);
 
-	if (!server_state.silent) {
-		printf(	"(%d) %s %s\n",_getpid(),getExecutableName(),program_parms);
-		printf( "working dir: %s\n", buffer);
-	}
+    if (!server_state.silent) {
+        printf(    "(%d) %s %s\n",_getpid(),getExecutableName(),program_parms);
+        printf( "working dir: %s\n", buffer);
+    }
 
-	consoleInit(110, 128, 0); // A width of 110 will fit nicely on most resolutions, and be wide enough for us to see stuff
+    consoleInit(110, 128, 0); // A width of 110 will fit nicely on most resolutions, and be wide enough for us to see stuff
 
-	logSetDir("mapserver");
-	printf_stderr("Starting: %s\n",program_parms);
+    logSetDir("mapserver");
+    printf_stderr("Starting: %s\n",program_parms);
 
-	sprintf(buf, "%d: ", _getpid());
+    sprintf(buf, "%d: ", _getpid());
 
-	for(i=0;i<argc;i++)
-	{
-		strcat(buf,argv[i]);
-		strcat(buf," ");
-	}
+    for(i=0;i<argc;i++)
+    {
+        strcat(buf,argv[i]);
+        strcat(buf," ");
+    }
 
-	setConsoleTitle(buf);
+    setConsoleTitle(buf);
 }
 
 static void sysInit() // non game-specific initializations
 {
-	FolderCacheExclude(FOLDER_CACHE_EXCLUDE_FOLDER, "texture_library"); // currently accepts only one of these
-	fileDataDir();
-	loadend_printf("Caching directory tree and misc startup...");
+    FolderCacheExclude(FOLDER_CACHE_EXCLUDE_FOLDER, "texture_library"); // currently accepts only one of these
+    fileDataDir();
+    loadend_printf("Caching directory tree and misc startup...");
 
-	if(server_state.beaconProcessOnLoad)
-		return;
+    if(server_state.beaconProcessOnLoad)
+        return;
 
-	loadstart_printf("Networking startup.. ");
-	timerCpuSpeed();
-	atexit( at_exit_func );
+    loadstart_printf("Networking startup.. ");
+    timerCpuSpeed();
+    atexit( at_exit_func );
 
 #ifdef _DEBUG
-	// Bring up the Abort/Retry/Ignore window on assertion instead of outputting to console.
-	_set_error_mode(_OUT_TO_MSGBOX);
+    // Bring up the Abort/Retry/Ignore window on assertion instead of outputting to console.
+    _set_error_mode(_OUT_TO_MSGBOX);
 #endif
 
-	sockStart();
-	SET_FP_CONTROL_WORD_DEFAULT;
-	packetStartup(0,server_state.noEncryption?0:1);
-	setSignal();
+    sockStart();
+    SET_FP_CONTROL_WORD_DEFAULT;
+    packetStartup(0,server_state.noEncryption?0:1);
+    setSignal();
 
-	loadend_printf("done");
+    loadend_printf("done");
 }
 
 static void parseArgs1(int argc,char **argv)
 {
-	int		i;
+    int        i;
 
-	for(i=1;i<argc;i++)
-	{
-		int handled = 1;
-		int start_i = i;
+    for(i=1;i<argc;i++)
+    {
+        int handled = 1;
+        int start_i = i;
 
-		if (strcmp(argv[i], "-noencrypt")==0)
-		{
-			server_state.noEncryption = 1;
-		}
-		else if (strcmp(argv[i], "-nopigs")==0)
-		{
-			FolderCacheSetMode(FOLDER_CACHE_MODE_FILESYSTEM_ONLY);
-		}
-		else if (strcmp(argv[i], "-silent")==0)
-		{
-			// Just silent enough for dbquery to produce clean output, feel free to make it more silent elswhere
-			server_state.silent = 1;
-		}
-		else if (strcmp(argv[i], "-dbquery")==0 || strcmp(argv[i], "-getcharacter")==0 || strcmp(argv[i], "-putcharacter")==0)
-		{
-			// We want these two options by default for -dbquery to make them fast!
-			handled = 0;
-			FolderCacheSetMode(FOLDER_CACHE_MODE_FILESYSTEM_ONLY);
-			server_state.noEncryption = 1;
-			server_state.silent = 1;
-		}
-		else if(strcmp(argv[i], "-tsr2")==0 ||
-				strcmp(argv[i], "-tsr3")==0 ||
-				strcmp(argv[i], "-charactertransfer")==0 ||
-				strcmp(argv[i], "-templates")==0 )
-		{
-			// Disable encryption/Networking Startup on these commands
-			handled = 0;
-			server_state.noEncryption = 1;
-		}
-		else
-		{
-			handled = 0;
-		}
+        if (strcmp(argv[i], "-noencrypt")==0)
+        {
+            server_state.noEncryption = 1;
+        }
+        else if (strcmp(argv[i], "-nopigs")==0)
+        {
+            FolderCacheSetMode(FOLDER_CACHE_MODE_FILESYSTEM_ONLY);
+        }
+        else if (strcmp(argv[i], "-silent")==0)
+        {
+            // Just silent enough for dbquery to produce clean output, feel free to make it more silent elswhere
+            server_state.silent = 1;
+        }
+        else if (strcmp(argv[i], "-dbquery")==0 || strcmp(argv[i], "-getcharacter")==0 || strcmp(argv[i], "-putcharacter")==0)
+        {
+            // We want these two options by default for -dbquery to make them fast!
+            handled = 0;
+            FolderCacheSetMode(FOLDER_CACHE_MODE_FILESYSTEM_ONLY);
+            server_state.noEncryption = 1;
+            server_state.silent = 1;
+        }
+        else if(strcmp(argv[i], "-tsr2")==0 ||
+                strcmp(argv[i], "-tsr3")==0 ||
+                strcmp(argv[i], "-charactertransfer")==0 ||
+                strcmp(argv[i], "-templates")==0 )
+        {
+            // Disable encryption/Networking Startup on these commands
+            handled = 0;
+            server_state.noEncryption = 1;
+        }
+        else
+        {
+            handled = 0;
+        }
 
-		if(handled)
-		{
-			// Invalidate handled parameters in such a way that they won't cause errors in parseArgs2.
+        if(handled)
+        {
+            // Invalidate handled parameters in such a way that they won't cause errors in parseArgs2.
 
-			while(start_i <= i)
-			{
-				argv[start_i++][0] = 0;
-			}
-		}
-	}
+            while(start_i <= i)
+            {
+                argv[start_i++][0] = 0;
+            }
+        }
+    }
 }
 
 static void parseArgs2(int argc,char **argv)
 {
-	int		i;
-	int		ret;
+    int        i;
+    int        ret;
 
-	db_state.local_server = 1;
-	for(i=1;i<argc;i++)
-	{
+    db_state.local_server = 1;
+    for(i=1;i<argc;i++)
+    {
 #define ISCMD(CMD,N_ARGS)                            \
     (0==stricmp(strchrRemoveStatic(argv[i],'_'),CMD) \
      && (i+N_ARGS) < argc)
 
-		if (strcmp(argv[i],"-db")==0)
-		{
-			strcpy(db_state.server_name,argv[++i]);
-		}
-		else if (strcmp(argv[i],"-getcharacter")==0)
-		{
-			if (i+1 < argc) {
-				if (i+2 < argc) {
-					ret = dbQueryGetCharacter(argv[i+1], argv[i+2]);
-					i+=2;
-				} else {
-					ret = dbQueryGetCharacter(argv[++i], NULL);
-				}
-			} else {
-				printf("Expected: -getcharacter DBID [newauthname]\n");
-				ret = 2;
-			}
-			exit(ret);
-		}
-		else if (strcmp(argv[i],"-putcharacter")==0)
-		{
-			char *filename=NULL;
-			if ( i+1 < argc) {
-				filename = argv[i+1];
-			}
-			ret = dbQueryPutCharacter(filename);
-			exit(ret);
-		}
-		else if (strcmp(argv[i],"-dbquery")==0)
-		{
-			int ret = dbQueryWrapper(argc-i-1,argv+i+1);
-			exit(ret);
-		}
-		else if (ISCMD("-querysgleaders",1))
-		{
-			int ret = dbQueryGetSgLeaders(argv[1+i]);
-			exit(ret);
-		}
-		else if (strcmp(argv[i],"-udp")==0)
-			server_state.udp_port = atoi(argv[++i]);
-		else if (strcmp(argv[i],"-cookie")==0)
-			db_state.cookie = atoi(argv[++i]);
-		else if (strcmp(argv[i],"-tcp")==0)
-			server_state.tcp_port = atoi(argv[++i]);
-		else if (strcmp(argv[i],"-verbose")==0)
-			errorSetVerboseLevel(1);
-		else if (strcmp(argv[i], "-nodebug")==0)
-			server_state.nodebug = 1;
-		else if (strcmp(argv[i], "-notimeout")==0)
-			server_state.notimeout = 1;
-		else if (strcmp(argv[i], "-packetdebug")==0)
-		{
-			pktSetDebugInfo();
-		}
-		else if (strcmp(argv[i], "-restorecharacter")==0)
-		{
-			server_state.restorecharacter = 1;
-		}
-		else if (argv[i][0])
-		{
-			Errorf("Invalid command line parameter passed to mapserver.exe: %s", argv[i]);
-		}
-	}
+        if (strcmp(argv[i],"-db")==0)
+        {
+            strcpy(db_state.server_name,argv[++i]);
+        }
+        else if (strcmp(argv[i],"-getcharacter")==0)
+        {
+            if (i+1 < argc) {
+                if (i+2 < argc) {
+                    ret = dbQueryGetCharacter(argv[i+1], argv[i+2]);
+                    i+=2;
+                } else {
+                    ret = dbQueryGetCharacter(argv[++i], NULL);
+                }
+            } else {
+                printf("Expected: -getcharacter DBID [newauthname]\n");
+                ret = 2;
+            }
+            exit(ret);
+        }
+        else if (strcmp(argv[i],"-putcharacter")==0)
+        {
+            char *filename=NULL;
+            if ( i+1 < argc) {
+                filename = argv[i+1];
+            }
+            ret = dbQueryPutCharacter(filename);
+            exit(ret);
+        }
+        else if (strcmp(argv[i],"-dbquery")==0)
+        {
+            int ret = dbQueryWrapper(argc-i-1,argv+i+1);
+            exit(ret);
+        }
+        else if (ISCMD("-querysgleaders",1))
+        {
+            int ret = dbQueryGetSgLeaders(argv[1+i]);
+            exit(ret);
+        }
+        else if (strcmp(argv[i],"-udp")==0)
+            server_state.udp_port = atoi(argv[++i]);
+        else if (strcmp(argv[i],"-cookie")==0)
+            db_state.cookie = atoi(argv[++i]);
+        else if (strcmp(argv[i],"-tcp")==0)
+            server_state.tcp_port = atoi(argv[++i]);
+        else if (strcmp(argv[i],"-verbose")==0)
+            errorSetVerboseLevel(1);
+        else if (strcmp(argv[i], "-nodebug")==0)
+            server_state.nodebug = 1;
+        else if (strcmp(argv[i], "-notimeout")==0)
+            server_state.notimeout = 1;
+        else if (strcmp(argv[i], "-packetdebug")==0)
+        {
+            pktSetDebugInfo();
+        }
+        else if (strcmp(argv[i], "-restorecharacter")==0)
+        {
+            server_state.restorecharacter = 1;
+        }
+        else if (argv[i][0])
+        {
+            Errorf("Invalid command line parameter passed to mapserver.exe: %s", argv[i]);
+        }
+    }
 }
 
 static void serverStateInit(int argc,char **argv)
 {
-	dbCommStartup();
-	server_state.udp_port = DEFAULT_MAPSERVER_PORT;
-	strcpy(db_state.server_name,"localhost");
-	parseArgs2(argc,argv);
+    dbCommStartup();
+    server_state.udp_port = DEFAULT_MAPSERVER_PORT;
+    strcpy(db_state.server_name,"localhost");
+    parseArgs2(argc,argv);
 }
 
 int __cdecl main(int argc,char **argv)
 {
-	int		startup_timer = 0;
+    int        startup_timer = 0;
 
-	memCheckInit();
+    memCheckInit();
 
-	EXCEPTION_HANDLER_BEGIN
+    EXCEPTION_HANDLER_BEGIN
 
-	startup_timer = timerAlloc();
+    startup_timer = timerAlloc();
 
-	// Do not perform any file io until FolderCacheChooseMode() has been called.
-	//		Otherwise, the game will fail to find all of its data files.
-	FolderCacheChooseMode();
-	FolderCacheEnableCallbacks(0);
+    // Do not perform any file io until FolderCacheChooseMode() has been called.
+    //        Otherwise, the game will fail to find all of its data files.
+    FolderCacheChooseMode();
+    FolderCacheEnableCallbacks(0);
 
-	FolderCacheSetMode(FOLDER_CACHE_MODE_FILESYSTEM_ONLY);
-	server_state.noEncryption = 1;
-	server_state.silent = 1;
+    FolderCacheSetMode(FOLDER_CACHE_MODE_FILESYSTEM_ONLY);
+    server_state.noEncryption = 1;
+    server_state.silent = 1;
 
-	parseArgs1(argc,argv); // Put this *before* startupInfo so that -nopigs can disable loading of .pig files
-	startupInfo(argc,argv);
-	sysInit();
-	serverStateInit(argc,argv);
+    parseArgs1(argc,argv); // Put this *before* startupInfo so that -nopigs can disable loading of .pig files
+    startupInfo(argc,argv);
+    sysInit();
+    serverStateInit(argc,argv);
 
-	if (server_state.restorecharacter)
-	{
-		characterRestore();
-		exit(0);
-	}
+    if (server_state.restorecharacter)
+    {
+        characterRestore();
+        exit(0);
+    }
 
-	EXCEPTION_HANDLER_END
+    EXCEPTION_HANDLER_END
 }
 
 // Externs
@@ -357,9 +357,9 @@ void dealWithEntAck(int list_id,int id) {;}
 void dealWithShardAccountAck(int list_id,int id) {;}
 void containerCacheSendDiff(Packet *pak,int list_id,int container_id,char *data,int diff_debug) 
 {
-	pktSendBits(pak,1,1);
-	pktSendBits(pak,1,0);
-	pktSendString(pak,data);
+    pktSendBits(pak,1,1);
+    pktSendBits(pak,1,0);
+    pktSendString(pak,data);
 }
 void mapGroupInit(char* uniquename) {;}
 void handleArenaAddress(Packet *pak) {;}
