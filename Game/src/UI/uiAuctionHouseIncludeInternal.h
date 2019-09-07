@@ -1,11 +1,11 @@
 #ifndef UUIAUCTIONHOUSE_INCLUDE_INTERNAL_H_
 #define UUIAUCTIONHOUSE_INCLUDE_INTERNAL_H_
 
-#include "powers.h"
+#include "entity/powers.h"
 
 #include "uiAuctionHouse.h"
-#include "Auction.h"
-#include "utils.h"
+#include "auction/Auction.h"
+#include <utilitieslib/utils/utils.h>
 #include "uiGame.h"
 #include "uiUtil.h"
 #include "uiChat.h"
@@ -24,36 +24,36 @@
 #include "uiTabControl.h"
 #include "uiRecipeInventory.h"
 #include "uiToolTip.h"
-#include "AuctionData.h"
-#include "EntPlayer.h"
+#include "auction/AuctionData.h"
+#include "entity/EntPlayer.h"
 
-#include "sprite_base.h"
-#include "sprite_text.h"
-#include "sprite_font.h"
-#include "textureatlas.h"
+#include "sprite/sprite_base.h"
+#include "sprite/sprite_text.h"
+#include "sprite/sprite_font.h"
+#include "../graphics/textureatlas.h"
 
-#include "font.h"		// for xyprintf
-#include "ttFontUtil.h"
+#include "../graphics/font.h"   // for xyprintf
+#include "../graphics/ttFontUtil.h"
 #include "language/langClientUtil.h"
-#include "messagestoreutil.h"
+#include <utilitieslib/language/messagestoreutil.h>
 
-#include "win_init.h"	// for windowClientSize
-#include "cmdgame.h"
+#include "win_init.h"   // for windowClientSize
+#include "cmdparse/cmdgame.h"
 
-#include "character_base.h"
-#include "sound.h"
-#include "origins.h"
-#include "powers.h"
-#include "boostset.h"
-#include "earray.h"
-#include "player.h"
-#include "entity.h" 
-#include "estring.h"
+#include "entity/character_base.h"
+#include "../sound/sound.h"
+#include "entity/origins.h"
+#include "entity/powers.h"
+#include "entity/boostset.h"
+#include <utilitieslib/components/earray.h>
+#include "player/player.h"
+#include "entity/entity.h" 
+#include <utilitieslib/components/estring.h>
 #include "uiClipper.h"
-#include "salvage.h" 
-#include "detailrecipe.h"
+#include "entity/salvage.h" 
+#include "bases/detailrecipe.h"
 #include "uiNet.h"
-#include "input.h"
+#include "../win/input.h"
 
 #ifndef TEST_CLIENT
 #include "smf_main.h"

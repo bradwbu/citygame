@@ -10,9 +10,9 @@ typedef struct Entity Entity;
 
 typedef struct ArenaScore
 {
-	int iScore;
-	int dbid;
-	char *pchName;
+    int iScore;
+    int dbid;
+    char *pchName;
 } ArenaScore;
 
 extern ArenaScore **g_ppArenaScores;

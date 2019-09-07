@@ -130,7 +130,7 @@ static SkeletonAnimTrack * animReadTrackFile( FILE * file, int load_type, const 
     fread( skeleton, 1, file_size, file );
     skeleton->backupAnimTrack = NULL;
 
-    skeleton->bone_tracks = (void*)((intptr_t)skeleton->bone_tracks + (intptr_t)skeleton);
+    skeleton->bone_tracks = (void*)((size_t)skeleton->bone_tracks + (size_t)skeleton);
 
     if( load_type == LOAD_ALL || load_type == LOAD_ALL_SHARED ) //Fix up the data ptrs.
     {
@@ -138,8 +138,8 @@ static SkeletonAnimTrack * animReadTrackFile( FILE * file, int load_type, const 
         {
             bt = &(skeleton->bone_tracks[i]);
 
-            bt->pos_idx    = (void *)((uintptr_t)bt->pos_idx    + (uintptr_t)skeleton);
-            bt->rot_idx    = (void *)((uintptr_t)bt->rot_idx    + (uintptr_t)skeleton);
+            bt->pos_idx = (void*)((size_t)bt->pos_idx + (size_t)skeleton);
+            bt->rot_idx = (void*)((size_t)bt->rot_idx + (size_t)skeleton);
 
             // HYPNOS TODO: This is slowing down streaming and should
             // be done in a batch sweep and at tool conversion time
@@ -148,7 +148,7 @@ static SkeletonAnimTrack * animReadTrackFile( FILE * file, int load_type, const 
     }
 
     if( skeleton->skeletonHeirarchy )
-        skeleton->skeletonHeirarchy = (void *)((intptr_t)skeleton->skeletonHeirarchy + (intptr_t)skeleton);
+        skeleton->skeletonHeirarchy = (void*)((size_t)skeleton->skeletonHeirarchy + (size_t)skeleton);
 
     if ( load_type == LOAD_ALL_SHARED )
         sharedHeapMemoryManagerUnlock();
@@ -161,18 +161,18 @@ void animPatchLoadedRawData( SkeletonAnimTrack * skeleton )
     int i;
 
     skeleton->backupAnimTrack = NULL;
-    skeleton->bone_tracks = (void *)((intptr_t)skeleton->bone_tracks + (intptr_t)skeleton);
+    skeleton->bone_tracks = (void*)((size_t)skeleton->bone_tracks + (size_t)skeleton);
 
     for( i = 0 ; i < skeleton->bone_track_count ; i++ )
     {
         BoneAnimTrack* bt = &(skeleton->bone_tracks[i]);
 
-        bt->pos_idx    = (void *)((uintptr_t)bt->pos_idx    + (uintptr_t)skeleton);
-        bt->rot_idx    = (void *)((uintptr_t)bt->rot_idx    + (uintptr_t)skeleton);
+        bt->pos_idx = (void*)((size_t)bt->pos_idx + (size_t)skeleton);
+        bt->rot_idx = (void*)((size_t)bt->rot_idx + (size_t)skeleton);
     }
 
     if( skeleton->skeletonHeirarchy )
-        skeleton->skeletonHeirarchy = (void *)((intptr_t)skeleton->skeletonHeirarchy + (intptr_t)skeleton);
+        skeleton->skeletonHeirarchy = (void*)((size_t)skeleton->skeletonHeirarchy + (size_t)skeleton);
 }
 
 // walk the track data looking for anomalies

@@ -52,10 +52,10 @@ static bool smFilterLongTick=0;
 static bool smFilterServerApps=0;
 
 static VarMap mapping[] = {
-    {IDC_CHK_LOG,            VMF_READ, "ShardMonLogging",        TOK_BOOL_X, (bool)&smLogEnabled, },
-    {IDC_TXT_LOGINTERVAL,    VMF_READ, "ShardMonLogInterval",    TOK_F32_X, (int)&smLogInterval, },
-    {IDC_CHK_LONG_TICK,        VMF_READ, NULL,                        TOK_BOOL_X, (bool)&smFilterLongTick, },
-    {IDC_CHK_CRASHED_SERVERAPPS, VMF_READ, NULL,                TOK_BOOL_X, (bool)&smFilterServerApps, },
+    {IDC_CHK_LOG,                VMF_READ, "ShardMonLogging",     TOK_BOOL_X, (size_t)&smLogEnabled, },
+    {IDC_TXT_LOGINTERVAL,        VMF_READ, "ShardMonLogInterval", TOK_F32_X,  (size_t)&smLogInterval, },
+    {IDC_CHK_LONG_TICK,          VMF_READ, NULL,                  TOK_BOOL_X, (size_t)&smFilterLongTick, },
+    {IDC_CHK_CRASHED_SERVERAPPS, VMF_READ, NULL,                  TOK_BOOL_X, (size_t)&smFilterServerApps, },
 };
 
 ServerStats zeroServerStat = {0};

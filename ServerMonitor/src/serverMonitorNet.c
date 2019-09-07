@@ -866,7 +866,7 @@ void smcbMsShow(ListView *lv, void *structptr, ServerMonitorState *state)
 {
     char temp[MAX_PATH];
     MapCon *con = (MapCon*)structptr;
-    int cmd = (int)state->userData;
+    int cmd = (int)(intptr_t)state->userData;
 
     if (con) {
         Packet *pak = pktCreateEx(&state->db_link,DBSVRMON_EXEC);

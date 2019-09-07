@@ -7,7 +7,7 @@
 #include <windows.h>
 #include <CommCtrl.h>
 
-typedef int (*FilterFunc) (void *);	// returns non-zero if matches the current filter
+typedef int (*FilterFunc) (void *);    // returns non-zero if matches the current filter
 typedef int (*CompareFunc) (const void *, const void *);
 typedef char * (*DisplayFunc) (void *);
 typedef void (*Destructor)(void* element);
@@ -20,10 +20,10 @@ int filterNone(void * item);
 
 typedef struct{
 
-	char * name;
-	int columnWidth;
-	CompareFunc compareFunc;
-	DisplayFunc displayFunc;
+    char * name;
+    int columnWidth;
+    CompareFunc compareFunc;
+    DisplayFunc displayFunc;
 
 }VirtualListViewEntry;
 

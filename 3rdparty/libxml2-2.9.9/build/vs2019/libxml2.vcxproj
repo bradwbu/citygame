@@ -152,6 +152,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\zlib-1.2.11\include;$(Projectdir)..\..\..\libiconv-1.14\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4267;4244</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -168,6 +169,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\zlib-1.2.11\include;$(Projectdir)..\..\..\libiconv-1.14\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4267;4244</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -186,6 +188,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\zlib-1.2.11\include;$(Projectdir)..\..\..\libiconv-1.14\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4267;4244</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -206,6 +209,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\zlib-1.2.11\include;$(Projectdir)..\..\..\libiconv-1.14\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4267;4244</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

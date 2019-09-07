@@ -29,7 +29,7 @@
 #include "entity/entVarUpdate.h"
 #include "entity/entDebug.h"
 #include "utils/position.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include "clientcomm/dbclient.h"
 #include "sound/sound.h"
 #include "storyarc/contactClient.h"

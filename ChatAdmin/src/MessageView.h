@@ -1,22 +1,22 @@
 #ifndef __MESSAGE_VIEW_H__
 #define __MESSAGE_VIEW_H__
 
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 
 typedef struct{
-	char * line;
-	U32	time;
+    char * line;
+    U32    time;
 }TextEntry;
 
 typedef struct{
 
-	HWND hWndView;
+    HWND hWndView;
 
-	TextEntry **msgs;
+    TextEntry **msgs;
 
-	int maxMsgs;
+    int maxMsgs;
 
-	bool showTime;
+    bool showTime;
 
 }MessageView;
 

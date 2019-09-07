@@ -79,7 +79,7 @@ static U32 g_overridden_auth_bits[AUTH_DWORDS] = { 0 };
 #endif
 
 #if STATSERVER
-#        include "SgrpStats.h"
+#include "entity/SgrpStats.h"
 #endif
 
 

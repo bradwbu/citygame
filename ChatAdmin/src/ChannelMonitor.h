@@ -1,7 +1,7 @@
 #ifndef __CHANNEL_MONITOR_H__
 #define __CHANNEL_MONITOR_H__
 
-#include "wininclude.h"
+#include <utilitieslib/utils/wininclude.h>
 #include "MessageView.h"
 #include "ChannelList.h"
 #include "UserList.h"
@@ -11,30 +11,30 @@ typedef struct CAChanMon CAChanMon;
 
 typedef struct{
 
-	CAUser * user;
-	int flags;
+    CAUser * user;
+    int flags;
 
-	CAChanMon * monitor;	// pointer back to channel monitor struct that contains this member
+    CAChanMon * monitor;    // pointer back to channel monitor struct that contains this member
 
 }CAChanMember;
 
 typedef struct CAChanMon{
 
-	CAChannel	*channel;
-	CAUser		**members; // for fast/easy lookups
+    CAChannel    *channel;
+    CAUser        **members; // for fast/easy lookups
 
-	MessageView	*mv;
-	VListView	*memberList;
+    MessageView    *mv;
+    VListView    *memberList;
 
-	char		memberFilter[100];
-	int			memberFilterLength;
+    char        memberFilter[100];
+    int            memberFilterLength;
 
-	BOOL		isVisible;
+    BOOL        isVisible;
 
-	char		*lastOperator;	// these two cache the current strings used for buttons, to reduce computation time as buttons are checked for updates frequently (hackish :)
-	char		*lastSilence;
+    char        *lastOperator;    // these two cache the current strings used for buttons, to reduce computation time as buttons are checked for updates frequently (hackish :)
+    char        *lastSilence;
 
-	HWND hDlg;
+    HWND hDlg;
 
 }CAChanMon;
 

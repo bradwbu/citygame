@@ -31,12 +31,12 @@ ProcessMonitorEntry processmonitors[] = {
 
 static VarMap mapping[] = {
 #define SETUP_MAPPING(number)                                                                                        \
-    {IDC_TXT_EXENAME##number,    VMF_WRITE,        0,                            TOK_STRING_X, (int)&processmonitors[number].exename[0], ARRAY_SIZE(processmonitors[number].exename)},                            \
-    {IDC_TXT_CMDLINE##number,    VMF_READ,        "Proc" #number "CmdLine",    TOK_STRING_X, (int)&processmonitors[number].cmdline[0], ARRAY_SIZE( processmonitors[number].cmdline )  },\
-    {IDC_CHK_MONITOR##number,    VMF_READ,        "Proc" #number "Monitor",    TOK_BOOL_X, (int)&processmonitors[number].monitor, },        \
-    {IDC_CHK_START##number,        VMF_READ,        "Proc" #number "Start",        TOK_BOOL_X, (int)&processmonitors[number].start, },            \
-    {IDC_CHK_RESTART##number,    VMF_READ,        "Proc" #number "Restart",    TOK_BOOL_X, (int)&processmonitors[number].restart, },        \
-    {IDC_TXT_SECONDS##number,    VMF_READ,        "Proc" #number "Seconds",    TOK_INT_X, (int)&processmonitors[number].seconds, },
+    {IDC_TXT_EXENAME##number, VMF_WRITE, 0,                        TOK_STRING_X, (size_t)&processmonitors[number].exename[0], ARRAY_SIZE(processmonitors[number].exename)},                            \
+    {IDC_TXT_CMDLINE##number, VMF_READ,  "Proc" #number "CmdLine", TOK_STRING_X, (size_t)&processmonitors[number].cmdline[0], ARRAY_SIZE( processmonitors[number].cmdline )  },\
+    {IDC_CHK_MONITOR##number, VMF_READ,  "Proc" #number "Monitor", TOK_BOOL_X,   (size_t)&processmonitors[number].monitor, },        \
+    {IDC_CHK_START##number,   VMF_READ,  "Proc" #number "Start",   TOK_BOOL_X,   (size_t)&processmonitors[number].start, },            \
+    {IDC_CHK_RESTART##number, VMF_READ,  "Proc" #number "Restart", TOK_BOOL_X,   (size_t)&processmonitors[number].restart, },        \
+    {IDC_TXT_SECONDS##number, VMF_READ,  "Proc" #number "Seconds", TOK_INT_X,    (size_t)&processmonitors[number].seconds, },
     SETUP_MAPPING(0)
     SETUP_MAPPING(1)
 //    SETUP_MAPPING(2)

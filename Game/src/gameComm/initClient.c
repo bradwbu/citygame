@@ -25,7 +25,7 @@
 #include "UI/uiTarget.h"
 #include "cmdparse/cmdgame.h"
 #include "entity/costume_client.h"
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 #include "UI/Hybrid/uiRegister.h"
 #include "entity/entrecv.h"
 #include "UI/uiCursor.h"

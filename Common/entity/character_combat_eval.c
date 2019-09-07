@@ -24,7 +24,7 @@
 #include "entity/character_combat_eval.h"
 #include "entity/powers.h"
 
-#include "assert.h"
+#include <utilitieslib/assert/assert.h>
 
 EvalContext *s_pCombatEval;
 
