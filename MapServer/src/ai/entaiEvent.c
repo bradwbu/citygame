@@ -937,7 +937,7 @@ static int aiEventNotifySetupNotification(int* notifyAreaOut){
                 if(source.entity == target.entity)
                     return 0;
                 
-                if(params.powerSucceeded.fAmount == 0 && (!target.entity || !target.ai->perceiveAttacksWithoutDamage))
+                if (params.powerSucceeded.fAmount == 0 && (!target.entity || !target.ai || !target.ai->perceiveAttacksWithoutDamage))
                     return 0;
             }
 

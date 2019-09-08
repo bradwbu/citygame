@@ -3419,7 +3419,7 @@ void character_RespecSwap(Entity *e, Character *pcharOrig, Character *pcharNew, 
                     pset->pcharParent = pcharNew;
                     for (k = eaSize(&pset->ppPowers) - 1; k >= 0; k--)
                     {
-                        if (pset->ppPowers)
+                        if (pset->ppPowers[k])
                             power_SetUniqueID(pcharNew, pset->ppPowers[k], pset->ppPowers[k]->iUniqueID, NULL);
                     }
                 }
