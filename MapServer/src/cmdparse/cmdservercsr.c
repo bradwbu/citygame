@@ -474,7 +474,7 @@ void csrBan(ClientLink *admin,char *player_name,char *orig_cmd,char *reason)
 
     if(db_id<=0)
     {
-        conPrintf(admin, clientPrintf(admin,"PlayerDoesntExist"), player_name);
+        conPrintf(admin, clientPrintf(admin, "PlayerDoesntExist", player_name));
         return;
     }
 
