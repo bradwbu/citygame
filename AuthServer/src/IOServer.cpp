@@ -118,7 +118,7 @@ _AFTER_FIN
 void CIOServer::OnEventCallback( void )
 {
     WSAResetEvent(m_hAcceptEvent);
-    PostQueuedCompletionStatus(g_hIOCompletionPort, 0, (DWORD)PtrToUint(this), NULL);
+    PostQueuedCompletionStatus(g_hIOCompletionPort, 0, (ULONG_PTR)this, NULL);
 }
 
 
@@ -477,7 +477,7 @@ void CIOServerEx::OnEventCallback()
 {
 #ifndef _USE_ACCEPTEX
     WSAResetEvent(m_acceptEvent);
-    PostQueuedCompletionStatus(g_hIOCompletionPort, 0, (DWORD)PtrToUint(this), NULL);
+    PostQueuedCompletionStatus(g_hIOCompletionPort, 0, (ULONG_PTR)this, NULL);
 #else
     WSAResetEvent(m_acceptEvent);
     
