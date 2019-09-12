@@ -578,7 +578,7 @@ void CIOServerEx::Run( int nPort, SocketExAllocator al )
         goto fail;
     }
     HANDLE result;
-    result = CreateIoCompletionPort((HANDLE)m_hSocket, g_hIOCompletionPort, (DWORD) this, 0);
+    result = CreateIoCompletionPort((HANDLE)m_hSocket, g_hIOCompletionPort, (ULONG_PTR)this, 0);
     
     if(result == NULL) {
         logger.AddLog(LOG_ERROR, "CreateIoCompletionPort: %d %x %x\n", GetLastError(), m_hSocket, g_hIOCompletionPort);
