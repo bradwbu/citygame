@@ -22,15 +22,20 @@ static int s_iTagText = -1;
 // Global counter for preventing links with <nolink>
 int g_preventLinks;
 
-int sm_ParseTagName(char *tagName, int tagNameLength, SMTagDef aTagDefs[])
+int sm_ParseTagName(char* tagName, int tagNameLength, SMTagDef aTagDefs[])
 {
-    int iTag;
-    for(iTag = 0; aTagDefs[iTag].pchName != NULL; iTag++)
+    // strnicmp() implicitly casts tagNameLength to size_t which turns -1
+    // into 0xffffffff (32 bit) or 0xffffffffffffffff (64 bit). Unfortunately,
+    // the currently used version of the MSVC CRT allows for param _MaxCount a
+    // maximum value of _MaxCount <= INT_MAX so -1 will trigger an assertion.
+    if (tagNameLength >= 0)
     {
-        if(strnicmp(tagName, aTagDefs[iTag].pchName, tagNameLength) == 0 &&
-            (int) strlen(aTagDefs[iTag].pchName) == tagNameLength)
+        for (int iTag = 0; aTagDefs[iTag].pchName != NULL; ++iTag)
         {
-            return iTag;
+            if (strnicmp(tagName, aTagDefs[iTag].pchName, tagNameLength) == 0 && (int)strlen(aTagDefs[iTag].pchName) == tagNameLength)
+            {
+                return iTag;
+            }
         }
     }
     return -1;
