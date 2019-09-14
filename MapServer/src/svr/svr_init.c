@@ -1404,10 +1404,10 @@ void parseArgs2(int argc,char **argv)
             else
                 Errorf("Invalid command line parameters for '-maintenanceHours begin end', begin and end need to be hours from 0-24");
         }
-        else if (argv[i][0])
+        /* else if (argv[i][0])
         {
             Errorf("Invalid command line parameter passed to mapserver.exe: %s", argv[i]);
-        }
+        } */
     }
 }
 

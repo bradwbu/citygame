@@ -864,7 +864,7 @@ int handleKey() {
     xcase 'a':
         doAttacks();
     xcase 'b':
-        __asm { int 3 };
+        __debugbreak();
     xcase 'c':
         ticks_until_move=0;
         cyclicStaticMapTransfer();
@@ -1128,7 +1128,7 @@ int main(int argc, char **argv)
             int b = 1/a;
         }
         if (!"debug break") {
-            _asm { int 3 };
+            __debugbreak();
         }
         
 

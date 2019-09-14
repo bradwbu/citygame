@@ -196,7 +196,7 @@ int winMsgYesNo(char *str)
 
 char *winGetFileName(char *fileMask,char *fileName,int save)
 {
-    _asm {int 3}; // don't use
+    __debugbreak(); // don't use
     return NULL;
 }
 
