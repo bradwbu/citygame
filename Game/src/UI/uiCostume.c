@@ -4,6 +4,9 @@
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
 
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/wininclude.h>
+
 #include "UI/uiGame.h"
 #include "player/player.h"
 #include "entity/costume_client.h"
@@ -30,7 +33,6 @@
 #include "graphics/textureatlas.h"
 #include "render/tex.h"
 #include "graphics/font.h"
-#include <utilitieslib/utils/utils.h>
 #include "gameComm/initClient.h"
 #include "seq/animtrack.h"  //for MAX_BONES
 #include "gameData/costume_data.h"
