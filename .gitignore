@@ -38,7 +38,7 @@ ipch/
 AutoGen/
 logs/
 .moc/
-**/docs/
+**/doc/html
 
 bin/
 x86/
