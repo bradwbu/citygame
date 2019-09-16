@@ -99,14 +99,14 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\bin</Command>
+      <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\..\bin</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -118,14 +118,14 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\bin</Command>
+      <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\..\bin</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -139,7 +139,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -148,7 +148,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\bin</Command>
+      <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\..\bin</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -162,7 +162,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\UtilitiesLib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -171,7 +171,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\bin</Command>
+      <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\..\bin</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -196,13 +196,13 @@
     <ResourceCompile Include="..\..\src\Resources.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\3rdparty\cryptopp-8.3\build\vs2019\cryptopp.vcxproj">
+    <ProjectReference Include="..\..\..\..\3rdparty\cryptopp-8.3\build\vs2019\cryptopp.vcxproj">
       <Project>{aca8c226-ef10-49f2-8b3d-d9939ee4a4fe}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\3rdparty\zlib-1.2.11\build\vs2019\zlib.vcxproj">
+    <ProjectReference Include="..\..\..\..\3rdparty\zlib-1.2.11\build\vs2019\zlib.vcxproj">
       <Project>{8426a8d3-2549-4523-b584-fcd81e89b7bc}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\libs\UtilitiesLib\build\vs2019\UtilitiesLib.vcxproj">
+    <ProjectReference Include="..\..\..\..\libs\UtilitiesLib\build\vs2019\UtilitiesLib.vcxproj">
       <Project>{02b25697-0348-423c-8df3-e1bdf89bb43d}</Project>
     </ProjectReference>
   </ItemGroup>
