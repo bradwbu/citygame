@@ -1,7 +1,7 @@
 @INCLUDE_PATH = ..\..\
 @INCLUDE = .doxyfile
 
-PROJECT_NAME = "AuctionServer"
+PROJECT_NAME = "Auction House Server"
 
 INPUT += ..\..\Common
 INPUT += ..\..\libs\UtilitiesLib\include

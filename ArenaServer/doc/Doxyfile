@@ -1,7 +1,7 @@
 @INCLUDE_PATH = ..\..\
 @INCLUDE = .doxyfile
 
-PROJECT_NAME = "ArenaServer"
+PROJECT_NAME = "Arena Server"
 
 INPUT += ..\..\Common
 INPUT += ..\..\libs\UtilitiesLib\include

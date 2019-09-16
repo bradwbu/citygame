@@ -1,7 +1,7 @@
 @INCLUDE_PATH = ..\..\
 @INCLUDE = .doxyfile
 
-PROJECT_NAME = "StatServer"
+PROJECT_NAME = "Player Statistics Server"
 
 INPUT += ..\..\Common
 INPUT += ..\..\libs\UtilitiesLib\include

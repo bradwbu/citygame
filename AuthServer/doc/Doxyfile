@@ -1,4 +1,4 @@
 @INCLUDE_PATH = ..\..\
 @INCLUDE = .doxyfile
 
-PROJECT_NAME = "AuthServer"
+PROJECT_NAME = "Authentication Server"

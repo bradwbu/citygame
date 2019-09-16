@@ -1,7 +1,7 @@
 @INCLUDE_PATH = ..\..\
 @INCLUDE = .doxyfile
 
-PROJECT_NAME = "QueueServer"
+PROJECT_NAME = "Login Queue Server"
 
 INPUT += ..\..\Common
 INPUT += ..\..\libs\UtilitiesLib\include
