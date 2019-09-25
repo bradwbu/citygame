@@ -111,7 +111,7 @@
       <Message>Running StructParser</Message>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\bin</Command>
+      <Command>copy /Y $(TargetPath) $(ProjectDir)..\..\..\bin</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -136,7 +136,7 @@
       <Message>Running StructParser</Message>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\bin</Command>
+      <Command>copy /Y $(TargetPath) $(ProjectDir)..\..\..\bin</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -164,7 +164,7 @@
       <Message>Running StructParser</Message>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\bin</Command>
+      <Command>copy /Y $(TargetPath) $(ProjectDir)..\..\..\bin</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -193,7 +193,7 @@
       <Message>Running StructParser</Message>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy /Y $(TargetPath) $(SolutionDir)..\..\bin</Command>
+      <Command>copy /Y $(TargetPath) $(ProjectDir)..\..\..\bin</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
