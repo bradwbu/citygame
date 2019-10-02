@@ -444,7 +444,7 @@ static int loadCostumeFromFile(char * filename, int *costumeValid, int **badPart
 
     LoadCostumeForParser.appearance.convertedScale = prevCostume->appearance.convertedScale;
     //    we force their fscale to their original fscale
-    if (LoadCostumeForParser.appearance.iNumParts < GetBodyPartCount())
+    if (LoadCostumeForParser.appearance.iNumParts < MAX_COSTUME_PARTS)
     {
         Costume *costume = &LoadCostumeForParser;
         int i = eaSize(&costume->parts);
