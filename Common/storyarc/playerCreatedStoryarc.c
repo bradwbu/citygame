@@ -431,7 +431,7 @@ PlayerCreatedStoryArc* playerCreatedStoryArc_FromString(char *str, Entity *creat
 #endif
     }
 
-    StructFree(pArc);
+    StructDestroy(ParsePlayerStoryArc, pArc);
     return 0;
 }
 
@@ -447,7 +447,7 @@ int playerCreatedStoryArc_ValidateFromString(char *str, int allowErrors)
             valid = 1;
     }
 
-    StructFree(pArc);
+    StructDestroy(ParsePlayerStoryArc, pArc);
     return valid;
 }
 
@@ -486,7 +486,7 @@ PlayerCreatedStoryArc *playerCreatedStoryArc_Load( char * pchFile )
     if( ParserLoadFiles(NULL, pchFile, NULL, 0, ParsePlayerStoryArc, pArc, NULL, NULL, NULL) )
         return pArc;
 
-    StructFree(pArc);
+    StructDestroy(ParsePlayerStoryArc, pArc);
     return NULL;
 }
 
