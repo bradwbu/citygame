@@ -3617,19 +3617,19 @@ uiSetting uiSettings3[] = {
 
 // DO NOT ADD ANY MORE OPTIONS TO THIS BITFIELD!!!!!!!!!!!!!
 uiSetting uiSettings4[] = {
-    {OFFSET2_PTR(Entity, pl,    EntPlayer,    useOldTeamUI)                    }, // 0
-    {OFFSET2_PTR(Entity, pl,    EntPlayer,    hideUnclaimableCert)            }, // 1
-    {OFFSET2_PTR(Entity, pl,    EntPlayer,    blinkCertifications)            }, // 2
-    {OFFSET2_PTR(Entity, pl,    EntPlayer,    voucherSingleCharacterPrompt)    }, // 3
-    {OFFSET2_PTR(Entity, pl,    EntPlayer,    newCertificationPrompt)            }, // 4
-    {OFFSET2_PTR(Entity, pl,    EntPlayer,    hideUnslotPrompt)                }, // 5
-    {OFFSET2_PTR(Entity, pl,    EntPlayer,    hideUsefulSalvageWarning)        }, // 6
-    {OFFSET2_PTR(Entity, pl,    EntPlayer,    hideLoyaltyTreeAccessButton)    }, // 7
-    {OFFSET2_PTR(Entity, pl,    EntPlayer,    hideStoreAccessButton)            }, // 8
-    {OFFSET2_PTR(Entity, pl,    EntPlayer,    autoFlipSuperPackCards)            }, // 9
-    {OFFSET2_PTR(Entity, pl,    EntPlayer,    hideConvertConfirmPrompt)        }, // 10
+    {OFFSET2_PTR(Entity, pl,    EntPlayer,    useOldTeamUI)                 }, // 0
+    {OFFSET2_PTR(Entity, pl,    EntPlayer,    hideUnclaimableCert)          }, // 1
+    {OFFSET2_PTR(Entity, pl,    EntPlayer,    blinkCertifications)          }, // 2
+    {OFFSET2_PTR(Entity, pl,    EntPlayer,    voucherSingleCharacterPrompt) }, // 3
+    {OFFSET2_PTR(Entity, pl,    EntPlayer,    newCertificationPrompt)       }, // 4
+    {OFFSET2_PTR(Entity, pl,    EntPlayer,    hideUnslotPrompt)             }, // 5
+    {OFFSET2_PTR(Entity, pl,    EntPlayer,    hideUsefulSalvageWarning)     }, // 6
+    {OFFSET2_PTR(Entity, pl,    EntPlayer,    hideLoyaltyTreeAccessButton)  }, // 7
+    {OFFSET2_PTR(Entity, pl,    EntPlayer,    hideStoreAccessButton)        }, // 8
+    {OFFSET2_PTR(Entity, pl,    EntPlayer,    autoFlipSuperPackCards)       }, // 9
+    {OFFSET2_PTR(Entity, pl,    EntPlayer,    hideConvertConfirmPrompt)     }, // 10
+    {OFFSET2_PTR(Entity, pl,    EntPlayer,    showTimer)                    }, // 11
 
- // 11
  // 12
  // 13
  // 14
