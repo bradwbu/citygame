@@ -32,7 +32,7 @@ void CIOObject::ReleaseRef( void )
 
 BOOL CIOObject::PostObject( int dwDataSize, HANDLE completionPort )
 {
-    return PostQueuedCompletionStatus( completionPort, dwDataSize, (DWORD)PtrToUint(this), NULL );
+    return PostQueuedCompletionStatus( completionPort, dwDataSize, (ULONG_PTR)this, NULL );
 }
 
 BOOL CIOObject::RegisterTimer( UINT waitTime, BOOL setEvent )

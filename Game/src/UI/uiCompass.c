@@ -3,6 +3,8 @@
 //
 //-------------------------------------------------------------------
 
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/wininclude.h>
 
 #include "UI/uiGame.h"
 #include "UI/uiUtil.h"
@@ -42,7 +44,6 @@
 #include "UI/uiBox.h"
 #include "cmdparse/cmdgame.h"
 #include "graphics/ttFontUtil.h"
-#include <utilitieslib/utils/utils.h>
 #include "entity/entity.h"
 #include "UI/uiMissionSummary.h"
 #include "win/input.h"

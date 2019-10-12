@@ -66,8 +66,9 @@ void CIOSocket::Initialize( HANDLE hIOCompletionPort )
     zero = 0;
     setsockopt(m_hSocket, SOL_SOCKET, SO_SNDBUF, (char *)&zero, sizeof(zero));
     AddRef();
-    if (CreateIoCompletionPort((HANDLE) m_hSocket, hIOCompletionPort, (DWORD)PtrToUint(this), 0) == NULL) {
-        logger.AddLog(LOG_ERROR, "Initilize CompletionPort Error CloseSocket" );
+    if (CreateIoCompletionPort((HANDLE)m_hSocket, hIOCompletionPort, (ULONG_PTR)this, 0) == NULL)
+    {
+        logger.AddLog(LOG_ERROR, "Initialize CompletionPort Error CloseSocket");
         CloseSocket();
         return;
     }

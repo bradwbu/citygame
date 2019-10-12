@@ -3,6 +3,10 @@
  *     All Rights Reserved
  *     Confidential Property of Cryptic Studios
  ***************************************************************************/
+
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/wininclude.h>
+
 #include "UI/uiGame.h"
 #include "UI/uiNet.h"
 #include "UI/uiUtil.h"

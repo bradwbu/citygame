@@ -130,13 +130,16 @@ void CFileLog::AddLogEx( LogType type, const char* format, va_list argList )
     struct tm *tm = localtime(&t);
 
     EnterCriticalSection(&criticalSection);
-    if ( StartNewLog( tm ) && logFile != INVALID_HANDLE_VALUE) {
+    if ( StartNewLog( tm ) && logFile != INVALID_HANDLE_VALUE)
+    {
         char logFileName[_MAX_PATH];
         ConstructLogPath( tm, logFileName, _MAX_PATH );
-        HANDLE newLogFile = OpenLogFile( logFileName );
-        HANDLE oldLog = (HANDLE)IntToPtr(InterlockedExchange((long *)&logFile, (long)PtrToInt(newLogFile)));
-        if (oldLog)
+        HANDLE newLogFile = OpenLogFile(logFileName);
+        HANDLE oldLog = (HANDLE)InterlockedExchangePointer(&logFile, newLogFile);
+        if (oldLog != INVALID_HANDLE_VALUE)
+        {
             CloseHandle(oldLog);
+        }
         prevDay = tm->tm_mday;
         prevHour = tm->tm_hour;
     }

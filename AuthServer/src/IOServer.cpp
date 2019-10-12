@@ -118,7 +118,7 @@ _AFTER_FIN
 void CIOServer::OnEventCallback( void )
 {
     WSAResetEvent(m_hAcceptEvent);
-    PostQueuedCompletionStatus(g_hIOCompletionPort, 0, (DWORD)PtrToUint(this), NULL);
+    PostQueuedCompletionStatus(g_hIOCompletionPort, 0, (ULONG_PTR)this, NULL);
 }
 
 
@@ -477,7 +477,7 @@ void CIOServerEx::OnEventCallback()
 {
 #ifndef _USE_ACCEPTEX
     WSAResetEvent(m_acceptEvent);
-    PostQueuedCompletionStatus(g_hIOCompletionPort, 0, (DWORD)PtrToUint(this), NULL);
+    PostQueuedCompletionStatus(g_hIOCompletionPort, 0, (ULONG_PTR)this, NULL);
 #else
     WSAResetEvent(m_acceptEvent);
     
@@ -578,7 +578,7 @@ void CIOServerEx::Run( int nPort, SocketExAllocator al )
         goto fail;
     }
     HANDLE result;
-    result = CreateIoCompletionPort((HANDLE)m_hSocket, g_hIOCompletionPort, (DWORD) this, 0);
+    result = CreateIoCompletionPort((HANDLE)m_hSocket, g_hIOCompletionPort, (ULONG_PTR)this, 0);
     
     if(result == NULL) {
         logger.AddLog(LOG_ERROR, "CreateIoCompletionPort: %d %x %x\n", GetLastError(), m_hSocket, g_hIOCompletionPort);
