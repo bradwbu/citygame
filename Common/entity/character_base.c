@@ -577,6 +577,10 @@ void character_Destroy(Character *pchar, const char *context)
         }
     }
 
+    if (pchar->powersByUniqueID) {
+        stashTableDestroy(pchar->powersByUniqueID);
+    }
+
 #if SERVER
     eaiDestroy(&pchar->invStatusChange.type);
     eaiDestroy(&pchar->invStatusChange.idx);
