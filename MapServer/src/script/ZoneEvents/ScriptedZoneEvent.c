@@ -783,7 +783,7 @@ static TokenizerParseInfo ParseShutdown[] =
 typedef struct ScriptTrigger
 {
     char *triggerName;
-    char **requires;
+    char **required;
     char *nextStage;
     ScriptAction **actions;
     int fired;
@@ -793,7 +793,7 @@ static TokenizerParseInfo ParseTrigger[] =
 {
     { "{",                        TOK_START, 0                                                        },
     { "",                        TOK_STRUCTPARAM | TOK_STRING(ScriptTrigger, triggerName, 0)            },
-    { "Requires",                TOK_STRINGARRAY(ScriptTrigger, requires)                            },
+    { "Requires",                TOK_STRINGARRAY(ScriptTrigger, required)                            },
     { "NextStage",                TOK_STRING(ScriptTrigger, nextStage, 0)                                },
     { "Action",                    TOK_STRUCT(ScriptTrigger, actions, ParseAction)                        },
     { "}",                        TOK_END, 0                                                            },
@@ -813,7 +813,7 @@ typedef struct ScriptTriggerDeck
 {
     char *triggerDeckName;
     triggerDeckType type;
-    char **requires;
+    char **required;
     ScriptTrigger **triggers;
     int fired;
     int totalFired;
@@ -825,7 +825,7 @@ static TokenizerParseInfo ParseTriggerDeck[] =
 {
     { "{",                        TOK_START, 0                                                        },
     { "",                        TOK_STRUCTPARAM | TOK_STRING(ScriptTriggerDeck, triggerDeckName, 0)    },
-    { "Requires",                TOK_STRINGARRAY(ScriptTriggerDeck, requires)                        },
+    { "Requires",                TOK_STRINGARRAY(ScriptTriggerDeck, required)                        },
     { "Trigger",                TOK_STRUCT(ScriptTriggerDeck, triggers, ParseTrigger)                },
     { "Type",                    TOK_INT(ScriptTriggerDeck, type, 0), triggerDeckTypeEnum            },
     { "ShuffleAt",                TOK_INT(ScriptTriggerDeck, shuffleAt, 0)                            },
@@ -989,7 +989,7 @@ static TokenizerParseInfo ParseUIItem[] =
 typedef struct ScriptZEUICollection
 {
     char *collName;
-    char **requires;
+    char **required;
     ScriptZEUIItem **items;
 } ScriptZEUICollection;
 
@@ -997,7 +997,7 @@ static TokenizerParseInfo ParseUICollection[] =
 {
     { "{",                        TOK_START, 0                                                        },
     { "",                        TOK_STRUCTPARAM | TOK_STRING(ScriptZEUICollection, collName, 0)        },
-    { "Requires",                TOK_STRINGARRAY(ScriptZEUICollection, requires)                        },
+    { "Requires",                TOK_STRINGARRAY(ScriptZEUICollection, required)                        },
     { "UIItem",                    TOK_STRUCT(ScriptZEUICollection, items, ParseUIItem)                },
     { "}",                        TOK_END, 0                                                            },
     { "", 0, 0 }
@@ -1343,11 +1343,11 @@ static void ScriptedZoneEventShutdown()
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
-// Evaluate an optional requires, return true if it's not provided
+// Evaluate an optional required, return true if it's not provided
 //
 static int ScriptedZoneEvent_Eval(char **eval)
 {
-    // If the requires is absent, it defaults to succeeding
+    // If the required is absent, it defaults to succeeding
     if (eval == NULL)
     {
         return 1;
@@ -2037,7 +2037,7 @@ static void ScriptedZoneEventOnEnterVolume(ENTITY player, STRING name)
         {
             UICollection = stage->UICollections[i];
             collection = StringAdd("Collection:", UICollection->collName);
-            if (ScriptUICollectionExists(collection) && ScriptedZoneEvent_Eval(UICollection->requires))
+            if (ScriptUICollectionExists(collection) && ScriptedZoneEvent_Eval(UICollection->required))
             {
                 // If they just popped out and back in
                 if (IsEntityOnScriptTeam(player, "VolumeExited"))
@@ -2136,7 +2136,7 @@ static int ScriptedZoneEventOnEnterMap(ENTITY player)
         {
             UICollection = stage->UICollections[i];
             collection = StringAdd("Collection:", UICollection->collName);
-            if (ScriptUICollectionExists(collection) && ScriptedZoneEvent_Eval(UICollection->requires))
+            if (ScriptUICollectionExists(collection) && ScriptedZoneEvent_Eval(UICollection->required))
             {
                 // If they just popped out and back in
                 if (IsEntityOnScriptTeam(player, "VolumeExited"))
@@ -4785,7 +4785,7 @@ static int ProcessTriggers(ScriptTrigger **triggers, int processLimit)
         currentTrigger = triggers[i];
 
         // Triggers are oneshots, skip them if they have already fired
-        if (!currentTrigger->fired && ScriptedZoneEvent_Eval(currentTrigger->requires))
+        if (!currentTrigger->fired && ScriptedZoneEvent_Eval(currentTrigger->required))
         {
             // Mark the trigger as fired.  Do this first so that a reset of this trigger in one of the action blocks will turn this into a repeatable trigger
             currentTrigger->fired = 1;
@@ -4820,7 +4820,7 @@ static int ProcessTriggerDecks(ScriptTriggerDeck **triggerDecks, int processLimi
         currentTriggerDeck = triggerDecks[i];
 
         // Trigger Decks only fire once per trigger until reset
-        if (!currentTriggerDeck->fired && ScriptedZoneEvent_Eval(currentTriggerDeck->requires))
+        if (!currentTriggerDeck->fired && ScriptedZoneEvent_Eval(currentTriggerDeck->required))
         {
             currentTriggerDeck->fired = 1;
 
@@ -4886,7 +4886,7 @@ static void InitStage(ScriptStage *stage)
         if (stage->timers[i]->isActionTimer)
         {
             //    server had this lying around from a previous instance
-            //    Remove it so it doesn't trip a requires on accident
+            //    Remove it so it doesn't trip a required on accident
             StructDestroy(ParseTimer, stage->timers[i]);
             eaRemove(&stage->timers, i);
         }
@@ -5332,7 +5332,7 @@ void ScriptedZoneEvent(void)
                         {
                             UICollection = stage->UICollections[j];
                             collection = StringAdd("Collection:", UICollection->collName);
-                            if (ScriptUICollectionExists(collection) && ScriptedZoneEvent_Eval(UICollection->requires))
+                            if (ScriptUICollectionExists(collection) && ScriptedZoneEvent_Eval(UICollection->required))
                             {
                                 // Show the UI.
                                 ScriptUIShow(collection, player);
@@ -5364,7 +5364,7 @@ void ScriptedZoneEvent(void)
                         {
                             UICollection = stage->UICollections[j];
                             collection = StringAdd("Collection:", UICollection->collName);
-                            if (ScriptUICollectionExists(collection) && ScriptedZoneEvent_Eval(UICollection->requires) &&
+                            if (ScriptUICollectionExists(collection) && ScriptedZoneEvent_Eval(UICollection->required) &&
                                 EntityInArea(player, StringAdd("trigger:", script->eventVolume)))
                             {
                                 // If they just popped out and back in

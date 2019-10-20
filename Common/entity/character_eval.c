@@ -2833,7 +2833,7 @@ void chareval_AddDefaultFuncs(EvalContext *pContext)
 // Sticking this function here for no particular reason.
 //
 
-int chareval_requires(Character *pchar, char *requires, const char *dataFilename)
+int chareval_requires(Character *pchar, char *required, const char *dataFilename)
 {
     char        *requires_copy;
     char        *argv[100];
@@ -2843,7 +2843,7 @@ int chareval_requires(Character *pchar, char *requires, const char *dataFilename
     int            result;
 
     result = false;
-    requires_copy = strdup(requires);
+    requires_copy = strdup(required);
     argc = tokenize_line(requires_copy, argv, 0);
     if (argc > 0)
     {
@@ -2860,7 +2860,7 @@ int chareval_requires(Character *pchar, char *requires, const char *dataFilename
     return result;
 }
 
-void chareval_requiresValidate(char *requires, const char *dataFilename)
+void chareval_requiresValidate(char *required, const char *dataFilename)
 {
     char        *requires_copy;
     char        *argv[100];
@@ -2868,7 +2868,7 @@ void chareval_requiresValidate(char *requires, const char *dataFilename)
     int            argc;
     int            i;
 
-    requires_copy = strdup(requires);
+    requires_copy = strdup(required);
     argc = tokenize_line(requires_copy, argv, 0);
     if (argc > 0)
     {

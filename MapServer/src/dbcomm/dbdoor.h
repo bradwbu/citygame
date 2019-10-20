@@ -30,7 +30,7 @@ typedef enum
 
 typedef struct DoorRequires
 {
-    char        *requires;
+    char        *required;
     char        *lockedText;
     int            allowThrough;
 } DoorRequires;
@@ -43,7 +43,7 @@ typedef struct DoorEntry
     char        *name;
     char        *filename;
     char        *special_info;
-    char        *requires;
+    char        *required;
     char        *lockedText;
     DoorRequires doorRequires[MAX_DOOR_REQUIRES];
     int            entry_min,entry_max;    // level you must be between to use this door

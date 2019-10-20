@@ -2167,7 +2167,7 @@ static int fxUpdateFxStateFromParentSeq( FxObject * fx )
             fx->last_move_of_parent = parent_move_num;
 
             //by checking requiremrents
-            seqSetSparseOutputs( state, &parent_move->raw.requires );
+            seqSetSparseOutputs( state, &parent_move->raw.required );
 
             //and by checking children to do make it sets on children
             if( eaSize( &parent_move->setsOnChildStr ) ) //99.9% none

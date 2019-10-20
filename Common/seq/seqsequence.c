@@ -467,7 +467,7 @@ static void JfdChecker(const SeqMove * other_newmove[], int other_newmove_count,
     {
         const SeqMove *move = info->moves[i];
 
-        if ( move->priority >= highest_priority_yet_found && sparseRequiresMet( &move->raw.requires, state ) ) 
+        if ( move->priority >= highest_priority_yet_found && sparseRequiresMet( &move->raw.required, state ) ) 
         {    
             if ( move->priority > highest_priority_yet_found )
             {
@@ -756,7 +756,7 @@ static const SeqMove * seqStep( Animation * anim, const SeqInfo * info, U32 stat
 
     if ( anim->frame > last_frame )
     {
-        if ( ( move->flags & SEQMOVE_CYCLE ) && sparseRequiresMet( &move->raw.requires, state ) )
+        if ( ( move->flags & SEQMOVE_CYCLE ) && sparseRequiresMet( &move->raw.required, state ) )
         {    
             if( move->flags & SEQMOVE_COMPLEXCYCLE )
             {
@@ -880,7 +880,7 @@ const SeqMove * seqForceGetMove( SeqInst * seq, U32 state[], U32 requiresThisBit
                 move = seq->info->moves[eaiGet(&bitInfo->movesRemainingThatRequireMe, j)];
 
                 /////// Copy and paste from above 
-                if( !requiresThisBit || testSparseBit( &move->raw.requires, requiresThisBit ) ) //hack for HIT bit
+                if( !requiresThisBit || testSparseBit( &move->raw.required, requiresThisBit ) ) //hack for HIT bit
                 {
                     if ( move->priority >= highest_priority_yet_found) 
                     {    
@@ -961,7 +961,7 @@ static const SeqMove * seqSearchInterrupts( SeqInst * seq, const SeqMove * currm
                     move = seq->info->moves[eaiGet(&bitInfo->movesRemainingThatRequireMe, j+FETCH_AHEAD)];
                     //Prefetch(move);
                     Prefetch(move);
-                    Prefetch(&move->raw.requires);
+                    Prefetch(&move->raw.required);
                     Prefetch(move->raw.interruptsBitArray);
                 }
 #endif
@@ -973,9 +973,9 @@ static const SeqMove * seqSearchInterrupts( SeqInst * seq, const SeqMove * currm
                     continue;
 
                 /////// Copy and paste from above 
-                if( !requiresThisBit || testSparseBit( &move->raw.requires, requiresThisBit ) ) //hack for HIT bit
+                if( !requiresThisBit || testSparseBit( &move->raw.required, requiresThisBit ) ) //hack for HIT bit
                 {
-                    if ( move->priority >= highest_priority_yet_found && sparseRequiresMet( &move->raw.requires, state ) ) 
+                    if ( move->priority >= highest_priority_yet_found && sparseRequiresMet( &move->raw.required, state ) ) 
                     {    
                         if ( move->priority > highest_priority_yet_found )
                         {
@@ -1124,7 +1124,7 @@ const SeqMove * seqProcessInst( SeqInst *seq, F32 timestep )
     //### 2. If no newmove and current move's reqs must be met every frame, check that.  
     if ( !seq->forceInterrupt && (!newmove || newmove == currmove)
         && ( currmove->flags & (SEQMOVE_CYCLE | SEQMOVE_REQINPUTS) ) && !( currmove->flags & SEQMOVE_FINISHCYCLE ) 
-        && !sparseRequiresMet(&currmove->raw.requires, state) )
+        && !sparseRequiresMet(&currmove->raw.required, state) )
     {    
         //SEQPARSE nextmove
         newmove = seq->info->moves[currmove->raw.nextMove[0]];

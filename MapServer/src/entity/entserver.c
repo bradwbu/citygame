@@ -818,7 +818,7 @@ static void entUpdate(Entity *e,ControlState *controls,EntType entType)
             e->timeMoveChanged = ((F32)ABS_TIME/100.0) + 0.0001; //so assert later will work on first frame
 
             //Mild hack: running out of door animation should never get delayed
-            if( testSparseBit(&e->seq->animation.move_to_send->raw.requires, STATE_EMERGE ) )
+            if( testSparseBit(&e->seq->animation.move_to_send->raw.required, STATE_EMERGE ) )
                 e->timeMoveChanged = 0;
         }
 

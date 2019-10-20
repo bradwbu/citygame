@@ -4102,7 +4102,7 @@ void chatCommand( Cmd * cmd, ClientLink *client, char* str )
                                             chatSendToPlayer(invitee->db_id, localizedPrintf(NULL,"CouldNotActionPlayerReason", "JoinString", teammate->name,"TUTInvalidMissionForPlayerTeammate"), INFO_SVR_COM, 0);
                                             break;
                                         }
-                                        if (turnstileConfigDef.missions[stack_tmp_int2]->requires && !chareval_requires(teammate->pchar, turnstileConfigDef.missions[stack_tmp_int2]->requires, "defs/turnstile_server.def"))
+                                        if (turnstileConfigDef.missions[stack_tmp_int2]->required && !chareval_requires(teammate->pchar, turnstileConfigDef.missions[stack_tmp_int2]->required, "defs/turnstile_server.def"))
                                         {
                                             //    invalid mission
                                             chatSendToPlayer(invitee->db_id, localizedPrintf(NULL,"CouldNotActionPlayerReason", "JoinString", teammate->name,"TUTInvalidMissionForPlayerTeammate"), INFO_SVR_COM, 0);
@@ -4130,7 +4130,7 @@ void chatCommand( Cmd * cmd, ClientLink *client, char* str )
                                     chatSendToPlayer(invitee->db_id, localizedPrintf(NULL,"CouldNotActionPlayerReason", "JoinString", player_name,"TUTInvalidMissionForPlayer"), INFO_SVR_COM, 0);
                                     break;
                                 }
-                                if (turnstileConfigDef.missions[stack_tmp_int2]->requires && !chareval_requires(invitee->pchar, turnstileConfigDef.missions[stack_tmp_int2]->requires, "defs/turnstile_server.def"))
+                                if (turnstileConfigDef.missions[stack_tmp_int2]->required && !chareval_requires(invitee->pchar, turnstileConfigDef.missions[stack_tmp_int2]->required, "defs/turnstile_server.def"))
                                 {
                                     //    invalid mission
                                     chatSendToPlayer(invitee->db_id, localizedPrintf(NULL,"CouldNotActionPlayerReason", "JoinString", player_name,"TUTInvalidMissionForPlayer"), INFO_SVR_COM, 0);

@@ -140,7 +140,7 @@ typedef struct SparseBits
 typedef struct SeqMoveRaw
 {
     //State Machine
-    SparseBits    requires;            //Bits required to be set to fire this move        
+    SparseBits    required;            //Bits required to be set to fire this move        
 
     U32            memberBitArray[MAX_IRQ_ARRAY_SIZE];
     U32            interruptsBitArray[MAX_IRQ_ARRAY_SIZE];

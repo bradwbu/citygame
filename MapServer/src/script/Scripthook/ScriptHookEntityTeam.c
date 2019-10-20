@@ -2093,7 +2093,7 @@ STRING GetGender(ENTITY entity)
 
 int EvalEntityRequires(ENTITY entity, STRING expr, STRING dataFilename)
 {
-    char        *requires;
+    char        *required;
     char        *argv[100];
     StringArray exprArray;
     int            argc;
@@ -2103,8 +2103,8 @@ int EvalEntityRequires(ENTITY entity, STRING expr, STRING dataFilename)
 
     if( e )
     {
-        requires = strdup(expr);
-        argc = tokenize_line(requires, argv, 0);
+        required = strdup(expr);
+        argc = tokenize_line(required, argv, 0);
         if (argc > 0)
         {
             eaCreate(&exprArray);
@@ -2113,8 +2113,8 @@ int EvalEntityRequires(ENTITY entity, STRING expr, STRING dataFilename)
 
             retval = chareval_Eval(e->pchar, exprArray, dataFilename);
         }
-        if (requires)
-            free(requires);
+        if (required)
+            free(required);
     }
     return retval;
 }

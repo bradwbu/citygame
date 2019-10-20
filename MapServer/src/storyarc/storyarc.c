@@ -2678,20 +2678,20 @@ static int AllTeamMembersPresent(Entity* player)
     return 1;
 }
 
-int AllTeamMembersPassRequires(Entity *player, char **requires, char *dataFilename)
+int AllTeamMembersPassRequires(Entity *player, char **required, char *dataFilename)
 {
     int i;
 
     if (!player->teamup_id)
     {
-        return chareval_Eval(player->pchar, requires, dataFilename);
+        return chareval_Eval(player->pchar, required, dataFilename);
     }
     else
     {
         for (i = 0; i < player->teamup->members.count; i++)
         {
             Entity *ent = entFromDbId(player->teamup->members.ids[i]);
-            if (!ent || !chareval_Eval(ent->pchar, requires, dataFilename))
+            if (!ent || !chareval_Eval(ent->pchar, required, dataFilename))
                 return 0;
         }
         return 1;

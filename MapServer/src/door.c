@@ -1630,16 +1630,16 @@ void enterDoor(Entity *e,Vec3 pos,char* selected_map_id,int is_volume,StashTable
             Strcpy( errmsg, localizedPrintf(e,"HeroOnly") );
             canEnterDoor = 0;
         }
-        if (door->requires)
+        if (door->required)
         {
-            char        *requires;
+            char        *required;
             char        *argv[100];
             StringArray expr;
             int            argc;
             int            i;
 
-            strdup_alloca(requires, door->requires);
-            argc = tokenize_line(requires, argv, 0);
+            strdup_alloca(required, door->required);
+            argc = tokenize_line(required, argv, 0);
             if (argc > 0)
             {
                 eaCreate(&expr);
@@ -1660,25 +1660,25 @@ void enterDoor(Entity *e,Vec3 pos,char* selected_map_id,int is_volume,StashTable
         // OK, so what's with the '@' test?  The first time through here, it will be absent, so this loop goes through all it's work.  If we get a case where
         // allowThrough is true, but there's text, we don't allow passage immediately, instead the user is presented with a yes/no popup.  If they select yes,
         // it eventually reaches here again, but this time an '@' has been prepended to the selected map id
-        if (canEnterDoor && door->doorRequires[0].requires && selected_map_id[0] != '@' && atoi(selected_map_id) == 0)
+        if (canEnterDoor && door->doorRequires[0].required && selected_map_id[0] != '@' && atoi(selected_map_id) == 0)
         {
             // DGNOTE 1/7/2010
-            // To handle the shenanigens of places like the Pocket D door to Port Oakes, we have a sequence of requires, with a matching sequence of flags
+            // To handle the shenanigens of places like the Pocket D door to Port Oakes, we have a sequence of required, with a matching sequence of flags
             // and another matching sequence of "locked text" strings.
             int i;
             int j;
             char *translated;
             char *toolong1 = "Warning message \"";
             char *toolong2 = "\" is too long, maximum character count is 1000.  Please shorten it.";
-            char *requires;
+            char *required;
             char *argv[100];
             StringArray expr;
             int argc;
 
-            for (i = 0; i < MAX_DOOR_REQUIRES && door->doorRequires[i].requires; i++)
+            for (i = 0; i < MAX_DOOR_REQUIRES && door->doorRequires[i].required; i++)
             {
-                strdup_alloca(requires, door->doorRequires[i].requires);
-                argc = tokenize_line(requires, argv, 0);
+                strdup_alloca(required, door->doorRequires[i].required);
+                argc = tokenize_line(required, argv, 0);
                 if (argc > 0)
                 {
                     eaCreate(&expr);
@@ -1689,7 +1689,7 @@ void enterDoor(Entity *e,Vec3 pos,char* selected_map_id,int is_volume,StashTable
 
                     if (chareval_Eval(e->pchar, expr, door->filename))
                     {
-                        // First test after determing we got a "requires hit" is whether they get through or not.  This is the final decision, no other requires will be
+                        // First test after determing we got a "required hit" is whether they get through or not.  This is the final decision, no other requires will be
                         // evaluated
                         if (door->doorRequires[i].allowThrough)
                         {
