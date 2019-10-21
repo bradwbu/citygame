@@ -10,6 +10,7 @@
 #define GLOBAL_AUTH_PROTOCOL_VERSION        30810    // version used for worldwide release
 #define GR_REACTIVATION_PROTOCOL_VERSION    100903    // First version to support GR reactivation
 #define OUROBOROS_PROTOCOL_VERSION_1        190516  // Enables sending list of shard names in server list packet
+#define OUROBOROS_PROTOCOL_VERSION_2        191021  // Allows client to specify which server groups to show
 
 typedef struct
 {

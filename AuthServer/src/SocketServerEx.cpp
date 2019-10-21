@@ -384,7 +384,36 @@ static bool ServerListExtPacket(CSocketServerEx *mysocket, const unsigned char *
     UINT md5key = GetIntFromPacket( packet );
     char ListKind = GetCharFromPacket( packet );
     
-    if ( ListKind !=1)
+    int clientRegion[MAX_REGIONS];
+    int numRegions = 0;
+
+    if (config.ProtocolVer >= OUROBOROS_PROTOCOL_VERSION_2)
+    {
+        numRegions = (int) GetCharFromPacket(packet);
+        if (numRegions > MAX_REGIONS)
+            printf("Packet requested %d regions, max allowed is %d\n", numRegions, MAX_REGIONS);
+
+        for (int r = 0; r < MAX_REGIONS; r++)
+        {
+            clientRegion[r] = 0;
+        }
+
+        //We read all the regions in now, even if there are too many, so we stay aligned with the packet
+        for (int r = 0; r < numRegions; r++)
+        {
+            if (r < MAX_REGIONS)
+            {
+                clientRegion[r] = GetIntFromPacket(packet);
+            }
+            else
+            {
+                GetIntFromPacket(packet); // Throw it away
+            }
+        }
+        numRegions = min(numRegions, MAX_REGIONS);
+    }
+
+   if ( ListKind !=1)
     {
         mysocket->Send( "cc", AC_SEND_SERVER_FAIL, S_NO_SERVERLIST );
         return false;
@@ -406,7 +435,14 @@ static bool ServerListExtPacket(CSocketServerEx *mysocket, const unsigned char *
 
     std::vector<char> message;
     message.reserve(2048);
-    g_ServerList.MakeServerListPacket(message, serverid, regions);
+    if (config.ProtocolVer >= OUROBOROS_PROTOCOL_VERSION_2 && numRegions > 0)
+    {
+        g_ServerList.MakeServerListPacket(message, serverid, clientRegion);
+    }
+    else
+    {
+        g_ServerList.MakeServerListPacket(message, serverid, regions);
+    }
 
     mysocket->Send( &(message[0]), (int)message.size() );
 

@@ -44,8 +44,9 @@ void CServerList::Load()
     conn.Bind( &worldserver.ageLimit );
     conn.Bind( &worldserver.pkflag );
     conn.Bind( &worldserver.region_id );
+    conn.Bind( &worldserver.outer_port );
     
-    if ( conn.Execute("Select id, name, ip, inner_ip, ageLimit, pk_flag, server_group_id From server Order by id") )
+    if ( conn.Execute("Select id, name, ip, inner_ip, ageLimit, pk_flag, server_group_id, client_port From server Order by id") )
      {
         bool nodata;
         conn.Fetch( &nodata );
@@ -54,7 +55,7 @@ void CServerList::Load()
             worldserver.serverid.SetValue(localServerId);
             worldserver.inner_addr.S_un.S_addr = *(ULONG*)gethostbyname(worldserver.inner_ip)->h_addr_list[0];
             worldserver.outer_addr.S_un.S_addr = *(ULONG*)gethostbyname(worldserver.ip)->h_addr_list[0];
-            worldserver.outer_port=config.worldPort;
+            if ( worldserver.outer_port <= 0 ) { worldserver.outer_port=config.worldPort; }
             worldserver.s = NULL;
             worldserver.UserNum = 0;
             worldserver.maxUsers = 0;
@@ -66,7 +67,7 @@ void CServerList::Load()
                 static_cast<int>(worldserver.serverid.GetValueChar()),
                 worldserver.inner_ip,
                 worldserver.ip,
-                port,
+                worldserver.outer_port,
                 worldserver.ageLimit, 
                 worldserver.pkflag);
 
