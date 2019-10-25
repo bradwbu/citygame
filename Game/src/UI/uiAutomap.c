@@ -960,9 +960,9 @@ static int miniMapStaticIconLoader(GroupDefTraverser* traverser)
 
     stashFindPointer( traverser->def->properties, "Requires", &requiresProp );
     if (requiresProp) 
-        staticIcons[staticIconCount].requires = strdup(requiresProp->value_str);
+        staticIcons[staticIconCount].required = strdup(requiresProp->value_str);
     else 
-        staticIcons[staticIconCount].requires = 0;
+        staticIcons[staticIconCount].required = 0;
 
     strcpy( staticIcons[staticIconCount].name, typeProp->value_str );
     strcpy( staticIcons[staticIconCount].mapName, gMapName );
@@ -1028,10 +1028,10 @@ static void clearStaticIcons()
 
     for (i=0; i<staticIconCount; i++)
     {
-        if (staticIcons[i].requires)
+        if (staticIcons[i].required)
         {
-            free(staticIcons[i].requires);
-            staticIcons[i].requires = 0;
+            free(staticIcons[i].required);
+            staticIcons[i].required = 0;
         }
         clearDestination(&staticIcons[i]);
     }
@@ -2117,11 +2117,11 @@ int drawIcons( Destination *icons, int iconcount, int mapWidth, int mapHeight, f
             continue;
         }
 
-        if (icons[i].requires)
+        if (icons[i].required)
         {
             if (e) 
             {
-                if (!chareval_requires(e->pchar, icons[i].requires, icons[i].pchSourceFile))
+                if (!chareval_requires(e->pchar, icons[i].required, icons[i].pchSourceFile))
                 {
                     continue; 
                 }

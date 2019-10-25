@@ -169,8 +169,8 @@ TokenizerParseInfo ParseMoveP[] =
     { "",    TOK_U8(SeqMove, raw.cycleMoveCnt, 0)    },
     { "",    TOK_FIXED_ARRAY | TOK_INT16_X, offsetof(SeqMove, raw.nextMove), MAX_NEXT_MOVES        },
     { "",    TOK_FIXED_ARRAY | TOK_INT16_X, offsetof(SeqMove, raw.cycleMove), MAX_CYCLE_MOVES    },
-    { "",    TOK_INT(SeqMove, raw.requires.count, 0)    },    
-    { "",    TOK_FIXED_ARRAY | TOK_INT16_X, offsetof(SeqMove, raw.requires.bits), MAX_SPARSE_BITS    },
+    { "",    TOK_INT(SeqMove, raw.required.count, 0)    },    
+    { "",    TOK_FIXED_ARRAY | TOK_INT16_X, offsetof(SeqMove, raw.required.bits), MAX_SPARSE_BITS    },
     { "",    TOK_FIXED_ARRAY | TOK_INT_X, offsetof(SeqMove, raw.memberBitArray), MAX_IRQ_ARRAY_SIZE    },
     { "",    TOK_FIXED_ARRAY | TOK_INT_X, offsetof(SeqMove, raw.interruptsBitArray), MAX_IRQ_ARRAY_SIZE    },
 
@@ -290,7 +290,7 @@ static void setPredictability( SeqMove * move )
         }
     }
 
-    if( areOnlyTheseBitsSet( &move->raw.requires, bits_ok_to_predict) )
+    if( areOnlyTheseBitsSet( &move->raw.required, bits_ok_to_predict) )
         move->flags |= SEQMOVE_PREDICTABLE;
     else
         move->flags &= ~SEQMOVE_PREDICTABLE;
@@ -572,9 +572,9 @@ static void seqCacheMovesPerBit(SeqInfo* seqInfo, bool shared_memory)
         U32 h;
         const SeqMove *move = seqInfo->moves[i];
 
-        for( h = 0; h < move->raw.requires.count; ++h )
+        for( h = 0; h < move->raw.required.count; ++h )
         {
-            int bit = move->raw.requires.bits[h];
+            int bit = move->raw.required.bits[h];
             if( stateBits[bit].name &&            //If this is a bit that's used 
                 !TSTB(moveIsOnAList, i) &&        //And this move hasn't been put on the check list of another one of its required bits already
                 eaSize(&move->interruptsStr) )    //And this move actually interrupts something
@@ -795,7 +795,7 @@ static void seqInitializePreLoad(SeqInfo * seqInfo)
         setUpRawCycleMoves(move, seqInfo->name, seqInfo);
 
         /////////// set raw bitfields
-        setBitsFromString( move->requiresStr, &move->raw.requires, move->name, seqInfo->name );
+        setBitsFromString( move->requiresStr, &move->raw.required, move->name, seqInfo->name );
         // Don't free the requireStr since it is now in the StringCache (has TOK_POOL_STRING flag) and is probably pointed to by other strings
         //for (k = 0; k < eaSize(&move->requiresStr); ++k)
         //    StructFreeString(move->requiresStr[k]);

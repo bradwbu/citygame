@@ -286,7 +286,7 @@ static void gatherDoors(DoorList *doors,char *lookfor,char *lookfor_special,int 
 
         name = groupDefFindPropertyValue(def_trav->def,"Requires");
         if (name)
-            door->requires = strdup(name);
+            door->required = strdup(name);
         name = groupDefFindPropertyValue(def_trav->def,"LockedText");
         if (name)
             door->lockedText = strdup(name);
@@ -299,7 +299,7 @@ static void gatherDoors(DoorList *doors,char *lookfor,char *lookfor_special,int 
             char requiresName[32];
             char lockedTextName[32];
             char allowThroughName[32];
-            char *requires;
+            char *required;
             char *lockedText;
             char *allowThrough;
 
@@ -309,15 +309,15 @@ static void gatherDoors(DoorList *doors,char *lookfor,char *lookfor_special,int 
             lockedTextName[31] = 0;
             _snprintf(allowThroughName, 32, "AllowThrough%d", j + 1);
             allowThroughName[31] = 0;
-            requires = groupDefFindPropertyValue(def_trav->def, requiresName);
+            required = groupDefFindPropertyValue(def_trav->def, requiresName);
             lockedText = groupDefFindPropertyValue(def_trav->def, lockedTextName);
             allowThrough = groupDefFindPropertyValue(def_trav->def, allowThroughName);
 
-            if (requires == NULL)
+            if (required == NULL)
             {
                 break;
             }
-            door->doorRequires[j].requires = strdup(requires);
+            door->doorRequires[j].required = strdup(required);
             if (lockedText)
             {
                 door->doorRequires[j].lockedText = strdup(lockedText);
@@ -516,8 +516,8 @@ static void freeDoorList(DoorList *doors)
         free(doors->entries[i].name);
         free(doors->entries[i].filename);
         free(doors->entries[i].special_info);
-        if (doors->entries[i].requires)
-            free(doors->entries[i].requires);
+        if (doors->entries[i].required)
+            free(doors->entries[i].required);
         if (doors->entries[i].lockedText)
             free(doors->entries[i].lockedText);
     }

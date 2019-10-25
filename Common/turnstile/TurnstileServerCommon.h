@@ -65,7 +65,7 @@ typedef struct TurnstileMission
     int minimumDPS;                    // Minimum DPS count needed
     int minimumMelee;                // Optional minimum melee DPS needed
     int minimumRanged;                // Optional minimum ranged DPS needed
-    char *requires;                    // Requires statement that determines if the player is eligible
+    char *required;                    // Requires statement that determines if the player is eligible
     char *hideIf;                    // Requires statement that hides if the player is the state
     TUT_MissionType    type;            // What do do with the group when it's assembled
     char **mapName;                    // This gives the mapname for both instances and zone missions - if multiple are specified one will be picked randomly

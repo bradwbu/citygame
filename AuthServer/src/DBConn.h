@@ -112,4 +112,6 @@ protected:
 
 extern DBEnv *g_linDB;
 
+BOOL CALLBACK LoginDlgProc(HWND hDlg, DWORD dwMessage, DWORD wParam, DWORD lParam);
+
 #endif // !defined(AFX_DBCONN_H__BE8285EA_B6EF_4AB1_83B4_8FE6EA59F5BA__INCLUDED_)

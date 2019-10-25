@@ -11,7 +11,7 @@ void ForbiddenZonesCheckPlayers(void)
  {
     int i, j;
     int    groupNumber = NumEntitiesInTeam( ALL_PLAYERS );        
-    int requires = true;
+    int required = true;
 
     for( j = 1 ; j <= groupNumber ; j++ )
     {
@@ -30,10 +30,10 @@ void ForbiddenZonesCheckPlayers(void)
     
         if (!VarIsEmpty("MapMoveRequires"))
         {
-            requires = EvalEntityRequires(player, VarGet("MapMoveRequires"), Script_GetCurrentBlame());
+            required = EvalEntityRequires(player, VarGet("MapMoveRequires"), Script_GetCurrentBlame());
         }
 
-        if (!VarIsEmpty("MapMoveNumber") && !VarIsEmpty("MapMoveTarget") && requires)
+        if (!VarIsEmpty("MapMoveNumber") && !VarIsEmpty("MapMoveTarget") && required)
         {
             SetMap (player, VarGetNumber("MapMoveNumber"), VarGet("MapMoveTarget"));
         }

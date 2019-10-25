@@ -80,7 +80,7 @@ void StoryArcAddCurrentBroker(Entity* player, StoryInfo* info);
 void StoryArcAddCurrentPvPContact(Entity* player, StoryInfo* info);
 int entity_IsOnStoryArc(Entity *e, const char *storyArcName);
 
-int AllTeamMembersPassRequires(Entity *player, char **requires, char *dataFilename);
+int AllTeamMembersPassRequires(Entity *player, char **required, char *dataFilename);
 
 // *********************************************************************************
 //  Story arc debugging

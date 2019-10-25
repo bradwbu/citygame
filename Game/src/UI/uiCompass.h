@@ -37,7 +37,7 @@ typedef struct Destination
 
     char    name[256];        // der
     char    mapName[512];    // the map the destination is on
-    char    *requires;    // if the destination has a requires to show on the minimap, there's a copy here.
+    char    *required;    // if the destination has a requires to show on the minimap, there's a copy here.
     bool    dontTranslateName;    // don't translate the name field.  Show as-is (mainly for player names)
 
     int        uid;            // the UID to match with when the server sends a waypoint

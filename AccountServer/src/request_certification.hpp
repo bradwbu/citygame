@@ -20,4 +20,5 @@ class RequestCertificationClaim : public AccountClaimRequest {
     virtual void State_Fulfill(bool timeout);
 };
 
+void handleTransactionFinish(AccountServerShard* shard, Packet* pak_in);
 #endif

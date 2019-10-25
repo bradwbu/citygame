@@ -2504,8 +2504,8 @@ static const SeqMove * runSequencerMoveUpdate( Entity *e, int *needCostumeApply 
         //If you are a BLOCK and you have already gone off, go into predictable mode so you can be properly interrupted by new stuff.
         if( !e->move_updated )  
         {
-            if( ( testSparseBit( &seq->info->moves[e->move_idx]->raw.requires, STATE_BLOCK ) && !e->move_updated ) ||
-                ( testSparseBit( &seq->info->moves[e->move_idx]->raw.requires, STATE_HIT   ) && !e->move_updated ) )
+            if( ( testSparseBit( &seq->info->moves[e->move_idx]->raw.required, STATE_BLOCK ) && !e->move_updated ) ||
+                ( testSparseBit( &seq->info->moves[e->move_idx]->raw.required, STATE_HIT   ) && !e->move_updated ) )
                 moveIsPredictable = 1;
         }
 
