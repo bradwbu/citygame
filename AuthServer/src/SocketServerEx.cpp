@@ -435,7 +435,7 @@ static bool ServerListExtPacket(CSocketServerEx *mysocket, const unsigned char *
 
     std::vector<char> message;
     message.reserve(2048);
-    if (config.ProtocolVer >= OUROBOROS_PROTOCOL_VERSION_2 && numRegions > 0)
+    if (config.useClientSpecifiedRegions && numRegions > 0)
     {
         g_ServerList.MakeServerListPacket(message, serverid, clientRegion);
     }
