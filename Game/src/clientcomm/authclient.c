@@ -150,7 +150,7 @@ void acSendServerList()
 
     authPutArray(pak, session_id, 8 );
     authPutU08(pak, server_list_expected);
-    if (auth_info.protocol >= OUROBOROS_PROTOCOL_VERSION_2)
+    if (authRequestSpecificGroups(auth_info.protocol))  // Check if our current protocol supports this
     {
         authPutU08(pak, min(game_state.numServerGroups, MAX_SERVER_GROUPS)); // Number of server groups we are requesting
         for (int r = 0; r < game_state.numServerGroups && r < MAX_SERVER_GROUPS; r++)

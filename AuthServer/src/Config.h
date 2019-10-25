@@ -118,6 +118,9 @@ public:
 
     const char *connectionString;
 
+    bool useClientSpecifiedRegions;
+    bool dbHasClientPorts;
+
 private:
     StringMap map;
 

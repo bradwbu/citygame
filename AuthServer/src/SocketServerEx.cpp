@@ -387,7 +387,7 @@ static bool ServerListExtPacket(CSocketServerEx *mysocket, const unsigned char *
     int clientRegion[MAX_REGIONS];
     int numRegions = 0;
 
-    if (config.ProtocolVer >= OUROBOROS_PROTOCOL_VERSION_2)
+    if (config.useClientSpecifiedRegions)
     {
         numRegions = (int) GetCharFromPacket(packet);
         if (numRegions > MAX_REGIONS)

@@ -7,9 +7,7 @@
 #include "cmdparse/cmdcommon.h"
 #include "group/groupscene.h" // For DOFValues struct
 #include "graphics/gfxSettings.h" // For OptionCubemap
-
-// This is equal to MAX_REGIONS in AuthServer, keep them in sync
-#define MAX_SERVER_GROUPS 10
+#include "auth/auth.h"
 
 typedef __int64 EntityRef;
 

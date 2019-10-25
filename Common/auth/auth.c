@@ -587,3 +587,11 @@ int authdbg_printf(const char *format, ...)
         return 0;
     }
 }
+
+//If you add new protocol versions that also request specific versions, add them here
+bool authRequestSpecificGroups(int version)
+{
+    if (version == OUROBOROS_PROTOCOL_VERSION_2) { return true; }
+    return false;
+}
+
