@@ -138,15 +138,15 @@ int ObjectiveHasFailed(STRING objective)
 
 NUMBER CheckMissionObjectiveExpression(STRING expression)
 {
-    char        *requires;
+    char        *required;
     char        *argv[100];
     StringArray expr;
     int            argc;
     int            i;
     NUMBER        retval = 0;
 
-    requires = strdup(expression);
-    argc = tokenize_line(requires, argv, 0);
+    required = strdup(expression);
+    argc = tokenize_line(required, argv, 0);
     if (argc > 0)
     {
         eaCreate(&expr);
@@ -155,8 +155,8 @@ NUMBER CheckMissionObjectiveExpression(STRING expression)
 
         retval = MissionObjectiveExpressionEval(expr);
     }
-    if (requires)
-        free(requires);    
+    if (required)
+        free(required);    
 
     return retval;
 }

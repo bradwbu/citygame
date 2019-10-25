@@ -83,8 +83,8 @@ void chareval_MapName(EvalContext *pcontext);
 void chareval_ScriptFetch(EvalContext *pcontext);
 void chareval_ProductAvailable(EvalContext *pcontext);
 
-int chareval_requires(Character *pchar, char *requires, const char *dataFilename);
-void chareval_requiresValidate(char *requires, const char *dataFilename);
+int chareval_requires(Character *pchar, char *required, const char *dataFilename);
+void chareval_requiresValidate(char *required, const char *dataFilename);
 
 #endif /* #ifndef CHARACTER_EVAL_H__ */
 

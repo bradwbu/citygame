@@ -67,7 +67,7 @@ static TokenizerParseInfo ParseMission[] =
     { "MinimumDPS",                TOK_INT(TurnstileMission, minimumDPS, 0)                        },
     { "MinimumMelee",            TOK_INT(TurnstileMission, minimumMelee, 0)                        },
     { "MinimumRanged",            TOK_INT(TurnstileMission, minimumRanged, 0)                        },
-    { "Requires",                TOK_STRING(TurnstileMission, requires, 0)                        },
+    { "Requires",                TOK_STRING(TurnstileMission, required, 0)                        },
     { "HideIf",                    TOK_STRING(TurnstileMission, hideIf, 0)                            },
     { "Type",                    TOK_INT(TurnstileMission, type, TUT_MissionType_Instance),    parse_TUT_MissionType        },
     { "MapName",                TOK_STRINGARRAY(TurnstileMission, mapName)                        },
@@ -185,9 +185,9 @@ bool TurnstileDefPostProcess(ParseTable pti[], TurnstileConfigDef *configDef)
         {
             chareval_requiresValidate(mission->hideIf, "defs/turnstile_server.def");
         }
-        if (mission->requires)
+        if (mission->required)
         {
-            chareval_requiresValidate(mission->requires, "defs/turnstile_server.def");
+            chareval_requiresValidate(mission->required, "defs/turnstile_server.def");
         }
     }
 #endif

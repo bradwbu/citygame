@@ -1357,13 +1357,13 @@ void GlowieSetDescriptions(GLOWIEDEF glowdef, STRING description, STRING singula
 void GlowieSetActivateRequires(GLOWIEDEF glowdef, STRING requiresParam)
 {
     MissionObjective *def = (MissionObjective *) glowdef;
-    mSTRING requires;
+    mSTRING required;
     int i;
     int argc;
     char *argv[100];
 
-    requires = StringCopySafe(requiresParam);
-    argc = tokenize_line(requires, argv, 0);
+    required = StringCopySafe(requiresParam);
+    argc = tokenize_line(required, argv, 0);
     if (argc > 0)
     {
         eaCreate(&def->activateRequires);
@@ -1377,13 +1377,13 @@ void GlowieSetActivateRequires(GLOWIEDEF glowdef, STRING requiresParam)
 void GlowieSetCharRequires(GLOWIEDEF glowdef, STRING requiresParam, STRING failText)
 {
     MissionObjective *def = (MissionObjective *) glowdef;
-    mSTRING requires;
+    mSTRING required;
     int i;
     int argc;
     char *argv[100];
 
-    requires = StringCopySafe(requiresParam);
-    argc = tokenize_line(requires, argv, 0);
+    required = StringCopySafe(requiresParam);
+    argc = tokenize_line(required, argv, 0);
     if (argc > 0)
     {
         eaCreate(&def->charRequires);

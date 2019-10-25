@@ -746,7 +746,7 @@ int accountExpressionEval(AccountInventorySet* invSet, U8 *loyalty, int pointsEa
     return eval_Evaluate(pAccountExpressionEvalContext, expr);
 }
 
-int accountEval(AccountInventorySet* invSet, U8 *loyalty, int pointsEarned, U32 *authBits, const char *requires)
+int accountEval(AccountInventorySet* invSet, U8 *loyalty, int pointsEarned, U32 *authBits, const char *required)
 {
     char        *requires_copy;
     char        *argv[100];
@@ -755,11 +755,11 @@ int accountEval(AccountInventorySet* invSet, U8 *loyalty, int pointsEarned, U32 
     int            i;
     int            result;
 
-    if (invSet == NULL || loyalty == NULL || requires == NULL)
+    if (invSet == NULL || loyalty == NULL || required == NULL)
         return false;
 
     result = false;
-    requires_copy = strdup(requires);
+    requires_copy = strdup(required);
     argc = tokenize_line(requires_copy, argv, 0);
     if (argc > 0)
     {

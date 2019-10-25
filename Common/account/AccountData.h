@@ -341,7 +341,7 @@ AccountInventory*        AccountInventorySet_Find( AccountInventorySet* invSet, 
 // Account Expression Evaluator
 
 #if defined CLIENT || defined SERVER || defined TEST_CLIENT
-int accountEval(AccountInventorySet* invSet, U8 *loyalty, int pointsEarned, U32 *authBits, const char *requires);
+int accountEval(AccountInventorySet* invSet, U8 *loyalty, int pointsEarned, U32 *authBits, const char *required);
 #endif
 
 C_DECLARATIONS_END

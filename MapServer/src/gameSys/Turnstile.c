@@ -132,7 +132,7 @@ void turnstileMapserver_handleRequestEventList(Entity *e)
         }
         else
         {
-            bool missionAvailable = !turnstileConfigDef.missions[i]->requires || chareval_requires(e->pchar, turnstileConfigDef.missions[i]->requires, "defs/turnstile_server.def");
+            bool missionAvailable = !turnstileConfigDef.missions[i]->required || chareval_requires(e->pchar, turnstileConfigDef.missions[i]->required, "defs/turnstile_server.def");
 
             if (missionAvailable && !LWC_checkMissionMapsReady(e, turnstileConfigDef.missions[i]))
                 missionAvailable = false;
@@ -173,10 +173,10 @@ static int turnstileMapserver_validateSinglePlayerEvent(Entity *e, int missionID
     if (!LWC_checkMissionMapsReady(e, turnstileConfigDef.missions[missionID]))
         requestIsValid = 0;
 
-    if (requestIsValid && turnstileConfigDef.missions[missionID]->requires != NULL)
+    if (requestIsValid && turnstileConfigDef.missions[missionID]->required != NULL)
     {
         // Otherwise we're solo, just check the requesting Entity
-        if (chareval_requires(e->pchar, turnstileConfigDef.missions[missionID]->requires, "defs/turnstile_server.def") == 0)
+        if (chareval_requires(e->pchar, turnstileConfigDef.missions[missionID]->required, "defs/turnstile_server.def") == 0)
         {
             requestIsValid = 0;
             if ((*errorMsg) == NULL)
@@ -382,9 +382,9 @@ void turnstileMapserver_handleQueueForEvents(Entity *e, Packet *pak_in)
                                         requestIsValid = 0;
                                     }
                                 }
-                                if (turnstileConfigDef.missions[eventNum]->requires != NULL)
+                                if (turnstileConfigDef.missions[eventNum]->required != NULL)
                                 {
-                                    if (chareval_requires(memberEntities[j]->pchar, turnstileConfigDef.missions[eventNum]->requires, "defs/turnstile_server.def") == 0)
+                                    if (chareval_requires(memberEntities[j]->pchar, turnstileConfigDef.missions[eventNum]->required, "defs/turnstile_server.def") == 0)
                                     {
                                         requestIsValid = 0;
                                         if (errorMsg == NULL)
