@@ -7,6 +7,7 @@
 #include "cmdparse/cmdcommon.h"
 #include "group/groupscene.h" // For DOFValues struct
 #include "graphics/gfxSettings.h" // For OptionCubemap
+#include "auth/auth.h"
 
 typedef __int64 EntityRef;
 
@@ -146,6 +147,9 @@ typedef struct GameState
     char    cs_address[256];
     char    auth_address[256];
 
+    int        numServerGroups; // How many server groups are we requesting? 0 = use default behaviour
+	int        serverGroup[MAX_SERVER_GROUPS]; // The specific server groups we want to see
+	
     // Maximum number of world geometry verts to relight per frame
     int        maxColorTrackerVerts;
     int        fullRelight;

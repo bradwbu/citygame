@@ -323,6 +323,7 @@ CREATE TABLE [dbo].[server](
 	[ageLimit] [int] NULL,
 	[pk_flag] [int] NULL,
 	[server_group_id] [int] NULL,
+	[client_port] [smallint] NULL,
  CONSTRAINT [PK_server] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

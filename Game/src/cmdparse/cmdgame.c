@@ -762,6 +762,7 @@ enum
     CMD_TEST_CAN_START_STATIC_MAP,
     CMD_SHOW_OPTIONS,
     CMD_FORCE_CUT_SCENE_LETTERBOX,
+    CMD_SET_SERVERGROUP,
 };
 
 #define MAX_SCROLL_OUT_DIST 80.0
@@ -1561,6 +1562,8 @@ Cmd game_cmds[] =
                         "dbserver ip string." },
     { 0, "auth", 0, {{ CMDSTR(game_state.auth_address)}}, CMDF_HIDEPRINT,
                         "auth server ip string." },
+	{ 0, "servergroup", CMD_SET_SERVERGROUP, {{ CMDINT(tmp_int) }}, CMDF_HIDEPRINT,
+                        "server group to request from authserver." },
     { 9, "createbins", 0, {{ CMDINT(game_state.create_bins) }}, 0,
                         "forces creation of all .bin files, then exits" },
     { 9, "nogui", 0, {{ CMDINT(tmp_int) }}, CMDF_HIDEVARS|CMDF_HIDEPRINT,
@@ -5804,6 +5807,18 @@ int cmdGameParse(char *str, int x, int y)
             {
                 windows_Show("options");
             }
+        xcase CMD_SET_SERVERGROUP:
+            {
+                if (game_state.numServerGroups >= MAX_SERVER_GROUPS)
+                {
+                    printf("Too many server groups specified!");
+                }
+                else
+                {
+                    game_state.serverGroup[game_state.numServerGroups] = tmp_int;
+                    game_state.numServerGroups++;
+                }
+            }
         xdefault:
 #ifndef FINAL
             // @todo -AB: some kind of security here? :05/08/07
@@ -6163,6 +6178,12 @@ void gameStateInit()
     game_state.useNewColorPicker = game_state.texWordEdit ? 0 : 1; // fpe disabled when in texWord mode, crashes due to missing server
     game_state.transformToolbar = 1;
     game_state.inactiveDisplay = 1;
+
+    game_state.numServerGroups = 0;
+    for (int r = 0; r < MAX_SERVER_GROUPS; r++)
+    {
+        game_state.serverGroup[r] = 0;
+    }
 
     //****
     // DEBUG/DEVELOPMENT ONLY

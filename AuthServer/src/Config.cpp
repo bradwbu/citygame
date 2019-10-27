@@ -140,6 +140,12 @@ bool Config::Load(const char *filename)
 
         logDirectory = Get("logDirectory");
         ProtocolVer = GetInt("ProtocolVersion");
+        if (ProtocolVer == OUROBOROS_PROTOCOL_VERSION_2) {
+            useClientSpecifiedRegions = true;
+        }
+        else {
+            useClientSpecifiedRegions = false;
+        }
 
         DesApply    = GetBool("DesApply", false );
         ReadLocalServerList = GetBool("ReadLocalServerList", false );
@@ -217,6 +223,8 @@ bool Config::Load(const char *filename)
         enableDebugLogging = GetBool("enableDebugLogging", DEFAULT_DEBUG_LOGGING );
 
         connectionString = Get("connectionString");
+
+        dbHasClientPorts = GetBool("DBHasClientPorts", false);
     }
     
     return configFileLoaded;

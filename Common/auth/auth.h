@@ -10,6 +10,12 @@
 #define GLOBAL_AUTH_PROTOCOL_VERSION        30810    // version used for worldwide release
 #define GR_REACTIVATION_PROTOCOL_VERSION    100903    // First version to support GR reactivation
 #define OUROBOROS_PROTOCOL_VERSION_1        190516  // Enables sending list of shard names in server list packet
+#define OUROBOROS_PROTOCOL_VERSION_2        191021  // Allows client to specify which server groups to show
+
+// If you add new protocols after OPV2 and they use the server groups, make sure to update authRequestSpecificGroups
+
+// This is equal to MAX_REGIONS in AuthServer, keep them in sync
+#define MAX_SERVER_GROUPS 10
 
 typedef struct
 {
@@ -56,6 +62,7 @@ U32 authGetKey();
 void authEncryptLineage2(const char * original, char * encoded, unsigned int encodeBlock);
 int authIsGlobalAuth();
 int authSocketOk();
+bool authRequestSpecificGroups( int version );
 
 // End mkproto
 #endif

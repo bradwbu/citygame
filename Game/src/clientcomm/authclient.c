@@ -97,6 +97,7 @@ void acSendLoginMD5(const char* account_p, const char* password_p, int subscript
     case GLOBAL_AUTH_PROTOCOL_VERSION:
     case GR_REACTIVATION_PROTOCOL_VERSION:
     case OUROBOROS_PROTOCOL_VERSION_1:
+    case OUROBOROS_PROTOCOL_VERSION_2:
     {
         char salt_buf[9];
         U32 salt;
@@ -149,6 +150,14 @@ void acSendServerList()
 
     authPutArray(pak, session_id, 8 );
     authPutU08(pak, server_list_expected);
+    if (authRequestSpecificGroups(auth_info.protocol))  // Check if our current protocol supports this
+    {
+        authPutU08(pak, min(game_state.numServerGroups, MAX_SERVER_GROUPS)); // Number of server groups we are requesting
+        for (int r = 0; r < game_state.numServerGroups && r < MAX_SERVER_GROUPS; r++)
+        {
+            authPutU32(pak, game_state.serverGroup[r]); // Request this specific server group
+        }
+    }
     authSendPacket(pak);
 
     authdbg_printf("send: AQ_SERVER_LIST_EXT\n");
