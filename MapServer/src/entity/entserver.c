@@ -1367,7 +1367,6 @@ void sendCharacterToClient( Packet *pak, Entity *e)
         pktSendBits( pak, 1, e->pl->sgHideButtons );
         pktSendBits( pak, 1, e->pl->clicktomove );
         pktSendBits( pak, 1, e->pl->disableDrag );
-        pktSendBits( pak, 1, e->pl->showTimer );
         pktSendBits( pak, 1, e->pl->showPetBuffs );
         pktSendBits( pak, 1, e->pl->preventPetIconDrag);
         pktSendBits( pak, 1, e->pl->showPetControls);
@@ -1470,6 +1469,7 @@ void sendCharacterToClient( Packet *pak, Entity *e)
         pktSendBits( pak, 1, e->pl->hideConvertConfirmPrompt );
         pktSendBits( pak, 3, e->pl->hideStorePiecesState );
         pktSendF32( pak, e->pl->cursorScale );
+        pktSendBits(pak, 1, e->pl->showTimer);
     }
     else
     {
