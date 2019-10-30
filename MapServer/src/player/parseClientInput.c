@@ -1690,7 +1690,6 @@ int parseClientInput( Packet *pak, ClientLink *client )
                     pl->sgHideButtons                = pktGetBits( pak, 1 );
                     pl->clicktomove                    = pktGetBits( pak, 1 );
                     pl->disableDrag                    = pktGetBits( pak, 1 );
-                    pl->showTimer                   = pktGetBits( pak, 1 );
                     pl->showPetBuffs                = pktGetBits( pak, 1 );
                     pl->preventPetIconDrag            = pktGetBits( pak, 1 );
                     pl->showPetControls                = pktGetBits( pak, 1 );
@@ -1817,6 +1816,7 @@ int parseClientInput( Packet *pak, ClientLink *client )
                     pl->hideConvertConfirmPrompt = pktGetBits(pak,1);
                     pl->hideStorePiecesState = pktGetBits(pak,3);
                     pl->cursorScale = pktGetF32(pak);
+                    pl->showTimer = pktGetBits(pak, 1);
 
                     if(pl->gmailFriendOnly)
                         shardCommSendf(e,true,"GMailFriendOnlySet");
