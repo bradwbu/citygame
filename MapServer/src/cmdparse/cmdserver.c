@@ -202,7 +202,7 @@ static char group_msg[100];
 static char group_name[128], player_name[128];
 static char afk[2000];
 
-static int tmp_int,tmp_int2,tmp_int3,tmp_int4,tmp_int5,tmp_int6,tmp_int7;
+static int tmp_int,tmp_int2,tmp_int3,tmp_int4,tmp_int5,tmp_int6,tmp_int7,tmp_int8;
 static F32 tmp_float;
 static F32 tmp_f32s[4];
 
@@ -210,7 +210,7 @@ static Vec3 tmp_vec, tmp_pos;
 static char tmp_str[20000], tmp_str2[20000], tmp_str3[20000];
 
 static void *tmp_var_list[] = { // List of tmp_* vars in order to automatically add CMDF_HIDEPRINT
-    &tmp_int,&tmp_int2,&tmp_int3,&tmp_int4,&tmp_int5,&tmp_int6,&tmp_int7,
+    &tmp_int,&tmp_int2,&tmp_int3,&tmp_int4,&tmp_int5,&tmp_int6,&tmp_int7,&tmp_int8,
     &tmp_float,
     &tmp_vec, &tmp_pos,
     &tmp_str, &tmp_str2, &tmp_str3,
@@ -494,6 +494,8 @@ Cmd server_cmds[] =
                         "execute <command> as if you were <player>, even if player is offline (e.g. \"csr_offline Joe levelupxp 10\")" },
     { 9, "csr_offline_long",    SCMD_CSR_OFFLINE_LONG,{{CMDINT(tmp_int)}, {CMDINT(tmp_int2)}, {CMDINT(tmp_int3)},{CMDSENTENCE(tmp_str)}}, 0,
                         "execute <command> as if you were <player> and had <access_level>, even if player is offline (e.g. \"csr_offline_long 3 1234 2345 levelupxp 10\")" },
+    { 1, "altaccess",    SCMD_ALTACCESS,{{CMDSTR(player_name)},{CMDINT(tmp_int8)}}, 0,
+                        "Give GM Access to an Alternate Character up to your current Access Level /altaccess <CharacterName> <AccessLevel>" },
     { 1, "tmsg",        SCMD_TMSG,{{CMDINT(tmp_int)},{CMDSENTENCE(tmp_str)}},CMDF_HIDEVARS,
                         "send <teamup id> a <message>" },
     { 9, "silenceall",    SCMD_SILENCEALL,{{CMDINT(tmp_int)}},CMDF_HIDEVARS,
@@ -2728,6 +2730,56 @@ static void serverExecCmd(Cmd *cmd, ClientLink *client, char *source_str, Entity
         }
         xcase SCMD_CSR_OFFLINE_LONG:
             csrCsrOffline(client, tmp_int, tmp_int2, tmp_int3, tmp_str, str);
+        xcase SCMD_ALTACCESS :
+        {
+            char buf[1000];
+            int id = dbPlayerIdFromName(player_name);
+
+            if (!e) break;
+
+            if (id < 0) // Doesn't exist
+            {
+                conPrintf(client, "%s", clientPrintf(client, "playerNotFound", player_name));
+                break;
+            }
+            char tAccessLevel = client->entity->access_level;
+            //get targetauthname and myauthname
+            char tMyAuthName = authIdFromName(client->entity->name);
+            char tTargetAuthName = authIdFromName(player_name);
+            if (tmp_int8 > tAccessLevel)
+            {
+                conPrintf(client, clientPrintf(client, "Your Access Level is not high enough to grant an Access_Level of that value"));
+            }
+            else
+            {
+                //write our sql statement for use below
+                char sql_Accesscommand[2000];
+                sprintf(sql_Accesscommand, "UPDATE dbo.ents SET AccessLevel = %d WHERE name = N'%s' AND active IS NULL;",
+                    tmp_int8,
+                    escapeString(player_name));
+
+                //check current access level 11
+                if (tAccessLevel > 11)
+                {
+                    //Change Access Level to specified
+                    dbExecuteSql(sql_Accesscommand);
+                    conPrintf(client, clientPrintf(client, "Access Level Changed"));
+                }
+                //if not on an Access_Level 11 character check if player_name is part of my account
+                else if (tMyAuthName == tTargetAuthName)
+                {
+                    //Change Access Level to specified
+                    dbExecuteSql(sql_Accesscommand);
+                    conPrintf(client, clientPrintf(client, "Access Level Changed"));
+                }
+                else
+                {
+                    //Inform user that they cannot modify someone else since they aren't access level 11
+                    conPrintf(client, clientPrintf(client, "You cannot change another users access level!"));
+                }
+
+            }
+        }
         xcase SCMD_ENTSAVE:
             entSaveAll(client->entity);
         xcase SCMD_ENTCORRUPTED:
