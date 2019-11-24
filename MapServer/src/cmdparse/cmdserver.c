@@ -192,6 +192,7 @@
 #include "storyarc/pnpcCommon.h"
 #include "LWC_common.h"
 #include "gameComm/NewFeatures.h"
+#include "utilitieslib/utils/timing.h"
 
 ServerState server_state;
 
@@ -2733,10 +2734,12 @@ static void serverExecCmd(Cmd *cmd, ClientLink *client, char *source_str, Entity
         xcase SCMD_PLAYTIME :
         {
             int totalSeconds = e->total_time;
-            int seconds = (totalSeconds % 60);
-            int minutes = (totalSeconds % 3600) / 60;
-            int hours = (totalSeconds % 86400) / 3600;
-            int days = (totalSeconds % (86400 * 30)) / 86400;
+            int days = totalSeconds / SECONDS_PER_DAY;
+            totalSeconds = totalSeconds % SECONDS_PER_DAY;
+            int hours = totalSeconds / SECONDS_PER_HOUR;
+            totalSeconds = totalSeconds % SECONDS_PER_HOUR;
+            int minutes = totalSeconds / SECONDS_PER_MINUTE;
+            int seconds = totalSeconds % SECONDS_PER_MINUTE;
             conPrintf(client, "Time Played: %d Days, %d hours, %d minutes, and %d seconds", days, hours, minutes, seconds);
         }
         xcase SCMD_ENTSAVE:
