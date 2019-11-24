@@ -2732,7 +2732,12 @@ static void serverExecCmd(Cmd *cmd, ClientLink *client, char *source_str, Entity
             csrCsrOffline(client, tmp_int, tmp_int2, tmp_int3, tmp_str, str);
         xcase SCMD_PLAYTIME :
         {
-            conPrintf(client, "Hours Played: %d", (e->total_time / 60) / 60);
+            int totalSeconds = e->total_time;
+            int seconds = (totalSeconds % 60);
+            int minutes = (totalSeconds % 3600) / 60;
+            int hours = (totalSeconds % 86400) / 3600;
+            int days = (totalSeconds % (86400 * 30)) / 86400;
+            conPrintf(client, "Time Played: %d Days, %d hours, %d minutes, and %d seconds", days, hours, minutes, seconds);
         }
         xcase SCMD_ENTSAVE:
             entSaveAll(client->entity);
