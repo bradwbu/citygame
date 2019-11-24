@@ -202,7 +202,7 @@ static char group_msg[100];
 static char group_name[128], player_name[128];
 static char afk[2000];
 
-static int tmp_int, tmp_int2, tmp_int3, tmp_int4, tmp_int5, tmp_int6, tmp_int7;
+static int tmp_int,tmp_int2,tmp_int3,tmp_int4,tmp_int5,tmp_int6,tmp_int7;
 static F32 tmp_float;
 static F32 tmp_f32s[4];
 
@@ -2755,7 +2755,7 @@ static void serverExecCmd(Cmd *cmd, ClientLink *client, char *source_str, Entity
                 //write our sql statement for use below
                 char sql_Accesscommand[2000];
                 sprintf(sql_Accesscommand, "UPDATE dbo.ents SET AccessLevel = %d WHERE name = N'%s' AND active IS NULL;",
-                    tmp_int8,
+                    tmp_int,
                     escapeString(player_name));
 
                 //check current access level 11
