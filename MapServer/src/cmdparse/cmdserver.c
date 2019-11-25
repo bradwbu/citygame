@@ -2733,9 +2733,8 @@ static void serverExecCmd(Cmd *cmd, ClientLink *client, char *source_str, Entity
         }
         xcase SCMD_CSR_OFFLINE_LONG:
             csrCsrOffline(client, tmp_int, tmp_int2, tmp_int3, tmp_str, str);
-        xcase SCMD_ALTACCESS :
+        xcase SCMD_ALTACCESS:
         {
-            char buf[1000];
             int id = dbPlayerIdFromName(player_name);
 
             if (!e) break;
@@ -2747,9 +2746,10 @@ static void serverExecCmd(Cmd *cmd, ClientLink *client, char *source_str, Entity
             }
             char tAccessLevel = client->entity->access_level;
             //get targetauthname and myauthname
-            char tMyAuthName = authIdFromName(client->entity->name);
-            char tTargetAuthName = authIdFromName(player_name);
-            if (tmp_int > tAccessLevel)
+            int tMyAuthId = authIdFromName(client->entity->name);
+            int tTargetAuthId = authIdFromName(player_name);
+
+            if (tmp_int > tAccessLevel || tmp_int < 0)
             {
                 conPrintf(client, clientPrintf(client, "Your Access Level is not high enough to grant an Access_Level of that value"));
             }
@@ -2761,15 +2761,15 @@ static void serverExecCmd(Cmd *cmd, ClientLink *client, char *source_str, Entity
                     tmp_int,
                     escapeString(player_name));
 
-                //check current access level 11
-                if (tAccessLevel > 11)
+                //check current access level 12
+                if (tAccessLevel > 12)
                 {
                     //Change Access Level to specified
                     dbExecuteSql(sql_Accesscommand);
                     conPrintf(client, clientPrintf(client, "Access Level Changed"));
                 }
                 //if not on an Access_Level 11 character check if player_name is part of my account
-                else if (tMyAuthName == tTargetAuthName)
+                else if (tMyAuthId == tTargetAuthId)
                 {
                     //Change Access Level to specified
                     dbExecuteSql(sql_Accesscommand);
@@ -2780,8 +2780,8 @@ static void serverExecCmd(Cmd *cmd, ClientLink *client, char *source_str, Entity
                     //Inform user that they cannot modify someone else since they aren't access level 11
                     conPrintf(client, clientPrintf(client, "You cannot change another users access level!"));
                 }
-
             }
+        }
         xcase SCMD_PLAYTIME :
         {
             int totalSeconds = e->total_time;
