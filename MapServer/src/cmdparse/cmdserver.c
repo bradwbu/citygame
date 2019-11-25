@@ -192,6 +192,7 @@
 #include "storyarc/pnpcCommon.h"
 #include "LWC_common.h"
 #include "gameComm/NewFeatures.h"
+#include "utilitieslib/utils/timing.h"
 
 ServerState server_state;
 
@@ -494,6 +495,8 @@ Cmd server_cmds[] =
                         "execute <command> as if you were <player>, even if player is offline (e.g. \"csr_offline Joe levelupxp 10\")" },
     { 9, "csr_offline_long",    SCMD_CSR_OFFLINE_LONG,{{CMDINT(tmp_int)}, {CMDINT(tmp_int2)}, {CMDINT(tmp_int3)},{CMDSENTENCE(tmp_str)}}, 0,
                         "execute <command> as if you were <player> and had <access_level>, even if player is offline (e.g. \"csr_offline_long 3 1234 2345 levelupxp 10\")" },
+    { 0, "played",    SCMD_PLAYTIME,{{0}}, 0,
+                            "Show how much time has been played on this character." },
     { 1, "tmsg",        SCMD_TMSG,{{CMDINT(tmp_int)},{CMDSENTENCE(tmp_str)}},CMDF_HIDEVARS,
                         "send <teamup id> a <message>" },
     { 9, "silenceall",    SCMD_SILENCEALL,{{CMDINT(tmp_int)}},CMDF_HIDEVARS,
@@ -2728,6 +2731,17 @@ static void serverExecCmd(Cmd *cmd, ClientLink *client, char *source_str, Entity
         }
         xcase SCMD_CSR_OFFLINE_LONG:
             csrCsrOffline(client, tmp_int, tmp_int2, tmp_int3, tmp_str, str);
+        xcase SCMD_PLAYTIME :
+        {
+            int totalSeconds = e->total_time;
+            int days = totalSeconds / SECONDS_PER_DAY;
+            totalSeconds = totalSeconds % SECONDS_PER_DAY;
+            int hours = totalSeconds / SECONDS_PER_HOUR;
+            totalSeconds = totalSeconds % SECONDS_PER_HOUR;
+            int minutes = totalSeconds / SECONDS_PER_MINUTE;
+            int seconds = totalSeconds % SECONDS_PER_MINUTE;
+            conPrintf(client, "Time Played: %d Days, %d hours, %d minutes, and %d seconds", days, hours, minutes, seconds);
+        }
         xcase SCMD_ENTSAVE:
             entSaveAll(client->entity);
         xcase SCMD_ENTCORRUPTED:
