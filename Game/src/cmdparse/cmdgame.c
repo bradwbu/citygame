@@ -3107,7 +3107,7 @@ static void buildSave(char *f)
 		char *filename;
 		char buf[256];
 		sprintf(buf, "Builds/%s", f);
-		filename = getAccountDir(buf, true);
+		filename = getAccountFile(buf, true);
 		file = fileOpen( filename, "wt" );
 		if (file)
 		{
