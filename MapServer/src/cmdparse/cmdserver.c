@@ -192,6 +192,7 @@
 #include "storyarc/pnpcCommon.h"
 #include "LWC_common.h"
 #include "gameComm/NewFeatures.h"
+#include "utilitieslib/utils/timing.h"
 
 ServerState server_state;
 
@@ -496,6 +497,8 @@ Cmd server_cmds[] =
                         "execute <command> as if you were <player> and had <access_level>, even if player is offline (e.g. \"csr_offline_long 3 1234 2345 levelupxp 10\")" },
     { 1, "altaccess",    SCMD_ALTACCESS,{{CMDSTR(player_name)},{CMDINT(tmp_int)}}, 0,
                         "Give GM Access to an Alternate Character up to your current Access Level /altaccess <CharacterName> <AccessLevel>" },
+    { 0, "played",    SCMD_PLAYTIME,{{0}}, 0,
+                            "Show how much time has been played on this character." },
     { 1, "tmsg",        SCMD_TMSG,{{CMDINT(tmp_int)},{CMDSENTENCE(tmp_str)}},CMDF_HIDEVARS,
                         "send <teamup id> a <message>" },
     { 9, "silenceall",    SCMD_SILENCEALL,{{CMDINT(tmp_int)}},CMDF_HIDEVARS,
@@ -2779,6 +2782,16 @@ static void serverExecCmd(Cmd *cmd, ClientLink *client, char *source_str, Entity
                 }
 
             }
+        xcase SCMD_PLAYTIME :
+        {
+            int totalSeconds = e->total_time;
+            int days = totalSeconds / SECONDS_PER_DAY;
+            totalSeconds = totalSeconds % SECONDS_PER_DAY;
+            int hours = totalSeconds / SECONDS_PER_HOUR;
+            totalSeconds = totalSeconds % SECONDS_PER_HOUR;
+            int minutes = totalSeconds / SECONDS_PER_MINUTE;
+            int seconds = totalSeconds % SECONDS_PER_MINUTE;
+            conPrintf(client, "Time Played: %d Days, %d hours, %d minutes, and %d seconds", days, hours, minutes, seconds);
         }
         xcase SCMD_ENTSAVE:
             entSaveAll(client->entity);
