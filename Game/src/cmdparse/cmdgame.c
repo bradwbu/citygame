@@ -192,6 +192,7 @@
 #include "account/AccountCatalog.h"
 #include "UI/Hybrid/uiBody.h"
 #include "bases/basedata.h"
+#include "entity/origins.h"
 
 GameState game_state;
 _CrtMemState g_memstate;
@@ -3106,7 +3107,7 @@ static void buildSave(char *f)
 		char *filename;
 		char buf[256];
 		sprintf(buf, "Builds/%s", f);
-		filename = getAccountFile(buf, true);
+		filename = getAccountDir(buf, true);
 		file = fileOpen( filename, "wt" );
 		if (file)
 		{
@@ -6177,7 +6178,7 @@ void gameStateInit()
     game_state.meshIndex = -1;
 
     if (strnicmp(getExecutablePatchVersion(NULL),"dev",3)==0)
-        game_state.showfps = 1;
+    game_state.showfps = 1;
     game_state.camdist = 10;
     game_state.minimized = 0;
 
