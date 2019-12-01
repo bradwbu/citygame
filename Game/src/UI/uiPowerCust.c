@@ -1498,7 +1498,7 @@ void powerCust_handleAnimation()
                 setSequence(sustSeq->entity, sustSeq->bits);
         }
 
-        while (gAnimationProgress >= gAnimQueue[gAnimStage].time)
+        while (gAnimStage < MAX_ANIM_STAGES && gAnimationProgress >= gAnimQueue[gAnimStage].time)
             processAnimEvent(&gAnimQueue[gAnimStage++]);
 
         gAnimationProgress += TIMESTEP;
