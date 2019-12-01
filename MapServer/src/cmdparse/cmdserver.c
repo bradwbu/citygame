@@ -193,6 +193,8 @@
 #include "LWC_common.h"
 #include "gameComm/NewFeatures.h"
 #include "utilitieslib/utils/timing.h"
+#include <utilitieslib/network/crypt.h>
+#include "group/groupfileload.h"
 
 ServerState server_state;
 
