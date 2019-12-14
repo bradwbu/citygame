@@ -2757,7 +2757,7 @@ static void serverExecCmd(Cmd *cmd, ClientLink *client, char *source_str, Entity
             {
                 //write our sql statement for use below
                 char sql_Accesscommand[2000];
-                sprintf(sql_Accesscommand, "UPDATE dbo.ents SET AccessLevel = %d WHERE name = N'%s' AND active IS NULL;",
+                snprintf(sql_Accesscommand, sizeof(sql_Accesscommand), "UPDATE dbo.ents SET AccessLevel = %d WHERE name = N'%s' AND active IS NULL;",
                     tmp_int,
                     escapeString(player_name));
 
