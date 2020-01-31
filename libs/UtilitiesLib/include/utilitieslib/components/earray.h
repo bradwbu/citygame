@@ -10,7 +10,11 @@
 
 C_DECLARATIONS_BEGIN
 
-#define PRIVATE_EARRAY_HEAP    0    // declared out here so memcheck.c can get at it
+#ifdef CLIENT
+#define PRIVATE_EARRAY_HEAP    1    // declared out here so memcheck.c can get at it
+#else
+#define PRIVATE_EARRAY_HEAP    0
+#endif
 
 //////////////////////////////////////////////////// EArray's (64-bit compatible)
 // you will usually declare these as MyStruct**, and then use them to
