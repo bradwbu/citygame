@@ -1071,11 +1071,18 @@ void trayslot_RemainingTime(Entity *e, TrayObj * to, char * remainingTime)
 
         prt = powerInfo_PowerGetRechargeTimer(e->powerInfo, ppowRef);
 
-        if( prt )
+        if (prt)
         {
-            if(prt->rechargeCountdown >= 10.f)
+            if (prt->rechargeCountdown >= 10.f)
             {
-                sprintf(remainingTime, "%.0f:%.0f", prt->rechargeCountdown / 60.f, fmod(prt->rechargeCountdown, 60.f));
+                if (prt->rechargeCountdown > 60.f)
+                {
+                    sprintf(remainingTime, "%.0f:%02.0f", floor(prt->rechargeCountdown / 60.f), floor(fmod(prt->rechargeCountdown, 60.f)));
+                }
+                else
+                {
+                    sprintf(remainingTime, "%.0f", floor(prt->rechargeCountdown));
+                }
             }
             else
             {
@@ -1893,7 +1900,18 @@ void trayslot_drawIcon( TrayObj * ts, float xp, float yp, float zp, float scale,
     }
 
     if (sc < 1.0f || (!usable && !inventory) || disabled)
-        clr = 0xffffff66;
+    {
+        // if we're using cooldown timer display, fade the icon further to make the numbers easier to see, and reduce the icon scaling so its not hidden.
+        if (isCooldownActive && optionGet(kUO_ShowTimer))
+        {
+            clr = 0xffffff33;
+            sc = 1.0f;
+        }
+        else
+        {
+            clr = 0xffffff66;
+        }
+    }
 
     BuildCBox( &box, xp - ic->width*ts->scale*sc/2, yp - ic->width*ts->scale*sc/2, ic->width*sc*scale, ic->width*sc*scale );
     if( mouseCollision(&box) && !inventory && usable )
@@ -1913,7 +1931,7 @@ void trayslot_drawIcon( TrayObj * ts, float xp, float yp, float zp, float scale,
         // Display the remaining time on screen
         font( &game_9 );
         font_color( CLR_WHITE, CLR_WHITE );
-        cprntEx(xp, yp, zp, scale * 1.5, scale * 1.5, (CENTER_X), remainingTime);
+        cprntEx(xp, yp, zp, scale, scale, (CENTER_X | CENTER_Y), remainingTime);
     }
 
     if( ts->autoPower )
