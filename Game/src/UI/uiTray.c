@@ -48,7 +48,6 @@
 #include "UI/uiWindows_init.h"
 #include "entity/character_target.h"
 #include "entity/character_eval.h"
-#include <utilitieslib/utils/timing.h>
 #include "UI/uiTeam.h"
 #include <utilitieslib/utils/utils.h>
 #include "graphics/textureatlas.h"

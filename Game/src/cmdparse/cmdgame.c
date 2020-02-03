@@ -768,8 +768,6 @@ enum
     CMD_SET_SERVERGROUP,
     CMD_MACRO_IMAGE,
 	CMD_SG_ENTER_PASSCODE,
-	CMD_BUILD_SAVE,
-	CMD_BUILD_SAVE_FILE,
 };
 
 #define MAX_SCROLL_OUT_DIST 80.0
@@ -884,10 +882,6 @@ Cmd game_cmds[] =
                         "Saves window configuration to <INSTALL DIR>/wdw.txt." },
     { 0, "wdw_save_file", CMD_WDW_SAVE_FILE, {{ CMDSTR(tmp_str) }}, 0,
                         "Saves window configuration to specified file." },
-    { 0, "build_save", CMD_BUILD_SAVE, {{ 0 }}, 0,
-						"Saves current character build to <ACCOUNT DIR>/Builds/build.txt." },
-	{ 0, "build_save_file", CMD_BUILD_SAVE_FILE, {{ CMDSTR(tmp_str) }}, 0,
-						"Saves current character build to specified file." },
     { 0, "option_load_file", CMD_OPTION_LOAD_FILE, {{ CMDSTR(tmp_str) }}, 0,
         "Reads option configuration file." },
     { 0, "option_load", CMD_OPTION_LOAD, {{ 0 }}, 0,
@@ -3094,84 +3088,6 @@ char *clean_map_name(char *dest, int dest_size)
     return dest;
 }
 
-//-------------------------------
-// Saves the character's active build to a text file.
-//--------------------------------
-static void buildSave(char *f)
-{
-	Entity *e = playerPtr();
-
-	if(e)
-	{
-		FILE *file;
-		char *filename;
-		char buf[256];
-		sprintf(buf, "Builds/%s", f);
-		filename = getAccountDir(buf, true);
-		file = fileOpen( filename, "wt" );
-		if (file)
-		{
-			int n = eaSize(&e->pchar->ppPowerSets);
-			int i;
-			fprintf(file, "%s: Level %d %s %s\n", e->name, e->pchar->iLevel + 1, e->pchar->porigin->pchName, e->pchar->pclass->pchName);
-			fprintf(file, "\nCharacter Profile:\n------------------\n");
-			for(i = 0; i < n; i++)
-			{
-				PowerSet *pset = e->pchar->ppPowerSets[i];
-				int m, j;
-
-				if (pset) 
-				{
-					m = eaSize(&pset->ppPowers);
-					if (stricmp(pset->psetBase->pcatParent->pchName, "Temporary_Powers") &&
-						stricmp(pset->psetBase->pcatParent->pchName, "Set_Bonus") &&
-						stricmp(pset->psetBase->pcatParent->pchName, "Prestige") &&
-						stricmp(pset->psetBase->pcatParent->pchName, "Incarnate"))
-					{
-						bool isInherent = !stricmp(pset->psetBase->pcatParent->pchName, "Inherent");
-						for(j = 0; j < m; j++)
-						{
-							Power *ppow = pset->ppPowers[j];
-							if (ppow)
-							{
-								int iboost;
-								if (!isInherent || eaSize(&ppow->ppBoosts))
-									fprintf(file, "Level %d: %s %s %s\n", ppow->iLevelBought+1, pset->psetBase->pcatParent->pchName, pset->psetBase->pchName, ppow->ppowBase->pchName);
-
-								for (iboost = 0; iboost < eaSize(&ppow->ppBoosts); iboost++)
-								{
-									if (ppow->ppBoosts[iboost])
-									{
-										if (ppow->ppBoosts[iboost]->iNumCombines)
-											fprintf(file, "\t%s (%d+%d)\n", ppow->ppBoosts[iboost]->ppowBase->pchName, ppow->ppBoosts[iboost]->iLevel + 1, ppow->ppBoosts[iboost]->iNumCombines);
-										else
-											fprintf(file, "\t%s (%d)\n", ppow->ppBoosts[iboost]->ppowBase->pchName, ppow->ppBoosts[iboost]->iLevel + 1);
-									}
-									else
-									{
-										fprintf(file,"\tEMPTY\n", iboost);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			fprintf(file, "------------------\n");
-			addSystemChatMsg( textStd("BuildSaved", filename), INFO_SVR_COM, 0);
-			fclose(file);			
-		}
-		else
-		{
-			addSystemChatMsg("UnableBuildSave", INFO_USER_ERROR, 0);
-		}
-	}
-	else
-	{
-		addSystemChatMsg("UnableBuildSave", INFO_USER_ERROR, 0);
-	}
-}
-
 int cmdGameParse(char *str, int x, int y)
 {
     int         original_state_first = control_state.first;
@@ -3550,10 +3466,6 @@ int cmdGameParse(char *str, int x, int y)
             wdwSave(NULL);
         xcase CMD_WDW_SAVE_FILE:
             wdwSave(tmp_str);
-        xcase CMD_BUILD_SAVE:
-			buildSave("build.txt");
-		xcase CMD_BUILD_SAVE_FILE:
-			buildSave(tmp_str);
         xcase CMD_OPTION_LOAD:
             optionLoad(NULL);
         xcase CMD_OPTION_LOAD_FILE:
