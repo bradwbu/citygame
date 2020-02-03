@@ -2128,11 +2128,13 @@ LineDesc ent2_line_desc[] =
 
     {{ PACKTYPE_INT, SIZE_INT32,                            "NewFeaturesVersion",        OFFSET2_PTR(Entity, pl,    EntPlayer, newFeaturesVersion),    },
         "Last version that New Features window was shown"},
+        
+    {{ PACKTYPE_INT, SIZE_INT32,                            "Passcode",        OFFSET2_PTR(Entity, pl,    EntPlayer, passcode),    },
+        "Last passcode used to enter a supergroup base."},
     // Add new single fields for entities above this line.
     // New Subs should go at the end of the original ent_line_desc below, i.e., NO SUBS GO HERE!
     { 0 },
 };
-
 StructDesc ent2_desc[] =
 {
     sizeof(Entity),
