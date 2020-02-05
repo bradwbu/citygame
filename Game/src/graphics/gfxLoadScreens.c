@@ -78,20 +78,35 @@ F32 getLoadScreenVolumeAdjustment(bool isMusic) {
 
 const char *getDefaultLoadScreenName(void)
 {
+	static char lscreen[64];
+
+	switch(game_state.skin) {
+		case UISKIN_VILLAINS:
+			strcpy(lscreen, "cov");
+			break;
+		case UISKIN_PRAETORIANS:
+			strcpy(lscreen, "rogue");
+			break;
+		case UISKIN_HEROES:
+		default:
+			strcpy(lscreen, "coh");
+			break;
+	}
+
     if (getCurrentRegion() == REGION_EU)
     {
         switch (locGetIDInRegistry())
         {
             case LOCALE_ID_ENGLISH:
-                return "COH_LogInScreen_Background_UK";
-            case LOCALE_ID_FRENCH:
-                return "COH_LogInScreen_Background_French";
-            case LOCALE_ID_GERMAN:
-                return "COH_LogInScreen_Background_German";
+				return strcat(lscreen, "#uk");
+			case LOCALE_ID_FRENCH:
+				return strcat(lscreen, "#french");
+			case LOCALE_ID_GERMAN:
+				return strcat(lscreen, "#german");
         }
     }
 
-    return "COH_LogInScreen_Background";
+    return lscreen;
 }
 
 static AtlasTex * bg_sprite;

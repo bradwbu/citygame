@@ -4232,8 +4232,14 @@ void loginMenu()
     if (!g_shardVisitorDBID)
     {
         // Only play the music if we're not here trying to do a shard visitor transfer
-        sndPlay( "N_MenuMusic_loop", SOUND_MUSIC );
-    }
+		if (game_state.skin == UISKIN_HEROES) {
+			sndPlay( "H_MenuMusic_loop", SOUND_MUSIC );
+		} else if (game_state.skin == UISKIN_VILLAINS) {
+			sndPlay( "V_MenuMusic_loop", SOUND_MUSIC );
+		} else {
+			sndPlay( "N_MenuMusic_loop", SOUND_MUSIC );
+		}
+	}
 
     if( !s_LoginInit )
     {
