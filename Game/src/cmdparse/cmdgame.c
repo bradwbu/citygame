@@ -397,7 +397,6 @@ enum
     CMD_USECUBEMAP,
     CMD_USEFP,
     CMD_USEFANCYWATER,
-    CMD_USECELSHADER,
     CMD_SHADER_PERF_TEST,
     CMD_UNLOAD_GFX,
     CMD_REBUILD_MINITRACKERS,
@@ -1279,8 +1278,6 @@ Cmd game_cmds[] =
                         "Use a floating point render target for HDR lighting effects if available" },
     { 0, "useWater", CMD_USEFANCYWATER, {{ CMDINT(tmp_int)}}, CMDF_HIDEVARS,
                         "Use fancy water effects if available" },
-    { 0, "useCelShader", CMD_USECELSHADER, {{ CMDINT(tmp_int)}}, CMDF_HIDEVARS,
-						"Use cel shader" },
     { 9, "useViewCache", 0, {{ CMDINT(game_state.useViewCache)}}, CMDF_HIDEPRINT,
                         "Enable the shader cache" },
     { 0, "useARBassembly", 0, {{ CMDINT(game_state.useARBassembly) }}, CMDF_HIDEPRINT,
@@ -3343,14 +3340,6 @@ int cmdGameParse(char *str, int x, int y)
                 rdrToggleFeatures(0, GFXF_FPRENDER, false);
         xcase CMD_USEFANCYWATER:
             game_state.waterMode = tmp_int;
-        xcase CMD_USECELSHADER:
-			{
-				bool reloadShaders = (game_state.useCelShader != tmp_int);
-				game_state.useCelShader = tmp_int;
-				if (reloadShaders && rdr_caps.filled_in) {
-					reloadShaderCallback(NULL, 1);
-				}
-			}
         xcase CMD_USEBUMPMAPS:
             if (tmp_int_special[6]) {
                 rdrToggleFeatures(GFXF_BUMPMAPS, 0, false);

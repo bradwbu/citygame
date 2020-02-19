@@ -751,16 +751,6 @@ typedef struct GameState
     // TODO: remove once transform toolbar is fully approved
     int transformToolbar;
 
-	int useCelShader;
-	int celPosterization;
-	int celAlphaQuant;
-	F32 celSaturation;
-	int celOutlines;
-	int celLighting;
-	int celSuppressFilters;
-
-	int stupidShaderTricks;
-
     int supportHardwareLights;
     int enableHardwareLights;
     int emulateHardwareLights;
