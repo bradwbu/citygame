@@ -697,14 +697,8 @@ void serve_menus()
          ( isMenu( MENU_LOAD_POWER_CUST ) && !e->db_id )
          )
     {
-		if (game_state.skin == UISKIN_HEROES) {
-			sndPlay( "H_MenuMusic_loop", SOUND_MUSIC );
-		} else if (game_state.skin == UISKIN_VILLAINS) {
-			sndPlay( "V_MenuMusic_loop", SOUND_MUSIC );
-		} else {
-			sndPlay( "N_MenuMusic_loop", SOUND_MUSIC );
-		}
-	}
+         sndPlay( "N_MenuMusic_loop", SOUND_MUSIC );
+    }
     else if( game_state.cutSceneMusic )
     {
         sndPlay( game_state.cutSceneMusic, SOUND_MUSIC );

@@ -48,10 +48,11 @@ void reloadClientMessageStores(int localeID) {
     MessageStoreLoadFlags flags = game_state.create_bins ? MSLOAD_FORCEBINS : MSLOAD_DEFAULT;
     char *loc_name = locGetName(localeID);
 
-	if (game_state.skin == UISKIN_VILLAINS)
-		idPrepend = "v_";
-	else if (game_state.skin == UISKIN_PRAETORIANS)
-		idPrepend = "p_";
+    if (game_state.skin == UISKIN_VILLAINS) {
+        idPrepend = "v_";
+    } else if (game_state.skin == UISKIN_PRAETORIANS) {
+        idPrepend = "p_";
+    }
 
     // generate the list of files/folders
     push_estr(ppchMessageFiles, "menuMessages.ms"); eaPush(&ppchMessageFiles, estrCloneCharString("texts\\menuMessages.types"));
