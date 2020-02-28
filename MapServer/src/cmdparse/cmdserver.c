@@ -2160,6 +2160,8 @@ void cmdOldServerStateInit()
     server_state.xpscale = 1.0;
     server_state.aescale = 1.0;
     server_state.ticketscale = 1.0;
+    server_state.aggrocap = 17;
+    server_state.targetcapmode = 1;
     server_visible_state.time = 0;
     server_visible_state.timescale = DAY_TIMESCALE;
 
