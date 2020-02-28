@@ -4083,7 +4083,7 @@ void entSendUpdate(NetLink *link,Entity *player_ent,int re_predict,int full_upda
             send_ent.sent_buf->namecount_sent = 0;
 
         {
-            if(!player_ent->access_level)
+			if(!(player_ent->access_level || (client->entDebugInfo == ENTDEBUGINFO_RUNNERDEBUG)))
             {
                 pktSendBits(pak, 1, 1);
             }
