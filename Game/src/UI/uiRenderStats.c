@@ -158,7 +158,7 @@ void rdrStatsWindow_DebugFrame(float x, float y, float z, float wd, float ht, fl
     if (D_MOUSEHIT == drawStdButton(x + buttonwidth + 5*sc + buttonwidth/2, y + buttonheight/2, z, buttonwidth, buttonheight, game_state.no_welding?color2:color, game_state.no_welding?"Enable Welding":"Disable Welding", sc, 0))
         cmdParse("++nowelding");
 
-    if (D_MOUSEHIT == drawStdButton(x + buttonwidth + 5*sc + buttonwidth + 5*sc + buttonwidth/2, y + buttonheight/2, z, buttonwidth, buttonheight, (game_state.vis_scale==2.0f)?color2:color, "Vis Scale 2.0", sc, 0))
+    if (D_MOUSEHIT == drawStdButton(x + buttonwidth + 5*sc + buttonwidth + 5*sc + buttonwidth/2, y + buttonheight/2, z, buttonwidth, buttonheight, (game_state.vis_scale>=2.0f)?color2:color, "Vis Scale 2.0", sc, 0))
         cmdParse("visscale 2.0");
 }
 
