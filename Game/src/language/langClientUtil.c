@@ -92,22 +92,22 @@ void reloadClientMessageStores(int localeID) {
     }
     eaPush(&ppchMessageFiles, NULL);
 
-    push_estr(ppchMessageDirs, "powers"); eaPush(&ppchMessageDirs, NULL);
-    push_estr(ppchMessageDirs, "badges"); eaPush(&ppchMessageDirs, NULL);
-    push_estr(ppchMessageDirs, "PopHelp"); eaPush(&ppchMessageDirs, NULL);
-    push_estr(ppchMessageDirs, "classes"); eaPush(&ppchMessageDirs, NULL);
-    push_estr(ppchMessageDirs, "origins"); eaPush(&ppchMessageDirs, NULL);
-    push_estr(ppchMessageDirs, "boostset"); eaPush(&ppchMessageDirs, NULL);
-    push_estr(ppchMessageDirs, "attribs"); eaPush(&ppchMessageDirs, NULL);
-    push_estr(ppchMessageDirs, "costume"); eaPush(&ppchMessageDirs, NULL);
-    push_estr(ppchMessageDirs, "bases"); eaPush(&ppchMessageDirs, NULL);
-    push_estr(ppchMessageDirs, "defs"); eaPush(&ppchMessageDirs, NULL);
-    push_estr(ppchMessageDirs, "cards"); eaPush(&ppchMessageDirs, NULL);
-    push_estr(ppchMessageDirs, "villains"); eaPush(&ppchMessageDirs, NULL);
+    push_estr(ppchMessageDirs, "powers"); //eaPush(&ppchMessageDirs, NULL);
+    push_estr(ppchMessageDirs, "badges"); //eaPush(&ppchMessageDirs, NULL);
+    push_estr(ppchMessageDirs, "PopHelp"); //eaPush(&ppchMessageDirs, NULL);
+    push_estr(ppchMessageDirs, "classes"); //eaPush(&ppchMessageDirs, NULL);
+    push_estr(ppchMessageDirs, "origins"); //eaPush(&ppchMessageDirs, NULL);
+    push_estr(ppchMessageDirs, "boostset"); //eaPush(&ppchMessageDirs, NULL);
+    push_estr(ppchMessageDirs, "attribs"); //eaPush(&ppchMessageDirs, NULL);
+    push_estr(ppchMessageDirs, "costume"); //eaPush(&ppchMessageDirs, NULL);
+    push_estr(ppchMessageDirs, "bases"); //eaPush(&ppchMessageDirs, NULL);
+    push_estr(ppchMessageDirs, "defs"); //eaPush(&ppchMessageDirs, NULL);
+    push_estr(ppchMessageDirs, "cards"); //eaPush(&ppchMessageDirs, NULL);
+    push_estr(ppchMessageDirs, "villains"); //eaPush(&ppchMessageDirs, NULL);
     push_estr(ppchMessageDirs, "Player_Created"); eaPush(&ppchMessageDirs, NULL);
     eaPush(&ppchMessageDirs, NULL);
 
-    push_estr(ppchTexWordsFiles, "textureWords.ms"); eaPush(&ppchTexWordsFiles, NULL);
+    push_estr(ppchTexWordsFiles, "textureWords.ms"); //eaPush(&ppchTexWordsFiles, NULL);
     push_estr(ppchTexWordsFiles, "v_textureWords.ms"); eaPush(&ppchTexWordsFiles, NULL);
     eaPush(&ppchTexWordsFiles, NULL);
 
