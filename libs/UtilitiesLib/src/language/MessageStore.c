@@ -844,6 +844,7 @@ static int ParseAttrCond(    MessageStore*        store,
 
     char *attribstr = 0, *valueToCompareTo, *outputIfTrue, *outputIfFalse;
     char *parse=srcstr, *temp;
+    char* tempCharStore;        // temporary result storage for error checking - Voodoo                                    
     
     if(outputIfFalse = strchr(srcstr, '|'))    // be at least somewhat flexible with spaces around the | else marker
     {
@@ -945,8 +946,10 @@ static int ParseAttrCond(    MessageStore*        store,
         if(foundAttr >= 0){
             if(outputBuffer){
                 S32 value = *(S32*)(userDataBuffer + store->valueOffsetInUserData[foundAttr]);
+                tempCharStore = StaticDefineIntRevLookup(store->attribToValue[foundAttr], value);
                 
-                strcpy_s(outputBuffer, bufferLength, StaticDefineIntRevLookup(store->attribToValue[foundAttr], value));
+                if (tempCharStore !=NULL) 
+                    strcpy_s(outputBuffer, bufferLength, tempCharStore);
             }
         }else{
             if(filename)
