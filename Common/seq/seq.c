@@ -1154,11 +1154,12 @@ void seqClearExtraGraphics( SeqInst * seq, int for_reinit, int hard_kill )
             // HACK: this assumes seqcostumefx[i] corresponds to bodyPartList.bodyParts[i]
             //    dont_clear is only set on body parts with a relatively high index,
             //    so this should only affect costumes that have a 1-1 mapping with bodyParts
-            if(!bodyPartList.bodyParts[i]->dont_clear)
-            {
-                fxDelete(seq->seqcostumefx[i], HARD_KILL);
-                seq->seqcostumefx[i] = 0;
-            }
+            if (bodyPartList.bodyParts[i] != NULL)
+                if(!bodyPartList.bodyParts[i]->dont_clear)
+                {
+                    fxDelete(seq->seqcostumefx[i], HARD_KILL);
+                    seq->seqcostumefx[i] = 0;
+                }
         }
         eaiDestroy(&seq->seqfx);
     }
