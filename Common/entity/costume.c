@@ -2997,16 +2997,19 @@ void PrintCostumeToLog(Entity* e)
     estrConcatf(&str, "Gender: %d ~ ", e->costume->appearance.bodytype);
     for(i = 0; i < parts_max; ++i)
     {
-        const CostumePart *costumePart = e->costume->parts[i];
-
-        if(costumePart->regionName && costumePart->bodySetName && !costume_isPartEmpty(costumePart))
+        if (e->costume->part != NULL)
         {
-            estrConcatf(&str, "RegionName: %s, BodySetName: %s, ", costumePart->regionName, costumePart->bodySetName);
-            if (!isNullOrNone(costumePart->pchGeom)) { estrConcatf(&str, "Geo: %s, ", costumePart->pchGeom); }
-            if (!isNullOrNone(costumePart->pchTex1)) { estrConcatf(&str, "Texture1: %s, ", costumePart->pchTex1); }
-            if (!isNullOrNone(costumePart->pchTex2)) { estrConcatf(&str, "Texture2: %s, ", costumePart->pchTex2); }
-            if (!isNullOrNone(costumePart->pchFxName)) { estrConcatf(&str, "FXName: %s, ", costumePart->pchFxName); }
-            estrConcatStaticCharArray(&str, "|");
+            const CostumePart *costumePart = e->costume->parts[i];
+
+            if(costumePart->regionName && costumePart->bodySetName && !costume_isPartEmpty(costumePart))
+            {
+                estrConcatf(&str, "RegionName: %s, BodySetName: %s, ", costumePart->regionName, costumePart->bodySetName);
+                if (!isNullOrNone(costumePart->pchGeom)) { estrConcatf(&str, "Geo: %s, ", costumePart->pchGeom); }
+                if (!isNullOrNone(costumePart->pchTex1)) { estrConcatf(&str, "Texture1: %s, ", costumePart->pchTex1); }
+                if (!isNullOrNone(costumePart->pchTex2)) { estrConcatf(&str, "Texture2: %s, ", costumePart->pchTex2); }
+                if (!isNullOrNone(costumePart->pchFxName)) { estrConcatf(&str, "FXName: %s, ", costumePart->pchFxName); }
+                estrConcatStaticCharArray(&str, "|");
+            }
         }
     }
     LOG_ENT(e, LOG_REWARDS, LOG_LEVEL_IMPORTANT, 0, "Costume:Log %s", str);
