@@ -512,8 +512,7 @@ void installCustomMessageStoreHandlers(MessageStore* store)
 {
     msSetFormatHandler(store, 'C', formatHandlerC);
     msSetFormatHandler(store, 'D', formatHandlerD);
-    //NOTE: formatHandlerE requires the param to contain an Entity pointer.  Currently, nothing in MessageStore passes this.
-    //msSetFormatHandler(store, 'E', formatHandlerE);
+    msSetFormatHandler(store, 'E', formatHandlerE);
     msSetFormatHandler(store, 'P', formatHandlerP);
     msSetFormatHandler(store, 'I', formatHandlerI);
     
