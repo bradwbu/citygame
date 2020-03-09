@@ -173,7 +173,11 @@ char* printLocalizedEnt(const char *msg, ...)
     static char            buffer[256];
     
     if(!my_typedef){
-        my_typedef = msCompileMessageType("{Hero, %D}");
+        #if CLIENT
+            my_typedef = msCompileMessageType("{Hero, %E}");
+        #else
+            my_typedef = msCompileMessageType("{Hero, %D}");
+        #endif
     }
         
     VA_START(va, msg);
@@ -205,7 +209,11 @@ char* printLocalizedEntFromEntLocale(const char *msg, ...)
     static char            buffer[128];
     
     if(!my_typedef){
-        my_typedef = msCompileMessageType("{Hero, %D}");
+        #if CLIENT
+            my_typedef = msCompileMessageType("{Hero, %E}");
+        #else
+            my_typedef = msCompileMessageType("{Hero, %D}");
+        #endif
     }
         
     VA_START(va, msg);
