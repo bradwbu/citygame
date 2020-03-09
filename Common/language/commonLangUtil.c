@@ -173,19 +173,15 @@ char* printLocalizedEnt(const char *msg, ...)
     static char            buffer[256];
     
     if(!my_typedef){
-        #if CLIENT
-            my_typedef = msCompileMessageType("{Hero, %E}");
-        #else
-            my_typedef = msCompileMessageType("{Hero, %D}");
-        #endif
+       my_typedef = msCompileMessageType("{Hero, %E}");
     }
         
     VA_START(va, msg);
-        msvaPrintfInternalEx(store, SAFESTR(buffer), msg, my_typedef, NULL, 0,
+        msvaPrintfInternalEx(store, SAFESTR(buffer), msg, my_typedef, 
 #ifdef SERVER
-            translateFlag(e)
+            (ScriptVarsTable*)e, 0,translateFlag(e)
 #else
-            0
+            NULL, 0, 0
 #endif
             , va);
     VA_END();
@@ -209,19 +205,15 @@ char* printLocalizedEntFromEntLocale(const char *msg, ...)
     static char            buffer[128];
     
     if(!my_typedef){
-        #if CLIENT
-            my_typedef = msCompileMessageType("{Hero, %E}");
-        #else
-            my_typedef = msCompileMessageType("{Hero, %D}");
-        #endif
+        my_typedef = msCompileMessageType("{Hero, %E}");
     }
         
     VA_START(va, msg);
-        msvaPrintfInternalEx(store, SAFESTR(buffer), msg, my_typedef, NULL, 0,
+        msvaPrintfInternalEx(store, SAFESTR(buffer), msg, my_typedef, 
 #ifdef SERVER
-            translateFlag(e)
+            (ScriptVarsTable*)e, 0,translateFlag(e)
 #else
-            0
+            NULL, 0, 0
 #endif
             , va);
     VA_END();
@@ -326,8 +318,13 @@ static int formatHandlerD(MessageStoreFormatHandlerParams* params){
 
 static int formatHandlerE(MessageStoreFormatHandlerParams* params){
     ParseUserData*    data = params->userData;
+                                        
+    #ifdef SERVER
+    Entity*            e = (Entity *)params->vars->scopes;  // How did we get here?  Nobody knows... -Voodoo                                  
+    #else                                   
     Entity*            e = (Entity *)params->param;
-    
+    #endif
+                                        
     //check for attributes
     
     if(    !params->attribstr &&
