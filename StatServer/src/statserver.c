@@ -162,8 +162,7 @@ char* statserver_UpdateBaseUpkeep(int idSgrp)
     if (!stashIntFindPointer( g_sgrpFromId,idSgrp, &sg))
         sg = NULL;
 
-    if( sg
-        && sg->ownsBase 
+    if( sg 
         && sg->upkeep.prtgRentDue < 0 
         && dbSyncContainerRequest(CONTAINER_SUPERGROUPS, idSgrp, CONTAINER_CMD_LOCK_AND_LOAD, 0 ))
     {
@@ -185,7 +184,6 @@ char* statserver_UpdateBaseUpkeep(int idSgrp)
     }
 
     if( sg
-        && sg->ownsBase 
         && sg->upkeep.secsRentDueDate < time )
     {
         int nLate = sgroup_nUpkeepPeriodsLate(sg);

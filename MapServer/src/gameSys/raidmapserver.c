@@ -845,7 +845,7 @@ void SGBaseEnter(Entity* ent, char* spawnlocation, char* errmsg)
 {
     if (!ent->supergroup_id)
         strcpy(errmsg, localizedPrintf(ent,"SGDoesNotOwnBase"));
-    else if( ent->supergroup->ownsBase || ent->access_level )
+    else if (ent->access_level)
     {
         if (RaidSGIsDefending(ent->supergroup_id) && !RaidPlayerIsDefending(ent))
         {

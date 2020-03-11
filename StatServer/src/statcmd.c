@@ -288,7 +288,6 @@ static void s_SendSgrpInfo(int idEntSrc, Supergroup *sg, int idSgrp)
         estrConcatf(&resp, "demote timeout:\t%i\n", sg->demoteTimeout);
         estrConcatf(&resp, "influence:\t%i\n", sg->influence);
         estrConcatf(&resp, "player type:\t%i\n", sg->playerType);
-        estrConcatf(&resp, "%s\n", (sg->ownsBase?"ownsbase":"does not own base"));
         estrConcatf(&resp, "num places for item of power:\t%i\n", sgrp_emptyMounts(sg));
         estrConcatf(&resp, "prestige:\t%i\n", sg->prestige);
         estrConcatf(&resp, "prestigeBase:\t%i\n", sg->prestigeBase);

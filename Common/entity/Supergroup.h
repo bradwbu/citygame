@@ -156,7 +156,6 @@ typedef struct Supergroup
     int                influence;
     int                playerType;                //corresponds to PlayerType enum
 
-    int                ownsBase;
     int                spacesForItemsOfPower; // The number of available spaces for IoPs in the base. (includes Mounts and Placed IoPs)
 
     int                prestige;                // liquid prestige

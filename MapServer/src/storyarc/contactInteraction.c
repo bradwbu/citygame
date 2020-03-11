@@ -1350,7 +1350,7 @@ static int RegistrarContact(Entity* player, Contact* contact, int link, ContactR
                 if( sgroup_hasPermission( player, SG_PERM_BASE_EDIT ) && player && player->pl && 
                     AccountCanCreateSG(&player->pl->account_inventory, player->pl->loyaltyPointsEarned, player->pl->account_inventory.accountStatusFlags))
                 {
-                    if( !player->supergroup->ownsBase )
+                    if( !player->supergroup )
                     {
                         // Create a Base?
                         strcat(response->dialog, "<br><br>" );

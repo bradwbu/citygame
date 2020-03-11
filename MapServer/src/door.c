@@ -3401,7 +3401,7 @@ static bool s_EnterBases(Entity *e, Vec3 pos)
         // ----------
         // if the player has a base, add it, and send them the window right away.
 
-        if( e->supergroup && e->supergroup->ownsBase && !isDark )
+        if (e->supergroup && !isDark )
         {
 //             sgrppendingrequestinfo_AddBaseInfo(info,e->supergroup_id,e->supergroup, kBaseAccess_Allowed);
             eaiPush(&idSgrps, e->supergroup_id );
@@ -3481,8 +3481,7 @@ static bool s_EnterBases(Entity *e, Vec3 pos)
             
             if( entTeamLeader && entTeamLeader->pl )
             {
-                if( e->pl && e->pl->playerType == entTeamLeader->pl->playerType && 
-                    entTeamLeader->supergroup && entTeamLeader->supergroup->ownsBase ) 
+                if (e->pl && entTeamLeader->supergroup)
                 {
                     Supergroup *sg = entTeamLeader->supergroup;
                     int idSgrp = entTeamLeader->supergroup_id;
