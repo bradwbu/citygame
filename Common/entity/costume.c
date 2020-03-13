@@ -2997,7 +2997,7 @@ void PrintCostumeToLog(Entity* e)
     estrConcatf(&str, "Gender: %d ~ ", e->costume->appearance.bodytype);
     for(i = 0; i < parts_max; ++i)
     {
-        if (e->costume->part != NULL)
+        if (e->costume->parts != NULL)
         {
             const CostumePart *costumePart = e->costume->parts[i];
 
