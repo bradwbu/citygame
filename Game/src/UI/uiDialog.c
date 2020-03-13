@@ -1426,7 +1426,7 @@ void displayDialogQueue()
                 if( dlog->flags & DLGFLAG_ARCHITECT )
                     response3 = drawMMButton(dlog->response3, 0, 0, wx + 3*winwd/4, ty, wz, 100*wsc, .75*wsc, MMBUTTON_SMALL|!buttonenabled, 0  );
                 else
-                    response3 = (D_MOUSEHIT == drawStdButton(wx + 3*winwd/4, ty, wz, 50*wsc, BUTTON_HEIGHT*wsc, color, dlog->response3, wsc, !buttonenabled));
+                    response3 = (D_MOUSEHIT == drawStdButton(wx + 3*winwd/4, ty, wz, button_wd, BUTTON_HEIGHT*wsc, color, dlog->response3, wsc, !buttonenabled));
 
                 if(response1)
                 {
