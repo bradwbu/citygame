@@ -15,13 +15,8 @@ extern StaticDefineInt ParsePraetorianProgress[];
 extern StaticDefineInt ParseTeamNames[];
 extern StaticDefineInt ParseBodyType[];
 
-#ifdef SERVER
-char* printLocalizedEnt(const char *msg, Entity* e, ...);
-char* printLocalizedEntFromEntLocale(const char *msg, Entity* e, ...);
-#else
 char* printLocalizedEnt(const char *msg, ...);
 char* printLocalizedEntFromEntLocale(const char *msg, ...);
-#endif
 
 void installCustomMessageStoreHandlers(MessageStore* store);
 
