@@ -157,11 +157,7 @@
     };
 #endif
 
-#ifdef SERVER
-char* printLocalizedEnt(const char *msg, Entity* e, ...)
-#else
 char* printLocalizedEnt(const char *msg, ...)
-#endif
 {
     #if CLIENT
         MessageStore* store = menuMessages;
@@ -173,49 +169,35 @@ char* printLocalizedEnt(const char *msg, ...)
     static char            buffer[256];
     
     if(!my_typedef){
-        my_typedef = msCompileMessageType("{Hero, %D}");
+       my_typedef = msCompileMessageType("{Hero, %E}");
     }
         
     VA_START(va, msg);
-        msvaPrintfInternalEx(store, SAFESTR(buffer), msg, my_typedef, NULL, 0,
-#ifdef SERVER
-            translateFlag(e)
-#else
-            0
-#endif
-            , va);
+        msvaPrintfInternalEx(store, SAFESTR(buffer), msg, my_typedef, NULL, 0, 0, va);
     VA_END();
 
     return buffer;
 }
 
-#ifdef SERVER
-char* printLocalizedEntFromEntLocale(const char *msg, Entity* e, ...)
-#else
 char* printLocalizedEntFromEntLocale(const char *msg, ...)
-#endif
 {
+    static Array* my_typedef;
+    static char   buffer[128];
+
+    VA_START(va, msg);
     #if CLIENT
         MessageStore* store = menuMessages;
     #else
+        Entity* e = va_arg(va, Entity*);
         MessageStore* store = svrMenuMessages->localizedMessageStore[e->playerLocale];
     #endif
-
-    static Array*        my_typedef;
-    static char            buffer[128];
     
     if(!my_typedef){
-        my_typedef = msCompileMessageType("{Hero, %D}");
+        my_typedef = msCompileMessageType("{Hero, %E}");
     }
-        
-    VA_START(va, msg);
-        msvaPrintfInternalEx(store, SAFESTR(buffer), msg, my_typedef, NULL, 0,
-#ifdef SERVER
-            translateFlag(e)
-#else
-            0
-#endif
-            , va);
+    
+    msvaPrintfInternalEx(store, SAFESTR(buffer), msg, my_typedef, NULL, 0, 0, va);
+
     VA_END();
 
     return buffer;
@@ -319,11 +301,10 @@ static int formatHandlerD(MessageStoreFormatHandlerParams* params){
 static int formatHandlerE(MessageStoreFormatHandlerParams* params){
     ParseUserData*    data = params->userData;
     Entity*            e = (Entity *)params->param;
-    
     //check for attributes
     
-    if(    !params->attribstr &&
-        params->outputBuffer)
+    if (!params->attribstr &&
+         params->outputBuffer)
     {
         if (!e) {
             Errorf("NULL entity in ParseAttrCond while parsing %s", params->srcstr);
@@ -504,8 +485,7 @@ void installCustomMessageStoreHandlers(MessageStore* store)
 {
     msSetFormatHandler(store, 'C', formatHandlerC);
     msSetFormatHandler(store, 'D', formatHandlerD);
-    //NOTE: formatHandlerE requires the param to contain an Entity pointer.  Currently, nothing in MessageStore passes this.
-    //msSetFormatHandler(store, 'E', formatHandlerE);
+    msSetFormatHandler(store, 'E', formatHandlerE);
     msSetFormatHandler(store, 'P', formatHandlerP);
     msSetFormatHandler(store, 'I', formatHandlerI);
     
