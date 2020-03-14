@@ -1427,6 +1427,8 @@ void sgroup_CsrWho( Entity * e, int leaderOnly )
     for(i = 0; i < NUM_SG_RANKS; i++)
         estrConcatf( &buf, "%s%s", e->supergroup->rankList[i].name, i < NUM_SG_RANKS - 1 ? ", " : "");
     conPrintf( e->client, buf);
+    conPrintf( e->client, "Has %d prestige",
+        e->supergroup->prestige );
     conPrintf( e->client, "Member Count: %d", e->supergroup->members.count );
     conPrintf( e->client, "-----------------------------------------------------------" );
     for( i = NUM_SG_RANKS - 1; i >= 0; i--)
