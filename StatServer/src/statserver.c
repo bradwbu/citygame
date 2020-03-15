@@ -183,8 +183,7 @@ char* statserver_UpdateBaseUpkeep(int idSgrp)
         }
     }
 
-    if( sg
-        && sg->upkeep.secsRentDueDate < time )
+    if( sg && sg->upkeep.secsRentDueDate < time )
     {
         int nLate = sgroup_nUpkeepPeriodsLate(sg);
 
