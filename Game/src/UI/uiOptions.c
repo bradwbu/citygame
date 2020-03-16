@@ -2836,10 +2836,10 @@ int HandleOptionList(GameOptions *popt, float start_x, float y, float xVals, flo
             case kOptionType_MinMaxSlider:
                 {
                     SliderParam *pparam = (SliderParam *)popt->pvToggleParam;
-                    float fVal;
+                    float fVal = 0;
                     int iWidth = 190 * pparam->fSize;
                     int iOffset = 190 - iWidth;
-                    char ach[128];
+                    char ach[128] = { 0 };
                     
                     if(popt->eTypeToggle==kOptionType_FloatSlider || 
                         popt->eTypeToggle==kOptionType_SnapSlider ||
@@ -3036,7 +3036,7 @@ int HandleOptionList(GameOptions *popt, float start_x, float y, float xVals, flo
                         else
                             *(int *)popt->pvToggle = (int)(fVal + 0.5f);
 
-                        sprintf(ach, "%d", round(fVal));
+                        sprintf(ach, "%d", (int)(fVal + 0.5f));
                     }
 
                     if(fVal==pparam->fNormal)
