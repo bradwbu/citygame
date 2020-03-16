@@ -2,7 +2,7 @@
 
 #include <utilitieslib/stdtypes.h>
 
-#define WORLD_DETAIL_LIMIT 4.0f
+#define WORLD_DETAIL_LIMIT 20.0f
 #define GFXSETTINGS_VERSION 5
 
 #define FIELDOFVIEW_MIN 40
