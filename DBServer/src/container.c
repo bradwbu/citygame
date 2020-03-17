@@ -208,9 +208,7 @@ void containerGroupGetMembership(DbList *list, int id)
         {
             // Backup Supergroup and Base, if necessary
             U32 timestamp = timerSecondsSince2000();
-            if(    backupSaveContainer(group, timestamp) &&
-                findFieldTplt(dbListPtr(CONTAINER_SUPERGROUPS)->tplt, &group->line_list,"Ownsbase",buf) &&
-                atoi(buf) > 0 )
+            if(    backupSaveContainer(group, timestamp))
             {
                 int base_id;
                 DbContainer *base;

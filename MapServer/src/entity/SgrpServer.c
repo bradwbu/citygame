@@ -148,7 +148,6 @@ void sgroup_sendList(Packet *pak, Entity *e, int full_update)
 
     // update bit
     pktSendBitsPack( pak, 1, sg->influence );
-    pktSendBitsPack( pak, 1, sg->ownsBase );
     pktSendBitsPack( pak, 1, sg->prestige );
     pktSendBitsPack( pak, 1, sg->prestigeBase );
     pktSendBitsPack( pak, 1, sg->prestigeAddedUpkeep );
@@ -1428,8 +1427,7 @@ void sgroup_CsrWho( Entity * e, int leaderOnly )
     for(i = 0; i < NUM_SG_RANKS; i++)
         estrConcatf( &buf, "%s%s", e->supergroup->rankList[i].name, i < NUM_SG_RANKS - 1 ? ", " : "");
     conPrintf( e->client, buf);
-    conPrintf( e->client, "Has %d prestige and %s a base",
-        e->supergroup->prestige, e->supergroup->ownsBase ? "owns" : "does not own" );
+    conPrintf( e->client, "Has %d prestige", e->supergroup->prestige );
     conPrintf( e->client, "Member Count: %d", e->supergroup->members.count );
     conPrintf( e->client, "-----------------------------------------------------------" );
     for( i = NUM_SG_RANKS - 1; i >= 0; i--)
@@ -3235,7 +3233,7 @@ bool sgroup_CanPortToBase(Entity *e)
     StaticMapInfo *info;
     char temp[100];
 
-    if (!e || !e->pl || !e->supergroup || !e->supergroup->ownsBase)
+    if (!e || !e->pl || !e->supergroup)
     { //no base available
         return false;
     }
@@ -3288,7 +3286,7 @@ float sgroup_XPBonus(Entity *e)
     float fTotal = 0.0f;
     int iCnt = 0;
 
-    if (!e || !e->pl || !e->supergroup || !e->supergroup->ownsBase)
+    if (!e || !e->pl || !e->supergroup)
         return 0.0f;
 
     sg = e->supergroup;
@@ -3505,7 +3503,6 @@ bool sgroup_canPayRent( Entity * e )
 {
     return e
         && e->supergroup
-        && e->supergroup->ownsBase
         && sgroup_hasPermission(e, SG_PERM_PAYRENT);
 }
 
@@ -3567,24 +3564,8 @@ int sgroup_payRent( Entity * e )
  */
 int sgroup_buyBase( Entity * e )
 {
-    // Todo: figure out real cost and subtract it from prestige
-
-    if( !e->supergroup->ownsBase &&
-        sgroup_hasPermission(e, SG_PERM_BASE_EDIT) ) // && has enough presitge )
-    {
-        if(teamLock( e, CONTAINER_SUPERGROUPS))
-        {
-            // subtract prestige
-            e->supergroup->ownsBase = true;
-            return teamUpdateUnlock(e, CONTAINER_SUPERGROUPS);
-        }
-        else
-            return false;
-    }
-
-    return false;
+    return true;
 }
-
 
 int checkSgrpMembers(Entity* e, char* calledFrom)
 {

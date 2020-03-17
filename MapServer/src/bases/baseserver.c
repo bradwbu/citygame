@@ -843,13 +843,8 @@ void base_Tick(Entity *e)
 
             if(!sg)
             {
-                dbSyncContainerRequest(CONTAINER_SUPERGROUPS, g_base.supergroup_id, CONTAINER_CMD_TEMPLOAD, 0 );
-                sg = sgrpFromSgId(g_base.supergroup_id);
-                if(!sg)
-                {
-                    access = kBaseAccess_PermissionDenied; // boot if can't get supergroup
-                    kickReason = "couldn't load sg";
-                }
+                access = kBaseAccess_PermissionDenied; // boot if can't get supergroup
+                kickReason = "couldn't load sg";
             }
 
 			if( sg && e->pl->passcode == sg->passcode)

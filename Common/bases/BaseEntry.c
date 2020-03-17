@@ -17,7 +17,7 @@
 BaseAccess sgrp_BaseAccessFromSgrp(Supergroup *sg, SgrpBaseEntryPermission bep)
 {
     BaseAccess res = kBaseAccess_None;
-    if( sg && sg->ownsBase )
+	if (sg)
     {
         if( sg->entryPermission & (1<<bep) )
         {

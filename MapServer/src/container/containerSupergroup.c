@@ -503,9 +503,6 @@ LineDesc supergroup_line_desc[] =
     {{ PACKTYPE_INT,    SIZE_INT32,                            "Influence",                OFFSET(Supergroup,    influence),        },
         "amount of influence a supergroup has... afaik unused because we switched to prestige"},
 
-    {{ PACKTYPE_INT,    SIZE_INT32,                            "Ownsbase",                    OFFSET(Supergroup,    ownsBase),        },
-        "whether the supergroup owns a base"},
-
     {{ PACKTYPE_INT,    SIZE_INT32,                            "Prestige",                    OFFSET(Supergroup,    prestige),        },
         "amount of prestige the supergroup has"},
 

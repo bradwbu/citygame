@@ -1350,7 +1350,6 @@ void receiveSuperStats(Packet *pak, Entity *e)
     previousPrestige = sg->prestige;
 
     sg->influence = pktGetBitsPack(pak, 1);
-    sg->ownsBase = pktGetBitsPack(pak, 1);
 
     sg->prestige = pktGetBitsPack(pak, 1);
     g_CurrentPrestige = sg->prestige;
