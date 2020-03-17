@@ -1493,7 +1493,7 @@ ContextMenu * interactPetMenu( void )
 
 ContextMenu * interactSimplePetMenu( void )
 {
-    ContextMenu * interactPet = contextMenu_Create( NULL );
+    ContextMenu * interactPet = contextMenu_Create( isCurrentTarget );
     
     contextMenu_addCode( interactPet, NULL, NULL, petDismiss, 0, petActions[kPetAction_Dismiss].cmDisplayName, 0);
     contextMenu_addCode( interactPet, NULL, NULL, infoPet, 0, "CMInfoString", 0 );
