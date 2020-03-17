@@ -68,7 +68,7 @@ Tokenizer::Tokenizer()
 
     m_bLookForControlCodeInComments = false;
     m_bInsideCommentControlCode = false;
-    m_ppExtraReservedWords = false;
+    m_ppExtraReservedWords = NULL;
     m_bOwnsBuffer = false;
     m_bCSourceStyleStrings = false;
     m_LastStringLength = 0;
@@ -106,7 +106,7 @@ void Tokenizer::Reset()
     }
     m_bLookForControlCodeInComments = false;
     m_bInsideCommentControlCode = false;
-    m_ppExtraReservedWords = 0;
+    m_ppExtraReservedWords = NULL;
     m_bCSourceStyleStrings = false;
     m_bDontParseInts = false;
 }
