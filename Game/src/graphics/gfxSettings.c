@@ -1333,8 +1333,9 @@ OptionShaderDetail shaderDetailHighestAvailable()
 {
     OptionShaderDetail ret = SHADERDETAIL_NOBUMPS; // lowest availble setting
     OptionShaderDetail next = SHADERDETAIL_NOBUMPS;
+    bool wrapped = false;
 
-    while( (next = shaderDetailIncAllowed(ret, NULL)) != SHADERDETAIL_NOBUMPS )
+    while ((next = shaderDetailIncAllowed(ret, &wrapped)) != SHADERDETAIL_NOBUMPS)
     {
         ret = next;
     }
