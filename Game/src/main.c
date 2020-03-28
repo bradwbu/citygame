@@ -305,6 +305,10 @@ int main(int argc, char **argv)
         cmdParse("cmdms");
         mapperLoadCityInfo();
         sndInit();
+        while (kbhit())
+            getch();
+        printf("Press any key to quit.");
+        getch();
         return 0;
     }
 
