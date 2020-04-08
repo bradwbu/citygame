@@ -524,7 +524,7 @@ void rdrGetSystemSpecs( SystemSpecs * systemSpecs )
 
     if (systemSpecs->videoCardVendorID == VENDOR_NV) {
         getNVidiaSystemSpecs(systemSpecs);
-    } else if (systemSpecs->videoCardVendorID == VENDOR_AMD) {
+    } else if (systemSpecs->videoCardVendorID == VENDOR_AMD || systemSpecs->videoCardVendorID == VENDOR_INTEL) {
         systemSpecs->videoMemory = getVideoMemoryMBs();
     }
 
