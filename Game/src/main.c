@@ -308,10 +308,11 @@ int main(int argc, char **argv)
         cmdAccessOverride(10);
         cmdParse("cmdms");
         mapperLoadCityInfo();
-        while (kbhit())
+        writeConsole(OUTPUT_DEBUG, "Client binning process complete!");
+        /*while (kbhit())
             getch();
         printf("Press any key to quit.");
-        getch();
+        getch();*/
         return 0;
     }
 

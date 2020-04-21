@@ -296,7 +296,7 @@ static void findAutoDataDir(bool searchByPath)
             foundIt = searchForDataDir(path);
         }
         if (!foundIt) {
-            strcpy(path, getExecutableName());
+            _getcwd(path, MAX_PATH);
             foundIt = searchForDataDir(path);
         }
         if (!foundIt) {
