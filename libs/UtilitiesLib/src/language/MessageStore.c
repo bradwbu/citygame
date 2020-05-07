@@ -1559,9 +1559,11 @@ int msvaPrintf(MessageStore* store, char* outputBuffer, int bufferLength, const 
 
 static int vsprintfInternal(char* outputBuffer, int bufferLength, const char* format, va_list arg)
 {
+    char buf[200];
+    
     if(!outputBuffer)
     {
-        return _vscprintf(format, arg);
+        return _vsnprintf_s(buf, 200, 200, format, arg);
     }
     else
     {
