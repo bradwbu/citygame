@@ -2323,11 +2323,15 @@ void texCheckSwapList(void) {
     swaplist = sceneGetTexSwaps(&count);
     // Check for any swapped textures, and load them as well
     if (count) {
+        char srcname[256];
+        char dstname[256];
         didSwap = calloc(count, sizeof(int));
         // Call texFixName to remove .tga, etc from texture names in the swap list
         for (i=0; i < count; i++) {
-            texFixName(swaplist[i]->src, swaplist[i]->src, -1);
-            texFixName(swaplist[i]->dst, swaplist[i]->dst, -1);
+            texFixName(swaplist[i]->src, srcname, sizeof(srcname));
+            texFixName(swaplist[i]->dst, dstname, sizeof(dstname));
+            swaplist[i]->src = (char*)allocAddString(srcname);
+            swaplist[i]->dst = (char*)allocAddString(dstname);
         }
     }
 
