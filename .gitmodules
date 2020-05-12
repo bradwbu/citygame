@@ -1,0 +1,3 @@
+[submodule "bin/data/server/maps"]
+	path = bin/data/server/maps
+	url = https://git.ourodev.com/CoX/pregenerated-beacon-files.git/
