@@ -262,6 +262,7 @@ StaticDefineInt ParseVillainDoppelFlags[] =
     {    "RandomPower",        VDF_RANDOMPOWER        },
     {    "Ghost",            VDF_GHOST            },
     {    "NoPowers",            VDF_NOPOWERS        },
+    {    "Commandable",         VDF_COMMAND        },
     DEFINE_END
 };
 

@@ -502,13 +502,13 @@ void character_CreatePet(Character *p, AttribMod *pmod)
     {
         if ((int)strlen(pmod->ptemplate->pchParams)) // Check if an explicit villain def is specified in attribmod param, else use parent
         {
-            pPet = villainCreateDoppelganger(pmod->ptemplate->pchEntityDef + strlen(DOPPEL_NAME), 0, 0, VR_BOSS, pmod->ptemplate->pchParams,
+            pPet = villainCreateDoppelganger(pmod->ptemplate->pchEntityDef + strlen(DOPPEL_GROUP_NAME), 0, 0, VR_BOSS, pmod->ptemplate->pchParams,
                                              (int)fLevel, 0, 0, p->entParent,
                                              pmod->erSource, creationPower);
         }
         else
         {
-            pPet = villainCreateDoppelganger(pmod->ptemplate->pchEntityDef + strlen(DOPPEL_NAME), 0, 0, VR_BOSS, 0, (int)fLevel, 0, 0, p->entParent,
+            pPet = villainCreateDoppelganger(pmod->ptemplate->pchEntityDef + strlen(DOPPEL_GROUP_NAME), 0, 0, VR_BOSS, 0, (int)fLevel, 0, 0, p->entParent,
                                              pmod->erSource, creationPower);
         }        
     }
