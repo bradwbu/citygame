@@ -1109,6 +1109,10 @@ static void applyDoppelFlags(Entity *e, Entity *orig, int flags)
                     }
                 }
             }
+            else if (e->villainDef->powers)
+            {
+                npcInitPowers(e, e->villainDef->powers, 0);
+            }
             else
             {
                 for( i = 0; i < eaSize(&orig->pchar->ppPowerSets); i++ )
