@@ -2,6 +2,7 @@
 #define REGISTRYREADER_H
 
 #include "../stdtypes.h"
+#include "utilitieslib/UtilsNew/regfile.h"
 
 C_DECLARATIONS_BEGIN
 
@@ -28,6 +29,8 @@ int rrEnumStrings(RegReader reader, int index, char* outName, int* inOutNameLen,
 
 // This writes a single value without doing any heap operations (used in crash reporting)
 int registryWriteInt(const char *keyName, const char *valueName, unsigned int value);
+
+int registryEnumKeys(RegReader reader, char* files);
 
 C_DECLARATIONS_END
 #endif
