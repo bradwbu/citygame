@@ -52,7 +52,6 @@ int initRegReader(RegReaderImp* reader, const char* keyName)
     // Seperate the predefined key name from the rest of the the key name.
     int matchedKnownKey = 0;
     int predefKeyNameLen = 0;
-    int regCreateResult;
 
     // Look through all of known predefined keys.
     for (predefKey = predefinedKeys; predefKey < predefinedKeys + ARRAY_SIZE(predefinedKeys); predefKey++)
@@ -70,35 +69,17 @@ int initRegReader(RegReaderImp* reader, const char* keyName)
 
     if (!matchedKnownKey)
         return 0;
-    /*
-    regCreateResult = RegOpenKeyExA(
-        predefKey->key,
-        keyName + predefKeyNameLen + 1,
-        0,
-        KEY_READ | KEY_WRITE,
-        &reader->key);
 
-    if (ERROR_SUCCESS != regCreateResult) {
-        // Retry as read-only
-        regCreateResult = RegOpenKeyExA(
-            predefKey->key,
-            keyName + predefKeyNameLen + 1,
-            0,
-            KEY_READ,
-            &reader->key);
+    char keyBuffer[REGFILE_PATH_LEN];
 
-        if (ERROR_SUCCESS != regCreateResult) {
-            reader->keyExists = 0;
-            // It will be opened for writing at a later time!
-            reader->keyName = strdup(keyName);
-            return 1;
-        }
-    }
-    */
+    REGFILE_CAT_PATH(keyBuffer, keyName, REGFILE_PATH_EXISTANCE_FILE);
+
+    regfileNormalizeKey(keyBuffer);
 
     reader->keyName = strdup(keyName);
-    reader->keyExists = 1;
-    reader->keyOpened = 1;
+
+    reader->keyExists = regfileDoesKeyExist(keyBuffer);
+    reader->keyOpened = reader->keyExists;
 
     return 1;
 }
@@ -107,15 +88,16 @@ int rrLazyWriteInit(RegReaderImp* reader)
 {
     if (!regfileIsInit())
         regfileInit(REGFILE_DEFAULT_PATH);
-    /*
+    
     PredefinedKey* predefKey;
 
     // Seperate the predefined key name from the rest of the the key name.
     int matchedKnownKey = 0;
     int predefKeyNameLen = 0;
-    int regCreateResult;
+
     if (!reader->keyExists && reader->keyName)
     {
+        reader->keyExists = 1;
 
         // Look through all of known predefined keys.
         for(predefKey = predefinedKeys; predefKey < predefinedKeys + (sizeof(predefinedKeys) / sizeof(predefinedKeys[0])); predefKey++){
@@ -132,26 +114,22 @@ int rrLazyWriteInit(RegReaderImp* reader)
         if(!matchedKnownKey)
             return 0;
 
-        regCreateResult = RegCreateKeyExA(
-            predefKey->key,                    // handle to open key
-            reader->keyName + predefKeyNameLen + 1,    // subkey name
-            0,                                // reserved
-            NULL,                            // class string
-            REG_OPTION_NON_VOLATILE,        // special options
-            KEY_READ | KEY_WRITE ,            // desired security access
-            NULL,                            // inheritance
-            &reader->key,                    // key handle
-            NULL                            // disposition value buffer
-            );
+        char keyBuffer[REGFILE_PATH_LEN];
 
-        if(ERROR_SUCCESS != regCreateResult)
+        REGFILE_CAT_PATH(keyBuffer, reader->keyName, REGFILE_PATH_EXISTANCE_FILE);
+
+        regfileNormalizeKey(keyBuffer);
+
+        // Write of 0 bytes will create the file and do nothing.
+
+        if (regfileStoreKeyValue(keyBuffer, &matchedKnownKey, 0) == -1)
+        {
             return 0;
+        }
 
+        reader->keyOpened = 1;
         return 1;
     }
-    */
-    reader->keyExists = 1;
-    reader->keyOpened = 1;
     return 1;
 }
 
@@ -169,193 +147,92 @@ int initRegReaderEx(RegReaderImp* reader, const char* templateString, ...)
 
 int rrReadString(RegReaderImp* reader, const char* valueName, char* outBuffer, int bufferSize)
 {
-    // DWORD valueType;
-    // int regQueryResult;
-    char keyBuffer[1024];
-
     if (!reader->keyOpened)
         return 0;
 
-    strcpy(keyBuffer, reader->keyName);
-    strcat(keyBuffer, REGFILE_SEPERATOR_STR);
-    strcat(keyBuffer, valueName);
+    char keyBuffer[REGFILE_PATH_LEN];
+
+    REGFILE_CAT_PATH(keyBuffer, reader->keyName, valueName);
+
     regfileNormalizeKey(keyBuffer);
 
-    // regQueryResult = RegQueryValueExA(
-    //    reader->key,    // handle to key
-    //    valueName,        // value name
-    //    NULL,            // reserved
-    //    &valueType,        // type buffer
-    //    outBuffer,        // data buffer
-    //    &bufferSize        // size of data buffer
-    //    );
+    int bytesRead = regfileLoadKeyValue(keyBuffer, outBuffer, bufferSize);
 
-    size_t bytesRead = regfileLoadKeyValue(keyBuffer, outBuffer, bufferSize);
+    if (bytesRead == -1)
+        return 0;
+
     outBuffer[bytesRead] = 0;
-    if (bytesRead)
-        return 1;
-    return 0;
-
-    // Does the value exist?
-    // if(ERROR_SUCCESS != regQueryResult){
-    //    return 0;
-    //}
-
-    //// If the stored value is not a string, it is not possible to retrieve it.
-    // if(REG_SZ != valueType && REG_EXPAND_SZ != valueType){
-    //    return 0;
-    //}else{
-    //    outBuffer[bufferSize] = '\0';
-    //    return 1;
-    //}
+    return 1;
 }
 
-int rrReadMultiString(RegReaderImp* reader, const char* valueName, char* outBuffer, int bufferSize)
+int rrReadMultibyteString(RegReaderImp* reader, const char* valueName, char* outBuffer, int bufferSize)
 {
-    // DWORD valueType;
-    // int regQueryResult;
-    char keyBuffer[1024];
-
     if (!reader->keyOpened)
         return 0;
 
-    strcpy(keyBuffer, reader->keyName);
-    strcat(keyBuffer, REGFILE_SEPERATOR_STR);
-    strcat(keyBuffer, valueName);
+    char keyBuffer[REGFILE_PATH_LEN];
+
+    REGFILE_CAT_PATH(keyBuffer, reader->keyName, valueName);
+
     regfileNormalizeKey(keyBuffer);
 
-    size_t bytesRead = regfileLoadKeyValue(keyBuffer, outBuffer, bufferSize);
+    int bytesRead = regfileLoadKeyValue(keyBuffer, outBuffer, bufferSize);
+
+    if (bytesRead == -1)
+        return 0;
+
     outBuffer[bytesRead] = 0;
-    if (bytesRead)
-        return 1;
-    return 0;
-
-    // regQueryResult = RegQueryValueExA(
-    //    reader->key,    // handle to key
-    //    valueName,        // value name
-    //    NULL,            // reserved
-    //    &valueType,        // type buffer
-    //    outBuffer,        // data buffer
-    //    &bufferSize        // size of data buffer
-    //    );
-
-    //// Does the value exist?
-    // if(ERROR_SUCCESS != regQueryResult){
-    //    return 0;
-    //}
-
-    //// If the stored value is not a string, it is not possible to retrieve it.
-    // if(REG_MULTI_SZ != valueType){
-    //    return 0;
-    //}else{
-    //    outBuffer[bufferSize] = '\0';
-    //    return 1;
-    //}
+    return 1;
 }
 
 int rrWriteString(RegReaderImp* reader, const char* valueName, const char* str)
 {
-    // char outBuffer[2048];
-    // int bufferSize = ARRAY_SIZE(outBuffer);
-    // DWORD valueType;
-    // int regSetResult;
-    // int regQueryResult;
-    // DWORD type = REG_SZ;
-    size_t length = strlen(str);
-    char keyBuffer[1024];
-    strcpy(keyBuffer, reader->keyName);
-    strcat(keyBuffer, REGFILE_SEPERATOR_STR);
-    strcat(keyBuffer, valueName);
+    rrLazyWriteInit(reader);
+
+    if (!reader->keyOpened)
+        return 0;
+
+    char keyBuffer[REGFILE_PATH_LEN];
+
+    REGFILE_CAT_PATH(keyBuffer, reader->keyName, valueName);
+
     regfileNormalizeKey(keyBuffer);
 
-    size_t bytesWritten = regfileStoreKeyValue(keyBuffer, str, length);
+    size_t length = strlen(str);
+    int bytesWritten = regfileStoreKeyValue(keyBuffer, (void*)str, length);
 
     if (bytesWritten != length)
         return 0;
     return 1;
-
-    // rrLazyWriteInit(reader);
-
-    // if(!reader->keyOpened)
-    //    return 0;
-
-    // regQueryResult = RegQueryValueExA(
-    //    reader->key,    // handle to key
-    //    valueName,        // value name
-    //    NULL,            // reserved
-    //    &valueType,        // type buffer
-    //    outBuffer,        // data buffer
-    //    &bufferSize        // size of data buffer
-    //    );
-
-    //// Does the value exist?
-    // if(ERROR_SUCCESS == regQueryResult) {
-    //    if (valueType == REG_EXPAND_SZ)
-    //        type = REG_EXPAND_SZ; // Maintain this type!
-    //}
-
-    // regSetResult = RegSetValueExA(
-    //    reader->key,    // handle to key
-    //    valueName,        // value name
-    //    0,                // reserved
-    //    type,            // value type
-    //    str,            // value data
-    //    (int)strlen(str)        // size of value data
-    //    );
-
-    // if(ERROR_SUCCESS != regSetResult)
-    //    return 0;
-
-    // return 1;
 }
 
 int rrReadInt(RegReaderImp* reader, const char* valueName, unsigned int* value)
 {
-    // DWORD valueType;
-    // int valueSize;
-    // int regQueryResult;
-
     if (!value)
         return 0;
 
-    char keyBuffer[1024];
-    strcpy(keyBuffer, reader->keyName);
-    strcat(keyBuffer, REGFILE_SEPERATOR_STR);
-    strcat(keyBuffer, valueName);
-    regfileNormalizeKey(keyBuffer);
-
-    /*if(!reader->keyOpened) {
-        return 0;
-    }*/
-
-    size_t valueSize = sizeof(*value);
-    size_t bytesRead = regfileLoadKeyValue(keyBuffer, value, valueSize);
-    if (bytesRead != valueSize)
-        return 0;
-    return 1;
-
-    // valueSize = sizeof(*value);
-
-    // regQueryResult = RegQueryValueExA(
-    //    reader->key,    // handle to key
-    //    valueName,        // value name
-    //    NULL,            // reserved
-    //    &valueType,        // type buffer
-    //    (unsigned char*)value,    // data buffer
-    //    &valueSize                // size of data buffer
-    //    );
-
-    // Does the value exist?
-    /*
-    if(ERROR_SUCCESS != regQueryResult){
+    if (!reader->keyOpened)
+    {
+        *value = 0;
         return 0;
     }
 
-    // If the stored value is not a string, it is not possible to retrieve it.
-    if(REG_DWORD != valueType){
+    char keyBuffer[REGFILE_PATH_LEN];
+
+    REGFILE_CAT_PATH(keyBuffer, reader->keyName, valueName);
+
+    regfileNormalizeKey(keyBuffer);
+
+    size_t valueSize = sizeof(*value);
+    int bytesRead = regfileLoadKeyValue(keyBuffer, value, valueSize);
+
+    if (bytesRead != valueSize)
+    {
+        // Uncertain if I should modify behavior to set value to 0 on read failure.
+        *value = 0;
         return 0;
-    }else
-        return 1;*/
+    }
+    return 1;
 }
 
 int rrReadInt64(RegReaderImp* reader, const char* valueName, S64* value)
@@ -363,174 +240,100 @@ int rrReadInt64(RegReaderImp* reader, const char* valueName, S64* value)
     if (!value)
         return 0;
 
-    char keyBuffer[1024];
-    strcpy(keyBuffer, reader->keyName);
-    strcat(keyBuffer, REGFILE_SEPERATOR_STR);
-    strcat(keyBuffer, valueName);
+    if (!reader->keyOpened)
+    {
+        *value = 0;
+        return 0;
+    }
+
+    char keyBuffer[REGFILE_PATH_LEN];
+
+    REGFILE_CAT_PATH(keyBuffer, reader->keyName, valueName);
+
     regfileNormalizeKey(keyBuffer);
 
     size_t valueSize = sizeof(*value);
-    size_t bytesRead = regfileLoadKeyValue(keyBuffer, value, valueSize);
+    int bytesRead = regfileLoadKeyValue(keyBuffer, value, valueSize);
+
     if (bytesRead != valueSize)
+    {
+        *value = 0;
         return 0;
+    }
     return 1;
-
-    /*
-    DWORD valueType;
-    int valueSize;
-    int regQueryResult;
-
-    if (!value)
-        return 0;
-    if(!reader->keyOpened) {
-        return 0;
-    }
-
-    valueSize = sizeof(*value);
-
-    regQueryResult = RegQueryValueExA(
-        reader->key,    // handle to key
-        valueName,        // value name
-        NULL,            // reserved
-        &valueType,        // type buffer
-        (unsigned char*)value,    // data buffer
-        &valueSize                // size of data buffer
-        );
-
-    // Does the value exist?
-    if(ERROR_SUCCESS != regQueryResult){
-        return 0;
-    }
-
-    // If the stored value is not a string, it is not possible to retrieve it.
-    if(REG_QWORD != valueType){
-        return 0;
-    }else
-        return 1;
-
-    */
 }
 
 int rrWriteInt(RegReaderImp* reader, const char* valueName, unsigned int value)
 {
-    char keyBuffer[1024];
-    strcpy(keyBuffer, reader->keyName);
-    strcat(keyBuffer, REGFILE_SEPERATOR_STR);
-    strcat(keyBuffer, valueName);
+    rrLazyWriteInit(reader);
+
+    char keyBuffer[REGFILE_PATH_LEN];
+    REGFILE_CAT_PATH(keyBuffer, reader->keyName, valueName);
+
     regfileNormalizeKey(keyBuffer);
 
     size_t valueSize = sizeof(value);
-    size_t bytesWritten = regfileStoreKeyValue(keyBuffer, value, valueSize);
+    int bytesWritten = regfileStoreKeyValue(keyBuffer, &value, valueSize);
+
     if (bytesWritten != valueSize)
         return 0;
     return 1;
-    /*
-    int regSetResult;
-
-    rrLazyWriteInit(reader);
-
-    if(!reader->keyOpened || !valueName)
-        return 0;
-
-    regSetResult = RegSetValueExA(
-        reader->key,    // handle to key
-        valueName,        // value name
-        0,                // reserved
-        REG_DWORD,        // value type
-        (unsigned char*)&value,            // value data
-        sizeof(unsigned int)    // size of value data
-        );
-
-    if(ERROR_SUCCESS != regSetResult)
-        return 0;
-
-    return 1;
-    */
 }
 
 int rrWriteInt64(RegReaderImp* reader, const char* valueName, S64 value)
 {
-    char keyBuffer[1024];
-    strcpy(keyBuffer, reader->keyName);
-    strcat(keyBuffer, REGFILE_SEPERATOR_STR);
-    strcat(keyBuffer, valueName);
+    rrLazyWriteInit(reader);
+
+    char keyBuffer[REGFILE_PATH_LEN];
+
+    REGFILE_CAT_PATH(keyBuffer, reader->keyName, valueName);
+    
     regfileNormalizeKey(keyBuffer);
 
     size_t valueSize = sizeof(value);
-    size_t bytesWritten = regfileStoreKeyValue(keyBuffer, value, valueSize);
+    int bytesWritten = regfileStoreKeyValue(keyBuffer, &value, valueSize);
+
     if (bytesWritten != valueSize)
         return 0;
     return 1;
-    /*
-    int regSetResult;
-
-    rrLazyWriteInit(reader);
-
-    if (!reader->keyOpened || !valueName)
-        return 0;
-
-    regSetResult = RegSetValueExA(reader->key,            // handle to key
-                                  valueName,              // value name
-                                  0,                      // reserved
-                                  REG_QWORD,              // value type
-                                  (unsigned char*)&value, // value data
-                                  sizeof(value)           // size of value data
-    );
-
-    if (ERROR_SUCCESS != regSetResult)
-        return 0;
-
-    return 1;
-    */
 }
 
+// Function seems to be unused.
 int rrFlush(RegReaderImp* reader)
 {
-    /*
-    if (!reader->keyOpened)
-        return 0;
-
-    if (ERROR_SUCCESS != RegFlushKey(reader->key))
-        return 0;
-    */
-
-    return 1;
+    return reader->keyOpened;
 }
 
 int rrDelete(RegReaderImp* reader, const char* valueName)
 {
-    /*
-    if (!reader->keyOpened)
+    if (reader->keyOpened)
         return 0;
 
-    return RegDeleteValueA(reader->key, valueName);
-    */
-    char keyBuffer[1024];
-    strcpy(keyBuffer, reader->keyName);
-    strcat(keyBuffer, REGFILE_SEPERATOR_STR);
-    strcat(keyBuffer, valueName);
+    char keyBuffer[REGFILE_PATH_LEN];
+
+    REGFILE_CAT_PATH(keyBuffer, reader->keyName, valueName);
+    
     regfileNormalizeKey(keyBuffer);
 
-    regfileRemoveKey(keyBuffer);
+    // This returns 0 on success because original API would do the same.
+    return regfileRemoveKey(keyBuffer);
 }
 
+// Original API seems to return 1 on success.
 int rrClose(RegReaderImp* reader)
 {
-    if (reader->keyOpened)
-    {
-        RegCloseKey(reader->key);
-        reader->keyOpened = 0;
-    }
-
+    reader->keyOpened = 0;
     return 1;
 }
 
+// Returns number of files found, -1 on error.
 int registryEnumKeys(RegReaderImp* reader, char* files)
 {
-    char keyBuffer[1024];
-    strcpy(keyBuffer, reader->keyName);
-    if (reader->keyName[strlen(reader->keyName)] != REGFILE_SEPERATOR_CHAR)
-        strcat(keyBuffer, REGFILE_SEPERATOR_STR);
+    char keyBuffer[REGFILE_PATH_LEN];
+
+    REGFILE_CAT_PATH(keyBuffer, reader->keyName, "");
+
+    regfileNormalizeKey(keyBuffer);
 
     return regfileList(keyBuffer, files);
 }
@@ -544,117 +347,20 @@ int registryEnumKeys(RegReaderImp* reader, char* files)
 //        <0:        Buffer overflow.
 //  >0:    A string value.
 
-int rrEnumStrings(RegReaderImp* reader, int index, char* outName, int* inOutNameLen, char* outValue, int* inOutValueLen)
-{
-    DWORD valueType;
-    DWORD retVal;
-
-    if (!reader->keyOpened)
-    {
-        return 0;
-    }
-
-    retVal = RegEnumValueA(reader->key, index, outName, inOutNameLen, NULL, &valueType, outValue, inOutValueLen);
-
-    switch (retVal)
-    {
-        xcase ERROR_SUCCESS:
-        {
-            if (valueType == REG_SZ || valueType == REG_EXPAND_SZ)
-            {
-                outName[*inOutNameLen] = 0;
-                outValue[*inOutValueLen] = 0;
-
-                if (stricmp(outName, "(default)"))
-                {
-                    return 1;
-                }
-            }
-
-            return 0;
-        }
-        xcase ERROR_NO_MORE_ITEMS:
-        {
-            return -1;
-        }
-    xdefault : {
-        *inOutNameLen = -1;
-
-        return 0;
-    }
-    }
-}
-
 int registryWriteInt(const char* keyName, const char* valueName, unsigned int value)
 {
-    char keyBuffer[1024];
-    strcpy(keyBuffer, keyName);
-    strcat(keyBuffer, REGFILE_SEPERATOR_STR);
-    strcat(keyBuffer, valueName);
+    char keyBuffer[REGFILE_PATH_LEN];
+
+    REGFILE_CAT_PATH(keyBuffer, keyName, valueName);
+    
     regfileNormalizeKey(keyBuffer);
 
     size_t valueSize = sizeof(value);
-    size_t bytesWritten = regfileStoreKeyValue(keyBuffer, value, valueSize);
+    size_t bytesWritten = regfileStoreKeyValue(keyBuffer, &value, valueSize);
+
     if (bytesWritten != valueSize)
         return 0;
     return 1;
-
-    //HKEY key;
-    //PredefinedKey* predefKey;
-
-    //// Separate the predefined key name from the rest of the the key name.
-    //int matchedKnownKey = 0;
-    //int predefKeyNameLen = 0;
-    //int result;
-
-    //// Look through all of known predefined keys.
-    //for (predefKey = predefinedKeys; predefKey < predefinedKeys + (sizeof(predefinedKeys) / sizeof(predefinedKeys[0])); predefKey++)
-    //{
-
-    //    // Compare each predefined key names to the beginning of the key string.
-    //    // If they match, we've found the correct predefined key to be used to open the given key.
-    //    predefKeyNameLen = (int)strlen(predefKey->keyName);
-    //    if (0 == strnicmp(predefKey->keyName, keyName, predefKeyNameLen))
-    //    {
-    //        matchedKnownKey = 1;
-    //        break;
-    //    }
-    //}
-
-    //if (!matchedKnownKey)
-    //    return 0;
-
-    //result = RegCreateKeyExA(predefKey->key,                 // handle to open key
-    //                         keyName + predefKeyNameLen + 1, // subkey name
-    //                         0,                              // reserved
-    //                         NULL,                           // class string
-    //                         REG_OPTION_NON_VOLATILE,        // special options
-    //                         KEY_READ | KEY_WRITE,           // desired security access
-    //                         NULL,                           // inheritance
-    //                         &key,                           // key handle
-    //                         NULL                            // disposition value buffer
-    //);
-
-    //if (ERROR_SUCCESS != result)
-    //    return 0;
-
-    //result = RegSetValueExA(key,                    // handle to key
-    //                        valueName,              // value name
-    //                        0,                      // reserved
-    //                        REG_DWORD,              // value type
-    //                        (unsigned char*)&value, // value data
-    //                        sizeof(unsigned int)    // size of value data
-    //);
-
-    //if (ERROR_SUCCESS != result)
-    //{
-    //    RegCloseKey(key);
-    //    return 0;
-    //}
-
-    //RegCloseKey(key);
-
-    //return 1;
 }
 
 #else

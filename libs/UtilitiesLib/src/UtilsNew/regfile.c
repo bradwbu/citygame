@@ -12,12 +12,7 @@ char lockFile_[1024];
 
 int regfileIsInit(void)
 {
-    if (strlen(lockFile_) != 0)
-    {
-        return 1;
-    }
-    //perror("ERROR: Regfile not initialized.");
-    return 0;
+    return (strlen(lockFile_) != 0);
 }
 
 #ifdef _WIN32
@@ -26,6 +21,25 @@ int regfileIsInit(void)
 #include <direct.h>
 #include <windows.h>
 #include <assert.h>
+
+void printLastError_(void)
+{
+    DWORD errorCode = GetLastError();
+    if (errorCode == 0)
+    {
+        return;
+    }
+
+    wchar_t messageBuffer[1024];
+    size_t size = FormatMessageW(
+        FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+        NULL,
+        errorCode,
+        0,
+        messageBuffer,
+        sizeof(messageBuffer) / sizeof(wchar_t), NULL);
+    _wperror(messageBuffer);
+}
 
 #define LOCK_FLAGS (_O_EXCL | _O_CREAT | _O_RDWR | _O_TEMPORARY), (_S_IREAD | _S_IWRITE)
 
@@ -37,7 +51,6 @@ int tryLock_(int maxTries)
     int lfd = open(lockFile_, LOCK_FLAGS);
     while (lfd == -1 && tries < maxTries)
     {
-        perror(__FUNCTION__);
         _sleep(8);
         lfd = open(lockFile_, LOCK_FLAGS);
         tries += 1;
@@ -53,11 +66,15 @@ int tryLock_(int maxTries)
 
 int releaseLock_(int lfd)
 {
+    if (!regfileIsInit())
+        return -1;
     return close(lfd);
 }
 
 int listFiles_(const char* path, char* files)
 {
+    int lfd = tryLock_(50);
+
     HANDLE findHandle;
     WIN32_FIND_DATA findData;
     char* iter = files;
@@ -66,7 +83,13 @@ int listFiles_(const char* path, char* files)
     findHandle = FindFirstFile(path, &findData);
 
     if (findHandle == INVALID_HANDLE_VALUE)
-        return fileCount;
+    {
+        perror(__FUNCTION__);
+        printLastError_();
+
+        releaseLock_(lfd);
+        return 0;
+    }
 
     strcpy(iter, findData.cFileName);
     iter += strlen(iter) + 1;
@@ -80,17 +103,17 @@ int listFiles_(const char* path, char* files)
     }
 
     FindClose(findHandle);
+
+    releaseLock_(lfd);
     return fileCount;
 }
 
 #endif
 
 // Shameless Copypasta from SO
-
 int mkpath_(const char* path)
 {
-    printf("FN: [%s] ARG: [%s]\n", __FUNCTION__, path);
-    char pathBuffer[512];
+    char pathBuffer[REGFILE_PATH_LEN];
     strcpy(pathBuffer, path);
     for (char* p = strchr(pathBuffer + 1, REGFILE_SEPERATOR_CHAR); p; p = strchr(p + 1, REGFILE_SEPERATOR_CHAR))
     {
@@ -107,15 +130,15 @@ int mkpath_(const char* path)
         }
         *p = REGFILE_SEPERATOR_CHAR;
     }
-    printf("FN: [%s] Done.\n", __FUNCTION__);
+
     return 0;
 }
 
 int regfileInit(const char* directory)
 {
-    printf("FN: [%s] ARG: [%s]\n", __FUNCTION__, directory);
     strcpy(registryPath_, directory);
     regfileNormalizeKey(registryPath_);
+
     if (directory[strlen(directory) - 1] != REGFILE_SEPERATOR_CHAR)
         strcat(registryPath_, REGFILE_SEPERATOR_STR);
 
@@ -130,13 +153,11 @@ int regfileInit(const char* directory)
     strcpy(lockFile_, registryPath_);
     strcat(lockFile_, LOCK_NAME);
 
-    printf("FN: [%s] Done.\n", __FUNCTION__);
     return 0;
 }
 
 void regfileNormalizeKey(char* mutableKey)
 {
-    printf("FN: [%s] ARG: [%s]\n", __FUNCTION__, mutableKey);
     char* iter = mutableKey;
     while (*iter != 0)
     {
@@ -150,20 +171,24 @@ void regfileNormalizeKey(char* mutableKey)
         #endif
         ++iter;
     }
-    printf("FN: [%s] Done.\n", __FUNCTION__);
 }
 
-size_t regfileLoadKeyValue(const char* key, void* buffer, size_t len)
+/// <summary>
+/// Load value from file.
+/// </summary>
+/// <param name="key"> Path within registry file. </param>
+/// <param name="buffer"> Buffer to read data into. </param>
+/// <param name="len"> Max length in bytes to read. </param>
+/// <returns> Number of bytes read from file. -1 on error. </returns>
+int regfileLoadKeyValue(const char* key, void* buffer, size_t len)
 {
-    printf("FN: [%s] ARG: [%s]\n", __FUNCTION__, key);
     int lfd = tryLock_(50);
 
-    char* keyPath[1024];
+    char keyPath[REGFILE_PATH_LEN];
     strcpy(keyPath, registryPath_);
     strcat(keyPath, key);
-    mkpath_(keyPath);
 
-    FILE* keyfile = fopen(keyPath, "wb+");
+    FILE* keyfile = fopen(keyPath, "rb");
 
     if (keyfile == NULL)
     {
@@ -171,37 +196,36 @@ size_t regfileLoadKeyValue(const char* key, void* buffer, size_t len)
         perror(__FUNCTION__);
         perror(strerror(errcode));
         releaseLock_(lfd);
-        return 0;
+        return -1;
     }
 
-    size_t bytesRead = fread(buffer, 1, len, keyfile);
+    int bytesRead = fread(buffer, 1, len, keyfile);
 
     fclose(keyfile);
     releaseLock_(lfd);
 
-    printf("FN: [%s] Done.\n", __FUNCTION__);
     return bytesRead;
 }
 
 int regfileStoreKeyValue(const char* key, void* value, size_t len)
 {
-    printf("FN: [%s] ARG: [%s]\n", __FUNCTION__, key);
     int lfd = tryLock_(50);
 
-    char* keyPath[1024];
+    char keyPath[REGFILE_PATH_LEN];
     strcpy(keyPath, registryPath_);
     strcat(keyPath, key);
     mkpath_(keyPath);
 
-    FILE* keyfile = fopen(keyPath, "wb+");
+    FILE* keyfile = fopen(keyPath, "wb");
 
     if (keyfile == NULL)
     {
         int errcode = errno;
         perror(__FUNCTION__);
         perror(strerror(errcode));
+
         releaseLock_(lfd);
-        return 0;
+        return -1;
     }
 
     size_t bytesWritten = fwrite(value, 1, len, keyfile);
@@ -215,22 +239,52 @@ int regfileStoreKeyValue(const char* key, void* value, size_t len)
     fclose(keyfile);
     releaseLock_(lfd);
 
-    printf("FN: [%s] Done.\n", __FUNCTION__);
     return bytesWritten;
 }
 
 int regfileRemoveKey(const char* key)
 {
-    printf("FN: [%s] ARG: [%s]\n", __FUNCTION__, key);
-    char* keyPath[1024];
+    int lfd = tryLock_(50);
+
+    char keyPath[REGFILE_PATH_LEN];
+
     strcpy(keyPath, registryPath_);
     strcat(keyPath, key);
+
     regfileNormalizeKey(keyPath);
-    remove(keyPath);
-    printf("FN: [%s] Done.\n", __FUNCTION__);
+
+    int returnValue = remove(keyPath);
+
+    releaseLock_(lfd);
+
+    return returnValue;
 }
 
 int regfileList(const char* key, char* files)
 {
     return listFiles_(key, files);
+}
+
+int regfileDoesKeyExist(const char* key)
+{
+    int lfd = tryLock_(50);
+
+    char keyPath[REGFILE_PATH_LEN];
+    strcpy(keyPath, registryPath_);
+    strcat(keyPath, key);
+
+    regfileNormalizeKey(keyPath);
+
+    FILE* keyfile = fopen(keyPath, "rb");
+
+    if (keyfile == NULL)
+    {
+        releaseLock_(lfd);
+        return 0;
+    }
+
+    fclose(keyfile);
+
+    releaseLock_(lfd);
+    return 1;
 }
