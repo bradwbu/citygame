@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "utilitieslib/UtilsNew/regfile.h"
 #include <fcntl.h>
 #include <stdio.h>
@@ -9,6 +13,7 @@
 
 char registryPath_[1024];
 char lockFile_[1024];
+FILE* debug_log = NULL;
 
 int regfileIsInit(void)
 {
@@ -21,6 +26,16 @@ int regfileIsInit(void)
 #include <direct.h>
 #include <windows.h>
 #include <assert.h>
+#include <time.h>
+
+void print_timestamp(void)
+{
+    char buffer[45];
+    time_t now = time(NULL);
+    struct tm* time_info = localtime(&now);
+    strftime(buffer, 45, "%Y-%m-%d %H:%M:%S %z", time_info);
+    fprintf(debug_log, "%s : ", buffer);
+}
 
 void printLastError_(void)
 {
@@ -49,6 +64,7 @@ int tryLock_(int maxTries)
 
     int tries = 0;
     int lfd = open(lockFile_, LOCK_FLAGS);
+
     while (lfd == -1 && tries < maxTries)
     {
         _sleep(8);
@@ -61,6 +77,9 @@ int tryLock_(int maxTries)
         perror("FATAL: Could not acquire shadow registry lockfile.");
         exit(EXIT_FAILURE);
     }
+    print_timestamp();
+    fprintf(debug_log, "Regfile Locked\n");
+    fflush(debug_log);
     return lfd;
 }
 
@@ -68,6 +87,9 @@ int releaseLock_(int lfd)
 {
     if (!regfileIsInit())
         return -1;
+    print_timestamp();
+    fprintf(debug_log, "Regfile Unlocked\n");
+    fflush(debug_log);
     return close(lfd);
 }
 
@@ -152,6 +174,8 @@ int regfileInit(const char* directory)
 
     strcpy(lockFile_, registryPath_);
     strcat(lockFile_, LOCK_NAME);
+
+    debug_log = fopen("debug.log", "a+");
 
     return 0;
 }
@@ -288,3 +312,7 @@ int regfileDoesKeyExist(const char* key)
     releaseLock_(lfd);
     return 1;
 }
+
+#ifdef __cplusplus
+}
+#endif

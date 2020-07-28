@@ -3,10 +3,10 @@
 
 #include <stdint.h>
 
-#ifdef _cplusplus
-extern "C"
-{
+#ifdef __cplusplus
+extern "C" {
 #endif
+
 #ifdef _WIN32
 #define REGFILE_SEPERATOR_CHAR '\\'
 #define REGFILE_OTHER_SEPERATOR_CHAR '/'
@@ -36,7 +36,7 @@ extern "C"
     int regfileList(const char* key, char* files);
     int regfileDoesKeyExist(const char* key);
 
-#ifdef _cplusplus
+#ifdef __cplusplus
 }
 #endif
 
