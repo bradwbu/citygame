@@ -2,6 +2,7 @@
 
 #include "utilitieslib/utils/RegistryReader.h"
 #include "utilitieslib/utils/wininclude.h"
+#include "regfile.h"
 #include <stdlib.h>
 #include <stdio.h>
 

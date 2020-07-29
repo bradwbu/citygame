@@ -2,7 +2,6 @@
 #define REGISTRYREADER_H
 
 #include "../stdtypes.h"
-#include "utilitieslib/UtilsNew/regfile.h"
 
 C_DECLARATIONS_BEGIN
 
