@@ -551,7 +551,7 @@ const char* TokenizerPeek(TokenizerHandle tokenizer, int ignorelinebreak, int ig
             }
 
             // advance real quick looking for an eol
-            i = tok->offsetinbuffer+2;
+            i = tok->offsetinbuffer+1;
             while (i < tok->lengthofbuffer && tok->buffer[i] != '\n') i++;
             i++; // past eol
             if (i >= tok->lengthofbuffer) LoadBuffer(tok, tok->context->curoffset + i);
