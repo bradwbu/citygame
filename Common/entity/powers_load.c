@@ -2159,6 +2159,7 @@ TokenizerParseInfo ParseBasePower[] =
     { "GroupMembership",    TOK_INTARRAY(BasePower, pGroupMembership), ParsePowerDefines },
     { "ModesRequired",      TOK_INTARRAY(BasePower, pModesRequired), ParsePowerDefines },
     { "ModesDisallowed",    TOK_INTARRAY(BasePower, pModesDisallowed), ParsePowerDefines },
+    { "FreeBoostSlotsOnPower", TOK_INTARRAY(BasePower, pFreeBoostSlotsOnPower), ParsePowerDefines },
     { "AIGroups",           TOK_STRINGARRAY(BasePower, ppchAIGroups),     },
     { "AttribMod",          TOK_STRUCT(BasePower, ppTemplates, ParseAttribModTemplate) },
     { "IgnoreStrength",     TOK_BOOL(BasePower, bIgnoreStrength, 0), BoolEnum },

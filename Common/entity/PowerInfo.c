@@ -825,7 +825,19 @@ void entity_ReceivePowerInfoUpdate(Entity* e, Packet* pak)
 
                 if(ppow!=NULL)
                 {
-                    int iCntAllowed = CountForLevel(e->pchar->iLevel-iLevelBought, g_Schedules.aSchedules.piFreeBoostSlotsOnPower);
+                    int iCntAllowed = -1;
+                    if (ppow->ppowBase->pFreeBoostSlotsOnPower)
+                    {
+                        if (eaiSize(ppow->ppowBase->pFreeBoostSlotsOnPower) != 0)
+                        {
+                            iCntAllowed = CountForLevel(e->pchar->iLevel - iLevelBought, g_Schedules.aSchedules.piFreeBoostSlotsOnPower);
+                        }
+                    }
+                    if (iCntAllowed < 0)
+                    {
+                        iCntAllowed = CountForLevel(e->pchar->iLevel - iLevelBought, ppow->ppowBase->pFreeBoostSlotsOnPower);
+                    }
+                    //int iCntAllowed = CountForLevel(e->pchar->iLevel-iLevelBought, g_Schedules.aSchedules.piFreeBoostSlotsOnPower);
 
                     power_DestroyAllBoosts(ppow,NULL);
                     eaSetSize(&ppow->ppBoosts, iCntBoosts);
