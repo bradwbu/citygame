@@ -830,14 +830,13 @@ void entity_ReceivePowerInfoUpdate(Entity* e, Packet* pak)
                     {
                         if (eaiSize(ppow->ppowBase->pFreeBoostSlotsOnPower) != 0)
                         {
-                            iCntAllowed = CountForLevel(e->pchar->iLevel - iLevelBought, pFreeBoostSlotsOnPowerg_Schedules.aSchedules.piFreeBoostSlotsOnPower);
+                            iCntAllowed = CountForLevel(e->pchar->iLevel - iLevelBought, ppow->ppowBase->pFreeBoostSlotsOnPower);
                         }
                     }
                     if (iCntAllowed < 0)
                     {
                         iCntAllowed = CountForLevel(e->pchar->iLevel - iLevelBought, g_Schedules.aSchedules.piFreeBoostSlotsOnPower);
                     }
-                    //int iCntAllowed = CountForLevel(e->pchar->iLevel-iLevelBought, g_Schedules.aSchedules.piFreeBoostSlotsOnPower);
 
                     power_DestroyAllBoosts(ppow,NULL);
                     eaSetSize(&ppow->ppBoosts, iCntBoosts);
