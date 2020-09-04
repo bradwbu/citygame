@@ -950,8 +950,7 @@ void character_ReceivePowers(Packet *pak, Character *pchar)
 
                     if (ppowBase->pFreeBoostSlotsOnPower)
                     {
-                        FreeBoostSchedule = eaiSize(ppowBase->pFreeBoostSlotsOnPower) ? ppowBase->pFreeBoostSlotsOnPower
-                                                                                            : g_Schedules.aSchedules.piFreeBoostSlotsOnPower;
+                        FreeBoostSchedule = ppowBase->pFreeBoostSlotsOnPower;
                     }
                     else
                     {

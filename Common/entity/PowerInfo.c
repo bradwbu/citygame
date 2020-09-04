@@ -828,10 +828,7 @@ void entity_ReceivePowerInfoUpdate(Entity* e, Packet* pak)
                     int iCntAllowed = -1;
                     if (ppow->ppowBase->pFreeBoostSlotsOnPower)
                     {
-                        if (eaiSize(ppow->ppowBase->pFreeBoostSlotsOnPower) != 0)
-                        {
-                            iCntAllowed = CountForLevel(e->pchar->iLevel - iLevelBought, ppow->ppowBase->pFreeBoostSlotsOnPower);
-                        }
+                        iCntAllowed = CountForLevel(e->pchar->iLevel - iLevelBought, ppow->ppowBase->pFreeBoostSlotsOnPower);
                     }
                     if (iCntAllowed < 0)
                     {

@@ -643,8 +643,7 @@ static void ContactInteractionShowTrainingImprovements(Entity* player, int link,
                 int * FreeBoostSchedule;
                 if (ppow->ppowBase->pFreeBoostSlotsOnPower)
                 {
-                    FreeBoostSchedule = (eaiSize(ppow->ppowBase->pFreeBoostSlotsOnPower) != 0) ? ppow->ppowBase->pFreeBoostSlotsOnPower
-                                                                                               : g_Schedules.aSchedules.piFreeBoostSlotsOnPower;
+                    FreeBoostSchedule = ppow->ppowBase->pFreeBoostSlotsOnPower;
                 }
                 else
                 {

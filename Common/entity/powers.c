@@ -1099,7 +1099,7 @@ void power_LevelFinalize(Power *ppow)
     //Check for schedule override in power, if it exists, use it otherwise default to schedule
     int * FreeBoostSchedule;
     if (ppow->ppowBase->pFreeBoostSlotsOnPower){
-        FreeBoostSchedule = eaiSize(ppow->ppowBase->pFreeBoostSlotsOnPower) ? ppow->ppowBase->pFreeBoostSlotsOnPower : g_Schedules.aSchedules.piFreeBoostSlotsOnPower;
+        FreeBoostSchedule = ppow->ppowBase->pFreeBoostSlotsOnPower;
     }
     else
     {
