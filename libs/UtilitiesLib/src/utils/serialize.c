@@ -9,7 +9,7 @@
 #include "utilitieslib/utils/wininclude.h"
 #include <io.h>
 #include <sys/stat.h>
-
+#include "utilitieslib/utils/textparser.h"
 
 #include "utilitieslib/utils/memcheck.h"
 #include "utilitieslib/utils/file.h"
@@ -356,8 +356,29 @@ int SerializePatchHeader(SimpleBufHandle sfile, int size, long loc)             
     return wr;
 }
 
+// NOTE! You must add new bin types here as they are supported!
+const char* validParseTypes[] =
+{
+    PARSE_SIG,
+    PARSE_V23
+};
+
+// Iterate over validParseTypes to make sure we have a supported bin type.
+int getBinVersionNum(const char* readtype)
+{
+    for (int i = 0; i <= PARSE_ADDITIONAL_COUNT; i++)
+    {
+        if (strcmp(readtype, validParseTypes[i]) == 0) {
+            verbose_printf(" Found BIN version type %s [%d]\n", validParseTypes[i], i);
+            return i;
+        }
+    }
+
+    return -1;
+}
+
 ///////////////////////////////////////////////////////////////////// read functions
-SimpleBufHandle SerializeReadOpen(const char* filename, const char* filetype, int build, int ignore_crc_difference)
+SimpleBufHandle SerializeReadOpen(const char* filename, int build, int ignore_crc_difference, int* binVersionNum)
 {
     SimpleBufHandle result;
     int readbuild = 0;
@@ -378,11 +399,13 @@ SimpleBufHandle SerializeReadOpen(const char* filename, const char* filetype, in
     SimpleBufReadU32((U32*)&readbuild, result);
     readtype[0] = 0;
     ReadPascalString(result, readtype, MAX_FILETYPE_LEN);
+    *binVersionNum = getBinVersionNum(readtype);
     if (strcmp(cryptic_sig, readsig) != 0 ||
-        strcmp(readtype, filetype) != 0 ||
+        *binVersionNum == -1 ||
         (!ignore_crc_difference && (readbuild != build)))
     {
-        //printf("SerializeReadOpen: invalid signature on file %s\n", filename);
+        printf("SerializeReadOpen: invalid signature on file %s\n", filename);
+        printf("                    binVersionNum: %d\n", *getBinVersionNum);
         SimpleBufClose(result);
         return 0;
     }
