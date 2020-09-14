@@ -13,6 +13,8 @@
 
 #include "AutoGen/MissionSearch_h_ast.c"
 
+#include "cmdparse\cmdgame.h"
+
 int g_missionsearchpage_accesslevel[] = {
     0, // MISSIONSEARCH_ALL
     0, // MISSIONSEARCH_MYARCS
@@ -238,6 +240,8 @@ char* missionMakerPath(void)
         {
             getExecutableDir(path);
         }
+        strcat(path, "/");
+        strcat(path, game_state.patchdir);
         strcat(path, "/Missions");
     }
 
