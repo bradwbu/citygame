@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="ServerAPI"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="..\ServerCmd;..\launcher;..\common\version;../libs/UtilitiesLib\assert;../libs\UtilitiesLib\version;../libs\UtilitiesLib\language;../libs/UtilitiesLib;../libs/UtilitiesLib\network;../libs/UtilitiesLib\utils;../libs/UtilitiesLib\components;..\MapServer\dbcomm\;..\dbserver;..\Common\entity\;..\Mapserver\container;..\CmdRelay;..\Common;..\3rdparty\libmicrohttpd\src\include"
+		PreprocessorDefinitions="WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		IgnoreDefaultLibraryNames="LIBCD.lib"
+		SubSystem="1"
+	/>
+</VisualStudioPropertySheet>
