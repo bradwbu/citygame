@@ -9,20 +9,20 @@ typedef struct ServerMonitorState ServerMonitorState;
 
 typedef struct ServerAPIShard
 {
-	char *name;
-	char *dbserver;
+    char* name;
+    char* dbserver;
 
-	// runtime
-	ServerMonitorState *state;
+    // runtime
+    ServerMonitorState* state;
 } ServerAPIShard;
 
 typedef struct ServerAPIConfig
 {
-	int port;
-	ServerAPIShard **shards;
+    int port;
+    ServerAPIShard** shards;
 
-	StashTable shardidx;
-	struct MHD_Daemon *httpserver;
+    StashTable shardidx;
+    struct MHD_Daemon* httpserver;
 } ServerAPIConfig;
 
 extern ServerAPIConfig config;

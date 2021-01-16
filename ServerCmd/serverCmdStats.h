@@ -5,10 +5,10 @@
 
 typedef struct JsonNode JsonNode;
 
-void serverCmdUpdateDbStats(ServerMonitorState *state);
-void serverCmdDbStats(ServerMonitorState *state, JsonNode *parent);
-void serverCmdLauncherStats(ServerMonitorState *state, JsonNode *parent);
-void serverCmdMapStats(ServerMonitorState *state, JsonNode *parent);
-void serverCmdEntities(ServerMonitorState *state, JsonNode *parent);
+void serverCmdUpdateDbStats(ServerMonitorState* state);
+void serverCmdDbStats(ServerMonitorState* state, JsonNode* parent);
+void serverCmdLauncherStats(ServerMonitorState* state, JsonNode* parent);
+void serverCmdMapStats(ServerMonitorState* state, JsonNode* parent);
+void serverCmdEntities(ServerMonitorState* state, JsonNode* parent);
 
 #endif
