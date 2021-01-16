@@ -1,6 +1,8 @@
 #ifndef _SERVER_MONITOR_NET_H
 #define _SERVER_MONITOR_NET_H
 
+#include <utilitieslib/stdtypes.h>
+
 typedef struct ListView ListView;
 typedef struct MapCon MapCon;
 typedef struct Packet Packet;
@@ -17,6 +19,7 @@ int svrMonResetMission(ServerMonitorState *state);
 void svrMonDelink(ServerMonitorState *state, MapCon *con);
 void svrMonSendAdminMessage(ServerMonitorState *state, const char *msg);
 void svrMonSendDbMessage(ServerMonitorState *state, const char *msg, const char *params);
+void svrMonLogHistory(ServerMonitorState *state);
 void svrMonSendOverloadProtection(ServerMonitorState *state, const char *msg);
 
 int svrMonGetSendRate(ServerMonitorState *state);
@@ -28,7 +31,5 @@ void svrMonRequestEnts(ServerMonitorState *state, int val);
 void svrMonClearAllLists(ServerMonitorState *state);
 
 int notTroubleStatus(char *status);
-
-int svrMonAlive(ServerMonitorState* state);
 
 #endif // _SERVER_MONITOR_NET_H

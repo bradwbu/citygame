@@ -25,7 +25,7 @@
 #include <windowsx.h>
 
 #include "serverMonitorNet.h"
-#include "serverCmd.h"
+#include "serverMonitor.h"
 
 U32 timestamp=0; // Set globally
 bool g_someDataOutOfSync = false;
@@ -33,7 +33,6 @@ bool g_someDataOutOfSync = false;
 //static bool received_update=false;
 
 static TokenizerParseInfo *destructor_tpi=NULL;
-
 static void destructor(void *data)
 {
     if (data==NULL || data==(void*)(intptr_t)1)
@@ -60,7 +59,6 @@ static void clearConsFromFilterList(DbContainer ***eaCons, DbContainer ***eaCons
 void svrMonClearAllLists(ServerMonitorState *state)
 {
     clearConsFromFilterList((DbContainer***)state->eaMaps, (DbContainer***)state->eaMapsStuck);
-    destructor_shc = state->shcServerMonHistory;
     destructor_tpi = MapConNetInfo;
     eaClearEx(state->eaMaps, destructor);
     destructor_tpi = CrashedMapConNetInfo;
@@ -74,9 +72,6 @@ void svrMonClearAllLists(ServerMonitorState *state)
 
     destructor_tpi = EntConNetInfo;
     eaClearEx(state->eaEnts, destructor);
-
-    destroyStructHistCollection(state->shcServerMonHistory);
-    state->shcServerMonHistory = createStructHistCollection(state->dbserveraddr[0]?state->dbserveraddr:"SvrMonPerfLogs");
 }
 
 int svrMonConnect(ServerMonitorState *state, char *ip_str)
@@ -89,6 +84,8 @@ int svrMonConnect(ServerMonitorState *state, char *ip_str)
         packetStartup(0,0);
         inited=true;
     }
+
+    state->local_dbserver = false;
 
     svrMonClearAllLists(state);
 
@@ -210,10 +207,10 @@ int svrMonShutdownAll(ServerMonitorState *state, const char *reason)
 typedef int (*ContainerFilter)(DbContainer *con, void *filterData); // Returns 1 if it passes the filter
 
 // Macro to handle automatic casting
-#define HandleRecvList(state, pak, eaCons, tpi, ptpi, size, eaConsFiltered, lvFiltered, filter, filterData) \
-    handleRecvList(state, pak, (DbContainer***)eaCons, tpi, ptpi, size, (DbContainer***)eaConsFiltered, lvFiltered, (ContainerFilter)filter, filterData)
+#define HandleRecvList(state, pak, eaCons, tpi, ptpi, size, eaConsFiltered, filter, filterData) \
+    handleRecvList(state, pak, (DbContainer***)eaCons, tpi, ptpi, size, (DbContainer***)eaConsFiltered, (ContainerFilter)filter, filterData)
 
-void handleRecvList(ServerMonitorState *state, Packet *pak, DbContainer ***eaCons, TokenizerParseInfo *tpi, TokenizerParseInfo **ptpi, int size, ListView *lv,
+void handleRecvList(ServerMonitorState *state, Packet *pak, DbContainer ***eaCons, TokenizerParseInfo *tpi, TokenizerParseInfo **ptpi, int size,
                     DbContainer ***eaConsFiltered, ContainerFilter filter, void *filterData)
 {
     DbContainer *con;
@@ -226,18 +223,11 @@ void handleRecvList(ServerMonitorState *state, Packet *pak, DbContainer ***eaCon
     server_time_offset = pktGetBits(pak, 32);
     timerSetSecondsOffset(server_time_offset); // Assume the server time is the same as the local time
 
-    state->last_received = timerSecondsSince2000();
-
     full_update = pktGetBits(pak, 1);
 
     if (full_update) {
         tpi = sdUnpackParseInfo(tpi, pak, false);
         *ptpi = tpi;
-        if (lvFiltered) {
-            // Warning: this assumes that in our special set up we will always receive a full update
-            //  on eaMaps and then immediately receive a full update on eaMapsStuck with no diffs in between
-            listViewDelAllItems(lvFiltered, NULL);
-        }
 
         if (eaConsFiltered) {
             clearConsFromFilterList(eaCons, eaConsFiltered);
@@ -247,7 +237,6 @@ void handleRecvList(ServerMonitorState *state, Packet *pak, DbContainer ***eaCon
             clearConsFromFilterList((DbContainer***)state->eaMaps, (DbContainer***)state->eaMapsStuck);
             // Then free the remaining ones (actual crashed maps)
         }
-        destructor_shc = state->shcServerMonHistory;
         destructor_tpi = tpi;
         eaClearEx(eaCons, destructor);
         // This should happen implicitly from the function call above
@@ -292,11 +281,10 @@ void handleRecvList(ServerMonitorState *state, Packet *pak, DbContainer ***eaCon
                 update=false;
             }
         }
-
         g_someDataOutOfSync |= !sdUnpackDiff(tpi, pak, con, NULL, false);
         if (!update) {
             eaPush(eaCons, con);
-        } 
+        }
         // Check filter
         if (filter) {
             meets_filter = filter(con, filterData);
@@ -312,24 +300,10 @@ void handleRecvList(ServerMonitorState *state, Packet *pak, DbContainer ***eaCon
                     assert(update);
                 }
             }
-            if (lvFiltered) {
-                index = listViewFindItem(lvFiltered, con);
-                if (index==-1) {
-                    listViewAddItem(lvFiltered, con);
-                } else {
-                    listViewItemChanged(lvFiltered, con);
-                }
-            }
         } else {
             // Doesn't meet the filter, remove it if it's in either
             if (eaConsFiltered) {
                 eaRemove(eaConsFiltered, eaFind(eaConsFiltered, con));
-            }
-            if (lvFiltered) {
-                index = listViewFindItem(lvFiltered, con);
-                if (index!=-1) {
-                    listViewDelItem(lvFiltered, index);
-                }
             }
         }
 
@@ -350,19 +324,11 @@ void handleRecvList(ServerMonitorState *state, Packet *pak, DbContainer ***eaCon
         if (con && con->id == id) {
             update=true;
             eaRemove(eaCons, i);
-
             // Remove from filtered list
             if (eaConsFiltered) {
                 eaRemove(eaConsFiltered, eaFind(eaConsFiltered, con));
             }
-            if (lvFiltered) {
-                index = listViewFindItem(lvFiltered, con);
-                if (index!=-1) {
-                    listViewDelItem(lvFiltered, index);
-                }
-            }
 
-            destructor_shc = state->shcServerMonHistory;
             destructor_tpi = tpi;
             destructor(con);
         } else {
@@ -467,9 +433,9 @@ void updateInTroubleState(ServerMonitorState *state)
             trouble++;
         }
     }
-    //if (state->stats.servers_in_trouble!=trouble)
-    //    state->servers_in_trouble_changed=1;
-    //state->stats.servers_in_trouble=trouble;
+    if (state->stats.servers_in_trouble!=trouble)
+        state->servers_in_trouble_changed=1;
+    state->stats.servers_in_trouble=trouble;
 
 }
 
@@ -548,9 +514,6 @@ void handleDbStats(ServerMonitorState *state, Packet* pak)
     }
 }
 
-static char previous_patch_version[100];
-static char previous_hostname[128];
-
 int svrMonHandleMsg(Packet *pak,int cmd, NetLink *link)
 {
     ServerMonitorState *state = link->userData;
@@ -562,28 +525,25 @@ int svrMonHandleMsg(Packet *pak,int cmd, NetLink *link)
     switch (cmd) {
         case DBSVRMON_MAPSERVERS:
             //received_update = true;
-            HandleRecvList(state, pak, state->eaMaps, MapConNetInfo, &state->tpiMapConNetInfo, sizeof(MapCon), state->lvMaps, state->eaMapsStuck, state->lvMapsStuck, stuckFilter, NULL, "Maps");
+            HandleRecvList(state, pak, state->eaMaps, MapConNetInfo, &state->tpiMapConNetInfo, sizeof(MapCon), state->eaMapsStuck, stuckFilter, NULL);
             updateInTroubleState(state);
-            previous_patch_version[0] = 0;
-            previous_hostname[0] = 0;
-            listViewForEach(state->lvMaps, updateMapItemColors, state);
             break;
         case DBSVRMON_CRASHEDMAPSERVERS:
             //received_update = true;
-            HandleRecvList(state, pak, state->eaMapsStuck, CrashedMapConNetInfo, &state->tpiCrashedMapConNetInfo, sizeof(MapCon), state->lvMapsStuck, NULL, NULL, NULL, NULL, "CrashedMaps");
+            HandleRecvList(state, pak, state->eaMapsStuck, CrashedMapConNetInfo, &state->tpiCrashedMapConNetInfo, sizeof(MapCon), NULL, NULL, NULL);
             updateInTroubleState(state);
             break;
         case DBSVRMON_PLAYERS:
             //received_update = true;
-            HandleRecvList(state, pak, state->eaEnts, EntConNetInfo, &state->tpiEntConNetInfo, sizeof(EntCon), NULL, NULL, state->lvEnts, smentsFilter, NULL, "Players");
+            HandleRecvList(state, pak, state->eaEnts, EntConNetInfo, &state->tpiEntConNetInfo, sizeof(EntCon), NULL, NULL, NULL);
             break;
         case DBSVRMON_LAUNCHERS:
             //received_update = true;
-            HandleRecvList(state, pak, state->eaLaunchers, LauncherConNetInfo, &state->tpiLauncherConNetInfo, sizeof(LauncherCon), state->lvLaunchers, NULL, NULL, NULL, NULL, "Launchers");
+            HandleRecvList(state, pak, state->eaLaunchers, LauncherConNetInfo, &state->tpiLauncherConNetInfo, sizeof(LauncherCon), NULL, NULL, NULL);
             break;
         case DBSVRMON_SERVERAPPS:
             //received_update = true;
-            HandleRecvList(state, pak, state->eaServerApps, ServerAppConNetInfo, &state->tpiServerAppConNetInfo, sizeof(ServerAppCon), state->lvServerApps, NULL, NULL, NULL, NULL, "ServerApps");
+            HandleRecvList(state, pak, state->eaServerApps, ServerAppConNetInfo, &state->tpiServerAppConNetInfo, sizeof(ServerAppCon), NULL, NULL, NULL);
             updateInTroubleState(state);
             break;
         case DBSVRMON_REQUESTVERSION:
@@ -628,20 +588,19 @@ int svrMonNetTick(ServerMonitorState *state)
 
     if (!svrMonConnectionLooksDead(state) && !state->svrMonNetTick_was_connected) {
         state->svrMonNetTick_was_connected = true;
-        /* if (state->stats.servers_in_trouble==9999) {
+        if (state->stats.servers_in_trouble==9999) {
             state->stats.servers_in_trouble = 0;
             state->servers_in_trouble_changed = 1;
-        } */
+        }
         state->stats.dbserver_in_trouble = 0;
-    } /*
-    else if (state->svrMonNetTick_was_connected && svrMonConnectionLooksDead(state)) {
+    } else if (state->svrMonNetTick_was_connected && svrMonConnectionLooksDead(state)) {
         if (!state->stats.servers_in_trouble) {
             state->stats.servers_in_trouble = 9999;
         }
         state->servers_in_trouble_changed = 1;
         state->svrMonNetTick_was_connected = false;
         state->stats.dbserver_in_trouble = 1;
-    } */
+    }
     return 1;
 }
 

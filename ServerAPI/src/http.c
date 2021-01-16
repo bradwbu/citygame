@@ -1,10 +1,12 @@
-#include "http.h"
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/SuperAssert.h>
+
 #include "microhttpd.h"
+#include "http.h"
+
 #include "json.h"
-#include "earray.h"
 #include "ServerAPI.h"
 #include "serverCmdStats.h"
-#include "serverMonitorNet.h"
 #include "serverMonitorNet.h"
 
 #define INVALID_REQUEST_PAGE "<html><head><title>Invalid Request</title></head><body><h1>Invalid request</h1></body></html>"
@@ -41,6 +43,10 @@ static int sendJson(struct MHD_Connection *conn, JsonNode *json)
 	MHD_destroy_response(resp);
 
 	return ret;
+}
+
+bool svrMonAlive(ServerMonitorState *state) {
+	return true;
 }
 
 static JsonNode *statusOne(ServerAPIShard *shard)

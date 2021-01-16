@@ -1,7 +1,7 @@
 #ifndef _SERVERAPI_H
 #define _SERVERAPI_H
 
-#include "stashtable.h"
+#include <utilitieslib\components\StashTable.h>
 
 #define TokenizerParseInfo ParseTable
 

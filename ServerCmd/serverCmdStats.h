@@ -1,5 +1,6 @@
 #ifndef _SERVERCMDSTATS_H
 #define _SERVERCMDSTATS_H
+
 #include "serverCmd.h"
 
 typedef struct JsonNode JsonNode;

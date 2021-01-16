@@ -1,14 +1,17 @@
+#include <utilitieslib/utils/utils.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/network/netio.h>
+#include <utilitieslib/utils/file.h>
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/utils/textparser.h>
+#include <utilitieslib/utils/sysutil.h>
+#include <utilitieslib/utils/SuperAssert.h>
+
 #include "serverCmd.h"
 #include "serverMonitorNet.h"
 #include "serverCmdStats.h"
-//#include "serverCmdAction.h"
-#include "netio.h"
-#include "utils.h"
-#include "file.h"
+
 #include "http.h"
-#include "earray.h"
-#include "textparser.h"
-#include "sysutil.h"
 #include "serverapi.h"
 
 ServerAPIConfig config = {0};
@@ -46,8 +49,8 @@ static bool loadConfig()
 	char cfgpath[MAX_PATH], buf[MAX_PATH];
 
 	getExecutableDir(cfgpath);
-	fileSetBaseDir(cfgpath);
-	fileInitSys();
+	//fileSetBaseDir(cfgpath);
+	//fileInitSys();
 
 	strcat_s(SAFESTR(cfgpath), "/serverapi.cfg");
 
@@ -57,7 +60,7 @@ static bool loadConfig()
 	}
 
 	ParserInitStruct(&config, sizeof(config), ParseAPIConfig);
-	if (!ParserLoadFiles(NULL, buf, NULL, 0, ParseAPIConfig, &config, NULL, NULL, NULL, NULL)) {
+	if (!ParserLoadFiles(NULL, buf, NULL, 0, ParseAPIConfig,       &config,           NULL, NULL, NULL)) {
 		puts("Couldn't parse serverapi.cfg");
 		return false;
 	}

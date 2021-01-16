@@ -1,6 +1,8 @@
+#include <utilitieslib/components/earray.h>
+#include <utilitieslib/components/EString.h>
+#include <utilitieslib\utils\memcheck.h>
+
 #include "json.h"
-#include "earray.h"
-#include "estring.h"
 
 JsonNode *jsonNode(const char *name, const char *value, bool quote, bool isarray)
 {

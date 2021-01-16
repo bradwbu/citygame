@@ -1,12 +1,9 @@
 #ifndef _SERVERCMD_H
 #define _SERVERCMD_H
 
-//#define WIN32_LEAN_AND_MEAN
-#include <winsock2.h>
-#include <windows.h>
-#include "textparser.h"
-#include "net_structdefs.h"
-#include "estring.h"
+#include <utilitieslib\utils\textparser.h>
+#include <utilitieslib\network\net_structdefs.h>
+#include <utilitieslib\components\EString.h>
 
 enum ServerStat {
 	STATS_DB =       0x01,

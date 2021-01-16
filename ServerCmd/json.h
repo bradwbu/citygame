@@ -4,7 +4,6 @@
 #include <stdbool.h>
 
 typedef struct JsonNode JsonNode;
-
 typedef struct JsonNode {
 	char *name;
 

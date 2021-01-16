@@ -4,7 +4,6 @@
 typedef struct ServerAPIConfig ServerAPIConfig;
 
 void startHttp(ServerAPIConfig *config);
-
 void stopHttp(ServerAPIConfig *config);
 
 #endif
