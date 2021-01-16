@@ -1,0 +1,1 @@
+﻿E:\teq\ouro\v2Source\3rdparty\libmicrohttpd-0.9.72\w32\VS2019\libmicrohttpd.vcxproj(3,3): error MSB4019: The imported project "E:\teq\ouro\v2Source\build\common\vs_dirs.props" was not found. Confirm that the expression in the Import declaration "E:\teq\ouro\v2Source\build\vs2019\..\common\vs_dirs.props" is correct, and that the file exists on disk.
