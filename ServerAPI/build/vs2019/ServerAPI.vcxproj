@@ -173,19 +173,19 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\ServerCmd\json.c" />
-    <ClCompile Include="..\..\..\ServerCmd\serverCmdStats.c" />
-    <ClCompile Include="..\..\..\ServerCmd\serverMonitorNet.c" />
     <ClCompile Include="..\..\src\http.c" />
+    <ClCompile Include="..\..\src\json.c" />
     <ClCompile Include="..\..\src\ServerAPI.c" />
+    <ClCompile Include="..\..\src\serverCmdStats.c" />
+    <ClCompile Include="..\..\src\serverMonitorNet.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\ServerCmd\json.h" />
-    <ClInclude Include="..\..\..\ServerCmd\serverCmd.h" />
-    <ClInclude Include="..\..\..\ServerCmd\serverCmdStats.h" />
-    <ClInclude Include="..\..\..\ServerCmd\serverMonitorNet.h" />
     <ClInclude Include="..\..\src\http.h" />
+    <ClInclude Include="..\..\src\json.h" />
     <ClInclude Include="..\..\src\ServerAPI.h" />
+    <ClInclude Include="..\..\src\serverCmd.h" />
+    <ClInclude Include="..\..\src\serverCmdStats.h" />
+    <ClInclude Include="..\..\src\serverMonitorNet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

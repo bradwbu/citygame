@@ -11,14 +11,21 @@
 
 #include <utilitieslib/utils/utils.h>
 
-#define INVALID_REQUEST_PAGE "<html><head><title>Invalid Request</title></head><body><h1>Invalid request</h1></body></html>"
-static struct MHD_Response* invalid_request_response = 0;
-#define INTERNAL_ERROR_PAGE "<html><head><title>Internal Server Error</title></head><body><h1>Internal Server Error</h1></body></html>"
+#define NOT_FOUND_PAGE "<html><head><title>404 Not Found</title></head><body><h1>404 Not Found</h1></body></html>"
+static struct MHD_Response* not_found_response = 0;
+#define METHOD_NOT_ALLOWED_PAGE "<html><head><title>405 Method Not Allowed</title></head><body><h1>405 Method Not Allowed</h1></body></html>"
+static struct MHD_Response* method_not_allowed_response = 0;
+#define INTERNAL_ERROR_PAGE "<html><head><title>500 Internal Server Error</title></head><body><h1>500 Internal Server Error</h1></body></html>"
 static struct MHD_Response* internal_error_response = 0;
 
-static int invalidRequest(struct MHD_Connection* conn)
+static int notFound(struct MHD_Connection* conn)
 {
-    return MHD_queue_response(conn, MHD_HTTP_BAD_REQUEST, invalid_request_response);
+    return MHD_queue_response(conn, MHD_HTTP_NOT_FOUND, not_found_response);
+}
+
+static int methodNotAllowed(struct MHD_Connection* conn)
+{
+    return MHD_queue_response(conn, MHD_HTTP_METHOD_NOT_ALLOWED, method_not_allowed_response);
 }
 
 static int internalError(struct MHD_Connection* conn)
@@ -191,9 +198,6 @@ static int dispatchGetRequest(ServerAPIConfig* config, struct MHD_Connection* co
     if (!stricmp(shardname, "shards"))
         return sendStatusAll(conn, config);
 
-    if (!action)
-        return invalidRequest(conn);
-
     if (!stricmp(shardname, "all"))
     {
         if (!stricmp(action, "dbserver"))
@@ -222,7 +226,7 @@ static int dispatchGetRequest(ServerAPIConfig* config, struct MHD_Connection* co
             return sendAllStatsOne(conn, shard);
     }
 
-    return invalidRequest(conn);
+    return notFound(conn);
 }
 
 static int httpRequest(void* cls, struct MHD_Connection* conn, const char* url, const char* method, const char* version, const char* upload_data,
@@ -232,10 +236,10 @@ static int httpRequest(void* cls, struct MHD_Connection* conn, const char* url, 
     char* urlcopy = _strdup(url);
     char* shardname = urlcopy;
     char* action;
+    struct sockaddr_in* ip;
     int ret = MHD_NO;
 
     EXCEPTION_HANDLER_BEGIN
-
     if (shardname[0] == '/')
         shardname++;
     action = strtok(shardname, "/");
@@ -243,11 +247,17 @@ static int httpRequest(void* cls, struct MHD_Connection* conn, const char* url, 
 
     if (!strcmp(method, "GET"))
     {
+        struct sockaddr_in* ip = (struct sockaddr_in*)MHD_get_connection_info(conn, MHD_CONNECTION_INFO_CLIENT_ADDRESS)->client_addr;
+        writeConsole(OUTPUT_INFO, "Request from %i.%i.%i.%i: GET %s", ip->sin_addr.S_un.S_un_b.s_b1, ip->sin_addr.S_un.S_un_b.s_b2,
+                     ip->sin_addr.S_un.S_un_b.s_b3, ip->sin_addr.S_un.S_un_b.s_b4, url);
         return dispatchGetRequest(config, conn, shardname, action);
     }
     else
     {
-        ret = invalidRequest(conn);
+        ip = (struct sockaddr_in*)MHD_get_connection_info(conn, MHD_CONNECTION_INFO_CLIENT_ADDRESS)->client_addr;
+        writeConsole(OUTPUT_INFO, "Request from %i.%i.%i.%i: 405 %s %s", ip->sin_addr.S_un.S_un_b.s_b1, ip->sin_addr.S_un.S_un_b.s_b2,
+                     ip->sin_addr.S_un.S_un_b.s_b3, ip->sin_addr.S_un.S_un_b.s_b4, method, url);
+        ret = methodNotAllowed(conn);
     }
 
     free(urlcopy);
@@ -259,19 +269,25 @@ void startHttp(ServerAPIConfig* config)
 {
     stopHttp(config);
 
-    if (!invalid_request_response)
+    if (!not_found_response)
     {
-        invalid_request_response = MHD_create_response_from_buffer(strlen(INVALID_REQUEST_PAGE), (void*)INVALID_REQUEST_PAGE, MHD_RESPMEM_PERSISTENT);
-        MHD_add_response_header(invalid_request_response, MHD_HTTP_HEADER_CONTENT_TYPE, "text/html");
+        not_found_response = MHD_create_response_from_buffer(strlen(NOT_FOUND_PAGE), (void*)NOT_FOUND_PAGE, MHD_RESPMEM_PERSISTENT);
+        MHD_add_response_header(not_found_response, MHD_HTTP_HEADER_CONTENT_TYPE, "text/html");
+    }
+    if (!method_not_allowed_response)
+    {
+        method_not_allowed_response = MHD_create_response_from_buffer(strlen(METHOD_NOT_ALLOWED_PAGE), (void*)METHOD_NOT_ALLOWED_PAGE, MHD_RESPMEM_PERSISTENT);
+        MHD_add_response_header(method_not_allowed_response, MHD_HTTP_HEADER_CONTENT_TYPE, "text/html");
     }
     if (!internal_error_response)
     {
-        internal_error_response = MHD_create_response_from_buffer(strlen(INVALID_REQUEST_PAGE), (void*)INVALID_REQUEST_PAGE, MHD_RESPMEM_PERSISTENT);
+        internal_error_response = MHD_create_response_from_buffer(strlen(INTERNAL_ERROR_PAGE), (void*)INTERNAL_ERROR_PAGE, MHD_RESPMEM_PERSISTENT);
         MHD_add_response_header(internal_error_response, MHD_HTTP_HEADER_CONTENT_TYPE, "text/html");
     }
 
-    config->httpserver = MHD_start_daemon(MHD_USE_INTERNAL_POLLING_THREAD | MHD_ALLOW_SUSPEND_RESUME, (uint16_t)config->port, NULL, NULL, httpRequest, config,
-                                          MHD_OPTION_CONNECTION_TIMEOUT, (unsigned int)(120 /* seconds */), MHD_OPTION_END);
+    config->httpserver =
+        MHD_start_daemon(MHD_USE_INTERNAL_POLLING_THREAD | MHD_ALLOW_SUSPEND_RESUME, (uint16_t)config->port, NULL, NULL, (MHD_AccessHandlerCallback)httpRequest,
+                         config, MHD_OPTION_CONNECTION_TIMEOUT, (unsigned int)(120 /* seconds */), MHD_OPTION_END);
     if (config->httpserver)
     {
         writeConsole(OUTPUT_INFO, "Listening on port %i", config->port);

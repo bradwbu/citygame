@@ -6,6 +6,7 @@
 #include <utilitieslib/utils/textparser.h>
 #include <utilitieslib/utils/sysutil.h>
 #include <utilitieslib/utils/SuperAssert.h>
+#include <utilitieslib/utils/winutil.h>
 
 #include "serverCmd.h"
 #include "serverMonitorNet.h"
@@ -49,7 +50,6 @@ static bool loadConfig()
     getExecutableDir(cfgpath);
     // fileSetBaseDir(cfgpath);
     // fileInitSys();
-
     strcat_s(SAFESTR(cfgpath), "/serverapi.cfg");
 
     if (!fileLocateRead(cfgpath, buf))
@@ -263,8 +263,10 @@ int main(int argc, char* argv[])
     }
     else
     {
+        setWindowIconColoredLetter(compatibleGetConsoleWindow(), 'A', 0xAA0000);
         writeConsole(OUTPUT_INFO, "Running interactively, press CTRL+C to quit.");
         serverLoop(false);
+        getch();
     }
 
     EXCEPTION_HANDLER_END

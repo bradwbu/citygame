@@ -17,13 +17,13 @@
     <ClCompile Include="..\..\src\ServerAPI.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\ServerCmd\json.c">
+    <ClCompile Include="..\..\src\json.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\ServerCmd\serverMonitorNet.c">
+    <ClCompile Include="..\..\src\serverCmdStats.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\ServerCmd\serverCmdStats.c">
+    <ClCompile Include="..\..\src\serverMonitorNet.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -34,16 +34,16 @@
     <ClInclude Include="..\..\src\ServerAPI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\ServerCmd\json.h">
+    <ClInclude Include="..\..\src\json.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\serverCmdStats.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\ServerCmd\serverCmd.h">
+    <ClInclude Include="..\..\src\serverCmd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\ServerCmd\serverCmdStats.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\ServerCmd\serverMonitorNet.h">
+    <ClInclude Include="..\..\src\serverMonitorNet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
