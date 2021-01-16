@@ -25,7 +25,7 @@
 #include <windowsx.h>
 
 #include "serverMonitorNet.h"
-#include "serverMonitor.h"
+#include "serverCmd.h"
 
 U32 timestamp=0; // Set globally
 bool g_someDataOutOfSync = false;
@@ -49,7 +49,7 @@ static void destructor(void *data)
 static void clearConsFromFilterList(DbContainer ***eaCons, DbContainer ***eaConsFiltered)
 {
     int i;
-    // Remove all duplicatse of the eaMaps structure that happen to be in eaMapsStuck
+    // Remove all duplicates of the eaMaps structure that happen to be in eaMapsStuck
     for (i=0; i<eaSize(eaCons); i++) {
         DbContainer *con = (*eaCons)[i];
         eaRemove(eaConsFiltered, eaFind(eaConsFiltered, con));
@@ -84,8 +84,6 @@ int svrMonConnect(ServerMonitorState *state, char *ip_str)
         packetStartup(0,0);
         inited=true;
     }
-
-    state->local_dbserver = false;
 
     svrMonClearAllLists(state);
 
@@ -130,7 +128,6 @@ int svrMonDisconnect(ServerMonitorState *state)
 {
     if (!svrMonConnected(state))
         return 0;
-    state->connection_expected = false;
     netSendDisconnect(&state->db_link,2);
     return 1;
 }
@@ -220,6 +217,7 @@ void handleRecvList(ServerMonitorState *state, Packet *pak, DbContainer ***eaCon
     StashTable htIds = 0;
     U32        server_time_offset;
 
+    state->last_received = timerSecondsSince2000();
     server_time_offset = pktGetBits(pak, 32);
     timerSetSecondsOffset(server_time_offset); // Assume the server time is the same as the local time
 
@@ -433,8 +431,6 @@ void updateInTroubleState(ServerMonitorState *state)
             trouble++;
         }
     }
-    if (state->stats.servers_in_trouble!=trouble)
-        state->servers_in_trouble_changed=1;
     state->stats.servers_in_trouble=trouble;
 
 }
@@ -586,21 +582,6 @@ int svrMonNetTick(ServerMonitorState *state)
     lnkFlushAll();
     netLinkMonitor(&state->db_link, 0, svrMonHandleMsg);
 
-    if (!svrMonConnectionLooksDead(state) && !state->svrMonNetTick_was_connected) {
-        state->svrMonNetTick_was_connected = true;
-        if (state->stats.servers_in_trouble==9999) {
-            state->stats.servers_in_trouble = 0;
-            state->servers_in_trouble_changed = 1;
-        }
-        state->stats.dbserver_in_trouble = 0;
-    } else if (state->svrMonNetTick_was_connected && svrMonConnectionLooksDead(state)) {
-        if (!state->stats.servers_in_trouble) {
-            state->stats.servers_in_trouble = 9999;
-        }
-        state->servers_in_trouble_changed = 1;
-        state->svrMonNetTick_was_connected = false;
-        state->stats.dbserver_in_trouble = 1;
-    }
     return 1;
 }
 

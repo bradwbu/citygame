@@ -55,13 +55,13 @@ static bool loadConfig()
 	strcat_s(SAFESTR(cfgpath), "/serverapi.cfg");
 
 	if (!fileLocateRead(cfgpath, buf)) {
-		puts("Couldn't read serverapi.cfg!");
+        writeConsole(OUTPUT_ERROR, "Could not open ServerAPI.cfg");
 		return false;
 	}
 
 	ParserInitStruct(&config, sizeof(config), ParseAPIConfig);
-	if (!ParserLoadFiles(NULL, buf, NULL, 0, ParseAPIConfig,       &config,           NULL, NULL, NULL)) {
-		puts("Couldn't parse serverapi.cfg");
+	if (!ParserLoadFiles(NULL, buf, NULL, 0, ParseAPIConfig, &config, NULL, NULL, NULL)) {
+        writeConsole(OUTPUT_ERROR, "Could not parse ServerAPI.cfg");
 		return false;
 	}
 
@@ -76,12 +76,13 @@ static void initShards()
 	
 	for (i = eaSize(&config.shards) - 1; i >= 0; --i) {
 		ServerAPIShard *shard = config.shards[i];
+        writeConsole(OUTPUT_INFO, "Found config for Shard %s (%s)\n", config.shards[i]->name, config.shards[i]->dbserver);
 		ServerMonitorState *state = calloc(1, sizeof(ServerMonitorState));
 		state->eaMaps = &state->eaMaps_data;
 		state->eaMapsStuck = &state->eaMapsStuck_data;
 		state->eaLaunchers = &state->eaLaunchers_data;
 		state->eaServerApps = &state->eaServerApps_data;
-		state->eaEnts = &state->eaEnts_data;
+        state->eaEnts = &state->eaEnts_data;
 		shard->state = state;
 		InitializeCriticalSection(&shard->state->stats_lock);
 		stashAddPointer(config.shardidx, shard->name, shard, true);
@@ -163,7 +164,7 @@ static void installService()
 
 	hscm = OpenSCManager(NULL, NULL, SC_MANAGER_CREATE_SERVICE);
 	if (!hscm) {
-		puts("Failed to open service manager.");
+        writeConsole(OUTPUT_ERROR, "Failed to open service manager.");
 		return;
 	}
 
@@ -176,10 +177,10 @@ static void installService()
 		svcpath, NULL, NULL, NULL, "NT AUTHORITY\\LocalService", NULL);
 
 	if (hsvc) {
-		puts("Service installed.");
+        writeConsole(OUTPUT_INFO, "Service installed.");
 		CloseServiceHandle(hsvc);
 	} else {
-		puts("Service failed to install.");
+        writeConsole(OUTPUT_ERROR, "Service failed to install.");
 	}
 
 	CloseServiceHandle(hscm);
@@ -191,16 +192,16 @@ static void removeService()
 
 	hscm = OpenSCManager(NULL, NULL, SC_MANAGER_ALL_ACCESS);
 	if (!hscm) {
-		puts("Failed to open service manager.");
+        writeConsole(OUTPUT_ERROR, "Failed to open service manager.");
 		return;
 	}
 
 	hsvc = OpenService(hscm, "ServerAPI", SERVICE_ALL_ACCESS);
 
 	if (hsvc && DeleteService(hsvc)) {
-		puts("Service removed.");
+        writeConsole(OUTPUT_INFO, "Service removed.");
 	} else {
-		puts("Failed to remove service.");
+        writeConsole(OUTPUT_ERROR, "Failed to remove service.");
 	}
 
 	if (hsvc)
@@ -242,7 +243,7 @@ int main(int argc, char *argv[])
 		stable[0].lpServiceProc = (LPSERVICE_MAIN_FUNCTION)ServiceMain;
 		StartServiceCtrlDispatcher(stable);
 	} else {
-		puts("Running interactively, press CTRL+C to terminate.");
+		writeConsole(OUTPUT_INFO, "Running interactively, press CTRL+C to quit.");
 		serverLoop(false);
 	}
 
