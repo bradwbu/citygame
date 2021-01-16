@@ -139,7 +139,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestClientLauncher", "..\..
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libmicrohttpd", "..\..\3rdparty\libmicrohttpd-0.9.63\w32\VS2017\libmicrohttpd.vcxproj", "{9CFB0342-A9E7-483E-BEE5-A1DE22584C5A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerAPI", "..\..\ServerAPI\ServerAPI\ServerAPI.vcxproj", "{6A033B11-D188-4B1A-81C9-83FE73CD24E6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerAPI", "..\..\ServerAPI\ServerAPI.vcxproj", "{6A033B11-D188-4B1A-81C9-83FE73CD24E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
