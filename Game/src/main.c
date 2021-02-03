@@ -29,10 +29,36 @@
 #include <utilitieslib/language/MessageStoreUtil.h>
 #include <utilitieslib/utils/process_util.h>
 #include "win/win_init.h"
+#include "regfile.h"
 
 #define UPDATE_PROGRESS_STRING(X) loadstart_printf(X); game_setProgressString(X, NULL, PROGRESSDIALOGTYPE_OK);
 
 char g_GameArguments[2048];
+
+void clientInitRegistry(int argc, char **argv)
+{
+    char buffer[REGFILE_PATH_LEN];
+    memset(buffer, 0, sizeof(buffer));
+    for (size_t i = 0; i < argc; i++)
+    {
+        if (stricmp(argv[i], "-patchdir") == 0 && (i + 1 < argc))
+        {
+            char* begin = argv[i + 1];
+            if (*begin == '"')
+            {
+                begin += 1;
+            }
+
+            char* end = begin;
+            while (*end != 0 && *end != '"')
+                ++end;
+
+            strncpy(buffer, begin, end - begin);
+
+            regfileInit(buffer);
+        }
+    }
+}
 
 void game_beforeRegisterWinClass(int argc, char **argv)
 {
@@ -157,6 +183,8 @@ int main(int argc, char **argv)
 
     timer = timerAlloc();
     
+    clientInitRegistry(argc, argv);
+
 //     quickAuthCheck(TRUE); // TRUE for localhost
 
     setAssertMode(ASSERTMODE_ERRORREPORT);    // we'll get reset better later
