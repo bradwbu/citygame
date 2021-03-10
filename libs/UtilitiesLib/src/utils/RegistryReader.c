@@ -207,14 +207,14 @@ int rrWriteString(RegReaderImp* reader, const char* valueName, const char* str)
     return 1;
 }
 
-int rrReadInt(RegReaderImp* reader, const char* valueName, unsigned int* value)
+int rrReadInt(RegReaderImp* reader, const char* valueName, unsigned int* value, unsigned int defValue)
 {
     if (!value)
         return 0;
 
     if (!reader->keyOpened)
     {
-        *value = 0;
+        *value = defValue;
         return 0;
     }
 
@@ -230,20 +230,20 @@ int rrReadInt(RegReaderImp* reader, const char* valueName, unsigned int* value)
     if (bytesRead != valueSize)
     {
         // Uncertain if I should modify behavior to set value to 0 on read failure.
-        *value = 0;
+        *value = defValue;
         return 0;
     }
     return 1;
 }
 
-int rrReadInt64(RegReaderImp* reader, const char* valueName, S64* value)
+int rrReadInt64(RegReaderImp* reader, const char* valueName, S64* value, S64 defValue)
 {
     if (!value)
         return 0;
 
     if (!reader->keyOpened)
     {
-        *value = 0;
+        *value = defValue;
         return 0;
     }
 
@@ -258,7 +258,7 @@ int rrReadInt64(RegReaderImp* reader, const char* valueName, S64* value)
 
     if (bytesRead != valueSize)
     {
-        *value = 0;
+        *value = defValue;
         return 0;
     }
     return 1;

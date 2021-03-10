@@ -1583,7 +1583,7 @@ static void checkForCrash()
             progressUserString[0] = 0;
         }
 
-        if (!rrReadInt(rr, "GameProgressDialogType", (int *) &type))
+        if (!rrReadInt(rr, "GameProgressDialogType", (int *) &type, PROGRESSDIALOGTYPE_NONE))
         {
             type = PROGRESSDIALOGTYPE_NONE;
         }
