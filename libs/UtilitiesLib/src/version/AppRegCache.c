@@ -195,7 +195,7 @@ int regGetAppInt(const char *key, int deflt)
 {
     int value = deflt;
     initRR();
-    if (!rrReadInt(rr, key, &value))
+    if (!rrReadInt(rr, key, &value, deflt))
         return deflt;
     return value;
 }
