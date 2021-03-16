@@ -600,8 +600,6 @@ typedef struct GameState
     
     int        cursor_cache;
 
-    int        ctm_autorun_timer;
-
     int        showcomplexity;
     int     showrdrstats;
     int        costbars;
