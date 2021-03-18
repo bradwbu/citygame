@@ -440,6 +440,7 @@ static int UpdateObjectLibraryBin(int production, int force_rebuild)
     int crc;
     int savedpos;
     FileList object_lib_bin = 0;
+    int binVersionNum = 0; // Used by SerializeReadOpen, not necessary otherwise.
 
     if (!production || force_rebuild)
     {
@@ -457,7 +458,7 @@ static int UpdateObjectLibraryBin(int production, int force_rebuild)
 
     // open bin, check crc, check header
     crc = ParserCRCFromParseInfo(GroupNamesSaveInfo, NULL);
-    binfile = SerializeReadOpen(binfile_name, PARSE_SIG, crc, production);
+    binfile = SerializeReadOpen(binfile_name, crc, production, &binVersionNum);
     if (!binfile)
     {
         verbose_printf("UpdateObjectLibraryBin: binfile %s is the incorrect version, rebuilding\n", binfile_name);

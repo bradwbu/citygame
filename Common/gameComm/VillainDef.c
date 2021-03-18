@@ -262,6 +262,7 @@ StaticDefineInt ParseVillainDoppelFlags[] =
     {    "RandomPower",        VDF_RANDOMPOWER        },
     {    "Ghost",            VDF_GHOST            },
     {    "NoPowers",            VDF_NOPOWERS        },
+    {    "Commandable",         VDF_COMMAND        },
     DEFINE_END
 };
 
@@ -1108,6 +1109,10 @@ static void applyDoppelFlags(Entity *e, Entity *orig, int flags)
                     }
                 }
             }
+            else if (e->villainDef->powers)
+            {
+                npcInitPowers(e, e->villainDef->powers, 0);
+            }
             else
             {
                 for( i = 0; i < eaSize(&orig->pchar->ppPowerSets); i++ )
@@ -1212,6 +1217,8 @@ Entity * villainCreateDoppelganger(const char * dopplename, const char *override
         default:
             pchRankDef = "CustomCritter_Boss";
         }
+        if (s_getDoppelFlags(dopplename) & VDF_COMMAND) // check for commandable flag. If this is commandable, totally overwrite the above.
+        pchRankDef = "CustomCritter_Dopplepet";
     }
     else
         pchRankDef = villainclass;

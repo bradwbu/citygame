@@ -499,7 +499,9 @@ void character_CreatePet(Character *p, AttribMod *pmod)
     
 
     if( !p->entParent->erOwner && strstriConst( pmod->ptemplate->pchEntityDef, DOPPEL_NAME) )
-         pPet=villainCreateDoppelganger( pmod->ptemplate->pchEntityDef + strlen(DOPPEL_NAME), 0, 0, VR_BOSS, 0, (int)fLevel, 0, 0, p->entParent, pmod->erSource, creationPower);
+    {
+        pPet = villainCreateDoppelganger(pmod->ptemplate->pchEntityDef + strlen(DOPPEL_GROUP_NAME), 0, 0, VR_BOSS, (pmod->ptemplate->pchParams ? pmod->ptemplate->pchParams : 0), (int)fLevel, 0, 0, p->entParent, pmod->erSource, creationPower);
+    }
     else
         pPet=villainCreateByName(pmod->ptemplate->pchEntityDef, (int)fLevel, NULL, false, NULL, pmod->erSource, creationPower);
 
