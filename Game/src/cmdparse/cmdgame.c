@@ -4114,12 +4114,20 @@ int cmdGameParse(char *str, int x, int y)
             {
                 if (control_state.move_input_state)
                 {
+                    timerStart(game_state.ctm_autorun_timer);
                     cmdParse( "autorun 0" );
                     updateControlState(CONTROLID_FORWARD, MOVE_INPUT_CMD, 1, cmdGetTimeStamp());
                 }
                 else
                 {
+                    if (optionGet(kUO_MouseAutomoveTimer) && timerElapsed(game_state.ctm_autorun_timer) > 2.0f)
+                    {
+                        updateControlState(CONTROLID_FORWARD, MOVE_INPUT_OTHER, 1, cmdGetTimeStamp());
+                        cmdParse( "autorun 1" );
+                    }
+
                     updateControlState(CONTROLID_FORWARD, MOVE_INPUT_CMD, 0, cmdGetTimeStamp());
+
                 }
             }
         xcase CONCMD_BACKWARD:
@@ -6128,6 +6136,7 @@ void gameStateInit()
     game_state.fixArmReg = 1;
     game_state.fixLegReg = 1;
 
+    game_state.ctm_autorun_timer = timerAlloc();
     TIMESTEP = 1;
 
     game_state.suppressCloseFxDist = 3.0f;
