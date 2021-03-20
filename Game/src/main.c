@@ -29,7 +29,7 @@
 #include <utilitieslib/language/MessageStoreUtil.h>
 #include <utilitieslib/utils/process_util.h>
 #include "win/win_init.h"
-#include "regfile.h"
+#include <utilitieslib/utils/regfile.h>
 
 #define UPDATE_PROGRESS_STRING(X) loadstart_printf(X); game_setProgressString(X, NULL, PROGRESSDIALOGTYPE_OK);
 
@@ -56,8 +56,13 @@ void clientInitRegistry(int argc, char **argv)
             strncpy(buffer, begin, end - begin);
 
             regfileInit(buffer);
+            break;
         }
     }
+
+    //check for no patchdir, common during binning.
+    if (!regfileIsInit())
+        regfileInit(REGFILE_DEFAULT_PATH);
 }
 
 void game_beforeRegisterWinClass(int argc, char **argv)

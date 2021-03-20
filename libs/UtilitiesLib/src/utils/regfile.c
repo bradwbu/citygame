@@ -1,7 +1,7 @@
 // regfile.c : Defines the functions for the static library.
 //
 
-#include "regfile.h"
+#include <utilitiesLib/utils/regfile.h>
 
 #include <fcntl.h>
 #include <stdio.h>
