@@ -371,7 +371,7 @@ int getBinVersionNum(const char* readtype)
     for (int i = 0; i <= PARSE_ADDITIONAL_COUNT; i++)
     {
         if (strcmp(readtype, validParseTypes[i]) == 0) {
-            verbose_printf(" Found BIN version type %s [%d]\n", validParseTypes[i], i);
+            //verbose_printf(" Found BIN version type %s [%d]\n", validParseTypes[i], i);
             return i;
         }
     }
