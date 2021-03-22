@@ -252,10 +252,11 @@ int ReadPascalString(SimpleBufHandle file, char* str, int strsize) // read a cor
         printf("ReadPascalString: couldn't read len\n"); 
         return re; 
     }
+    
     paddingreq = (4 - (len + sizeof(unsigned short)) % 4) % 4;
     if (len >= strsize) 
     { 
-        printf("ReadPascalString: string read too long for size\n");
+        printf("ReadPascalString: string read too long for size.  len: %d, strsize: %d, string: %s\n", len, strsize, str);
         SimpleBufSeek(file, paddingreq + len, SEEK_CUR);
         return sizeof(unsigned short) + paddingreq + len;
     }
@@ -266,6 +267,7 @@ int ReadPascalString(SimpleBufHandle file, char* str, int strsize) // read a cor
         printf("ReadPascalString: couldn't read entire string\n");
         return sizeof(unsigned short) + paddingreq + len;
     }
+    //printf("length: %d, string: %s\n", len, str);
     SimpleBufSeek(file, paddingreq, SEEK_CUR);
     return sizeof(unsigned short) + paddingreq + len;
 }
@@ -405,7 +407,8 @@ SimpleBufHandle SerializeReadOpen(const char* filename, int build, int ignore_cr
         (!ignore_crc_difference && (readbuild != build)))
     {
         printf("SerializeReadOpen: invalid signature on file %s\n", filename);
-        printf("                    binVersionNum: %d\n", *getBinVersionNum);
+        printf("                   build: %d (%08x)\n", build, build);
+        printf("                   binVersionNum: %d (%s)\n", *getBinVersionNum, readtype);
         SimpleBufClose(result);
         return 0;
     }

@@ -2095,19 +2095,18 @@ int ParserReadBinaryTable(SimpleBufHandle file, ParseTable pti[], void* structpt
     return succeeded;
 }
 
-int ParserReadBinaryFile(SimpleBufHandle binfile, char *filename, ParseTable pti[], void* structptr, FileList* filelist, DefineContext* defines)    // returns success
+int ParserReadBinaryFile(SimpleBufHandle binfile, char* filename, ParseTable pti[], void* structptr, FileList* filelist, DefineContext* defines, int* binVersionNum) // returns success
 {
     SimpleBufHandle file;
     int size = 0;
     int success;
     long loc, endloc;
-    int binVersionNum = 0;
 
     if (binfile) {
         file = binfile;
     } else {
         int crc = ParseTableCRC(pti, defines);
-        file = SerializeReadOpen(filename, crc, isProductionMode(), &binVersionNum);
+        file = SerializeReadOpen(filename, crc, isProductionMode(), binVersionNum);
     }
 
     if (!file) return 0;  // no file, or failed crc number
@@ -2118,7 +2117,7 @@ int ParserReadBinaryFile(SimpleBufHandle binfile, char *filename, ParseTable pti
     loc = SimpleBufTell(file);
 
     parser_relpath = filename ? allocAddString(filename) : 0;
-    success = ParserReadBinaryTable(file, pti, structptr, &size, binVersionNum);
+    success = ParserReadBinaryTable(file, pti, structptr, &size, *binVersionNum);
     parser_relpath = 0;
 
     SimpleBufSeek(file, 0, SEEK_END);
@@ -2238,7 +2237,7 @@ static FileScanAction DateCheckCallback(char* dir, struct _finddata32_t* data)
     return FSA_EXPLORE_DIRECTORY;
 }
 
-SimpleBufHandle ParserIsPersistNewer(const char* dir, const char* filemask, const char* persistfile, ParseTable pti[], DefineContext* defines)
+SimpleBufHandle ParserIsPersistNewer(const char* dir, const char* filemask, const char* persistfile, ParseTable pti[], DefineContext* defines, int* binVersionNum)
 {
     FileList binlist = NULL;
     SimpleBufHandle binfile;
@@ -2248,8 +2247,8 @@ SimpleBufHandle ParserIsPersistNewer(const char* dir, const char* filemask, cons
 
     // open the bin file
     crc = ParseTableCRC(pti, defines);
-    int binVersionNum = 0;
-    binfile = SerializeReadOpen(persistfile, crc, isProductionMode(), &binVersionNum);
+    
+    binfile = SerializeReadOpen(persistfile, crc, isProductionMode(), binVersionNum);
     if (!binfile)
     {
         verbose_printf("bin file %s is incorrect version\n", persistfile);
@@ -2439,11 +2438,13 @@ bool ParserLoadFiles(const char* dir, const char* filemask, const char* persistf
         path = fileLocateRead(persistfilepath, buf);
         if (path)
         {
-            SimpleBufHandle binfile = ParserIsPersistNewer(dir,filemask,persistfilepath,pti,globaldefines);
+            int binVersionNum = 0;
+            SimpleBufHandle binfile = ParserIsPersistNewer(dir, filemask, persistfilepath, pti, globaldefines, &binVersionNum);
             if (binfile)
             {
                 // try loading persist file
-                if (ParserReadBinaryFile(binfile, persistfilepath, pti, structptr, NULL, globaldefines)) {
+                if (ParserReadBinaryFile(binfile, persistfilepath, pti, structptr, NULL, globaldefines, &binVersionNum))
+                {
                     recursive_call = false;
                     PERFINFO_AUTO_STOP();
                     return 1;

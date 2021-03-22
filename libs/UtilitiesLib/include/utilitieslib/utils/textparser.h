@@ -421,7 +421,7 @@ int ParserWriteTextEscaped(char **estr, ParseTable *tpi, void *struct_mem, Struc
 int ParserWriteText(char **estr,ParseTable *tpi,void *struct_mem, StructTypeField iOptionFlagsToMatch, StructTypeField iOptionFlagsToExclude);
 
 // binary I/O
-int ParserReadBinaryFile(SimpleBufHandle binfile, char* filename, ParseTable pti[], void* structptr, FileList* filelist, DefineContext* defines);    // returns success
+int ParserReadBinaryFile(SimpleBufHandle binfile, char* filename, ParseTable pti[], void* structptr, FileList* filelist, DefineContext* defines, int* binVersionNum); // returns success
 int ParserWriteBinaryFile(char* filename, ParseTable pti[], void* structptr, FileList* filelist, DefineContext* defines, StructTypeField iOptionFlagsToMatch, StructTypeField iOptionFlagsToExclude); // returns success
 int ParserReadBin(char* bin, U32 num_bytes, ParseTable* tpi, void* struct_mem);
 int ParserWriteBin(char **estr,ParseTable *tpi,void *struct_mem, StructTypeField iOptionFlagsToMatch, StructTypeField iOptionFlagsToExclude);
@@ -468,7 +468,7 @@ bool ParserLoadFiles(const char* dir, const char* filemask, const char* persistf
     // if a preprocessor function is used, it is called ONLY when creating a .bin file.  The .bin file
     // will be created with data already run through the preprocessor.
     // returns success
-SimpleBufHandle ParserIsPersistNewer(const char* dir, const char* filemask, const char* persistfile, ParseTable pti[], DefineContext* defines); 
+SimpleBufHandle ParserIsPersistNewer(const char* dir, const char* filemask, const char* persistfile, ParseTable pti[], DefineContext* defines, int* binVersionNum); 
     // returns a handle if persist file newer than directory files and crc matches
     // caller is responsible for calling SerializeClose() on the SimpleBufHandle, or passing it to
     // ParserReadBinaryFile()
