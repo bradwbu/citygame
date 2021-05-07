@@ -4120,7 +4120,7 @@ int cmdGameParse(char *str, int x, int y)
                 }
                 else
                 {
-                    if (timerElapsed(game_state.ctm_autorun_timer) > 2.0f)
+                    if (optionGet(kUO_MouseAutomoveTimer) && timerElapsed(game_state.ctm_autorun_timer) > 2.0f)
                     {
                         updateControlState(CONTROLID_FORWARD, MOVE_INPUT_OTHER, 1, cmdGetTimeStamp());
                         cmdParse( "autorun 1" );
