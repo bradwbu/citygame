@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>..\..\..\libs\UtilitiesLib\bin\x86\Release;..\..\..\3rdparty\libmicrohttpd-0.9.72\bin\x86\Release;..\..\..\3rdparty\cryptopp-8.3\bin\x86\Release;..\..\..\3rdparty\zlib-1.2.11\bin\x86\Release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\..\libs\UtilitiesLib\bin\x86\Debug;..\..\..\3rdparty\libmicrohttpd-0.9.72\bin\x86\Debug;..\..\..\3rdparty\cryptopp-8.3\bin\x86\Debug;..\..\..\3rdparty\zlib-1.2.11\bin\x86\Debug;$(LibraryPath)</LibraryPath>
     <OutDir>$(ProjectDir)..\..\bin\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(OutDir)intermediate\</IntDir>
   </PropertyGroup>
@@ -101,11 +101,15 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\..\..\3rdparty\libmicrohttpd-0.9.72\include;..\..\..\ServerCmd;..\..\..\libs\UtilitiesLib\include;..\..\..\Common;..\..\..\DBServer\src;..\..\..\MapServer\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;_WIN32;_DEBUG;_CONSOLE;FULLDEBUG;_CRTDBG_MAP_ALLOC;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>UtilitiesLib.lib;libmicrohttpd.lib;cryptopp.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y $(TargetDir)$(ProjectName).exe $(ProjectDir)..\..\..\bin</Command>
