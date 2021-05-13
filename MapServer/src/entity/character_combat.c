@@ -3590,6 +3590,7 @@ static void character_DisablePower(Character *p, Power *ppow)
 {
     PowerListIter iter;
     PowerListItem *ppowListItem;
+    int autoCheck = 0;
 
     if (!ppow)
         return;
@@ -3597,22 +3598,35 @@ static void character_DisablePower(Character *p, Power *ppow)
     // I've got this in the entity log so I can compare it to when I received respec information
     LOG_ENT(p->entParent, LOG_ENTITY, LOG_LEVEL_DEBUG, 0, "Disabling power %s", ppow->ppowBase->pchFullName);
 
-    if (p->ppowTried!=NULL)
+    if (ppow->ppowBase->eType == kPowerType_Auto)
+    {
+        autoCheck = 1;
+        for (ppowListItem = powlist_GetFirst(&p->listAutoPowers, &iter); ppowListItem != NULL; ppowListItem = powlist_GetNext(&iter))
+        {
+            if (ppowListItem->ppow == ppow)
+            {
+                character_ShutOffContinuingPower(p, ppowListItem->ppow);
+                powlist_RemoveCurrent(&iter);
+            }
+        }
+    }
+
+    if (p->ppowTried != NULL && !autoCheck)
     {
         character_KillRetryPower(p);
     }
 
-    if (p->ppowQueued!=NULL)
+    if (p->ppowQueued != NULL && !autoCheck)
     {
         character_KillQueuedPower(p);
     }
 
-    if (p->ppowCurrent!=NULL)
+    if (p->ppowCurrent != NULL && !autoCheck)
     {
         character_KillCurrentPower(p);
     }
 
-    if (ppow->ppowBase->eType == kPowerType_Toggle)
+    if (ppow->ppowBase->eType == kPowerType_Toggle && !autoCheck)
     {
         for (ppowListItem = powlist_GetFirst(&p->listTogglePowers, &iter);
             ppowListItem != NULL;
@@ -3621,20 +3635,6 @@ static void character_DisablePower(Character *p, Power *ppow)
             if (ppowListItem->ppow == ppow)
             {
                 character_ShutOffTogglePower(p, ppowListItem->ppow);
-                powlist_RemoveCurrent(&iter);
-            }
-        }
-    }
-
-    if (ppow->ppowBase->eType == kPowerType_Auto)
-    {
-        for (ppowListItem = powlist_GetFirst(&p->listAutoPowers, &iter);
-            ppowListItem != NULL;
-            ppowListItem = powlist_GetNext(&iter))
-        {
-            if (ppowListItem->ppow == ppow)
-            {
-                character_ShutOffContinuingPower(p, ppowListItem->ppow);
                 powlist_RemoveCurrent(&iter);
             }
         }
