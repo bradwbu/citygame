@@ -629,7 +629,7 @@ void TaskForceCompleteStatus(Entity *player)
         } else {
             estrConcatStaticCharArray(&text, "<font color=LightGreen>");
         }
-        estrConcatf(&text, "%s</font></td><td align=right border=0>", TaskForceGetParameter(player, TFPARAM_DEATHS));
+        estrConcatf(&text, "%d</font></td><td align=right border=0>", TaskForceGetParameter(player, TFPARAM_DEATHS));
         if (TaskForceCheckFailureBit(player, TFPARAM_DEATHS))
         {
             estrConcatf(&text, "<font color=FireBrick>%s", textStd("FailedString"));
@@ -638,7 +638,7 @@ void TaskForceCompleteStatus(Entity *player)
         }
         estrConcatStaticCharArray(&text, "</font>");
     } else {
-        estrConcatf(&text, "%s</td><td align=right border=0>", TaskForceGetParameter(player, TFPARAM_DEATHS));
+        estrConcatf(&text, "%d</td><td align=right border=0>", TaskForceGetParameter(player, TFPARAM_DEATHS));
     }
     estrConcatStaticCharArray(&text, "</td></tr>");
 
