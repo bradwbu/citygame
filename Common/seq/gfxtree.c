@@ -756,7 +756,7 @@ void gfxTreeMakeMemoryFriendly()
     }
 }*/
 
-static void gfxTreeRelinkSuspendedRecur(GfxNode * node, int seqHandle)
+static void gfxTreeRelinkSuspendedRecur(GfxNode* node, FxHandle seqHandle)
 {    
     for( ; node ; node = node->next)
     {

@@ -400,7 +400,7 @@ void fxGeoParticlesChangeParams(FxGeo * fxgeo, FxParams * fxp, FxInfo *fxInfo)
 }
 
 
-int fxGeoAttachChildFx(FxGeo* fxgeo, char* childfxname, FxParams* parentFxp, FxHandle seq_handle, int target_seq_handle)
+int fxGeoAttachChildFx(FxGeo* fxgeo, char* childfxname, FxParams* parentFxp, FxHandle seq_handle, FxHandle target_seq_handle)
 {    
     FxParams    fxp;
 //    FxGeo * fxgeo2;
