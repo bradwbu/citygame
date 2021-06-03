@@ -2354,7 +2354,7 @@ extern int totalNodesRejected;
 #include "player/player.h"
 #include "entity/entclient.h"
 
-void printNodesProcessed( int seqHandle, GfxNode * node, int type)
+void printNodesProcessed( FxHandle seqHandle, GfxNode * node, int type)
 {
     Entity * e;
     SeqInst * mySeq = 0;
@@ -2384,7 +2384,7 @@ void printNodesProcessed( int seqHandle, GfxNode * node, int type)
 }
 
 //Debug function for counting rejected nodes
-static int countNonHidChildrenGfx(GfxNode * pNode, int seqHandle)
+static int countNonHidChildrenGfx(GfxNode * pNode, FxHandle seqHandle)
 {
     GfxNode * node;
     int total = 0; 
