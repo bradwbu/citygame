@@ -121,30 +121,15 @@ static int difficultyCostToChange(Entity* player)
 
 void difficultyCopy( StoryDifficulty *pDifficultyDest, StoryDifficulty *pDifficultySrc )
 {
-    if( !pDifficultyDest || !pDifficultySrc)
-        return;
-
-    if (pDifficultySrc->levelAdjust >= MIN_LEVEL_ADJUST && pDifficultySrc->levelAdjust <= MAX_LEVEL_ADJUST )
-        pDifficultyDest->levelAdjust = pDifficultySrc->levelAdjust;
-
-    if (pDifficultySrc->teamSize >= MIN_TEAM_SIZE && pDifficultySrc->levelAdjust <= MAX_TEAM_SIZE )
-        pDifficultyDest->teamSize = pDifficultySrc->teamSize;
-
-    pDifficultyDest->alwaysAV = 0;
-    if ( pDifficultySrc->alwaysAV == 1 )
-        pDifficultyDest->alwaysAV = 1;
-
-    pDifficultyDest->dontReduceBoss = 0;
-    if ( pDifficultySrc->dontReduceBoss == 1  )
-        pDifficultyDest->dontReduceBoss = 1;
+    difficultySet(pDifficultyDest, pDifficultySrc->levelAdjust, pDifficultySrc->teamSize, pDifficultySrc->alwaysAV, pDifficultySrc->dontReduceBoss);
 }
 
 void difficultySet( StoryDifficulty *pDifficulty, int levelAdjust, int teamSize, int alwaysAV, int dontReduceBoss )
 {
-    if (levelAdjust >= MIN_LEVEL_ADJUST && levelAdjust <= MAX_LEVEL_ADJUST )
-        pDifficulty->levelAdjust = levelAdjust;
 
-    if (teamSize >= MIN_TEAM_SIZE && levelAdjust <= MAX_TEAM_SIZE )
+    if (levelAdjust >= MIN_LEVEL_ADJUST && levelAdjust <= MAX_LEVEL_ADJUST)
+        pDifficulty->levelAdjust = levelAdjust;
+    if (teamSize >= MIN_TEAM_SIZE && teamSize <= MAX_TEAM_SIZE)
         pDifficulty->teamSize = teamSize;
 
     if ( alwaysAV == 0 || alwaysAV == 1 )
