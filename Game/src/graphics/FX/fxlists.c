@@ -95,7 +95,7 @@ void hdlClearHandle(FxHandle handle)
 #ifdef USE_REFERENCELIST
     referenceListRemoveElement(fxReferenceList, handle);
 #else
-    assert( ((HandleImp*)&handle)->idx >= 0 && ((Handle*)&handle)->idx < max_handles );
+    assert(((HandleImp*)&handle)->idx >= 0 && ((HandleImp*)&handle)->idx < max_handles);
     hdl_id_to_ptrs[((HandleImp*)&handle)->idx].id = -hdl_id_to_ptrs[((HandleImp*)&handle)->idx].id;
     hdl_id_to_ptrs[((HandleImp*)&handle)->idx].ptr = 0;
 #endif
@@ -107,7 +107,7 @@ void* hdlGetPtrFromHandle(FxHandle handle)
 #ifdef USE_REFERENCELIST
     return referenceListFindByRef(fxReferenceList, handle);
 #else
-    assert( ((HandleImp*)&handle)->idx >= 0 && ((Handle*)&handle)->idx < max_handles );
+    assert(((HandleImp*)&handle)->idx >= 0 && ((HandleImp*)&handle)->idx < max_handles);
     if( hdl_id_to_ptrs[((HandleImp*)&handle)->idx].id == ((HandleImp*)&handle)->id )
         return hdl_id_to_ptrs[((HandleImp*)&handle)->idx].ptr; 
     return 0;
