@@ -161,7 +161,11 @@ const char* regGetInstallationDir(void){
         RegReader rr = createRegReader();
         if (rr == NULL) return NULL;
         if(initRegReader(rr, subkey) != 1) return NULL;
-        if(rrReadString(rr, "Installation Directory", installationDir, installationDirSize) != 1) return NULL;
+        if (rrReadString(rr, "Installation Directory", installationDir, installationDirSize) != 1)
+        {
+            (void)_getcwd(installationDir, installationDirSize);
+            rrWriteString(rr, "Installation Directory", installationDir);
+        }
         if(rrClose(rr) != 1) return NULL;
         destroyRegReader(rr);
         return (char*)installationDir;
