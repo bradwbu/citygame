@@ -237,7 +237,7 @@ int getReticleColor(Entity* e, int glow, int selected, int isName)
     int alpha = selected ? 0xff : 0xc0;
     int isOpponent;
     Entity *eOwner = erGetEnt(e->erOwner) ? erGetEnt(e->erOwner) : e;
-    bool pvpinactive = (ENTTYPE(eOwner) == ENTTYPE_PLAYER 
+    bool pvpinactive = (ENTTYPE(eOwner) == ENTTYPE_PLAYER
                         && server_visible_state.isPvP
                         && (player->pvpClientZoneTimer || eOwner->pvpClientZoneTimer));
 
@@ -274,7 +274,7 @@ int getReticleColor(Entity* e, int glow, int selected, int isName)
                 else
                     return alpha | (glow ? 0x0072ff00 : 0x00ebff00);
             }
-            else 
+            else
                 return alpha | (glow ? 0x0072ff00 : 0x00ebff00);
         case ENTTYPE_MOBILEGEOMETRY:
         case ENTTYPE_MISSION_ITEM:
@@ -291,12 +291,12 @@ int getReticleColor(Entity* e, int glow, int selected, int isName)
             }
             else if (player != e && character_IsConfused(player->pchar))
             {
-                if (isOpponent) 
+                if (isOpponent)
                     return alpha | (glow ? 0xff000000 : 0xffff0000);
-                else 
+                else
                     return alpha | (glow ? 0x0072ff00 : 0x00ebff00);
             }
-            else if (e && team_IsMember(playerPtr(), e->db_id) 
+            else if (e && team_IsMember(playerPtr(), e->db_id)
                        && playerPtr()->teamup->members.count > 1 )
             {
                 return alpha | (glow ? 0x10fa4c00 : 0x10fab500);
@@ -328,7 +328,7 @@ int getReticleColor(Entity* e, int glow, int selected, int isName)
                 // only use special helper colors in name
                 return alpha | (glow ? 0xcc33cc00 : 0xdd55dd00);
             }
-            else 
+            else
             {
                 return alpha | (glow ? 0x0072ff00 : 0x00ebff00);
             }
@@ -341,7 +341,7 @@ void customTarget( bool bCycle, bool bBackwards, char * str )
 {
     char *args[10], *name = 0;
     int i, friendorfoe = 0, deadoralive = 0, baseornot = 0, petornot = 0, teammateornot = 0;
-        
+
     int count = tokenize_line_safe( str, args, 10, &str );
     if( count > 10 )
         addSystemChatMsg( textStd("TooManyArguments"), INFO_USER_ERROR, 0 );
@@ -393,7 +393,7 @@ void selectTarget( bool bCycle, bool bBackwards, int friendorfoe, int deadoraliv
 
     current_target = entFromId( selectNextEntity( enemy_id, bBackwards, friendorfoe, deadoralive, basepassiveornot, petornot, teammateornot, name) );
 
-    if (entIsMyHenchman(current_target)) 
+    if (entIsMyHenchman(current_target))
         current_pet = erGetRef(current_target);
 }
 
@@ -522,7 +522,7 @@ static void PutInUnobstructedSpot(int *piX, int *piY)
     idxXOrig = idxX = *piX*BUBBLE_NUM_X_SLOTS/w;
     idxYOrig = idxY = *piY*BUBBLE_NUM_Y_SLOTS/h;
 
-    while(s_abUsed[idxX][idxY] && idxY>=0)
+    while(s_abUsed[idxX][idxY] && idxY > 0)
     {
         idxY--;
     }
@@ -674,7 +674,7 @@ int drawChatBubble(EBubbleType type, EBubbleLocation location, char *pch, int x,
     float fXBubble, fYBubble;
     float fAngle;
     bool bOrigItal = chatThin.renderParams.italicize;
-    F32 fContinuationOffset = 0; 
+    F32 fContinuationOffset = 0;
 
     static Array *s_text = NULL;
     static char *s_pchBuff = NULL;
@@ -682,7 +682,7 @@ int drawChatBubble(EBubbleType type, EBubbleLocation location, char *pch, int x,
 
     AtlasTex *pTexTail = NULL;
 
-    if(pch==NULL)  
+    if(pch==NULL)
     {
         return y;
     }
@@ -714,7 +714,7 @@ int drawChatBubble(EBubbleType type, EBubbleLocation location, char *pch, int x,
     width *= scale;
     line_height *= scale;
 
-    line_height *= BUBBLE_LEADING+1; 
+    line_height *= BUBBLE_LEADING+1;
 
     // Calculate the size of the chat bubble
     fHeightBubble = lines*line_height+BUBBLE_HEIGHT_BORDER*2*scale;
@@ -768,15 +768,15 @@ int drawChatBubble(EBubbleType type, EBubbleLocation location, char *pch, int x,
         break;
 
     case kBubbleLocation_Above:
-    default: 
+    default:
         switch(type)
         {
         case kBubbleType_Chat:
             pTexTail = atlasLoadTexture("chat_bubble_tail.tga");
             break;
 
-        case kBubbleType_ChatContinuation: 
-            pTexTail = atlasLoadTexture("chat_continuation_tail.tga"); 
+        case kBubbleType_ChatContinuation:
+            pTexTail = atlasLoadTexture("chat_continuation_tail.tga");
             //y+=(iTailOverlap+1)*scale;
             fContinuationOffset = (iTailOverlap+1)*scale;
             break;
@@ -795,45 +795,45 @@ int drawChatBubble(EBubbleType type, EBubbleLocation location, char *pch, int x,
             pTexTail = atlasLoadTexture("chat_private_tail.tga");
             break;
         }
- 
+
         fAngle = 0;
         iXTail = pTexTail->width*scale/2;
         iYTail = pTexTail->height*scale - fContinuationOffset;
-        fXBubble = fWidthBubble/2;      
+        fXBubble = fWidthBubble/2;
         fYBubble = (pTexTail->height-iTailOverlap-1)*scale + fHeightBubble - fContinuationOffset;
         break;
     }
 
     //This keeps the text from drifting off the top or bottom of the screen (preliminary)
-    if( location == kBubbleLocation_Above && 
+    if( location == kBubbleLocation_Above &&
         type != kBubbleType_ChatContinuation &&
         type != kBubbleType_EmoteContinuation )
     {
         int w,h;
-        windowSize(&w, &h); 
+        windowSize(&w, &h);
 
-        if( y > h + (iYTail) ) 
+        if( y > h + (iYTail) )
             y = h + (iYTail) ;
-  
-        if( y < fHeightBubble + (iYTail) ) 
-            y = fHeightBubble + (iYTail); 
+
+        if( y < fHeightBubble + (iYTail) )
+            y = fHeightBubble + (iYTail);
 
         //Remove the tail if the head is not visible
         if( h - headScreenPos[1] < fHeightBubble + (iYTail) )
             pTexTail = 0;
 
-        //if( x < fWidthBubble/2 ) 
-        //    x = fWidthBubble/2; 
+        //if( x < fWidthBubble/2 )
+        //    x = fWidthBubble/2;
 
-        //if( x > w - fWidthBubble/2 )  
-        //    x = w - fWidthBubble/2; 
+        //if( x > w - fWidthBubble/2 )
+        //    x = w - fWidthBubble/2;
     }
     //*/
 
     iXTail = x - iXTail;
-    iYTail = y - iYTail; 
+    iYTail = y - iYTail;
 
-    fXBubble = x - fXBubble; 
+    fXBubble = x - fXBubble;
     fYBubble = y - fYBubble;
 
     if (type==kBubbleType_Caption)
@@ -841,7 +841,7 @@ int drawChatBubble(EBubbleType type, EBubbleLocation location, char *pch, int x,
         int w,h;
         CBox box;
 
-        windowSize(&w, &h); 
+        windowSize(&w, &h);
 
         if (fXBubble < 0.0)
             fXBubble = 0.0;
@@ -896,7 +896,7 @@ static void addToChatBubbleBucket( Floater * floater, int iCntChat, int xp_stabl
     static int iYOfPrevBubble;
     static int iTimerOfPrevBubble;
 
-    ///////// Set up: Set Color, Alpha, and BubbleType 
+    ///////// Set up: Set Color, Alpha, and BubbleType
     if(floater->fTimer<10.0f)
     {
         iAlpha = (int)(0xff*floater->fTimer/10.0f);
@@ -927,7 +927,7 @@ static void addToChatBubbleBucket( Floater * floater, int iCntChat, int xp_stabl
         else if(floater->eStyle==kFloaterStyle_Emote)
             type = kBubbleType_Emote;
     }
-    
+
     ///////////////////////////////////////////////////
     //Figure out where and how to draw it
 
@@ -965,7 +965,7 @@ static void addToChatBubbleBucket( Floater * floater, int iCntChat, int xp_stabl
                 xp_stable = (w<BUBBLE_MAX_WIDTH*2)?w/2:randInt(w-BUBBLE_MAX_WIDTH*2) + BUBBLE_MAX_WIDTH;
                 iY = randInt(0.8*h);
             }
-            else 
+            else
             {
                 xp_stable = floater->iXLast;
                 iY = floater->iYLast;
@@ -975,7 +975,7 @@ static void addToChatBubbleBucket( Floater * floater, int iCntChat, int xp_stabl
             z = -30;
             scale = 1;
         }
-        
+
         loc = (currfade)?kBubbleLocation_Above:kBubbleLocation_Somewhere;
 
         bubbleX = xp_stable;
@@ -999,7 +999,7 @@ static void addToChatBubbleBucket( Floater * floater, int iCntChat, int xp_stabl
                 xp_stable = (w<BUBBLE_MAX_WIDTH*2)?w/2:randInt(w-BUBBLE_MAX_WIDTH*2) + BUBBLE_MAX_WIDTH;
                 yp_stable = randInt(0.8*h);
             }
-            else 
+            else
             {
                 xp_stable = floater->iXLast;
                 yp_stable = floater->iYLast;
@@ -1101,7 +1101,7 @@ void drawFloatersOnEntity(Entity *e, bool bDraw, bool bForceBubbles)
     int inPhase = entity_TargetIsInVisionPhase(playerPtr(), e);
     int xp;            //Unused
     int yp;            //Unused
-    int e_xp_stable;    //point in screen space just over e's head 
+    int e_xp_stable;    //point in screen space just over e's head
     int e_yp_stable;  //
     float z;        //distance from camera
     float scale;   //Amount to scale bubble based on z distance
@@ -1165,8 +1165,8 @@ void drawFloatersOnEntity(Entity *e, bool bDraw, bool bForceBubbles)
         else if(e->aFloaters[i].eStyle==kFloaterStyle_Caption && playerPtr()==e)
         {
             Vec3 headScreenPosDummy;
-            addToChatBubbleBucket( &e->aFloaters[i], iCntChat, xp_stable, 
-                yp_stable, -1, 1.0, false, e->currfade, headScreenPosDummy ); 
+            addToChatBubbleBucket( &e->aFloaters[i], iCntChat, xp_stable,
+                yp_stable, -1, 1.0, false, e->currfade, headScreenPosDummy );
         }
         else if(bDraw)
         {
@@ -1209,7 +1209,7 @@ void drawFloatersOnEntity(Entity *e, bool bDraw, bool bForceBubbles)
                     case kFloaterStyle_DeathRattle:
                         if (inPhase)
                         {
-                            if(iCntChat>1) 
+                            if(iCntChat>1)
                             {
                                 // Get rid of excess (more than two) chat messages.
                                 memmove(&e->aFloaters[i], &e->aFloaters[i+1], sizeof(Floater)*(e->iNumFloaters-i-1));
@@ -1220,7 +1220,7 @@ void drawFloatersOnEntity(Entity *e, bool bDraw, bool bForceBubbles)
                                 //If this is the older of two bubbles on an entity
                                 Vec3 headScreenPos;
                                 GetHeadScreenPos( e->seq, headScreenPos );
-                                addToChatBubbleBucket( &e->aFloaters[i], iCntChat, xp_stable, yp_stable, z, scale, bDraw, e->currfade, headScreenPos ); 
+                                addToChatBubbleBucket( &e->aFloaters[i], iCntChat, xp_stable, yp_stable, z, scale, bDraw, e->currfade, headScreenPos );
                                 iCntChat++;
                             }
                         }
@@ -1250,7 +1250,7 @@ void drawFloatersOnEntity(Entity *e, bool bDraw, bool bForceBubbles)
                 }
             }
         }
-        else if(bForceBubbles && inPhase) 
+        else if(bForceBubbles && inPhase)
         {
             if((e->aFloaters[i].eStyle==kFloaterStyle_Chat
                 || e->aFloaters[i].eStyle==kFloaterStyle_Chat_Private
@@ -1267,7 +1267,7 @@ void drawFloatersOnEntity(Entity *e, bool bDraw, bool bForceBubbles)
                 {
                     Vec3 headScreenPos;
                     GetHeadScreenPos( e->seq, headScreenPos );
-                    addToChatBubbleBucket( &e->aFloaters[i], iCntChat, xp_stable, yp_stable, z, scale, bDraw, e->currfade, headScreenPos ); 
+                    addToChatBubbleBucket( &e->aFloaters[i], iCntChat, xp_stable, yp_stable, z, scale, bDraw, e->currfade, headScreenPos );
                     iCntChat++;
                 }
             }
@@ -1506,10 +1506,10 @@ static void drawStuffOnEntity(Entity *e, float fScale, int iAlpha, bool bDrawBar
         iAlpha = e->currfade;
 
     iAlpha = 0xff & iAlpha;
-    
+
     if((demoIsPlaying() && demo_state.demo_hide_all_entity_ui) || game_state.viewCutScene)
         return;
-    
+
     if(CalcTops(e, &xp, &yp, &xp_stable, &yp_stable, &z, &scale))
     {
         static AtlasTex * barH;
@@ -1551,7 +1551,7 @@ static void drawStuffOnEntity(Entity *e, float fScale, int iAlpha, bool bDrawBar
                             int yy = yp-5*fScale*.75;
                             yoff = -8 * fScale;
                             color1 = getReticleColor(e, 0, 1, 1) & 0xffffff00 | iAlpha;
-                            color2 = getReticleColor(e, 1, 1, 1) & 0xffffff00 | iAlpha;                    
+                            color2 = getReticleColor(e, 1, 1, 1) & 0xffffff00 | iAlpha;
                             strncpyt(buf, pentOwner->name,255);
                             if ((!optionGet(kUO_DisablePetNames) || entIsMyPet(e)) && e->petName && e->petName[0] != '\0' )
                             {
@@ -1582,12 +1582,12 @@ static void drawStuffOnEntity(Entity *e, float fScale, int iAlpha, bool bDrawBar
                         {
                             msPrintf(menuMessages, SAFESTR(buf), "NameDisplay", crittername);
                         }
- 
+
                         if(!demoIsPlaying() || !demo_state.demo_hide_names)
                         {
                             cprntEx( xp, yp+yoff-5*fScale, z, fScale, fScale, NO_MSPRINT|CENTER_X,buf );
                         }
-                    }                    
+                    }
                     bDrawBars = bDrawBars && IsShown(e, optionGet(kUO_ShowVillainBars));
                 }
                 break;
@@ -1756,13 +1756,13 @@ static void drawStuffOnEntity(Entity *e, float fScale, int iAlpha, bool bDrawBar
                       if(e->pl && e->pl->afk && e->pl->afk_string[0]!='\0')
                     {
                          int y;
-    
+
                         if( e->pl->titleTheText[0] || e->pl->titleCommon[0] || e->pl->titleOrigin[0] )
                               yoff += -8*fScale;
                         y = yp+yoff;
                         if( (e!=playerPtr() && IsShown(e, optionGet(kUO_ShowPlayerName))) || (e==playerPtr() &&IsShown(e, optionGet(kUO_ShowOwnerName))) )
-                              y -= AICON_SIZE*fScale;    
-                        
+                              y -= AICON_SIZE*fScale;
+
                         if(!demoIsPlaying() || !demo_state.demo_hide_chat)
                         {
                             drawChatBubble(kBubbleType_Emote, kBubbleLocation_Somewhere,
@@ -1775,7 +1775,7 @@ static void drawStuffOnEntity(Entity *e, float fScale, int iAlpha, bool bDrawBar
                     {
                         AtlasTex * star = atlasLoadTexture( "MissionPicker_icon_star_16x16.tga");
                         int rating = playerNote_GetRating(e->name);
-                    
+
                         if( rating )
                         {
                             int i;
@@ -1785,7 +1785,7 @@ static void drawStuffOnEntity(Entity *e, float fScale, int iAlpha, bool bDrawBar
                                 yoff += -8*fScale;
                             y = yp+yoff;
                             if( (e!=playerPtr() && IsShown(e, optionGet(kUO_ShowPlayerName))) || (e==playerPtr() &&IsShown(e, optionGet(kUO_ShowOwnerName))) )
-                                y -= AICON_SIZE*fScale;    
+                                y -= AICON_SIZE*fScale;
 
                             for( i = 0; i < rating; i++ )
                                 display_sprite(star, x + (i*fScale*star->width), y-(5+star->height)*fScale, z, fScale, fScale, CLR_WHITE );
@@ -1799,7 +1799,7 @@ static void drawStuffOnEntity(Entity *e, float fScale, int iAlpha, bool bDrawBar
             case ENTTYPE_NPC:
                 // show display_name if we have one for this entity (server set non-default name)
                 bDrawBars = false;
-                if (e->name[0]) 
+                if (e->name[0])
                 {
                      if(!demoIsPlaying() || !demo_state.demo_hide_names)
                     {
@@ -1863,7 +1863,7 @@ static void drawStuffOnEntity(Entity *e, float fScale, int iAlpha, bool bDrawBar
                             }
                         }
                     }
-    
+
                     if(!specialbaseend)
                         drawBarOnly( xp, yp + (barH->height-2)*fScale, z, e->pchar->attrCur.fEndurance, e->pchar->attrMax.fEndurance, barE, NULL, fScale, iAlpha, CLR_WHITE);
                 }
@@ -1879,7 +1879,7 @@ void drawMissionInteractTimerProgress()
     char* actionStr;
     float timeRemaining;
     float totalTime;
-    
+
     // Draw the interaction progress bar if the timer is running.
     if(MissionGetObjectiveTimer(&timeRemaining, &totalTime))
     {
@@ -1944,11 +1944,11 @@ void drawStuffOnEntities(void)
     s_eAssist = NULL;
     s_eAssistTarget = NULL;
     s_eTargetTarget = NULL;
-    s_eTauntTarget = NULL; 
+    s_eTauntTarget = NULL;
 
     if( (!game_state.viewCutScene && !isMenu(MENU_GAME)) || !player || editMode())
         return;
-    
+
     memset(s_abUsed, 0, sizeof(bool)*BUBBLE_NUM_X_SLOTS*BUBBLE_NUM_Y_SLOTS);
 
     if (activeTaskDest.navOn && activeTaskDest.showWaypoint)
@@ -2060,11 +2060,11 @@ void drawStuffOnEntities(void)
 
         if(e && ((entInUse(i) && !ENTHIDE_BY_ID(i)) || e==playerPtr()))
         {
-            //Am I drawn?  
-            if( ENTTYPE(e)==ENTTYPE_PLAYER || 
+            //Am I drawn?
+            if( ENTTYPE(e)==ENTTYPE_PLAYER ||
                 e->iNumFloaters>0 ||
-                ( ENTTYPE(e)==ENTTYPE_CRITTER && 
-                  ( optionGet(kUO_ShowVillainName) & kShow_Always || 
+                ( ENTTYPE(e)==ENTTYPE_CRITTER &&
+                  ( optionGet(kUO_ShowVillainName) & kShow_Always ||
                     e->alwaysCon ||
                     isPetDisplayed( e ) ||
                     ( IsShown(e, optionGet(kUO_ShowPlayerName)) && entIsMyPet(e) ) ) ) )
@@ -2098,17 +2098,17 @@ void drawStuffOnEntities(void)
                 }
             }
 
-            if(e!=s_eAssist 
+            if(e!=s_eAssist
                 && e!=s_eAssistTarget
-                && (e!=s_eTargetTarget || ENTTYPE(e)==ENTTYPE_PLAYER) 
+                && (e!=s_eTargetTarget || ENTTYPE(e)==ENTTYPE_PLAYER)
                 && e!=current_target
                 && e!=current_target_under_mouse
                 && bDraw)
             {
                 //if I am drawn, do I fulfill all the other strange requirements to have stuff drawn on me? If so, do it
-                if( ENTTYPE(e)==ENTTYPE_PLAYER || 
-                    ( isEntitySelectable(e) && 
-                      ENTTYPE(e)==ENTTYPE_CRITTER && 
+                if( ENTTYPE(e)==ENTTYPE_PLAYER ||
+                    ( isEntitySelectable(e) &&
+                      ENTTYPE(e)==ENTTYPE_CRITTER &&
                       ( ( optionGet(kUO_ShowVillainName) & kShow_Always || isPetDisplayed( e ) ) || e->alwaysCon ||
                         ( IsShown(e, optionGet(kUO_ShowPlayerName)) && entIsMyPet(e) ) ) ) )
                 {
