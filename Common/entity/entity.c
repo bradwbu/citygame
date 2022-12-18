@@ -247,6 +247,7 @@ void entSetSeq(Entity* e, SeqInst* seq)
                 // Clear costume FX/constant FX/etc
                 for (i = 0; i < oldseq->seqcostumefx_count; i++)
                 {
+                    temp = dynArrayAdd(&tempFX, sizeof(FxHandle), &tempFX_count, &tempFX_max, 1);
                     if(bodyPartList.bodyParts[i]->dont_clear)
                     {
                         *temp = oldseq->seqcostumefx[i];
