@@ -24,7 +24,7 @@ on:
 #       - name: Build
 #         shell: cmd
 #         run: |
-#           call "C:\Program Files (x86)\Microsoft Visual Studio9\BuildTools\VC\Auxiliary\Buildcvars64.bat"
+#           call "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Auxiliary\\Build\\vcvars64.bat"
 #           msbuild build/vs2019/master.sln /p:Configuration=Release /p:Platform=x64 /m
 
 jobs:
