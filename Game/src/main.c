@@ -171,7 +171,7 @@ void SaveArguments(int argc, char **argv)
     for (i = 0; i < argc; i++)
     {
         int bufUsed = sprintf(buffer, "\"%s\" ", argv[i]);
-        if (bufUsed < 0 || index + bufUsed > 2048)
+        if (bufUsed < 0 || index + bufUsed >= 2048)
             break;
 
         strcpy(g_GameArguments + index, buffer);
